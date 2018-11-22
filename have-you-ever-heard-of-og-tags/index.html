@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="HTML">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Have you ever heard of OG-TAGS?  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/have-you-ever-heard-of-og-tags/">Have you ever heard of OG-TAGS?</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/storymode7.html"> storymode7</a> </p>
+  <div class="article_text">
+    <p>Ever noticed how Facebook shows an excerpt from a website with its image, or how a tweet with just a URL changes into a short window to the actual website? It's because of og-tags. Let's understand more about it!</p>
+<!--more-->
+
+<div style="text-align:center">
+<p><img alt="Open Graph Protocol Logo" src="https://i2.wp.com/storymode7.files.wordpress.com/2017/11/open-graph-protocol.png" title="Open Graph Protocol Logo"></p>
+</div>
+<h2>Overview of OG Tags</h2>
+<p>The <a href="http://ogp.me/">Open Graph Protocol</a> is what works behind og-tags. It was introduced by Facebook in 2010 to better integrate a website with Facebook. It turns websites into intractable objects, and makes it easier to share. Like on a website when you choose to share via Facebook, it creates a summary of the URL you wish to share. Like the one below:</p>
+<div style="text-align:center">
+<p><img alt="" class="aligncenter" src="https://i1.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-may-jay1.png"></p>
+</div>
+<p>See how beautifully it creates the summary of the content! Similarly, it works on Twitter. The level up to which you can interact depends on the type of data shared like:</p>
+<div style="text-align:center">
+<p><img alt="" class="aligncenter" src="https://i2.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-mayank-mayank_at_tgw-twitter.png"></p>
+</div>
+<p>Here, twitter even allows playing videos in this twitter post itself.</p>
+<p>Now, Let's see some of the details, how it works, basic syntax etc.</p>
+<p>It's based on <a href="https://en.wikipedia.org/wiki/RDFa">RDFa: Resource Description Framework in attributes.</a> Hence, it uses metadata from a page to turn them into these graph objects. You can think of object as the website being displayed, and Graph as the small summary style window created using og-tags. And for it, <code>&lt;meta&gt;</code> tags are required. In each meta tag, a property can be specified. A sample og tag might look like :</p>
+<p>For Facebook:</p>
+<div class="highlight"><pre><span></span>&lt;meta property=&quot;og:title&quot; content=&quot; The Geeky Way&quot;/&gt;
+</pre></div>
+
+
+<div>
+
+</div>
+
+<p>For Twitter:</p>
+<div class="highlight"><pre><span></span>&lt;meta name=&quot;twitter:title&quot; content=&quot;The Geeky Way&quot;/&gt;
+</pre></div>
+
+
+<div>
+
+</div>
+
+<p>This will set the Title of the object as it should appear in Graph. For example, in the first image that we created using Facebook share as shown above, we have <code>WordPress.com: Create a website or a blog</code> as the title for the og tag.</p>
+<h2>How does it work?</h2>
+<p>There are a number of <a href="http://ogp.me/#implementations">parsers</a> that parse information from these og tags and render them as the social graph that we've seen above.</p>
+<p>Facebook also has its <a href="https://developers.facebook.com/tools/debug/">official parser</a> using which you can see how your website will look like after setting all the nice og tags. It'll tell you the value set for the og tags that it read.</p>
+<p>Like if you do that for TheGeekyWay.com you can see the og:title tag as :</p>
+<p><code>og:title         | The Geeky Way</code></p>
+<p>And that's just what the image above shows!</p>
+<h2>Some basic OG tags</h2>
+<h3>For Facebook</h3>
+<ul>
+<li><code>og:title</code> - The Title of the object, web page.</li>
+<li><code>o​g:type</code> - The <a href="http://ogp.me/#types">type of content</a> of that object, like website, music.[song| album| playlist ... ]</li>
+<li><code>og:image</code> - URL of an image that represents the object.</li>
+<li><code>og:url</code> - The <a href="https://en.wikipedia.org/wiki/Canonical_link_element">canonical</a> URL of the object, i.e the one you want to provide to a user. Not necessarily the one which created the object.</li>
+</ul>
+<p>These should get you going with a perfectly working object graph.</p>
+<p>But, that's not all! Extra metadata can be attached to each property. For instance, for an image you can specify width, height, alt text etc. You can refer to <a href="http://ogp.me/#types">this</a> link to see how much metadata can be added.</p>
+<h3>For Twitter</h3>
+<p>It's called <a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards">Twitter cards</a> on Twitter.</p>
+<p>Basic tags for twitter graph can be summarized as :</p>
+<p><code>&lt;meta name="twitter:card" content="summary"/&gt;</code><br>
+<code>&lt;meta name="twitter:site" content="@username"/&gt; &lt;meta name="twitter:title" content="Title Of The Page goes here"/&gt; &lt;meta name="twitter:description" content="This contains a brief description of the page"/&gt; &lt;meta name="twitter:image" content="www.url.of/the/image.jpg"/&gt;</code></p>
+<p>But, It might happen that you inserted the OG tags for the Facebook graph, but you forgot the to add the twitter version of it that helps create twitter card. Well, Twitter takes care of it. If it's not able to find the necessary meta tags, then it uses OG tags, and according to a predefined relationship between them, it uses the value from those OG tags to create the twitter card.</p>
+<p>Hope this quick tip about og tags helps you better set up and optimize your website. If you've any questions, please feel free to ask in the comments section below.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 30 November 2017</p>
+    <p>Category: <a href="thegeekyway.com/category/web-development.html">Web Development</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/html.html">HTML</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

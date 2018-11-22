@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="C, do while, entry controlled, exit controlled, for, loops, programming, while">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; [Ultimate Guide] What are loops in programming and how are they important?  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/loops-programming-important/">[Ultimate Guide] What are loops in programming and how are they important?</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>Welcome everyone to yet another tutorial on C Programming language. In this tutorial we'll be learning about a great concept of loops. Most of the programming languages would use exactly the same syntax for loops, so understand this carefully. Loops provide with great utility and power and saves from a lot of overhead which may be there without them.</p>
+<p>In this tutorial, we'll be discussing about various topics which revolves around concept of loops and understand them. They are :</p>
+<ul>
+<li><a href="#Basic-Definition-and-Types-of-Loops" title="ASP.Net Basics : Populate checkboxlist from database using C#">Basic Definition and Types of Loops</a></li>
+<li><a href="#Basic-section-of-Loop" title="[Ultimate Guide] What are loops in programming and how are they important?">Basic Section of Loop</a></li>
+<li><a href="#For-While-and-do-whlie-loop">For, While and Do-While Loops</a><ul>
+<li><a href="#for-loop">For Loop</a></li>
+<li><a href="#while-loop">While Loop</a></li>
+<li><a href="#do-while-loop">Do While loop</a></li>
+</ul>
+</li>
+<li><a href="#Difference-between-entry-controlled-and-exit-controlled-loop" title="ASP.Net Basics : Populate checkboxlist from database using C#">Difference between Entry Controlled and exit controlled loop</a></li>
+</ul>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/03/Ultimage-Guide-on-Loops-in-programming1.png" title="Understand about Loops in Programming, for, while, do while"><img alt="Understand about Loops in Programming, for, while, do while " src="thegeekyway.com/uploads/images/2014/03/Ultimage-Guide-on-Loops-in-programming1.png"></a></p>
+</div>
+<h2><p #Basic-Definition-and-Types-of-Loops></p></h2>
+<h2>Basic Definition and Types of Loops</h2>
+<p>The basic concept behind <strong><em>"Loop"</em></strong> is to <u><em>execute certain set of statements as far as a given condition is true, or in many cases a counter variable gets out of a specific range defined, or we use may use some Logical operators to control the flow in our loop.</em> </u>There are basically three types of loops in the C language. They are :</p>
+<ul>
+<li><strong>for loop</strong></li>
+<li><strong>while loop</strong></li>
+<li><strong>do while loop</strong></li>
+</ul>
+<p>Now, let's look at the syntax of each of these and how they can be used, in detail. To understand all these in a better way, let's consider a common and simple example to print numbers from 1 to let's say 500.</p>
+<p>The most basic approach to carry out this task is to keep printing each line having different numbers from 1 to 500 which would look something like this :</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+void main()
+{
+  printf(&quot;1 n&quot;);
+  printf(&quot;2 n&quot;);
+  printf(&quot;3 n&quot;);
+  printf(&quot;4 n&quot;);
+  printf(&quot;5 n&quot;);
+  printf(&quot;6 n&quot;);
+  printf(&quot;7 n&quot;);
+  . 
+  .
+  .
+  .
+  .
+  .
+  .
+  printf(&quot;499 n&quot;);
+  printf(&quot;500 n&quot;);
+}
+</pre></div>
+
+
+<p>Now, let's try to improve upon this a little bit.<br>
+We can take a counter variable and after each step just update it's value, then it would be something like this :</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+void main()
+{
+  int counter = 1;
+  printf(&quot;%d n&quot;,counter);
+  counter++;
+  printf(&quot;%d n&quot;,counter);
+  counter++;
+  printf(&quot;%d n&quot;,counter);
+  counter++;
+  printf(&quot;%d n&quot;,counter);
+  counter++;
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  printf(&quot;%d n&quot;,counter);    /* Carry on this 
+  counter++;                      500 times   */
+}
+</pre></div>
+
+
+<p>In this simple approach although we used a counter variable to avoid writing different numbers and updating the value of counter is left to the computer. But, it lead to an increase in the Lines Of Code (LOC) which is considered as an important parameter to compare any software.</p>
+<p>So, it would be good, if we could use this counter variable approach but reduce the LOC. We can do it by using loops, now let's carry this out using different loops.</p>
+<p><p #Basic-section-of-Loop></p></p>
+<h2><strong>Basic sections of the loops</strong></h2>
+<p>All loops have three basic sections which are :</p>
+<ul>
+<li><strong>Initialization</strong> : we need to initialize our counter variable in this statement.</li>
+<li><strong>Test Condition</strong> : is the condition which needs to be true for the loop to keep running, as soon as it becomes false, the loop would stop executing, and the control would be directed to the next statement.</li>
+<li><strong>Updation</strong> : In this statement the value of counter variable is updated (either incremented or decremented )</li>
+</ul>
+<p><p #For-While-and-do-whlie-loop></p></p>
+<h2>For, While and Do While Loops :</h2>
+<p>Now, we'll look here how we can print numbers from 1 to 500 using for, while and do-while loops by first understanding their syntax and then understanding the flow of control of these loops.</p>
+<p><p #for-loop></p></p>
+<h3><u><strong>Understanding and using for loop</strong></u></h3>
+<p>* <strong>Syntax</strong> :*</p>
+<div class="highlight"><pre><span></span>for ( initialization ; test condition ; updation )
+{
+  .
+  .
+  .
+}
+</pre></div>
+
+
+<p>Now let's carry out the given task to print numbers from 1 to 500.</p>
+<p>The for loop for this would be something like this, here we have a counter variable named i which would be incremented from 1 to 500.</p>
+<div class="highlight"><pre><span></span>for( i = 1 ; i&lt;=500 ; i++ )
+{
+  printf(&quot;%d n&quot;, i );
+}
+</pre></div>
+
+
+<p>We can also define the counter variable inside the loop, and then it would have<a href="http://www.thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" title="What is scope and lifetime of a variable in C language">scope of the loop as explained in tutorial on Scope and lifetime of variables.</a></p>
+<div class="highlight"><pre><span></span>for(int i = 1 ; i&lt;=500 ; i++ )
+{
+  printf(&quot;%d n&quot;, i );
+}
+</pre></div>
+
+
+<p><strong>Understanding flow of  for loop</strong></p>
+<p>First time, when the control enters the loop, value of counter i is 1. The test condition would be checked, it would be true in this case, as 1 is less than or equal to 500. Hence control enters the loop and the statement to print value of i would be executed. We don't have more statements here, so control would go to updation, and update the value of i, it would be incremented.</p>
+<p>Next the test condition would be again checked, here value of i is 2. So, test condition would be true in this case. Hence, control enters the loop and again print statement would be executed. This time value 2 would be printed. Once again, the control goes to updation statement, and value of i is incremented. It becomes 3 now, and again test condition would be checked.</p>
+<p>This would continue till the value reaches 499, after updation, the value of i would be 500. The control again enters the loop, and value of 500 would be printed. Next updation takes place and value of i becomes 501, the test condition here becomes false, because, 501 is not less than or equal to 500. So, the loop would terminate, and the control would go to the next immediate next statement following the loop.</p>
+<h3><p #while-loop></p></h3>
+<h3><u><strong>Understanding and Using while loop</strong></u></h3>
+<p><strong><em>Syntax:</em></strong></p>
+<div class="highlight"><pre><span></span>initialization
+while(test_condition)
+{
+ //all code
+  updation 
+}
+</pre></div>
+
+
+<p>In while loop, initialization is done even before control enters the loop, as shown. Updation is done as the last statement of the loop and test condition is given as shown.</p>
+<p>Now let us print the numbers from 1 to 500 using while loop.</p>
+<div class="highlight"><pre><span></span>int i = 1;
+while( i &lt;= 500)
+{
+  printf(&quot;%d n&quot;,i);
+  i++ ;
+}
+</pre></div>
+
+
+<p>The initialization is need is just once, whatever loop it is, so in while loop, we have done initialization, before entering the while loop.</p>
+<p><strong>Understanding flow of  while loop</strong></p>
+<p>First of all the test condition is checked, which would be true, since 1 is less than or equal to 500, so control enters loop, and the print statement would be executed and updation statement also takes place. There is no other statement to be executed as end of the loop is reached. Before the control leaves the loop, the test condition would be checked, which would be again true as 2 is less than equal to 500.</p>
+<p>This would continue until value is 500. Next, the value would be printed, and value is incremented by 1. So, condition is tested again, now, 501 would not be less than or equal to 500. Hence, the test condition becomes false and the control exits the loop executing the immediate next statement following the loop.</p>
+<h3><p #do-while-loop></p></h3>
+<h3><u><strong>Understanding and Using do - while loop</strong></u></h3>
+<p><strong>Syntax:</strong></p>
+<div class="highlight"><pre><span></span>initialization
+do {
+  //executing statements
+  updation
+} while(test condition);
+</pre></div>
+
+
+<p><u>Notice that in do while loop, we have a semi-colon at the end of while statement.</u></p>
+<p>Let's now print the numbers from 1 to 500 using do while loop.</p>
+<div class="highlight"><pre><span></span>int i = 1;
+do {
+     printf(&quot;%d n&quot;,i);
+     i++;
+} while(i &lt;= 500);
+</pre></div>
+
+
+<p><strong>Understanding flow of do while loop</strong></p>
+<p>The do while loop has an interesting feature, which is it would <strong>execute at least once</strong> whether the condition is true or not.</p>
+<p>In the above case, the control enters the loop, and execute the statements. So, the value 1 would be printed. Next updation is done in the value of i, and the condition is checked against value 2, so 2 is less than or equal to 500 and hence the control once again start executing from the first statement. Next the test condition is checked against the value of 3 and so on.</p>
+<p>This would continue till value of 500, next after printing value of 500, the updation takes place, and then the condition would become false. The control would get out of the loop and be ready to execute the immediate next statement.</p>
+<p><p #Difference-between-entry-controlled-and-exit-controlled-loop></p></p>
+<h2><u>Difference between Entry Controlled and Exit Controlled loop</u></h2>
+<p><strong>Entry Controlled</strong> loops are those in which the test condition is checked first, and then if the condition is true, the control enters the loop and all the statements inside the loops are executed. For example, <u>for</u> and <u>while loop</u> are entry controlled loop.</p>
+<p><strong>Exit Controlled</strong> loops are those in which the statements inside loops are executed first, and then the condition is tested. Even if the condition is false, the loop is executed at least once. For example, <u>do-while</u> loop is an exit controlled loop and it is executed at least once, whether the condition is true of false. If the condition is true, the loop is executed one more time, and if it's false, termination occurs, as we have discussed in detail above.</p>
+<p>In the next tutorial, we'll learn about structures in the C language.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 27 March 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/c.html">C</a>,      <a href="thegeekyway.com/tag/do-while.html">do while</a>,      <a href="thegeekyway.com/tag/entry-controlled.html">entry controlled</a>,      <a href="thegeekyway.com/tag/exit-controlled.html">exit controlled</a>,      <a href="thegeekyway.com/tag/for.html">for</a>,      <a href="thegeekyway.com/tag/loops.html">loops</a>,      <a href="thegeekyway.com/tag/programming.html">programming</a>,      <a href="thegeekyway.com/tag/while.html">while</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

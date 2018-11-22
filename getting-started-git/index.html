@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Git, starting with Git, Understanding Git, VCS, version control systems">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Getting Started With Git  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/getting-started-git/">Getting Started With Git</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
+  <div class="article_text">
+    <p>Git is the most popular version control system now a days. The reason behind popularity is its simple yet tremendous functionality. Unlike other VCSs (Version Control Systems), Git has some unique ways to control and share your data. Because of its huge functionality it also tends to become a lot complex for advanced users. As they say a thousand miles journey starts with a single step, we are going to understand the very basics of git in this article!</p>
+<p>So, before starting anything we need to understand what Git is and what it does. Git is a version control system, which records changes in your code/files over a period of time. You can recall older version and manage changes. The working of Git is a little different than other VCSs. Most of the VCSs store the information about the data as the changes that have been made in different files. If you have 3 files in a project and you change any one of them, the VCSs will keep record of the change. That’s where Git differs, it keeps record of the changes along with the new changed file. Moreover, other VCSs generally operate online, storing all the data at the remote servers, while Git stores all the data on the local system as well as the remote server, which makes it easy for the user to make changes even when she is offline and commit the changes when she gets the network connection. In other benefits of Git, you don’t need to go to remote server to check for your project history, it’s all there on your local machine.</p>
+<p>Before getting started, I would like to discuss one more feature of Git and that is repositories. There are two kind of repositories in Git, namely, local repositories and remote repositories. And believe me, they are the exact same thing! So, what exactly is a repository? It’s the place where you store all of your working data, your project files etc. Local repository is the one that is set up on your system and the remote is the one that is hosted on a server, probably on another continent! And here is the beauty of a distributed version control system, you can work with both of them just as they are the same thing! You can make changes to your local repository, add/delete files etc. and push them to remote repository.</p>
+<p>Enough of concepts, let’s get started! The very basic thing to do with Git is to create a local repository, of-course, first you have to install it on your system! Type this in your RHEL based system to install git (make appropriate changes for Debian based systems):</p>
+<div class="highlight"><pre><span></span>sudo yum install git
+</pre></div>
+
+
+<p>And the next step is:</p>
+<div class="highlight"><pre><span></span>$ git init
+
+Initialized empty Git repository in /home/peeyush/git_test/.git/
+</pre></div>
+
+
+<p><p style="line-height: 1.5em;">And that’s it, there is your local repository. You can add files, make changes to them, commit the changes etc. (How? We will see shortly!). Now, generally after this people keep going on about working with local repository, but as I am getting you started, I am going to take a little different but practical approach. We are going to start with a remote repository! Now, where do you get a remote repository? Well, GitHub, of-course! Go to </p><a href="http://www.github.com">www.github.com</a> <p style="line-height: 1.5em;"> and create a account there if you don’t already have one. Now, create a new repository by clicking on the link on the top left corner:</p></p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-04-01 15:59:59.png" src="https://lh6.googleusercontent.com/dMsAdtBhU35X5J11FkmC4QSU8DwHfHx1bF-IHDLutUsI3qdpSmzP3JM9Kn274A0QQnnAyNhU2iLU99j-ADvlPd4CDGDrr87X7Fv6Eozdr4080iTPi8WCti132SMCIA"></strong></p>
+</div>
+<p>Now, enter a name for the repository and click on the “create repository” button. And your remote repository is ready! First of all you need to copy you remote repository to your local repository. Copy the http address and you can copy the repository using git protocol, like this:</p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-04-01 16:21:57.png" src="https://lh3.googleusercontent.com/k2Lo1r1Z3uaUXlu9rf-h9cAphKIemCUq9dBQSO3KOSDJaDzX6j25um04Iyi5L0HmLk7PFo-L7Wci6p0Nu77vuslWDB9PtPX0ZPeyux2UcV9xe6XP2VqHn3V2G1cUZw"></strong></p>
+</div>
+<div class="highlight"><pre><span></span>$ git clone https://github.com/Pensu/test.git
+Cloning into <span class="s1">&#39;test&#39;</span>...
+warning: You appear to have cloned an empty repository.
+</pre></div>
+
+
+<p>So, there appears to be a warning, but we already know that as we haven’t added anything to the repository! Now you will see a directory by the name of remote repository in your current directory. That is your local repository. To verify try this on your system:</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">cd</span> test/
+
+$ git remote -v
+
+origin https://github.com/Pensu/test.git <span class="o">(</span>fetch<span class="o">)</span>
+origin https://github.com/Pensu/test.git <span class="o">(</span>push<span class="o">)</span>
+</pre></div>
+
+
+<p>Here fetch and push are the repositories where your local repository gets the data from and where it sends the changes respectively. As I just cloned a remote repository, I can fetch and push from this repository. Now, we are going to add a file and pushing it to the remote repository.</p>
+<div class="highlight"><pre><span></span>$ touch newfile.txt
+$ <span class="nb">echo</span> <span class="s2">&quot;Getting Started With Git&quot;</span> &gt; newfile.txt 
+$ git status
+<span class="c1"># On branch master</span>
+<span class="c1">#</span>
+<span class="c1"># Initial commit</span>
+<span class="c1">#</span>
+<span class="c1"># Untracked files:</span>
+<span class="c1">#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
+<span class="c1">#</span>
+<span class="c1"># newfile.txt</span>
+nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+</pre></div>
+
+
+<p><p style="line-height: 1.5em;">I created a new file, echoed some content and I checked the status of my repository. Git can track what new files have been added and what files have changed using checksum. So, it shows me that my “newfile.txt” is untracked. Before committing any changes to the repositories, we need to add the files/changes to Git.</p></p>
+<div class="highlight"><pre><span></span>$ git add newfile.txt
+$ git status
+<span class="c1"># On branch master</span>
+<span class="c1">#</span>
+<span class="c1"># Initial commit</span>
+<span class="c1">#</span>
+<span class="c1"># Changes to be committed:</span>
+<span class="c1">#   (use &quot;git rm --cached &lt;file&gt;...&quot; to unstage)</span>
+<span class="c1">#</span>
+<span class="c1"># new file:   newfile.txt</span>
+<span class="c1">#</span>
+</pre></div>
+
+
+<p><p style="line-height: 1.5em;">As you can see the file is ready to be committed now. Let’s do it:</p></p>
+<div class="highlight"><pre><span></span>$ git commit -m <span class="s2">&quot;Added new file&quot;</span> 
+<span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> 0c53cdc<span class="o">]</span> Added new file
+<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
+create mode <span class="m">100644</span> newfile.txt
+</pre></div>
+
+
+<p><p style="line-height: 1.5em;">Here -m denotes the message which you will need to remember the changes you made in this commit. I am adding newfile.txt here, so the message says that a new file has been added. You local repository is fully updated now, with all the changes. If you want to check, what all changes you have made to the local repository before pushing it to remote repository, just run “git log”.</p></p>
+<div class="highlight"><pre><span></span>$ git log
+commit 0c53cdc27eda90c67219ba15ff8457f337c4aa14
+Author: Peeyush Gupta &lt;peeyushgupta91@gmail.com&gt;
+Date:   Tue Apr <span class="m">1</span> <span class="m">16</span>:37:59 <span class="m">2014</span> +0530
+
+   Added new file
+</pre></div>
+
+
+<p><p style="line-height: 1.5em;">It will show you the commit checksum, author name/email, date and time of the commit and the message you provided at the time of commit. Well, it seems alright, so now we are gonna push the changes to remote repository.</p></p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">git</span> <span class="n">push</span> <span class="n">origin</span> <span class="n">master</span>
+<span class="n">Username</span> <span class="k">for</span> <span class="err">&#39;</span><span class="nl">https</span><span class="p">:</span><span class="c1">//github.com&#39;: Pensu</span>
+<span class="n">Password</span> <span class="k">for</span> <span class="err">&#39;</span><span class="nl">https</span><span class="p">:</span><span class="c1">//Pensu@github.com&#39;: </span>
+<span class="n">Counting</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span>
+<span class="n">Writing</span> <span class="nl">objects</span><span class="p">:</span> <span class="mi">100</span><span class="o">%</span> <span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span> <span class="mi">249</span> <span class="n">bytes</span><span class="p">,</span> <span class="n">done</span><span class="p">.</span>
+<span class="n">Total</span> <span class="mi">3</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">),</span> <span class="n">reused</span> <span class="mi">0</span> <span class="p">(</span><span class="n">delta</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">To</span> <span class="nl">https</span><span class="p">:</span><span class="c1">//github.com/Pensu/test.git</span>
+<span class="o">*</span> <span class="p">[</span><span class="n">new</span> <span class="n">branch</span><span class="p">]</span>      <span class="n">master</span> <span class="o">-&gt;</span> <span class="n">master</span>
+</pre></div>
+
+
+<p><p style="line-height: 1.5em;">So, what’s origin and master? Here master is the branch where I am working on my local repository and origin is the branch where master is going to be merged at the remote repository. Wait, what is a branch? Branch is basically the context that you are working in. You can have many branches in the same project and merge them in the remote repository branches. For our purpose we only need one branch and that is the master one. You can verify it using:</p></p>
+<div class="highlight"><pre><span></span>$ git branch
+* master
+</pre></div>
+
+
+<p><p style="line-height: 1.5em;">Now, as it’s all done and dusted, time to check the remote repository if the changes were successfully committed. Open up your browser and go to your repository, you should see a newfile.txt there.  </p></p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-04-01 16:55:31.png" src="https://lh4.googleusercontent.com/yktfgORxxyXn4QDOho-38Ow0kd99LnUalRvlzOk-8AF_m-PsufDyGXPB0VRgLTIWDJlmD5_GVZgMMEP8pnrD-mWQViYKM5usgeWhNrVO2TydcF6PEctybVm0shyNeA"></strong></p>
+</div>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-04-01 16:55:40.png" src="https://lh6.googleusercontent.com/qwKYV6kTOGF7TFLW5q-Pim8eQ_55ZRNkV7eTHFAg4cJ1Qnw-IvbBLq3Frult5WPCdbZoOoYqRLztdAw0uQsgATHUhO2IBC-FOom5p-qx59L8_yBVt1DQtRFx520W4g"></strong></p>
+</div>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-04-01 16:55:40.png" src="https://lh6.googleusercontent.com/qwKYV6kTOGF7TFLW5q-Pim8eQ_55ZRNkV7eTHFAg4cJ1Qnw-IvbBLq3Frult5WPCdbZoOoYqRLztdAw0uQsgATHUhO2IBC-FOom5p-qx59L8_yBVt1DQtRFx520W4g"></strong></p>
+</div>
+<p>Git is a very huge topic, but this article should get you started to clone remote repositories and push the changes. Happy sharing!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 02 April 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/git.html">Git</a>,      <a href="thegeekyway.com/tag/starting-with-git.html">starting with Git</a>,      <a href="thegeekyway.com/tag/understanding-git.html">Understanding Git</a>,      <a href="thegeekyway.com/tag/vcs.html">VCS</a>,      <a href="thegeekyway.com/tag/version-control-systems.html">version control systems</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

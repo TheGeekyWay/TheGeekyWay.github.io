@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="java">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Java 7: Binary literal type  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/java-7-binary-literal-type/">Java 7: Binary literal type</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Anoop.html"> Anoop</a> </p>
+  <div class="article_text">
+    <p>From Java 7 Binary type also joins the category of literal with * <p style="font-family: 'courier new', courier;">byte, short, int and long</p>.* Which means a binary value can be assigned  by using <strong><em>0b </em></strong>or<strong><em> 0B  </em></strong>prefix to a  primitive type.</p>
+<p><strong>What is a Literal</strong> :  A literal is source code representation of source code. Which can be directly assigned to any <em>primitive</em> type.</p>
+<p>Try following in your code with JDK1.7+</p>
+<div class="highlight"><pre><span></span>int intType = 0b100; 
+
+char charType = 0B1100001;
+</pre></div>
+
+
+<p>Why Binary Literals:</p>
+<ul>
+<li>No need to translate binary value to integer to use them.</li>
+<li>Benefit to programs where bit per bit operation is required.</li>
+</ul>
+<p>Other literal type are following</p>
+<div class="highlight"><pre><span></span>char capitalC = &#39;C&#39;; /*Character type or you can use unicode &#39;u0043&#39; */
+byte b = 100;   /* byte limit is -128 to 127*/
+short s = 10000; /* short limit is -32768 to 32767*/
+int i = 100000;  /*int limit is -2^31 to 2^31 - 1*/
+</pre></div>
+
+
+<p>One more feature introduced related to primitive type.</p>
+<p><strong>Underscore in integer type</strong>: To improve readability of code in integer delimiters.</p>
+<div class="highlight"><pre><span></span>int newInt = 100_00_00;
+float newfloat = 3.12_34_67f;
+</pre></div>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 15 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/java.html">Java</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/java.html">java</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

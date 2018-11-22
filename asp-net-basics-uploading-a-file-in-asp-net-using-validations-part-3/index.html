@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="asp.net, C#">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Asp.net Basics : Uploading a file in asp.net using validations (Part 3 of 5)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/">Asp.net Basics : Uploading a file in asp.net using validations (Part 3 of 5)</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Deep_Singh.html"> Deep_Singh</a> </p>
+  <div class="article_text">
+    <p><center>
+<u>This is a part 3 of the 5 part tutorial.</u><br>
+If you are visiting this page for the first time then you must visit part 1 of the tutorial<br>
+on how to upload a file on server <a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/">here</a>
+</center></p>
+<p>Contents of this 5 part tutorial<br>
+Part 1 : <a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/">Basics of ASP.Net file uploading, uploading a file to a server.</a><br>
+Part 2 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/">ASP.Net file uploading using EmptyFile Validations.</a><br>
+Part 3 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/">ASP.Net file uploading using FileSize validation.</a><br>
+Part 4 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/">ASP.Net file uploading using FileExtension validator.</a><br>
+Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/">Complete ASP.Net file uploading using all the Validations one at a time.</a></p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart3.png"><img alt="CoverImageASPNetFileUploadPart3" src="thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart3.png"></a></p>
+</div>
+<hr>
+<h2><strong><em>*File Upload in asp.net : v1.2 (File Size Validation)</em></strong>*</h2>
+<p>File upload limit is one of the important controls for file upload control, if file upload control is not provided in uploading of file then there can be huge files uploaded which can kill the server cache. There is neither a javascript function which can provide access to client side and get the file size.</p>
+<p>This is basically an upgrade to our <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/">v1.1 of our file upload system</a>. So now server can check for whether a file is uploaded and can also check the file size. There are 2 steps for limiting the file size, first we have to declare \&lt;httpRuntime> element in our web.config file and then creating a C# code.</p>
+<p>The attributes of httpRuntime element are</p>
+<div class="highlight"><pre><span></span>   executionTimeout = &quot;HH:MM:SS&quot; 
+   maxRequestLength = &quot;number&quot; 
+   requireRootedSaveAsPath = &quot;[True|False]&quot;
+   enable = &quot;[True|False]&quot; 
+   sendCacheControlHeader = &quot;[True|False]&quot; 
+   shutdownTimeout = &quot;HH:MM:SS&quot;
+   delayNotificationTimeout = &quot;HH:MM:SS&quot;
+   minFreeThreads = &quot;number&quot; 
+   minLocalRequestFreeThreads = &quot;number&quot; 
+   appRequestQueueLimit = &quot;number&quot;
+   enableKernelOutputCache = &quot;[True|False]&quot; 
+   enableVersionHeader = &quot;[True|False]&quot; 
+   apartmentThreading = &quot;[True|False]&quot;   
+   waitChangeNotification = &quot;number&quot; 
+   maxWaitChangeNotification = &quot;number&quot; 
+   enableHeaderChecking = &quot;[True|False]&quot; 
+   requestLengthDiskThreshold = &quot;number&quot; 
+   useFullyQualifiedRedirectUrl = &quot;[True|False]&quot;
+</pre></div>
+
+
+<h2>Step 1 : Configuring the web.config file.</h2>
+<p>The web.config gives us httpRuntime element. The attribute executionTimeout and maxRequestLength is required for this purpose but you can explore other options also. The default size for maxRequestLength is 4MB. Here is the screenshot of web.config file :-</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/FileUploadT3.1.png"><img alt="FileUploadT3.1" src="thegeekyway.com/uploads/images/2014/01/FileUploadT3.1.png"></a></p>
+</div>
+<p>here executionTimeout = "999" means that the file will upload for 999 seconds if the upload time is greater than 999 seconds then the upload will fail and connection will reset, and maxRequestLength = "2097151" means that it will upload max of 2097151KB or 2GB.</p>
+<h2>Step 2 : C# coding.</h2>
+<p>Since web.config is configured now we have to code the <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> file.<br>
+The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> code is :-</p>
+<div class="highlight"><pre><span></span> private int checkFileSize()
+    {
+        Panel1.Visible = true;
+        int filesize = FileUpload1.PostedFile.ContentLength;
+        Label8.Text = (filesize)/1024 + &quot;Kb&quot;;
+        if (filesize &amp;lt; 1048576)
+        {
+            File_Upload_Status.Text = &quot; Everything OK ! File uploaded &quot;;
+            Image1.ImageUrl = &quot;~//images//success.png&quot;;
+            File_Upload_Status.ForeColor = Color.Green;
+            // Provide upload code (discussed in part 1 of this tutorial)
+            return 1;
+         }
+        else
+        {
+            File_Upload_Status.Text = &quot; File size limit exceeded. File size should be less than 1 MB &quot;;
+            File_Upload_Status.ForeColor = Color.Red;
+            Image1.ImageUrl = &quot;~//images//not_success.png&quot;;
+            return 0;
+        }
+</pre></div>
+
+
+<p>The output of the above C# code is :-</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/FileUploadTut3-2.png"><img alt="FileUploadTut3-2" src="thegeekyway.com/uploads/images/2014/01/FileUploadTut3-2.png"></a></p>
+</div>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/FileUploadTut3-3.png"><img alt="FileUploadTut3-3" src="thegeekyway.com/uploads/images/2014/01/FileUploadTut3-3.png"></a></p>
+</div>
+<p>That's all for the FileSize validation. In the next section we will discuss about the FileType or FileExtension validation.</p>
+<hr>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 05 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/aspnet-dot-net.html">Asp.net (Dot Net)</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/aspnet.html">asp.net</a>,      <a href="thegeekyway.com/tag/c.html">C#</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

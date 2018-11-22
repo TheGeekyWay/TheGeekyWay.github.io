@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="file permissions, linux, Linux Filesystem, umask">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Understanding Permissions With umask  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/understanding-permissions-umask/">Understanding Permissions With umask</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
+  <div class="article_text">
+    <p>Linux was developed as a multi-user system. One big problem with multi-user systems is securing information of a particular user from other users. To do that, a concept of permissions was introduced. When you create a file, you have the right to read and write it. In this article we are going to understand how these permissions are handled.</p>
+<p>A user can read from a file, write into it or execute it (if it’s executable). These actions are represented by r for read, w for write and x for executable. Now, there are three type of actors in play in the system, first is user, second is the group the user belongs to and the third is everyone else. Hence, the permissions are in the form of three digits. The default permissions for a file are 666 (i.e. -rw-rw-rw-) and for directory they are 777 ( i.e. drwxrwxrwx). Here the x for directory means search permissions and d in the start indicated it’s a directory.</p>
+<p>Now, this is place where umask comes in picture. When you create a file or directory, the default permissions will be given, but may be you don’t want your file to be readable/writable by everyone, for that we use umask. Fire up your console and type umask. You will find 0002 on most of the systems.</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">umask</span>
+
+<span class="m">0002</span>
+</pre></div>
+
+
+<p>Now, leave the leading zero and you are left with three digits i.e. 002. This value is subtracted from default values (666 for files and 777 for directories) and the resulting values are set as permissions.</p>
+<div style="text-align:center">
+<p><strong><img alt="" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"></strong></p>
+</div>
+<p>As you can see the permission for file is 664 (666-002) and for the directory it is 775 (777-002). You can also change the umask and set permissions according to your requirements.</p>
+<div style="text-align:center">
+<p><strong><img alt="" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"></strong></p>
+</div>
+<p>You can revert back to your original umask  by typing</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">umask</span> <span class="m">002</span>
+</pre></div>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 07 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/file-permissions.html">file permissions</a>,      <a href="thegeekyway.com/tag/linux.html">linux</a>,      <a href="thegeekyway.com/tag/linux-filesystem.html">Linux Filesystem</a>,      <a href="thegeekyway.com/tag/umask.html">umask</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

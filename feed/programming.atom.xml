@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Programming</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/programming.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2018-02-06T18:50:00+05:30</updated><entry><title>What is Git Blame &amp; it's usecases</title><link href="thegeekyway.com/what-is-git-blame-and-its-usecases/" rel="alternate"></link><published>2018-02-06T18:50:00+05:30</published><updated>2018-02-06T18:50:00+05:30</updated><author><name>storymode7</name></author><id>tag:None,2018-02-06:thegeekyway.com/what-is-git-blame-and-its-usecases/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;h3&gt;&lt;img alt="Git Logo" src="thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;h3&gt;Git Blame&lt;/h3&gt;
+&lt;p&gt;Have you ever wondered who touched a bunch of lines in this code last time? There have been lot of situations which can leave people baffled for a while to know who actually changed what. Blame labels each line in the code with the details of the last …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;h3&gt;&lt;img alt="Git Logo" src="thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
+&lt;/div&gt;
+&lt;h3&gt;Git Blame&lt;/h3&gt;
+&lt;p&gt;Have you ever wondered who touched a bunch of lines in this code last time? There have been lot of situations which can leave people baffled for a while to know who actually changed what. Blame labels each line in the code with the details of the last revision that took place on that part of the file, including moving the line from one place to other.&lt;/p&gt;
+&lt;h3&gt;Ideology behind the concept&lt;/h3&gt;
+&lt;p&gt;When you study a code, a very large one. Like some parts of CPython repo. You will eventually find yourself at a stage where you do not understand what the code does there. Why is it there? Had it not been there would it affect the code in any manner? You need to guess it how it must have been used. But the author of that commit, the one who actually wrote it, must have known what he/she meant to do by introducing that tricky part. And that should be explained in the commit message that the person must have written. Here's when git blame plays it's card (also pickaxe, discussed later), and helps the user to identify who actually did the last revision on that commit. Also, it can easily help to seek an individual who is responsible for the current state of the code and hence can be blamed if the code breaks there.&lt;/p&gt;
+&lt;p&gt;To check it out, the simplest way is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git blame &amp;amp;lt;filename&amp;amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will give you result in the format&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;(Short commit hash)  (Author&amp;#39;s name  Date  Time  UTC-Time-Offset  Line-Number)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The actual line goes in front of these.&lt;/p&gt;
+&lt;h3&gt;Refactoring Code&lt;/h3&gt;
+&lt;p&gt;It's the process referring to rearranging different parts of an already existing program to make it more readable. It also includes adding or modifying a part without changing the ultimate objective it was created to serve. That means in code refactoring you can modify a piece of code to make it more readable, given that you do not change what it was supposed to do. Which sometimes not only makes it look more appealing but also enables one to be able to see hidden bugs. One very interesting term named &lt;a href="https://en.wikipedia.org/wiki/Code_smell"&gt;code smell&lt;/a&gt; is also used in the similar sense sometimes. It means the sense that certain part of the code indicates a deeper problem. Though it may work, it is a weak point to the code, which can be dealt with decomposition (breaking a large problem into smaller pieces that are more understandable) and then refactor it.&lt;/p&gt;
+&lt;p&gt;But blame shows the last revision, so when a code piece is refactored, what happens is, the blame changes to the person who did the movement of the line from one place to other for the readability's sake. This is both good and bad.&lt;/p&gt;
+&lt;p&gt;Good because, if the code breaks due to improper refactoring, then the person responsible can be identified. It is very necessary to identify such person if the improper refactoring was intentional and was an attempt to hamper the project. But mostly this is not the case, since tests in the project repo breaks in most of the projects. From this comes the bad part. If the line moved or copied is blamed to the person refactoring the code, then it's almost useless. You cannot understand why the line was placed there seeing a refactoring commit.&lt;/p&gt;
+&lt;p&gt;This problem can be solved by the pickaxe.&lt;/p&gt;
+&lt;h3&gt;Pickaxe&lt;/h3&gt;
+&lt;p&gt;Pickaxe is not a new command. It's just git log with &lt;a href="https://git-scm.com/docs/git-log#git-log--Sltstringgt"&gt;-S&lt;/a&gt; argument. But it's not the syntax what's interesting. It's what pickaxe is capable of doing. It searches for a commit where a string was added or removed. And so you can easily reach to the actual author of the commit.&lt;/p&gt;
+&lt;p&gt;It's syntax is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git log -S &amp;amp;lt;search-string&amp;amp;gt; [path/file]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Another preferred way is to use -p option simultaneously which will also generate a patch or a diff of the commit. It's then easier to see what change took place in which commit.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git log -p -S &amp;amp;lt;search-string&amp;amp;gt; [path/file]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this, you can also specify the filename in which to search this specific string, but it loses when the filename is changed in a commit. So at times, it's better not to specify the filename and search among the results that are displayed.&lt;/p&gt;
+&lt;p&gt;Git blame comes with GUI for Tcl/Tk based interface versions, where it does both pickaxe and blame together! It lists the original commits, (the ones which created the said line), and the latest commit on that line including moving and copying it from one place to another in the file. You can further explore more on this.&lt;/p&gt;
+&lt;p&gt;If you've any questions, please feel free to ask in the comments section below.&lt;/p&gt;</content><category term="GitHub"></category><category term="Understanding Git"></category></entry></feed>

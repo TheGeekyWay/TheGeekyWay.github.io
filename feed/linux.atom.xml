@@ -1,0 +1,1098 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Linux</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/linux.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2018-04-09T18:00:00+05:30</updated><entry><title>Symmetric and Asymmetric Encryption</title><link href="thegeekyway.com/symmetric-and-asymmetric-encryption/" rel="alternate"></link><published>2018-04-09T18:00:00+05:30</published><updated>2018-04-09T18:00:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:None,2018-04-09:thegeekyway.com/symmetric-and-asymmetric-encryption/</id><summary type="html">&lt;p&gt;Secured communication is inevitably a required norm in the world. To achieve the same, different methods are being approached. You must have heard the word &lt;strong&gt;"cryptography"&lt;/strong&gt;, which is really useful to safely transmit your signals by ensuring secrecy. Today, with advancements in this field, we have 2 of its widely …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Secured communication is inevitably a required norm in the world. To achieve the same, different methods are being approached. You must have heard the word &lt;strong&gt;"cryptography"&lt;/strong&gt;, which is really useful to safely transmit your signals by ensuring secrecy. Today, with advancements in this field, we have 2 of its widely known types i.e. private key cryptography (symmetric encryption) and public key cryptography (asymmetric encryption). What's the difference between them? Which one is better in what context? Let's see!&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;First, let's understand the basic terminologies:-&lt;br&gt;
+&lt;strong&gt;Cryptography:&lt;/strong&gt;&lt;br&gt;
+It is the technique of writing or storing information in a way that it’s revealed only to those who need to see it, and hides it from all others.&lt;br&gt;
+&lt;strong&gt;Encryption:&lt;/strong&gt;&lt;br&gt;
+It is the implementation of cryptography. This converts data to ciphertext.&lt;br&gt;
+&lt;strong&gt;Decryption:&lt;/strong&gt;&lt;br&gt;
+It is reverse of encryption. This converts ciphertext to readable data.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Symmetric Encryption:-&lt;/h2&gt;
+&lt;p&gt;It is also known as private key encryption or private key cryptography. Here, only one key (secret key) is used for both encryption and decryption, by all the parties involved in communication over a network. That's why it is faster than asymmetric encryption.&lt;/p&gt;
+&lt;p&gt;The same key is kept for the entire session of communication. Therefore, this key is also known as &lt;strong&gt;"session key"&lt;/strong&gt;. This session key is either developed by both the parties (client and server) or alone by the client. If it is developed by the client only, then it is required to transmit to the server. In this case, a special concern is provided while transmitting this session key over a network. Because, if the key would get into the wrong hands, s/he can see all your transmitting information with any possible intention.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Modern approaches of symmetric encryption are executed using algorithms such as DES, QUAD, Blowfish, AES, 3DES, RC4 etc.&lt;br&gt;
+This type of encryption is used, when we are interested in transmission speed such as in transferring large files.&lt;/p&gt;
+&lt;h2&gt;Asymmetric Encryption:-&lt;/h2&gt;
+&lt;p&gt;It is also known as public key encryption or public key cryptography. Here, a pair of keys is used for encryption and decryption. These are the public key and the private key. The public key is used for encryption and the private key is used for decryption. Here, the private key is kept a secret to the owner and the public key is kept with all the servers to whom this client wants to connect.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;Understanding asymmetric encryption with workflow.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Suppose, a client wants to send a signal to a server. It will encrypt this signal using &lt;strong&gt;"server's public key"&lt;/strong&gt; and will transmit over the network. When server will receive this signal, it will decrypt this, using &lt;strong&gt;"server's own private key"&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;The same is followed by a signal coming from the server. The server will encrypt the signal using &lt;strong&gt;"client's public key"&lt;/strong&gt; and the client will decrypt this, using &lt;strong&gt;"client's own private key"&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In this way, 2 keys equally participate in the process of public key cryptography. Due to the involvement of 2 keys, it is slower and more complex than symmetric encryption. Diffie-Hellman and RSA are the most widely used algorithms for asymmetric encryption.&lt;/p&gt;
+&lt;h3&gt;Key differences between symmetric and asymmetric encryption:-&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Symmetric encryption involves only one key e.i session key. While asymmetric encryption uses two keys e.i public and private key.&lt;/li&gt;
+&lt;li&gt;Symmetric encryption is faster and simpler than asymmetric encryption.&lt;/li&gt;
+&lt;li&gt;Symmetric encryption is preferable over asymmetric encryption when a large file transfer is concerned.&lt;/li&gt;
+&lt;li&gt;Asymmetric encryption is used to share the session key using which, symmetric encryption can be initiated.&lt;/li&gt;
+&lt;li&gt;Asymmetric encryption is newer than symmetric encryption.&lt;/li&gt;
+&lt;li&gt;In case of asymmetric encryption, no secret channel is necessary for the exchange of the public key.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;With this, we have reached the end of this post. If you have any query regarding the topic, please let us know in the comments section below.&lt;/p&gt;
+&lt;p&gt;Have a good day!&lt;/p&gt;</content><category term="encryption"></category><category term="SSH"></category></entry><entry><title>Get rid of your old terminal, Go Fish-ing</title><link href="thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/" rel="alternate"></link><published>2018-04-03T17:43:00+05:30</published><updated>2018-04-03T17:43:00+05:30</updated><author><name>vipulgupta2048</name></author><id>tag:None,2018-04-03:thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more. Read on for my take on Fish and how it can make you more productive in your day-to-day.&lt;a href="thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+
+&lt;h3&gt;Simple Installation&lt;/h3&gt;
+&lt;p&gt;Fish is easily available on Linux (All popular distros), Windows, and MacOS. Here are the steps for installing it on Debian.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-get update
+sudo apt-get install fish
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can find similar installation steps, for other distros and operating systems &lt;a href="https://fishshell.com/"&gt;here&lt;/a&gt;. When fish gets installed, type the following in your terminal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;- $ fish
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And you are ready to go.&lt;/p&gt;
+&lt;p&gt;For Fish to remember and suggest properly, try running this command when you install new applications. This will start scanning the man pages of your distros and suggest new arguments as you type in the terminal. To accept a suggestion, press the right arrow key to complete the command and it as simple as that.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;- $ fish_update_completions
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Let's Play&lt;/h3&gt;
+&lt;p&gt;The official website of Fish offers an easy tutorial for both beginners and professionals to get started and make the most of it. I'll be mentioning the features I use the most and love while using Fish.&lt;/p&gt;
+&lt;h4&gt;Summons commands like a pro&lt;/h4&gt;
+&lt;p&gt;Fish provides suggestions and completions to every command and their specific arguments that you would type in the shell, from the get-go. Start typing to see it for yourself.&lt;br&gt;
+This works on its ability to predict arguments straight from man pages and from the history it maintains, of the previous commands you entered. (Don't worry its smart enough not to record any sensitive information)&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2018/04/completions.png" title="A glimpse of what suggestions feel like in Fish"&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/04/completions-e1522570951842.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;No need to remember arcane syntax, arguments or commands. Since it remembers what you type, it will keep suggesting you more recent commands to increase productivity and let you focus more on what you are going to type next.&lt;/p&gt;
+&lt;h4&gt;Similarity to old 'Bash' (and some new scripting rules)&lt;/h4&gt;
+&lt;p&gt;Commands you use in bash or to write shell scripts in Bash are mostly the same in Fish. There are some differences. But the alternatives are much easier to use. Check out the &lt;a href="https://fishshell.com/docs/current/index.html"&gt;documentation&lt;/a&gt; for more information.&lt;br&gt;
+Man pages are a smart way to get more information about commands. But reading and searching for them are a pain. Fish comes to the rescue by opening man pages in web browsers. Give it a try.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;- $ help set
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Magic happens when you press Tab&lt;/h4&gt;
+&lt;p&gt;Terminals usually autocomplete your half-written commands when you press the Tab key. Fish does that and a ton of other stuff. Here are a few snippets&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; /geek @press{Tab} → /geekyway/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; ~/geekyway/v @press{Tab}
+~/stuff/vipul.sh  (Executable, 4.8kB)  ~/stuff/vipul/  (Directory)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; ~/vipulgupta2048/ @press{tab} 
+go/ 
+aeious/ 
+Android/ 
+AndroidStudioProjects/
+…and 44 more rows
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Keep pressing tab, shift+tab, arrow keys and other combinations to fully explore all the amazing features of Fish. Comment down below to let us know what cool new features you found while exploring.&lt;/p&gt;
+&lt;h4&gt;Want to customize? Fish has you covered&lt;/h4&gt;
+&lt;p&gt;Programmers love to customize their own personal setups be it desktop environments, text editors, and even terminals. I am no different. Hence when I found that you can customize Fish using a web browser and not write code for it. I was blown away. Try it out by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; fish_config
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I can bet you haven't seen a smarter, more intuitive way to customize and change your terminal settings that include your prompt and its colors, change your functions, abbreviations and many other components.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png" title="Customise anything you want ..."&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h4&gt;Other Awesome Features&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;Syntax in Fish gets highlighted automatically.&lt;/li&gt;
+&lt;li&gt;Separating Commands (Semicolon)&lt;/li&gt;
+&lt;li&gt;Combiners (And, Or, Not)&lt;/li&gt;
+&lt;li&gt;Conditionals (If, Else, Switch)&lt;/li&gt;
+&lt;li&gt;And many more...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Sold Already, Make it default&lt;/h4&gt;
+&lt;p&gt;To find the shells installed in your system, run this command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; cat /etc/shells
+/bin/sh
+/bin/dash
+/bin/bash
+/bin/rbash
+/usr/bin/tmux
+/usr/bin/fish
+/usr/local/bin/fish
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You need to select "/usr/local/bin/fish" and then enter the command to change your default shell.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; chsh -s /usr/local/bin/fish
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;That's it now for the basics to get you started, I guess Happy Fish-ing !!&lt;/p&gt;
+&lt;p&gt;Share this post with your co-workers, batchmates, friends who struggle with using Bash, want a change, or just want to try new things.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;More to come&lt;/strong&gt; (Part 2- &lt;strong&gt;Tips/tricks of Fish&lt;/strong&gt; and &lt;strong&gt;Writing Scripts for Fish&lt;/strong&gt;)&lt;br&gt;
+Fork and star my dotfiles for more reference, and if you want the greeting message that I have on my terminal. - &lt;a href="https://github.com/vipulgupta2048/dotvfiles/tree/master/fish"&gt;vipulgupta2048/dotvfiles/fish&lt;/a&gt;&lt;/p&gt;</content><category term="Bash"></category><category term="cli"></category><category term="Fish"></category><category term="linux"></category><category term="ohmyfish"></category><category term="Shell"></category><category term="terminal"></category><category term="zsh"></category></entry><entry><title>Transfer data with SCP</title><link href="thegeekyway.com/transfer-data-with-scp/" rel="alternate"></link><published>2018-03-14T20:17:00+05:30</published><updated>2018-03-14T20:17:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:None,2018-03-14:thegeekyway.com/transfer-data-with-scp/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a &lt;strong&gt;network,&lt;/strong&gt; to a machine that's out of your reach, like transferring data between an …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a &lt;strong&gt;network,&lt;/strong&gt; to a machine that's out of your reach, like transferring data between an EC2 instance and your local computer? If yes, then &lt;strong&gt;scp&lt;/strong&gt; is a simple tool to help you out there. Let's find out then, what is &lt;strong&gt;scp&lt;/strong&gt; and what are its use cases?&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2&gt;What is Secure Copy Protocol (SCP)?&lt;/h2&gt;
+&lt;p&gt;I recently did a post on &lt;a href="http://thegeekyway.com/ultimate-guide-how-ssh-works/"&gt;&lt;strong&gt;how SSH works&lt;/strong&gt;&lt;/a&gt;, which elaborate, behind the scene of the protocol. So, as we have &lt;strong&gt;SSH&lt;/strong&gt; for a secure connection, similarly, we have &lt;strong&gt;scp&lt;/strong&gt; for a secure copy. It is a network protocol, based on the &lt;strong&gt;BSD&lt;/strong&gt; and&lt;a href="http://yuba.stanford.edu/rcp/"&gt;&lt;strong&gt;RCP&lt;/strong&gt;&lt;/a&gt;, which supports file transfers between hosts on a network.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;scp&lt;/strong&gt; uses Secure Socket Shell (&lt;strong&gt;SSH&lt;/strong&gt;) for data transfer and uses the same mechanisms for authentication, thereby ensuring the authenticity and confidentiality of the data. Therefore, for using , you first need to have an  &lt;strong&gt;&lt;a href="https://www.ssh.com/ssh/server"&gt;SSH&lt;/a&gt;&lt;a href="https://www.ssh.com/ssh/server"&gt;server&lt;/a&gt;&lt;/strong&gt;.  &lt;/p&gt;
+&lt;h4&gt;Syntax:&lt;/h4&gt;
+&lt;p&gt;Normal &lt;strong&gt;"cp"&lt;/strong&gt; (copy) command has the following syntax on *nix platforms. Here, data is copied to a different location in the same system.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cp &lt;span class="o"&gt;[&lt;/span&gt;OPTION&lt;span class="o"&gt;]&lt;/span&gt;... &lt;span class="o"&gt;[&lt;/span&gt;-T&lt;span class="o"&gt;]&lt;/span&gt; SOURCE DEST
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Similarly, &lt;strong&gt;"scp"&lt;/strong&gt; follows the same format. But, in this case, data is transferred between 2 different systems. Thus, its syntax is as follows.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ scp &lt;span class="o"&gt;[&lt;/span&gt;OPTION&lt;span class="o"&gt;]&lt;/span&gt; user1@hostname:/source/ user2@hostname:/destination/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;SCP with use cases&lt;/h4&gt;
+&lt;h4&gt;Transferring files on password-based-authentication&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1. From localhost to a remote server.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;2. From a remote server to localhost.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;3. From one remote server to another, through localhost.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@19.111.19.111&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;"-3" (option) &lt;/strong&gt;copies between two remote hosts, transferred through the localhost. Note that, this option disables the progress meter. Without this option, the data is copied directly between two remote hosts, for which, they should be accessible to each other.&lt;/p&gt;
+&lt;h4&gt;Transferring files on key based authentication&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;1. From localhost to a remote server.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;"-i" (option)&lt;/strong&gt; is used to include the identity file (our private key). Necessary for key based authentication.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. From a remote server to localhost.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;3. From one remote server to another, through localhost.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key1&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key2&lt;/span&gt; &lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@19.111.19.111&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;SCP with different parameters&lt;/h2&gt;
+&lt;p&gt;Parameters either change the behavior or extends the functionality of a command. Let's see some of the alterations of SCP.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Identity file:   -i&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As I have already mentioned this option includes identity file (private key).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recursive:   -r&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This option recursively copies files from the source folder.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Verbose:   -v&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This option gives you background information while transferring files as shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Requesting&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;more&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sessions&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Entering&lt;/span&gt; &lt;span class="n"&gt;interactive&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pledge&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;network&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client_input_global_request&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rtype&lt;/span&gt; &lt;span class="n"&gt;hostkeys&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt; &lt;span class="n"&gt;want_reply&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;environment&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;LANG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;en_IN&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;
+&lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;modes&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;C0664&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;file_on_client&lt;/span&gt;
+&lt;span class="n"&gt;Sink&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;C0664&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;file_on_client&lt;/span&gt;
+&lt;span class="n"&gt;file_on_client&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="n"&gt;KB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt; 
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client_input_channel_req&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;rtype&lt;/span&gt; &lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="n"&gt;reply&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nchannels&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;fd&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;clearing&lt;/span&gt; &lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;fd&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;clearing&lt;/span&gt; &lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;
+&lt;span class="n"&gt;Transferred&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sent&lt;/span&gt; &lt;span class="mi"&gt;3556&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;received&lt;/span&gt; &lt;span class="mi"&gt;2600&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;2.9&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
+&lt;span class="n"&gt;Bytes&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sent&lt;/span&gt; &lt;span class="mf"&gt;1231.7&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;received&lt;/span&gt; &lt;span class="mf"&gt;900.6&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Exit&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Compressed: -C&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt; &lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt; &lt;span class="n"&gt;ubuntu2&lt;/span&gt;&lt;span class="mf"&gt;@321.21.321&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This option compresses transferring files only in the network, such that when they are received by the destination host, they would return to their original size. Thereby, transfer speed increases while large files are being transferred.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Preserves: -p&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt; &lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This option preserves modification times, access times, and modes from the original file.&lt;/p&gt;
+&lt;p&gt;If you want to explore more such parameters? Please refer SCP manual page with command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ man scp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;SCP is a remote file copy program, that's suit perfectly in cases when you have to transfer data in a single pass. However, FTP is more recommended to transfer multiple files/directories, due to its better session-based control over the connection.&lt;/p&gt;
+&lt;p&gt;Thanks for reading! And in case of a query, please feel free to write in the comments section below.&lt;/p&gt;</content><category term="encryption"></category><category term="file transfer"></category><category term="SCP"></category></entry><entry><title>Understanding Complete Boot Process In Linux</title><link href="thegeekyway.com/understanding-complete-boot-process-linux/" rel="alternate"></link><published>2014-09-11T14:48:00+05:30</published><updated>2014-09-11T14:48:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-09-11:thegeekyway.com/understanding-complete-boot-process-linux/</id><summary type="html">&lt;p&gt;Ever wondered, what happens behind the scenes to boot Linux? Knowing about what happens from the time you press the power button to the time when you get the login screen on Linux, i.e. boot process in Linux is very important. It can come very handy when you're debugging …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ever wondered, what happens behind the scenes to boot Linux? Knowing about what happens from the time you press the power button to the time when you get the login screen on Linux, i.e. boot process in Linux is very important. It can come very handy when you're debugging why isn't a system booting properly or even when it refuses to boot completely.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/09/Linux_boot.png"&gt;&lt;img alt="Boot Process in Linux" src="thegeekyway.com/uploads/images/2014/09/Linux_boot.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;So, let's start to understand the boot process in Linux in a step-by-step manner.&lt;/p&gt;
+&lt;h2&gt;1) POST (POWER ON SELF TEST)&lt;/h2&gt;
+&lt;p&gt;When you press the Power Button, the &lt;em&gt;POST operation (Power on Self Test)&lt;/em&gt; occurs when &lt;em&gt;BIOS (Basic Input / Output System)&lt;/em&gt; initializes the hardware, testing the main memory of your system and looking for all other hardware device including keyboard, screen, mouse etc. The BIOS is actually stored on the &lt;em&gt;ROM ( Read Only Memory)&lt;/em&gt; on the Motherboard and after BIOS, all the operation is controlled by the Operating System itself.&lt;/p&gt;
+&lt;h2&gt;2) Boot Loader - First &amp;amp; Second stage Boot Loader&lt;/h2&gt;
+&lt;p&gt;The control from BIOS is then passed to the Boot Loader once the POST operation is completed as explained above. The Boot Loader is actually stored in the boot sector, often the first sector of your disk for BIOS or &lt;strong&gt;&lt;em&gt;MBR (Master Boot Records) System&lt;/em&gt;&lt;/strong&gt; . The boot loader then searches for a bootable partition, and once it finds the bootable partition, it transfers control to (second stage) boot loader like GRUB and then loads it into the memory. This process can be carried out by &lt;strong&gt;&lt;em&gt;EFI partition for Unified Extensible Firmware Interface (UEFI) systems.&lt;/em&gt;&lt;/strong&gt; These systems reads the Boot Manager data to determine which UEFI application to load and from which partition on the disk. And then it launches the UEFI application like GRUB. This method is complicated yet versatile than the previous MBR method.&lt;/p&gt;
+&lt;p&gt;The second stage boot loader is found in /boot directory and it presents a UI (splash screen) to the user where they can choose which OS to boot, in case of Multi-Boot system. The main aim of the boot loader is to lead kernel image along with initializing the RAM to load all the device drivers needed to start the system. There are many boot loaders available for Linux. However the most important one include &lt;em&gt;GRUB (Grand Unified Boot Loader) &amp;amp; ISOLINUX&lt;/em&gt;.&lt;/p&gt;
+&lt;h2&gt;3) CMOS comes into play&lt;/h2&gt;
+&lt;p&gt;Then the most crucial information about peripherals and current date and time are then loaded form CMOS, which is actually a battery-powered small store capable of storing and keeping track of date and time of the system even when it is turned off.&lt;/p&gt;
+&lt;h2&gt;4) initramfs &amp;amp; Kernel loaded&lt;/h2&gt;
+&lt;p&gt;The boot loader loads the &lt;strong&gt;&lt;em&gt;initramfs (initial RAM-based file system)&lt;/em&gt;&lt;/strong&gt; and kernel into the main memory. Once the kernel is loaded into the memory, it configures the hardware that is attached to the system and loads important applications for users.&lt;/p&gt;
+&lt;p&gt;The initramfs filesystem consists of Program and binary files which is essential for mounting proper root filesystem, providing kernel functionality, locating of devices, locating of drivers for devices and loading them and checking of errors in the root filesystem.&lt;/p&gt;
+&lt;p&gt;The mount system actually instructs if the filesystem is ready to be used and then associates it with particular point in the overall hierarchy of the filesystem or the mount point. If this step is successfully carried out, then the initramfs would be cleared out from the RAM and then the init program from &lt;strong&gt;/sbin/init&lt;/strong&gt; is executed. The init actually handles the mounting and pivoting of the final root system. This is the initial process of the system which then helps in starting other processes to get system running. If there are special device drivers needed to be accessed, then they must be included in the initramfs image.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;When you trace the path of origin for the processes, you’ll find all of them originated from init itself expect the kernel process which are started by kernel itself for managing of internal operating system details.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;5) Runlevels in Linux&lt;/h2&gt;
+&lt;p&gt;In the traditional System V Unix, there was a sequence of runlevels containing different scripts to start and stop services. There are a total of 6 runlevels:&lt;/p&gt;
+&lt;p&gt;Runlevel 0&lt;/p&gt;
+&lt;p&gt;Runlevel 1&lt;/p&gt;
+&lt;p&gt;Runlevel 2&lt;/p&gt;
+&lt;p&gt;Runlevel 3&lt;/p&gt;
+&lt;p&gt;Runlevel 4&lt;/p&gt;
+&lt;p&gt;Runlevel 5&lt;/p&gt;
+&lt;p&gt;Within each runlevel, user can set each individual services to run or to shut down (We would understand about RunLevels in detail in the next post). Most distributions are now moving away from this standard of System V standard. init is responsible for system running and shutting it down for cleaning up the non-kernel processes whenever necessary. It also restarts the login services for users as needed when users login and logout.&lt;/p&gt;
+&lt;h2&gt;6) Text-Mode Login&lt;/h2&gt;
+&lt;p&gt;Next, there is a text-mode login prompt started by init (done by program getty). After entering the username and password, user is offered with a command shell which is often &lt;strong&gt;&lt;em&gt;(Bourne After Shell) BASH&lt;/em&gt;&lt;/strong&gt;, in most of the linux distros which is ready to take in commands and then execute the operation associated with each command.&lt;/p&gt;
+&lt;h2&gt;7) X Window System&lt;/h2&gt;
+&lt;p&gt;At the end of the boot process, the X Windows system is loaded which starts a display manager, loads x server for the x clients and manage graphical logins by starting with a desktop environment like Gnome, KDE etc. depending on the system.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;And Linux is now up and running for use. I hope this would be bit informative for you and would help you. Please let us know your thoughts through comments below.&lt;/p&gt;</content><category term="boot"></category><category term="linux"></category></entry><entry><title>Getting Started With Git</title><link href="thegeekyway.com/getting-started-git/" rel="alternate"></link><published>2014-04-02T22:24:00+05:30</published><updated>2014-04-02T22:24:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2014-04-02:thegeekyway.com/getting-started-git/</id><summary type="html">&lt;p&gt;Git is the most popular version control system now a days. The reason behind popularity is its simple yet tremendous functionality. Unlike other VCSs (Version Control Systems), Git has some unique ways to control and share your data. Because of its huge functionality it also tends to become a lot …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Git is the most popular version control system now a days. The reason behind popularity is its simple yet tremendous functionality. Unlike other VCSs (Version Control Systems), Git has some unique ways to control and share your data. Because of its huge functionality it also tends to become a lot complex for advanced users. As they say a thousand miles journey starts with a single step, we are going to understand the very basics of git in this article!&lt;/p&gt;
+&lt;p&gt;So, before starting anything we need to understand what Git is and what it does. Git is a version control system, which records changes in your code/files over a period of time. You can recall older version and manage changes. The working of Git is a little different than other VCSs. Most of the VCSs store the information about the data as the changes that have been made in different files. If you have 3 files in a project and you change any one of them, the VCSs will keep record of the change. That’s where Git differs, it keeps record of the changes along with the new changed file. Moreover, other VCSs generally operate online, storing all the data at the remote servers, while Git stores all the data on the local system as well as the remote server, which makes it easy for the user to make changes even when she is offline and commit the changes when she gets the network connection. In other benefits of Git, you don’t need to go to remote server to check for your project history, it’s all there on your local machine.&lt;/p&gt;
+&lt;p&gt;Before getting started, I would like to discuss one more feature of Git and that is repositories. There are two kind of repositories in Git, namely, local repositories and remote repositories. And believe me, they are the exact same thing! So, what exactly is a repository? It’s the place where you store all of your working data, your project files etc. Local repository is the one that is set up on your system and the remote is the one that is hosted on a server, probably on another continent! And here is the beauty of a distributed version control system, you can work with both of them just as they are the same thing! You can make changes to your local repository, add/delete files etc. and push them to remote repository.&lt;/p&gt;
+&lt;p&gt;Enough of concepts, let’s get started! The very basic thing to do with Git is to create a local repository, of-course, first you have to install it on your system! Type this in your RHEL based system to install git (make appropriate changes for Debian based systems):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo yum install git
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And the next step is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git init
+
+Initialized empty Git repository in /home/peeyush/git_test/.git/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;And that’s it, there is your local repository. You can add files, make changes to them, commit the changes etc. (How? We will see shortly!). Now, generally after this people keep going on about working with local repository, but as I am getting you started, I am going to take a little different but practical approach. We are going to start with a remote repository! Now, where do you get a remote repository? Well, GitHub, of-course! Go to &lt;/p&gt;&lt;a href="http://www.github.com"&gt;www.github.com&lt;/a&gt; &lt;p style="line-height: 1.5em;"&gt; and create a account there if you don’t already have one. Now, create a new repository by clicking on the link on the top left corner:&lt;/p&gt;&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-04-01 15:59:59.png" src="https://lh6.googleusercontent.com/dMsAdtBhU35X5J11FkmC4QSU8DwHfHx1bF-IHDLutUsI3qdpSmzP3JM9Kn274A0QQnnAyNhU2iLU99j-ADvlPd4CDGDrr87X7Fv6Eozdr4080iTPi8WCti132SMCIA"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now, enter a name for the repository and click on the “create repository” button. And your remote repository is ready! First of all you need to copy you remote repository to your local repository. Copy the http address and you can copy the repository using git protocol, like this:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-04-01 16:21:57.png" src="https://lh3.googleusercontent.com/k2Lo1r1Z3uaUXlu9rf-h9cAphKIemCUq9dBQSO3KOSDJaDzX6j25um04Iyi5L0HmLk7PFo-L7Wci6p0Nu77vuslWDB9PtPX0ZPeyux2UcV9xe6XP2VqHn3V2G1cUZw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git clone https://github.com/Pensu/test.git
+Cloning into &lt;span class="s1"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;...
+warning: You appear to have cloned an empty repository.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, there appears to be a warning, but we already know that as we haven’t added anything to the repository! Now you will see a directory by the name of remote repository in your current directory. That is your local repository. To verify try this on your system:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; test/
+
+$ git remote -v
+
+origin https://github.com/Pensu/test.git &lt;span class="o"&gt;(&lt;/span&gt;fetch&lt;span class="o"&gt;)&lt;/span&gt;
+origin https://github.com/Pensu/test.git &lt;span class="o"&gt;(&lt;/span&gt;push&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here fetch and push are the repositories where your local repository gets the data from and where it sends the changes respectively. As I just cloned a remote repository, I can fetch and push from this repository. Now, we are going to add a file and pushing it to the remote repository.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ touch newfile.txt
+$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Getting Started With Git&amp;quot;&lt;/span&gt; &amp;gt; newfile.txt 
+$ git status
+&lt;span class="c1"&gt;# On branch master&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# Initial commit&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# Untracked files:&lt;/span&gt;
+&lt;span class="c1"&gt;#   (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# newfile.txt&lt;/span&gt;
+nothing added to commit but untracked files present &lt;span class="o"&gt;(&lt;/span&gt;use &lt;span class="s2"&gt;&amp;quot;git add&amp;quot;&lt;/span&gt; to track&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;I created a new file, echoed some content and I checked the status of my repository. Git can track what new files have been added and what files have changed using checksum. So, it shows me that my “newfile.txt” is untracked. Before committing any changes to the repositories, we need to add the files/changes to Git.&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git add newfile.txt
+$ git status
+&lt;span class="c1"&gt;# On branch master&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# Initial commit&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# Changes to be committed:&lt;/span&gt;
+&lt;span class="c1"&gt;#   (use &amp;quot;git rm --cached &amp;lt;file&amp;gt;...&amp;quot; to unstage)&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;span class="c1"&gt;# new file:   newfile.txt&lt;/span&gt;
+&lt;span class="c1"&gt;#&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;As you can see the file is ready to be committed now. Let’s do it:&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git commit -m &lt;span class="s2"&gt;&amp;quot;Added new file&amp;quot;&lt;/span&gt; 
+&lt;span class="o"&gt;[&lt;/span&gt;master &lt;span class="o"&gt;(&lt;/span&gt;root-commit&lt;span class="o"&gt;)&lt;/span&gt; 0c53cdc&lt;span class="o"&gt;]&lt;/span&gt; Added new file
+&lt;span class="m"&gt;1&lt;/span&gt; file changed, &lt;span class="m"&gt;1&lt;/span&gt; insertion&lt;span class="o"&gt;(&lt;/span&gt;+&lt;span class="o"&gt;)&lt;/span&gt;
+create mode &lt;span class="m"&gt;100644&lt;/span&gt; newfile.txt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;Here -m denotes the message which you will need to remember the changes you made in this commit. I am adding newfile.txt here, so the message says that a new file has been added. You local repository is fully updated now, with all the changes. If you want to check, what all changes you have made to the local repository before pushing it to remote repository, just run “git log”.&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git log
+commit 0c53cdc27eda90c67219ba15ff8457f337c4aa14
+Author: Peeyush Gupta &amp;lt;peeyushgupta91@gmail.com&amp;gt;
+Date:   Tue Apr &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:37:59 &lt;span class="m"&gt;2014&lt;/span&gt; +0530
+
+   Added new file
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;It will show you the commit checksum, author name/email, date and time of the commit and the message you provided at the time of commit. Well, it seems alright, so now we are gonna push the changes to remote repository.&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;push&lt;/span&gt; &lt;span class="n"&gt;origin&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;span class="n"&gt;Username&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nl"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com&amp;#39;: Pensu&lt;/span&gt;
+&lt;span class="n"&gt;Password&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nl"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//Pensu@github.com&amp;#39;: &lt;/span&gt;
+&lt;span class="n"&gt;Counting&lt;/span&gt; &lt;span class="nl"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Writing&lt;/span&gt; &lt;span class="nl"&gt;objects&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="mi"&gt;249&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Total&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;delta&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt; &lt;span class="n"&gt;reused&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;delta&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;To&lt;/span&gt; &lt;span class="nl"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/Pensu/test.git&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;      &lt;span class="n"&gt;master&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;master&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;So, what’s origin and master? Here master is the branch where I am working on my local repository and origin is the branch where master is going to be merged at the remote repository. Wait, what is a branch? Branch is basically the context that you are working in. You can have many branches in the same project and merge them in the remote repository branches. For our purpose we only need one branch and that is the master one. You can verify it using:&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git branch
+* master
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;Now, as it’s all done and dusted, time to check the remote repository if the changes were successfully committed. Open up your browser and go to your repository, you should see a newfile.txt there.  &lt;/p&gt;&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-04-01 16:55:31.png" src="https://lh4.googleusercontent.com/yktfgORxxyXn4QDOho-38Ow0kd99LnUalRvlzOk-8AF_m-PsufDyGXPB0VRgLTIWDJlmD5_GVZgMMEP8pnrD-mWQViYKM5usgeWhNrVO2TydcF6PEctybVm0shyNeA"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-04-01 16:55:40.png" src="https://lh6.googleusercontent.com/qwKYV6kTOGF7TFLW5q-Pim8eQ_55ZRNkV7eTHFAg4cJ1Qnw-IvbBLq3Frult5WPCdbZoOoYqRLztdAw0uQsgATHUhO2IBC-FOom5p-qx59L8_yBVt1DQtRFx520W4g"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-04-01 16:55:40.png" src="https://lh6.googleusercontent.com/qwKYV6kTOGF7TFLW5q-Pim8eQ_55ZRNkV7eTHFAg4cJ1Qnw-IvbBLq3Frult5WPCdbZoOoYqRLztdAw0uQsgATHUhO2IBC-FOom5p-qx59L8_yBVt1DQtRFx520W4g"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Git is a very huge topic, but this article should get you started to clone remote repositories and push the changes. Happy sharing!&lt;/p&gt;</content><category term="Git"></category><category term="starting with Git"></category><category term="Understanding Git"></category><category term="VCS"></category><category term="version control systems"></category></entry><entry><title>Running A Python Script Using Chef</title><link href="thegeekyway.com/running-python-script-using-chef/" rel="alternate"></link><published>2014-03-18T15:39:00+05:30</published><updated>2014-03-18T15:39:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2014-03-18:thegeekyway.com/running-python-script-using-chef/</id><summary type="html">&lt;p&gt;Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through &lt;a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/"&gt;this&lt;/a&gt; article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through &lt;a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/"&gt;this&lt;/a&gt; article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration of the designated server. Resource have their predefined task like to run a command, to copy a file, to use a template etc. In this article we are going to talk about script resource. This is going to run any script, it could be bash, python or perl. There are separate resources for these scripts.&lt;/p&gt;
+&lt;p&gt;You put the resources in your recipe. Here is a simple bash script example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bash &amp;quot;install_something&amp;quot; do
+ user &amp;quot;root&amp;quot;
+ cwd &amp;quot;/home&amp;quot;
+ code &amp;lt;&amp;lt;-EOH
+ echo “Hello World!”
+
+ ls
+ EOH
+end
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;As you can see, the bash resource will run the script in the code section and will print “Hello World” to the terminal and the content of /home directory.&lt;/p&gt;
+&lt;p&gt;So, when you are going to run a python script, the first choice to come to mind is “python” script resource. But there is a limitation to script resources. They only run in-line scripts. Meaning you will have to write the whole script in the code section and it will be executed one line at a time. But you can’t run an external script. Here comes the “execute” resource to rescue!&lt;/p&gt;
+&lt;p&gt;To run an external script, the structure of the execute resource is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;filename = &amp;quot;test.py&amp;quot;
+
+execute &amp;#39;execute_file&amp;#39; do
+ cwd &amp;#39;/home/peeyush&amp;#39;
+ command &amp;quot;python #{filename}&amp;quot;
+end
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here the filename contains the name of the script. Then in the execute block, we have cwd which represents the current working directory. This is the directory where the script is present. Then the “command” tells the shell to execute the script. Just put the above lines in your recipe, edit test.py according to the ouput you want and let chef run the script for you! Here is the sample test.py:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-03-18 15:19:33.png" src="https://lh5.googleusercontent.com/JihU-gdBpBp0eeYxeqIlDMBW-HjlSbYLCchDA56_DQqEbdSDuj0CtoD5x_q-Rk9tSrB4VvpOcpuEzf9_ZmQqM4ioc9VO5SqTXviSc7S2a5c6tzKFBAph0PhF28Z4hg"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;As you can see, I am printing “Hello, chef!” and redirecting some out to a text file. Redirection is needed because Chef will just execute the script and won’t show you the output, until it’s an error. Here is what the recipe look like:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-03-18 15:15:20.png" src="https://lh6.googleusercontent.com/Xg83QDTJ7qeMTFUMgqrwtnGydgegGGFx_7NzGhADUch8b2Qzw7YncSMelwzEd7h7xMr7I4GKPpzGszQXdfvGMxxF4vVNOTSfojoeefNOVSBuZhmJ46_TXWWwntDO9A"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Remember to change the current working directory (cwd) according to your setup.Everything else is same as previous article and you can test it out using chef-solo.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-03-18 15:18:51.png" src="https://lh4.googleusercontent.com/FXzkjCooBE7AGaHapRX_7IwhwvrADtaJBSbYGiepY-0BXiPI0PVLKNhSDPhO6ZKhB9-6KZTaDE3ln0zmMDFB-WNJD9ELZ20XZeiuO1ryQuqB30yHK0BqmUAU0xvZTA"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;</content><category term="automation"></category><category term="Chef"></category><category term="chef-solo"></category><category term="Python"></category><category term="python with chef"></category></entry><entry><title>Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Ubuntu/Debian. Part-3</title><link href="thegeekyway.com/manage-package-apt-get-apt-cache-ubuntu-commands/" rel="alternate"></link><published>2014-03-11T08:10:00+05:30</published><updated>2014-03-11T08:10:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2014-03-11:thegeekyway.com/manage-package-apt-get-apt-cache-ubuntu-commands/</id><summary type="html">&lt;p&gt;This is last &amp;amp; final chapter of this tutorial. Before proceeding further, I would like to link first two parts here just incase you haven't checked it out.&lt;/p&gt;
+&lt;p&gt;(&lt;a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="Learn To Manage Packages Using APT-GET &amp;amp; APT-CACHE Commands In Debian/Ubuntu. Part-I"&gt;PART-1&lt;/a&gt;  &amp;amp;  &lt;a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/" title="Learn To Manage Packages Using APT-GET &amp;amp; APT-CACHE Commands In Debian/Ubuntu. Part-2"&gt;PART-2&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Continuing from Part-2,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;19) Checking The Stats Of Cache Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This command will display all the statistics of the cache …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is last &amp;amp; final chapter of this tutorial. Before proceeding further, I would like to link first two parts here just incase you haven't checked it out.&lt;/p&gt;
+&lt;p&gt;(&lt;a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="Learn To Manage Packages Using APT-GET &amp;amp; APT-CACHE Commands In Debian/Ubuntu. Part-I"&gt;PART-1&lt;/a&gt;  &amp;amp;  &lt;a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/" title="Learn To Manage Packages Using APT-GET &amp;amp; APT-CACHE Commands In Debian/Ubuntu. Part-2"&gt;PART-2&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;Continuing from Part-2,&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;19) Checking The Stats Of Cache Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This command will display all the statistics of the cache, from total number of packages to total number of dependencies, total number of globbed strings, slack space ,etc.&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache stats
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;20) Listing All The Packages Available In The Repository Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Using this command you can list all the packages that are available in the repository.&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache pkgnames
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;21) Checking The Package Details Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This command will give you details of any package available in the repository, alongwith maintainer's name, description details, size, dependency, architecture,etc.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache show &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache show minitube
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;22) Searching The Package Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can find the package name alongwith description using the following command syntax. Very handy tool when you're looking for similar name of packages.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache search &amp;lt;word_close_to_package_you&amp;#39;re_searching_for&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache search mini
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You'll see that first results of search will give me all packages name with prefix 'mini'. This can be helpful when you don't know correct package name.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;23) Getting Dependency Details Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can easily obtain dependency details using following command. It also gives details whether those packages are already installed in your system or not.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache showpkg &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache showpkg vlc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There are chances that I might've missed few commands. You can suggest some of commands in the comments below, so I can add it.&lt;/p&gt;
+&lt;p&gt;However, you can get more details of apt-get &amp;amp; apt-cache by typing "man apt-get" &amp;amp; "man apt-cache" respectively from Debian/Ubuntu system.&lt;/p&gt;</content><category term="apt-get"></category><category term="linux"></category><category term="Ubuntu"></category></entry><entry><title>Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-2</title><link href="thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/" rel="alternate"></link><published>2014-03-10T05:36:00+05:30</published><updated>2014-03-10T05:36:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2014-03-10:thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/</id><summary type="html">&lt;p&gt;This is second part of the tutorial.You would like to read the first part before you proceed further. Here is the &lt;a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="First Part"&gt;&lt;strong&gt;LINK&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Continuing from the first part,&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/slide_apt-11.png" title="APT Ubuntu"&gt;&lt;img alt="APT Ubuntu" src="thegeekyway.com/uploads/images/2014/03/slide_apt-11.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;11) Removing Packages From The System Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This command will help you to remove the installed packages from the system. However …&lt;/p&gt;</summary><content type="html">&lt;p&gt;This is second part of the tutorial.You would like to read the first part before you proceed further. Here is the &lt;a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="First Part"&gt;&lt;strong&gt;LINK&lt;/strong&gt;&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Continuing from the first part,&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/slide_apt-11.png" title="APT Ubuntu"&gt;&lt;img alt="APT Ubuntu" src="thegeekyway.com/uploads/images/2014/03/slide_apt-11.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;11) Removing Packages From The System Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This command will help you to remove the installed packages from the system. However, you should note that it won't remove configuration files at all. Which means, if you remove the application using this command &amp;amp; then re-install it later, then the application settings you had previously will still be there.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get remove &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get remove vlc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;12) Removing Packages With Configuration Settings Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Using this command, you can completely remove packages alongwith configuration settings. So, if you will reinstall that application later, you'll have to reconfigure again. This command can be extremely useful when you're messing with configuration settings &amp;amp; something goes extremely wrong &amp;amp; you cannot back it up to original state. Removing with this command &amp;amp; re-installing the package can help you in such case.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get purge &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get purge synaptic
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;13) Cleaning Up The Disk Space Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It will cleanup the disk space by cleaning debian packages (.deb) that are downloaded from local repository.&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get clean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;14) Auto Cleaning The Cache Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The packages which users download is usually stored in /var/cache/apt/archives in form of cache, consuming hefty amount of space. You can simply remove all the .deb cache packages from this directory using this command.&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get autoclean
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;15) Observe The Changelog Of The Package :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Using the following command you can view the changelog of the desired application. It is usually useful to see what new features are included in the latest build or upgrade.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get changelog &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get changelog wine
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;16) Fixing Missing Dependencies &amp;amp; Re-installing The Package Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are times when you're having poor internet connectivity, some packages are unable to retrieve but easily can. However, an application depends on some of it's dependencies, due to such problems it doesn't meet the require dependency &amp;amp; package won't get install. So, the following command usually helpful when the dependencies are missing &amp;amp; you want to install the missing dependencies to fix the problem.&lt;/p&gt;
+&lt;p&gt;Command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install -f
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;17) Auto-Removing The Installed Packages Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Sometimes, when you remove any package, it's dependencies are not removed with it. They remain in system as 'Orphan'. To remove the Orphan packages auto-remove command is used.&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get autoremove
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;18) Checking The Dependencies Of The Application Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can check the broken dependencies required for the package you wanna install using the following command. Quite handy, it is!&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get check
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Rest of the commands that are related to APT-CACHE command will be covered in next part. i.e Part-3&lt;/em&gt;&lt;/p&gt;</content><category term="apt-get"></category><category term="linux"></category><category term="Ubuntu"></category></entry><entry><title>Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-I</title><link href="thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" rel="alternate"></link><published>2014-03-09T05:43:00+05:30</published><updated>2014-03-09T05:43:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2014-03-09:thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/</id><summary type="html">&lt;p&gt;&lt;strong&gt;APT&lt;/strong&gt; abbreviated as &lt;strong&gt;A&lt;/strong&gt;dvanced &lt;strong&gt;P&lt;/strong&gt;ackaging &lt;strong&gt;T&lt;/strong&gt;ool, is the package management tool used in Debian based distributions to install new applications from repository, removing installed applications, upgrading the system, updating the repository and bunch full of other useful tasks, all that from terminal itself.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png" title="APT"&gt;&lt;img alt="APT" src="thegeekyway.com/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;strong&gt;1) Installing Application In …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;APT&lt;/strong&gt; abbreviated as &lt;strong&gt;A&lt;/strong&gt;dvanced &lt;strong&gt;P&lt;/strong&gt;ackaging &lt;strong&gt;T&lt;/strong&gt;ool, is the package management tool used in Debian based distributions to install new applications from repository, removing installed applications, upgrading the system, updating the repository and bunch full of other useful tasks, all that from terminal itself.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png" title="APT"&gt;&lt;img alt="APT" src="thegeekyway.com/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;strong&gt;1) Installing Application In Ubuntu/Debian Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gimp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Where gimp is the package name which is to be installed.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) Updating The System Repository Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This command will update the Debian/Ubuntu repository with the newer latest version that's available.&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;3) Upgrading The Software Packages Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is usually used to upgrade the installed packages in the system. For example, if new updated package are available in the repository, then this command will upgrade the installed package with the latest one that is available in repository.&lt;/p&gt;
+&lt;p&gt;Command :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;4) Upgrading Specific Desired Packages Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Using this command you can upgrade stacks of desired packages you want. The command is very much similar to that of installing packages.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt; --only-upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gimp --only-upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; 5) Installing Packages Without Upgrading Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The following command will install the desired package, but won't upgrade even if the upgrade is available.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt; --no-upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install wine --no-upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;6) Installing Multiple Packages All At Once In One Command Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;This command is used to install as many packages/application you want using one single command. Quite a productive command it is!&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_1&amp;gt; &amp;lt;package_2&amp;gt; &amp;lt;package_3&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gimp wine vlc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt; 7) Install Only Desired Version Package Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Inserting '&lt;strong&gt;=&lt;/strong&gt;' after the package name and appending desired version, you can install specific version of the package&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt;=&amp;lt;version_number&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install wine=1.7
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;8) Download Only Source Code Of The Desired Package Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can download source code of the desired package from the repository using following syntax.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --download-only source &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --download-only source synapse
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;9) Downloading The .deb Package Without Installing It Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can download the .deb package of the desired application using following command. The downloaded .deb package is usually stored in /var/cache/apt/archive directory.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get download &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get download synaptic
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;10) Download The Source Code, Decompress It &amp;amp; Then Compile It Using APT-GET&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You can download source code of the application you want to use, then decompress it &amp;amp; compile it using one single command.&lt;/p&gt;
+&lt;p&gt;Command Syntax :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --compile source &amp;lt;package_name&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --compile source gimp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Dozens of other commands will be covered in next part of the tutorial. Stay tuned.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Edit : You can read Part-2 Of The Tutorial From &lt;a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/" title="Part-2 Of Tutorial"&gt;&lt;strong&gt;HERE&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="apt-get"></category><category term="linux"></category><category term="Ubuntu"></category></entry><entry><title>Benchmarking OpenStack With Rally</title><link href="thegeekyway.com/benchmarking-openstack-rally/" rel="alternate"></link><published>2014-02-28T11:48:00+05:30</published><updated>2014-02-28T11:48:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2014-02-28:thegeekyway.com/benchmarking-openstack-rally/</id><summary type="html">&lt;p&gt;When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three …&lt;/p&gt;</summary><content type="html">&lt;p&gt;When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three steps:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Deployment:&lt;/strong&gt; Rally is not a deployment tool by itself, instead it works as a plugin with devstack, RDO etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Verification:&lt;/strong&gt; Here Rally uses tempest to verify the OpenStack cloud deployment.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Benchmarking:&lt;/strong&gt; This step is used to calculate load and performance of the particular cloud deployment.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"&gt;&lt;img alt="Openstack with Rally" src="thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Rally generally works a command line tool (GUI is work in progress) and helps in detecting scaling and performance issues, figuring out how the code change affects the system and finding out suitable architecture of deployment etc.&lt;/p&gt;
+&lt;p&gt;The first step is to install rally in OpenStack environment. I am going to use rally as a plugin with devstack, though it is possible to install it manually in an already deployed environment. To start, clone the following repositories from github:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/openstack-dev/devstack
+
+git clone https://github.com/stackforge/rally
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, execute the following commands from your terminal in order to set devstack up with rally:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp rally/contrib/devstack/lib/rally devstack/lib/
+cp rally/contrib/devstack/extras.d/70-rally.sh devstack/extras.d/
+cd devstack
+echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next, as usual, we run the installation script of devstack:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./stack.sh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Go for a coffee or take a walk, until devstack completes its work!&lt;/p&gt;
+&lt;p&gt;After the installation is done, source the openrc file present in \~/.rally/ directory to start using OpenStack.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source ~/.rally/openrc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To use rally, we first need to tell it about the OpenStack deployment which is going to be benchmarked. To do that, we have a deployment configuration file. That means, you need to provide configuration details of your OpenStack deployment in form of a json file. Go to the rally directory and create a my-deployment.json file. The content of the file should be like this:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-02-27 17:20:18.png" src="https://lh6.googleusercontent.com/kRZy9MBq6cBMDPrVgwm9nXRDrBasz2tbBqXJvTmGD0FrU1eUOTucylKtHzYVU5BHmz1OfDQRxzzoyO1s6qccUofo0ILWNx_WZX3QmGoK7AAcSfjemvwQmLs1BQ"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;You can find the relevant information for you system in openrc file. Next, we create a deployment named test using the following command:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;*&lt;/em&gt;*&lt;img alt="Screenshot from 2014-02-27 17:19:54.png" src="https://lh3.googleusercontent.com/_lAcpSqYhUncDSomOX8fjW_vcMthYAAU5L_HhNuHK3V4ZpEYlhFToDctsPE9Z7HWOc6pAqBKAg_rlnVqxXa2IWLyEBm5rrG_S0rkJcZNJNsPaxzpt1EZp2zuRw"&gt;&lt;/strong&gt;****&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Run ‘rally deployment check’ to check if current deployment is ready to be benchmarked. You should get an output like this:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-02-27 17:21:26.png" src="https://lh6.googleusercontent.com/CujE4Dm-jfe4s5aSB3eCpNwxWQWqedxz6oSFuvHZoSmppfLzmz17nxQb-6W_lUsNBds9XpjEA1PHyy8M4dyUh6adwwA7w7Euz7PN_Oe-hQlH8MHIszqKrmbj-w"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Next, we come to benchmarking. There are a lot of ways to test the deployment, we will use an example that comes with rally. This is a boot and delete test. First copy the test to you current directory:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp doc/samples/tasks/nova/boot-and-delete.json my-task.json
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, edit the my-task.json file to look like:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-02-27 17:25:25.png" src="https://lh6.googleusercontent.com/Wi-J5GrWHYqoyY-buqPouTYbeuSrsqwTVDhmqCL0j7CKpJCDaasJpZhuz-TRdb7Ew5w1B-5ikyQpFBSGp_uHG_RYBGOvnrDr9JXhAVTwNfNbouHZxAwvvYxyOQ"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Edit the falvor_id and image_id according to your system. Use “glance image-list” and “nova flavor-list” commands. And now we are ready to run our first task. Type this on your machine:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rally --verbose task start --task=my-task.json
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should see the output:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-02-27 17:29:29.png" src="https://lh6.googleusercontent.com/6RAxgAkO135b4iMW1sn8ghAHojAA1aJmLamDp_CqtYHSwAbqL6Dy9WjOoN5dM1FDEISZp8YRg-Ij5az03jfYXiExERGk21Tx5eqPeS9DQI2SOL17cdDpNiR5Pw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;You can also find out the detailed report about all the task.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-02-27 17:30:25.png" src="https://lh5.googleusercontent.com/nZ35zyKAr8V8rPF9HJ9revry8MVpdjZo7q5wwqAwImn1_ccLQt9lP-pj-MEsIG9E7OS4oWEMPXzWPpCTE_mX0IvkzXFrO2XPKGvZk5n_G6Cy8rfbpO-3jYF2yg"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are other examples available in the doc/samples/ directory. You can learn more about test cases from these files. Happy benchmarking!&lt;/p&gt;</content><category term="benchmarking"></category><category term="Openstack"></category><category term="openstack benchmarking"></category><category term="performance measure"></category><category term="rally"></category><category term="scaling"></category></entry><entry><title>KVM vs QEMU vs Libvirt</title><link href="thegeekyway.com/kvm-vs-qemu-vs-libvirt/" rel="alternate"></link><published>2014-02-14T16:22:00+05:30</published><updated>2014-02-14T16:22:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2014-02-14:thegeekyway.com/kvm-vs-qemu-vs-libvirt/</id><summary type="html">&lt;p&gt;Since the day I started to read about the virtualization concept, I have been troubled by QEMU and KVM. They both look like complementary, but what exactly they do? And then there is libvirt, what role does it play? Let’s try to understand that.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/download.jpg"&gt;&lt;img alt="KVM" src="thegeekyway.com/uploads/images/2014/02/download-300x94.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;When you dive deep into …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Since the day I started to read about the virtualization concept, I have been troubled by QEMU and KVM. They both look like complementary, but what exactly they do? And then there is libvirt, what role does it play? Let’s try to understand that.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/download.jpg"&gt;&lt;img alt="KVM" src="thegeekyway.com/uploads/images/2014/02/download-300x94.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;When you dive deep into the virtualization, you find hypervisor. Hypervisor is the agent that helps you create virtual machines. He is the guy who creates and runs the guest machine and provide the host’s resource to the guest. QEMU and KVM both are able to act as hypervisor. Then why are they used together? Well, because QEMU is dumb! Well, not exactly, but it is a little slower when it comes to system which dont have hardware virtualization. So, to achieve that, we have our own very dear KVM. KVM helps QEMU to access hardware virtualization features on different architectures. It also adds the acceleration feature to the QEMU process. So, in short, when they are together, QEMU is the hypervisor/emulator and KVM is the accelerating agent.&lt;/p&gt;
+&lt;p&gt;Then we come to libvirt. Libvirt is quite innocent in the sense that is doesn’t confuse you! It is simply a virtualization management library. And what does it do? It manages both KVM and QEMU. It consists of three utilities namely - an API library, a daemon (libvirtd) and a command line tool -virsh. Libvirt is quite effective and it can manage a lot of hypervisors altogether.&lt;/p&gt;
+&lt;p&gt;So, whenever you are using these all together, remember there is a hypervisor, an accelerating agent and a management library.&lt;/p&gt;</content><category term="kvm"></category><category term="libvirt"></category><category term="qemu"></category><category term="virtualization"></category></entry><entry><title>Understanding Permissions With umask</title><link href="thegeekyway.com/understanding-permissions-umask/" rel="alternate"></link><published>2014-02-07T22:42:00+05:30</published><updated>2014-02-07T22:42:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2014-02-07:thegeekyway.com/understanding-permissions-umask/</id><summary type="html">&lt;p&gt;Linux was developed as a multi-user system. One big problem with multi-user systems is securing information of a particular user from other users. To do that, a concept of permissions was introduced. When you create a file, you have the right to read and write it. In this article we …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Linux was developed as a multi-user system. One big problem with multi-user systems is securing information of a particular user from other users. To do that, a concept of permissions was introduced. When you create a file, you have the right to read and write it. In this article we are going to understand how these permissions are handled.&lt;/p&gt;
+&lt;p&gt;A user can read from a file, write into it or execute it (if it’s executable). These actions are represented by r for read, w for write and x for executable. Now, there are three type of actors in play in the system, first is user, second is the group the user belongs to and the third is everyone else. Hence, the permissions are in the form of three digits. The default permissions for a file are 666 (i.e. -rw-rw-rw-) and for directory they are 777 ( i.e. drwxrwxrwx). Here the x for directory means search permissions and d in the start indicated it’s a directory.&lt;/p&gt;
+&lt;p&gt;Now, this is place where umask comes in picture. When you create a file or directory, the default permissions will be given, but may be you don’t want your file to be readable/writable by everyone, for that we use umask. Fire up your console and type umask. You will find 0002 on most of the systems.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;umask&lt;/span&gt;
+
+&lt;span class="m"&gt;0002&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, leave the leading zero and you are left with three digits i.e. 002. This value is subtracted from default values (666 for files and 777 for directories) and the resulting values are set as permissions.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;As you can see the permission for file is 664 (666-002) and for the directory it is 775 (777-002). You can also change the umask and set permissions according to your requirements.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;You can revert back to your original umask  by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;umask&lt;/span&gt; &lt;span class="m"&gt;002&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="file permissions"></category><category term="linux"></category><category term="Linux Filesystem"></category><category term="umask"></category></entry><entry><title>Getting Started With Chef-solo</title><link href="thegeekyway.com/learning-basics-chef-solo-example/" rel="alternate"></link><published>2014-01-30T12:59:00+05:30</published><updated>2014-01-30T12:59:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2014-01-30:thegeekyway.com/learning-basics-chef-solo-example/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo.png"&gt;&lt;img alt="Chef-Logo" src="thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo-300x236.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Chef is an amazing tool from opscode to automate your work. Though it is very useful, it is also very complex to understand and work with. Before discussing about Chef-solo, here are some terminologies related to chef that we should learn first.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recipes&lt;/strong&gt;: These are the files that contain the …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo.png"&gt;&lt;img alt="Chef-Logo" src="thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo-300x236.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Chef is an amazing tool from opscode to automate your work. Though it is very useful, it is also very complex to understand and work with. Before discussing about Chef-solo, here are some terminologies related to chef that we should learn first.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Recipes&lt;/strong&gt;: These are the files that contain the configuration. Simply, these files have the code that is going to be used to configure your server.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Cookbooks&lt;/strong&gt;: A collection of recipes is called a cookbook.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Chef-client&lt;/strong&gt;: A tool which runs on the server that is supposed to be configured by chef.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Chef-server&lt;/strong&gt;: This is the server that provides cookbooks/recipes to chef-client.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Chef-solo&lt;/strong&gt;: An independent chef configuration tool that doesn’t need chef-server to work.&lt;/p&gt;
+&lt;p&gt;Chef-solo is the easiest way to learn how chef works. In this article we will see the working of chef-solo with an example. The first step is to install chef. Chef is installed as a rubygem. So, install rubygem and chef using following commands. (I am using Fedora. Use sudo apt-get for debain based systems.)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo yum install ruby rubygems ruby-devel
+
+$ gem install chef
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can check if your installation was successful or not by running ‘chef-solo’ command as sudo/root. It will most probably give an error “No cookbook found”. That’s alright, if you are getting any other error, then you need to check the installation again. So, now we are going to write a recipe to print “Hello chef” on the command prompt.&lt;/p&gt;
+&lt;p&gt;First of all, make a directory where you are going to do all your work. Let’s call it chef.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# mkdir chef
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, we need to make the recipe. Let’s call the recipe hellochef. Here is how you can create it:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now write the line ‘puts “Hello Chef!” ‘ in the file default.rb and close it. It is a ruby file, so it’s better you make yourself familiar with ruby before moving ahead with chef. Now that we have our recipe, next step is to redirect chef-solo to our recipe. We need to tell chef-solo that which cookbook we want to run. To do that create a node.json inside chef/ directory and put the recipe info inside it.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Save and close the file. Now, you just need one more thing, that is chef-solo configuration file. Come back to your home directory and open a file named solo.rb and write the following info in the file:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Remember to change the locations of files relative to your system! Save and close the file. Now, we are ready to run chef-solo. Run 'chef-solo -c solo.rb' from command line and you should get an output like this:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The -c option tells chef-solo about the location of the solo.rb configuration file. You can do a lot more with chef-solo than just printing Hello chef! This will get you started. Happy cooking!&lt;/p&gt;</content><category term="automation"></category><category term="Chef"></category><category term="chef-solo"></category></entry><entry><title>Customize GRUB2/BURG Screen Using Grub Customizer</title><link href="thegeekyway.com/customize-grub2-burg-screen-using-grub/" rel="alternate"></link><published>2014-01-05T19:33:00+05:30</published><updated>2014-01-05T19:33:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2014-01-05:thegeekyway.com/customize-grub2-burg-screen-using-grub/</id><summary type="html">&lt;p&gt;&lt;strong&gt;GRUB Customizer&lt;/strong&gt; is the application with graphical interface to configure GRUB2/BURG settings, visuals &amp;amp; menu-entries.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Features:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;- supports GRUB2 &amp;amp; BURG&lt;/p&gt;
+&lt;p&gt;- rename, remove &amp;amp; move the menu-entries&lt;/p&gt;
+&lt;p&gt;- Installation of bootloader to MBR&lt;/p&gt;
+&lt;p&gt;- settings like default distro, Kernel params, BG image, text colors etc. to customize the look of GRUB2/BURG&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can simple …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;GRUB Customizer&lt;/strong&gt; is the application with graphical interface to configure GRUB2/BURG settings, visuals &amp;amp; menu-entries.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Features:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;- supports GRUB2 &amp;amp; BURG&lt;/p&gt;
+&lt;p&gt;- rename, remove &amp;amp; move the menu-entries&lt;/p&gt;
+&lt;p&gt;- Installation of bootloader to MBR&lt;/p&gt;
+&lt;p&gt;- settings like default distro, Kernel params, BG image, text colors etc. to customize the look of GRUB2/BURG&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can simple right click on above entries &amp;amp; then you can Edit, Rename, Remove, Move up or down, remove from submenu or add another submenu easily. Everything can be customized within user interface.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_004.png" title="Grub Customizer -&gt; List Configuration"&gt;&lt;img alt="List Configuration" src="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_004.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_005.png" title="Grub Customizer -&gt; General Settings"&gt;&lt;img alt="Grub Customizer -&gt; General Settings" src="{filename}/uploads/images/2014/01/Grub-Customizer_005.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Advanced settings are for advanced users who wanna customize as per their wish.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer-settings_006.png" title="Grub Customizer -&gt; Advanced settings"&gt;&lt;img alt="Grub Customizer -&gt; Advanced settings" src="{filename}/uploads/images/2014/01/Grub-Customizer-settings_006.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;I am using elementaryOS at this moment, I have picked .PNG image from deviantart &amp;amp; adjusted color of my choice. And, clicked on 'save settings' on left top corner &amp;amp; well that's done.&lt;/p&gt;
+&lt;p&gt;Just to make sure, you can run '&lt;strong&gt;sudo update-grub&lt;/strong&gt;'.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Note : I have noticed that current/latest version of Grub customizer doesn't work with .jpeg BG image files, so make sure it is of .png else it won't work.&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_003.png" title="Grub Customizer -&gt; Appearance settings"&gt;&lt;img alt="Grub Customizer -&gt; Appearance settings" src="{filename}/uploads/images/2014/01/Grub-Customizer_003.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;p style="color: #da243a;"&gt;To install &lt;strong&gt;Grub Customizer&lt;/strong&gt; in Ubuntu &amp;amp; it's derivatives, open Terminal &amp;amp; add PPA by typing :&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now update the repository,,&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now install the Grub-customizer&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install grub-customizer
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p style="color: #da243a;"&gt;To install &lt;strong&gt;Grub Customizer&lt;/strong&gt; in other Linux distribution :&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;em&gt;Install the following packages :&lt;/em&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- cmake&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- gcc-c++&lt;/strong&gt; or &lt;strong&gt;g++&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- libgtkmm-3.0-dev&lt;/strong&gt; or &lt;strong&gt;gtkmm30-devel&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- libssl-dev&lt;/strong&gt; or &lt;strong&gt;openssl-devel&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- libarchive-dev&lt;/strong&gt; or &lt;strong&gt;libarchive-devel&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;- gettext&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Download the source from &lt;a href="https://launchpad.net/grub-customizer/+download" title="Download Now!"&gt;&lt;strong&gt;HERE&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Go to source directory &amp;amp; use &lt;strong&gt;cmake&lt;/strong&gt;, &lt;strong&gt;make&lt;/strong&gt; &amp;amp; &lt;strong&gt;make install&lt;/strong&gt; to install grub customizer. (You can find detailed information on 'How To Compile application from source code' from &lt;a href="http://www.thegeekyway.com/install-application-source-code-2/" title="Install application from source-code"&gt;THIS LINK&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;After installing &amp;amp; modding the GRUB2 loader, here's what my new beautiful GRUB2 screen looks like (sorry for blur image, my camera is crap) :&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/bootscreen.jpg"&gt;&lt;img alt="bootscreen" src="thegeekyway.com/uploads/images/2014/01/bootscreen.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;That's it.&lt;/p&gt;</content><category term="GRUB"></category><category term="linux"></category></entry><entry><title>Install HTML5 Capable Browser In Raspberry Pi</title><link href="thegeekyway.com/install-html5-capable-browser-raspberry-pi/" rel="alternate"></link><published>2013-12-29T10:19:00+05:30</published><updated>2013-12-29T10:19:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2013-12-29:thegeekyway.com/install-html5-capable-browser-raspberry-pi/</id><summary type="html">&lt;p&gt;'Web' is the epiphany port available for Raspberry Pi users, which is HTML5 capable browser &amp;amp; it's predicted to be shipped in future Raspbian release. Well, if you're impatient for the official release of 'Web' &amp;amp; wanna try out this awesome browser, here's few steps which will let you enjoy the beta …&lt;/p&gt;</summary><content type="html">&lt;p&gt;'Web' is the epiphany port available for Raspberry Pi users, which is HTML5 capable browser &amp;amp; it's predicted to be shipped in future Raspbian release. Well, if you're impatient for the official release of 'Web' &amp;amp; wanna try out this awesome browser, here's few steps which will let you enjoy the beta version of 'Web' in your Raspberry Pi.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/2013-12-29-011813_1360x768_scrot.png"&gt;&lt;img alt="Rpi_Web_scrot" src="thegeekyway.com/uploads/images/2013/12/2013-12-29-011813_1360x768_scrot.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;[For me, if you have noticed, the icons within the browser is not showing up properly, maybe some files are conflicting, for which i will take care later on]&lt;/p&gt;
+&lt;p&gt;To install 'Web' in Raspberry pi :&lt;/p&gt;
+&lt;p&gt;Open &lt;strong&gt;/etc/apt/source.list&lt;/strong&gt; with &lt;strong&gt;'root'&lt;/strong&gt; &amp;amp; add the following line:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;deb&lt;/span&gt; &lt;span class="s"&gt;http://raspberrypi.collabora.com&lt;/span&gt; &lt;span class="kp"&gt;wheezy&lt;/span&gt; &lt;span class="kp"&gt;web&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, update the repository &amp;amp; upgrade the system by entering following commands in terminal :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now install 'Web' browser by entering following commands in terminal :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install epiphany-browser cgroup-bin libraspberrypi0 libwayland-client0 libwayland-cursor0 libwayland-server0a
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Latest kernel supports cgroups (also known as control groups) which limits &amp;amp; isolates the resources like CPU, memory, I/O usages. To activate it, add &lt;strong&gt;cgroup_enable=memory&lt;/strong&gt; in Kernel command line.&lt;/p&gt;
+&lt;p&gt;That's it. Enjoy surfing.&lt;/p&gt;</content><category term="HTML5"></category><category term="Raspberry Pi"></category></entry><entry><title>How play videos on Raspberry Pi - OMXPlayer</title><link href="thegeekyway.com/play-videos-raspberry-pi-omxplayer/" rel="alternate"></link><published>2013-12-23T23:55:00+05:30</published><updated>2013-12-23T23:55:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2013-12-23:thegeekyway.com/play-videos-raspberry-pi-omxplayer/</id><summary type="html">&lt;p&gt;OMX player is a command line player which can be controlled via &lt;a href="#android"&gt;Android app&lt;/a&gt; or over &lt;a href="#SSH"&gt;SSH&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="omx-playercan-play-all-common-files-including-.avi-.mp4-and-mkv-without-any-extra-codec-with-subtitle." style="font-size: 1em; font-weight: 300;"&gt;OMX player can play all common files including .avi, .mp4 and mkv without any extra codec with subtitle.&lt;/h2&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg" title="Raspberry Pi OMX Player"&gt;&lt;img alt="Raspberry Pi OMX Player" src="thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+
+&lt;h2 id="installing-omx-player" style="font-size: 1.2em;"&gt;Installing OMX Player&lt;/h2&gt;
+&lt;p&gt;Download and install player from source&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Stable Build (Already added in Raspbian …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;OMX player is a command line player which can be controlled via &lt;a href="#android"&gt;Android app&lt;/a&gt; or over &lt;a href="#SSH"&gt;SSH&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="omx-playercan-play-all-common-files-including-.avi-.mp4-and-mkv-without-any-extra-codec-with-subtitle." style="font-size: 1em; font-weight: 300;"&gt;OMX player can play all common files including .avi, .mp4 and mkv without any extra codec with subtitle.&lt;/h2&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg" title="Raspberry Pi OMX Player"&gt;&lt;img alt="Raspberry Pi OMX Player" src="thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;!--more--&gt;
+
+&lt;h2 id="installing-omx-player" style="font-size: 1.2em;"&gt;Installing OMX Player&lt;/h2&gt;
+&lt;p&gt;Download and install player from source&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Stable Build (Already added in Raspbian also in ArcLinux): 
+wget https://github.com/downloads/torarin/omxplayer_0.3.3~git20131216~b34143c_armhf.deb
+
+Experimental Build: (Android app prefers experimental build)
+
+wget https://github.com/downloads/torarin/omxplayer/omxplayer_3~experimental~git20121208~ebfa6fc6_armhf.deb
+
+Install:
+sudo dpkg -i mxplayer_0.3.3~git20131216~b34143c_armhf.deb
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;Note: OMXPlayer will not play MPEG-2 files, you need purchase licence to play. &lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;{#section style="font-size: 1.2em;"}&lt;/p&gt;
+&lt;h2 id="get-android-app" style="font-size: 1.2em;"&gt;&lt;p #android&gt;&lt;/p&gt;Get Android App&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://play.google.com/store/apps/details?id=com.raspberry.remote&amp;amp;hl=en"&gt;Raspberry Pi Remote Control Google Play link&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Open and connect as shown below&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/RaspberryPi.png"&gt;&lt;img alt="RaspberryPi" src="thegeekyway.com/uploads/images/2013/12/RaspberryPi.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In path give  &lt;p style="font-family: 'courier new', courier;"&gt;/media &lt;/p&gt;(Any USB attached to it will be listed here). You can browse like file browser. Even to root. just select the file and click play.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Limitations:  &lt;/strong&gt;This app works sometime choppy but works well with Play/Stop. If doen't respond just wait for some time and use again. Keep in mind you are playing on card size machine not on high end desktop.&lt;/p&gt;
+&lt;h2 id="control-raspberrypi-omxplayer-via-ssh" style="font-size: 1.2em;"&gt;&lt;p #SSH&gt;&lt;/p&gt;Control RaspberryPi / OMXPlayer via SSH&lt;/h2&gt;
+&lt;p&gt;SSH should be enabled on raspi but if not you can enable it by following.&lt;/p&gt;
+&lt;p&gt;Run: sudo raspi-config&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;img alt="raspi-config" src="thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Advance --&gt; SSH and enable it.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/SSH.png"&gt;&lt;img alt="SSH" src="thegeekyway.com/uploads/images/2013/12/SSH.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;For more info about &lt;a href="http://www.thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/" title="Raspberry Pi: Change Password, Auto Login and Remote Desktop"&gt;raspi-config and other configuration, see this tutorial&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now, on your computer, open terminal Emulator (On Mac/Linux you already have it).&lt;/p&gt;
+&lt;p&gt;For windows download small software for&lt;a href="http://www.putty.org/"&gt;Terminal Emulator,  &lt;strong&gt;PuTTy &lt;/strong&gt;&lt;/a&gt;, and open it.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/putty.png"&gt;&lt;img alt="putty" src="thegeekyway.com/uploads/images/2013/12/putty.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;(In host name or ip address, I already given &lt;strong&gt; &lt;p style="color: #ff0000;"&gt; &lt;p style="font-family: 'courier new', courier;"&gt;\&lt;userName\&gt;@\&lt;ip\&gt; &lt;/p&gt;&lt;/p&gt;&lt;/strong&gt;, So I don't have to give username again. it will only asks for password in next step.)&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Provide your password in next step, and you will land on home of pi in command prompt version. Here you can run any command which will be executed on Raspi directly.&lt;/p&gt;
+&lt;p&gt;Now just browse to your media file and run&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;omxplayer -s 
+
+For HDMI (video+audio)
+
+omxplayer -o hdmi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"&gt;&lt;img alt="omxPlayer-command" src="thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Here are some more OMXPlayer commands&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://lukasz-skalski.com/index.php/projekty-inne/raspberry-control-control-raspberry-pi-with-your-android-device.html
+
+# dpkg -i omxplayer_0.0.1-arm.deb
+####  .... fails with missing dependencies ...
+# apt-get -f install
+### fetches the missing dependencies, configures the sym links etc
+$ omxplayer --help
+Usage: omxplayer [OPTIONS] [FILE]
+Options :
+-h / --help                    print this help
+-a / --alang language          audio language        : e.g. ger
+-n / --aidx  index             audio stream index    : e.g. 1
+-o / --adev  device            audio out device      : e.g. hdmi/local
+-i / --info                    dump stream format and exit
+-s / --stats                   pts and buffer stats
+-p / --passthrough             audio passthrough
+-d / --deinterlace             deinterlacing
+-w / --hw                      hw audio decoding
+-3 / --3d                      switch tv into 3d mode
+-y / --hdmiclocksync           adjust display refresh rate to match video
+-t / --sid index               show subtitle with index
+-r / --refresh                 adjust framerate/resolution to video
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Play via SSH and feel like a pro.&lt;/p&gt;</content><category term="Raspberry Pi"></category></entry><entry><title>Vagrant up And Beyond!</title><link href="thegeekyway.com/vagrant-beyond-2/" rel="alternate"></link><published>2013-12-23T16:28:00+05:30</published><updated>2013-12-23T16:28:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2013-12-23:thegeekyway.com/vagrant-beyond-2/</id><summary type="html">&lt;p&gt;When you are working on a project with a team, a big question is how to make them work on same environment? One solution is to make them work on same machine, but this gets messy as everyone is making changes. The other solution is to provide everyone with same …&lt;/p&gt;</summary><content type="html">&lt;p&gt;When you are working on a project with a team, a big question is how to make them work on same environment? One solution is to make them work on same machine, but this gets messy as everyone is making changes. The other solution is to provide everyone with same environment. And that’s where Vagrant comes! In this tutorial we will learn how to use Vagrant.&lt;/p&gt;
+&lt;p&gt;Vagrant gives you portable work environments which can be controlled by a pre-defined workflow. The idea is when you are working on a project and there are a lot of dependencies, configuration settings, scripts involved, you can combine them all up with vagrant and pass it around to be used by everyone. Let’s start with getting a VM up and running.&lt;/p&gt;
+&lt;p&gt;Though Vagrant comes with default support for VirtualBox, it can be used with other providers too like VMware, AWS etc. Here I am using VirtualBox on Fedora 19 as provider. You can download and install VirtualBox from &lt;a href="https://www.virtualbox.org/wiki/Downloads"&gt;here&lt;/a&gt;. Next step is to install Vagrant, which you can get from &lt;a href="http://www.vagrantup.com/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Now, after installing VirtualBox and Vagrant, you can add the box and run the machine. We will learn more about boxes, first run these two commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ vagrant init precise32 http://files.vagrantup.com/precise32.box
+$ vagrant up
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It will take some time to set everything up and running the virtual machine. Now you can simply do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ vagrant ssh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and you will be able to login in your virtual machine. Coming back to boxes, they are nothing but the base images, which are used to clone a virtual machine. This makes the process faster instead of running a machine from scratch.  You can also add new boxes to the vagrant environment.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ vagrant box add precise32 http://files.vagrantup.com/precise32.box
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, how do you control the whole environment? Well, that’s why we have a Vagrantfile! The primary objective of a Vagrantfile is to describe the type, attributes etc. of the virtual machine. There is one Vagrantfile per project and it takes care of all the installation, script execution etc. When you do “vagrant init” in a directory, a Vagrantfile is placed there. Now, you can use this Vagrantfile to launch virtual machines from this directory. If you want to do it from another directory, you will first have to do “vagrant init” there or you would have to copy Vagrantfile in that directory.&lt;/p&gt;
+&lt;p&gt;Vagrantfile can be ported from one platform to another. It is written in Ruby, but you don’t need to learn Ruby to specify attributes through it. Let’s say, after launching a machine, you want to run a shell script on it. The content of the Vagrantfile would be:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"&gt;&lt;img alt="Screenshot from 2013-12-23 15:23:11" src="thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;As you can see here, the name of the box and machine is fedora1 and I have given the provisioner as shell and the script that is going to run (after the virtual machine is booted) is bootstrap.sh. Here bootstrap.sh is present in the same directory, you can also give the absolute./relative path to you shell script. You can modify the Vagrant file and use&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ vagrant reload
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to reflect the changes in already running virtual machine.You only need to learn how to assign values to different variables to make new Vagrantfiles. This should be enough to get you started. To check out their documentation, please visit the official website &lt;a href="http://www.vagrantup.com"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="Vagrant"></category><category term="VagrantFile"></category><category term="virtual machines"></category></entry><entry><title>OpenStack - Understanding The Architecture</title><link href="thegeekyway.com/openstack-understanding-architecture/" rel="alternate"></link><published>2013-12-18T15:04:00+05:30</published><updated>2013-12-18T15:04:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:None,2013-12-18:thegeekyway.com/openstack-understanding-architecture/</id><summary type="html">&lt;p&gt;OpenStack is a cloud computing project to provide an Infrastructure as a Service(IaaS), jointly launched by RackSpace and NASA. A collection of open-source technologies combined together make it a massively scalable cloud operating system. One big quality of OpenStack is it’s simplicity, anyone can easily tie-up different hosts …&lt;/p&gt;</summary><content type="html">&lt;p&gt;OpenStack is a cloud computing project to provide an Infrastructure as a Service(IaaS), jointly launched by RackSpace and NASA. A collection of open-source technologies combined together make it a massively scalable cloud operating system. One big quality of OpenStack is it’s simplicity, anyone can easily tie-up different hosts and provide cloud storage. Openstack has become a big phenomenon in past three years since its launch in 2010. It has its reach to almost every tech giant with more than 10,000 developers working on it.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="{filename}/uploads/images/2013/12/images.jpg"&gt;&lt;img alt="OpenStack" src="{filename}/uploads/images/2013/12/images.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Before we start discussing anything, the very first thing is to deploy OpenStack. Yes, it is that easy! You can deploy it without any knowledge of underlying architecture. Go to &lt;a href="http://www.devstack.org"&gt;Devstack&lt;/a&gt;, run the script and you are done!&lt;/p&gt;
+&lt;p&gt;Now, the code of OpenStack is quite large, with more than 1.5 million lines of code. Fortunately, it has a good modular design. In this article, I would be discussing about the architecture of OpenStack. OpenStack has a modular architecture and is divided into 7 components. We will discuss them one by one. The name in the parentheses are the code-names for respective services.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1) Openstack Compute(Nova)&lt;/strong&gt;: It is the central brain unit of the system. Nova is responsible to get the requests from user, choosing an appropriate host and running the instance on that host. It is a big component which uses the underlying hypervisor technology like KVM, qemu etc. It is designed to manage and automate pools of computer resources. Nova is also further divided into different parts including nova-volume, nova-network, nova-scheduler etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) OpenStack Object Storage(Swift)&lt;/strong&gt;: Swift is a scalable redundant storage system. It is responsible for keeping the data safe. Swift is a reliable data storage that maintains a number of replicas of the data and also ensures integrity. New storage can be easily added using swift.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3) OpenStack Block Storage(Cinder)&lt;/strong&gt;: When user spawns an instance, she also needs some persistent block storage to work with. Here comes the cinder! It manages the creation, attaching and detaching of the block devices to servers. It can also be used to creates snapshots for backing up the data.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4) OpenStack Networking(Neutron)&lt;/strong&gt;: Neutron (formerly known as Quantum), is responsible for managing networks and IP addresses. It can manage the networks in three ways: using flat network manager, flat DHCP network manager or VLAN network manager. Neutron is capable of providing both fixed and flexible IPs to the instances.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5)&lt;/strong&gt; &lt;strong&gt;OpenStack Dashboard(Horizon)&lt;/strong&gt;: Horizon provides administrators and users a graphical interface to access, provision and automate cloud-based resources. This web-based dashboard has a lot of features that make launching of an instance and administrating an easy task.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6)&lt;/strong&gt; &lt;strong&gt;OpenStack Identity (Keystone)&lt;/strong&gt;: Keystone is the one stop point of authentication. To access some features, or to initiate some tasks, users/services needs to authenticate themselves first. The idea behind keystone is to make the authentication process centralized. No matter the user, the admin or any project, everyone has to go through keystone first. Keystone supports several modes of authentication including the standard username-password matching and token based authentication.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7)&lt;/strong&gt; &lt;strong&gt;OpenStack Image Service(Glance)&lt;/strong&gt;: Glance is a service dedicated to the operations of disk and server images. It provides discovery, registration and delivery services for the images. Glance supports several formats like qcow2, vmdk etc. It can store the images in any of the back-ends like OpenStack Object Storage.&lt;/p&gt;</content><category term="Cloud Computing"></category><category term="Nova"></category><category term="Openstack"></category><category term="Openstack Architecture"></category></entry><entry><title>Understanding init.d Directory In Linux Filesystem.</title><link href="thegeekyway.com/whats-important-init-d-directory-linux/" rel="alternate"></link><published>2013-12-07T13:08:00+05:30</published><updated>2013-12-07T13:08:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2013-12-07:thegeekyway.com/whats-important-init-d-directory-linux/</id><summary type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;init.d&lt;/em&gt;&lt;/strong&gt; is the sub-directory of &lt;strong&gt;&lt;em&gt;/etc&lt;/em&gt;&lt;/strong&gt; directory in Linux file system. init.d basically contains the bunch of start/stop scripts which are used to control (start,stop,reload,restart) the daemon while the system is running or during boot. If you look at &lt;strong&gt;&lt;em&gt;/etc/init.d&lt;/em&gt;&lt;/strong&gt; then you …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;&lt;em&gt;init.d&lt;/em&gt;&lt;/strong&gt; is the sub-directory of &lt;strong&gt;&lt;em&gt;/etc&lt;/em&gt;&lt;/strong&gt; directory in Linux file system. init.d basically contains the bunch of start/stop scripts which are used to control (start,stop,reload,restart) the daemon while the system is running or during boot. If you look at &lt;strong&gt;&lt;em&gt;/etc/init.d&lt;/em&gt;&lt;/strong&gt; then you will notice all the scripts for different services of your system.&lt;/p&gt;
+&lt;p&gt;The scripts within the directory varies as per the applications installed in your system. In server system you'll find many network related scripts while in desktop there will be the only basic ones like 'networking'.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/init_main_featureimage.png"&gt;&lt;img alt="init_main_featureimage" src="thegeekyway.com/uploads/images/2013/12/init_main_featureimage.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There are two types of scripts :  K scripts &amp;amp; S scripts.&lt;/p&gt;
+&lt;p&gt;K scripts are known &lt;strong&gt;'kill'&lt;/strong&gt; scripts while S scripts are known as &lt;strong&gt;'startup'&lt;/strong&gt; scripts. Kill scripts always run before startup scripts. The configuration file (.conf) of these scripts are located under &lt;strong&gt;&lt;em&gt;/etc/init&lt;/em&gt;&lt;/strong&gt; &amp;amp; the scripts that are used as defaults are located under &lt;strong&gt;&lt;em&gt;/etc/default&lt;/em&gt;&lt;/strong&gt;.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;Within &lt;em&gt;/etc/init.d&lt;/em&gt; you'll find the script &lt;strong&gt;&lt;em&gt;rc.local&lt;/em&gt;&lt;/strong&gt; ,this script is automatically executed after all primarily priortized scripts are executed. Which means first K scripts are executed, following by S scripts, then all other remaining init level scripts (if there's any) &amp;amp; finally rc.local script.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/init_pic2.png"&gt;&lt;img alt="init_pic2" src="thegeekyway.com/uploads/images/2013/12/init_pic2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/init_pic3.png"&gt;&lt;img alt="init_pic3" src="thegeekyway.com/uploads/images/2013/12/init_pic3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now to control any script, you'll need the superuser (sudo/su) permission. You can manually control the scripts using console/terminal. The syntax for controlling the script is like :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# /etc/init.d/&amp;lt;script&amp;gt; &amp;lt;option&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Where \&amp;lt;script&gt;  stands for the name of the script located under /etc/init.d which you wanna control, and \&amp;lt;option&gt; can be replaced by the control commands like : start,stop,reload,restart,force-reload.&lt;/p&gt;
+&lt;p&gt;Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo /etc/init.d/pulseaudio reload
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I hope this helps to understand /etc/init.d directory. This was basic understanding of init.d directory, there's more into it which will be covered soon.&lt;/p&gt;</content><category term="Linux Filesystem"></category></entry></feed>

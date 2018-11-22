@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="activity, Android, lifecycle">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Android Activity LifeCycle  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/android-activity-lifecycle/">Android Activity LifeCycle</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/gagan93.html"> gagan93</a> </p>
+  <div class="article_text">
+    <p><strong>Activity</strong> is the base class of an Android <strong>Activity (package android.app). </strong>An Activity represents a view to the user. For eg. When we open Messaging app to write a new message, it is an Activity. After writing the message, when we open contacts to select the person, it can be considered as another activity and so on. So in simpler words, anything which completely occupies the screen and is different from the previous screen is called an Activity. In this tutorial we'll get to know about Android Activity Lifecycle.</p>
+<div style="text-align:center">
+<p><a href="http://blog.mycampusnotes.com/wp-content/uploads/2014/07/Example_sketch.jpg"><img alt="Example_sketch" src="http://blog.mycampusnotes.com/wp-content/uploads/2014/07/Example_sketch.jpg"></a></p>
+</div>
+<p>Two screens showing different activities</p>
+<p>As shown in previous tutorials, each android activity <strong>extends </strong>the <strong>android.app.Activity </strong>class. Activity is a concrete class and contains many methods which can be overwritten so that the activity behaves as per our choice. Such methods are called as lifecycle methods (discussed below).</p>
+<p><strong>Note :</strong> Each new activity must extend the Activity class (or its direct subclasses) and have corresponding entry in the AndroidManifest.xml file as shown below</p>
+<div style="text-align:center">
+<p><a href="http://blog.mycampusnotes.com/wp-content/uploads/2014/07/12.jpg"><img alt="1" src="http://blog.mycampusnotes.com/wp-content/uploads/2014/07/12.jpg"></a></p>
+</div>
+<p>There are many methods to go from one activity to another. Also, we can either choose to <strong>finish </strong>the previous activity, or leave it as it is.</p>
+<p>LifeCycle of Android Activity</p>
+<div style="text-align:center">
+<p><a href="http://blog.mycampusnotes.com/wp-content/uploads/2014/07/rVnSi.jpg"><img alt="rVnSi" src="http://blog.mycampusnotes.com/wp-content/uploads/2014/07/rVnSi.jpg"></a></p>
+</div>
+<p>Source : Android Developers Website</p>
+<p>Some of you may have seen this screenshot in various books or on websites. Lifecycle is a fundamental concept in android which consists of many methods from <strong>Activity</strong> class. Any practical application uses at least one lifecycle method. <strong>onCreate() </strong>is one such method. People knowing about <strong>Java Applets </strong>must be knowing what a lifecycle methods are, for others you’ll get to know shortly.</p>
+<p>The image shown above gives an overview of basic lifecycle methods. When an application starts, few of them are called. When it exits, different set of methods are called. Similarly when you navigate from one activity to another or come back, some methods are called. Below we have summarized what all methods are called in which situations.</p>
+<p>(The parameters, return types and access specifiers are not shown for now. )</p>
+<p>Below I have summarized what all methods are called in which situations.</p>
+<p>1. When an application starts, these methods are called :</p>
+<p><strong>a)     onCreate()</strong></p>
+<p><strong>b)    onStart()</strong></p>
+<p><strong>c)     onResume().</strong></p>
+<p>2. When some other application is called, while your application was running :</p>
+<p><strong>a)     onPause()</strong></p>
+<p><strong>b)    onStop()</strong> are called as new activity completely blocks the screen.</p>
+<p>3. When you go back to your application, which was running previously,</p>
+<p><strong>a)     onRestart()</strong></p>
+<p><strong>b)    onStart()</strong></p>
+<p><strong>c)     onResume()</strong> are called. Here,it is similar to 1st one except for the difference that <strong>onRestart()</strong> is called rather than <strong>onCreate()</strong>. This is because the app exists in memory and just need to be loaded from it.</p>
+<p>4. When the user presses back button to exit the application or there is no memory for the app, the <strong>onDestroy() </strong>method is called. In normal case, the order of execution for a running application would be,</p>
+<p><strong>a)     onPause()</strong></p>
+<p><strong>b)    onStop()</strong></p>
+<p><strong>c)     onDestroy().</strong></p>
+<p>Difference between <strong>“onPause()”</strong>   and   <strong>“onPause() + onStop()” </strong></p>
+<p>There are some situations when some new activity partially occupies the screen. In such cases, some part of our activity is still visible to the user and is not shifted to <strong><a href="http://developer.android.com/guide/components/tasks-and-back-stack.html">BackStack</a>. </strong>On the other hand, there are some cases when some new activity or application completely blocks the GUI (or screen), our activity’s GUI is shifted to BackStack. So in the first case (partially occupied), only the <strong>onPause()</strong> method is called. Whereas in the second case (completely blocked GUI), <strong>onPause() + onStop()</strong> methods are called. I hope you have now understood the difference between the situations where one or both of them are called.</p>
+<p>In the next tutorial, I’ll show the code for the same thing which we have discussed till now. It will also cover debugging in android using a special class (<strong>android.util.Log</strong>). Stay tuned for more tutorials.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 18 July 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/j4a-java-for-android.html">J4A (Java for Android)</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/activity.html">activity</a>,      <a href="thegeekyway.com/tag/android.html">Android</a>,      <a href="thegeekyway.com/tag/lifecycle.html">lifecycle</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

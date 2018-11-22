@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="conditional, if-else, nested">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Understanding Conditional Statements: if else  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/conditional-statements-if-else/">Understanding Conditional Statements: if else</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>In this tutorial, we'll uncover something much interesting which would simplify our work as a programer and help us to check if a given condition is true or not. We'll study about the Conditional statements like <strong>if - else</strong> , <strong>if-else if-else</strong>, <strong>nested if -else</strong> and <strong>switch</strong> (continued in next tutorial)</p>
+<p><u><strong>Understanding if else statements :</strong></u></p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/Conditional-statements-if-else1.png" title="Conditional statements in C : if else, nested if-else"><img alt="Conditional statements in C : if else, nested if-else" src="thegeekyway.com/uploads/images/2014/01/Conditional-statements-if-else1.png"></a></p>
+</div>
+<p>To make the control of the program use conditional flow we need to use conditional statements, as the name suggests, this type of flow of control depends upon a particular condition ie either if it is true or it is false etc.</p>
+<p>We'll first look at an if statement by considering this example :-</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int main()
+{
+  int num;
+  printf(&quot;Enter a number n&quot;);
+  scanf(&quot;%d&quot;,&amp;num);
+  if(num == 5)
+  {
+     printf(&quot;Number entered is 5&quot;);
+  }
+  return 0;
+}
+</pre></div>
+
+
+<p>The above program would simply accept a value from user, and if the value entered is equal to 5 ie of course 5, then we would get a message printed on console "Number entered is 5" , if value entered is not 5, nothing would happen.</p>
+<p>Note: whenever you write an if statement, you should have an opening and closing parenthesis as shown (in case you need to have multiple statements to be executed for an if statement) else, the program with just single statement in if block should not necessarily consist a block, so the above program would work if</p>
+<div class="highlight"><pre><span></span>if(num == 5)
+{
+   printf(&quot;Number entered is 5&quot;);
+}
+</pre></div>
+
+
+<p>is written as</p>
+<div class="highlight"><pre><span></span>if(num == 5)
+  printf(&quot;Number entered is 5&quot;);
+</pre></div>
+
+
+<p>So, we just instructed the computer to print a message, if a given condition happens to be true (which is entered value is 5 in this case).</p>
+<p>Now, consider, we wanted program to print a message if the value entered is not 5, ie, if value entered is 5, it would print the message "Number entered is 5" otherwise, it would print "Number entered is not 5" . Let's see how this can be done with the help of if-else</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int main()
+{
+  int num;
+  printf(&quot;Enter a number n&quot;);
+  scanf(&quot;%d&quot;,&amp;num);
+  if(num == 5)
+  {
+    printf(&quot;Number entered is 5&quot;);
+  }
+  else
+  {
+    printf(&quot;Number entered is not 5&quot;);
+  }
+  return 0;
+}
+</pre></div>
+
+
+<p>Let's say if we need to print message for if a number is 2, it should print "Number entered is 2" , if it's 5, it should print "Number entered is 5" otherwise, it should print "Number is neither 2 nor 5. Let's see how it can be done with if-else statements</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int main()
+{
+  int num;
+  printf(&quot;Enter a number n&quot;);
+  scanf(&quot;%d&quot;,&amp;num);
+  if(num == 5)
+  {
+    printf(&quot;Number entered is 5&quot;);
+  }
+  else if(num == 2)
+  {
+    printf(&quot;Number entered is 2&quot;);
+  }
+  else
+  {
+    printf(&quot;Number entered is not 5&quot;);
+  }
+  return 0;
+}
+</pre></div>
+
+
+<p>The above program could include any no of if - else if - else statements (which means no. of else if statements in between if and else can be increased )</p>
+<p>To understand nested if-else let's see the following program:</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int main()
+{
+  int num;
+  printf(&quot;Enter a number n&quot;);
+  scanf(&quot;%d&quot;,&amp;num);
+  if(num % 2 == 0)
+  {
+    printf(&quot;Number entered is even&quot;);
+    if(num == 2)
+      printf(&quot;Number entered is 2&quot;);
+    else
+      printf(&quot;Number entered is not 2&quot;);
+  }
+  else
+    printf(&quot;Number entered is not even&quot;);
+  return 0;
+}
+</pre></div>
+
+
+<p>The above program first checks if a number is even or not, if it's even then it checks if number is 2 or not.</p>
+<p>Note : To check number is even or not, we used modulus operator as discussed in <a href="http://www.thegeekyway.com/operators-c-language/" title="Operators in the C language">Tutorial on Operators</a> . Here we checked, if the number when divided by 2 leaves remainder 0 ie, it is entirely divisible by 2, then it's even else it's not even.</p>
+<p>In the next tutorial, we'll know about another conditional statement, switch statement.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 12 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/conditional.html">conditional</a>,      <a href="thegeekyway.com/tag/if-else.html">if-else</a>,      <a href="thegeekyway.com/tag/nested.html">nested</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

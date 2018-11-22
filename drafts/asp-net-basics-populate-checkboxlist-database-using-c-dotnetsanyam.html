@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; ASP.Net Basics : Populate checkboxlist from database using C#  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/drafts/asp-net-basics-populate-checkboxlist-database-using-c-dotnetsanyam.html">ASP.Net Basics : Populate checkboxlist from database using C#</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>In this tutorial we will be discussing how to populate data in checkboxlist or radiobutton list from the values taken from database and display them on the screen.<br>
+Let us assume a database with following table definitions (from my <a class="external" href="http://myCampusNotes.com">next project</a>) and table values.<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/03/asp1.png"><img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp1.png"></a><br>
+</div>
+and the output should be</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/03/asp2.png"><img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp2.png"></a></p>
+</div>
+<p>Various steps involved in populating data from database to CheckBoxList (You can directly jump to that link by clicking on the following links)</p>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_1">Step 1 : Select the checkBoxList control from the toolbox.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_2">Step 2 : On the C# side coding create a SQL connection.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_3">Step 3 : Write your SQL Query.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_4">Step 4 : Create a SQL Adapter.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_5">Step 5 : Create a Dataset.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_6">Step 6 : Fill the dataset with the values from the SqlDataAdapter.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_7">Step 7 : Check if the resultant dataset produce rows or not.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_8">Step 8 : Provide the dataSet to the Checkbox list.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_9">Step 9 : Bind the data of the checkboxlist.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_10">Step 10: The final step : Provide the DataTextField and DataValueField to the checkbox list.</a></h5>
+<h5><a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_11">Step 11: The complete code</a></h5>
+<hr>
+<h5>Step 1 :  <p style="text-decoration: underline; color: black;">Select the checkBoxList control from the toolbox.</p></h5>
+<p>You can get to the toolbox by pressing ctrl W,X and typing checkBoxList you can drag drop the checkBoxList control on the aspx page. You will get the following code :-</p>
+<p>::: {#crayon-53c4b45bb4f5a083241931 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+\<asp:CheckBoxList ID="CheckBoxList1" runat="server"\>\</asp:CheckBoxList\>\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f5a0832419 |
+| n-53c4b45bb4f5a083241931-1"}      | 31-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f5a0832419 |
+| ::: {.crayon-num .crayon-striped- | 31-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 5a083241931-2"}                   |  <p .crayon-o>\&lt;</p> <p .crayon-v>asp</p>[: |
+| 2                                 | ]{.crayon-o}[CheckBoxList         |
+| :::                               | ]{.crayon-e} <p .crayon-v>ID</p>[=]{.c |
+|                                   | rayon-o}["CheckBoxList1"]{.crayon |
+| ::: {.crayon-num data-line="crayo | -s} <p .crayon-v>runat</p>[=]{.crayon- |
+| n-53c4b45bb4f5a083241931-3"}      | o} <p .crayon-s>"server"</p>[>]{.cray |
+| 3                                 | on-o} <p .crayon-o>\&lt;</p>[/]{.crayon-o |
+| :::                               | } <p .crayon-v>asp</p> <p .crayon-o>:</p>[C |
+| :::                               | heckBoxList]{.crayon-v}[>]{.cray |
+|                                   | on-o}                             |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f5a0832419 |
+|                                   | 31-3 .crayon-line}                |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<p><strong>ID = “CheckBoxList1″</strong> means that the CheckBoxList has been allotted a specific ID so that we can work on the C# page using that reference.<br>
+<strong>runat=”server”</strong> means that the code will run on the server side (i.e. on the C# end) also, if we remove the code then we are left with the client side scripting only.</p>
+<hr>
+<h5>Step 2 :  <p style="text-decoration: underline; color: black;">On the C# side coding create a SQL connection.</p></h5>
+<p>Sql connection can be created using the following asp (C#) snippet</p>
+<p>::: {#crayon-53c4b45bb4f69906317331 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+using System.Data.SqlClient;\<br /\><br>SqlConnection con = new\<br /\><br>SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings\["ConnectionString"\].ConnectionString);\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f699063173 |
+| n-53c4b45bb4f69906317331-1"}      | 31-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f699063173 |
+| ::: {.crayon-num .crayon-striped- | 31-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 69906317331-2"}                   | [using                            |
+| 2                                 | ]{.crayon-e} <p .crayon-v>System</p>[. |
+| :::                               | ]{.crayon-sy} <p .crayon-v>Data</p>[.] |
+|                                   | {.crayon-sy}[SqlClient]{.crayon-v |
+| ::: {.crayon-num data-line="crayo | } <p .crayon-sy>;</p>                  |
+| n-53c4b45bb4f69906317331-3"}      | :::                               |
+| 3                                 |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4f699063173 |
+|                                   | 31-3 .crayon-line}                |
+| ::: {.crayon-num .crayon-striped- | [SqlConnection                    |
+| num data-line="crayon-53c4b45bb4f | ]{.crayon-e} <p .crayon-v>con</p>[=]{. |
+| 69906317331-4"}                   | crayon-o} <p .crayon-r>new</p>[SqlConn |
+| 4                                 | ection]{.crayon-e} <p .crayon-sy>(</p> |
+| :::                               |  <p .crayon-v>System</p>[.]{.crayon-sy |
+| :::                               | } <p .crayon-v>Web</p> <p .crayon-sy>.</p>[ |
+|                                   | Configuration]{.crayon-v}[.]{.cra |
+|                                   | yon-sy}[WebConfigurationManager]{ |
+|                                   | .crayon-v} <p .crayon-sy>.</p>[Connect |
+|                                   | ionStrings]{.crayon-v}[[]{.crayo |
+|                                   | n-sy}["ConnectionString"]{.crayon |
+|                                   | -s}[]]{.crayon-sy}[.]{.crayon-sy |
+|                                   | } <p .crayon-v>ConnectionString</p>[)] |
+|                                   | {.crayon-sy} <p .crayon-sy>;</p>       |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f699063173 |
+|                                   | 31-4 .crayon-line .crayon-striped |
+|                                   | -line}                            |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<p>and in web.config add the following lines under configurations tab</p>
+<p>::: {#crayon-53c4b45bb4f71943859582 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+\<connectionStrings\>\<br /\><br>\<add name="ConnectionString" connectionString="Data\<br /\><br>Source=(LocalDB)v11.0;AttachDbFilename=\|DataDirectory\|(your database\<br /\><br>name);Integrated Security=True"\<br /\><br>providerName="System.Data.SqlClient" /\>\<br /\><br>\</connectionStrings\>\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f719438595 |
+| n-53c4b45bb4f71943859582-1"}      | 82-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f719438595 |
+| ::: {.crayon-num .crayon-striped- | 82-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 71943859582-2"}                   |  <p .crayon-o>\&lt;</p>[connectionStrings |
+| 2                                 | ]{.crayon-v} <p .crayon-o>></p>       |
+| :::                               | :::                               |
+|                                   |                                   |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f719438595 |
+| n-53c4b45bb4f71943859582-3"}      | 82-3 .crayon-line}                |
+| 3                                 |  <p .crayon-h>    </p> <p .crayon-o>\&lt;</p>[ |
+| :::                               | add                               |
+|                                   | ]{.crayon-e} <p .crayon-v>name</p>[=]{ |
+| ::: {.crayon-num .crayon-striped- | .crayon-o}["ConnectionString"]{.c |
+| num data-line="crayon-53c4b45bb4f | rayon-s}[connectionString]{.crayo |
+| 71943859582-4"}                   | n-v} <p .crayon-o>=</p>["Data          |
+| 4                                 | Source=(LocalDB)v11.0;AttachDbFil |
+| :::                               | ename=|DataDirectory|[]{.crayon |
+|                                   | -sy} <p .crayon-sy>(</p>[your          |
+| ::: {.crayon-num data-line="crayo | ]{.crayon-e}[database             |
+| n-53c4b45bb4f71943859582-5"}      | ]{.crayon-e} <p .crayon-v>name</p>[)]{ |
+| 5                                 | .crayon-sy};Integrated            |
+| :::                               | Security=True"]{.crayon-s}        |
+|                                   | :::                               |
+| ::: {.crayon-num .crayon-striped- |                                   |
+| num data-line="crayon-53c4b45bb4f | ::: {#crayon-53c4b45bb4f719438595 |
+| 71943859582-6"}                   | 82-4 .crayon-line .crayon-striped |
+| 6                                 | -line}                            |
+| :::                               |  <p .crayon-h>      </p>[providerName] |
+| :::                               | {.crayon-v} <p .crayon-o>=</p>["System |
+|                                   | .Data.SqlClient"]{.crayon-s}[/]{. |
+|                                   | crayon-o} <p .crayon-o>></p>          |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f719438595 |
+|                                   | 82-5 .crayon-line}                |
+|                                   |  <p .crayon-h>  </p> <p .crayon-o>\&lt;</p>[/] |
+|                                   | {.crayon-o}[connectionStrings]{.c |
+|                                   | rayon-v} <p .crayon-o>></p>           |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f719438595 |
+|                                   | 82-6 .crayon-line .crayon-striped |
+|                                   | -line}                            |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<p>you need to include the System.Data.SqlClient class inorder to work with sql.</p>
+<hr>
+<h5>Step 3 :  <p style="text-decoration: underline; color: black;">Write your SQL Query.</p></h5>
+<p>The next step after creating the connection is to open the connection we can use con.open() [here con is the object of SqlConnection class created in Step2]. The SQL query for this table will be :-</p>
+<p>::: {#crayon-53c4b45bb4f79187282856 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+string query = "SELECT distinct[Clg_name] FROM [Complete_table]";\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f791872828 |
+| n-53c4b45bb4f79187282856-1"}      | 56-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f791872828 |
+| ::: {.crayon-num .crayon-striped- | 56-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 79187282856-2"}                   |  <p .crayon-t>string</p>[query]{.crayo |
+| 2                                 | n-v} <p .crayon-o>=</p>["SELECT        |
+| :::                               | distinct[Clg_name] FROM        |
+|                                   | [Complete_table]"]{.crayon-s}[ |
+| ::: {.crayon-num data-line="crayo | ;]{.crayon-sy}                    |
+| n-53c4b45bb4f79187282856-3"}      | :::                               |
+| 3                                 |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4f791872828 |
+| :::                               | 56-3 .crayon-line}                |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<hr>
+<h5>Step 4 :  <p style="text-decoration: underline; color: black;">Create a SQL Adapter.</p></h5>
+<p>SQL adapter is derived from calss System.Data.SqlClient.SqlDataAdapter which represents a set of data commands and a database connection that are used to fill the System.Data.Dataset and update a SQL Server database. This class cannot be inherited.</p>
+<p>The following C# snippet creates a SQL adapter</p>
+<p>::: {#crayon-53c4b45bb4f80472365892 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+SqlDataAdapter da = new SqlDataAdapter(query, con);\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f804723658 |
+| n-53c4b45bb4f80472365892-1"}      | 92-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f804723658 |
+| ::: {.crayon-num .crayon-striped- | 92-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 80472365892-2"}                   | [SqlDataAdapter                   |
+| 2                                 | ]{.crayon-e} <p .crayon-v>da</p>[=]{.c |
+| :::                               | rayon-o} <p .crayon-r>new</p>[SqlDataA |
+|                                   | dapter]{.crayon-e} <p .crayon-sy>(</p> |
+| ::: {.crayon-num data-line="crayo |  <p .crayon-v>query</p> <p .crayon-sy>,</p> |
+| n-53c4b45bb4f80472365892-3"}      |  <p .crayon-v>con</p> <p .crayon-sy>)</p>[; |
+| 3                                 | ]{.crayon-sy}                     |
+| :::                               | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f804723658 |
+|                                   | 92-3 .crayon-line}                |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<hr>
+<h5>Step 5 :  <p style="text-decoration: underline; color: black;">Create a Dataset.</p></h5>
+<p>Dataset represents an in-memory cache of data, i.e. the data which is being retrieved from database and stored into checkboxlist is being stored in cache and data is retreived from cache using Dataset.</p>
+<p>The C# snippet to create a Dataset is as follows</p>
+<p>::: {#crayon-53c4b45bb4f88900323691 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+DataSet ds = new DataSet();\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f889003236 |
+| n-53c4b45bb4f88900323691-1"}      | 91-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f889003236 |
+| ::: {.crayon-num .crayon-striped- | 91-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 88900323691-2"}                   | [DataSet                          |
+| 2                                 | ]{.crayon-e} <p .crayon-v>ds</p>[=]{.c |
+| :::                               | rayon-o} <p .crayon-r>new</p>[DataSet] |
+|                                   | {.crayon-e} <p .crayon-sy>(</p>[)]{.cr |
+| ::: {.crayon-num data-line="crayo | ayon-sy} <p .crayon-sy>;</p>           |
+| n-53c4b45bb4f88900323691-3"}      | :::                               |
+| 3                                 |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4f889003236 |
+| :::                               | 91-3 .crayon-line}                |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<hr>
+<h5>Step 6 :  <p style="text-decoration: underline; color: black;">Fill the dataset with the values from the SqlDataAdapter.</p></h5>
+<p>Now we need to fill in the data from sql dataAdapter using dataset, the C# snippet for the same is :-</p>
+<p>::: {#crayon-53c4b45bb4f8f380295549 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+da.Fill(ds);\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f8f3802955 |
+| n-53c4b45bb4f8f380295549-1"}      | 49-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f8f3802955 |
+| ::: {.crayon-num .crayon-striped- | 49-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 8f380295549-2"}                   |  <p .crayon-v>da</p> <p .crayon-sy>.</p>[Fi |
+| 2                                 | ll]{.crayon-e} <p .crayon-sy>(</p>[ds] |
+| :::                               | {.crayon-v} <p .crayon-sy>)</p>[;]{.cr |
+|                                   | ayon-sy}                          |
+| ::: {.crayon-num data-line="crayo | :::                               |
+| n-53c4b45bb4f8f380295549-3"}      |                                   |
+| 3                                 | ::: {#crayon-53c4b45bb4f8f3802955 |
+| :::                               | 49-3 .crayon-line}                |
+| :::                               | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<hr>
+<h5>Step 7 :  <p style="text-decoration: underline; color: black;">Check if the resultant dataset produce rows or not.</p></h5>
+<p>We can check if the dataset which populates checkboxlist from database produce rows or not, if it doesnt produce rows we can simply give an error message that no results available.<br>
+Here is the C# snippet for the same :-</p>
+<p>::: {#crayon-53c4b45bb4f96348111424 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; z-index: 0; overflow: hidden;" readonly="readonly" wrap="soft" data-settings="dblclick">
+if (ds.Tables[0].Rows.Count != 0)\<br /\><br>{\<br /\><br>// more coding will be discussed in next steps\<br /\><br>} else {\<br /\><br>// Give an error message that no results found\<br /\><br>}\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f963481114 |
+| n-53c4b45bb4f96348111424-1"}      | 24-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f963481114 |
+| ::: {.crayon-num .crayon-striped- | 24-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 96348111424-2"}                   |  <p .crayon-st>if</p> <p .crayon-sy>(</p>[d |
+| 2                                 | s]{.crayon-v} <p .crayon-sy>.</p>[Tabl |
+| :::                               | es]{.crayon-v}[\ <p .crayon-sy></p>[0] |
+|                                   | {.crayon-cn}[]]{.crayon-sy}[.]{. |
+| ::: {.crayon-num data-line="crayo | crayon-sy} <p .crayon-v>Rows</p>[.]{.c |
+| n-53c4b45bb4f96348111424-3"}      | rayon-sy} <p .crayon-v>Count</p>[!=]{. |
+| 3                                 | crayon-o} <p .crayon-cn>0</p>[)]{.cray |
+| :::                               | on-sy}                            |
+|                                   | :::                               |
+| ::: {.crayon-num .crayon-striped- |                                   |
+| num data-line="crayon-53c4b45bb4f | ::: {#crayon-53c4b45bb4f963481114 |
+| 96348111424-4"}                   | 24-3 .crayon-line}                |
+| 4                                 |  <p .crayon-sy>{</p>                   |
+| :::                               | :::                               |
+|                                   |                                   |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f963481114 |
+| n-53c4b45bb4f96348111424-5"}      | 24-4 .crayon-line .crayon-striped |
+| 5                                 | -line}                            |
+| :::                               |  <p .crayon-h>    </p>[// more coding  |
+|                                   | will be discussed in next         |
+| ::: {.crayon-num .crayon-striped- | steps]{.crayon-c}                 |
+| num data-line="crayon-53c4b45bb4f | :::                               |
+| 96348111424-6"}                   |                                   |
+| 6                                 | ::: {#crayon-53c4b45bb4f963481114 |
+| :::                               | 24-5 .crayon-line}                |
+|                                   |  <p .crayon-sy>}</p> <p .crayon-st>else</p> |
+| ::: {.crayon-num data-line="crayo |  <p .crayon-sy>{</p>                   |
+| n-53c4b45bb4f96348111424-7"}      | :::                               |
+| 7                                 |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4f963481114 |
+|                                   | 24-6 .crayon-line .crayon-striped |
+| ::: {.crayon-num .crayon-striped- | -line}                            |
+| num data-line="crayon-53c4b45bb4f |  <p .crayon-h>   </p>[// Give an error |
+| 96348111424-8"}                   | message that no results           |
+| 8                                 | found]{.crayon-c}                 |
+| :::                               | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f963481114 |
+|                                   | 24-7 .crayon-line}                |
+|                                   |  <p .crayon-sy>}</p>                   |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f963481114 |
+|                                   | 24-8 .crayon-line .crayon-striped |
+|                                   | -line}                            |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<hr>
+<h5>Step 8 :  <p style="text-decoration: underline; color: black;">Provide the dataSet to the Checkbox list.</p></h5>
+<p>Next step is to point the checkBoxList towards the SQL database for that we will use the dataset to point to the database. Here is the following C# snippet.</p>
+<p>::: {#crayon-53c4b45bb4f9d059020762 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+CheckBoxList1.DataSource = ds;\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4f9d0590207 |
+| n-53c4b45bb4f9d059020762-1"}      | 62-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4f9d0590207 |
+| ::: {.crayon-num .crayon-striped- | 62-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| 9d059020762-2"}                   |  <p .crayon-v>CheckBoxList1</p>[.]{.cr |
+| 2                                 | ayon-sy} <p .crayon-v>DataSource</p>[= |
+| :::                               | ]{.crayon-o} <p .crayon-v>ds</p>[;]{.c |
+|                                   | rayon-sy}                         |
+| ::: {.crayon-num data-line="crayo | :::                               |
+| n-53c4b45bb4f9d059020762-3"}      |                                   |
+| 3                                 | ::: {#crayon-53c4b45bb4f9d0590207 |
+| :::                               | 62-3 .crayon-line}                |
+| :::                               | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<hr>
+<h5>Step 9 :  <p style="text-decoration: underline; color: black;">Bind the data of the checkboxlist.</p></h5>
+<p>Now the next and the second last step is to bind the data. It can be done using following C# snippet</p>
+<p>::: {#crayon-53c4b45bb4fa5177260392 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick">
+CheckBoxList1.DataBind();\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4fa51772603 |
+| n-53c4b45bb4fa5177260392-1"}      | 92-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fa51772603 |
+| ::: {.crayon-num .crayon-striped- | 92-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| a5177260392-2"}                   |  <p .crayon-v>CheckBoxList1</p>[.]{.cr |
+| 2                                 | ayon-sy} <p .crayon-e>DataBind</p>[(]{ |
+| :::                               | .crayon-sy} <p .crayon-sy>)</p>[;]{.cr |
+|                                   | ayon-sy}                          |
+| ::: {.crayon-num data-line="crayo | :::                               |
+| n-53c4b45bb4fa5177260392-3"}      |                                   |
+| 3                                 | ::: {#crayon-53c4b45bb4fa51772603 |
+| :::                               | 92-3 .crayon-line}                |
+| :::                               | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<p>on writing till here we get the following output :-</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/03/asp4.png"><img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp4.png"></a></p>
+</div>
+<hr>
+<h5>Step 10:  <p style="text-decoration: underline; color: black;">The final step : Provide the DataTextField and DataValueField to the checkbox list.</p></h5>
+<p>Here the DataTextField and DataValueField is the name of the column in our database, the C# snippet for the same is :-</p>
+<p>::: {#crayon-53c4b45bb4fac916279030 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; z-index: 0; overflow: hidden;" readonly="readonly" wrap="soft" data-settings="dblclick">
+CheckBoxList1.DataTextField = "Clg_Name";\<br /\><br>CheckBoxList1.DataValueField = "Clg\_Name";\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4fac9162790 |
+| n-53c4b45bb4fac916279030-1"}      | 30-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fac9162790 |
+| ::: {.crayon-num .crayon-striped- | 30-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| ac916279030-2"}                   |  <p .crayon-v>CheckBoxList1</p>[.]{.cr |
+| 2                                 | ayon-sy}[DataTextField]{.crayon-v |
+| :::                               | } <p .crayon-o>=</p>["Clg_Name"]{.cra |
+|                                   | yon-s} <p .crayon-sy>;</p>             |
+| ::: {.crayon-num data-line="crayo | :::                               |
+| n-53c4b45bb4fac916279030-3"}      |                                   |
+| 3                                 | ::: {#crayon-53c4b45bb4fac9162790 |
+| :::                               | 30-3 .crayon-line}                |
+|                                   |  <p .crayon-v>CheckBoxList1</p>[.]{.cr |
+| ::: {.crayon-num .crayon-striped- | ayon-sy}[DataValueField]{.crayon- |
+| num data-line="crayon-53c4b45bb4f | v} <p .crayon-o>=</p>["Clg_Name"]{.cr |
+| ac916279030-4"}                   | ayon-s} <p .crayon-sy>;</p>            |
+| 4                                 | :::                               |
+| :::                               |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4fac9162790 |
+|                                   | 30-4 .crayon-line .crayon-striped |
+|                                   | -line}                            |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+<p>Thats it, the data in database will be binded to checkbox list and will be displayed.</p>
+<hr>
+<h5>Step 11:  <p style="text-decoration: underline; color: black;">The complete code.</p></h5>
+<p>here is the complete code :-</p>
+<p>::: {#crayon-53c4b45bb4fb3837530829 .crayon-syntax .crayon-theme-eclipse .crayon-font-monaco .crayon-os-pc .print-yes .notranslate style="font-size: 16px ! important; line-height: 16px ! important; height: auto;" data-settings=" minimize scroll-mouseover"}
+::: {.crayon-plain-wrap}
+<textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; z-index: 0; opacity: 0; overflow: hidden;" readonly="readonly" wrap="soft" data-settings="dblclick">
+protected void Page_Load(object sender, EventArgs e)\<br /\><br>{\<br /\><br>SqlConnection con = new\<br /\><br>SqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings\["ConnectionString"\].ConnectionString);\</p\><br>\<p\> string query;\<br /\><br>try\<br /\><br>{\<br /\><br>query = "SELECT distinct\[Clg\_name\] FROM \[Complete\_table\]";\<br /\><br>con.Open();\<br /\><br>SqlDataAdapter da = new SqlDataAdapter(query, con);\<br /\><br>DataSet ds = new DataSet();\<br /\><br>da.Fill(ds);\<br /\><br>if (ds.Tables\[0\].Rows.Count != 0)\<br /\><br>{\</p\><br>\<p\> CheckBoxList1.DataSource = ds;\<br /\><br>CheckBoxList1.DataTextField = "Clg\_Name";\<br /\><br>CheckBoxList1.DataValueField = "Clg\_Name";\<br /\><br>CheckBoxList1.DataBind(); \</p\><br>\<p\> }\<br /\><br>else\<br /\><br>{\<br /\><br>Response.Write("No Results found");\</p\><br>\<p\> }\</p\><br>\<p\> }\<br /\><br>catch (Exception ex)\<br /\><br>{\<br /\><br>Response.Write("\<br\>" + ex);\<br /\><br>}\<br /\><br>finally\<br /\><br>{\<br /\><br>con.Close();\<br /\><br>}\<br /\><br>}\<br /\><br>}\<br /\><br></textarea>
+:::</p>
+<p>::: {.crayon-main style="position: relative; z-index: 1; overflow: hidden;"}
++-----------------------------------+-----------------------------------+
+| ::: {.crayon-nums-content style=" | ::: {.crayon-pre style="font-size |
+| font-size: 16px !important; line- | : 16px !important; line-height: 1 |
+| height: 16px !important;"}        | 6px !important;"}                 |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4fb38375308 |
+| n-53c4b45bb4fb3837530829-1"}      | 29-1 .crayon-line}                |
+| 1                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| ::: {.crayon-num .crayon-striped- | 29-2 .crayon-line .crayon-striped |
+| num data-line="crayon-53c4b45bb4f | -line}                            |
+| b3837530829-2"}                   |  <p .crayon-m>protected</p>[void]{.cra |
+| 2                                 | yon-t} <p .crayon-e>Page_Load</p>[(]{ |
+| :::                               | .crayon-sy} <p .crayon-t>object</p>[se |
+|                                   | nder]{.crayon-v} <p .crayon-sy>,</p>[E |
+| ::: {.crayon-num data-line="crayo | ventArgs]{.crayon-i}[e]{.crayon-v |
+| n-53c4b45bb4fb3837530829-3"}      | } <p .crayon-sy>)</p>                  |
+| 3                                 | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| ::: {.crayon-num .crayon-striped- | 29-3 .crayon-line}                |
+| num data-line="crayon-53c4b45bb4f |  <p .crayon-h>    </p> <p .crayon-sy>{</p>  |
+| b3837530829-4"}                   | :::                               |
+| 4                                 |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-4 .crayon-line .crayon-striped |
+| ::: {.crayon-num data-line="crayo | -line}                            |
+| n-53c4b45bb4fb3837530829-5"}      |  <p .crayon-h>        </p>[SqlConnecti |
+| 5                                 | on                                |
+| :::                               | ]{.crayon-e} <p .crayon-v>con</p>[=]{. |
+|                                   | crayon-o} <p .crayon-r>new</p>[SqlConn |
+| ::: {.crayon-num .crayon-striped- | ection]{.crayon-e} <p .crayon-sy>(</p> |
+| num data-line="crayon-53c4b45bb4f |  <p .crayon-v>System</p>[.]{.crayon-sy |
+| b3837530829-6"}                   | } <p .crayon-v>Web</p> <p .crayon-sy>.</p>[ |
+| 6                                 | Configuration]{.crayon-v}[.]{.cra |
+| :::                               | yon-sy}[WebConfigurationManager]{ |
+|                                   | .crayon-v} <p .crayon-sy>.</p>[Connect |
+| ::: {.crayon-num data-line="crayo | ionStrings]{.crayon-v}[[]{.crayo |
+| n-53c4b45bb4fb3837530829-7"}      | n-sy}["ConnectionString"]{.crayon |
+| 7                                 | -s}[]]{.crayon-sy}[.]{.crayon-sy |
+| :::                               | } <p .crayon-v>ConnectionString</p>[)] |
+|                                   | {.crayon-sy} <p .crayon-sy>;</p>       |
+| ::: {.crayon-num .crayon-striped- | :::                               |
+| num data-line="crayon-53c4b45bb4f |                                   |
+| b3837530829-8"}                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| 8                                 | 29-5 .crayon-line}                |
+| :::                               |  <p .crayon-h>        </p>[string]{.cr |
+|                                   | ayon-t} <p .crayon-v>query</p>[;]{.cra |
+| ::: {.crayon-num data-line="crayo | yon-sy}                           |
+| n-53c4b45bb4fb3837530829-9"}      | :::                               |
+| 9                                 |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-6 .crayon-line .crayon-striped |
+| ::: {.crayon-num .crayon-striped- | -line}                            |
+| num data-line="crayon-53c4b45bb4f |  <p .crayon-h>        </p>[try]{.crayo |
+| b3837530829-10"}                  | n-st}                             |
+| 10                                | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| ::: {.crayon-num data-line="crayo | 29-7 .crayon-line}                |
+| n-53c4b45bb4fb3837530829-11"}     |  <p .crayon-h>        </p>[{]{.crayon- |
+| 11                                | sy}                               |
+| :::                               | :::                               |
+|                                   |                                   |
+| ::: {.crayon-num .crayon-striped- | ::: {#crayon-53c4b45bb4fb38375308 |
+| num data-line="crayon-53c4b45bb4f | 29-8 .crayon-line .crayon-striped |
+| b3837530829-12"}                  | -line}                            |
+| 12                                |  <p .crayon-h>            </p>[query]{ |
+| :::                               | .crayon-v} <p .crayon-o>=</p>["SELECT  |
+|                                   | distinct[Clg_name] FROM        |
+| ::: {.crayon-num data-line="crayo | [Complete_table]"]{.crayon-s}[ |
+| n-53c4b45bb4fb3837530829-13"}     | ;]{.crayon-sy}                    |
+| 13                                | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| ::: {.crayon-num .crayon-striped- | 29-9 .crayon-line}                |
+| num data-line="crayon-53c4b45bb4f |  <p .crayon-h>            </p>[con]{.c |
+| b3837530829-14"}                  | rayon-v} <p .crayon-sy>.</p>[Open]{.cr |
+| 14                                | ayon-e} <p .crayon-sy>(</p>[)]{.crayon |
+| :::                               | -sy} <p .crayon-sy>;</p>               |
+|                                   | :::                               |
+| ::: {.crayon-num data-line="crayo |                                   |
+| n-53c4b45bb4fb3837530829-15"}     | ::: {#crayon-53c4b45bb4fb38375308 |
+| 15                                | 29-10 .crayon-line .crayon-stripe |
+| :::                               | d-line}                           |
+|                                   |  <p .crayon-h>            </p>[SqlData |
+| ::: {.crayon-num .crayon-striped- | Adapter                           |
+| num data-line="crayon-53c4b45bb4f | ]{.crayon-e} <p .crayon-v>da</p>[=]{.c |
+| b3837530829-16"}                  | rayon-o} <p .crayon-r>new</p>[SqlDataA |
+| 16                                | dapter]{.crayon-e} <p .crayon-sy>(</p> |
+| :::                               |  <p .crayon-v>query</p> <p .crayon-sy>,</p> |
+|                                   |  <p .crayon-v>con</p> <p .crayon-sy>)</p>[; |
+| ::: {.crayon-num data-line="crayo | ]{.crayon-sy}                     |
+| n-53c4b45bb4fb3837530829-17"}     | :::                               |
+| 17                                |                                   |
+| :::                               | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-11 .crayon-line}               |
+| ::: {.crayon-num .crayon-striped- |  <p .crayon-h>            </p>[DataSet |
+| num data-line="crayon-53c4b45bb4f | ]{.crayon-e} <p .crayon-v>ds</p>[=]{.c |
+| b3837530829-18"}                  | rayon-o} <p .crayon-r>new</p>[DataSet] |
+| 18                                | {.crayon-e} <p .crayon-sy>(</p>[)]{.cr |
+| :::                               | ayon-sy} <p .crayon-sy>;</p>           |
+|                                   | :::                               |
+| ::: {.crayon-num data-line="crayo |                                   |
+| n-53c4b45bb4fb3837530829-19"}     | ::: {#crayon-53c4b45bb4fb38375308 |
+| 19                                | 29-12 .crayon-line .crayon-stripe |
+| :::                               | d-line}                           |
+|                                   |  <p .crayon-h>            </p>[da]{.cr |
+| ::: {.crayon-num .crayon-striped- | ayon-v} <p .crayon-sy>.</p>[Fill]{.cra |
+| num data-line="crayon-53c4b45bb4f | yon-e} <p .crayon-sy>(</p>[ds]{.crayon |
+| b3837530829-20"}                  | -v} <p .crayon-sy>)</p> <p .crayon-sy>;</p> |
+| 20                                | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| ::: {.crayon-num data-line="crayo | 29-13 .crayon-line}               |
+| n-53c4b45bb4fb3837530829-21"}     |  <p .crayon-h>            </p>[if]{.cr |
+| 21                                | ayon-st} <p .crayon-sy>(</p>[ds]{.cray |
+| :::                               | on-v} <p .crayon-sy>.</p>[Tables]{.cra |
+|                                   | yon-v}[\ <p .crayon-sy></p>[0]{.crayon |
+| ::: {.crayon-num .crayon-striped- | -cn}[]]{.crayon-sy}[.]{.crayon-s |
+| num data-line="crayon-53c4b45bb4f | y} <p .crayon-v>Rows</p>[.]{.crayon-sy |
+| b3837530829-22"}                  | } <p .crayon-v>Count</p>[!=]{.crayon-o |
+| 22                                | } <p .crayon-cn>0</p> <p .crayon-sy>)</p>   |
+| :::                               | :::                               |
+|                                   |                                   |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4fb38375308 |
+| n-53c4b45bb4fb3837530829-23"}     | 29-14 .crayon-line .crayon-stripe |
+| 23                                | d-line}                           |
+| :::                               |  <p .crayon-h>            </p>[{]{.cra |
+|                                   | yon-sy}                           |
+| ::: {.crayon-num .crayon-striped- | :::                               |
+| num data-line="crayon-53c4b45bb4f |                                   |
+| b3837530829-24"}                  | ::: {#crayon-53c4b45bb4fb38375308 |
+| 24                                | 29-15 .crayon-line}               |
+| :::                               | :::                               |
+|                                   |                                   |
+| ::: {.crayon-num data-line="crayo | ::: {#crayon-53c4b45bb4fb38375308 |
+| n-53c4b45bb4fb3837530829-25"}     | 29-16 .crayon-line .crayon-stripe |
+| 25                                | d-line}                           |
+| :::                               |  <p .crayon-h>                </p>[Che |
+|                                   | ckBoxList1]{.crayon-v}[.]{.crayon |
+| ::: {.crayon-num .crayon-striped- | -sy} <p .crayon-v>DataSource</p>[=]{.c |
+| num data-line="crayon-53c4b45bb4f | rayon-o} <p .crayon-v>ds</p>[;]{.crayo |
+| b3837530829-26"}                  | n-sy}                             |
+| 26                                | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| ::: {.crayon-num data-line="crayo | 29-17 .crayon-line}               |
+| n-53c4b45bb4fb3837530829-27"}     |  <p .crayon-h>                </p>[Che |
+| 27                                | ckBoxList1]{.crayon-v}[.]{.crayon |
+| :::                               | -sy} <p .crayon-v>DataTextField</p>[=] |
+|                                   | {.crayon-o}["Clg_Name"]{.crayon- |
+| ::: {.crayon-num .crayon-striped- | s} <p .crayon-sy>;</p>                 |
+| num data-line="crayon-53c4b45bb4f | :::                               |
+| b3837530829-28"}                  |                                   |
+| 28                                | ::: {#crayon-53c4b45bb4fb38375308 |
+| :::                               | 29-18 .crayon-line .crayon-stripe |
+|                                   | d-line}                           |
+| ::: {.crayon-num data-line="crayo |  <p .crayon-h>                </p>[Che |
+| n-53c4b45bb4fb3837530829-29"}     | ckBoxList1]{.crayon-v}[.]{.crayon |
+| 29                                | -sy} <p .crayon-v>DataValueField</p>[= |
+| :::                               | ]{.crayon-o}["Clg_Name"]{.crayon |
+|                                   | -s} <p .crayon-sy>;</p>                |
+| ::: {.crayon-num .crayon-striped- | :::                               |
+| num data-line="crayon-53c4b45bb4f |                                   |
+| b3837530829-30"}                  | ::: {#crayon-53c4b45bb4fb38375308 |
+| 30                                | 29-19 .crayon-line}               |
+| :::                               |  <p .crayon-h>                </p>[Che |
+|                                   | ckBoxList1]{.crayon-v}[.]{.crayon |
+| ::: {.crayon-num data-line="crayo | -sy} <p .crayon-e>DataBind</p>[(]{.cra |
+| n-53c4b45bb4fb3837530829-31"}     | yon-sy} <p .crayon-sy>)</p>[;]{.crayon |
+| 31                                | -sy}                              |
+| :::                               | :::                               |
+|                                   |                                   |
+| ::: {.crayon-num .crayon-striped- | ::: {#crayon-53c4b45bb4fb38375308 |
+| num data-line="crayon-53c4b45bb4f | 29-20 .crayon-line .crayon-stripe |
+| b3837530829-32"}                  | d-line}                           |
+| 32                                | :::                               |
+| :::                               |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+| ::: {.crayon-num data-line="crayo | 29-21 .crayon-line}               |
+| n-53c4b45bb4fb3837530829-33"}     |  <p .crayon-h>            </p>[}]{.cra |
+| 33                                | yon-sy}                           |
+| :::                               | :::                               |
+|                                   |                                   |
+| ::: {.crayon-num .crayon-striped- | ::: {#crayon-53c4b45bb4fb38375308 |
+| num data-line="crayon-53c4b45bb4f | 29-22 .crayon-line .crayon-stripe |
+| b3837530829-34"}                  | d-line}                           |
+| 34                                |  <p .crayon-h>            </p>[else]{. |
+| :::                               | crayon-st}                        |
+|                                   | :::                               |
+| ::: {.crayon-num data-line="crayo |                                   |
+| n-53c4b45bb4fb3837530829-35"}     | ::: {#crayon-53c4b45bb4fb38375308 |
+| 35                                | 29-23 .crayon-line}               |
+| :::                               |  <p .crayon-h>            </p>[{]{.cra |
+|                                   | yon-sy}                           |
+| ::: {.crayon-num .crayon-striped- | :::                               |
+| num data-line="crayon-53c4b45bb4f |                                   |
+| b3837530829-36"}                  | ::: {#crayon-53c4b45bb4fb38375308 |
+| 36                                | 29-24 .crayon-line .crayon-stripe |
+| :::                               | d-line}                           |
+|                                   |  <p .crayon-h>                </p>[Res |
+| ::: {.crayon-num data-line="crayo | ponse]{.crayon-v} <p .crayon-sy>.</p>[ |
+| n-53c4b45bb4fb3837530829-37"}     | Write]{.crayon-e} <p .crayon-sy>(</p>[ |
+| 37                                | "No                               |
+| :::                               | Results                           |
+|                                   | found"]{.crayon-s} <p .crayon-sy>)</p> |
+| ::: {.crayon-num .crayon-striped- |  <p .crayon-sy>;</p>                   |
+| num data-line="crayon-53c4b45bb4f | :::                               |
+| b3837530829-38"}                  |                                   |
+| 38                                | ::: {#crayon-53c4b45bb4fb38375308 |
+| :::                               | 29-25 .crayon-line}               |
+|                                   | :::                               |
+| ::: {.crayon-num data-line="crayo |                                   |
+| n-53c4b45bb4fb3837530829-39"}     | ::: {#crayon-53c4b45bb4fb38375308 |
+| 39                                | 29-26 .crayon-line .crayon-stripe |
+| :::                               | d-line}                           |
+| :::                               |  <p .crayon-h>            </p>[}]{.cra |
+|                                   | yon-sy}                           |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-27 .crayon-line}               |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-28 .crayon-line .crayon-stripe |
+|                                   | d-line}                           |
+|                                   |  <p .crayon-h>        </p>[}]{.crayon- |
+|                                   | sy}                               |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-29 .crayon-line}               |
+|                                   |  <p .crayon-h>        </p>[catch]{.cra |
+|                                   | yon-st} <p .crayon-sy>(</p>[Exception  |
+|                                   | ]{.crayon-e} <p .crayon-v>ex</p>[)]{.c |
+|                                   | rayon-sy}                         |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-30 .crayon-line .crayon-stripe |
+|                                   | d-line}                           |
+|                                   |  <p .crayon-h>        </p>[{]{.crayon- |
+|                                   | sy}                               |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-31 .crayon-line}               |
+|                                   |  <p .crayon-h>            </p>[Respons |
+|                                   | e]{.crayon-v} <p .crayon-sy>.</p>[Writ |
+|                                   | e]{.crayon-e} <p .crayon-sy>(</p>["\<b |
+|                                   | r\>"]{.crayon-s} <p .crayon-o>+</p>[ex |
+|                                   | ]{.crayon-v} <p .crayon-sy>)</p>[;]{.c |
+|                                   | rayon-sy}                         |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-32 .crayon-line .crayon-stripe |
+|                                   | d-line}                           |
+|                                   |  <p .crayon-h>        </p>[}]{.crayon- |
+|                                   | sy}                               |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-33 .crayon-line}               |
+|                                   |  <p .crayon-h>        </p>[finally]{.c |
+|                                   | rayon-st}                         |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-34 .crayon-line .crayon-stripe |
+|                                   | d-line}                           |
+|                                   |  <p .crayon-h>        </p>[{]{.crayon- |
+|                                   | sy}                               |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-35 .crayon-line}               |
+|                                   |  <p .crayon-h>            </p>[con]{.c |
+|                                   | rayon-v} <p .crayon-sy>.</p>[Close]{.c |
+|                                   | rayon-e} <p .crayon-sy>(</p>[)]{.crayo |
+|                                   | n-sy} <p .crayon-sy>;</p>              |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-36 .crayon-line .crayon-stripe |
+|                                   | d-line}                           |
+|                                   |  <p .crayon-h>        </p>[}]{.crayon- |
+|                                   | sy}                               |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-37 .crayon-line}               |
+|                                   |  <p .crayon-h>    </p> <p .crayon-sy>}</p>  |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-38 .crayon-line .crayon-stripe |
+|                                   | d-line}                           |
+|                                   |  <p .crayon-sy>}</p>                   |
+|                                   | :::                               |
+|                                   |                                   |
+|                                   | ::: {#crayon-53c4b45bb4fb38375308 |
+|                                   | 29-39 .crayon-line}               |
+|                                   | :::                               |
+|                                   | :::                               |
++-----------------------------------+-----------------------------------+
+:::
+:::</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 18 July 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/uncategorized.html">Uncategorized</a>
+    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="linux, SSH">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; [Ultimate Guide] How SSH works?  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/ultimate-guide-how-ssh-works/">[Ultimate Guide] How SSH works?</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/GeekyShacklebolt.html"> GeekyShacklebolt</a> </p>
+  <div class="article_text">
+    <p>SSH is quite an interesting protocol in itself. A lot of people are using it for a secure communication between two machines. This blog post hits behind the scenes that go on, between machines connected via SSH.</p>
+<p>You might have an experience of remote login on SSH. But have you ever wondered about how internally these ssh-client and ssh-server respond? And If you want to explore the same? You are on the right page!<!--more--></p>
+<h2>Brief about SSH</h2>
+<ul>
+<li>SSH or we can say Secure Shell is a cryptographic network protocol that’s used to provide security in communication between two machines over an unsecured network like our Internet.</li>
+<li>SSH uses different authentication and encryption-decryption methods to make our connection secure between two remote machines.</li>
+<li>It is better than other communication protocols like FTP, telnet, etc. The picture below describes how SSH encryption doesn't let someone sniff in its signals. If someone tries to intercept the signal, s/he would receive nothing but an encrypted data packet. To know more about how SSH better than others visit <a href="https://www.yireo.com/blog/1452-why-ssh-instead-of-ftp">here</a>.</li>
+</ul>
+<div style="text-align:center">
+<div class="highlight"><pre><span></span>![An un-encrypte telnet connection]({filename}/uploads/images/2017/11/howsshworks1-300x220.png &quot;An un-encrypte telnet connection&quot;)
+</pre></div>
+
+
+</div>
+<div style="text-align:center">
+<div class="highlight"><pre><span></span>![An encrypted SSH sesion]({filename}/uploads/images/2017/11/howsshworks2-300x219.png &quot;An encrypted SSH sesion&quot;)
+</pre></div>
+
+
+</div>
+<ul>
+<li>For use cases of SSH, you may see <a href="http://matt.might.net/articles/ssh-hacks/">this</a>.</li>
+</ul>
+<h1>How SSH works?</h1>
+<p>Before we actually get into the protocol, there is something that needs to be discussed.</p>
+<h4>Symmetric and Asymmetric Encryption:</h4>
+<p><strong>Symmetric Encryption</strong> is that in which only one key (let's say private key or secret key) is used both for encryption and decryption of the data transferred between client and server.</p>
+<p>However, <strong>Asymmetric Encryption</strong> is that in which both keys (private as well as public key) is used for encryption and decryption.</p>
+<p>The server uses client's public key to encrypt data for it. The client, on the other hand, uses its private key to decrypt the data on the other end that was encrypted by its public key. Similarly, server's public key is used by the client to encrypt the signal and server's private key is used by the server to decrypt the signal.</p>
+<p>So, which one is used in SSH?</p>
+<p>The answer is, SSH uses both symmetric and asymmetric encryption. Since asymmetric encryption is more time consuming, most of the SSH connections use symmetric encryption. The idea behind is that asymmetric encryption is used only to share a secret key (session key) using which, symmetric encryption can be done for further communication.</p>
+<p>Now there are 2 versions of SSH that are commonly used. These are SSH version 1 and SSH version 2. The overall architecture in both versions differs a bit, so we'll discuss the protocol version 1 in detail and then see how does it differ from version 2 protocol.</p>
+<h2>SSH Protocol Version 1</h2>
+<p>The SSH connection is always invoked by a client to a server. Therefore, server authentication comes first than client authentication.</p>
+<p><strong><em>STEP 1:  Connect to simple FTP connection</em></strong></p>
+<p>For a successful SSH establishment. A simple connection between a client and a server is a must. For the same reason, first of all, a simple (FTP/Telnet) connection is created between the client and the server. And with telnet, we get details like this:</p>
+<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ telnet thegeekyway.com 22
+Trying 192.168.42.119...
+Connected to thegeekyway.com.
+Escape character is &#39;^]&#39;.
+SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
+</pre></div>
+
+
+<p>Here one can see that "<em><strong>SSH-2.0</strong>"</em> (in the last line). This is the version of SSH protocol that server is using. We also see the package version of OpenSSH is visible. This is how the client knows which version of SSH the server is using.</p>
+<p>Now, it is the sole responsibility of the client to continue with the session if it supports the version shown by the server.</p>
+<p><strong><em>STEP 2: Both server and client, now switch to a packet-based protocol</em></strong></p>
+<p>In this, each packet consists of a 32-bit length field, 1-8 bytes of random padding to foil known-plaintext attacks (KPA), a one-byte packet type code, the packet payload data, and a four-byte integrity check field.</p>
+<p><strong><em>STEP 3: Server provides session parameters to client<br>
+</em></strong></p>
+<p>As soon as the connection is established, server authentication starts. For this, the server will send some critical data to the client. This data includes:</p>
+<ul>
+<li>1) <strong>Server's host key</strong>: It is an RSA public key, which is stored in "known_hosts" file of the client (if you have already connected before with that server). You may see your known_hosts file here:</li>
+</ul>
+<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ cd .ssh/
+coderunner@geekyshacklebolt:~/.ssh$ ls
+authorized_keys   id_rsa   id_rsa.pub   known_hosts
+</pre></div>
+
+
+<p>At this point, the client will search for this "rsa_public" key in client's `known_hosts` file and if the key is not already present, then it may be the case of connecting with that server for the first time. So, in this case, what you would get is a "WARNING!" like: "<em>Are you sure you want to continue connecting?</em>"</p>
+<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ ssh geekyshacklebolt
+The authenticity of host &#39;geekyshacklebolt (192.168.42.222)&#39; can&#39;t be established.
+ECDSA key fingerprint is SHA256:Ql/KnGlolY9eCGuYK3OX3opnSyJQzsbtM3DW/UZIxms.
+Are you sure you want to continue connecting (yes/no)?
+</pre></div>
+
+
+<p>If you're not connecting with the server for the first time but see this warning, then maybe the server's public key has been changed or you're trying to access a different machine altogether (may be going in hands of an attacker). Therefore this warning is quite useful.</p>
+<ul>
+<li>2) <strong>Server's server key</strong>: (There is no concept of server key in SSH-2) With host key, server also provide one server key.</li>
+</ul>
+<p>This server key goes on changing every hour or so. And this key may be of 768 bits or 1024 bits it depends on the configuration. You may find it at  "/etc/ssh/"  in "sshd_config"  file. Let me see mine.</p>
+<div class="highlight"><pre><span></span># Lifetime and size of ephemeral version 1 server key
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+</pre></div>
+
+
+<p>Yeah, mine is 1024 bits.</p>
+<ul>
+<li>3) <strong>8 Random Bytes</strong>:  These random bytes are known as <em>check bytes</em>. It is necessary for the client to send these <em>check bytes</em> in its next reply.</li>
+<li>4) <strong>Authentication methods and list of encryption algorithms</strong> <strong>supported by server:</strong> So, that client may decide which encryption algorithm it supports and which authentication methods the client has to follow. The symmetric encryption algorithm that is used to encrypt and decrypt large amounts of data is known as <strong>bulk cipher.</strong></li>
+</ul>
+<p>At this point, both sides also compute a common 128-bit <strong>session identifier</strong><em>,</em> which is used in some subsequent protocol operations to uniquely identify this SSH session. This is an MD5 hash of the <em>host key</em>, <em>server key</em>, and <em>check bytes</em> taken together.</p>
+<p><strong><em>STEP 4: Session key generation and sending it to server</em></strong></p>
+<p>Now the client has server's host key, server key, 8 random bytes, authentication methods and encryption algorithms list.</p>
+<p>The client creates a symmetric session key for a bulk cipher that both client and server support. This key will be used for the entire session of SSH for both encryption and decryption. For a secure transmission, client double encrypts this key before sending it to server. First encryption is done by "server's host key" and second encryption is done by "server key". Encrypting the session key a second time with the server key provides a property called <strong><em>perfect forward secrecy</em></strong>. This double encryption enhances the security to great extent.</p>
+<p>After double encrypting the session key, the client sends it to the server, along with the check bytes and a choice of algorithms.</p>
+<p>Since it is difficult to have both server's private key and the server key (which keep changing in a fixed interval duration), it is very difficult to know the key. On the other hand, server has its private key and the "session key" that is shared by both client and server. With this data, the server can decrypt and get the session key for further communication.</p>
+<p><strong><em>STEP 5: Confirmation from the server</em></strong></p>
+<p>After sending the "session key" client just wait for the server to respond. Because only if the server is original and the one whose host key was provided to the client, then only it would be able to decrypt this session key using the server key, and the corresponding private key of server's host key.</p>
+<p>The server receives this session key and decrypts it, to use it for further transmission of signals. This was the end of asymmetric cryptography. Now, when both server and client posses this symmetric key. The complete communication session would be dealing only with <em>this key</em>.</p>
+<p><strong><em>STEP 6: Client Authentication begins</em></strong></p>
+<p>To authenticates a client, the server may use the following methods:</p>
+<ul>
+<li>Password-based</li>
+<li>Kerberos</li>
+<li>Rhosts</li>
+<li>Host keys based</li>
+</ul>
+<p>We'll explain each part in brief, and 'host keys based' in detail, as it is the most secured.</p>
+<p>1. <strong>Password</strong>:</p>
+<p>It is as simple as you log into any of your social websites. The server just asks you for your password to establish the SSH connection, and client takes the responsibility to transfer this password to the server. The session gets started as soon as you give your password. This method is not much recommended. Because if you are really security conscious that you are using SSH for remote login, then password-based authentication can be easily attacked. This type of authentication is convenient for the first time SSH users and those who travel a lot and don't carry their machines.</p>
+<p>2. <strong>Kerberos</strong>:</p>
+<p>It is a computer network authentication protocol that works on the basis of <em>tickets</em> to allow nodes communicating over a non-secure network to prove their identity to one another in a secure manner. It is not much used nowadays. OpenSSH provides Kerberos support only when using the SSH-1 protocol.</p>
+<p>3. <strong>RHosts</strong>:</p>
+<p>In this, the server has a list of host keys stored in /etc/ssh_known_host, and additionally, each user has host keys in \$HOME/.ssh/known_hosts. SSH uses the naming service to obtain the canonical name of the client host, looks for its public key in its known_host files, and requires the client to prove that it knows the private host key. This prevents IP and routing spoofing attacks (as long as the client machine private host key has not been leaked), but is still vulnerable to DNS (domain name server) attacks (to a limited extent), and relies on the integrity of the client machine as to who is requesting to log in. If maximal security is desired, only RSA authentication (host keys authentication) should be used.</p>
+<p>4. <strong>Host keys based</strong>:</p>
+<p>It is the most secure method of authentication for an SSH session. In this, client authentication is based on a pair of host keys i.e: the public key and the private key that can be seen in "\~/.ssh/" directory.</p>
+<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ cd .ssh/
+coderunner@geekyshacklebolt:~/.ssh$ ls
+authorized_keys id_rsa id_rsa.pub known_hosts
+</pre></div>
+
+
+<p>Here, <em>id_rsa</em> is your private (secret) key which should be kept a secret (not to be shared with anyone ever) and id_rsa.pub is your public key, which should be present to every server's (to whom you want to connect to) "authorized_keys" file.</p>
+<p>If you don't have these key pair, you may generate it using the command:</p>
+<div class="highlight"><pre><span></span>$ ssh-keygen -t rsa -b <span class="m">1024</span> -C  <span class="s2">&quot;your_email@example.com&quot;</span>
+</pre></div>
+
+
+<p><em><strong>*note:</strong> these public and private keys are never used for either encryption or decryption of SSH session. These are only used to authenticate a client.</em></p>
+<p>An RSA public key has 2 parts, the exponent, and the modulus.The modulus is the long number in the public key file.</p>
+<ul>
+<li>The client sends the modulus of its public key as an identifier, encrypted using the session key.</li>
+<li>The server decrypts this identity and starts searching for its corresponding public key in "authorized_keys" file.</li>
+<li>If the authorized public key is not found or is restricted to connect, then this authentication request fails. Otherwise, the process continues.</li>
+</ul>
+<p><strong><em>STEP 7: The Game of Challenge and Response</em></strong></p>
+<ul>
+<li>Now, server prepares a random 256 bit-string, and encrypt this string using the client's public key. Then this encrypted string is sent to the client as a <em>challenge. </em>The challenge for the client is to decrypt this random string and prove that it has the corresponding private key.</li>
+<li>The client receives this encrypted string, and decrypts using its private key, and send it back to the server. But, this string should not be transmitted as it is. Therefore, client combines this challenge with session identifier to prepare an MD5 hash. And then sends its <em>response</em> to the server.</li>
+<li>The server receives this <em>response</em> in the form of an MD5 hash. And, the server itself regenerate this, since it is already having the random string and the session identifier. The server compares the 2 hashes with each other, and if both come out to be same, then it means that client had successfully decrypted the string.</li>
+</ul>
+<p>The client is now authenticated, and SSH session starts with a terminal allotted to you to start writing commands.</p>
+<p><strong>Integrity Checking:</strong></p>
+<p>It is the process of comparing the state of currently stored data to the state of previously stored data. This protocol uses a weak integrity check e.i a 32-bit cyclic redundancy check or CRC-32. This sort of check is insufficient for detecting deliberate corruption but effective against accidental changes to data.</p>
+<h2>SSH Protocol Version 2</h2>
+<p>There are a lot of places where SSH-1 needed more improvements to make the protocol more secure. Therefore, this version 2 comes into play. It provides some necessary changes in protocol 1 to enhance its security. We will only discuss the changes and won't repeat the common steps.</p>
+<h3>Protocol Differences</h3>
+<p>SSH-1 consists of multiple functions in a single protocol. However, SSH-2 is build up in modules and consists of multiple protocols which work together like:</p>
+<ul>
+<li><strong>SSH transport layer protocol (SSH-TRANS)</strong></li>
+<li><strong>SSH authentication protocol (SSH-AUTH)</strong></li>
+<li><strong>SSH connection protocol (SSH-CONN)</strong></li>
+</ul>
+<p>Let's see their differences in brief.</p>
+<p><u><strong>SSH-TRANS:</strong></u> This layer of protocol provides initial connection, packet-based protocol, server authentication, basic encryption and integrity check.</p>
+<p><u><strong>SSH-AUTH:</strong></u> This layer of protocol is used by the client over SSH-TRANS to authenticate itself to server. And, it supports 3 authentication methods:</p>
+<ul>
+<li><strong>Public key:</strong> It is similar to "host based" of SSH-1. But, it is more general and can accommodate any public-key signature algorithm.</li>
+<li><strong>Hostbased:</strong> It is similar to RhostsRSA of SSH-1 by providing cryptographic assurance of client's host identity.</li>
+<li><strong>Password:</strong> It is similar to "Password Based" of SSH-1.</li>
+</ul>
+<h3>Key Differences</h3>
+<p>The Key differences between SSH-1 and SSH-2 are as follows.</p>
+<ul>
+<li>Expanded algorithm negotiation</li>
+<li>No server key</li>
+<li>Certificates authorities for public keys</li>
+<li>More flexible authentication</li>
+<li>Stronger integrity checking</li>
+<li>Periodic replacement of session key ("re-keying")</li>
+</ul>
+<p><strong>1. Expanded algorithm negotiation:</strong></p>
+<p>In SSH-1, client used to select only one algorithm out of the list of algorithms supported by server, for all category works like, hash function, message authentication, session key exchange, etc. But, SSH-2 provides support for one algorithm per category.</p>
+<p><strong>2. No server key:</strong></p>
+<p>It was recommended that the session key shouldn't be developed alone by the client (as done in SSH 1). The idea was, neither the client nor the server should dictate the SSH session by giving a session key that is created only by one side. So, a new method was adopted in which both server and client equally contribute to the development of session key. This method was based on Diffie - Hellman algorithm.</p>
+<p><em>The classic procedure of Diffie - Hellman algorithm to develop a session key is discussed below step-by-step:</em></p>
+<ol>
+<li>Firstly, both client and server agree on a large prime number, which will serve as a seed value.</li>
+<li>Then, both parties agree on an encryption generator (typically AES), which will be used to manipulate the values in a predefined way. This encryption generator method is the one which will be supported by both server and client.</li>
+<li>Independently, each party comes up with another prime number which is kept secret from the other party. This number is used as the private (secret) key for this interaction (this private key is different than the private SSH key used for authentication).</li>
+<li>The generated private key (the secret to themselves), the encryption generator (common to both), and the shared prime number (common to both) are used to generate a public key, but which can be shared with the other party.</li>
+<li>Both participants then exchange their generated public keys.</li>
+<li>The receiving party uses their own private key, the other party's public key, and the original shared prime number to compute a shared secret key. Although this is independently computed by each party, using opposite private and public keys, will result in the <em>same</em> shared secret key.</li>
+<li>The shared secret is then used to encrypt all communication that follows. This key is again known as a session key or symmetric key.</li>
+</ol>
+<p><strong>3. Certificate authorities for public keys:</strong></p>
+<p>In SSH-1, there was no method to verify the ownership of the key. But, in SSH-2 we have a room for this as well. This is another layer of security in SSH-2. In which, the public keys of users are signed by some certificate authorities. The certificate attests and confirms the binding between a public key and a particular identity. The attestation is represented by a digital signature from a trusted third party.</p>
+<p><strong>4. More flexible authentication:</strong></p>
+<p>In SSH-1, client could authenticate itself to server using any one of the allowed authentication methods. And if it fails, then it means the connection is refused. But in SSH-2, if initial attempts of any authentication method (say public key) are failed, then the protocol may switch to other methods of authentication (say password). That's why SSH-2 gives more chances to establish a connection.</p>
+<p><strong>5. Stronger Integrity checking:</strong></p>
+<p>SSH-1 uses CRC-32 integrity check which is really weak and ineffective against deliberate corruption. On the other hand, SSH-2 uses cryptographically strong Message Authentication Code (MAC) algorithms to provide strong integrity and data origin assurance.</p>
+<p><strong>6. Periodic replacement of session key ("re-keying")</strong></p>
+<p>The concept was improved with an idea that the session key should not remain same for the complete session as we see in SSH-1. Therefore, in SSH 2, we may have a no. of session keys that keeps on changing with sessions, periodically.</p>
+<p><strong>7. Implementation Differences</strong></p>
+<p>There are mainly 4 Implementation differences in SSH-1 and SSH-2.</p>
+<ul>
+<li><strong>Host keys</strong>: SSH-1 and SSH-2 both manage host keys in different directory structures.</li>
+<li><strong>No fallback to rsh:</strong> If a remote host has no SSH server running, then SSH can invoke <code>rsh</code> automatically, because SSH-1 supports <code>rsh</code>-style authentication as well. But SSH-2 don't have this feature, due to poor security of <code>rsh</code>.</li>
+<li><strong>Setuid client:</strong> In SSH-1, the client needs to be <code>setuid</code> root, so that it has access to <em>read</em> for the <em>private host key</em> file, which is usually installed as <em>readable only</em> by the root user. But in SSH-2, the client doesn't need to be <code>setuid</code>root, due to its programs like <code>ssh-signer2</code>.</li>
+<li><strong>SSH-1 backward compatibility:</strong> SSH-2 provide backward compatibility to SSH-1, if and only if <em>SSH-1 package</em> is installed on the same machine. The SSH-2 client and server simply run their SSH-1 counterparts, when they connect to a partner running the older protocol.</li>
+</ul>
+<p>We'll leave the rest for readers to explore on their own. If you've any questions, please feel free to ask in the comments section below.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 30 November 2017</p>
+    <p>Category: <a href="thegeekyway.com/category/devops-linux.html">DevOps, Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/linux.html">linux</a>,      <a href="thegeekyway.com/tag/ssh.html">SSH</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

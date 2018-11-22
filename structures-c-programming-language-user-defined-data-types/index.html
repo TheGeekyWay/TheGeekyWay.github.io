@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="c programming, structures, user defined data types">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Structures And User Defined Data Types (Part - I)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/structures-c-programming-language-user-defined-data-types/">Structures And User Defined Data Types (Part - I)</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>Howdy folks, hope you're doing well. We've already discussed about <a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)">1D Arrays and their memory organization</a> and further about <a href="http://www.thegeekyway.com/learning-2d-multidimensional-arrays/" title="Learning About 2D And Multidimensional Arrays">2D arrays and multidimensional arrays</a>. In case you missed it, read them first. Coming to this tutorial, we'll be discussing the way to develop our own data types in the C programming language. It is done through something known as structures, and that's what we'll explore about here.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/08/structures-and-user-defined-data-types-I.png" title="Structure and User Defined Data Types in C Programming"><img alt="Structure and User Defined Data Types in C Programming" src="thegeekyway.com/uploads/images/2014/08/structures-and-user-defined-data-types-I.png"></a></p>
+</div>
+<h2>What is a structure in C ?</h2>
+<p>Structure is basically a derived data type in C programming language. It is defined as a collection of variables (which may be of different data types) to be grouped together and referred to as a single entity. This gives you ability to define your own data types i.e. user defined data types.</p>
+<h2>Difference between a structure and an array?</h2>
+<p>The next question which may arise, would be what's the difference between array and structure. Well, an array is homogeneous set of elements i.e. array is capable of holding different values but of same data type. On the other hand, structure is combination of variables of different data types.</p>
+<p>Structures can be used to track information which is common to large group of entities.</p>
+<p><strong>How to declare a structure?</strong></p>
+<p>Let us first see the basic semantics of declaring a structure. It is much like defining ordinary variable like:</p>
+<div class="highlight"><pre><span></span>&lt;data_type&gt; &lt;variable_name&gt; // For variable
+</pre></div>
+
+
+<p>Now for structure, it is done through keyword struct like this:</p>
+<div class="highlight"><pre><span></span>struct &lt;struct_name&gt;
+{
+  ...
+};
+</pre></div>
+
+
+<p>Let us take an example to track record of students in a high school. Each student would have certain set of properties/attributes which would differentiate them from one another. We'll consider a student has a roll number of type integer , name of type string and  marks of type float for the time being. Now, let's define our structure named student with these properties.</p>
+<div class="highlight"><pre><span></span>struct student
+{
+  int rollno;
+  char name[20];  // Taking an array of character (string)
+  float marks;
+  // You are free to declare as many members as you want, but we&#39;re restricting our example to 3 data members (properties)
+  // Size of the structure should be known to the compiler
+};
+</pre></div>
+
+
+<p>Now that we have our basic structure with it's data members ready, we can declare instances of it like:</p>
+<div class="highlight"><pre><span></span>struct student George;
+</pre></div>
+
+
+<p>Now, all members of the structure can be accessed via our instance named George using membership access or dot operator like:</p>
+<div class="highlight"><pre><span></span>George.rollno = 91;
+
+George.marks = 78.6;
+</pre></div>
+
+
+<p>and so on...</p>
+<p>It's essential to remember here that the members we declare in a structure would take the memory only when instances are declared. You're free to name your instance anything. It's just like declaring a variable whose data type would be now your own defined data type, which is struct student here.</p>
+<p>Notice above how we've defined the instances of a structure, another way of declaring them can be like this:</p>
+<div class="highlight"><pre><span></span>struct &lt;struct-name&gt;
+{
+  // Data Members
+
+} &lt;name-of-first-structure-variable&gt; ... ;
+</pre></div>
+
+
+<p>So, for the above example, it can be done as follows:</p>
+<div class="highlight"><pre><span></span>struct student
+{
+  int rollno;
+  char name[20];  // Taking an array of character (string)
+  float marks;
+}George,Henry,Steve; // Declare as many as you want.
+</pre></div>
+
+
+<p>Next, you can access each of the properties for a particular structure variable like :</p>
+<div class="highlight"><pre><span></span>George.rollno = 50;
+George.marks = 98.6;
+strycpy(George.name, &quot;George&quot;);
+</pre></div>
+
+
+<p>Similarly all other structure variables' data members can be defined.</p>
+<p>That's solve for this tutorial, a lot more is there to know about structure, which we'll cover in the second part.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 05 August 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/c-programming.html">c programming</a>,      <a href="thegeekyway.com/tag/structures.html">structures</a>,      <a href="thegeekyway.com/tag/user-defined-data-types.html">user defined data types</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

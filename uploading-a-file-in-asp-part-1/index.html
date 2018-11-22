@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="asp.net, C#">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/uploading-a-file-in-asp-part-1/">Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Deep_Singh.html"> Deep_Singh</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"><img alt="CoverImageASPNetFileUpload" src="thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"></a></p>
+</div>
+<hr>
+<p>Contents of this 5 part tutorial<br>
+Part 1 : <a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/">Basics of ASP.Net file uploading, uploading a file to a server.</a><br>
+Part 2 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/">ASP.Net file uploading using EmptyFile Validations.</a><br>
+Part 3 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/">ASP.Net file uploading using FileSize validation.</a><br>
+Part 4 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/">ASP.Net file uploading using FileExtension validator.</a><br>
+Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/">Complete ASP.Net file uploading using all the Validations one at a time.</a></p>
+<p>This is the Part 1 of the 5 part tutorial on how to upload file onto the server using asp.net and validate the file.</p>
+<h2><strong>File Upload in asp.net : Basics</strong></h2>
+<p>Following controls are required for uploading a file to server using asp.net</p>
+<ul>
+<li><strong>File upload control :</strong> It will only be used to select file which will be uploaded on server, it will not be used to upload the file.</li>
+<li><strong>Button :</strong> To upload a file we need a button, drag and drop the button on the screen from toolbox and change the button name to "Upload File".</li>
+<li><strong>A label control :</strong> To display the status of the upload.</li>
+</ul>
+<h2><strong>File Upload in asp.net : v1.0 (no validations used, the file will be uploaded as it is) </strong></h2>
+<p>This is the basic form of file upload, where no validations are being used, user can upload as much large file as possible. But one thing must be noted that this method should be strictly avoided as there is no validations used in this method (validations explained in v1.1 and v1.2) and can be a subject to DDoS attacks (Denial of service) and can shut down the server. This code is just to show how to upload a file and save it on server.</p>
+<p>Here is the back end structure I am using on Microsoft Visual Studio 2008.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/FileUpload41.png"><img alt="FileUpload4" src="thegeekyway.com/uploads/images/2014/01/FileUpload41.png"></a></p>
+</div>
+<p>Here a file upload control is used which is used to select the file and an upload button which will upload the file. The second row will display the characteristics of the file, whether the file is a ".pdf" or a ".doc" (and other extensions) file and display the image of file type. The second row is being hidden with a panel until the file isnt uploaded.</p>
+<p>Let us take a ".pdf" file which will be uploaded on the server under the "uploads" folder. The main code used for uploading a file onto server is :-</p>
+<div class="highlight"><pre><span></span>.
+.
+FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName));
+.
+.
+</pre></div>
+
+
+<p>Complete explanation of the code :-</p>
+<blockquote>
+<p><strong>FileUpload1 :</strong> The contol name of the FileUpload in toolbox, administrators can use any file name.</p>
+<p><strong>SaveAs</strong> : Its the method found in <a href="http://msdn.microsoft.com/en-us/library/system.web.ui.webcontrols%28v=vs.110%29.aspx">System.Web.UI.WebControls</a>  namespace and in System.Web (System.Web.dll) assembly, its main purpose is to save the file on the server.</p>
+<p><strong>MapPath :</strong> This method is used to return the complete physical path for the virtual path that you pass in the method.</p>
+</blockquote>
+<p>Now let us upload a file on the server for example "SampleFile.pdf" is being uploaded on the server. The output once the file is uploaded is :-</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/FileUpload2.png"><img alt="FileUpload2" src="thegeekyway.com/uploads/images/2014/01/FileUpload2.png"></a></p>
+</div>
+<p>The complete cs code for v1.0 is (remember this doesn't use any validations, only retrieves the name and the file extension of the file) :-</p>
+<div class="highlight"><pre><span></span>protected void Page_Load(object sender, EventArgs e)
+    {
+        // Hiding the panel in the page load 
+        Panel1.Visible = false;
+    }
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+        //calling the valid_file method, if the return value is not 1 then file doesnot exist
+        int validate = validate_file();
+        if(validate == 1)
+        { 
+            // Getting all the file details
+            GetFileDetails();            
+            // If file exist then the file will be saved in the virtual directory
+            SaveFile();
+        }
+    }
+    private int validate_file()
+    {
+        // Code to test if FileUpload1 has the file or not
+        if (FileUpload1.HasFile)
+        {
+            Panel1.Visible = true;
+            return 1;
+        }
+        else
+        {
+            Label2.Text = &quot;No File Uploaded&quot;;
+            // Color.Red will be called by namespace System.Drawing
+            Label2.ForeColor = Color.Red;
+            return 0;
+        }        
+    }
+    private void SaveFile()
+    {
+        File_Upload_Status.Text = &quot;Valid FIle&quot;;
+        Image1.ImageUrl = &quot;~//images//success.png&quot;;
+        //Invoking the saveas method which saves the file in the directory
+        FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName));
+    }
+    private void GetFileDetails()
+    {
+        // Path will be called by using System.IO namespace
+        string FileExtension = Path.GetExtension(FileUpload1.FileName);
+        int FileSize = FileUpload1.PostedFile.ContentLength;
+        Label11.Text = FileUpload1.FileName;
+        Label12.Text = (FileSize/1024) + &quot;KB&quot;;
+        Label13.Text = FileExtension;
+        // Using only &quot;.pdf&quot; extension, but you can use all the file extensions using if-else statement.
+        if (FileExtension.ToLower() == &quot;.pdf&quot;)
+        {
+            Image3.ImageUrl = &quot;~//images//pdf.png&quot;;
+            Label14.Text = &quot;PDF file&quot;;
+        }
+    }
+</pre></div>
+
+
+<p>We will discuss about our first validation (empty file validation) in our next tutorial.</p>
+<hr>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 04 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/aspnet-dot-net.html">Asp.net (Dot Net)</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/aspnet.html">asp.net</a>,      <a href="thegeekyway.com/tag/c.html">C#</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

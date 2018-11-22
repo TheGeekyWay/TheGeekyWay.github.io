@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="encryption, SSH">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Symmetric and Asymmetric Encryption  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/symmetric-and-asymmetric-encryption/">Symmetric and Asymmetric Encryption</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/GeekyShacklebolt.html"> GeekyShacklebolt</a> </p>
+  <div class="article_text">
+    <p>Secured communication is inevitably a required norm in the world. To achieve the same, different methods are being approached. You must have heard the word <strong>"cryptography"</strong>, which is really useful to safely transmit your signals by ensuring secrecy. Today, with advancements in this field, we have 2 of its widely known types i.e. private key cryptography (symmetric encryption) and public key cryptography (asymmetric encryption). What's the difference between them? Which one is better in what context? Let's see!</p>
+<!--more-->
+
+<p>First, let's understand the basic terminologies:-<br>
+<strong>Cryptography:</strong><br>
+It is the technique of writing or storing information in a way that it’s revealed only to those who need to see it, and hides it from all others.<br>
+<strong>Encryption:</strong><br>
+It is the implementation of cryptography. This converts data to ciphertext.<br>
+<strong>Decryption:</strong><br>
+It is reverse of encryption. This converts ciphertext to readable data.</p>
+<div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"></p>
+</div>
+<h2>Symmetric Encryption:-</h2>
+<p>It is also known as private key encryption or private key cryptography. Here, only one key (secret key) is used for both encryption and decryption, by all the parties involved in communication over a network. That's why it is faster than asymmetric encryption.</p>
+<p>The same key is kept for the entire session of communication. Therefore, this key is also known as <strong>"session key"</strong>. This session key is either developed by both the parties (client and server) or alone by the client. If it is developed by the client only, then it is required to transmit to the server. In this case, a special concern is provided while transmitting this session key over a network. Because, if the key would get into the wrong hands, s/he can see all your transmitting information with any possible intention.</p>
+<div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"></p>
+</div>
+<p>Modern approaches of symmetric encryption are executed using algorithms such as DES, QUAD, Blowfish, AES, 3DES, RC4 etc.<br>
+This type of encryption is used, when we are interested in transmission speed such as in transferring large files.</p>
+<h2>Asymmetric Encryption:-</h2>
+<p>It is also known as public key encryption or public key cryptography. Here, a pair of keys is used for encryption and decryption. These are the public key and the private key. The public key is used for encryption and the private key is used for decryption. Here, the private key is kept a secret to the owner and the public key is kept with all the servers to whom this client wants to connect.</p>
+<div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"></p>
+</div>
+<p><em>Understanding asymmetric encryption with workflow.</em></p>
+<p>Suppose, a client wants to send a signal to a server. It will encrypt this signal using <strong>"server's public key"</strong> and will transmit over the network. When server will receive this signal, it will decrypt this, using <strong>"server's own private key"</strong>.</p>
+<p>The same is followed by a signal coming from the server. The server will encrypt the signal using <strong>"client's public key"</strong> and the client will decrypt this, using <strong>"client's own private key"</strong>.</p>
+<p>In this way, 2 keys equally participate in the process of public key cryptography. Due to the involvement of 2 keys, it is slower and more complex than symmetric encryption. Diffie-Hellman and RSA are the most widely used algorithms for asymmetric encryption.</p>
+<h3>Key differences between symmetric and asymmetric encryption:-</h3>
+<ol>
+<li>Symmetric encryption involves only one key e.i session key. While asymmetric encryption uses two keys e.i public and private key.</li>
+<li>Symmetric encryption is faster and simpler than asymmetric encryption.</li>
+<li>Symmetric encryption is preferable over asymmetric encryption when a large file transfer is concerned.</li>
+<li>Asymmetric encryption is used to share the session key using which, symmetric encryption can be initiated.</li>
+<li>Asymmetric encryption is newer than symmetric encryption.</li>
+<li>In case of asymmetric encryption, no secret channel is necessary for the exchange of the public key.</li>
+</ol>
+<p>With this, we have reached the end of this post. If you have any query regarding the topic, please let us know in the comments section below.</p>
+<p>Have a good day!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 09 April 2018</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/encryption.html">encryption</a>,      <a href="thegeekyway.com/tag/ssh.html">SSH</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

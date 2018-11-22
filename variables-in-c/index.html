@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="C language, Learn C, variables">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Learning about Variables in C  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/variables-in-c/">Learning about Variables in C</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>Welcome to your second tutorial on the C language. In this tutorial, we'll be discussing about variables, their applications, their necessity both in general terms of programming and for C language as well. Variables in C are really very important. These are the fundamentals and you need to understand how variables in C are used and data in them can be manipulated.</p>
+<p>Variables are where you store your data, you can assume them to be pretty much like containers (reserved memory locations) where you can store your things ( data ). In C or any programming language, it is essential that you define that variable is of what kind, ie it's data type.</p>
+<p>The data types can be divided into two broad categories namely Fundamental Data types and Derived data types. Now we'll look in detail about both of these.</p>
+<p><strong>Fundamental Data Types</strong></p>
+<p>These are the data types which are built-in and not derived, that's why the word “Fundamental” has been used. There are five basic kind of Data types :-</p>
+<ul>
+<li>int – for integer data types</li>
+<li>float – for floating point numbers (those with decimals)</li>
+<li>char – for character type</li>
+<li>double- same as integer type but include float also and is capable of holding more numbers (range is very large)</li>
+<li>void – this stands for null value</li>
+</ul>
+<p><strong>Derived Data Types</strong></p>
+<p>These are the data types derived from fundamental data types. Some of the derived data types are :</p>
+<ul>
+<li>Arrays</li>
+<li>Pointers</li>
+<li>Enumeration</li>
+<li>Structures</li>
+</ul>
+<p>etc.</p>
+<p><strong>Defining a Variable</strong></p>
+<p>The following syntax should be used while defining variable in C :</p>
+<div class="highlight"><pre><span></span>data_type variable_name;
+</pre></div>
+
+
+<p>Here, data_type is the type of data which variable shall hold, and variable_name is any legal name you may give to the variable to access the information stored in it.</p>
+<p>Now, we'll define a variable of type integer.</p>
+<div class="highlight"><pre><span></span>int sam;
+</pre></div>
+
+
+<p>Here, we have defined a variable named sam which is capable of holding any integer type value.<br>
+Now, we'll assign a value to this variable with assignment operator (=)</p>
+<div class="highlight"><pre><span></span>sam = 10;
+</pre></div>
+
+
+<p>Now, our variable sam contains value 10.</p>
+<p>Now, we'll see it in the entire program and output the value of variable.</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int main()
+{
+int sam;
+sam = 10;
+printf(“Value of sam is %d”, sam);
+return 0;
+}
+</pre></div>
+
+
+<p>For the above code, we'll get the following output :</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/2.png" title="Output of variable in C tutorial code"><img alt="Output of variable in C tutorial code" src="thegeekyway.com/uploads/images/2013/12/2.png"></a></p>
+</div>
+<p>(Note: Program are compiled in Turbo C with DosBox instead of gcc)</p>
+<p>Note we've used %d , this just means that we want to print an integer value. In C, we need to tell the compiler what type of value is coming, so we need to have this %d for integer type value. Similar to %d, we use the following placeholders to instruct the compiler of upcoming data type :</p>
+<p>\%d – integer (int)<br>
+%c – character (char)<br>
+%s – strings</p>
+<p>\%f - float<br>
+etc.</p>
+<p>Observe, that in printf() function, we have used , and the variable name, and when this program is compiled and executed, we get the  output , such that it prints Value of sam is 10 , the %d is now replaced by the value stored in our variable sam. This is because, %d was an instruction for the compiler so that it knows what type of value is coming in, so wherever you place this %d, and output an integer value, it would be replaced by value of that variable.</p>
+<p>For example, see the following code snippet :</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int main()
+{
+int sam;
+sam = 10;
+printf(“ Value stored is %d in variable sam” , sam);
+return 0;
+}
+</pre></div>
+
+
+<p>Here is the output for the above mentioned code snippet</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/1.png" title="Outputing with variables"><img alt="Output of variable in C tutorial code" src="thegeekyway.com/uploads/images/2013/12/1.png"></a></p>
+</div>
+<p>(Note: Program are compiled in Turbo C with DosBox instead of gcc)</p>
+<p>Note: Return type of our main function is of int type so we are returning value 0, this can be any value, but since we don't need to return anything, we generally return 0.</p>
+<p>We'll carry this topic in the next tutorial as well, till then, you can try the codes from this tutorial and play with the code.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 09 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/c-language.html">C language</a>,      <a href="thegeekyway.com/tag/learn-c.html">Learn C</a>,      <a href="thegeekyway.com/tag/variables.html">variables</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

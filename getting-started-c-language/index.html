@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="C language, Introduction, Learn C">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Getting Started With C language  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/getting-started-c-language/">Getting Started With C language</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p><strong>Introduction to C language</strong></p>
+<p>C language is a middle level language developed by Dennis Ritchie in 1969 and the most secure OS "UNIX" is also coded in C language. It has just turned the world of Coding giving new level to programming, and introducing us to what is called "Structured Programming".</p>
+<p>It is very important to note here that C is a Case Sensitive language, what this means is, TgW , tGw, TGw are all different. Don't worry if it's sound confusing, you'll be able to understand it better once we begin to learn about Variables.</p>
+<p>Wait! before we start, the question arises :-</p>
+<p><strong>Why learn C language?</strong></p>
+<p>Well, learning C language would improve your logical skills, and many programming languages are directly or indirectly derived from C. This means, if you learn C language, you can learn other programming languages like C++, Java, JavaScript, Python, PHP, Perl and many others, much faster and it would be simple for you.</p>
+<!--more-->
+
+<p><strong>Pre Requisites for this and the coming Tutorials :-</strong></p>
+<p>To compile the C language programs, you need something called compiler. It doesn't matter if you're using Linux, Windows, or Mac, you'll surely get a C compiler. If you're Windows user, get the best compiler from the start ie gcc compiler. I wouldn't recommend any other like Turbo C etc. they are not good when compared to gcc. Download gcc compiler from here :-<br>
+http://gcc.gnu.org/<br>
+If you're on Linux you'll probably already have gcc compiler installed. To check if you have gcc compiler already installed please type the following command in the terminal</p>
+<div class="highlight"><pre><span></span>$ g++ -v
+</pre></div>
+
+
+<p>If you've gcc installed, you'll get something like this, as in my terminal window.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/11/C_Tut1.1.png" title="checking for gcc compiler in linux"><img alt="checking for gcc compiler in linux" src="thegeekyway.com/uploads/images/2013/11/C_Tut1.1.png"></a></p>
+</div>
+<p>Much of theory, isn't it? Ok, let's get started with some code.</p>
+<p><strong>First C Program</strong></p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+
+int main()
+{
+printf(&quot;Hello World&quot;);
+}
+</pre></div>
+
+
+<p>Just compile it in your gcc compiler and you'll get Hello World printed in the output console.</p>
+<p>If you need help in compilation and execution, wait for one more tutorial.</p>
+<p>Now, we'll just break down each and every part of the program and analyse it.<br>
+``</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+</pre></div>
+
+
+<p>``In this command, we ask the compiler to include a file (known as header file) which contains some pre defined fuctions which are needed to run the program.<br>
+We, request to add file stdio which is Standard Input/Output console file, as we need to display the print on the output console.<br>
+"#" (hash/pound) symbol here represents the pre-processor directive ie command started with a # sign goes to the pre-processor, means these statements are carried out first, before the program goes for compilation.</p>
+<div class="highlight"><pre><span></span>main()
+</pre></div>
+
+
+<p>This is a function in programming language, they are just meant to divide the program into modules. The main function of any program is of uttermost importance, as the program execution starts from main function.</p>
+<div class="highlight"><pre><span></span>printf()
+</pre></div>
+
+
+<p>This is also a function, it is the standard output function defined under stdio header file. Whatever we give in the paranthesis between the quotes is printed on the screen.</p>
+<p>Note, that we have used int before main function , this means that this function would return a value of int type, and that's the reason we have given return 0 at the end.</p>
+<p>Also note, that each statement in C would terminate with a semicolon. If you forget to put a semicolon, compiler would report an error.</p>
+<p>You can now continue to <a href="http://www.thegeekyway.com/variables-in-c/" title="Learn about variables in C">Learn about variables in C</a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 19 November 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/c-language.html">C language</a>,      <a href="thegeekyway.com/tag/introduction.html">Introduction</a>,      <a href="thegeekyway.com/tag/learn-c.html">Learn C</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

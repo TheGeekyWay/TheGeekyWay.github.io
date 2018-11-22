@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="automation, Chef, chef-solo">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Getting Started With Chef-solo  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/learning-basics-chef-solo-example/">Getting Started With Chef-solo</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo.png"><img alt="Chef-Logo" src="thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo-300x236.png"></a></p>
+</div>
+<p>Chef is an amazing tool from opscode to automate your work. Though it is very useful, it is also very complex to understand and work with. Before discussing about Chef-solo, here are some terminologies related to chef that we should learn first.</p>
+<p><strong>Recipes</strong>: These are the files that contain the configuration. Simply, these files have the code that is going to be used to configure your server.</p>
+<p><strong>Cookbooks</strong>: A collection of recipes is called a cookbook.</p>
+<p><strong>Chef-client</strong>: A tool which runs on the server that is supposed to be configured by chef.</p>
+<p><strong>Chef-server</strong>: This is the server that provides cookbooks/recipes to chef-client.</p>
+<p><strong>Chef-solo</strong>: An independent chef configuration tool that doesn’t need chef-server to work.</p>
+<p>Chef-solo is the easiest way to learn how chef works. In this article we will see the working of chef-solo with an example. The first step is to install chef. Chef is installed as a rubygem. So, install rubygem and chef using following commands. (I am using Fedora. Use sudo apt-get for debain based systems.)</p>
+<div class="highlight"><pre><span></span>$ sudo yum install ruby rubygems ruby-devel
+
+$ gem install chef
+</pre></div>
+
+
+<p>You can check if your installation was successful or not by running ‘chef-solo’ command as sudo/root. It will most probably give an error “No cookbook found”. That’s alright, if you are getting any other error, then you need to check the installation again. So, now we are going to write a recipe to print “Hello chef” on the command prompt.</p>
+<p>First of all, make a directory where you are going to do all your work. Let’s call it chef.</p>
+<div class="highlight"><pre><span></span># mkdir chef
+</pre></div>
+
+
+<p>Now, we need to make the recipe. Let’s call the recipe hellochef. Here is how you can create it:</p>
+<div style="text-align:center">
+<p><img alt="" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"></p>
+</div>
+<p>Now write the line ‘puts “Hello Chef!” ‘ in the file default.rb and close it. It is a ruby file, so it’s better you make yourself familiar with ruby before moving ahead with chef. Now that we have our recipe, next step is to redirect chef-solo to our recipe. We need to tell chef-solo that which cookbook we want to run. To do that create a node.json inside chef/ directory and put the recipe info inside it.</p>
+<div style="text-align:center">
+<p><strong><img alt="" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"></strong></p>
+</div>
+<p>Save and close the file. Now, you just need one more thing, that is chef-solo configuration file. Come back to your home directory and open a file named solo.rb and write the following info in the file:</p>
+<div style="text-align:center">
+<p><strong><img alt="" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"></strong></p>
+</div>
+<p>Remember to change the locations of files relative to your system! Save and close the file. Now, we are ready to run chef-solo. Run 'chef-solo -c solo.rb' from command line and you should get an output like this:</p>
+<div style="text-align:center">
+<p><strong><img alt="" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"></strong></p>
+</div>
+<p>The -c option tells chef-solo about the location of the solo.rb configuration file. You can do a lot more with chef-solo than just printing Hello chef! This will get you started. Happy cooking!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 30 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/automation.html">automation</a>,      <a href="thegeekyway.com/tag/chef.html">Chef</a>,      <a href="thegeekyway.com/tag/chef-solo.html">chef-solo</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

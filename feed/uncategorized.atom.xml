@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Uncategorized</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/uncategorized.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2018-01-26T18:04:00+05:30</updated><entry><title>What are dotfiles?</title><link href="thegeekyway.com/what-are-dotfiles/" rel="alternate"></link><published>2018-01-26T18:04:00+05:30</published><updated>2018-01-26T18:04:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:None,2018-01-26:thegeekyway.com/what-are-dotfiles/</id><summary type="html">&lt;p&gt;What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.&lt;/p&gt;
+&lt;p&gt;Configuring a dev machine according to your liking would've been a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.&lt;/p&gt;
+&lt;p&gt;Configuring a dev machine according to your liking would've been a really daunting task until and unless there were dotfiles.&lt;!--more--&gt;&lt;/p&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;These are simply the files whose names start with a dot (.) like &lt;strong&gt;&lt;em&gt;.vimrc, .bashrc, .ssh, &lt;/em&gt;&lt;/strong&gt;etc. And any file that begins with a &lt;strong&gt;&lt;em&gt;dot&lt;/em&gt;&lt;/strong&gt; is treated as hidden in all *&lt;strong&gt;nix&lt;/strong&gt; operating systems. Therefore, having lots of dotfiles even in your home directory does not make it looks clumsy.&lt;/p&gt;
+&lt;h3&gt;Where are dotfiles needed?&lt;/h3&gt;
+&lt;p&gt;They are mainly used for software configuration. Therefore, they are also known as &lt;strong&gt;configuration files&lt;/strong&gt;. We can always configure different tools that we use daily, easily using dotfiles.&lt;br&gt;
+They can also be used to automate a series of package installations. Their usefulness lies in the fact that anytime you can buy a new system and configure it like, you've been using it for years.&lt;/p&gt;
+&lt;h3&gt;How to use dotfiles?&lt;/h3&gt;
+&lt;p&gt;In order to maximize their utilization, we should save our dotfiles somewhere. That may be a USB drive, cloud storage and what most people use nowadays is, the GitHub repository. The idea is, they remain within our reach while switching between different machines.&lt;/p&gt;
+&lt;p&gt;There are different dotfiles for different purposes. For example, &lt;strong&gt;&lt;em&gt;.bashrc&lt;/em&gt;&lt;/strong&gt; to configure bash and similarly &lt;strong&gt;&lt;em&gt;.zshrc&lt;/em&gt;&lt;/strong&gt; to configure zsh. We can also create our own dotfiles for different purposes like &lt;strong&gt;&lt;em&gt;.aliases &lt;/em&gt;&lt;/strong&gt;to declare all modified commands and &lt;strong&gt;&lt;em&gt;.export&lt;/em&gt;&lt;/strong&gt; to set environment variables we need. In this tutorial, we'll see a couple of examples to show the working of these dotfiles. Let's go ahead!&lt;/p&gt;
+&lt;h4&gt;.bashrc&lt;/h4&gt;
+&lt;p&gt;This is the default file, that runs every time when we open our bash. Either we can directly write all the bash configurations in this file or we can use a distributive approach, like having &lt;strong&gt;functions&lt;/strong&gt; in one file and OS specific settings in different files, etc. Following is an example of a &lt;strong&gt;&lt;em&gt;.bashrc.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[ -n &amp;quot;$PS1&amp;quot; ] &amp;amp;&amp;amp; source ~/.profile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This means that, if &lt;strong&gt;"\$PS1"&lt;/strong&gt; will return a non-empty string, then load &lt;strong&gt;&lt;em&gt;.profile.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;.profile&lt;/h4&gt;
+&lt;p&gt;We may use this to load OS-specific settings, and all other dotfiles, like &lt;strong&gt;&lt;em&gt;.functions, .aliases, .exports,&lt;/em&gt;&lt;/strong&gt; etc. Let's take a look.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Load ~/.extra, ~/.exports, ~/.aliases and ~/.functions
+# ~/.extra can be used for settings you don’t want to commit
+for file in ~/.{exports,aliases,functions,extra}; do
+    [ -r &amp;quot;$file&amp;quot; ] &amp;amp;amp;&amp;amp;amp; source &amp;quot;$file&amp;quot;
+done
+unset file
+
+# Detect and load OS specific settigs
+platform=&amp;#39;unknown&amp;#39;
+unamestr=`uname`
+if [[ &amp;quot;$unamestr&amp;quot; == &amp;#39;Linux&amp;#39; ]]; then
+   source ~/.linux
+elif [[ &amp;quot;$unamestr&amp;quot; == &amp;#39;FreeBSD&amp;#39; ]]; then
+   source ~/.freebsd
+elif [[ &amp;quot;$unamestr&amp;quot; == &amp;#39;Darwin&amp;#39; ]]; then
+   source ~/.osx
+fi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;.aliases&lt;/h4&gt;
+&lt;p&gt;An alias can either be a modified command, or a shorthand for it that we may define ourselves. Suppose, for git commit, we always write &lt;em&gt;&lt;code&gt;git commit -m "commit message"&lt;/code&gt;.&lt;/em&gt; In this case, we can create an alias by &lt;em&gt;&lt;code&gt;alias gcm=git commit -m&lt;/code&gt;&lt;/em&gt; with this, &lt;strong&gt;&lt;em&gt;gcm &lt;/em&gt;&lt;/strong&gt;is same as &lt;strong&gt;&lt;em&gt;git commit -m.&lt;/em&gt;&lt;/strong&gt; Following is a gist of a &lt;strong&gt;&lt;em&gt;.aliases&lt;/em&gt;&lt;/strong&gt; file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;# ------------------------------------------------------------------------------&lt;/span&gt;
+&lt;span class="c1"&gt;# | Network |&lt;/span&gt;
+&lt;span class="c1"&gt;# ------------------------------------------------------------------------------&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Enhanced WHOIS lookups&lt;/span&gt;
+&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;whois&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;whois -h whois-servers.net&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# IP addresses&lt;/span&gt;
+&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;ip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;curl ipinfo.io/ip&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;localip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;python -c &amp;quot;import socket; print(socket.gethostbyname(socket.gethostname()));&amp;quot;&amp;#39;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Copy my public key to my clipboard&lt;/span&gt;
+&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;pubkey&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;more ~/.ssh/id_rsa.pub | pbcopy | echo &amp;#39;=&amp;amp;gt; Public key copied to pasteboard.&amp;#39;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The complete file is &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.aliases"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;.exports&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Export&lt;/strong&gt; is widely used to set environment variables. Also, we &lt;strong&gt;export&lt;/strong&gt; a variable, when we need it in other programs. That depends upon the shell as well. For bash, &lt;strong&gt;export&lt;/strong&gt; makes a variable usable, in the environment for child processes. For more about export, you may see &lt;a href="http://www.gnu.org/software/bash/manual/bash.html#index-export"&gt;GNU bash manual&lt;/a&gt;. Your &lt;strong&gt;&lt;em&gt;.export &lt;/em&gt;&lt;/strong&gt;file may look like &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.exports"&gt;this&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Make vim the default editor
+export EDITOR=&amp;quot;vim&amp;quot;
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER=&amp;quot;less -X&amp;quot;
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;.functions&lt;/h4&gt;
+&lt;p&gt;If we want to create an alias that not just perform a shorthand or a group of commands but, also which behaves conditionally and can work with variables, then we have a better approach of &lt;strong&gt;"functions". &lt;/strong&gt;A function is an independent block of script, which is more powerful than an alias because they can accept variables. We can create functions for various purposes like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;copy&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nx"&gt;work&lt;/span&gt; &lt;span class="nx"&gt;directory&lt;/span&gt; &lt;span class="nx"&gt;to&lt;/span&gt; &lt;span class="nx"&gt;clipboard&lt;/span&gt;
+&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;pwdc() {&lt;/span&gt;
+  &lt;span class="nx"&gt;pwd&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nx"&gt;tr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\r\n&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nx"&gt;pbcopy&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;touch&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="nx"&gt;file&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nx"&gt;creating&lt;/span&gt; &lt;span class="nx"&gt;directories&lt;/span&gt;
+&lt;span class="nx"&gt;supertouch() {&lt;/span&gt; 
+         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;lt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="nx"&gt;then&lt;/span&gt;
+                 &lt;span class="nx"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Missing argument&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+                 &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+         &lt;span class="nx"&gt;fi&lt;/span&gt;
+         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$@&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; 
+                 &lt;span class="nx"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$(dirname -- &amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;$f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;)&amp;quot;&lt;/span&gt;
+                 &lt;span class="nx"&gt;touch&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$f&amp;quot;&lt;/span&gt; 
+         &lt;span class="nx"&gt;done&lt;/span&gt;  
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;More functions are available &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.functions"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;.vimrc&lt;/h4&gt;
+&lt;p&gt;This dotfile is specifically used for "&lt;strong&gt;vim&lt;/strong&gt;" configuration. All the necessary commands that we use very often, we can put them in this file. We can also set up different variables of vim, with the value we desire while working on it. For Unix and MacOS, this file is always used and is recommended at &lt;code&gt;~/.vimrc&lt;/code&gt;. To know more about .vimrc you may open the "&lt;strong&gt;vim&lt;/strong&gt;" and use the command &lt;code&gt;:help vimrc-intro&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;set nocompatible
+set et
+set ai
+set sw=4
+set ts=8
+set ruler
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;.gitignore&lt;/h4&gt;
+&lt;p&gt;This file is used in the case, we want to avoid or ignore some files or folders while &lt;strong&gt;git&lt;/strong&gt; makes a commit. These files may include &lt;em&gt;Thumbnail cache files, local virtual environment, etc.&lt;/em&gt; If we want a particular file say &lt;strong&gt;&lt;em&gt;Example.tmp&lt;/em&gt;&lt;/strong&gt; to be ignored. Just give its name in this dotfile. And if we want to ignore all &lt;strong&gt;&lt;em&gt;.tmp&lt;/em&gt;&lt;/strong&gt; files then put &lt;strong&gt;&lt;em&gt;*.tmp&lt;/em&gt;&lt;/strong&gt; in &lt;strong&gt;&lt;em&gt;.gitignore. &lt;/em&gt;&lt;/strong&gt;A gist of this file is shown below and a complete file is available &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.gitignore"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Files that might appear on external disks
+.Spotlight-V100
+.Trashesvenv
+
+# Packages ignore
+node_modules
+.tmp
+.sass-cache
+app/bower_components
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;We're keeping this post short, as the main motive was to explain how you can store the configuration of your machine. The whole purpose of dotfiles is to make our work as easy as possible. These hidden files give us a comfortable &amp;amp; quality working experience.&lt;br&gt;
+Dotfiles are specific to an individual because of different people like different configuration for the same tool. Go ahead and explore some of the best dotfiles out there. You're free to take inspirations and create your own :)&lt;/p&gt;
+&lt;p&gt;You can have a look at one of the dotfiles repo here: &lt;a href="https://github.com/CuriousLearner/dotfiles"&gt;https://github.com/CuriousLearner/dotfiles&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you've any queries, please ask in comment section below.&lt;/p&gt;</content></entry><entry><title>SR Flip-Flop: Description</title><link href="thegeekyway.com/sr-flip-flop-2/" rel="alternate"></link><published>2014-02-03T21:20:00+05:30</published><updated>2014-02-03T21:20:00+05:30</updated><author><name>Jeffrey_Samuel</name></author><id>tag:None,2014-02-03:thegeekyway.com/sr-flip-flop-2/</id><summary type="html">&lt;p&gt;In the &lt;a href="http://www.thegeekyway.com/race-around-effect/" title="Race around Effect"&gt;previous post&lt;/a&gt; we concentrated on the major advantage of Flip-Flop over Latches. In this Blog we will be concentrating more on the most basic type of Flip-Flops which is SR Flip-Flop. Do note that there are counterparts for every Flip-Flop in latch as well.&lt;/p&gt;
+&lt;p&gt;As we all know …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the &lt;a href="http://www.thegeekyway.com/race-around-effect/" title="Race around Effect"&gt;previous post&lt;/a&gt; we concentrated on the major advantage of Flip-Flop over Latches. In this Blog we will be concentrating more on the most basic type of Flip-Flops which is SR Flip-Flop. Do note that there are counterparts for every Flip-Flop in latch as well.&lt;/p&gt;
+&lt;p&gt;As we all know the major types of Flip-FLop include&lt;/p&gt;
+&lt;h2&gt;Types of Flip-Flop:&lt;/h2&gt;
+&lt;p&gt;The major types of Flip-Flop are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SR Flip-Flop&lt;/li&gt;
+&lt;li&gt;D- Flip-Flop&lt;/li&gt;
+&lt;li&gt;JK Flip-Flop&lt;/li&gt;
+&lt;li&gt;T Flip-Flop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;SR Flip-Flop:&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;This is the most basic of all the types of Flip-Flop. It is also known as Set - Reset Flip Flop. It has two excitation states. One state is the set state and the other is Reset state. In the set state the output of the Flip-Flop is high. In reset state the output is Low.&lt;/p&gt;
+&lt;h3&gt;State Diagram:&lt;/h3&gt;
+&lt;p&gt;The state diagram of an SR Flip-Flop is just a toggle between two states.The common states can be explained in the following points&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When the Set is high the output is High irrespective of the previous input&lt;/li&gt;
+&lt;li&gt;When Reset is high the output is Low irrespective of the previous input&lt;/li&gt;
+&lt;li&gt;If the SR Flip-Flop is off (i.e.,) S=0 and R=0 We have no change in the output of the SR Flip-flop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/SR-Flip-Flop-1.jpg" title="State diagram of SR Flip-Flop"&gt;&lt;img alt="State diagram of SR Flip-Flop" src="thegeekyway.com/uploads/images/2014/02/SR-Flip-Flop-1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3&gt;&lt;/h3&gt;
+&lt;h3&gt;Truth table:&lt;/h3&gt;
+&lt;p&gt;Knowing the states we can draw the truth table as shown in the table below. The truth table gives us&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;S&lt;/strong&gt;   &lt;strong&gt;R&lt;/strong&gt;   &lt;strong&gt;Next State&lt;/strong&gt;
+     0       0           0
+     0       1           0
+     1       0           1
+     1       1           X&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Excitation table:&lt;/h3&gt;
+&lt;p&gt;The excitation states can be clearly seen from the table below. The excitation state gives us the various output possible for an SR Flip-Flop When the past output and the current values of SR is known. When we know the excitation table of an SR Flip-Flop, we can use it to implement other flip flops like D, T and JK.&lt;/p&gt;
+&lt;p&gt;+:-----------:+:-----------:+:-----------:+:-----------:+-------------+
+| ### Present | ### S {#s s | ### R       | ### Next St | ### Comment |
+|  State      | tyle="text- |             | ate         |             |
+|             | align: cent |             |             |             |
+|             | er;"}       |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 0           | 0           | 0           | Flip Flop   |
+|             |             |             |             | is OFF      |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 0           | 1           | 0           | Reset mode  |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 1           | 0           | 1           | Set mode    |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 1           | 1           | X           | Undefined   |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 0           | 0           | 1           | Flip Flop   |
+|             |             |             |             | is OFF      |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 0           | 1           | 0           | Reset Mode  |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 1           | 0           | 1           | Set Mode    |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 1           | 1           | X           | Undefined   |
++-------------+-------------+-------------+-------------+-------------+&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;LIMITATIONS OF SR Flip-Flop:&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;We find that SR flip flop has one undefined cycle in its operation. This is one of the disadvantages of SR flip flop. Mostly while designing itself this condition is avoided. This defect is rectified in the JK flip-flop.&lt;/p&gt;</content><category term="Digital Electronics"></category><category term="Sr Flip-Flop"></category></entry></feed>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Raspberry Pi">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; How play videos on Raspberry Pi - OMXPlayer  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/play-videos-raspberry-pi-omxplayer/">How play videos on Raspberry Pi - OMXPlayer</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Anoop.html"> Anoop</a> </p>
+  <div class="article_text">
+    <p>OMX player is a command line player which can be controlled via <a href="#android">Android app</a> or over <a href="#SSH">SSH</a>.</p>
+<h2 id="omx-playercan-play-all-common-files-including-.avi-.mp4-and-mkv-without-any-extra-codec-with-subtitle." style="font-size: 1em; font-weight: 300;">OMX player can play all common files including .avi, .mp4 and mkv without any extra codec with subtitle.</h2>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg" title="Raspberry Pi OMX Player"><img alt="Raspberry Pi OMX Player" src="thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg"></a></p>
+</div>
+<!--more-->
+
+<h2 id="installing-omx-player" style="font-size: 1.2em;">Installing OMX Player</h2>
+<p>Download and install player from source</p>
+<div class="highlight"><pre><span></span>Stable Build (Already added in Raspbian also in ArcLinux): 
+wget https://github.com/downloads/torarin/omxplayer_0.3.3~git20131216~b34143c_armhf.deb
+
+Experimental Build: (Android app prefers experimental build)
+
+wget https://github.com/downloads/torarin/omxplayer/omxplayer_3~experimental~git20121208~ebfa6fc6_armhf.deb
+
+Install:
+sudo dpkg -i mxplayer_0.3.3~git20131216~b34143c_armhf.deb
+</pre></div>
+
+
+<p><em>Note: OMXPlayer will not play MPEG-2 files, you need purchase licence to play. </em></p>
+<p>{#section style="font-size: 1.2em;"}</p>
+<h2 id="get-android-app" style="font-size: 1.2em;"><p #android></p>Get Android App</h2>
+<p><a href="https://play.google.com/store/apps/details?id=com.raspberry.remote&amp;hl=en">Raspberry Pi Remote Control Google Play link</a></p>
+<p>Open and connect as shown below</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/RaspberryPi.png"><img alt="RaspberryPi" src="thegeekyway.com/uploads/images/2013/12/RaspberryPi.png"></a></p>
+</div>
+<p>In path give  <p style="font-family: 'courier new', courier;">/media </p>(Any USB attached to it will be listed here). You can browse like file browser. Even to root. just select the file and click play.</p>
+<p><strong>Limitations:  </strong>This app works sometime choppy but works well with Play/Stop. If doen't respond just wait for some time and use again. Keep in mind you are playing on card size machine not on high end desktop.</p>
+<h2 id="control-raspberrypi-omxplayer-via-ssh" style="font-size: 1.2em;"><p #SSH></p>Control RaspberryPi / OMXPlayer via SSH</h2>
+<p>SSH should be enabled on raspi but if not you can enable it by following.</p>
+<p>Run: sudo raspi-config</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/raspi-config.png"><img alt="raspi-config" src="thegeekyway.com/uploads/images/2013/12/raspi-config.png"></a></p>
+</div>
+<p>Advance --> SSH and enable it.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/SSH.png"><img alt="SSH" src="thegeekyway.com/uploads/images/2013/12/SSH.png"></a></p>
+</div>
+<p>For more info about <a href="http://www.thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/" title="Raspberry Pi: Change Password, Auto Login and Remote Desktop">raspi-config and other configuration, see this tutorial</a>.</p>
+<p>Now, on your computer, open terminal Emulator (On Mac/Linux you already have it).</p>
+<p>For windows download small software for<a href="http://www.putty.org/">Terminal Emulator,  <strong>PuTTy </strong></a>, and open it.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/putty.png"><img alt="putty" src="thegeekyway.com/uploads/images/2013/12/putty.png"></a></p>
+</div>
+<p><em>(In host name or ip address, I already given <strong> <p style="color: #ff0000;"> <p style="font-family: 'courier new', courier;">\<userName\>@\<ip\> </p></p></strong>, So I don't have to give username again. it will only asks for password in next step.)</em></p>
+<p>Provide your password in next step, and you will land on home of pi in command prompt version. Here you can run any command which will be executed on Raspi directly.</p>
+<p>Now just browse to your media file and run</p>
+<div class="highlight"><pre><span></span>omxplayer -s 
+
+For HDMI (video+audio)
+
+omxplayer -o hdmi
+</pre></div>
+
+
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"><img alt="omxPlayer-command" src="thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"></a></p>
+</div>
+<p>Here are some more OMXPlayer commands</p>
+<div class="highlight"><pre><span></span>http://lukasz-skalski.com/index.php/projekty-inne/raspberry-control-control-raspberry-pi-with-your-android-device.html
+
+# dpkg -i omxplayer_0.0.1-arm.deb
+####  .... fails with missing dependencies ...
+# apt-get -f install
+### fetches the missing dependencies, configures the sym links etc
+$ omxplayer --help
+Usage: omxplayer [OPTIONS] [FILE]
+Options :
+-h / --help                    print this help
+-a / --alang language          audio language        : e.g. ger
+-n / --aidx  index             audio stream index    : e.g. 1
+-o / --adev  device            audio out device      : e.g. hdmi/local
+-i / --info                    dump stream format and exit
+-s / --stats                   pts and buffer stats
+-p / --passthrough             audio passthrough
+-d / --deinterlace             deinterlacing
+-w / --hw                      hw audio decoding
+-3 / --3d                      switch tv into 3d mode
+-y / --hdmiclocksync           adjust display refresh rate to match video
+-t / --sid index               show subtitle with index
+-r / --refresh                 adjust framerate/resolution to video
+</pre></div>
+
+
+<p>Play via SSH and feel like a pro.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 23 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/raspberry-pi.html">Raspberry Pi</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="benchmarking, Openstack, openstack benchmarking, performance measure, rally, scaling">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Benchmarking OpenStack With Rally  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
+  <div class="article_text">
+    <p>When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three steps:</p>
+<p><strong>1. Deployment:</strong> Rally is not a deployment tool by itself, instead it works as a plugin with devstack, RDO etc.</p>
+<p><strong>2. Verification:</strong> Here Rally uses tempest to verify the OpenStack cloud deployment.</p>
+<p><strong>3. Benchmarking:</strong> This step is used to calculate load and performance of the particular cloud deployment.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"><img alt="Openstack with Rally" src="thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg"></a></p>
+</div>
+<p>Rally generally works a command line tool (GUI is work in progress) and helps in detecting scaling and performance issues, figuring out how the code change affects the system and finding out suitable architecture of deployment etc.</p>
+<p>The first step is to install rally in OpenStack environment. I am going to use rally as a plugin with devstack, though it is possible to install it manually in an already deployed environment. To start, clone the following repositories from github:</p>
+<div class="highlight"><pre><span></span>git clone https://github.com/openstack-dev/devstack
+
+git clone https://github.com/stackforge/rally
+</pre></div>
+
+
+<p>Now, execute the following commands from your terminal in order to set devstack up with rally:</p>
+<div class="highlight"><pre><span></span>cp rally/contrib/devstack/lib/rally devstack/lib/
+cp rally/contrib/devstack/extras.d/70-rally.sh devstack/extras.d/
+cd devstack
+echo &quot;enable_service rally&quot; &gt;&gt; localrc
+</pre></div>
+
+
+<p>Next, as usual, we run the installation script of devstack:</p>
+<div class="highlight"><pre><span></span>./stack.sh
+</pre></div>
+
+
+<p>Go for a coffee or take a walk, until devstack completes its work!</p>
+<p>After the installation is done, source the openrc file present in \~/.rally/ directory to start using OpenStack.</p>
+<div class="highlight"><pre><span></span>source ~/.rally/openrc
+</pre></div>
+
+
+<p>To use rally, we first need to tell it about the OpenStack deployment which is going to be benchmarked. To do that, we have a deployment configuration file. That means, you need to provide configuration details of your OpenStack deployment in form of a json file. Go to the rally directory and create a my-deployment.json file. The content of the file should be like this:</p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-02-27 17:20:18.png" src="https://lh6.googleusercontent.com/kRZy9MBq6cBMDPrVgwm9nXRDrBasz2tbBqXJvTmGD0FrU1eUOTucylKtHzYVU5BHmz1OfDQRxzzoyO1s6qccUofo0ILWNx_WZX3QmGoK7AAcSfjemvwQmLs1BQ"></strong></p>
+</div>
+<p>You can find the relevant information for you system in openrc file. Next, we create a deployment named test using the following command:</p>
+<div style="text-align:center">
+<p><strong><em>*</em>*<img alt="Screenshot from 2014-02-27 17:19:54.png" src="https://lh3.googleusercontent.com/_lAcpSqYhUncDSomOX8fjW_vcMthYAAU5L_HhNuHK3V4ZpEYlhFToDctsPE9Z7HWOc6pAqBKAg_rlnVqxXa2IWLyEBm5rrG_S0rkJcZNJNsPaxzpt1EZp2zuRw"></strong>****</p>
+</div>
+<p>Run ‘rally deployment check’ to check if current deployment is ready to be benchmarked. You should get an output like this:</p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-02-27 17:21:26.png" src="https://lh6.googleusercontent.com/CujE4Dm-jfe4s5aSB3eCpNwxWQWqedxz6oSFuvHZoSmppfLzmz17nxQb-6W_lUsNBds9XpjEA1PHyy8M4dyUh6adwwA7w7Euz7PN_Oe-hQlH8MHIszqKrmbj-w"></strong></p>
+</div>
+<p>Next, we come to benchmarking. There are a lot of ways to test the deployment, we will use an example that comes with rally. This is a boot and delete test. First copy the test to you current directory:</p>
+<div class="highlight"><pre><span></span>cp doc/samples/tasks/nova/boot-and-delete.json my-task.json
+</pre></div>
+
+
+<p>Now, edit the my-task.json file to look like:</p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-02-27 17:25:25.png" src="https://lh6.googleusercontent.com/Wi-J5GrWHYqoyY-buqPouTYbeuSrsqwTVDhmqCL0j7CKpJCDaasJpZhuz-TRdb7Ew5w1B-5ikyQpFBSGp_uHG_RYBGOvnrDr9JXhAVTwNfNbouHZxAwvvYxyOQ"></strong></p>
+</div>
+<p>Edit the falvor_id and image_id according to your system. Use “glance image-list” and “nova flavor-list” commands. And now we are ready to run our first task. Type this on your machine:</p>
+<div class="highlight"><pre><span></span>rally --verbose task start --task=my-task.json
+</pre></div>
+
+
+<p>You should see the output:</p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-02-27 17:29:29.png" src="https://lh6.googleusercontent.com/6RAxgAkO135b4iMW1sn8ghAHojAA1aJmLamDp_CqtYHSwAbqL6Dy9WjOoN5dM1FDEISZp8YRg-Ij5az03jfYXiExERGk21Tx5eqPeS9DQI2SOL17cdDpNiR5Pw"></strong></p>
+</div>
+<p>You can also find out the detailed report about all the task.</p>
+<div style="text-align:center">
+<p><strong><img alt="Screenshot from 2014-02-27 17:30:25.png" src="https://lh5.googleusercontent.com/nZ35zyKAr8V8rPF9HJ9revry8MVpdjZo7q5wwqAwImn1_ccLQt9lP-pj-MEsIG9E7OS4oWEMPXzWPpCTE_mX0IvkzXFrO2XPKGvZk5n_G6Cy8rfbpO-3jYF2yg"></strong></p>
+</div>
+<p>There are other examples available in the doc/samples/ directory. You can learn more about test cases from these files. Happy benchmarking!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 28 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/benchmarking.html">benchmarking</a>,      <a href="thegeekyway.com/tag/openstack.html">Openstack</a>,      <a href="thegeekyway.com/tag/openstack-benchmarking.html">openstack benchmarking</a>,      <a href="thegeekyway.com/tag/performance-measure.html">performance measure</a>,      <a href="thegeekyway.com/tag/rally.html">rally</a>,      <a href="thegeekyway.com/tag/scaling.html">scaling</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

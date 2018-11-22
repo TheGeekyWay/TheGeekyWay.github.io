@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Digital Electronics, Sr Flip-Flop">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; SR Flip-Flop: Description  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/sr-flip-flop-2/">SR Flip-Flop: Description</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Jeffrey_Samuel.html"> Jeffrey_Samuel</a> </p>
+  <div class="article_text">
+    <p>In the <a href="http://www.thegeekyway.com/race-around-effect/" title="Race around Effect">previous post</a> we concentrated on the major advantage of Flip-Flop over Latches. In this Blog we will be concentrating more on the most basic type of Flip-Flops which is SR Flip-Flop. Do note that there are counterparts for every Flip-Flop in latch as well.</p>
+<p>As we all know the major types of Flip-FLop include</p>
+<h2>Types of Flip-Flop:</h2>
+<p>The major types of Flip-Flop are</p>
+<ul>
+<li>SR Flip-Flop</li>
+<li>D- Flip-Flop</li>
+<li>JK Flip-Flop</li>
+<li>T Flip-Flop</li>
+</ul>
+<h2><strong>SR Flip-Flop:</strong></h2>
+<p>This is the most basic of all the types of Flip-Flop. It is also known as Set - Reset Flip Flop. It has two excitation states. One state is the set state and the other is Reset state. In the set state the output of the Flip-Flop is high. In reset state the output is Low.</p>
+<h3>State Diagram:</h3>
+<p>The state diagram of an SR Flip-Flop is just a toggle between two states.The common states can be explained in the following points</p>
+<ul>
+<li>When the Set is high the output is High irrespective of the previous input</li>
+<li>When Reset is high the output is Low irrespective of the previous input</li>
+<li>If the SR Flip-Flop is off (i.e.,) S=0 and R=0 We have no change in the output of the SR Flip-flop.</li>
+</ul>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/SR-Flip-Flop-1.jpg" title="State diagram of SR Flip-Flop"><img alt="State diagram of SR Flip-Flop" src="thegeekyway.com/uploads/images/2014/02/SR-Flip-Flop-1.jpg"></a></p>
+</div>
+<h3></h3>
+<h3>Truth table:</h3>
+<p>Knowing the states we can draw the truth table as shown in the table below. The truth table gives us</p>
+<hr>
+<p><strong>S</strong>   <strong>R</strong>   <strong>Next State</strong>
+     0       0           0
+     0       1           0
+     1       0           1
+     1       1           X</p>
+<hr>
+<h3>Excitation table:</h3>
+<p>The excitation states can be clearly seen from the table below. The excitation state gives us the various output possible for an SR Flip-Flop When the past output and the current values of SR is known. When we know the excitation table of an SR Flip-Flop, we can use it to implement other flip flops like D, T and JK.</p>
+<p>+:-----------:+:-----------:+:-----------:+:-----------:+-------------+
+| ### Present | ### S {#s s | ### R       | ### Next St | ### Comment |
+|  State      | tyle="text- |             | ate         |             |
+|             | align: cent |             |             |             |
+|             | er;"}       |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 0           | 0           | 0           | Flip Flop   |
+|             |             |             |             | is OFF      |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 0           | 1           | 0           | Reset mode  |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 1           | 0           | 1           | Set mode    |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 1           | 1           | X           | Undefined   |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 0           | 0           | 1           | Flip Flop   |
+|             |             |             |             | is OFF      |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 0           | 1           | 0           | Reset Mode  |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 1           | 0           | 1           | Set Mode    |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 1           | 1           | X           | Undefined   |
++-------------+-------------+-------------+-------------+-------------+</p>
+<h3><strong>LIMITATIONS OF SR Flip-Flop:</strong></h3>
+<p>We find that SR flip flop has one undefined cycle in its operation. This is one of the disadvantages of SR flip flop. Mostly while designing itself this condition is avoided. This defect is rectified in the JK flip-flop.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 03 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/uncategorized.html">Uncategorized</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/digital-electronics.html">Digital Electronics</a>,      <a href="thegeekyway.com/tag/sr-flip-flop.html">Sr Flip-Flop</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

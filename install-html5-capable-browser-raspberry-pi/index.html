@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="HTML5, Raspberry Pi">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Install HTML5 Capable Browser In Raspberry Pi  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/install-html5-capable-browser-raspberry-pi/">Install HTML5 Capable Browser In Raspberry Pi</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Abhishek_Rawal.html"> Abhishek_Rawal</a> </p>
+  <div class="article_text">
+    <p>'Web' is the epiphany port available for Raspberry Pi users, which is HTML5 capable browser &amp; it's predicted to be shipped in future Raspbian release. Well, if you're impatient for the official release of 'Web' &amp; wanna try out this awesome browser, here's few steps which will let you enjoy the beta version of 'Web' in your Raspberry Pi.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/2013-12-29-011813_1360x768_scrot.png"><img alt="Rpi_Web_scrot" src="thegeekyway.com/uploads/images/2013/12/2013-12-29-011813_1360x768_scrot.png"></a></p>
+</div>
+<p>[For me, if you have noticed, the icons within the browser is not showing up properly, maybe some files are conflicting, for which i will take care later on]</p>
+<p>To install 'Web' in Raspberry pi :</p>
+<p>Open <strong>/etc/apt/source.list</strong> with <strong>'root'</strong> &amp; add the following line:</p>
+<div class="highlight"><pre><span></span><span class="k">deb</span> <span class="s">http://raspberrypi.collabora.com</span> <span class="kp">wheezy</span> <span class="kp">web</span>
+</pre></div>
+
+
+<p>Now, update the repository &amp; upgrade the system by entering following commands in terminal :</p>
+<div class="highlight"><pre><span></span>sudo apt-get update &amp;&amp; sudo apt-get upgrade
+</pre></div>
+
+
+<p>Now install 'Web' browser by entering following commands in terminal :</p>
+<div class="highlight"><pre><span></span>sudo apt-get install epiphany-browser cgroup-bin libraspberrypi0 libwayland-client0 libwayland-cursor0 libwayland-server0a
+</pre></div>
+
+
+<p>Latest kernel supports cgroups (also known as control groups) which limits &amp; isolates the resources like CPU, memory, I/O usages. To activate it, add <strong>cgroup_enable=memory</strong> in Kernel command line.</p>
+<p>That's it. Enjoy surfing.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 29 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/html5.html">HTML5</a>,      <a href="thegeekyway.com/tag/raspberry-pi.html">Raspberry Pi</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

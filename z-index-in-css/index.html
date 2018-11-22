@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="CSS, HTML">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Z-Index in CSS  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/z-index-in-css/">Z-Index in CSS</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Deep_Singh.html"> Deep_Singh</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/zindex.png"><img alt="z-index" src="thegeekyway.com/uploads/images/2014/01/zindex.png"></a></p>
+</div>
+<h1>What is Z-Index ?</h1>
+<p>Z-Index is the property of CSS which is used to order the elements behind and in front in the form of stack. You can consider this a virtual stack where the higher value of z-index is placed infront and the lower value of z index is placed at the back.</p>
+<p>To understand this let us consider the html and css code :-</p>
+<p>[codepen_embed height=620 theme_id=3 slug_hash='wnDcv' user='Deep_Singh' default_tab='Result' animations='run'/]</p>
+<p>This is just a simple code to create 2 boxes and displaying them.The next step is to overlap these two boxes since HTML works on stack basis which means that the bottom code will be displayed on top, so now updating the code we get :-</p>
+<p>[codepen_embed height=620 theme_id=3 slug_hash='ctnjB' user='Deep_Singh' default_tab='Result' animations='run'/]</p>
+<p>This is just the normal css code with margins defined, but <strong>What if we want DIV1 to be placed above DIV2 ?</strong> , here Z-Index property comes into effect. Various attributes of z-index are :-</p>
+<p>Value      Description</p>
+<hr>
+<p>auto       The browser determines the stack order of the element (based on its order in the document). This is default
+  <em>number</em>   An integer that defines the stack order of the element. Negative values are allowed
+  inherit    The value of the zIndex property is inherited from parent element</p>
+<p>Now adding the z-index property in the CSS code we get the following output.</p>
+<p>[codepen_embed height=620 theme_id=3 slug_hash='vizcB' user='Deep_Singh' default_tab='Result' animations='run'/]</p>
+<h2>Did it worked ?</h2>
+<p>The answer is  <p style="color: #f80b06;"><strong>No</strong></p> ! The reason being that the z-index value is pretty much ignored by the browser unless the elements are positioned. We can use <strong>position:relative</strong> declaration to both elements. Now if we use the code we will get the following output :-</p>
+<p>[codepen_embed height=620 theme_id=3 slug_hash='EzLmu' user='Deep_Singh' default_tab='Result' animations='run'/]</p>
+<p><strong>Remember :</strong> We should use larger values, the reason behind is that we should leave room for more values to add and values between 4 and 5 there is no whole number between it and in future we might need to add more z-index between these 2 div's, that's not that important but in advanced designs it might create a problem.</p>
+<h1>What z-index cannot do ? (in respect to overlapping)</h1>
+<p>Let us consider a child element of DIV2, a DIV3 which has the z index greater than DIV1 and DIV2, but since its the child element of DIV2 so it will be overlapped with DIV2 and DIV1 will be on the top. To demonstrate this let us consider an example below :-</p>
+<p>[codepen_embed height=620 theme_id=3 slug_hash='dCxfl' user='Deep_Singh' default_tab='Result' animations='run'/]</p>
+<hr>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 19 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/css.html">CSS</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/css.html">CSS</a>,      <a href="thegeekyway.com/tag/html.html">HTML</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

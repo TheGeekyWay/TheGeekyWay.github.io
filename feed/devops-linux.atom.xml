@@ -1,0 +1,736 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - DevOps, Linux</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/devops-linux.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2018-03-05T22:35:00+05:30</updated><entry><title>Hands-on Guide on GPG Keys</title><link href="thegeekyway.com/hands-on-guide-on-gpg-keys/" rel="alternate"></link><published>2018-03-05T22:35:00+05:30</published><updated>2018-03-05T22:35:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:None,2018-03-05:thegeekyway.com/hands-on-guide-on-gpg-keys/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/03/GPG_guide.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;GPG or GNU Privacy Guard is a complete and free implementation of the OpenPGP standard as defined by &lt;a href="https://www.ietf.org/rfc/rfc4880.txt"&gt;RFC4880&lt;/a&gt; (also known as PGP). It is a tool that provides encryption and signing services, using which, you can encrypt or sign your files, messages, emails and can even sign your github …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/03/GPG_guide.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;GPG or GNU Privacy Guard is a complete and free implementation of the OpenPGP standard as defined by &lt;a href="https://www.ietf.org/rfc/rfc4880.txt"&gt;RFC4880&lt;/a&gt; (also known as PGP). It is a tool that provides encryption and signing services, using which, you can encrypt or sign your files, messages, emails and can even sign your github commits. In this guide, let's get a walk through GPG keys and its use cases.&lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;GPG is basically an implementation of a cryptosystem that you can use to exchange encrypted or signed messages and it is based on &lt;a href="https://en.wikipedia.org/wiki/Public-key_cryptography"&gt;asymmetric cryptography&lt;/a&gt;. It fulfills the &lt;a href="http://whatis.techtarget.com/definition/Confidentiality-integrity-and-availability-CIA"&gt;CIA of security&lt;/a&gt; where &lt;strong&gt;"C"&lt;/strong&gt; stands for "Confidentiality", &lt;strong&gt;"I"&lt;/strong&gt; stands for "Integrity" and &lt;strong&gt;"A"&lt;/strong&gt; stands for "Availability".&lt;/p&gt;
+&lt;h2&gt;Before Generating a Key Pair&lt;/h2&gt;
+&lt;p&gt;In this tutorial, I am using &lt;strong&gt;"gpg2"&lt;/strong&gt;, but you may go with &lt;strong&gt;"gpg"&lt;/strong&gt; as well, because most of the commands are same for both. However, a comparison between both the versions is available at the end of this post.&lt;/p&gt;
+&lt;p&gt;To generate a key pair, first make sure you can run the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --version
+gpg &lt;span class="o"&gt;(&lt;/span&gt;GnuPG&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.1.11
+libgcrypt &lt;span class="m"&gt;1&lt;/span&gt;.6.5
+Copyright &lt;span class="o"&gt;(&lt;/span&gt;C&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2016&lt;/span&gt; Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version &lt;span class="m"&gt;3&lt;/span&gt; or later &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;http://gnu.org/licenses/gpl.html&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: ~/.gnupg
+Supported algorithms:
+Pubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It gives the version number of &lt;strong&gt;gpg&lt;/strong&gt; like &lt;strong&gt;2.1.11&lt;/strong&gt;. If not, then you need to install it, the package is &lt;strong&gt;gnupg&lt;/strong&gt; (for gpg) or &lt;strong&gt;gnupg2&lt;/strong&gt; (for gpg2).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ sudo apt-get update
+$ sudo apt-get install gnupg2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Generate a Key Pair&lt;/h2&gt;
+&lt;p&gt;Simply run the following command to generate a new key pair.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --full-gen-key
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You may try this command with &lt;strong&gt;"sudo"&lt;/strong&gt; if required.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:- Either use "gpg", "gpg2", "sudo gpg" or "sudo gpg2". But whatever you use, keep that same.&lt;/strong&gt; That means, if &lt;strong&gt;"sudo gpg2" &lt;/strong&gt;worked for you, then keep it same for all the upcoming commands.&lt;/p&gt;
+&lt;p&gt;This command will ask you the following questions.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;What kind of key do you want (RSA, DSA, etc)?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+   You should go with default selection.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Key size?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+   The longer, the better.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;How long should the key be valid?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+   It is good to give here some value e.i &lt;strong&gt;"2y"&lt;/strong&gt; (2 years) as it is suggested to all people that start with PGP to use an expiring key. Because at some point, you are likely to lose access to the private key, and then you can't revoke the key so that other people stop using it. But if it expires, everyone will stop using it at the expiration date.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Your real name?&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Your email address?&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Any comment?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+   For now, you may leave the comment empty. But comments are used to distinctly identify a key, in case you have multiple GPG keys.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Final confirmation (y/n)?&lt;/em&gt;&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;em&gt;Your passphrase&lt;/em&gt;?&lt;/strong&gt;&lt;br&gt;
+   Enter a strong passphrase twice and proceed ahead.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At this point, &lt;strong&gt;GPG&lt;/strong&gt; will generate the keys using entropy. &lt;em&gt;Entropy&lt;/em&gt; describes the amount of unpredictability and nondeterminism that exists in a system. This entropy is needed to generate a secure set of keys. This process may take some time depending on how active your system is, and the key size you selected. The terminal may look like this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="n"&gt;gpg2&lt;/span&gt; --&lt;span class="n"&gt;full-gen-key&lt;/span&gt; 
+&lt;span class="n"&gt;gpg&lt;/span&gt; (&lt;span class="n"&gt;GnuPG&lt;/span&gt;) &lt;span class="mf"&gt;2.1.11&lt;/span&gt;; &lt;span class="n"&gt;Copyright&lt;/span&gt; (&lt;span class="n"&gt;C&lt;/span&gt;) &lt;span class="mi"&gt;2016&lt;/span&gt; &lt;span class="n"&gt;Free&lt;/span&gt; &lt;span class="n"&gt;Software&lt;/span&gt; &lt;span class="n"&gt;Foundation&lt;/span&gt;, &lt;span class="n"&gt;Inc&lt;/span&gt;.
+&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt; &lt;span class="n"&gt;software:&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="n"&gt;redistribute&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;.
+&lt;span class="n"&gt;There&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;NO&lt;/span&gt; &lt;span class="n"&gt;WARRANTY&lt;/span&gt;, &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;extent&lt;/span&gt; &lt;span class="n"&gt;permitted&lt;/span&gt; &lt;span class="nb"&gt;by&lt;/span&gt; &lt;span class="n"&gt;law&lt;/span&gt;.
+
+&lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="n"&gt;what&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want:&lt;/span&gt;
+(&lt;span class="mi"&gt;1&lt;/span&gt;) &lt;span class="n"&gt;RSA&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="n"&gt;RSA&lt;/span&gt; (&lt;span class="k"&gt;default&lt;/span&gt;)
+(&lt;span class="mi"&gt;2&lt;/span&gt;) &lt;span class="n"&gt;DSA&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="n"&gt;Elgamal&lt;/span&gt;
+(&lt;span class="mi"&gt;3&lt;/span&gt;) &lt;span class="n"&gt;DSA&lt;/span&gt; (&lt;span class="nb"&gt;sign&lt;/span&gt; &lt;span class="k"&gt;only&lt;/span&gt;)
+(&lt;span class="mi"&gt;4&lt;/span&gt;) &lt;span class="n"&gt;RSA&lt;/span&gt; (&lt;span class="nb"&gt;sign&lt;/span&gt; &lt;span class="k"&gt;only&lt;/span&gt;)
+&lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;selection&lt;/span&gt;? &lt;span class="mi"&gt;1&lt;/span&gt;
+
+&lt;span class="n"&gt;RSA&lt;/span&gt; &lt;span class="nb"&gt;keys&lt;/span&gt; &lt;span class="n"&gt;may&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;between&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="n"&gt;bits&lt;/span&gt; &lt;span class="n"&gt;long&lt;/span&gt;.
+&lt;span class="n"&gt;What&lt;/span&gt; &lt;span class="n"&gt;keysize&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="nb"&gt;want&lt;/span&gt;? (&lt;span class="mi"&gt;2048&lt;/span&gt;) &lt;span class="mi"&gt;4096&lt;/span&gt;
+
+&lt;span class="n"&gt;Requested&lt;/span&gt; &lt;span class="n"&gt;keysize&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="n"&gt;bits&lt;/span&gt;
+&lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;specify&lt;/span&gt; &lt;span class="n"&gt;how&lt;/span&gt; &lt;span class="n"&gt;long&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;valid&lt;/span&gt;.
+&lt;span class="mi"&gt;0&lt;/span&gt; = &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="nb"&gt;does&lt;/span&gt; &lt;span class="nb"&gt;not&lt;/span&gt; &lt;span class="n"&gt;expire&lt;/span&gt;
+&lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;; = &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;days&lt;/span&gt;
+&lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;;&lt;span class="n"&gt;w&lt;/span&gt; = &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;weeks&lt;/span&gt;
+&lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;;&lt;span class="sr"&gt;m = key expires in n months&lt;/span&gt;
+&lt;span class="sr"&gt;&amp;amp;lt;n&amp;amp;gt;y =&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;years&lt;/span&gt;
+
+&lt;span class="n"&gt;Key&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;valid&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;? (&lt;span class="mi"&gt;0&lt;/span&gt;) &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
+&lt;span class="n"&gt;Key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;Tuesday&lt;/span&gt; &lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="n"&gt;March&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt;:&lt;span class="mi"&gt;08&lt;/span&gt;:&lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="n"&gt;IST&lt;/span&gt;
+&lt;span class="n"&gt;Is&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;correct&lt;/span&gt;? (&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;) &lt;span class="n"&gt;y&lt;/span&gt;
+
+&lt;span class="n"&gt;GnuPG&lt;/span&gt; &lt;span class="n"&gt;needs&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;construct&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;ID&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;identify&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt;.
+
+&lt;span class="n"&gt;Real&lt;/span&gt; &lt;span class="n"&gt;name:&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;Name&lt;/span&gt;
+&lt;span class="n"&gt;Email&lt;/span&gt; &lt;span class="n"&gt;address:&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt;.&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="nv"&gt;@example&lt;/span&gt;.&lt;span class="n"&gt;com&lt;/span&gt;
+&lt;span class="n"&gt;Comment:&lt;/span&gt; 
+&lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;selected&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;USER-ID:&lt;/span&gt;
+&lt;span class="s"&gt;&amp;quot;Your Name &amp;amp;lt;your.email@example.com&amp;amp;gt;&amp;quot;&lt;/span&gt;
+
+&lt;span class="n"&gt;Change&lt;/span&gt; (&lt;span class="n"&gt;N&lt;/span&gt;)&lt;span class="n"&gt;ame&lt;/span&gt;, (&lt;span class="n"&gt;C&lt;/span&gt;)&lt;span class="n"&gt;omment&lt;/span&gt;, (&lt;span class="n"&gt;E&lt;/span&gt;)&lt;span class="n"&gt;mail&lt;/span&gt; &lt;span class="o"&gt;or&lt;/span&gt; (&lt;span class="n"&gt;O&lt;/span&gt;)&lt;span class="n"&gt;kay&lt;/span&gt;/(&lt;span class="s"&gt;Q)uit? O&lt;/span&gt;
+&lt;span class="s"&gt;We need to generate a lot of random bytes. It is a good idea to perform&lt;/span&gt;
+&lt;span class="s"&gt;some other action (type on the keyboard, move the mouse, utilize the&lt;/span&gt;
+&lt;span class="s"&gt;disks)&lt;/span&gt; &lt;span class="n"&gt;during&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;prime&lt;/span&gt; &lt;span class="n"&gt;generation&lt;/span&gt;; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;gives&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
+&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;chance&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;gain&lt;/span&gt; &lt;span class="n"&gt;enough&lt;/span&gt; &lt;span class="n"&gt;entropy&lt;/span&gt;.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Generate an Authentication Subkey&lt;/h2&gt;
+&lt;p&gt;An authentication subkey is used if you want to use your GPG key for SSH authentication. To generate this, just follow these steps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;\$ gpg2 --expert --edit-key your_key_id&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Enter &lt;strong&gt;addkey&lt;/strong&gt; (to select the operation)&lt;/li&gt;
+&lt;li&gt;Select the type of key (e.i select "&lt;strong&gt;8&lt;/strong&gt;" for RSA)&lt;/li&gt;
+&lt;li&gt;Enter &lt;strong&gt;'S'&lt;/strong&gt; to toggle signing to OFF.&lt;/li&gt;
+&lt;li&gt;Enter &lt;strong&gt;'E'&lt;/strong&gt; to toggle encrypting to OFF.&lt;/li&gt;
+&lt;li&gt;Enter &lt;strong&gt;'A'&lt;/strong&gt; to toggle authentication to ON.&lt;/li&gt;
+&lt;li&gt;Enter &lt;strong&gt;'Q'&lt;/strong&gt; to quit.&lt;/li&gt;
+&lt;li&gt;Enter key size. (e.i &lt;strong&gt;4096&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Enter validity period. (e.i &lt;strong&gt;"2y"&lt;/strong&gt;)&lt;/li&gt;
+&lt;li&gt;Confirm your entries.&lt;/li&gt;
+&lt;li&gt;Confirm creation.&lt;/li&gt;
+&lt;li&gt;Enter Passphrase twice.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;After some time your authentication subkey would be generated. Output of the process is shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --expert --edit-key 123EE456
+gpg &lt;span class="o"&gt;(&lt;/span&gt;GnuPG&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.1.11&lt;span class="p"&gt;;&lt;/span&gt; Copyright &lt;span class="o"&gt;(&lt;/span&gt;C&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2016&lt;/span&gt; Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+sec rsa4096/123EE456
+ created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: SC 
+ trust: ultimate     validity: ultimate
+ssb rsa4096/7891EEFF
+ created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: E 
+&lt;span class="o"&gt;[&lt;/span&gt;ultimate&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;. Real Name your.email@gmail.com
+
+gpg&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; addkey
+Please &lt;span class="k"&gt;select&lt;/span&gt; what kind of key you want:
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; DSA &lt;span class="o"&gt;(&lt;/span&gt;sign only&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; RSA &lt;span class="o"&gt;(&lt;/span&gt;sign only&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; Elgamal &lt;span class="o"&gt;(&lt;/span&gt;encrypt only&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; RSA &lt;span class="o"&gt;(&lt;/span&gt;encrypt only&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; DSA &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; your own capabilities&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; RSA &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; your own capabilities&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; ECC &lt;span class="o"&gt;(&lt;/span&gt;sign only&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; ECC &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; your own capabilities&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; ECC &lt;span class="o"&gt;(&lt;/span&gt;encrypt only&lt;span class="o"&gt;)&lt;/span&gt;
+ &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;13&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; Existing key
+Your selection? &lt;span class="m"&gt;8&lt;/span&gt;
+
+Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
+Current allowed actions: Sign Encrypt
+
+ &lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
+ &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
+ &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
+ &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+
+Your selection? S
+
+Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
+Current allowed actions: Encrypt
+
+&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
+ &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
+ &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
+ &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+
+Your selection? E
+
+Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
+Current allowed actions:
+
+&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
+ &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
+ &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
+ &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+
+Your selection? A
+
+Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
+Current allowed actions: Authenticate
+
+&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
+ &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
+ &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
+ &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+
+Your selection? Q
+RSA keys may be between &lt;span class="m"&gt;1024&lt;/span&gt; and &lt;span class="m"&gt;4096&lt;/span&gt; bits long.
+What keysize &lt;span class="k"&gt;do&lt;/span&gt; you want? &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2048&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;4096&lt;/span&gt;
+Requested keysize is &lt;span class="m"&gt;4096&lt;/span&gt; bits
+Please specify how long the key should be valid.
+ &lt;span class="nv"&gt;0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key does not expire
+ &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n days
+ &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n weeks
+ &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n months
+ &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n years
+Key is valid &lt;span class="k"&gt;for&lt;/span&gt;? &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; 2y
+Key expires at Thursday &lt;span class="m"&gt;05&lt;/span&gt; March &lt;span class="m"&gt;2020&lt;/span&gt; &lt;span class="m"&gt;02&lt;/span&gt;:30:01 AM IST
+Is this correct? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
+Really create? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; on the keyboard, move the mouse, utilize the
+disks&lt;span class="o"&gt;)&lt;/span&gt; during the prime generation&lt;span class="p"&gt;;&lt;/span&gt; this gives the random number
+generator a better chance to gain enough entropy.
+
+sec rsa4096/123EE456
+ created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: SC 
+ trust: ultimate validity: ultimate
+ssb rsa4096/7891EEFF
+ created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: E 
+ssb rsa4096/6A127E44
+ created: &lt;span class="m"&gt;2018&lt;/span&gt;-03-05 expires: &lt;span class="m"&gt;2020&lt;/span&gt;-03-04 usage: A
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Last 2 lines of the output show newly created authentication [A] subkey.&lt;/p&gt;
+&lt;h2&gt;List Keys&lt;/h2&gt;
+&lt;p&gt;To list all the public GPG keys. Give the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --list-keys
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To obtain the key id in LONG (complete) format, use this flag &lt;strong&gt;"--keyid-format LONG".&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --list-keys --keyid-format LONG
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To list all the private GPG keys.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --list-secret-keys
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;All these commands give you the following information about your GPG keys and subkeys.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Which algorithm your keys use, e.i &lt;strong&gt;rsa.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Key size, e.i &lt;strong&gt;4096 bits.&lt;br&gt;
+&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Key IDs, e.i &lt;strong&gt;123AB456&lt;/strong&gt; (this is the short key id of 8-bytes, in the long format you get the complete key id of 16-bytes).&lt;/li&gt;
+&lt;li&gt;Date of creation.&lt;/li&gt;
+&lt;li&gt;Their usage e.i  &lt;p .st&gt;&lt;strong&gt;'E'&lt;/strong&gt;=encryption, &lt;strong&gt;'S'&lt;/strong&gt;=signing, &lt;strong&gt;'C'&lt;/strong&gt;=certification, &lt;strong&gt;'A'&lt;/strong&gt;=authentication.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Their expiry date.&lt;/li&gt;
+&lt;li&gt;Their trust level, e.i &lt;strong&gt;Ultimate, unknown, etc.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Name and Email associated with them that's also known as &lt;strong&gt;UID&lt;/strong&gt; "User ID".&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Exporting Keys&lt;/h2&gt;
+&lt;p&gt;Exporting means, to bring out the keys from GPG database so that we may see or store them in files.&lt;/p&gt;
+&lt;p&gt;If you want to see your GPG key in ASCII characters, then you need to export it to a file by the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --output public.key --armor --export your.email@example.com
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;--output:&lt;/strong&gt; specifies the output file.&lt;br&gt;
+&lt;strong&gt;--export:&lt;/strong&gt; to instruct GPG to export your public key.&lt;br&gt;
+&lt;strong&gt;--armor:&lt;/strong&gt; to export in ASCII characters.&lt;/p&gt;
+&lt;p&gt;Similarly, to export a private key directly on the terminal just change one flag.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --armor --export-secret-keys your.email@example.com
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will ask for your passphrase. Here you may also add the &lt;strong&gt;--output&lt;/strong&gt; flag to put its output in a file as done in the previous command.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: Never give/share your private key anywhere. Keep it as secure as you can.&lt;/strong&gt; The private key is required to decrypt the data encrypted just for you. So, compromising this key may result in security issues whose severity depends on the data you deal with.&lt;/p&gt;
+&lt;h2&gt;Fingerprints&lt;/h2&gt;
+&lt;p&gt;A key can be verified by a number of ways. One such way is to use its fingerprint. The fingerprint is a shorter number (usually expressed as a 40-hexadecimal-digit number) that contains a cryptographically strong hash of the public key.&lt;/p&gt;
+&lt;p&gt;To see the fingerprint of any GPG key associated with an email. Use this command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --fingerprint email@example.com
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can cross check this fingerprint with the person to verify if it is trustworthy.&lt;/p&gt;
+&lt;p&gt;Now when you have seen and understand your GPG keys. It's time to generate a revocation certificate.&lt;/p&gt;
+&lt;h2&gt;Generating a Revocation Certificate&lt;/h2&gt;
+&lt;p&gt;It is vital to have revocation certificate to declare your keys invalid in case your private key has been compromised or lost. It should be generated as soon as you generate your key pair, not when you need it. So, let's generate it with the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --output ~/revocation.crt --gen-revoke your.email@example.com
+Please &lt;span class="k"&gt;select&lt;/span&gt; the reason &lt;span class="k"&gt;for&lt;/span&gt; the revocation: 
+ &lt;span class="nv"&gt;0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; No reason specified
+ &lt;span class="nv"&gt;1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Key has been compromised
+ &lt;span class="nv"&gt;2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Key is superseded
+ &lt;span class="nv"&gt;3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Key is no longer used
+ &lt;span class="nv"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Cancel 
+&lt;span class="o"&gt;(&lt;/span&gt;Probably you want to &lt;span class="k"&gt;select&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; here&lt;span class="o"&gt;)&lt;/span&gt; 
+Your decision? &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It would ask for your confirmation for generating the certificate and the reason for which you are creating this. It is also suggested that you should have revocation certificates for every possibility listed there for maximum flexibility, but for now, you may go for &lt;strong&gt;"0: No reason specified"&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;Now give a comment (I left it empty) and your passphrase. Soon, your certificate is generated. You should keep this as secure and hidden as you keep your private keys. Here is the output.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Enter an optional description; end it with an empty line:
+&amp;amp;gt; 
+Reason for revocation: No reason specified
+(No description given)
+Is this okay? (y/N) y
+ASCII armored output forced.
+Revocation certificate created.
+
+Please move it to a medium which you can hide away; if Mallory gets
+access to this certificate he can use it to make your key unusable.
+It is smart to print this certificate and store it away, just in case
+your media become unreadable. But have some caution: The print system of
+your machine might store the data and make it available to others!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In order to save this file from unauthorized access, you may immediately put restrictions (if not present by default).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ chmod &lt;span class="m"&gt;600&lt;/span&gt; ~/revocation.crt
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In case you want to revoke your key, then you would have to upload this revocation certificate to a public keyserver (assuming that you have already sent &lt;em&gt;your public key to a keyserver&lt;/em&gt;. See below.)&lt;/p&gt;
+&lt;h2&gt;Sending and Importing Keys&lt;/h2&gt;
+&lt;h4&gt;&lt;strong&gt;Sending:&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Why are you using GPG keys in the first place?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+Because with GPG you can sign messages or other people can encrypt messages to you.&lt;/p&gt;
+&lt;p&gt;Therefore, to make your key publicly available might be of great help. So that, anyone can take your public key to encrypt messages to you. For this, we can send our public key to a keyserver.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Would it be safe to upload your public key on keyservers?&lt;/em&gt;&lt;/strong&gt;&lt;br&gt;
+Absolutely yes, as I have already mentioned before that GPG works on &lt;a href="https://en.wikipedia.org/wiki/Public-key_cryptography"&gt;asymmetric cryptography&lt;/a&gt;, therefore having your public key to someone doesn't make a threat to your security. Because it is practically impossible to generate a private key from a public key.&lt;/p&gt;
+&lt;p&gt;There are multiple keyservers available to hold public keys like, &lt;strong&gt;&lt;em&gt;&lt;a href="https://keys.fedoraproject.org/"&gt;keys.fedoraproject.org&lt;/a&gt;, &lt;a href="http://keyserver.ubuntu.com/"&gt;keyserver.ubuntu.com, etc&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt; &lt;/strong&gt;and they regularly synchronize among themselves. So if you send your key on &lt;em&gt;keyserver.ubuntu.com, then&lt;/em&gt; after some time, it would also be available at &lt;em&gt;keys.fedoraproject.org.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;To send your key to the keyserver use the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --send-keys --keyserver keyserver_url key_id
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you don't want to upload your key to a keyserver (in case your communication is limited to a group of people) then you can also send your public key to them through email.&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;Importing:&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Importing means to include the key in your GPG database, so that you may use them in future. For example, if you wanna send your friends an encrypted message, which can be done with their public keys. Therefore, first, you would need to import their keys into your GPG system and then only you may use them for encryption.&lt;/p&gt;
+&lt;p&gt;You can import the key of someone from a file, with the following command. For this, you must have their public key in a file say &lt;strong&gt;"their_gpg.key"&lt;/strong&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;their_gpg.key&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now when you would list-keys with "&lt;strong&gt;gpg2 --list-keys&lt;/strong&gt;", this imported key will also be listed.&lt;/p&gt;
+&lt;p&gt;But if the person's key is available at a keyserver, then you can also directly pull their keys from there. Because keyservers distribute public keys to anyone who requests them. Once you have sent your key to a keyserver, others can request your key using the command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --keyserver keyserver_url --recv-keys key_id
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To refresh all your keys from a keyserver, to obtain new signatures, new UIDs and new key revocations, use this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --refresh-keys
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;kbd&gt;And to pull from specific servers, use this.&lt;/kbd&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --keyserver keyserver_url --refresh-keys
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You should do this regularly. But you may receive error messages if any of your keys cannot be found on the key server.&lt;/p&gt;
+&lt;h2&gt;Signing Keys&lt;/h2&gt;
+&lt;p&gt;A major benefit of GPG is that you can sign a file to prove that it is genuinely coming form you. Because signs are created using private keys and only the person who owns the GPG keys, have its private key (if not compromised or lost).&lt;/p&gt;
+&lt;p&gt;Your key is already signed by you when it was created. That you may verify with.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --list-sig your.email@example.com
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the output, the line after &lt;strong&gt;"sig"&lt;/strong&gt; shows the &lt;strong&gt;UID&lt;/strong&gt; of those people who have signed your key.&lt;/p&gt;
+&lt;p&gt;You can also sign keys of other people (assuming that you have already imported the key of that person). Signing a key means you verify that you trust the person, who they claim to be. If you sign a person's key then sending the signed key back to him/her is a good idea, otherwise, they won't be able to take advantage of your sign. For this, you have 2 methods.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Method 1:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --sign-key person.email@example.com
+$ gpg2 --output ~/signed.key --sign-key person.email@example.com
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Then you can send this "&lt;strong&gt;signed.key&lt;/strong&gt;" file to the person via mail.&lt;/p&gt;
+&lt;p&gt;Once that person receives your signed key, then s//he can update their own GPG database to include your signature.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;signed.key&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Method 2:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --sign-key person.email@example.com
+$ gpg2 --keyserver key_server --send-key person_keyid
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will directly upload your sign to the keyserver (assuming that the person has sent his key to a keyserver). So when next time that person would refresh his/her GPG database, your sign would be included.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Why should you sign a person's key?&lt;/em&gt;&lt;em&gt;&lt;br&gt;
+&lt;/em&gt;Because this can help other people decide whether to trust that person too or not. If someone trusts you, and they see that you've signed this person's key, they may be more likely to trust their identity too. There is a concept behind signing a key known as &lt;/strong&gt;&lt;a href="https://en.wikipedia.org/wiki/Web_of_trust"&gt;Web of Trust&lt;/a&gt;.** (see below)&lt;/p&gt;
+&lt;h2&gt;Trust Levels and Validity&lt;/h2&gt;
+&lt;p&gt;Trust levels is a medium by which we can inform GPG that how much we trust a UID of a person associated with a key.&lt;/p&gt;
+&lt;p&gt;There are following trust levels available&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unknown:&lt;/strong&gt; This is the default level that is set on validity and trust.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Undefined:&lt;/strong&gt; This is explicitly defining trust level to be unknown. Means you would like to confirm it later on.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Never:&lt;/strong&gt; This indicates that you do not trust the UID of that key.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Marginal:&lt;/strong&gt; This means you have half trust on the UID of that key.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Full:&lt;/strong&gt; This means you fully trust that person.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Ultimate:&lt;/strong&gt; There is only one UID that is marked with &lt;strong&gt;Ultimate&lt;/strong&gt; trust, and that is of yourself.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;More detail about trust-levels is available &lt;a href="https://gpgtools.tenderapp.com/kb/faq/what-is-ownertrust-trust-levels-explained"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;You may check the &lt;strong&gt;trust&lt;/strong&gt; and &lt;strong&gt;validity&lt;/strong&gt; levels of any &lt;strong&gt;UID&lt;/strong&gt; among the keys you have imported, with this command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --edit-key email@example.com
+gpg &lt;span class="o"&gt;(&lt;/span&gt;GnuPG&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.1.11&lt;span class="p"&gt;;&lt;/span&gt; Copyright &lt;span class="o"&gt;(&lt;/span&gt;C&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2016&lt;/span&gt; Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+pub rsa2048/4A5N1031
+ created: &lt;span class="m"&gt;2016&lt;/span&gt;-10-10 expires: &lt;span class="m"&gt;2018&lt;/span&gt;-10-10 usage: SC 
+ trust: unknown         validity: unknown
+sub rsa2048/73E6DB92
+ created: &lt;span class="m"&gt;2016&lt;/span&gt;-10-10 expires: &lt;span class="m"&gt;2018&lt;/span&gt;-10-10 usage: E 
+&lt;span class="o"&gt;[&lt;/span&gt; unknown &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;. Person Name email@example.com
+
+gpg: Q
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To modify &lt;strong&gt;trust&lt;/strong&gt; of the key, enter "&lt;strong&gt;trust"&lt;/strong&gt; instead of &lt;strong&gt;"Q"&lt;/strong&gt; (in the last line of output). And you'll get a prompt like this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Please decide how far you trust this user to correctly verify other users&amp;#39; keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+ 1 = I don&amp;#39;t know or won&amp;#39;t say
+ 2 = I do NOT trust
+ 3 = I trust marginally
+ 4 = I trust fully
+ 5 = I trust ultimately
+ m = back to the main menu
+
+Your decision? m
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Enter your decision, and that trust level would be set for that key.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why do we have trust levels?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To understand this, first, you must understand &lt;strong&gt;validity.&lt;/strong&gt; When you sign a key, you say that the key is &lt;strong&gt;valid&lt;/strong&gt;. But you sign a key if and only if you are sure, that the key belongs the person whose UID is attached to the key. This verification could be done by personally contacting that person and cross-checking the fingerprint of the key.&lt;/p&gt;
+&lt;p&gt;Isn't it a tedious task to every time contacting people just to confirm the fingerprint of their GPG key? Especially, in the case when you haven't met that person before. Therefore, we have something called &lt;strong&gt;"&lt;a href="https://en.wikipedia.org/wiki/Web_of_trust"&gt;Web of Trust&lt;/a&gt;".&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Suppose you trust "&lt;strong&gt;Mike&lt;/strong&gt;" and &lt;strong&gt;"John"&lt;/strong&gt; that they sign GPG keys of other people only after completely verifying a UID. Then giving following &lt;strong&gt;Trust-levels&lt;/strong&gt; to them would affect your key as follows.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Unknown/Undefined&lt;/strong&gt; to &lt;strong&gt;Mike:&lt;/strong&gt; Keys signed by Mike won't be valid for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Never&lt;/strong&gt; to &lt;strong&gt;Mike:&lt;/strong&gt; Same as above, but here you have explicitly given that you don't trust &lt;strong&gt;Mike.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Marginal&lt;/strong&gt; to &lt;strong&gt;Mike:&lt;/strong&gt; Keys signed by Mike will be marginally valid for you.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Marginal&lt;/strong&gt; to &lt;strong&gt;Mike&lt;/strong&gt; and &lt;strong&gt;John:&lt;/strong&gt; Keys signed by both Mike and John will be valid for you (if the marginal limit is set to 2, otherwise if the marginal limit is set to &lt;strong&gt;"n"&lt;/strong&gt; then a key becomes valid if it is signed by &lt;strong&gt;"n"&lt;/strong&gt; UIDs).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Full&lt;/strong&gt; to &lt;strong&gt;Mike:&lt;/strong&gt; Keys signed by Mike will be valid for you as well.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I recommend you to read &lt;a href="https://www.gnupg.org/gph/en/manual/x334.html"&gt;this document&lt;/a&gt; to get a better understanding of trust-levels and validity.&lt;/p&gt;
+&lt;h2&gt;Encryption-Decryption with GPG&lt;/h2&gt;
+&lt;h4&gt;Encrypting a file&lt;/h4&gt;
+&lt;p&gt;To encrypt and sign a file for a recipient you must have his/her public key imported.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 -r email.of.recipient@example.com -r your.email@example.com --encrypt --sign --armor file_name
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;gpg2:&lt;/strong&gt; command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-r:&lt;/strong&gt; to give email_address to possible recipients (who can decrypt this file).&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;-r:&lt;/strong&gt; adding yourself as one of the recipients so that you can also decrypt the file otherwise after encrypting, even you won't be able to decrypt it.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;--encrypt:&lt;/strong&gt; instructing to encrypt.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;--sign:&lt;/strong&gt; instructing to sign the file as well.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;--armor:&lt;/strong&gt; to encrypt in ASCII characters.&lt;strong&gt; &lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;file_name:&lt;/strong&gt; complete path of the file, If you omit this part, then after giving this command, the terminal will wait for you to enter the text. When you are done with entering your message, press &lt;strong&gt;CTRL + d&lt;/strong&gt; (Linux). It would generate the encrypted form of your message, which you may copy to clipboard and paste in any file.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;If you haven't set any trust level for that recipient, then you are likely to get here a confirmation prompt for using the recipient's public key for encryption. And finally, it would prompt you for your passphrase.&lt;/p&gt;
+&lt;p&gt;Soon an encrypted file would be created with &lt;strong&gt;.asc&lt;/strong&gt; extension. But still, that unencrypted file is available. You are yourself responsible to delete the original file.&lt;/p&gt;
+&lt;h4&gt;Decrypting a file&lt;/h4&gt;
+&lt;p&gt;To decrypt a file that was encrypted by your public key just use.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 file_name.asc
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It would ask for your passphrase and a decrypted file would be available to you without "&lt;strong&gt;.asc"&lt;/strong&gt; extension.&lt;/p&gt;
+&lt;p&gt;If the encrypted file was also &lt;strong&gt;signed&lt;/strong&gt; by the sender, then the output of above command would also give information about signature like &lt;strong&gt;&lt;em&gt;date_of_signature&lt;/em&gt;&lt;/strong&gt; and &lt;em&gt;&lt;strong&gt;status_of_signature&lt;/strong&gt; (good or bad)&lt;/em&gt; otherwise not.&lt;/p&gt;
+&lt;h2&gt;Signed messages&lt;/h2&gt;
+&lt;h4&gt;&lt;strong&gt;Clearsign:&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Using GPG you may send signed files without encryption. Create a file say "&lt;strong&gt;newfile&lt;/strong&gt;", add some message to it and sign it.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; newfile
+$ gpg2 --clearsign newfile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;--clearsign:&lt;/strong&gt; wraps the message without encryption with your &lt;strong&gt;armored&lt;/strong&gt; signature, so that any non-GPG user can read the message and any GPG user can verify it (if needed).&lt;/p&gt;
+&lt;p&gt;Soon "&lt;strong&gt;newfile.asc&lt;/strong&gt;" would be created and anyone can verify, that it is signed by you.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --verify newfile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;But it can give you warning of not having a detached signature.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;gpg&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;WARNING&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;not&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;detached&lt;/span&gt; &lt;span class="n"&gt;signature&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;newfile&amp;#39;&lt;/span&gt; &lt;span class="n"&gt;was&lt;/span&gt; &lt;span class="n"&gt;NOT&lt;/span&gt; &lt;span class="n"&gt;verified&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(if yes, see below)&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;Detached signature:&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;Till now newfile&lt;strong&gt;.&lt;/strong&gt;asc consisted both unencrypted message and signature in the same file. To solve this issue, we can sign a file with a detached signature so that the file and the signature can be kept separately.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --detach-sign newfile
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now a new file with name "&lt;strong&gt;newfile.sig&lt;/strong&gt;" is created which contains just your signature. You may verify that with.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --verify newfile.sig
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This will return verification statement and signature's information, together with the attached file's name. Now, if you change the file's (newfile) content and again check for verification, then it would fail. Because the new content wasn't signed by the signer. This way GPG maintains &lt;strong&gt;"Integrity"&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;In case the signature verification failed, then understand that the content of the message has been modified in between.&lt;/p&gt;
+&lt;h2&gt;Integrated with GPG&lt;/h2&gt;
+&lt;h4&gt;Thunderbird&lt;/h4&gt;
+&lt;p&gt;You can use an email client like Thunderbird to automatically encrypt and sign your emails. For this, you would need to install an addon "&lt;strong&gt;Enigmail&lt;/strong&gt;" in your Thunderbird and configure it. To configure Thunderbird proceed as follows.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Open &lt;strong&gt;Thunderbird.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;From &lt;strong&gt;Menu Bar -&gt; Tools -&gt; Add-ons&lt;/strong&gt;, install &lt;strong&gt;Enigmail.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;From &lt;strong&gt;Menu Bar -&gt; Enigmail -&gt; Setup Wizard&lt;/strong&gt;, configure it.&lt;/li&gt;
+&lt;li&gt;Choose &lt;strong&gt;Standard Configuration&lt;/strong&gt; then &lt;strong&gt;Next&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Now Select your GPG key and Complete the wizard.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now whenever you would send any mail to the email ID that you have already imported in GPG, your Thunderbird will itself encrypt it. You may explore more configuration options at &lt;strong&gt;Menu Bar -&gt; Enigmail.&lt;/strong&gt;&lt;/p&gt;
+&lt;h4&gt;Github and Git&lt;/h4&gt;
+&lt;p&gt;You can add your GPG key to your &lt;strong&gt;GitHub profile&lt;/strong&gt; and can configure your &lt;strong&gt;Git&lt;/strong&gt; to sign your commits. Follow these steps or refer &lt;a href="https://help.github.com/articles/signing-commits-with-gpg/"&gt;this&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;To add your key to Github:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Login to your &lt;strong&gt;Github&lt;/strong&gt; account.&lt;/li&gt;
+&lt;li&gt;At upper-right corner, click your profile photo and select &lt;strong&gt;Settings.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;From left panel select &lt;strong&gt;SSH and GPG keys&lt;/strong&gt;.&lt;/li&gt;
+&lt;li&gt;Click on &lt;strong&gt;New GPG key&lt;/strong&gt; button.&lt;/li&gt;
+&lt;li&gt;Paste your &lt;strong&gt;GPG public key&lt;/strong&gt; there.&lt;br&gt;
+   You can export your GPG public key to your terminal with&lt;br&gt;
+&lt;strong&gt;\$ gpg2 --armor --export&lt;br&gt;
+&lt;/strong&gt;Select your complete GPG public key and &lt;strong&gt;CTRL + SHIFT + C&lt;/strong&gt; to copy.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;To configure git with GPG key:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;\$ gpg2 --list-keys --keyid-format LONG&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Copy your complete key ID.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\$ git config --global user.signingkey your_key_id&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now to sign your commits you may use &lt;strong&gt;-S&lt;/strong&gt; flag in your &lt;strong&gt;git commit&lt;/strong&gt; command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ git commit -S -m &lt;span class="s2"&gt;&amp;quot;commit message&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will be prompted to enter your passphrase while making commits.&lt;/p&gt;
+&lt;h2&gt;A Brief Comparison of GPG and GPG2&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;GPG2 is extended version of GPG. Where changes are mostly in internal levels, thus commands are same.&lt;/li&gt;
+&lt;li&gt;A major change between GPG and GPG2 is that all the crypto operations have been moved to the GPG agent, so without an agent, GPG2 can't work.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;man gpg2 &lt;/strong&gt;command gives the following statement &lt;em&gt;"In contrast to the standalone version gpg, which is more suited for server and embedded platforms, this version is commonly installed under the name gpg2 and more targeted to the desktop as it requires several other modules to be installed."&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;An important change came with GPG 2.1, which combines the formerly separated public and private keyrings (pubring.gpg and secring.gpg) into the public keyring.&lt;/li&gt;
+&lt;li&gt;Explore more about what's new in GPG2 &lt;a href="https://www.gnupg.org/faq/whats-new-in-2.1.html"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;GPG is a recommended tool if you don't want to compromise security in your communication with people over an unsecured network like our Internet.&lt;/p&gt;
+&lt;p&gt;Regardless whether you are sending a sensitive information or a friendly message, using GPG keys is extremely helpful to verify that the author of the message is genuine. Thanks for reading, and in case of a query or suggestions to improve this post, please feel free to write in the comments section below.&lt;/p&gt;</content><category term="encryption"></category><category term="GPG"></category><category term="security"></category></entry><entry><title>[Ultimate Guide] How SSH works?</title><link href="thegeekyway.com/ultimate-guide-how-ssh-works/" rel="alternate"></link><published>2017-11-30T08:58:00+05:30</published><updated>2017-11-30T08:58:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:None,2017-11-30:thegeekyway.com/ultimate-guide-how-ssh-works/</id><summary type="html">&lt;p&gt;SSH is quite an interesting protocol in itself. A lot of people are using it for a secure communication between two machines. This blog post hits behind the scenes that go on, between machines connected via SSH.&lt;/p&gt;
+&lt;p&gt;You might have an experience of remote login on SSH. But have you …&lt;/p&gt;</summary><content type="html">&lt;p&gt;SSH is quite an interesting protocol in itself. A lot of people are using it for a secure communication between two machines. This blog post hits behind the scenes that go on, between machines connected via SSH.&lt;/p&gt;
+&lt;p&gt;You might have an experience of remote login on SSH. But have you ever wondered about how internally these ssh-client and ssh-server respond? And If you want to explore the same? You are on the right page!&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2&gt;Brief about SSH&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SSH or we can say Secure Shell is a cryptographic network protocol that’s used to provide security in communication between two machines over an unsecured network like our Internet.&lt;/li&gt;
+&lt;li&gt;SSH uses different authentication and encryption-decryption methods to make our connection secure between two remote machines.&lt;/li&gt;
+&lt;li&gt;It is better than other communication protocols like FTP, telnet, etc. The picture below describes how SSH encryption doesn't let someone sniff in its signals. If someone tries to intercept the signal, s/he would receive nothing but an encrypted data packet. To know more about how SSH better than others visit &lt;a href="https://www.yireo.com/blog/1452-why-ssh-instead-of-ftp"&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="text-align:center"&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;![An un-encrypte telnet connection]({filename}/uploads/images/2017/11/howsshworks1-300x220.png &amp;quot;An un-encrypte telnet connection&amp;quot;)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;![An encrypted SSH sesion]({filename}/uploads/images/2017/11/howsshworks2-300x219.png &amp;quot;An encrypted SSH sesion&amp;quot;)
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;For use cases of SSH, you may see &lt;a href="http://matt.might.net/articles/ssh-hacks/"&gt;this&lt;/a&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;How SSH works?&lt;/h1&gt;
+&lt;p&gt;Before we actually get into the protocol, there is something that needs to be discussed.&lt;/p&gt;
+&lt;h4&gt;Symmetric and Asymmetric Encryption:&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;Symmetric Encryption&lt;/strong&gt; is that in which only one key (let's say private key or secret key) is used both for encryption and decryption of the data transferred between client and server.&lt;/p&gt;
+&lt;p&gt;However, &lt;strong&gt;Asymmetric Encryption&lt;/strong&gt; is that in which both keys (private as well as public key) is used for encryption and decryption.&lt;/p&gt;
+&lt;p&gt;The server uses client's public key to encrypt data for it. The client, on the other hand, uses its private key to decrypt the data on the other end that was encrypted by its public key. Similarly, server's public key is used by the client to encrypt the signal and server's private key is used by the server to decrypt the signal.&lt;/p&gt;
+&lt;p&gt;So, which one is used in SSH?&lt;/p&gt;
+&lt;p&gt;The answer is, SSH uses both symmetric and asymmetric encryption. Since asymmetric encryption is more time consuming, most of the SSH connections use symmetric encryption. The idea behind is that asymmetric encryption is used only to share a secret key (session key) using which, symmetric encryption can be done for further communication.&lt;/p&gt;
+&lt;p&gt;Now there are 2 versions of SSH that are commonly used. These are SSH version 1 and SSH version 2. The overall architecture in both versions differs a bit, so we'll discuss the protocol version 1 in detail and then see how does it differ from version 2 protocol.&lt;/p&gt;
+&lt;h2&gt;SSH Protocol Version 1&lt;/h2&gt;
+&lt;p&gt;The SSH connection is always invoked by a client to a server. Therefore, server authentication comes first than client authentication.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 1:  Connect to simple FTP connection&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;For a successful SSH establishment. A simple connection between a client and a server is a must. For the same reason, first of all, a simple (FTP/Telnet) connection is created between the client and the server. And with telnet, we get details like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ telnet thegeekyway.com 22
+Trying 192.168.42.119...
+Connected to thegeekyway.com.
+Escape character is &amp;#39;^]&amp;#39;.
+SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here one can see that "&lt;em&gt;&lt;strong&gt;SSH-2.0&lt;/strong&gt;"&lt;/em&gt; (in the last line). This is the version of SSH protocol that server is using. We also see the package version of OpenSSH is visible. This is how the client knows which version of SSH the server is using.&lt;/p&gt;
+&lt;p&gt;Now, it is the sole responsibility of the client to continue with the session if it supports the version shown by the server.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 2: Both server and client, now switch to a packet-based protocol&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In this, each packet consists of a 32-bit length field, 1-8 bytes of random padding to foil known-plaintext attacks (KPA), a one-byte packet type code, the packet payload data, and a four-byte integrity check field.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 3: Server provides session parameters to client&lt;br&gt;
+&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As soon as the connection is established, server authentication starts. For this, the server will send some critical data to the client. This data includes:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1) &lt;strong&gt;Server's host key&lt;/strong&gt;: It is an RSA public key, which is stored in "known_hosts" file of the client (if you have already connected before with that server). You may see your known_hosts file here:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ cd .ssh/
+coderunner@geekyshacklebolt:~/.ssh$ ls
+authorized_keys   id_rsa   id_rsa.pub   known_hosts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;At this point, the client will search for this "rsa_public" key in client's `known_hosts` file and if the key is not already present, then it may be the case of connecting with that server for the first time. So, in this case, what you would get is a "WARNING!" like: "&lt;em&gt;Are you sure you want to continue connecting?&lt;/em&gt;"&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ ssh geekyshacklebolt
+The authenticity of host &amp;#39;geekyshacklebolt (192.168.42.222)&amp;#39; can&amp;#39;t be established.
+ECDSA key fingerprint is SHA256:Ql/KnGlolY9eCGuYK3OX3opnSyJQzsbtM3DW/UZIxms.
+Are you sure you want to continue connecting (yes/no)?
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you're not connecting with the server for the first time but see this warning, then maybe the server's public key has been changed or you're trying to access a different machine altogether (may be going in hands of an attacker). Therefore this warning is quite useful.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;2) &lt;strong&gt;Server's server key&lt;/strong&gt;: (There is no concept of server key in SSH-2) With host key, server also provide one server key.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;This server key goes on changing every hour or so. And this key may be of 768 bits or 1024 bits it depends on the configuration. You may find it at  "/etc/ssh/"  in "sshd_config"  file. Let me see mine.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Lifetime and size of ephemeral version 1 server key
+KeyRegenerationInterval 3600
+ServerKeyBits 1024
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Yeah, mine is 1024 bits.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;3) &lt;strong&gt;8 Random Bytes&lt;/strong&gt;:  These random bytes are known as &lt;em&gt;check bytes&lt;/em&gt;. It is necessary for the client to send these &lt;em&gt;check bytes&lt;/em&gt; in its next reply.&lt;/li&gt;
+&lt;li&gt;4) &lt;strong&gt;Authentication methods and list of encryption algorithms&lt;/strong&gt; &lt;strong&gt;supported by server:&lt;/strong&gt; So, that client may decide which encryption algorithm it supports and which authentication methods the client has to follow. The symmetric encryption algorithm that is used to encrypt and decrypt large amounts of data is known as &lt;strong&gt;bulk cipher.&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;At this point, both sides also compute a common 128-bit &lt;strong&gt;session identifier&lt;/strong&gt;&lt;em&gt;,&lt;/em&gt; which is used in some subsequent protocol operations to uniquely identify this SSH session. This is an MD5 hash of the &lt;em&gt;host key&lt;/em&gt;, &lt;em&gt;server key&lt;/em&gt;, and &lt;em&gt;check bytes&lt;/em&gt; taken together.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 4: Session key generation and sending it to server&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now the client has server's host key, server key, 8 random bytes, authentication methods and encryption algorithms list.&lt;/p&gt;
+&lt;p&gt;The client creates a symmetric session key for a bulk cipher that both client and server support. This key will be used for the entire session of SSH for both encryption and decryption. For a secure transmission, client double encrypts this key before sending it to server. First encryption is done by "server's host key" and second encryption is done by "server key". Encrypting the session key a second time with the server key provides a property called &lt;strong&gt;&lt;em&gt;perfect forward secrecy&lt;/em&gt;&lt;/strong&gt;. This double encryption enhances the security to great extent.&lt;/p&gt;
+&lt;p&gt;After double encrypting the session key, the client sends it to the server, along with the check bytes and a choice of algorithms.&lt;/p&gt;
+&lt;p&gt;Since it is difficult to have both server's private key and the server key (which keep changing in a fixed interval duration), it is very difficult to know the key. On the other hand, server has its private key and the "session key" that is shared by both client and server. With this data, the server can decrypt and get the session key for further communication.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 5: Confirmation from the server&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After sending the "session key" client just wait for the server to respond. Because only if the server is original and the one whose host key was provided to the client, then only it would be able to decrypt this session key using the server key, and the corresponding private key of server's host key.&lt;/p&gt;
+&lt;p&gt;The server receives this session key and decrypts it, to use it for further transmission of signals. This was the end of asymmetric cryptography. Now, when both server and client posses this symmetric key. The complete communication session would be dealing only with &lt;em&gt;this key&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 6: Client Authentication begins&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To authenticates a client, the server may use the following methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Password-based&lt;/li&gt;
+&lt;li&gt;Kerberos&lt;/li&gt;
+&lt;li&gt;Rhosts&lt;/li&gt;
+&lt;li&gt;Host keys based&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We'll explain each part in brief, and 'host keys based' in detail, as it is the most secured.&lt;/p&gt;
+&lt;p&gt;1. &lt;strong&gt;Password&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;It is as simple as you log into any of your social websites. The server just asks you for your password to establish the SSH connection, and client takes the responsibility to transfer this password to the server. The session gets started as soon as you give your password. This method is not much recommended. Because if you are really security conscious that you are using SSH for remote login, then password-based authentication can be easily attacked. This type of authentication is convenient for the first time SSH users and those who travel a lot and don't carry their machines.&lt;/p&gt;
+&lt;p&gt;2. &lt;strong&gt;Kerberos&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;It is a computer network authentication protocol that works on the basis of &lt;em&gt;tickets&lt;/em&gt; to allow nodes communicating over a non-secure network to prove their identity to one another in a secure manner. It is not much used nowadays. OpenSSH provides Kerberos support only when using the SSH-1 protocol.&lt;/p&gt;
+&lt;p&gt;3. &lt;strong&gt;RHosts&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;In this, the server has a list of host keys stored in /etc/ssh_known_host, and additionally, each user has host keys in \$HOME/.ssh/known_hosts. SSH uses the naming service to obtain the canonical name of the client host, looks for its public key in its known_host files, and requires the client to prove that it knows the private host key. This prevents IP and routing spoofing attacks (as long as the client machine private host key has not been leaked), but is still vulnerable to DNS (domain name server) attacks (to a limited extent), and relies on the integrity of the client machine as to who is requesting to log in. If maximal security is desired, only RSA authentication (host keys authentication) should be used.&lt;/p&gt;
+&lt;p&gt;4. &lt;strong&gt;Host keys based&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;It is the most secure method of authentication for an SSH session. In this, client authentication is based on a pair of host keys i.e: the public key and the private key that can be seen in "\~/.ssh/" directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ cd .ssh/
+coderunner@geekyshacklebolt:~/.ssh$ ls
+authorized_keys id_rsa id_rsa.pub known_hosts
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, &lt;em&gt;id_rsa&lt;/em&gt; is your private (secret) key which should be kept a secret (not to be shared with anyone ever) and id_rsa.pub is your public key, which should be present to every server's (to whom you want to connect to) "authorized_keys" file.&lt;/p&gt;
+&lt;p&gt;If you don't have these key pair, you may generate it using the command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ssh-keygen -t rsa -b &lt;span class="m"&gt;1024&lt;/span&gt; -C  &lt;span class="s2"&gt;&amp;quot;your_email@example.com&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;&lt;strong&gt;*note:&lt;/strong&gt; these public and private keys are never used for either encryption or decryption of SSH session. These are only used to authenticate a client.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;An RSA public key has 2 parts, the exponent, and the modulus.The modulus is the long number in the public key file.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;The client sends the modulus of its public key as an identifier, encrypted using the session key.&lt;/li&gt;
+&lt;li&gt;The server decrypts this identity and starts searching for its corresponding public key in "authorized_keys" file.&lt;/li&gt;
+&lt;li&gt;If the authorized public key is not found or is restricted to connect, then this authentication request fails. Otherwise, the process continues.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 7: The Game of Challenge and Response&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Now, server prepares a random 256 bit-string, and encrypt this string using the client's public key. Then this encrypted string is sent to the client as a &lt;em&gt;challenge. &lt;/em&gt;The challenge for the client is to decrypt this random string and prove that it has the corresponding private key.&lt;/li&gt;
+&lt;li&gt;The client receives this encrypted string, and decrypts using its private key, and send it back to the server. But, this string should not be transmitted as it is. Therefore, client combines this challenge with session identifier to prepare an MD5 hash. And then sends its &lt;em&gt;response&lt;/em&gt; to the server.&lt;/li&gt;
+&lt;li&gt;The server receives this &lt;em&gt;response&lt;/em&gt; in the form of an MD5 hash. And, the server itself regenerate this, since it is already having the random string and the session identifier. The server compares the 2 hashes with each other, and if both come out to be same, then it means that client had successfully decrypted the string.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The client is now authenticated, and SSH session starts with a terminal allotted to you to start writing commands.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Integrity Checking:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It is the process of comparing the state of currently stored data to the state of previously stored data. This protocol uses a weak integrity check e.i a 32-bit cyclic redundancy check or CRC-32. This sort of check is insufficient for detecting deliberate corruption but effective against accidental changes to data.&lt;/p&gt;
+&lt;h2&gt;SSH Protocol Version 2&lt;/h2&gt;
+&lt;p&gt;There are a lot of places where SSH-1 needed more improvements to make the protocol more secure. Therefore, this version 2 comes into play. It provides some necessary changes in protocol 1 to enhance its security. We will only discuss the changes and won't repeat the common steps.&lt;/p&gt;
+&lt;h3&gt;Protocol Differences&lt;/h3&gt;
+&lt;p&gt;SSH-1 consists of multiple functions in a single protocol. However, SSH-2 is build up in modules and consists of multiple protocols which work together like:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;SSH transport layer protocol (SSH-TRANS)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSH authentication protocol (SSH-AUTH)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSH connection protocol (SSH-CONN)&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let's see their differences in brief.&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;SSH-TRANS:&lt;/strong&gt;&lt;/u&gt; This layer of protocol provides initial connection, packet-based protocol, server authentication, basic encryption and integrity check.&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;SSH-AUTH:&lt;/strong&gt;&lt;/u&gt; This layer of protocol is used by the client over SSH-TRANS to authenticate itself to server. And, it supports 3 authentication methods:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Public key:&lt;/strong&gt; It is similar to "host based" of SSH-1. But, it is more general and can accommodate any public-key signature algorithm.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Hostbased:&lt;/strong&gt; It is similar to RhostsRSA of SSH-1 by providing cryptographic assurance of client's host identity.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Password:&lt;/strong&gt; It is similar to "Password Based" of SSH-1.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3&gt;Key Differences&lt;/h3&gt;
+&lt;p&gt;The Key differences between SSH-1 and SSH-2 are as follows.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Expanded algorithm negotiation&lt;/li&gt;
+&lt;li&gt;No server key&lt;/li&gt;
+&lt;li&gt;Certificates authorities for public keys&lt;/li&gt;
+&lt;li&gt;More flexible authentication&lt;/li&gt;
+&lt;li&gt;Stronger integrity checking&lt;/li&gt;
+&lt;li&gt;Periodic replacement of session key ("re-keying")&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;1. Expanded algorithm negotiation:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In SSH-1, client used to select only one algorithm out of the list of algorithms supported by server, for all category works like, hash function, message authentication, session key exchange, etc. But, SSH-2 provides support for one algorithm per category.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. No server key:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It was recommended that the session key shouldn't be developed alone by the client (as done in SSH 1). The idea was, neither the client nor the server should dictate the SSH session by giving a session key that is created only by one side. So, a new method was adopted in which both server and client equally contribute to the development of session key. This method was based on Diffie - Hellman algorithm.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;The classic procedure of Diffie - Hellman algorithm to develop a session key is discussed below step-by-step:&lt;/em&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Firstly, both client and server agree on a large prime number, which will serve as a seed value.&lt;/li&gt;
+&lt;li&gt;Then, both parties agree on an encryption generator (typically AES), which will be used to manipulate the values in a predefined way. This encryption generator method is the one which will be supported by both server and client.&lt;/li&gt;
+&lt;li&gt;Independently, each party comes up with another prime number which is kept secret from the other party. This number is used as the private (secret) key for this interaction (this private key is different than the private SSH key used for authentication).&lt;/li&gt;
+&lt;li&gt;The generated private key (the secret to themselves), the encryption generator (common to both), and the shared prime number (common to both) are used to generate a public key, but which can be shared with the other party.&lt;/li&gt;
+&lt;li&gt;Both participants then exchange their generated public keys.&lt;/li&gt;
+&lt;li&gt;The receiving party uses their own private key, the other party's public key, and the original shared prime number to compute a shared secret key. Although this is independently computed by each party, using opposite private and public keys, will result in the &lt;em&gt;same&lt;/em&gt; shared secret key.&lt;/li&gt;
+&lt;li&gt;The shared secret is then used to encrypt all communication that follows. This key is again known as a session key or symmetric key.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;3. Certificate authorities for public keys:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In SSH-1, there was no method to verify the ownership of the key. But, in SSH-2 we have a room for this as well. This is another layer of security in SSH-2. In which, the public keys of users are signed by some certificate authorities. The certificate attests and confirms the binding between a public key and a particular identity. The attestation is represented by a digital signature from a trusted third party.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;4. More flexible authentication:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In SSH-1, client could authenticate itself to server using any one of the allowed authentication methods. And if it fails, then it means the connection is refused. But in SSH-2, if initial attempts of any authentication method (say public key) are failed, then the protocol may switch to other methods of authentication (say password). That's why SSH-2 gives more chances to establish a connection.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. Stronger Integrity checking:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;SSH-1 uses CRC-32 integrity check which is really weak and ineffective against deliberate corruption. On the other hand, SSH-2 uses cryptographically strong Message Authentication Code (MAC) algorithms to provide strong integrity and data origin assurance.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6. Periodic replacement of session key ("re-keying")&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The concept was improved with an idea that the session key should not remain same for the complete session as we see in SSH-1. Therefore, in SSH 2, we may have a no. of session keys that keeps on changing with sessions, periodically.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;7. Implementation Differences&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;There are mainly 4 Implementation differences in SSH-1 and SSH-2.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Host keys&lt;/strong&gt;: SSH-1 and SSH-2 both manage host keys in different directory structures.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;No fallback to rsh:&lt;/strong&gt; If a remote host has no SSH server running, then SSH can invoke &lt;code&gt;rsh&lt;/code&gt; automatically, because SSH-1 supports &lt;code&gt;rsh&lt;/code&gt;-style authentication as well. But SSH-2 don't have this feature, due to poor security of &lt;code&gt;rsh&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Setuid client:&lt;/strong&gt; In SSH-1, the client needs to be &lt;code&gt;setuid&lt;/code&gt; root, so that it has access to &lt;em&gt;read&lt;/em&gt; for the &lt;em&gt;private host key&lt;/em&gt; file, which is usually installed as &lt;em&gt;readable only&lt;/em&gt; by the root user. But in SSH-2, the client doesn't need to be &lt;code&gt;setuid&lt;/code&gt;root, due to its programs like &lt;code&gt;ssh-signer2&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;SSH-1 backward compatibility:&lt;/strong&gt; SSH-2 provide backward compatibility to SSH-1, if and only if &lt;em&gt;SSH-1 package&lt;/em&gt; is installed on the same machine. The SSH-2 client and server simply run their SSH-1 counterparts, when they connect to a partner running the older protocol.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;We'll leave the rest for readers to explore on their own. If you've any questions, please feel free to ask in the comments section below.&lt;/p&gt;</content><category term="linux"></category><category term="SSH"></category></entry></feed>

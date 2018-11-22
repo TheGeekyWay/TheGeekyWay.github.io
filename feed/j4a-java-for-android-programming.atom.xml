@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - J4A (Java for Android), Programming</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/j4a-java-for-android-programming.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2014-02-22T23:58:00+05:30</updated><entry><title>Creating your first Java Program (J4A - 2)</title><link href="thegeekyway.com/creating-first-java-program/" rel="alternate"></link><published>2014-02-22T23:58:00+05:30</published><updated>2014-02-22T23:58:00+05:30</updated><author><name>gagan93</name></author><id>tag:None,2014-02-22:thegeekyway.com/creating-first-java-program/</id><summary type="html">&lt;p&gt;&lt;u&gt;Beginning Java Programming&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;Some institutes/tutorials start java directly using Netbeans or Eclipse IDE. But this is not the correct way. A better method is to use a basic text editor like Notepad2 or Notepad++ to begin Java. IDE’s provide shortcuts which experienced programmers use. If beginners opt for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;u&gt;Beginning Java Programming&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;Some institutes/tutorials start java directly using Netbeans or Eclipse IDE. But this is not the correct way. A better method is to use a basic text editor like Notepad2 or Notepad++ to begin Java. IDE’s provide shortcuts which experienced programmers use. If beginners opt for these methods, they will leave half of the work for IDE and miss this ‘half’.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;IDE&lt;/strong&gt; is an Integrated Development Environment or a software which accelerates software development and provides features like syntax completion, error detection,error correction, auto indentation, drag and drop for G.U.I. and much more. One should go for an IDE only after practising a programming language on text editors.&lt;/p&gt;
+&lt;p&gt;The best text editor for starting java is TextPad (&lt;a href="http://www.textpad.com/download/index.html" title="link"&gt;download from here&lt;/a&gt;). The best part of TextPad is that it provides Program compilation and execution shortcuts just like Turbo C++. ‘Ctrl + 1’ can be used to compile a Java program and ‘Ctrl + 2’ can be used to execute a compiled program.&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;First Simple Java Program&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;u&gt; &lt;/u&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;class Demo&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;{&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;     public static void main(String[] args)&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;     {&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;           System.out.println(“My first java program”);&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;     }&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;}&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;Noteworthy points about this small program&lt;/u&gt; :&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;In Java, even the main method lies inside a class, and Java file is saved with the name of the class containing main method so, the above code should be saved as “Demo.java”.&lt;/li&gt;
+&lt;li&gt;In Java, ‘functions’ are known as ‘methods’ and variables are called as ‘attributes’&lt;/li&gt;
+&lt;li&gt;Indentation is used to increase readability. Programmers &lt;strong&gt;must&lt;/strong&gt; use indentation to make their code look clean.&lt;/li&gt;
+&lt;li&gt;Main method is both public and static. Public methods are accessible outside the class also (public is similar to what it was in C++). As main method is accessed by Java Virtual Machine during execution, so it &lt;strong&gt;must&lt;/strong&gt; be public. Static keyword is described later. For now, just keep in mind that ‘static’ method or variable has only copy for entire class irrespective of no. of objects.&lt;/li&gt;
+&lt;li&gt;The main method takes a string array as an argument. This argument can be passed when executing the program.(Consider String to be a data type till further discussion)&lt;/li&gt;
+&lt;li&gt;System.out.println() is similar to printf or cout\&amp;lt;\&amp;lt;. Here System is a class, out is a stream and println() is a method. ‘out’ is a &lt;u&gt;static stream &lt;/u&gt;so it is accessed by name of class (System) rather than object of system class.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Write the above program (don’t copy) in a simple text editor (or Textpad). Save the file as “Demo.java” at some specific path. If you are using Textpad, use shortcuts described above to compile and execute the code.&lt;/p&gt;
+&lt;p&gt;If you are using a simple text editor, follow these steps&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open command prompt (goto  start -&gt; run -&gt; cmd - &gt; Enter).&lt;/li&gt;
+&lt;li&gt;Navigate to the directory containing the file which you have just saved.&lt;/li&gt;
+&lt;li&gt;To compile java program, type “javac Demo.java”. Here ‘javac’ is the java compiler application and Demo.java is the name of the java program which we are compiling. After this step, Demo.class file is created in the directory.&lt;/li&gt;
+&lt;li&gt;To execute java program, type “java Demo”. Here java is the name of application which will execute the .class file and show the output as shown here.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/61.jpg"&gt;&lt;img alt="6" src="thegeekyway.com/uploads/images/2014/02/61.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</content><category term="Android"></category><category term="java"></category></entry><entry><title>Moving from C++ to Java (J4A - 1)</title><link href="thegeekyway.com/moving-c-java/" rel="alternate"></link><published>2014-02-22T23:51:00+05:30</published><updated>2014-02-22T23:51:00+05:30</updated><author><name>gagan93</name></author><id>tag:None,2014-02-22:thegeekyway.com/moving-c-java/</id><summary type="html">&lt;p&gt;&lt;u&gt;C to C++ and C++ to Java:&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;C was a powerful programming language but used structural approach. So when the length of code exceeded a particular no. of lines, the code became unmanageable. So this led to Object Oriented Programming techniques and birth of C++. But C++ compilers at that …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;u&gt;C to C++ and C++ to Java:&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;C was a powerful programming language but used structural approach. So when the length of code exceeded a particular no. of lines, the code became unmanageable. So this led to Object Oriented Programming techniques and birth of C++. But C++ compilers at that time were not platform independent. You needed a different code for Windows, different for Mac, Unix and other operating systems. Today programs written in C++ are also categorized by 32 and 64 bit versions. So C++ followed the W.O.C.A. principle, i.e. &lt;u&gt;Write Once, Compile Anywhere&lt;/u&gt;. The main focus was to create programs which could execute on any platform and any O.S. These forces led to the development of Java (originally called as ‘Oak’) which followed W.O.R.A. principle, i.e. &lt;u&gt;Write Once, Run Anywhere.&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt; &lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;Where the Magic lies?&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;So what magic is there in Java which was not in older languages? Basically all the older compilers compile the source code (program) to native executable file (like .exe in windows). Here ‘native executable file’ means a file which is created for some target OS and is ready to execute on that OS. So we need to create a different ‘native’ file for different OS and different processor architectures (32 and 64 bit).&lt;/p&gt;
+&lt;p&gt;But in Java, the code is not directly compiled to native executable. The output of java compiler is a .class file, irrespective of OS / processor architecture. This .class file is a set of optimized instruction for a virtual machine called JVM (Java Virtual Machine). The creators of Java implemented this virtual machine (JVM) for different operating systems. So now the programmers need not worry about the target operating system or processor. They just have to write the code and install JVM on the target system, JVM handles the rest.&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;Understanding Simple Java Terms:&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;JVM&lt;/u&gt; is simply a virtual machine included in JDK as well as JRE.&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;JDK&lt;/u&gt; is Java Development Kit for Java Developers. It includes Java Runtime Environment(JRE) and all other related tools needed by developers.&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;JRE&lt;/u&gt; is Java Runtime Environment. It &lt;strong&gt;excludes&lt;/strong&gt; the development tools and encapsulates only runtime environment. When you create a java application for a client, just install JRE on client side and your application will execute.&lt;/p&gt;
+&lt;p&gt;Remember, &lt;u&gt;Java code is platform independent but Java Runtime Environment is specific for each platform.&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;+-----------------------------------------------------------------------+
+| &lt;div&gt;                                                                 |
+|                                                                       |
+| &lt;u&gt;The Android Counterpart&lt;/u&gt;:        |
+| Android Devices have DVM (Dalvik Virtual Machine) rather than JVM     |
+| (Java Virtual Machine). You can think of Dalvik as mobile or android  |
+| specific implementation of JVM. You need not know about Dalvik for    |
+| now, for those who are interested can visit                           |
+| &lt;a href="http://stackoverflow.com/questions/3536786/dalvikvm-vs-javavm- |
+| in-android"&gt;here&lt;/a&gt;.                                                          |
+|                                                                       |
+| &lt;/div&gt;                                                                |
++-----------------------------------------------------------------------+&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;Downloading &amp;amp; Installing JDK&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;Download JDK from &lt;a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/112.jpg"&gt;&lt;img alt="1" src="thegeekyway.com/uploads/images/2014/02/112.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Scroll down to see screen as shown above. Accept the License Agreement to start download. As you can see, JDK is implemented for almost all major operating systems. After downloading, install JDK with default settings. After installation, go to&lt;/p&gt;
+&lt;p&gt;C:/program files/java/jdk\&amp;lt;version_name&gt;/bin/&lt;/p&gt;
+&lt;p&gt;Make sure ‘javac’ and ‘java’ are present in this folder. Now copy the complete path from the address bar of explorer as shown in the pic below.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/25.jpg"&gt;&lt;img alt="2" src="thegeekyway.com/uploads/images/2014/02/25.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now, follow these steps&lt;/p&gt;
+&lt;p&gt;Go to Start Menu -&gt; Run. Type ‘sysdm.cpl’ and press OK. You get the following screen.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/32.jpg"&gt;&lt;img alt="3" src="thegeekyway.com/uploads/images/2014/02/32.jpg"&gt;&lt;/a&gt;  Click on ‘Advanced’ tab and then on Environment Variables button.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/41.jpg"&gt;&lt;img alt="4" src="thegeekyway.com/uploads/images/2014/02/41.jpg"&gt;&lt;/a&gt; You will get following screen now&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/51.jpg"&gt;&lt;img alt="5" src="thegeekyway.com/uploads/images/2014/02/51.jpg"&gt;&lt;/a&gt;  &lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Create a new user variable using button as shown above. Write the following values in text field provided.&lt;/p&gt;
+&lt;p&gt;Variable name : path&lt;/p&gt;
+&lt;p&gt;Variable value : \&amp;lt;text you had copied&gt;.&lt;/p&gt;
+&lt;p&gt;Press OK to save and close all previous dialog boxes.&lt;/p&gt;
+&lt;p&gt;Now your Java Environment Variable is set and if you have followed the steps correctly, you will be able to compile and run java applications. To check if you have followed the above procedure correctly, goto start menu -&gt; Run and type&lt;/p&gt;
+&lt;p&gt;java and press enter, if you get a flashing black screen, type&lt;/p&gt;
+&lt;p&gt;javac and press enter, if you still get a flashing black screen, it means the variables are correctly setup. If you get some error when you type java or javac, you might have done some mistake in setting up variable. It’s better to restart your computer and try again.&lt;/p&gt;
+&lt;p&gt;The next tutorial describes creating your first simple Java program.&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thegeekyway.com/creating-first-java-program" title="link"&gt;Link to next tutorial&lt;/a&gt;&lt;/p&gt;</content><category term="Android"></category><category term="java"></category></entry></feed>

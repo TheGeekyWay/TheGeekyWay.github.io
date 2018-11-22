@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="C language, life time, scope, variable">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; What is scope and lifetime of a variable in C language  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/">What is scope and lifetime of a variable in C language</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>Welcome to your next tutorial, here we would be discussing about the scope and lifetime of a variable, and how exactly they are similar yet different from each other. We'll try to understand all this by using an example to understand the concepts in a better way.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/03/scope-and-lifetime-variable-c1.png" title="Scope and life time of a variable in C programming language"><img alt="Scope and life time of a variable in C programming language" src="thegeekyway.com/uploads/images/2014/03/scope-and-lifetime-variable-c1.png"></a></p>
+</div>
+<p>So, let's understand each of these :</p>
+<p><strong>Life Time</strong> - Life time of any variable is the time for which the particular variable outlives in memory during running of the program.</p>
+<p><strong>Scope</strong> - The scope of any variable is actually a subset of life time. A variable may be in the memory but may not be accessible though. So, the area of our program where we can actually access our entity (variable in this case) is the scope of that variable.</p>
+<p>The scope of any variable can be broadly categorized into three categories :</p>
+<ul>
+<li><strong>Global scope</strong> : When variable is defined outside all functions. It is then available to all the functions of the program and all the blocks program contains.</li>
+<li><strong>Local scope</strong> : When variable is defined inside a function or a block, then it is locally accessible within the block and hence it is a local variable.</li>
+<li><strong>Function scope</strong> : When variable is passed as formal arguments, it is said to have function scope.</li>
+</ul>
+<p>Let's understand this with help of an example :</p>
+<p>Consider this snippet of program :</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int global = 100;          // global variable declared
+void main()
+{
+   int local = 10;         // local variable declared
+   printf(&quot;Global variable is %d&quot;,global);
+   printf(&quot;Local variable is %d&quot;,local);
+   func1();
+
+}
+void func1()
+{
+   printf(&quot;Global inside func1 is %d&quot;,global);  // Would print the global variable successfully.
+}
+</pre></div>
+
+
+<p>Here we have a variable named global which is defined outside all the functions (generally at the top of the program) , it is defined even outside main, and hence would be available to every function defined in the program , here we consider only one function func1() .</p>
+<p>The output of the above program would be :</p>
+<p><p style="font-family: arial,helvetica,sans-serif;">Global variable is 100</p></p>
+<p><p style="font-family: arial,helvetica,sans-serif;">Local variable is 10</p></p>
+<p><p style="font-family: arial,helvetica,sans-serif;">Global inside func1 is 100</p></p>
+<p>Let us consider the same program again but this time, let us change the definition of our function func1() as:</p>
+<div class="highlight"><pre><span></span>void func1() 
+{ 
+   printf(&quot;Global inside func1 is %d&quot;,global); // Would print the global variable successfully. 
+   printf(&quot;Local inside func1 is %d&quot;, local); /* It would produce an error, because local
+                                                  is a local variable and can be accessed 
+                                                  only inside main function. */
+}
+</pre></div>
+
+
+<p>Clearly, as mentioned in the comment, the printing of global variable would be done, but that of local variable would produce an error, as the variable named local is actually local to the function main() and hence can be accessed only through that function not from any other function, but for global variable, it can be accessed by all functions/ blocks a program is using.</p>
+<p>Here our variable named global has global scope and lifetime, hence it outlives in memory till the program execution is completed and can be accessed by any function / block locally too. But in case of our local variable, it may outlives in memory till program execution is completed but it can be accessed from only within  the function or block it is defined in.</p>
+<p>The basic problem here can be, we can have variable with same name defined as a global as well as local variable, and hence, it would be ambiguos as to which variable we want to actually refer to. We can resolve this issue in C++ (Advancement of C language) by the use of a special operator known as scope resolution operator. We'll look into this, when we'll cover tutorials for C++.</p>
+<p>I hope all the concepts of scope and lifetime are now clear, but still if you have any doubt/ suggestion, please let us know through the comments section below.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 10 March 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/c-language.html">C language</a>,      <a href="thegeekyway.com/tag/life-time.html">life time</a>,      <a href="thegeekyway.com/tag/scope.html">scope</a>,      <a href="thegeekyway.com/tag/variable.html">variable</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

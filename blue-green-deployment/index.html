@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="deployment">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Blue-Green Deployment  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/blue-green-deployment/">Blue-Green Deployment</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/GeekyShacklebolt.html"> GeekyShacklebolt</a> </p>
+  <div class="article_text">
+    <p>A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see nowadays, there are some simpler and more efficient ways to perform the same. We are going to discuss one such technique, that is called "Blue-Green Deployment".<!--more--></p>
+<div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"></p>
+</div>
+<p>Before we jump on to understand Blue-Green Deployment, let's first discuss some relevant terms in brief.</p>
+<h3>Deployment:</h3>
+<p>This term is often get confused with the word "release" due to their versatile usage. Thus, their definition may vary with the context of talk. But here, "release" is just a version number of an application, that always doesn't need to deploy. However, "deployment" is the process of installation and configuration of an application on a targeted hardware.</p>
+<h3>Downtime or Outage:</h3>
+<p>This is the period of time in which the system fails or it remains unavailable to reply to client's requests. This is either a manifestation of the system crash or during routine maintenance.</p>
+<h3>Load Balancer:</h3>
+<p>This can be a hardware device or a software component. It's main feature is to spread the traffic over the server pool, such that, no server is overly burdened while others remain idle. This can also be used to divert network traffic from one server pool to another. We'll see its usage in blue-green deployment. <a href="http://docs.aws.amazon.com/elasticloadbalancing/latest/userguide/what-is-load-balancing.html">Elastic load balancing</a> is also available to handle multiple elastic clouds.</p>
+<p>Let's understand about Blue-Green Deployment technique now.</p>
+<h2>Blue-Green Deployment:</h2>
+<p>This is also known as <strong>Red-Black Deployment</strong>. This is a technique used in application deployment which reduces the risk of downtime and also facilitates the rollback (moving to the previous state). Let us see how it exactly happens.</p>
+<p><strong>Workflow of blue-green deployment using a load balancer:</strong><br>
+For this technique, we need 2 identically configured hardware components or server pools. Out of which:-<br>
+- one is termed as <strong>"blue"</strong> that is going to be an <strong>active</strong> environment<br>
+- another one is termed as <strong>"green"</strong> that would be an <strong>idle</strong> environment.</p>
+<p>Initially, some applications <strong>(e.i app1 ver1, app2 ver1)</strong> are running in our blue environment. As shown in the picture.</p>
+<div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Active-blue-env.png" title="Active blue environment"></p>
+</div>
+<p>Suppose, now we come up with different versions of applications <strong>(i.e. app1 ver2, app2 ver2)</strong>. We want them to deploy and then test these applications. If everything goes right, we'll use these versions in future, but if not, then we would go for the "rollback".</p>
+<p>Let's accomplish this using blue-green deployment:</p>
+<p>1. Deploy new versions of application in idle environment<br>
+2. Here a testing team may test the working of these new versions.<br>
+3. Gradually, using load balancer we start diverting the traffic to this green environment. As shown in the picture. With this live testing is also possible.</p>
+<div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Active-blue-green-env.png" title="Diverting traffic from blue to green environment"></p>
+</div>
+<p>4. If now, these versions fail or crash due to any possible reason. We can quickly roll back to the previous versions in the blue environment using the load balancer.<br>
+5. If new versions are found to be perfectly interacting with the user's traffic, then this <strong>"green"</strong> environment is kept to be <strong>active</strong> and <strong>"blue"</strong> becomes <strong>idle</strong>.</p>
+<div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Active-green-env.png" title="Active green environment"></p>
+</div>
+<p>After successful blue-green deployment, the idle environment is either used to deploy the next version of the application or is simply destroyed.</p>
+<p><em><u><strong>Some points to ponder:</strong></u></em></p>
+<ul>
+<li>Blue-green deployment is widely used nowadays to get minimum or zero downtime. It is used by different cloud service providers like AWS (Amazon Web Services), DigitalOcean, etc.</li>
+<li>Using load balancer is not the only way to implement blue-green environments. Different methods are also available like elastic IPs, DNS routing, etc.</li>
+</ul>
+<h5>Advantages of blue-green deployment:</h5>
+<p>1. Fast rollback<br>
+2. Reduced downtime<br>
+3. Allow testing in a live production environment without affecting 100% user base.</p>
+<h5>Disadvantages of blue-green deployment:</h5>
+<p>1. Database dependent:<br>
+Implementing blue-green deployment become complex with the database, especially if, the database schema is changed in the new version.<br>
+2. Increasingly more difficult at scale</p>
+<p>If you've any questions about Blue Green Deployment, please let us know in the comments section below.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 15 February 2018</p>
+    <p>Category: <a href="thegeekyway.com/category/devops.html">DevOps</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/deployment.html">deployment</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

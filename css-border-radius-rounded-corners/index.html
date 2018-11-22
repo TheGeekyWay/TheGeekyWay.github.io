@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; CSS -  Border Radius for rounded corners  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/css-border-radius-rounded-corners/">CSS -  Border Radius for rounded corners</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Anoop.html"> Anoop</a> </p>
+  <div class="article_text">
+    <p>Border radius is used to create rounded corners  see the following.</p>
+<p>[codepen_embed height=200 theme_id=1 slug_hash='emxdk' user='ianoop' default_tab='css' animations='run'/]</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/css3-web-design-examples.jpg" title="css border radius"><img alt="css border radius" src="thegeekyway.com/uploads/images/2013/12/css3-web-design-examples.jpg"></a></p>
+</div>
+<p><p style="line-height: 1.5em;">Above code fore border radius is equivalent to</p></p>
+<div class="highlight"><pre><span></span><span class="nt">border-top-right-radius</span><span class="o">:</span> <span class="nt">20px</span><span class="o">;</span>
+<span class="nt">border-top-left-radius</span><span class="o">:</span> <span class="nt">20px</span><span class="o">;</span>
+<span class="nt">border-bottom-left-radius</span><span class="o">:</span> <span class="nt">20px</span><span class="o">;</span>
+<span class="nt">border-bottom-right-radius</span><span class="o">:</span> <span class="nt">20px</span><span class="o">;</span>
+
+<span class="nt">or</span>
+
+<span class="nt">border-radius</span><span class="o">:</span> <span class="nt">20px</span> <span class="nt">20px</span> <span class="nt">20px</span> <span class="nt">20px</span><span class="o">;</span>
+</pre></div>
+
+
+<p>You can specify rounded corners with different set of values.</p>
+<p><strong>One :</strong> only one value set for all four corners<br>
+<em>border-radius: 10px</em></p>
+<p><strong>Two values :</strong> <em> top-left + bottom-right and top-right + bottom-right , diagonally</em><br>
+<em>border-radius: 20px 30px</em></p>
+<p><strong>Three values:</strong>  <em>top-left ,  top-right + bottom-left ,  bottom-right</em><br>
+border-radius: 10px 30px 5px</p>
+<p><strong>Four values:</strong> <em>top-left ,  top-right, bottom-right,  bottom-left</em><br>
+border-radius: 20px 10px 15px 30px;</p>
+<p>[codepen_embed height=200 theme_id=1 slug_hash='logmL' user='ianoop' default_tab='result' animations='run'/]</p>
+<p>You can even have different horizontal and vertical rounding</p>
+<p><em>border-radius: 10px/30px /*Horizontal radius / Vertical Radius*/</em></p>
+<p>[codepen_embed height=200 theme_id=1 slug_hash='amzfr' user='ianoop' default_tab='result' animations='run'/]</p>
+<p>Few other example:</p>
+<p>[codepen_embed height=200 theme_id=1 slug_hash='aqeBl' user='ianoop' default_tab='result' animations='run'/]</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 25 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/css.html">CSS</a>
+    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

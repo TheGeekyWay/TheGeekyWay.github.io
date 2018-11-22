@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="CSS, HTML">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; How to add custom CSS in HTML  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/add-custom-css-html/">How to add custom CSS in HTML</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Anoop.html"> Anoop</a> </p>
+  <div class="article_text">
+    <p>I have already given the <a href="http://www.thegeekyway.com/css-introduction-and-different-ways-of-using-css/" title="CSS – Introduction and How it works">introduction to CSS</a> and advantages.Now, there are few ways to use your custom CSS in your site/blog/wordpress.</p>
+<ul>
+<li>Using style tag with HTML elements.</li>
+<li>Using Style element inside HTML page</li>
+<li>Linking external CSS file in your pages</li>
+<li>Importing CSS file inside another CSS file</li>
+</ul>
+<h4>1. Using Style tag in HTML element:</h4>
+<p>You can simply use style tag like below to apply styling to your element.</p>
+<div class="highlight"><pre><span></span><span class="nv">&amp;lt</span>;<span class="n">strong</span> <span class="n">style</span>=<span class="s">&quot;color:White; background:black&quot;</span><span class="nv">&amp;gt</span>; <span class="n">Your</span> <span class="n">Text</span>  <span class="nv">&amp;lt</span>;/<span class="n">strong</span><span class="nv">&amp;gt</span>;
+</pre></div>
+
+
+<p>See the Pen <a href="http://codepen.io/ianoop/pen/olJkD">olJkD</a> by ianoop (<a href="http://codepen.io/ianoop">\@ianoop</a>) on <a href="http://codepen.io">CodePen</a></p>
+<p>
+<script type="text/javascript" src="//codepen.io/assets/embed/ei.js" async></script>
+</p>
+
+<h4>2. Using Style element in your page</h4>
+<p>Add a <em>style</em> element in your Head element and define your css classes.</p>
+<style><!--<br />
+   .<span class="hiddenSpellError" pre="">myclass</span> {<br />
+    color:red;<br />
+    background:black;<br />
+    }</p>
+<p>--></style>
+
+<div class="highlight"><pre><span></span> Your Text
+</pre></div>
+
+
+<p>See the Pen <a href="http://codepen.io/ianoop/pen/IeBwH">IeBwH</a> by ianoop (<a href="http://codepen.io/ianoop">\@ianoop</a>) on <a href="http://codepen.io">CodePen</a></p>
+<h4>3.  Linking a external css file in page</h4>
+<p>Add a link to your css file and those classes will be applied to your elements. This is best approach to have clean code and managing your CSS.</p>
+<div class="highlight"><pre><span></span>        css&quot; href=&quot;customstylesheet.css&quot;&gt;
+</pre></div>
+
+
+<h4>4. Import a CSS file inside another CSS file</h4>
+<p>Use following format to import a CSS file. Remember following import tag should first line in your file.</p>
+<div class="highlight"><pre><span></span><span class="cp">@import</span> <span class="s2">&quot;mynewstylesheet.css&quot;</span><span class="p">;</span>
+</pre></div>
+
+
+<p>Note: For point 3 and 4 location of your css file is relative to current file. If you are using direct name.css that means CSS file and HTML/CSS file both are in same directory.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 12 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/css.html">CSS</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/css.html">CSS</a>,      <a href="thegeekyway.com/tag/html.html">HTML</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="apt-get, linux, Ubuntu">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Ubuntu/Debian. Part-3  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/manage-package-apt-get-apt-cache-ubuntu-commands/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Ubuntu/Debian. Part-3</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Abhishek_Rawal.html"> Abhishek_Rawal</a> </p>
+  <div class="article_text">
+    <p>This is last &amp; final chapter of this tutorial. Before proceeding further, I would like to link first two parts here just incase you haven't checked it out.</p>
+<p>(<a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-I">PART-1</a>  &amp;  <a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/" title="Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-2">PART-2</a>)</p>
+<p>Continuing from Part-2,</p>
+<p><strong>19) Checking The Stats Of Cache Using APT-CACHE :</strong></p>
+<p>This command will display all the statistics of the cache, from total number of packages to total number of dependencies, total number of globbed strings, slack space ,etc.</p>
+<p>Command :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache stats
+</pre></div>
+
+
+<p><strong>20) Listing All The Packages Available In The Repository Using APT-CACHE :</strong></p>
+<p>Using this command you can list all the packages that are available in the repository.</p>
+<p>Command :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache pkgnames
+</pre></div>
+
+
+<p><strong>21) Checking The Package Details Using APT-CACHE :</strong></p>
+<p>This command will give you details of any package available in the repository, alongwith maintainer's name, description details, size, dependency, architecture,etc.</p>
+<p>Command Syntax :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache show &lt;package_name&gt;
+</pre></div>
+
+
+<p>Example :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache show minitube
+</pre></div>
+
+
+<p><strong>22) Searching The Package Using APT-CACHE :</strong></p>
+<p>You can find the package name alongwith description using the following command syntax. Very handy tool when you're looking for similar name of packages.</p>
+<p>Command Syntax :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache search &lt;word_close_to_package_you&#39;re_searching_for&gt;
+</pre></div>
+
+
+<p>Example :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache search mini
+</pre></div>
+
+
+<p>You'll see that first results of search will give me all packages name with prefix 'mini'. This can be helpful when you don't know correct package name.</p>
+<p><strong>23) Getting Dependency Details Using APT-CACHE :</strong></p>
+<p>You can easily obtain dependency details using following command. It also gives details whether those packages are already installed in your system or not.</p>
+<p>Command Syntax :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache showpkg &lt;package_name&gt;
+</pre></div>
+
+
+<p>Example :</p>
+<div class="highlight"><pre><span></span>sudo apt-cache showpkg vlc
+</pre></div>
+
+
+<p>There are chances that I might've missed few commands. You can suggest some of commands in the comments below, so I can add it.</p>
+<p>However, you can get more details of apt-get &amp; apt-cache by typing "man apt-get" &amp; "man apt-cache" respectively from Debian/Ubuntu system.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 11 March 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/apt-get.html">apt-get</a>,      <a href="thegeekyway.com/tag/linux.html">linux</a>,      <a href="thegeekyway.com/tag/ubuntu.html">Ubuntu</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

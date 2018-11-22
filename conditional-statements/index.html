@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Conditional Statements, Python">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Conditional Statements in Python  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/conditional-statements/">Conditional Statements in Python</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Simerdeep Singh.html"> Simerdeep Singh</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/Conditional_Statements1.jpg" title="Conditional Statements in python"><img alt="Conditional Statements in python" src="thegeekyway.com/uploads/images/2014/02/Conditional_Statements1.jpg"></a></p>
+</div>
+<p>In this tutorial we will discuss about conditional statements in python. Conditional statements are used to perform different computation based on the <strong>Boolean expression</strong> which turns out to be true or false . <strong>Boolean expression</strong> is on which these conditional statement works. Various Conditional statement used are:</p>
+<ul>
+<li>If</li>
+<li>Else</li>
+<li>Else if</li>
+</ul>
+<p><strong>If</strong> condition</p>
+<p>The general syntax for using if statement is</p>
+<div class="highlight"><pre><span></span>if (Boolean expression) :
+   code  #indentation is required
+</pre></div>
+
+
+<p><strong>if</strong> is a keyword used for if statements ,it is a followed by a boolean expression which is evaluated  . Now question arises is why space is given in front when we have written code statement . This is because as no brackets are used to hold the computations after the if statement as this is a case in c++,java which uses curly brackets {}. The symbol : signifies that from here if block starts .</p>
+<p>In Python indentation is given rather than using brackets . If we not give the indentation compiler will give an error in case when no line is there in the if block .</p>
+<div class="highlight"><pre><span></span>a=2;
+if(a==2):
+print a
+else
+print &quot;NO&quot;
+</pre></div>
+
+
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/Screenshot-7.png"><img alt="Screenshot-7" src="thegeekyway.com/uploads/images/2014/01/Screenshot-7.png"></a></p>
+</div>
+<p>If statement can be used with else statements and can be used alone . If the condition evaluates to true then code inside if block is executed otherwise it is skip to the next line.</p>
+<p><strong>else</strong> condition</p>
+<p>The syntax of the else statement is</p>
+<div class="highlight"><pre><span></span><span class="k">else</span> <span class="o">:</span>
+  <span class="n">code</span>
+</pre></div>
+
+
+<p>Here else is a keyword used and there are no brackets used as in if statement ,else is also followed by the code segment and indentation is required. Else statement are followed by if statement and cant be used alone . Compiler checks the if block first if Boolean expression doesn't come out to be true ,code inside else statement gets executed.</p>
+<p><strong>Example</strong></p>
+<div class="highlight"><pre><span></span>a=2
+if(a==2):
+ print &quot;YES&quot;
+else :
+ print &quot;NO&quot;
+</pre></div>
+
+
+<p>In this example a has been assigned a value 2 , after that value of a is checked by using if statement . The statement (a==2) means a is compared to the value 2 if it comes to be true if statement will execute otherwise else statement will execute. The output for this case will be "YES".</p>
+<p><strong>Elif</strong></p>
+<p>To avoid multiple if else statements we use else if .It is just like a else followed by a if .elif is a keyword used for else-if statemnts . This example will tell the use of elif keyword.</p>
+<div class="highlight"><pre><span></span>a=9
+if(a%2==0):
+ print &quot;YES&quot;
+elif (a%3==0):
+ print &quot;YES&quot;
+else
+ &quot;NO&quot;
+</pre></div>
+
+
+<p>Here first if condition is checked ,if it comes out to be false it goes to elseif block and if that also comes to be false ,it finally goes to else block.</p>
+<p>\% is an operator used to find modulus of a number .It find the remainder when two numbers are divided.</p>
+<p>Any doubts related to conditional statement can be asked in comment section .In next tutorial we will discuss about looping .</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 26 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/python.html">Python</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/conditional-statements.html">Conditional Statements</a>,      <a href="thegeekyway.com/tag/python.html">Python</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

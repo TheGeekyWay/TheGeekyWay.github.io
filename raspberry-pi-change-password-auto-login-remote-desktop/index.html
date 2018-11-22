@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="linux, Raspberry Pi">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Raspberry Pi: Change Password, Auto Login and Remote Desktop  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/">Raspberry Pi: Change Password, Auto Login and Remote Desktop</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Anoop.html"> Anoop</a> </p>
+  <div class="article_text">
+    <p>I have already given tutorial for <a href="http://www.thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" title="Installation and first boot">RaspberryPi First Installation and Boot</a>.  Let's go with advance configuration of RasPi.</p>
+<h1 id="things-to-do-after-1st-boot-of-raspberry-pi" style="font-size: 1em;">Things to do after 1st boot of Raspberry Pi</h1>
+<ul>
+<li><a href="#changePass">Changing Default Password</a></li>
+<li><a href="#AddUser">Adding New User to Raspi</a></li>
+<li><a href="#autoLogin">Auto Login to GUI without Entering username/password</a></li>
+<li><a href="#Remote">Setting up Remote Desktop: Connect Raspi from another computer</a></li>
+</ul>
+<h2 id="changing-default-password" style="font-size: 1.3em;"><p #changePass></p>1. Changing Default Password</h2>
+<p>Open terminal and run following command</p>
+<div class="highlight"><pre><span></span>sudo raspi-config
+</pre></div>
+
+
+<p>You will see following screen. Navigate using  <p style="font-family: 'courier new', courier;">arrow keys</p> and  <p style="font-family: 'courier new', courier;">tab.</p> Hit <p style="font-family: 'courier new', courier;"> Enter</p> to select .</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/raspi-config.png"><img alt="raspi-config" src="thegeekyway.com/uploads/images/2013/12/raspi-config.png"></a></p>
+</div>
+<p>On selecting  <p style="font-family: 'courier new', courier;">Change User Password</p> , Hit  <p style="font-family: 'courier new', courier;">Enter</p> to give new password.</p>
+<h2 id="adding-new-user-to-pi" style="font-size: 1.3em;"><p #AddUser></p>2. Adding new user to Pi:</h2>
+<p>To add new user just run following command</p>
+<div class="highlight"><pre><span></span>sudo adduser
+</pre></div>
+
+
+<p>It will create a new user and asks for password, Create password for new user here.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"><img alt="raspi-addUser" src="thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"></a></p>
+</div>
+<h2 id="raspi-auto-login-to-gui-without-entering-usernamepassword" style="font-size: 1.3em;"><p #autoLogin></p>3. Raspi Auto Login to GUI without entering username/password</h2>
+<p>Run again following command and select  <p style="font-family: 'courier new', courier;">Enable boot to Desktop/S</p> <p style="font-family: 'courier new', courier;">cratch and select 2nd option</p></p>
+<div class="highlight"><pre><span></span>sudo raspi-config
+</pre></div>
+
+
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"><img alt="Auto-Login-GUI" src="thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"></a></p>
+</div>
+<h5 id="auto-login-using-command-version" style="font-size: 1em;">Auto-Login using Command version</h5>
+<div class="highlight"><pre><span></span>sudo nano /etc/inittab
+
+/*Find following line*/
+
+1:2345:respawn:/sbin/getty 115200 tty1
+
+/*and comment it by adding # in front of it*/
+
+#1:2345:respawn:/sbin/getty 115200 tty1
+
+/*After that add new line with following content*/
+
+1:2345:respawn:/bin/login -f pi tty1 /dev/tty1 2&gt;&amp;1
+
+/*Ctrl+X to exit, Y to save followed by enter twice*/
+</pre></div>
+
+
+<h5 id="auto-start-to-gui" style="font-size: 1em;">Auto Start to GUI</h5>
+<div class="highlight"><pre><span></span><span class="cm">/*Edit rc.local using following line*/</span><span class="w"></span>
+
+sudo<span class="w"> </span>nano<span class="w"> </span><span class="o">/</span>etc<span class="o">/</span>rc<span class="o">.</span>local<span class="w"></span>
+
+<span class="cm">/*Scroll to the end and add the following above exit 0:*/</span><span class="w"></span>
+
+su<span class="w"> </span><span class="o">-</span>l<span class="w"> </span>pi<span class="w"> </span><span class="o">-</span>c<span class="w"> </span>startx<span class="w"></span>
+
+<span class="cm">/*Ctrl+X to exit, Y to save followed by enter twice*/</span><span class="w"></span>
+</pre></div>
+
+
+<h2 id="raspi-setup-remote-desktop-from-windows-machine" style="font-size: 1.3em;"><p #Remote></p>4. Raspi Setup Remote Desktop from windows machine</h2>
+<p>Step 1:  In Respi open  terminal and run following command</p>
+<div class="highlight"><pre><span></span>sudo apt-get install xrdp
+</pre></div>
+
+
+<p>It will install  <p style="font-family: 'courier new', courier;">xrdp on respi, which will be automatically started on boot up. </p>After installing xrdp, reboot your pi and you can verify in boot process, you can see following line</p>
+<ul>
+<li><p style="font-family: 'courier new', courier;">xrdp sesman</p>*</li>
+</ul>
+<p>Step2: Open Remote control application from windows (Run --> mstsc) , Enter local IP of respi and proceed.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"><img alt="MS-RemoteDesktop" src="thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"></a></p>
+</div>
+<p>After successful connection xVnc will ask to authorize at raspberry pi</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"><img alt="Respi-Sesman-xvnc" src="thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"></a></p>
+</div>
+<p>On successful login to xVnc you will see following screen and  then Raspberry pi on your another machine</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"><img alt="raspi-remote-login" src="thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"></a></p>
+</div>
+<h2 id="control-raspberry-pi-over-ssh-see-this-tutorial" style="font-size: 1.3em;"><a href="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH" title="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH">Control Raspberry Pi over SSH:  See this Tutorial</a></h2>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 22 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/how-to-diy-linux.html">How To DIY, Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/linux.html">linux</a>,      <a href="thegeekyway.com/tag/raspberry-pi.html">Raspberry Pi</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

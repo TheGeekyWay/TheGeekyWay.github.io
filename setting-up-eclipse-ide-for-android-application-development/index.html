@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Android, development, Tutorial">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Setting Up Eclipse IDE for Android Application Development (Android-Part 1)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/setting-up-eclipse-ide-for-android-application-development/">Setting Up Eclipse IDE for Android Application Development (Android-Part 1)</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/gagan93.html"> gagan93</a> </p>
+  <div class="article_text">
+    <p>Here is a complete tutorial to setup Eclipse IDE. Hope you have seen the <a href="http://thegeekyway.com/beginandroid" title="Creating your first Android Application">first tutorial</a> and have installed the required tools (ADT + Eclipse &amp; JDK).After installing JDK, extract the Android SDK to a folder and you will get something like this.</p>
+<p>Few screenshots related to Eclipse may vary due to different version, but the overall meaning remains same.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/1.jpg"><img alt="" src="thegeekyway.com/uploads/images/2014/02/1.jpg"></a></p>
+</div>
+<p><strong>Please note that Eclipse is just an Integrated Development Environment</strong> which supports a wide variety of development ranging from C/C++/Java/Android to Electronics. Our Eclispe is a one, tailored for Android. The Eclipse and Android SDK should be kept in the same folder as shown above so that eclipse IDE is able to detect the SDK and use it for further development. If you attempt to change the location of Eclipse or SDK, or rename the SDK, you get the following error.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/11.jpg"><img alt="" src="thegeekyway.com/uploads/images/2014/02/11.jpg"></a></p>
+</div>
+<p>So, now open eclipse folder and there you will find a file called <strong>eclipse.exe</strong>. Open that file, a window appears which shows option to select the <strong>Workspace.</strong> Workspace is a path where your entire project including source, APK and all other files are stored. After selecting preferences, something like this will appear.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/2.jpg"><img alt="" src="thegeekyway.com/uploads/images/2014/02/2.jpg"></a></p>
+</div>
+<p>To start creating a new project, either use the menubar (Flile -> New) or use keyboard shortcut (Alt+Shift+N). From the drop down menu, select <strong>Android Application Project.</strong> A new Dialog box appears. Fill in the basic application details to continue.</p>
+<ul>
+<li><strong>Application name :  </strong>It is the name of the application as visible in your android phone</li>
+<li><strong>Project name :</strong> It is the name of the project which will appear in the <a href="http://www.ibm.com/developerworks/library/wa-mobappdev1/Figure17.jpg" title="Example of tree structure">tree structure</a> in left panel of Eclipse</li>
+<li><strong>Package name :</strong> People familiar with Java must be knowing the concept of a package (or a namespace in C++/C#). It is a unique identifier for your application.</li>
+</ul>
+<p>The best thing about IDEs is the way they explain each and every information. For eg, when we point on <strong>Package name,</strong> it shows the following text information as a help text explaining everything about the field.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/21.jpg"><img alt="Eclipse new Project" src="thegeekyway.com/uploads/images/2014/02/21.jpg"></a></p>
+</div>
+<p>The other four fields are self explanatory, so are not explained here. Press <strong>Next </strong> to continue. You get the following dialog box.<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/02/22.jpg"><img alt="second screen" src="thegeekyway.com/uploads/images/2014/02/22.jpg"></a>
+</div></p>
+<p>The options are explained here  :-</p>
+<ul>
+<li><strong>Create custom launcher icon : </strong> This allows to choose a custom Application Icon for your application.</li>
+<li><strong>Create Activity : </strong>Activity in an android application is somewhat similar to a JFrame/Frame in Java. An activity simply represents a screen in Android. <strong>Activity</strong> is also a class in Android. You must check this option so that eclipse creates a dummy activity (with required methods)</li>
+<li><strong> <p style="font-size: small">Mark this project as library : </p></strong>Check this option if you want this project to act as library (or source) for another project (not to be given much stress now).</li>
+<li><strong>Create Project in Workspace :</strong> This option allows to create all the files of the project inside the workspace which was selected when Eclipse started. This should be <strong>checked</strong> to store the files at that place and <strong>unchecked</strong> if you want to store the files anywhere else.</li>
+<li><strong>Add project to working sets : </strong>This option is also related to linking multiple projects so should not be given much stress now.Click <strong>Next</strong> to continue. Now we get the following screen :<br>
+<div style="text-align:center" markdown="1">
+   <a href="thegeekyway.com/uploads/images/2014/02/23.jpg"><img alt="" src="thegeekyway.com/uploads/images/2014/02/23.jpg"></a>
+</div></li>
+</ul>
+<p>You can configure the icon for you application in this window. Try changing different colors, text,clipart etc and it would be clear to you. Most of the things are self explanatory and are not discussed here. Click next to continue. You will get the following screen.<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/02/12.jpg"><img alt="" src="thegeekyway.com/uploads/images/2014/02/12.jpg"></a>
+</div></p>
+<p>Now here we select the type of activity.</p>
+<ul>
+<li><strong>Blank Activity :</strong> It is an activity where you get empty implementation of required methods and status bar of android phone is visible. So it is not a fullscreen activity.</li>
+<li><strong>Full Screen Activity :</strong> Usually games utilize complete screen and come under this category. Select this option so that this occupies the complete screen (including status bar).</li>
+<li><strong>Master / Detailed Flow : </strong>This allows users to create activity in such a way so that it is able to display an object as well as information related to each object. Moreover, it created two activities, i.e.  <strong>master</strong> and <strong>detailed</strong> fragment respectively.</li>
+</ul>
+<p>Click Next to continue. We get the following screen<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/02/1.png"><img alt="" src="thegeekyway.com/uploads/images/2014/02/1.png"></a>
+</div></p>
+<ul>
+<li><strong>Activity Name :</strong> This is the name of new blank activity which starts the application.</li>
+<li><strong>Layout Name :</strong> This specifies the layout for this activity.  <strong>Please note that layout of an android activity is defined in XML inside layout folder.</strong></li>
+</ul>
+<p><p style="font-size: small"><strong>Navigation Type : </strong> Specifies the type of navigation the user will use to navigate while using the app. See options for more information which are self explanatory. Let it be none for now.</p></p>
+<p>Click Finish to start with the actual process.The following window opens in Eclipse.<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/02/13.jpg"><img alt="" src="thegeekyway.com/uploads/images/2014/02/13-1024x608.jpg"></a>
+</div></p>
+<p>So now we have started with a simple Android Application. On the left hand side we have a list of folders which contain libraries and files related to our application. On the right hand side, we have the currently opened file. By default it shoes the main JAVA file of your application. Before starting coding, setting layouts etc. we require  a complete understanding of all the folder on the left side. So in our next post tomorrow, we'll completely describe about each folder about what they mean and how to use them.</p>
+<p><a href="http://www.thegeekyway.com/firstandroidapp/" title="link"> <p style="font-size: xx-large">Link to next Tutorial</p></a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 02 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/android.html">Android</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/android.html">Android</a>,      <a href="thegeekyway.com/tag/development.html">development</a>,      <a href="thegeekyway.com/tag/tutorial.html">Tutorial</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

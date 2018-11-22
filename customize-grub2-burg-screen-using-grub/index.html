@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="GRUB, linux">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Customize GRUB2/BURG Screen Using Grub Customizer  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/customize-grub2-burg-screen-using-grub/">Customize GRUB2/BURG Screen Using Grub Customizer</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Abhishek_Rawal.html"> Abhishek_Rawal</a> </p>
+  <div class="article_text">
+    <p><strong>GRUB Customizer</strong> is the application with graphical interface to configure GRUB2/BURG settings, visuals &amp; menu-entries.</p>
+<blockquote>
+<p><strong>Features:</strong></p>
+<p>- supports GRUB2 &amp; BURG</p>
+<p>- rename, remove &amp; move the menu-entries</p>
+<p>- Installation of bootloader to MBR</p>
+<p>- settings like default distro, Kernel params, BG image, text colors etc. to customize the look of GRUB2/BURG</p>
+</blockquote>
+<p>You can simple right click on above entries &amp; then you can Edit, Rename, Remove, Move up or down, remove from submenu or add another submenu easily. Everything can be customized within user interface.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_004.png" title="Grub Customizer -> List Configuration"><img alt="List Configuration" src="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_004.png"></a></p>
+</div>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_005.png" title="Grub Customizer -> General Settings"><img alt="Grub Customizer -> General Settings" src="{filename}/uploads/images/2014/01/Grub-Customizer_005.png"></a></p>
+</div>
+<p>Advanced settings are for advanced users who wanna customize as per their wish.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer-settings_006.png" title="Grub Customizer -> Advanced settings"><img alt="Grub Customizer -> Advanced settings" src="{filename}/uploads/images/2014/01/Grub-Customizer-settings_006.png"></a></p>
+</div>
+<p>I am using elementaryOS at this moment, I have picked .PNG image from deviantart &amp; adjusted color of my choice. And, clicked on 'save settings' on left top corner &amp; well that's done.</p>
+<p>Just to make sure, you can run '<strong>sudo update-grub</strong>'.</p>
+<blockquote>
+<p><strong>Note : I have noticed that current/latest version of Grub customizer doesn't work with .jpeg BG image files, so make sure it is of .png else it won't work.</strong></p>
+</blockquote>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/Grub-Customizer_003.png" title="Grub Customizer -> Appearance settings"><img alt="Grub Customizer -> Appearance settings" src="{filename}/uploads/images/2014/01/Grub-Customizer_003.png"></a></p>
+</div>
+<p><p style="color: #da243a;">To install <strong>Grub Customizer</strong> in Ubuntu &amp; it's derivatives, open Terminal &amp; add PPA by typing :</p></p>
+<div class="highlight"><pre><span></span>sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+</pre></div>
+
+
+<p>Now update the repository,,</p>
+<div class="highlight"><pre><span></span>sudo apt-get update
+</pre></div>
+
+
+<p>Now install the Grub-customizer</p>
+<div class="highlight"><pre><span></span>sudo apt-get install grub-customizer
+</pre></div>
+
+
+<p><p style="color: #da243a;">To install <strong>Grub Customizer</strong> in other Linux distribution :</p></p>
+<p><u><em>Install the following packages :</em></u></p>
+<p><strong>- cmake</strong></p>
+<p><strong>- gcc-c++</strong> or <strong>g++</strong></p>
+<p><strong>- libgtkmm-3.0-dev</strong> or <strong>gtkmm30-devel</strong></p>
+<p><strong>- libssl-dev</strong> or <strong>openssl-devel</strong></p>
+<p><strong>- libarchive-dev</strong> or <strong>libarchive-devel</strong></p>
+<p><strong>- gettext</strong></p>
+<p>Download the source from <a href="https://launchpad.net/grub-customizer/+download" title="Download Now!"><strong>HERE</strong></a></p>
+<p>Go to source directory &amp; use <strong>cmake</strong>, <strong>make</strong> &amp; <strong>make install</strong> to install grub customizer. (You can find detailed information on 'How To Compile application from source code' from <a href="http://www.thegeekyway.com/install-application-source-code-2/" title="Install application from source-code">THIS LINK</a>)</p>
+<p>After installing &amp; modding the GRUB2 loader, here's what my new beautiful GRUB2 screen looks like (sorry for blur image, my camera is crap) :</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/bootscreen.jpg"><img alt="bootscreen" src="thegeekyway.com/uploads/images/2014/01/bootscreen.jpg"></a></p>
+</div>
+<p>That's it.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 05 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/grub.html">GRUB</a>,      <a href="thegeekyway.com/tag/linux.html">linux</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

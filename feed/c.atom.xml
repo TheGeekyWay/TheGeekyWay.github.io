@@ -1,0 +1,1217 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - C</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/c.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2014-08-05T00:17:00+05:30</updated><entry><title>Structures And User Defined Data Types (Part - I)</title><link href="thegeekyway.com/structures-c-programming-language-user-defined-data-types/" rel="alternate"></link><published>2014-08-05T00:17:00+05:30</published><updated>2014-08-05T00:17:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-08-05:thegeekyway.com/structures-c-programming-language-user-defined-data-types/</id><summary type="html">&lt;p&gt;Howdy folks, hope you're doing well. We've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D Arrays and their memory organization&lt;/a&gt; and further about &lt;a href="http://www.thegeekyway.com/learning-2d-multidimensional-arrays/" title="Learning About 2D And Multidimensional Arrays"&gt;2D arrays and multidimensional arrays&lt;/a&gt;. In case you missed it, read them first. Coming to this tutorial, we'll be discussing the way to develop our own data types in the C …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Howdy folks, hope you're doing well. We've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D Arrays and their memory organization&lt;/a&gt; and further about &lt;a href="http://www.thegeekyway.com/learning-2d-multidimensional-arrays/" title="Learning About 2D And Multidimensional Arrays"&gt;2D arrays and multidimensional arrays&lt;/a&gt;. In case you missed it, read them first. Coming to this tutorial, we'll be discussing the way to develop our own data types in the C programming language. It is done through something known as structures, and that's what we'll explore about here.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/08/structures-and-user-defined-data-types-I.png" title="Structure and User Defined Data Types in C Programming"&gt;&lt;img alt="Structure and User Defined Data Types in C Programming" src="thegeekyway.com/uploads/images/2014/08/structures-and-user-defined-data-types-I.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;What is a structure in C ?&lt;/h2&gt;
+&lt;p&gt;Structure is basically a derived data type in C programming language. It is defined as a collection of variables (which may be of different data types) to be grouped together and referred to as a single entity. This gives you ability to define your own data types i.e. user defined data types.&lt;/p&gt;
+&lt;h2&gt;Difference between a structure and an array?&lt;/h2&gt;
+&lt;p&gt;The next question which may arise, would be what's the difference between array and structure. Well, an array is homogeneous set of elements i.e. array is capable of holding different values but of same data type. On the other hand, structure is combination of variables of different data types.&lt;/p&gt;
+&lt;p&gt;Structures can be used to track information which is common to large group of entities.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;How to declare a structure?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Let us first see the basic semantics of declaring a structure. It is much like defining ordinary variable like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;data_type&amp;gt; &amp;lt;variable_name&amp;gt; // For variable
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now for structure, it is done through keyword struct like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct &amp;lt;struct_name&amp;gt;
+{
+  ...
+};
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let us take an example to track record of students in a high school. Each student would have certain set of properties/attributes which would differentiate them from one another. We'll consider a student has a roll number of type integer , name of type string and  marks of type float for the time being. Now, let's define our structure named student with these properties.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct student
+{
+  int rollno;
+  char name[20];  // Taking an array of character (string)
+  float marks;
+  // You are free to declare as many members as you want, but we&amp;#39;re restricting our example to 3 data members (properties)
+  // Size of the structure should be known to the compiler
+};
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now that we have our basic structure with it's data members ready, we can declare instances of it like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct student George;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, all members of the structure can be accessed via our instance named George using membership access or dot operator like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;George.rollno = 91;
+
+George.marks = 78.6;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and so on...&lt;/p&gt;
+&lt;p&gt;It's essential to remember here that the members we declare in a structure would take the memory only when instances are declared. You're free to name your instance anything. It's just like declaring a variable whose data type would be now your own defined data type, which is struct student here.&lt;/p&gt;
+&lt;p&gt;Notice above how we've defined the instances of a structure, another way of declaring them can be like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct &amp;lt;struct-name&amp;gt;
+{
+  // Data Members
+
+} &amp;lt;name-of-first-structure-variable&amp;gt; ... ;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, for the above example, it can be done as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct student
+{
+  int rollno;
+  char name[20];  // Taking an array of character (string)
+  float marks;
+}George,Henry,Steve; // Declare as many as you want.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next, you can access each of the properties for a particular structure variable like :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;George.rollno = 50;
+George.marks = 98.6;
+strycpy(George.name, &amp;quot;George&amp;quot;);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Similarly all other structure variables' data members can be defined.&lt;/p&gt;
+&lt;p&gt;That's solve for this tutorial, a lot more is there to know about structure, which we'll cover in the second part.&lt;/p&gt;</content><category term="c programming"></category><category term="structures"></category><category term="user defined data types"></category></entry><entry><title>Learning About 2D And Multidimensional Arrays</title><link href="thegeekyway.com/learning-2d-multidimensional-arrays/" rel="alternate"></link><published>2014-07-24T13:04:00+05:30</published><updated>2014-07-24T13:04:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-07-24:thegeekyway.com/learning-2d-multidimensional-arrays/</id><summary type="html">&lt;p&gt;Well, I'm glad you reached at this point, we've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D arrays and the memory organization&lt;/a&gt;, and in this post, we'll know about 2D arrays and Multidimensional Arrays. They are not very much different from 1 D arrays as we looked in the last tutorial. So, let's start …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Well, I'm glad you reached at this point, we've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D arrays and the memory organization&lt;/a&gt;, and in this post, we'll know about 2D arrays and Multidimensional Arrays. They are not very much different from 1 D arrays as we looked in the last tutorial. So, let's start:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/07/2D_mutlidimensional_arrays.png" title="Learning about 2D and multidimensional arrays in C"&gt;&lt;img alt="Learning about 2D and multidimensional arrays in C" src="thegeekyway.com/uploads/images/2014/07/2D_mutlidimensional_arrays.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;In this tutorial, we'll cover the following topics:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.TheGeekyWay.com/learning-2d-multidimensional-arrays/#2d_arrays"&gt;&lt;strong&gt;&lt;em&gt;2 Dimensional Arrays (2D Arrays)&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://www.TheGeekyWay.com/learning-2d-multidimensional-arrays/#2d_declare"&gt;&lt;strong&gt;&lt;em&gt;Declaration of 2D Arrays&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#2d_input"&gt;&lt;strong&gt;&lt;em&gt;Inputting Data in 2D Arrays&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#2d_output"&gt;&lt;strong&gt;&lt;em&gt;Traversing and Output from 2D Array&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#multidimensional_arrays"&gt;&lt;strong&gt;&lt;em&gt;Multidimensional Arrays&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#multidimensional_declare"&gt;&lt;strong&gt;&lt;em&gt;Declaration of Multidimensional Arrays&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#multidimensional_input"&gt;&lt;strong&gt;&lt;em&gt;Inputting Data in Multidimensional Arrays&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#multidimensional_output"&gt;&lt;strong&gt;&lt;em&gt;Traversing and output from Multidimensional Arrays&lt;/em&gt;&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="dimensional-arrays" style="text-align: center;"&gt;&lt;strong&gt;2 Dimensional Arrays&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Without saying anything much about 2D arrays here, let's first have a look at the memory organization in 2D arrays:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/07/2DArrays_Representation.png" title="Memory Organization of 2D Arrays in memory"&gt;&lt;img alt="Memory Organization of 2D Arrays in memory" src="thegeekyway.com/uploads/images/2014/07/2DArrays_Representation.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Clearly, it's much like 1D arrays but this time the contiguous memory blocks have to be occupied in two directions considered as along x and y co-ordinates.&lt;/p&gt;
+&lt;p&gt;With this basic memory organization picture in mind, let's now see how we declare a 2D Array.&lt;/p&gt;
+&lt;p&gt;&lt;p #2d_declare&gt;&lt;/p&gt;&lt;strong&gt;Declaration of 2D Array:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Let's take an example that you want to create a 3 x 3 Matrix named mat of integer data type, so we would declare as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int mat[3][3];
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The first number in square brackets is for the number of rows and the next one is for number of columns. For instance, now say we need to create a matrix of say 4 rows and 6 columns, of float data type. it would look like this:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/07/mat_4x6.png" title="Matrix memory representation 4 X 6"&gt;&lt;img alt="Matrix memory representation 4 X 6" src="thegeekyway.com/uploads/images/2014/07/mat_4x6.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now, it would be declared as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;float mat[4][6];
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now let us come back to our original mat, which is a 3 x 3 matrix and see how to fill it.&lt;/p&gt;
+&lt;p&gt;&lt;p #2d_input&gt;&lt;/p&gt;&lt;strong&gt;Putting in data to 2D Arrays:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Since we need to refer a location by both the row number and the column number, we need to fill in each block of memory by traversing through each row first and then each column in that row, then come to next row, traverse each column and so on...&lt;/p&gt;
+&lt;p&gt;Here we would need two loops, one for updating the row number and the next to update the column number. Since we are moving from left to right for each row, remember that we will update the row value less frequently than the column value.&lt;/p&gt;
+&lt;p&gt;So, basic syntax would be something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for(int i = 0; i &amp;lt;= row; i++ )
+{
+  for(int j = 0; j &amp;lt;= col; j++)
+  {
+     scanf(&amp;quot;%d&amp;quot;,&amp;amp;matrix[i][j]);
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here row and col would correspond to the total number of rows and columns in the matrix. Inside the loop, we're just taking input from the user such that the value of &lt;strong&gt;j&lt;/strong&gt; i.e. our column would update more frequently from left to right than the value of &lt;strong&gt;i&lt;/strong&gt; i.e. our row.&lt;/p&gt;
+&lt;p&gt;Now, let's start accepting values from user for our for our matrix named mat which is a 3 x 3 matrix.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int mat[3][3]; //Declaring 3 x 3 , 2D matrix
+
+int i,j; //Declaring variables to be used in loop
+
+for( i = 0; i &amp;lt; 3; i++ )  // loop for updating row number
+{
+  for( j = 0; j &amp;lt; 3; j++)  // loop for updating col number
+  {
+     scanf(&amp;quot;%d&amp;quot;,&amp;amp;mat[i][j]);
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;p #2d_output&gt;&lt;/p&gt;&lt;strong&gt;Traversing and Printing 2D Array:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Next, we need to traverse this array, it would be done as:&lt;/p&gt;
+&lt;p&gt;Traversing means just processing through each element of the array and apply an operation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// We have assumed to initialized the array by taking input from user as
+// shown in code snippet above.
+
+// Traversing
+for ( i = 0; i &amp;lt; 3; i++)
+{
+  for( j = 0; j &amp;lt; 3; j++)
+  {
+    //Traversing here and applying the printing on console operation
+    printf(&amp;quot;%d&amp;quot;,mat[i][j]);
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="multidimensional-array" style="text-align: center;"&gt;&lt;strong&gt;Multidimensional Array :&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Extending what we've learned about 1D and 2D arrays, there can be 3D, 4D, 5D and even 100D arrays, though the complexity would multiply at each level, so we don't use beyond 2D arrays generally. In some complex application, we may use 3D arrays, but beyond that, because of the increase in the complexity, they are hardly used.&lt;/p&gt;
+&lt;p&gt;&lt;p #multidimensional_declare&gt;&lt;/p&gt;&lt;strong&gt;Declaration of Multidimensional Arrays:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;So, for declaring a 3 D array, you just have to define one more dimension as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int matrix [3][3][3]; //Declaring 3D Array which is 3 x 3 x 3
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Similarly, for a 4 D array,  declaration would be :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int matrix [3][4][5][6]; // Declaring Matrix named matrix of type int and
+                         // size 3 x 4 x 5 x 6
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, generally, whatever dimension you want, you can add while declaring.&lt;/p&gt;
+&lt;p&gt;&lt;p #multidimensional_input&gt;&lt;/p&gt;&lt;strong&gt;Putting in data to Multidimensional Array:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Very similar to filling up a 2 D array,  a 3D array can be filled up by using 3 loops (one for iterating through each dimension). Remember, the inner loop will always has a fast frequency to iterate than the loop enclosing it and so on...&lt;/p&gt;
+&lt;p&gt;Let's fill up a 3D array of type float here as an example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;float mat[3][4][5]; // Declaring array mat of type float with dimensions
+                    // 3 x 4 x 5
+
+// Filling up data in array by taking values from user
+
+for( i = 0; i &amp;lt; 3; i++)
+{
+  for( j = 0; j &amp;lt; 4; j++)
+  {
+    for( k = 0; k &amp;lt; 5; k++)
+    {
+      //Taking input from user here corresponding to each dimension
+      scanf(&amp;quot;%f&amp;quot;,&amp;amp;mat[i][j][k]);
+    }
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Similarly, just increase the number of loops depending on the dimensions. Thus, if you have created an N dimension array, it would take N loops to fill it.&lt;/p&gt;
+&lt;p&gt;&lt;p #multidimensional_output&gt;&lt;/p&gt;&lt;strong&gt;Traversing and Output of a  Multidimensional Array:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;In the same way as explained above, you can print a multidimensional array by iterating through it using the same no. of loops as the dimension of the array as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// This snippet assumes that we&amp;#39;ve declared and filled up the array as shown // above.
+
+// Traversing and output
+
+for( i = 0; i &amp;lt; 3; i++)
+{
+  for( j = 0; j &amp;lt; 4; j++)
+  {
+    for( k = 0; k &amp;lt; 5; k++)
+    {
+      //Taking input from user here corresponding to each dimension
+      printf(&amp;quot;%f&amp;quot;,mat[i][j][k]);
+    }
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I hope this had been a bit informative for you and would help you. Next, we'll be going to discuss about Structures in C language.&lt;/p&gt;
+&lt;p&gt;Have any doubts? Just leave a comment below or give me a shout on twitter \@ErSanyamKhurana&lt;/p&gt;</content><category term="2D"></category><category term="arrays"></category><category term="multidimensional"></category></entry><entry><title>Learning About 1 Dimensional Arrays (1 D Arrays)</title><link href="thegeekyway.com/learning-1-dimensional-arrays/" rel="alternate"></link><published>2014-07-12T02:55:00+05:30</published><updated>2014-07-12T02:55:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-07-12:thegeekyway.com/learning-1-dimensional-arrays/</id><summary type="html">&lt;p&gt;You may have heard of arrays or "tuples" before, if you've learnt any programming language. If not, then don't worry, you'll learn everything about them in this tutorial and how are they used in C to handle &lt;strong&gt;large amounts of data of same data type&lt;/strong&gt; effectively and easily. So, let's …&lt;/p&gt;</summary><content type="html">&lt;p&gt;You may have heard of arrays or "tuples" before, if you've learnt any programming language. If not, then don't worry, you'll learn everything about them in this tutorial and how are they used in C to handle &lt;strong&gt;large amounts of data of same data type&lt;/strong&gt; effectively and easily. So, let's know about them. In this tutorial we'll learn about 1 Dimensional Arrays and in later tutorials we'll look at 2 Dimensional Arrays and Multidimensional arrays.&lt;/p&gt;
+&lt;h2 id="what-is-an-array" style="text-align: center;"&gt;&lt;strong&gt;What is an array?&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;em&gt;An array can be defined as a way to store list of large no. of items of same data type in contiguous memory location&lt;/em&gt;. Whenever we need to store some information about the same data type, we use arrays. For instance, consider a case when you need to store roll numbers of all students in the class. One way to do this is, I can define separately variables for all roll numbers like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;...
+
+int rollno1 = 1;
+int rollno2 = 2;
+int rollno3 = 3;
+int rollno4 = 4;
+.
+.
+.
+.
+.
+.
+.
+.
+.
+int rollnon = n; //Here n is the last roll number
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Surely, this would be an inefficient approach, and thus, a better way to do this is would be through arrays like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[n]; //Here n is the total number of students for which roll numbers are to be stored.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I know, you haven't been introduced to "How to declare arrays", which we would see in just a moment, but I just wanted to show how systematically you can use array to store and manage data efficiently. Below is an image describing how array is stored in the memory location. Note here, that each item can be accessed via index number (explained in detail later), and remember, this index value as shown would always start from 0. Many errors, newbie programmers fall trap to, is because they confuse the first index of the array to be 1, which is not the case, as the first index is always 0.&lt;/p&gt;
+&lt;p&gt;The contiguous memory means, the data cells of memory would be one after the other, so if we need to store 60 items, we need a location in memory with at least 60 cells one after the other. Consider contiguous as being "continuous".&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/07/arrays11.png" title="Array representation in memory."&gt;&lt;img alt="Array representation in memory." src="thegeekyway.com/uploads/images/2014/07/arrays11.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="how-to-declare-a-1-dimensional-array" style="text-align: center;"&gt;How to declare a 1 Dimensional array?&lt;/h2&gt;
+&lt;p&gt;Now let us see how you can declare an array :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;data type&amp;gt; &amp;lt;array name&amp;gt;[&amp;lt;size of array&amp;gt;];
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here data type is the actually the type of data of the elements you would store in your array, array name is simply the name you give to your array (similar to the name of a variable, in order to access it later), which would follow the general rules of naming a variable which we have discussed previously. After the name of the array, we would have a set of square brackets in which we would mention the size of the array.&lt;/p&gt;
+&lt;p&gt;Now, let's again quickly take a look at our rollno array :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[n];
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Technically, before declaring this statement, you should first define the value of variable n, or else you'll face an error.&lt;/p&gt;
+&lt;p&gt;Here, n is just use to make you first comfortable with basic declaration of array. More sophisticatedly, you can simply use a definite value of n to define an array as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[60]; //Enough space to store roll no of 60 students
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next, we need to fill in the values for our array. Traditionally, following an approach as we've seen in the beginning would not only take a lot of time to define each variable corresponding to each student, but makes it a hectic process.&lt;/p&gt;
+&lt;p&gt;But first, we need to explore more about what exactly the index no or indices of the array is?&lt;/p&gt;
+&lt;p&gt;Well, typically, the computer memory is divided into small data cells (as shown above in the picture), occupying contiguous memory location. To access any element stored in an array we need something to reference it, like a variable name. In case we followed, the very first traditional approach defining 60 variables, they would have different names, which would be difficult to remember, but we could refer a single element. Using array, makes this more efficient by providing us with index no. or indices, as each subsequent element can be addressed / referred to by it's index value, which we would see in just a moment.&lt;/p&gt;
+&lt;h2 id="what-would-be-the-size-of-the-array" style="text-align: center;"&gt;What would be the size of the array?&lt;/h2&gt;
+&lt;p&gt;An array would consist of many elements and hence the size of the array would be the sum of size of all elements in the array. For instance, in our example of rollno array for 60 student, which is of type int, the memory locations are occupied such that each cell has capacity to store an integer. We know, that in C , integer takes two bytes, so total memory occupied by rollno array would be 2 * 60  = 120.&lt;/p&gt;
+&lt;p&gt;Thus, you can easily calculate the amount of memory an array occupies by using the following formula:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Size of array = Size of data type * Total no. of elements in the array&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Now let's see how to fill up the array:&lt;/p&gt;
+&lt;h2 id="putting-values-in-array" style="text-align: center;"&gt;Putting values in array&lt;/h2&gt;
+&lt;p&gt;Filling up an array is very simple using for loop, as we would see here :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[60]; //Declaring array with 60 elements storage space
+for(int i = 0;i &amp;lt; 60; i++)
+{
+  scanf(&amp;quot;%d&amp;quot;,rollno[i]);  //Here value of i increments, and allow to store next input to the very next space till value of i = 60 where for loop terminates.
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The working is very straight forward as explained in the comments.&lt;/p&gt;
+&lt;p&gt;One important thing to note here is that, as previously mentioned the index of array would start from 0 not 1. You should always remember this thing while handling data with arrays and your loops should also work in the same fashion.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; : Newbies mistake, assuming array to be start from 1. Remember, it would be started from 0.&lt;/p&gt;
+&lt;h2 id="printing-out-elements-of-array" style="text-align: center;"&gt;Printing out elements of Array&lt;/h2&gt;
+&lt;p&gt;Now, after filling up the array, let's see how we can access one particular element. For instance, let's say I need to look for roll no. of 11th student, so I know it would be stored as 10th element in memory (not 11th) as indices start from 0. So, let's print the value of 11th student.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;...
+printf(&amp;quot;%d&amp;quot;,rollno[10]);
+...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In case you want to print all values stored in the array, we simply apply a loop to loop through the all the values in the array from indices 0 to indices 59 (a total of 60 values in this case).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;...
+for (int i = 0,i &amp;lt;= 59, i++)
+{
+  printf(&amp;quot;%d&amp;quot;,rollno[i]);
+}
+...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, now that you've learned about 1 dimensional arrays, it's time to look for two dimensional arrays.&lt;/p&gt;
+&lt;p&gt;Have any doubts till now? Please feel free to mention in comments section below, or give me a shout on twitter \@ErSanyamKhurana.&lt;/p&gt;</content><category term="1 dimensional"></category><category term="array"></category></entry><entry><title>[Ultimate Guide] What are loops in programming and how are they important?</title><link href="thegeekyway.com/loops-programming-important/" rel="alternate"></link><published>2014-03-27T21:40:00+05:30</published><updated>2014-03-27T21:40:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-03-27:thegeekyway.com/loops-programming-important/</id><summary type="html">&lt;p&gt;Welcome everyone to yet another tutorial on C Programming language. In this tutorial we'll be learning about a great concept of loops. Most of the programming languages would use exactly the same syntax for loops, so understand this carefully. Loops provide with great utility and power and saves from a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Welcome everyone to yet another tutorial on C Programming language. In this tutorial we'll be learning about a great concept of loops. Most of the programming languages would use exactly the same syntax for loops, so understand this carefully. Loops provide with great utility and power and saves from a lot of overhead which may be there without them.&lt;/p&gt;
+&lt;p&gt;In this tutorial, we'll be discussing about various topics which revolves around concept of loops and understand them. They are :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#Basic-Definition-and-Types-of-Loops" title="ASP.Net Basics : Populate checkboxlist from database using C#"&gt;Basic Definition and Types of Loops&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Basic-section-of-Loop" title="[Ultimate Guide] What are loops in programming and how are they important?"&gt;Basic Section of Loop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#For-While-and-do-whlie-loop"&gt;For, While and Do-While Loops&lt;/a&gt;&lt;ul&gt;
+&lt;li&gt;&lt;a href="#for-loop"&gt;For Loop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#while-loop"&gt;While Loop&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#do-while-loop"&gt;Do While loop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Difference-between-entry-controlled-and-exit-controlled-loop" title="ASP.Net Basics : Populate checkboxlist from database using C#"&gt;Difference between Entry Controlled and exit controlled loop&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/Ultimage-Guide-on-Loops-in-programming1.png" title="Understand about Loops in Programming, for, while, do while"&gt;&lt;img alt="Understand about Loops in Programming, for, while, do while " src="thegeekyway.com/uploads/images/2014/03/Ultimage-Guide-on-Loops-in-programming1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;&lt;p #Basic-Definition-and-Types-of-Loops&gt;&lt;/p&gt;&lt;/h2&gt;
+&lt;h2&gt;Basic Definition and Types of Loops&lt;/h2&gt;
+&lt;p&gt;The basic concept behind &lt;strong&gt;&lt;em&gt;"Loop"&lt;/em&gt;&lt;/strong&gt; is to &lt;u&gt;&lt;em&gt;execute certain set of statements as far as a given condition is true, or in many cases a counter variable gets out of a specific range defined, or we use may use some Logical operators to control the flow in our loop.&lt;/em&gt; &lt;/u&gt;There are basically three types of loops in the C language. They are :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;for loop&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;while loop&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;do while loop&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now, let's look at the syntax of each of these and how they can be used, in detail. To understand all these in a better way, let's consider a common and simple example to print numbers from 1 to let's say 500.&lt;/p&gt;
+&lt;p&gt;The most basic approach to carry out this task is to keep printing each line having different numbers from 1 to 500 which would look something like this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+void main()
+{
+  printf(&amp;quot;1 n&amp;quot;);
+  printf(&amp;quot;2 n&amp;quot;);
+  printf(&amp;quot;3 n&amp;quot;);
+  printf(&amp;quot;4 n&amp;quot;);
+  printf(&amp;quot;5 n&amp;quot;);
+  printf(&amp;quot;6 n&amp;quot;);
+  printf(&amp;quot;7 n&amp;quot;);
+  . 
+  .
+  .
+  .
+  .
+  .
+  .
+  printf(&amp;quot;499 n&amp;quot;);
+  printf(&amp;quot;500 n&amp;quot;);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, let's try to improve upon this a little bit.&lt;br&gt;
+We can take a counter variable and after each step just update it's value, then it would be something like this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+void main()
+{
+  int counter = 1;
+  printf(&amp;quot;%d n&amp;quot;,counter);
+  counter++;
+  printf(&amp;quot;%d n&amp;quot;,counter);
+  counter++;
+  printf(&amp;quot;%d n&amp;quot;,counter);
+  counter++;
+  printf(&amp;quot;%d n&amp;quot;,counter);
+  counter++;
+  .
+  .
+  .
+  .
+  .
+  .
+  .
+  printf(&amp;quot;%d n&amp;quot;,counter);    /* Carry on this 
+  counter++;                      500 times   */
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In this simple approach although we used a counter variable to avoid writing different numbers and updating the value of counter is left to the computer. But, it lead to an increase in the Lines Of Code (LOC) which is considered as an important parameter to compare any software.&lt;/p&gt;
+&lt;p&gt;So, it would be good, if we could use this counter variable approach but reduce the LOC. We can do it by using loops, now let's carry this out using different loops.&lt;/p&gt;
+&lt;p&gt;&lt;p #Basic-section-of-Loop&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;strong&gt;Basic sections of the loops&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;All loops have three basic sections which are :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Initialization&lt;/strong&gt; : we need to initialize our counter variable in this statement.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Test Condition&lt;/strong&gt; : is the condition which needs to be true for the loop to keep running, as soon as it becomes false, the loop would stop executing, and the control would be directed to the next statement.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Updation&lt;/strong&gt; : In this statement the value of counter variable is updated (either incremented or decremented )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;p #For-While-and-do-whlie-loop&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;h2&gt;For, While and Do While Loops :&lt;/h2&gt;
+&lt;p&gt;Now, we'll look here how we can print numbers from 1 to 500 using for, while and do-while loops by first understanding their syntax and then understanding the flow of control of these loops.&lt;/p&gt;
+&lt;p&gt;&lt;p #for-loop&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;h3&gt;&lt;u&gt;&lt;strong&gt;Understanding and using for loop&lt;/strong&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;* &lt;strong&gt;Syntax&lt;/strong&gt; :*&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for ( initialization ; test condition ; updation )
+{
+  .
+  .
+  .
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now let's carry out the given task to print numbers from 1 to 500.&lt;/p&gt;
+&lt;p&gt;The for loop for this would be something like this, here we have a counter variable named i which would be incremented from 1 to 500.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for( i = 1 ; i&amp;lt;=500 ; i++ )
+{
+  printf(&amp;quot;%d n&amp;quot;, i );
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can also define the counter variable inside the loop, and then it would have&lt;a href="http://www.thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" title="What is scope and lifetime of a variable in C language"&gt;scope of the loop as explained in tutorial on Scope and lifetime of variables.&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for(int i = 1 ; i&amp;lt;=500 ; i++ )
+{
+  printf(&amp;quot;%d n&amp;quot;, i );
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Understanding flow of  for loop&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;First time, when the control enters the loop, value of counter i is 1. The test condition would be checked, it would be true in this case, as 1 is less than or equal to 500. Hence control enters the loop and the statement to print value of i would be executed. We don't have more statements here, so control would go to updation, and update the value of i, it would be incremented.&lt;/p&gt;
+&lt;p&gt;Next the test condition would be again checked, here value of i is 2. So, test condition would be true in this case. Hence, control enters the loop and again print statement would be executed. This time value 2 would be printed. Once again, the control goes to updation statement, and value of i is incremented. It becomes 3 now, and again test condition would be checked.&lt;/p&gt;
+&lt;p&gt;This would continue till the value reaches 499, after updation, the value of i would be 500. The control again enters the loop, and value of 500 would be printed. Next updation takes place and value of i becomes 501, the test condition here becomes false, because, 501 is not less than or equal to 500. So, the loop would terminate, and the control would go to the next immediate next statement following the loop.&lt;/p&gt;
+&lt;h3&gt;&lt;p #while-loop&gt;&lt;/p&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;u&gt;&lt;strong&gt;Understanding and Using while loop&lt;/strong&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;initialization
+while(test_condition)
+{
+ //all code
+  updation 
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In while loop, initialization is done even before control enters the loop, as shown. Updation is done as the last statement of the loop and test condition is given as shown.&lt;/p&gt;
+&lt;p&gt;Now let us print the numbers from 1 to 500 using while loop.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int i = 1;
+while( i &amp;lt;= 500)
+{
+  printf(&amp;quot;%d n&amp;quot;,i);
+  i++ ;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The initialization is need is just once, whatever loop it is, so in while loop, we have done initialization, before entering the while loop.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Understanding flow of  while loop&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;First of all the test condition is checked, which would be true, since 1 is less than or equal to 500, so control enters loop, and the print statement would be executed and updation statement also takes place. There is no other statement to be executed as end of the loop is reached. Before the control leaves the loop, the test condition would be checked, which would be again true as 2 is less than equal to 500.&lt;/p&gt;
+&lt;p&gt;This would continue until value is 500. Next, the value would be printed, and value is incremented by 1. So, condition is tested again, now, 501 would not be less than or equal to 500. Hence, the test condition becomes false and the control exits the loop executing the immediate next statement following the loop.&lt;/p&gt;
+&lt;h3&gt;&lt;p #do-while-loop&gt;&lt;/p&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;u&gt;&lt;strong&gt;Understanding and Using do - while loop&lt;/strong&gt;&lt;/u&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Syntax:&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;initialization
+do {
+  //executing statements
+  updation
+} while(test condition);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;u&gt;Notice that in do while loop, we have a semi-colon at the end of while statement.&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;Let's now print the numbers from 1 to 500 using do while loop.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int i = 1;
+do {
+     printf(&amp;quot;%d n&amp;quot;,i);
+     i++;
+} while(i &amp;lt;= 500);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;Understanding flow of do while loop&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The do while loop has an interesting feature, which is it would &lt;strong&gt;execute at least once&lt;/strong&gt; whether the condition is true or not.&lt;/p&gt;
+&lt;p&gt;In the above case, the control enters the loop, and execute the statements. So, the value 1 would be printed. Next updation is done in the value of i, and the condition is checked against value 2, so 2 is less than or equal to 500 and hence the control once again start executing from the first statement. Next the test condition is checked against the value of 3 and so on.&lt;/p&gt;
+&lt;p&gt;This would continue till value of 500, next after printing value of 500, the updation takes place, and then the condition would become false. The control would get out of the loop and be ready to execute the immediate next statement.&lt;/p&gt;
+&lt;p&gt;&lt;p #Difference-between-entry-controlled-and-exit-controlled-loop&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;u&gt;Difference between Entry Controlled and Exit Controlled loop&lt;/u&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Entry Controlled&lt;/strong&gt; loops are those in which the test condition is checked first, and then if the condition is true, the control enters the loop and all the statements inside the loops are executed. For example, &lt;u&gt;for&lt;/u&gt; and &lt;u&gt;while loop&lt;/u&gt; are entry controlled loop.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Exit Controlled&lt;/strong&gt; loops are those in which the statements inside loops are executed first, and then the condition is tested. Even if the condition is false, the loop is executed at least once. For example, &lt;u&gt;do-while&lt;/u&gt; loop is an exit controlled loop and it is executed at least once, whether the condition is true of false. If the condition is true, the loop is executed one more time, and if it's false, termination occurs, as we have discussed in detail above.&lt;/p&gt;
+&lt;p&gt;In the next tutorial, we'll learn about structures in the C language.&lt;/p&gt;</content><category term="C"></category><category term="do while"></category><category term="entry controlled"></category><category term="exit controlled"></category><category term="for"></category><category term="loops"></category><category term="programming"></category><category term="while"></category></entry><entry><title>Storage Classes in C language</title><link href="thegeekyway.com/storage-classes-c-language-2/" rel="alternate"></link><published>2014-03-17T17:55:00+05:30</published><updated>2014-03-17T17:55:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-03-17:thegeekyway.com/storage-classes-c-language-2/</id><summary type="html">&lt;p&gt;In the previous tutorials, we have discussed about the conditional statements. In this tutorial we'll be learning about something known as Storage Classes in the C language. Every variable you define in the C language is generally associated with a Storage class which basically defines the Scope and lifetime of …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the previous tutorials, we have discussed about the conditional statements. In this tutorial we'll be learning about something known as Storage Classes in the C language. Every variable you define in the C language is generally associated with a Storage class which basically defines the Scope and lifetime of that variable.&lt;/p&gt;
+&lt;p&gt;Before we get into detail about this, let's first understand&lt;a href="http://www.TheGeekyWay.com/what-is-scope-and-lifetime-of-a-variable-in-c-language"&gt;what is exactly meant by scope and lifetime of variable.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now, let us take a look at different types of storage classes available in C programming language:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;auto&lt;/li&gt;
+&lt;li&gt;register&lt;/li&gt;
+&lt;li&gt;static&lt;/li&gt;
+&lt;li&gt;extern&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/storage_class1.png" title="Storage classes in C language and keywords used to define them. auto, extern, static and register."&gt;&lt;img alt="Storage classes in C language and keywords used to define them. auto, extern, static and register." src="thegeekyway.com/uploads/images/2014/03/storage_class1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Now, we'll understand each one of this in detail :&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;Auto (Automatic) :&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;The default storage class of any variable is Automatic . It is created as soon as the declaration statement is encountered and is destroyed as soon as the program control leaves the block which contains your variable.&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: comic sans ms,sans-serif;"&gt;&lt;em&gt;&lt;u&gt;Keyword used - auto&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;For example, here we define two variables, first, count, which is a local variable and second,  counter inside a block (local variable using auto class).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
+  int count;
+  auto int counter;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;External Storage Class (Extern) :&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;They are the Global Variables, i.e. declared outside the function block but are accessible inside the function block as well. They are accessible by all the function blocks present in the program and hence they have lifetime for entire program.&lt;/p&gt;
+&lt;p&gt;It is actually used to give a reference to the global variable which can be accessed in all your files. If we need to have a global variable, then in one file, we use that particular variable or function, and in the other file we define it by keyword extern so that when it is used in our other file, the reference is used from the first file.&lt;/p&gt;
+&lt;p&gt;&lt;p style="text-decoration: underline;"&gt; &lt;p style="font-family: comic sans ms,sans-serif;"&gt;Keyword used - extern&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;For example, let's have two files, first which would have our main function (main.c) and second one having a function named extern_storage (extern.c)&lt;/p&gt;
+&lt;p&gt;First file : main.c&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int counter = 1 ; // Global Variable
+
+void main()
+{
+  extern_storage();
+  counter++;
+  extern_storage();
+  counter--;
+  extern_storage();
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Second file : extern.c&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void extern_storage(void);
+
+extern int counter;
+
+void extern_storage(void)
+{
+   printf(&amp;quot;Current value of extern counter is %d n&amp;quot;, &amp;amp;counter);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;When the above two files are executed, the function extern_storage picks up the current value from our main.c file. So, the following output will be produced.&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: courier new,courier;"&gt;Current value of extern counter is 1&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: courier new,courier;"&gt;Current value of extern counter is 2&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: courier new,courier;"&gt;Current value of extern counter is 1&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;Static Storage Class (static) :&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;It has visibility of a local variable but lifetime of external variable. Thus, once defined, it would not be destroyed after the function finishes execution but would retain it's value in memory and can be used further in future function calls.&lt;/p&gt;
+&lt;p&gt;&lt;p style="text-decoration: underline;"&gt;&lt;em&gt; &lt;p style="font-family: comic sans ms,sans-serif;"&gt;Keyword used - static&lt;/p&gt;&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;(Self-Explanatory through post on &lt;a href="http://www.thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" title="What is scope and lifetime of a variable in C language"&gt;Scope and lifetime of variables&lt;/a&gt;)&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;Register Storage Class (register) :&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;It is very similar in behavior to an automatic storage class variable. The difference between the two comes from the fact that auto storage class uses main memory for storage but register storage class variables might use CPU Registers.&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;em&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; register keyword doesn't guarantee that CPU Registers would be used every time, it depends on hardware and other restrictions that may be there.&lt;/em&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;The use of these registers facilitates faster accessing and helps in running programs faster. Thus variables that need quick access  like variables for storing counter values should be declared by using register keyword.&lt;/p&gt;
+&lt;p&gt;For example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
+  register int count;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;em&gt;We hope the concept of storage classes is now clear ! Have any doubt or something to say? Let us know through comments section below.&lt;/em&gt;&lt;/p&gt;</content><category term="auto"></category><category term="C language"></category><category term="extern"></category><category term="register"></category><category term="static"></category><category term="storage classes"></category></entry><entry><title>What is scope and lifetime of a variable in C language</title><link href="thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" rel="alternate"></link><published>2014-03-10T00:28:00+05:30</published><updated>2014-03-10T00:28:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-03-10:thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/</id><summary type="html">&lt;p&gt;Welcome to your next tutorial, here we would be discussing about the scope and lifetime of a variable, and how exactly they are similar yet different from each other. We'll try to understand all this by using an example to understand the concepts in a better way.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/scope-and-lifetime-variable-c1.png" title="Scope and life time of a variable in C programming language"&gt;&lt;img alt="Scope and life time of a variable in C programming language" src="thegeekyway.com/uploads/images/2014/03/scope-and-lifetime-variable-c1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;So, let's understand …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Welcome to your next tutorial, here we would be discussing about the scope and lifetime of a variable, and how exactly they are similar yet different from each other. We'll try to understand all this by using an example to understand the concepts in a better way.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/scope-and-lifetime-variable-c1.png" title="Scope and life time of a variable in C programming language"&gt;&lt;img alt="Scope and life time of a variable in C programming language" src="thegeekyway.com/uploads/images/2014/03/scope-and-lifetime-variable-c1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;So, let's understand each of these :&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Life Time&lt;/strong&gt; - Life time of any variable is the time for which the particular variable outlives in memory during running of the program.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scope&lt;/strong&gt; - The scope of any variable is actually a subset of life time. A variable may be in the memory but may not be accessible though. So, the area of our program where we can actually access our entity (variable in this case) is the scope of that variable.&lt;/p&gt;
+&lt;p&gt;The scope of any variable can be broadly categorized into three categories :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Global scope&lt;/strong&gt; : When variable is defined outside all functions. It is then available to all the functions of the program and all the blocks program contains.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Local scope&lt;/strong&gt; : When variable is defined inside a function or a block, then it is locally accessible within the block and hence it is a local variable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Function scope&lt;/strong&gt; : When variable is passed as formal arguments, it is said to have function scope.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Let's understand this with help of an example :&lt;/p&gt;
+&lt;p&gt;Consider this snippet of program :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int global = 100;          // global variable declared
+void main()
+{
+   int local = 10;         // local variable declared
+   printf(&amp;quot;Global variable is %d&amp;quot;,global);
+   printf(&amp;quot;Local variable is %d&amp;quot;,local);
+   func1();
+
+}
+void func1()
+{
+   printf(&amp;quot;Global inside func1 is %d&amp;quot;,global);  // Would print the global variable successfully.
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here we have a variable named global which is defined outside all the functions (generally at the top of the program) , it is defined even outside main, and hence would be available to every function defined in the program , here we consider only one function func1() .&lt;/p&gt;
+&lt;p&gt;The output of the above program would be :&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: arial,helvetica,sans-serif;"&gt;Global variable is 100&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: arial,helvetica,sans-serif;"&gt;Local variable is 10&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: arial,helvetica,sans-serif;"&gt;Global inside func1 is 100&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Let us consider the same program again but this time, let us change the definition of our function func1() as:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void func1() 
+{ 
+   printf(&amp;quot;Global inside func1 is %d&amp;quot;,global); // Would print the global variable successfully. 
+   printf(&amp;quot;Local inside func1 is %d&amp;quot;, local); /* It would produce an error, because local
+                                                  is a local variable and can be accessed 
+                                                  only inside main function. */
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Clearly, as mentioned in the comment, the printing of global variable would be done, but that of local variable would produce an error, as the variable named local is actually local to the function main() and hence can be accessed only through that function not from any other function, but for global variable, it can be accessed by all functions/ blocks a program is using.&lt;/p&gt;
+&lt;p&gt;Here our variable named global has global scope and lifetime, hence it outlives in memory till the program execution is completed and can be accessed by any function / block locally too. But in case of our local variable, it may outlives in memory till program execution is completed but it can be accessed from only within  the function or block it is defined in.&lt;/p&gt;
+&lt;p&gt;The basic problem here can be, we can have variable with same name defined as a global as well as local variable, and hence, it would be ambiguos as to which variable we want to actually refer to. We can resolve this issue in C++ (Advancement of C language) by the use of a special operator known as scope resolution operator. We'll look into this, when we'll cover tutorials for C++.&lt;/p&gt;
+&lt;p&gt;I hope all the concepts of scope and lifetime are now clear, but still if you have any doubt/ suggestion, please let us know through the comments section below.&lt;/p&gt;</content><category term="C language"></category><category term="life time"></category><category term="scope"></category><category term="variable"></category></entry><entry><title>Conditional Statements : Switch Case</title><link href="thegeekyway.com/conditional-statements-switch-case/" rel="alternate"></link><published>2014-02-01T21:02:00+05:30</published><updated>2014-02-01T21:02:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-02-01:thegeekyway.com/conditional-statements-switch-case/</id><summary type="html">&lt;p&gt;In the previous tutorial, we've discussed about &lt;a href="http://www.thegeekyway.com/conditional-statements-if-else/" title="Understanding Conditional Statements: if else"&gt;if - else and nested if - else statements&lt;/a&gt; and how we can use them to test certain conditions and execute a block of code depending on whether the condition becomes true or false. In this tutorial, we'll be covering another Conditional Statement used in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the previous tutorial, we've discussed about &lt;a href="http://www.thegeekyway.com/conditional-statements-if-else/" title="Understanding Conditional Statements: if else"&gt;if - else and nested if - else statements&lt;/a&gt; and how we can use them to test certain conditions and execute a block of code depending on whether the condition becomes true or false. In this tutorial, we'll be covering another Conditional Statement used in C known as Switch Case. The major difference between choosing to use if-else and switch is, when we have to compare a single variable to different set of values, then Switch is preferred, and if-else if preferred otherwise.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"&gt;&lt;img alt="Conditional Statements : Switch Case C language" src="thegeekyway.com/uploads/images/2014/02/SwitchCase1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;The basic semantics of a switch block statement is as follows :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;switch(variable-name)
+{
+    case 1:
+    .
+    break;
+    case 2:
+    .
+    break;
+    case 3:
+    .
+    break;
+    .
+    .
+    .
+    .
+    default:
+    .
+    break;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here variable-name corresponds to the variable you want to compare with a set of values and inside the curly braces we have defined cases such that if value of variable is 1 then the statement 1 and statement 2 would execute, for variable having value 2, statement 3 and 4 would execute and so on. If none of the cases are true, then statement n corresponding to default would execute.&lt;/p&gt;
+&lt;p&gt;Let us take an example and understand how it's done. Let us consider we need to just print what number it is if the number is less than or equal to 5 else print number is not 1, 2, 3, 4 or 5. We'll consider that user has input a number which is stored in variable named num. This can be done through if - else statements as we studied earlier like this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(num == 1)
+   cout&amp;lt;&amp;lt;&amp;quot;Number is 1 n&amp;quot;;
+else if(num == 2)
+   cout&amp;lt;&amp;lt;&amp;quot;Number is 2 n&amp;quot;;
+else if(num == 3)
+   cout&amp;lt;&amp;lt;&amp;quot;Number is 3 n&amp;quot;;
+else if(num == 4)
+   cout&amp;lt;&amp;lt;&amp;quot;Number is 4 n&amp;quot;;
+else if(num == 5)
+   cout&amp;lt;&amp;lt;&amp;quot;Number is 5 n&amp;quot;;
+else
+   cout&amp;lt;&amp;lt;&amp;quot;Number is not 1, 2, 3, 4 or 5 n&amp;quot;;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now in the above case, since we need to compare just one variable with a set of values, this can be done easily through switch case as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;switch ( num )
+{
+   case 1 : cout&amp;lt;&amp;lt;&amp;quot;Number is 1 n&amp;quot;;
+   break;
+   case 2 : cout&amp;lt;&amp;lt;&amp;quot;Number is 2 n&amp;quot;;
+   break;
+   case 3 : cout&amp;lt;&amp;lt;&amp;quot;Number is 3 n&amp;quot;;
+   break;
+   case 4 : cout&amp;lt;&amp;lt;&amp;quot;Number is 4 n&amp;quot;;
+   break;
+   case 5 : cout&amp;lt;&amp;lt;&amp;quot;Number is 5 n&amp;quot;;
+   break;
+   default : cout&amp;lt;&amp;lt;&amp;quot;Number is not 1, 2, 3, 4 or 5 n&amp;quot;;
+   break;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Notice here that I have mentioned break statement after each case , this is to terminate the the case above it if it's executed. Let's see if we didn't include break what would happen, so consider this code snippet.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+  int num;
+  cout&amp;lt;&amp;lt;&amp;quot;Enter a number &amp;quot;;
+  cin&amp;gt;&amp;gt;num;
+  switch ( num )
+  {
+     case 1 : cout&amp;lt;&amp;lt;&amp;quot;Number is 1 n&amp;quot;;
+     case 2 : cout&amp;lt;&amp;lt;&amp;quot;Number is 2 n&amp;quot;;
+     case 3 : cout&amp;lt;&amp;lt;&amp;quot;Number is 3 n&amp;quot;;
+     case 4 : cout&amp;lt;&amp;lt;&amp;quot;Number is 4 n&amp;quot;;
+     case 5 : cout&amp;lt;&amp;lt;&amp;quot;Number is 5 n&amp;quot;;
+     default : cout&amp;lt;&amp;lt;&amp;quot;Number is not 1, 2, 3, 4 or 5 n&amp;quot;;
+  }
+return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, if we run this and input 2 is given then output would be as shown below&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/Switch_Case.png" title="Switch case in C language Output Screen"&gt;&lt;img alt="Switch case in C language Output Screen" src="thegeekyway.com/uploads/images/2014/02/Switch_Case.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;See, we not only got Number is 2 statement printed, but got all statements printed after that case, in a sequential manner, this is because in a switch condition we need to have conditional flow of statement using break statement.&lt;/p&gt;
+&lt;p&gt;Now, if you include break after each case but doesn't do it with default case, it would run fine too, this is because if the default case is true, then after executing set of statements with that case, the control would automatically be out of the switch block, so technically we do not need break after default case.&lt;/p&gt;
+&lt;p&gt;Now let's see how to match a character type variable. Consider a character (char) type variable named character_variable , and if we need to use switch, it can be done in this way:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;switch ( character_variable )
+{
+   case &amp;#39;a&amp;#39; : cout&amp;lt;&amp;lt;&amp;quot;Case a executed n&amp;quot;;
+     break;
+   case &amp;#39;b&amp;#39; : cout&amp;lt;&amp;lt;&amp;quot;Case b executed n&amp;quot;;
+     break;
+   case &amp;#39;c&amp;#39; : cout&amp;lt;&amp;lt;&amp;quot;Case c executed n&amp;quot;;
+     break;
+   default : cout&amp;lt;&amp;lt;&amp;quot;This is default case n&amp;quot;;
+     break;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, notice that we have enclosed the character value between single quotes ( '   ' ).&lt;/p&gt;
+&lt;p&gt;Like wise, you can design your switch case for various purpose as/when you need to compare a single variable value with a set of values.&lt;/p&gt;
+&lt;p&gt;In next tutorials we'll know about the Storage Classes in C. If you have any problem with anything till now, feel free to let us know through comments section below, we'll be glad to help you.&lt;/p&gt;
+&lt;p&gt;Keep Coding !&lt;/p&gt;</content><category term="C language"></category><category term="conditional"></category><category term="switch"></category></entry><entry><title>Understanding Conditional Statements: if else</title><link href="thegeekyway.com/conditional-statements-if-else/" rel="alternate"></link><published>2014-01-12T23:08:00+05:30</published><updated>2014-01-12T23:08:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-01-12:thegeekyway.com/conditional-statements-if-else/</id><summary type="html">&lt;p&gt;In this tutorial, we'll uncover something much interesting which would simplify our work as a programer and help us to check if a given condition is true or not. We'll study about the Conditional statements like &lt;strong&gt;if - else&lt;/strong&gt; , &lt;strong&gt;if-else if-else&lt;/strong&gt;, &lt;strong&gt;nested if -else&lt;/strong&gt; and &lt;strong&gt;switch&lt;/strong&gt; (continued in next tutorial)&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;Understanding …&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;In this tutorial, we'll uncover something much interesting which would simplify our work as a programer and help us to check if a given condition is true or not. We'll study about the Conditional statements like &lt;strong&gt;if - else&lt;/strong&gt; , &lt;strong&gt;if-else if-else&lt;/strong&gt;, &lt;strong&gt;nested if -else&lt;/strong&gt; and &lt;strong&gt;switch&lt;/strong&gt; (continued in next tutorial)&lt;/p&gt;
+&lt;p&gt;&lt;u&gt;&lt;strong&gt;Understanding if else statements :&lt;/strong&gt;&lt;/u&gt;&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/Conditional-statements-if-else1.png" title="Conditional statements in C : if else, nested if-else"&gt;&lt;img alt="Conditional statements in C : if else, nested if-else" src="thegeekyway.com/uploads/images/2014/01/Conditional-statements-if-else1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;To make the control of the program use conditional flow we need to use conditional statements, as the name suggests, this type of flow of control depends upon a particular condition ie either if it is true or it is false etc.&lt;/p&gt;
+&lt;p&gt;We'll first look at an if statement by considering this example :-&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+  int num;
+  printf(&amp;quot;Enter a number n&amp;quot;);
+  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
+  if(num == 5)
+  {
+     printf(&amp;quot;Number entered is 5&amp;quot;);
+  }
+  return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The above program would simply accept a value from user, and if the value entered is equal to 5 ie of course 5, then we would get a message printed on console "Number entered is 5" , if value entered is not 5, nothing would happen.&lt;/p&gt;
+&lt;p&gt;Note: whenever you write an if statement, you should have an opening and closing parenthesis as shown (in case you need to have multiple statements to be executed for an if statement) else, the program with just single statement in if block should not necessarily consist a block, so the above program would work if&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(num == 5)
+{
+   printf(&amp;quot;Number entered is 5&amp;quot;);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;is written as&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(num == 5)
+  printf(&amp;quot;Number entered is 5&amp;quot;);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, we just instructed the computer to print a message, if a given condition happens to be true (which is entered value is 5 in this case).&lt;/p&gt;
+&lt;p&gt;Now, consider, we wanted program to print a message if the value entered is not 5, ie, if value entered is 5, it would print the message "Number entered is 5" otherwise, it would print "Number entered is not 5" . Let's see how this can be done with the help of if-else&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+  int num;
+  printf(&amp;quot;Enter a number n&amp;quot;);
+  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
+  if(num == 5)
+  {
+    printf(&amp;quot;Number entered is 5&amp;quot;);
+  }
+  else
+  {
+    printf(&amp;quot;Number entered is not 5&amp;quot;);
+  }
+  return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let's say if we need to print message for if a number is 2, it should print "Number entered is 2" , if it's 5, it should print "Number entered is 5" otherwise, it should print "Number is neither 2 nor 5. Let's see how it can be done with if-else statements&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+  int num;
+  printf(&amp;quot;Enter a number n&amp;quot;);
+  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
+  if(num == 5)
+  {
+    printf(&amp;quot;Number entered is 5&amp;quot;);
+  }
+  else if(num == 2)
+  {
+    printf(&amp;quot;Number entered is 2&amp;quot;);
+  }
+  else
+  {
+    printf(&amp;quot;Number entered is not 5&amp;quot;);
+  }
+  return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The above program could include any no of if - else if - else statements (which means no. of else if statements in between if and else can be increased )&lt;/p&gt;
+&lt;p&gt;To understand nested if-else let's see the following program:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+  int num;
+  printf(&amp;quot;Enter a number n&amp;quot;);
+  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
+  if(num % 2 == 0)
+  {
+    printf(&amp;quot;Number entered is even&amp;quot;);
+    if(num == 2)
+      printf(&amp;quot;Number entered is 2&amp;quot;);
+    else
+      printf(&amp;quot;Number entered is not 2&amp;quot;);
+  }
+  else
+    printf(&amp;quot;Number entered is not even&amp;quot;);
+  return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The above program first checks if a number is even or not, if it's even then it checks if number is 2 or not.&lt;/p&gt;
+&lt;p&gt;Note : To check number is even or not, we used modulus operator as discussed in &lt;a href="http://www.thegeekyway.com/operators-c-language/" title="Operators in the C language"&gt;Tutorial on Operators&lt;/a&gt; . Here we checked, if the number when divided by 2 leaves remainder 0 ie, it is entirely divisible by 2, then it's even else it's not even.&lt;/p&gt;
+&lt;p&gt;In the next tutorial, we'll know about another conditional statement, switch statement.&lt;/p&gt;</content><category term="conditional"></category><category term="if-else"></category><category term="nested"></category></entry><entry><title>Operators in the C language</title><link href="thegeekyway.com/operators-c-language/" rel="alternate"></link><published>2014-01-09T22:57:00+05:30</published><updated>2014-01-09T22:57:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2014-01-09:thegeekyway.com/operators-c-language/</id><summary type="html">&lt;p&gt;Welcome to your next tutorial in the C language,  today, we’ll discuss about operators in the C language. We have already discussed about &lt;a href="http://www.thegeekyway.com/variables-in-c/" title="Learning about Variables in C"&gt;Variables in C language&lt;/a&gt;, and &lt;a href="http://www.thegeekyway.com/learn-c-variables/" title="Learn C – More about variables"&gt;how we can store data in variables&lt;/a&gt; input by user, next we may need to update this data , or make various …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Welcome to your next tutorial in the C language,  today, we’ll discuss about operators in the C language. We have already discussed about &lt;a href="http://www.thegeekyway.com/variables-in-c/" title="Learning about Variables in C"&gt;Variables in C language&lt;/a&gt;, and &lt;a href="http://www.thegeekyway.com/learn-c-variables/" title="Learn C – More about variables"&gt;how we can store data in variables&lt;/a&gt; input by user, next we may need to update this data , or make various operations on the variables to produce desired results. This can be done through Operators in the C language.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/Operators_in_C1.png" title="Operators in C"&gt;&lt;img alt="Operators_in_C" src="thegeekyway.com/uploads/images/2014/01/Operators_in_C1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Operators can be classified broadly as follows :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Arithmetic Operators&lt;/li&gt;
+&lt;li&gt;Logical Operators&lt;/li&gt;
+&lt;li&gt;Relational Operators&lt;/li&gt;
+&lt;li&gt;Assignment Operator&lt;/li&gt;
+&lt;li&gt;Bitwise&lt;/li&gt;
+&lt;li&gt;Conditional Operator&lt;/li&gt;
+&lt;li&gt;Miscellaneous Operators&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Now we’ll discuss about each category one by one, let us assume that we have declared two variables num1 and num2 and initialized them as shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int num1 = 3;
+int num2 = 6;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let's have another variable named res for storing result, so that we can analyze the value of result after applying each operator and understand their functioning.&lt;/p&gt;
+&lt;p&gt;But before this, we need to understand that there are basically two kinds of &lt;em&gt;&lt;strong&gt;Operators depending on the number of operands&lt;/strong&gt; they operate upon&lt;/em&gt;. They are :-&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Unary Operators&lt;/strong&gt; : which operate on only one operand.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Binary Operators&lt;/strong&gt; : which requires two operands to be operated upon.&lt;/p&gt;
+&lt;p&gt;Now, we'll carry on with understanding different types of operator.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Arithmetic Operators&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;They are binary operators used to do arithmetic operations like addition , subtraction , multiplication , division etc.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;u&gt;+ used for addition&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num1 + num2;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This would add the two values ie 5 and 6 and store the result to variable res which is 9 in this case.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;u&gt;- used for subtraction&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num2 - num1;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This would subtract num1 from num2 and then store the result in variable res which is 3 in this case.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;u&gt;* used for multiplication&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num1 * num2;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This would multiply num1 and num2 and store the result in variable res which is 18 in this case.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;u&gt; / used for division&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num2 / num1;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This would divide the two values ie num2 by num1 and then store the result in variable res which is 2 in this case.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;&lt;u&gt;% (modulus operator )&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num2 % num1;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This operator will divide num2 by num1 and then gives us the &lt;em&gt;REMAINDER&lt;/em&gt; which will be stored in variable res and it's value would be 0 in this case , since, when 6 is divided by 3, it would give remainder 0.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Logical Operators&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;They are included in logical expressions and are of following types :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Logical AND (&amp;amp;&amp;amp;)&lt;/li&gt;
+&lt;li&gt;Logical NOT ( ! )&lt;/li&gt;
+&lt;li&gt;Logical OR ( || )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note that in Logical AND and Logical OR, we use the respective symbol two times as mentioned. We'll study their complete usage in the coming tutorials specially in &lt;em&gt;&lt;u&gt;Loops&lt;/u&gt;&lt;/em&gt; and &lt;em&gt;&lt;u&gt;Conditional Statements&lt;/u&gt; .&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Relational Operator:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;As the name suggests, they are used to depict relations among variables. Mostly they return either a true (1) value or a false (0) value. They are of the following types :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Less than or equal to ( \&amp;lt;= )&lt;/li&gt;
+&lt;li&gt;More than or equal to ( &gt;= )&lt;/li&gt;
+&lt;li&gt;Not equal to ( != )&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Again, they would be better understood when we'll discuss about Conditional Statements and Loops, so we'll discuss them in the upcoming tutorials, just remember the types of operators for now.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Assignment Operator:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;They are used to assign values to a variables, we are already using this operator since we studied about assigning a value to our variables, so consider the following :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int num = 5;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here ( = ) ie assignment operator is used to assign value 5 to variable num.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Miscellaneous Operators&lt;/strong&gt;:&lt;/p&gt;
+&lt;p&gt;There are other operators too, but we have covered the most important operators here.&lt;/p&gt;
+&lt;p&gt;Unary + and Unary - are some of the operators you would see often. As the name suggests they operate on only one operand. To understand what they do, consider the following code snippet :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int num = 5;
+num = (+num);
+printf(&amp;quot;Value of num after Unary + is %d n&amp;quot;,&amp;amp;num);
+num = -num;
+printf(&amp;quot;Value of num after Unary - is %d&amp;quot;,&amp;amp;num);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Including all the necessary header files and other stuff required, it would produce the output as follows:&lt;/p&gt;
+&lt;p&gt;Value of num after Unary + is 5&lt;/p&gt;
+&lt;p&gt;Value of num after Unary - is -5&lt;/p&gt;
+&lt;p&gt;So, you understood it right Unary + doesn't changed the sign of the value, while unary - reversed the sign of integer value, so +5 become -5 , and it would be vice-versa if we have a negative value in variable.&lt;/p&gt;
+&lt;p&gt;In the next post, we'll study about Conditional statements and then about Loops in C and their usage, they would help us understand the concept of operators like logical and relational operator in much more detail. If you have any doubts/question, please feel free to flood them in the comments section, we'll help you !&lt;/p&gt;</content><category term="C language"></category><category term="Operators"></category></entry><entry><title>Learn C - More about variables</title><link href="thegeekyway.com/learn-c-variables/" rel="alternate"></link><published>2013-12-16T11:51:00+05:30</published><updated>2013-12-16T11:51:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2013-12-16:thegeekyway.com/learn-c-variables/</id><summary type="html">&lt;style type="text/css"&gt;&lt;!--&lt;br /&gt;
+P { margin-bottom: 0.08in; }&lt;br /&gt;
+--&gt;&lt;/style&gt;
+
+&lt;p&gt;Welcome to your next tutorial on the Learn C language, here we'll have a deeper look at the use of variables in C language. In previous &lt;a href="http://www.thegeekyway.com/variables-in-c/" title="Learning about Variables in C"&gt;tutorial about variables in C&lt;/a&gt;, we defined a variable sam of integer type and then initialized it with …&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;&lt;!--&lt;br /&gt;
+P { margin-bottom: 0.08in; }&lt;br /&gt;
+--&gt;&lt;/style&gt;
+
+&lt;p&gt;Welcome to your next tutorial on the Learn C language, here we'll have a deeper look at the use of variables in C language. In previous &lt;a href="http://www.thegeekyway.com/variables-in-c/" title="Learning about Variables in C"&gt;tutorial about variables in C&lt;/a&gt;, we defined a variable sam of integer type and then initialized it with a value (10), this can be done in simpler manner in just one line. If you haven't read the previous tutorial, then please read it first, and you can read the &lt;a href="http://www.thegeekyway.com/category/programming/c/"&gt;Learn C tutorial Series&lt;/a&gt; .&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Declaration and Initialization together :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;So, we'll have a look at how to do this :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int sam = 10;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In the above statement, I have declared my integer type variable named sam, and then initialised it with a value.&lt;/p&gt;
+&lt;p&gt;So, I had two options, one to do something like mentioned above, or have declaration in one line and initialization in other as :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int sam;
+
+sam = 10;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, we'll see how to take values from our user&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Accepting values from user :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;We can store values in our variables depending on choice of end user. This is done through a function know as scanf() and is defined under header file stdio.h (Standard Input/Output). We first define a variable named value.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int value;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, we'll accept input form user as :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scanf(“%d”, &amp;amp;value);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note : scanf() function is somewhat like printf function defined before, but with the function name it's necessary to have ampersand (&amp;amp;) before variable name. This operator is used for reference, in simple terms, this helps in passing the address of memory location that is reserved for our new variable. We'll discuss about these things in detail in later tutorial, till now, just see it's done in this way.&lt;/p&gt;
+&lt;p&gt;Note: scanf() function should always contain ampersand before your variable name.&lt;/p&gt;
+&lt;p&gt;Now, we'll write a program here which will accept an input from user and then print the same on the screen.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+  int value;
+  printf(“Enter value : “);
+  scanf(“%d” , &amp;amp;value);
+  printf(“Value entered is %d”,value);
+  return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The above code snippet would produce the following output :&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/C_TUT_2.1.png" title="Output for learning about variables in C"&gt;&lt;img alt="Learn C variables Program Output" src="thegeekyway.com/uploads/images/2013/12/C_TUT_2.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Note: Output compiled in Turbo C with DosBox for Windows, rather than gcc.&lt;/p&gt;
+&lt;p&gt;Note here, that whatever value end user enters, the same is printed on the screen.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Accepting user Input and displaying output for variables of different data types :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now, we'll see how you can accept and return different types of variables :&lt;/p&gt;
+&lt;p&gt;For character type variable , you can do as :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;char ch;
+scanf(“%c” , &amp;amp;ch);
+printf(“%c”, ch);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For float type variable, you can do as :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;float fvar;
+scanf(“%f”, &amp;amp;fvar);
+printf(“%f”, fvar);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And so on, you can accept and return the values in variables of different kinds, what you have to remember is , you have to specify the placeholders in C in order to enter and retrieve values in variables, and if you want to accept input, use scanf function with ampersand, and for output use just variable name.&lt;/p&gt;
+&lt;p&gt;In the next tutorial we'll learn about Operators in C, what they are used for, and then with help of operators manipulate the values stored in variable, and implement all this through a small program to understand about what all we've discussed in these tutorials.&lt;/p&gt;
+&lt;p&gt;If you like the posts, don't forget to share this with your friends. For any doubts, let us know through comments, we'll answer you and clear your doubts ASAP.&lt;/p&gt;</content><category term="C language"></category><category term="Learn C"></category><category term="variables"></category></entry><entry><title>Learning about Variables in C</title><link href="thegeekyway.com/variables-in-c/" rel="alternate"></link><published>2013-12-09T22:30:00+05:30</published><updated>2013-12-09T22:30:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2013-12-09:thegeekyway.com/variables-in-c/</id><summary type="html">&lt;p&gt;Welcome to your second tutorial on the C language. In this tutorial, we'll be discussing about variables, their applications, their necessity both in general terms of programming and for C language as well. Variables in C are really very important. These are the fundamentals and you need to understand how …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Welcome to your second tutorial on the C language. In this tutorial, we'll be discussing about variables, their applications, their necessity both in general terms of programming and for C language as well. Variables in C are really very important. These are the fundamentals and you need to understand how variables in C are used and data in them can be manipulated.&lt;/p&gt;
+&lt;p&gt;Variables are where you store your data, you can assume them to be pretty much like containers (reserved memory locations) where you can store your things ( data ). In C or any programming language, it is essential that you define that variable is of what kind, ie it's data type.&lt;/p&gt;
+&lt;p&gt;The data types can be divided into two broad categories namely Fundamental Data types and Derived data types. Now we'll look in detail about both of these.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Fundamental Data Types&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;These are the data types which are built-in and not derived, that's why the word “Fundamental” has been used. There are five basic kind of Data types :-&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;int – for integer data types&lt;/li&gt;
+&lt;li&gt;float – for floating point numbers (those with decimals)&lt;/li&gt;
+&lt;li&gt;char – for character type&lt;/li&gt;
+&lt;li&gt;double- same as integer type but include float also and is capable of holding more numbers (range is very large)&lt;/li&gt;
+&lt;li&gt;void – this stands for null value&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Derived Data Types&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;These are the data types derived from fundamental data types. Some of the derived data types are :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Arrays&lt;/li&gt;
+&lt;li&gt;Pointers&lt;/li&gt;
+&lt;li&gt;Enumeration&lt;/li&gt;
+&lt;li&gt;Structures&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;etc.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Defining a Variable&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The following syntax should be used while defining variable in C :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;data_type variable_name;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, data_type is the type of data which variable shall hold, and variable_name is any legal name you may give to the variable to access the information stored in it.&lt;/p&gt;
+&lt;p&gt;Now, we'll define a variable of type integer.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int sam;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, we have defined a variable named sam which is capable of holding any integer type value.&lt;br&gt;
+Now, we'll assign a value to this variable with assignment operator (=)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sam = 10;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, our variable sam contains value 10.&lt;/p&gt;
+&lt;p&gt;Now, we'll see it in the entire program and output the value of variable.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+int sam;
+sam = 10;
+printf(“Value of sam is %d”, sam);
+return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;For the above code, we'll get the following output :&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/2.png" title="Output of variable in C tutorial code"&gt;&lt;img alt="Output of variable in C tutorial code" src="thegeekyway.com/uploads/images/2013/12/2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;(Note: Program are compiled in Turbo C with DosBox instead of gcc)&lt;/p&gt;
+&lt;p&gt;Note we've used %d , this just means that we want to print an integer value. In C, we need to tell the compiler what type of value is coming, so we need to have this %d for integer type value. Similar to %d, we use the following placeholders to instruct the compiler of upcoming data type :&lt;/p&gt;
+&lt;p&gt;\%d – integer (int)&lt;br&gt;
+%c – character (char)&lt;br&gt;
+%s – strings&lt;/p&gt;
+&lt;p&gt;\%f - float&lt;br&gt;
+etc.&lt;/p&gt;
+&lt;p&gt;Observe, that in printf() function, we have used , and the variable name, and when this program is compiled and executed, we get the  output , such that it prints Value of sam is 10 , the %d is now replaced by the value stored in our variable sam. This is because, %d was an instruction for the compiler so that it knows what type of value is coming in, so wherever you place this %d, and output an integer value, it would be replaced by value of that variable.&lt;/p&gt;
+&lt;p&gt;For example, see the following code snippet :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+int main()
+{
+int sam;
+sam = 10;
+printf(“ Value stored is %d in variable sam” , sam);
+return 0;
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here is the output for the above mentioned code snippet&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/1.png" title="Outputing with variables"&gt;&lt;img alt="Output of variable in C tutorial code" src="thegeekyway.com/uploads/images/2013/12/1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;(Note: Program are compiled in Turbo C with DosBox instead of gcc)&lt;/p&gt;
+&lt;p&gt;Note: Return type of our main function is of int type so we are returning value 0, this can be any value, but since we don't need to return anything, we generally return 0.&lt;/p&gt;
+&lt;p&gt;We'll carry this topic in the next tutorial as well, till then, you can try the codes from this tutorial and play with the code.&lt;/p&gt;</content><category term="C language"></category><category term="Learn C"></category><category term="variables"></category></entry><entry><title>C# Tutorial : Compiling C# Programmes using Notepad</title><link href="thegeekyway.com/csharp-tutorial-compiling-csharp-programmes-using-notepad/" rel="alternate"></link><published>2013-12-05T17:13:00+05:30</published><updated>2013-12-05T17:13:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:None,2013-12-05:thegeekyway.com/csharp-tutorial-compiling-csharp-programmes-using-notepad/</id><summary type="html">&lt;h2&gt;About C#&lt;/h2&gt;
+&lt;p&gt;C# is a multi-paradigm object oriented language developed by Mircrosoft in the year 2000. C# has its major implementations in dotNet framework, Mono, DotGNU. In this tutorial we will print a simple line "TheGeekyWay.com" using a notepad and C# command line compiler.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In order to continue with …&lt;/p&gt;&lt;/blockquote&gt;</summary><content type="html">&lt;h2&gt;About C#&lt;/h2&gt;
+&lt;p&gt;C# is a multi-paradigm object oriented language developed by Mircrosoft in the year 2000. C# has its major implementations in dotNet framework, Mono, DotGNU. In this tutorial we will print a simple line "TheGeekyWay.com" using a notepad and C# command line compiler.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;In order to continue with the C# tutorial you will need the latest version of .NET Framework SDK installed on your machine. You can download latest version of .NET Framework &lt;a href="http://www.microsoft.com/en-in/download/details.aspx?id=19988"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;First of all you need to create a folder where you can save your C# programme, you can also save the file on Desktop but its always a good habit to keep your files organized, so I am creating a folder named TheGeekyWay in the C: drive.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Remember :&lt;/strong&gt; C# is a case sensitive language. So everything should be same while writing the below code, any syntactical changes will bring down an error in compiling.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;So here is the following C# code (don't worry the code will be explained in detail in next tutorial, for now we just focus on how to compile and run a c# code in command prompt)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public class TheGeekyWay
+{
+      public static void Main()
+      {
+           System.Console.WriteLine(&amp;quot;Welcome to TheGeekyWay.com&amp;quot;);
+           System.Console.ReadLine();
+      }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next step is to go to start button and type cmd and run as administrator. The reason using cmd is that many .NET tools can be used or scripted using DOS batch files.&lt;/p&gt;
+&lt;p&gt;Now in cmd type the following lines in cmd and reach to the directory of Framework. The reason for showing the directory is to know the recent version of C# compiler.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/CTUT1.1.png" title="C# Tutorial : To run C# programme using Notepad (Image 1)"&gt;&lt;img alt="C# Tutorial : To run C# programme using Notepad Image 1" src="thegeekyway.com/uploads/images/2013/12/CTUT1.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;now next step is to go in the directory of your latest .NET version, for me its v4.0.30319, so we use the following command line to go in the latest .NET folder directory.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd v4.0.30319
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;you can also visit the following code to view all the help related to C# compiler, remember to type the code in v4.0.30319 directory (or whatever your latest version of .NET compiler is).&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;csc help
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;now the main part of the tutorial, the compilation code, here is the compilation code to compile your c# code.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="C#TUT1.2" class="alignnone size-medium wp-image-302" src="thegeekyway.com/uploads/images/2013/12/CTUT1.2.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;confused ! don't worry, here is snapshot of the complete code using cmd.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/CTUT1.3.png" title="C# Tutorial : To run C# programme using Notepad (Image 2)"&gt;&lt;img alt="C#" src="thegeekyway.com/uploads/images/2013/12/CTUT1.3.png" title="C# Tutorial : To run C# programme using Notepad"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;here is the complete explanation of the C# code&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;csc :&lt;/strong&gt; csc stands for &lt;strong&gt;C&lt;/strong&gt; &lt;strong&gt;S&lt;/strong&gt;harp &lt;strong&gt;C&lt;/strong&gt;ompiler.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;/t:exe :&lt;/strong&gt; It means the extension of your output, generally "exe" is used.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\&amp;lt;Your output destination path&gt;\&amp;lt;Your file name&gt; :&lt;/strong&gt; Set the destination path and the file name where you want to save the file.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\&amp;lt;Your Source Code path&gt; :&lt;/strong&gt; Set the path where your source code is saved.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;and here is the output&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="C#TUT1.4" src="thegeekyway.com/uploads/images/2013/12/CTUT1.4.png" title="C# Tutorial : To run C# programme using Notepad  &amp;quot; &amp;quot;C# Tutorial : To run C# programme using Notepad (Image 3)"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;There can be various problems that you can arrive into, since C# is a case sensitive language, so did you typed the code exactly same as mentioned in the box, sometimes there can be permissions problem, sometimes there can be a problem in the compiler line.&lt;/p&gt;
+&lt;p&gt;That's it for now folks ! I hope you enjoyed the article on compiling C# Programmes using Notepad and command line. If any problem arises in the compilation or any sort of error comes during compilation, you can post it as a comment below and TheGeekyWay team will try to solve it ASAP.&lt;/p&gt;
+&lt;h2&gt;You can click the following social icons and share this article with your friends.&lt;/h2&gt;
+&lt;hr&gt;</content><category term="C#"></category><category term="programming"></category></entry><entry><title>Getting Started With C language</title><link href="thegeekyway.com/getting-started-c-language/" rel="alternate"></link><published>2013-11-19T13:26:00+05:30</published><updated>2013-11-19T13:26:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:None,2013-11-19:thegeekyway.com/getting-started-c-language/</id><summary type="html">&lt;p&gt;&lt;strong&gt;Introduction to C language&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;C language is a middle level language developed by Dennis Ritchie in 1969 and the most secure OS "UNIX" is also coded in C language. It has just turned the world of Coding giving new level to programming, and introducing us to what is called "Structured …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;strong&gt;Introduction to C language&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;C language is a middle level language developed by Dennis Ritchie in 1969 and the most secure OS "UNIX" is also coded in C language. It has just turned the world of Coding giving new level to programming, and introducing us to what is called "Structured Programming".&lt;/p&gt;
+&lt;p&gt;It is very important to note here that C is a Case Sensitive language, what this means is, TgW , tGw, TGw are all different. Don't worry if it's sound confusing, you'll be able to understand it better once we begin to learn about Variables.&lt;/p&gt;
+&lt;p&gt;Wait! before we start, the question arises :-&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Why learn C language?&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Well, learning C language would improve your logical skills, and many programming languages are directly or indirectly derived from C. This means, if you learn C language, you can learn other programming languages like C++, Java, JavaScript, Python, PHP, Perl and many others, much faster and it would be simple for you.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;strong&gt;Pre Requisites for this and the coming Tutorials :-&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To compile the C language programs, you need something called compiler. It doesn't matter if you're using Linux, Windows, or Mac, you'll surely get a C compiler. If you're Windows user, get the best compiler from the start ie gcc compiler. I wouldn't recommend any other like Turbo C etc. they are not good when compared to gcc. Download gcc compiler from here :-&lt;br&gt;
+http://gcc.gnu.org/&lt;br&gt;
+If you're on Linux you'll probably already have gcc compiler installed. To check if you have gcc compiler already installed please type the following command in the terminal&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ g++ -v
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you've gcc installed, you'll get something like this, as in my terminal window.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/11/C_Tut1.1.png" title="checking for gcc compiler in linux"&gt;&lt;img alt="checking for gcc compiler in linux" src="thegeekyway.com/uploads/images/2013/11/C_Tut1.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Much of theory, isn't it? Ok, let's get started with some code.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;First C Program&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+
+int main()
+{
+printf(&amp;quot;Hello World&amp;quot;);
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Just compile it in your gcc compiler and you'll get Hello World printed in the output console.&lt;/p&gt;
+&lt;p&gt;If you need help in compilation and execution, wait for one more tutorial.&lt;/p&gt;
+&lt;p&gt;Now, we'll just break down each and every part of the program and analyse it.&lt;br&gt;
+``&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;``In this command, we ask the compiler to include a file (known as header file) which contains some pre defined fuctions which are needed to run the program.&lt;br&gt;
+We, request to add file stdio which is Standard Input/Output console file, as we need to display the print on the output console.&lt;br&gt;
+"#" (hash/pound) symbol here represents the pre-processor directive ie command started with a # sign goes to the pre-processor, means these statements are carried out first, before the program goes for compilation.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;main()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is a function in programming language, they are just meant to divide the program into modules. The main function of any program is of uttermost importance, as the program execution starts from main function.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;printf()
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is also a function, it is the standard output function defined under stdio header file. Whatever we give in the paranthesis between the quotes is printed on the screen.&lt;/p&gt;
+&lt;p&gt;Note, that we have used int before main function , this means that this function would return a value of int type, and that's the reason we have given return 0 at the end.&lt;/p&gt;
+&lt;p&gt;Also note, that each statement in C would terminate with a semicolon. If you forget to put a semicolon, compiler would report an error.&lt;/p&gt;
+&lt;p&gt;You can now continue to &lt;a href="http://www.thegeekyway.com/variables-in-c/" title="Learn about variables in C"&gt;Learn about variables in C&lt;/a&gt;&lt;/p&gt;</content><category term="C language"></category><category term="Introduction"></category><category term="Learn C"></category></entry></feed>

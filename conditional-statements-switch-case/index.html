@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="C language, conditional, switch">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Conditional Statements : Switch Case  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/conditional-statements-switch-case/">Conditional Statements : Switch Case</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>In the previous tutorial, we've discussed about <a href="http://www.thegeekyway.com/conditional-statements-if-else/" title="Understanding Conditional Statements: if else">if - else and nested if - else statements</a> and how we can use them to test certain conditions and execute a block of code depending on whether the condition becomes true or false. In this tutorial, we'll be covering another Conditional Statement used in C known as Switch Case. The major difference between choosing to use if-else and switch is, when we have to compare a single variable to different set of values, then Switch is preferred, and if-else if preferred otherwise.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"><img alt="Conditional Statements : Switch Case C language" src="thegeekyway.com/uploads/images/2014/02/SwitchCase1.png"></a></p>
+</div>
+<p>The basic semantics of a switch block statement is as follows :</p>
+<div class="highlight"><pre><span></span>switch(variable-name)
+{
+    case 1:
+    .
+    break;
+    case 2:
+    .
+    break;
+    case 3:
+    .
+    break;
+    .
+    .
+    .
+    .
+    default:
+    .
+    break;
+}
+</pre></div>
+
+
+<p>Here variable-name corresponds to the variable you want to compare with a set of values and inside the curly braces we have defined cases such that if value of variable is 1 then the statement 1 and statement 2 would execute, for variable having value 2, statement 3 and 4 would execute and so on. If none of the cases are true, then statement n corresponding to default would execute.</p>
+<p>Let us take an example and understand how it's done. Let us consider we need to just print what number it is if the number is less than or equal to 5 else print number is not 1, 2, 3, 4 or 5. We'll consider that user has input a number which is stored in variable named num. This can be done through if - else statements as we studied earlier like this :</p>
+<div class="highlight"><pre><span></span>if(num == 1)
+   cout&lt;&lt;&quot;Number is 1 n&quot;;
+else if(num == 2)
+   cout&lt;&lt;&quot;Number is 2 n&quot;;
+else if(num == 3)
+   cout&lt;&lt;&quot;Number is 3 n&quot;;
+else if(num == 4)
+   cout&lt;&lt;&quot;Number is 4 n&quot;;
+else if(num == 5)
+   cout&lt;&lt;&quot;Number is 5 n&quot;;
+else
+   cout&lt;&lt;&quot;Number is not 1, 2, 3, 4 or 5 n&quot;;
+</pre></div>
+
+
+<p>Now in the above case, since we need to compare just one variable with a set of values, this can be done easily through switch case as follows:</p>
+<div class="highlight"><pre><span></span>switch ( num )
+{
+   case 1 : cout&lt;&lt;&quot;Number is 1 n&quot;;
+   break;
+   case 2 : cout&lt;&lt;&quot;Number is 2 n&quot;;
+   break;
+   case 3 : cout&lt;&lt;&quot;Number is 3 n&quot;;
+   break;
+   case 4 : cout&lt;&lt;&quot;Number is 4 n&quot;;
+   break;
+   case 5 : cout&lt;&lt;&quot;Number is 5 n&quot;;
+   break;
+   default : cout&lt;&lt;&quot;Number is not 1, 2, 3, 4 or 5 n&quot;;
+   break;
+}
+</pre></div>
+
+
+<p>Notice here that I have mentioned break statement after each case , this is to terminate the the case above it if it's executed. Let's see if we didn't include break what would happen, so consider this code snippet.</p>
+<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
+int main()
+{
+  int num;
+  cout&lt;&lt;&quot;Enter a number &quot;;
+  cin&gt;&gt;num;
+  switch ( num )
+  {
+     case 1 : cout&lt;&lt;&quot;Number is 1 n&quot;;
+     case 2 : cout&lt;&lt;&quot;Number is 2 n&quot;;
+     case 3 : cout&lt;&lt;&quot;Number is 3 n&quot;;
+     case 4 : cout&lt;&lt;&quot;Number is 4 n&quot;;
+     case 5 : cout&lt;&lt;&quot;Number is 5 n&quot;;
+     default : cout&lt;&lt;&quot;Number is not 1, 2, 3, 4 or 5 n&quot;;
+  }
+return 0;
+}
+</pre></div>
+
+
+<p>Now, if we run this and input 2 is given then output would be as shown below</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/Switch_Case.png" title="Switch case in C language Output Screen"><img alt="Switch case in C language Output Screen" src="thegeekyway.com/uploads/images/2014/02/Switch_Case.png"></a></p>
+</div>
+<p>See, we not only got Number is 2 statement printed, but got all statements printed after that case, in a sequential manner, this is because in a switch condition we need to have conditional flow of statement using break statement.</p>
+<p>Now, if you include break after each case but doesn't do it with default case, it would run fine too, this is because if the default case is true, then after executing set of statements with that case, the control would automatically be out of the switch block, so technically we do not need break after default case.</p>
+<p>Now let's see how to match a character type variable. Consider a character (char) type variable named character_variable , and if we need to use switch, it can be done in this way:</p>
+<div class="highlight"><pre><span></span>switch ( character_variable )
+{
+   case &#39;a&#39; : cout&lt;&lt;&quot;Case a executed n&quot;;
+     break;
+   case &#39;b&#39; : cout&lt;&lt;&quot;Case b executed n&quot;;
+     break;
+   case &#39;c&#39; : cout&lt;&lt;&quot;Case c executed n&quot;;
+     break;
+   default : cout&lt;&lt;&quot;This is default case n&quot;;
+     break;
+}
+</pre></div>
+
+
+<p>Here, notice that we have enclosed the character value between single quotes ( '   ' ).</p>
+<p>Like wise, you can design your switch case for various purpose as/when you need to compare a single variable value with a set of values.</p>
+<p>In next tutorials we'll know about the Storage Classes in C. If you have any problem with anything till now, feel free to let us know through comments section below, we'll be glad to help you.</p>
+<p>Keep Coding !</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 01 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/c-language.html">C language</a>,      <a href="thegeekyway.com/tag/conditional.html">conditional</a>,      <a href="thegeekyway.com/tag/switch.html">switch</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

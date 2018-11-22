@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Web Development</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/web-development.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2017-11-30T08:20:00+05:30</updated><entry><title>Have you ever heard of OG-TAGS?</title><link href="thegeekyway.com/have-you-ever-heard-of-og-tags/" rel="alternate"></link><published>2017-11-30T08:20:00+05:30</published><updated>2017-11-30T08:20:00+05:30</updated><author><name>storymode7</name></author><id>tag:None,2017-11-30:thegeekyway.com/have-you-ever-heard-of-og-tags/</id><summary type="html">&lt;p&gt;Ever noticed how Facebook shows an excerpt from a website with its image, or how a tweet with just a URL changes into a short window to the actual website? It's because of og-tags. Let's understand more about it!&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="Open Graph Protocol Logo" src="https://i2.wp.com/storymode7.files.wordpress.com/2017/11/open-graph-protocol.png" title="Open Graph Protocol Logo"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Overview of OG Tags&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="http://ogp.me/"&gt;Open Graph Protocol&lt;/a&gt; is what works …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Ever noticed how Facebook shows an excerpt from a website with its image, or how a tweet with just a URL changes into a short window to the actual website? It's because of og-tags. Let's understand more about it!&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="Open Graph Protocol Logo" src="https://i2.wp.com/storymode7.files.wordpress.com/2017/11/open-graph-protocol.png" title="Open Graph Protocol Logo"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2&gt;Overview of OG Tags&lt;/h2&gt;
+&lt;p&gt;The &lt;a href="http://ogp.me/"&gt;Open Graph Protocol&lt;/a&gt; is what works behind og-tags. It was introduced by Facebook in 2010 to better integrate a website with Facebook. It turns websites into intractable objects, and makes it easier to share. Like on a website when you choose to share via Facebook, it creates a summary of the URL you wish to share. Like the one below:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" class="aligncenter" src="https://i1.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-may-jay1.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;See how beautifully it creates the summary of the content! Similarly, it works on Twitter. The level up to which you can interact depends on the type of data shared like:&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" class="aligncenter" src="https://i2.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-mayank-mayank_at_tgw-twitter.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Here, twitter even allows playing videos in this twitter post itself.&lt;/p&gt;
+&lt;p&gt;Now, Let's see some of the details, how it works, basic syntax etc.&lt;/p&gt;
+&lt;p&gt;It's based on &lt;a href="https://en.wikipedia.org/wiki/RDFa"&gt;RDFa: Resource Description Framework in attributes.&lt;/a&gt; Hence, it uses metadata from a page to turn them into these graph objects. You can think of object as the website being displayed, and Graph as the small summary style window created using og-tags. And for it, &lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt; tags are required. In each meta tag, a property can be specified. A sample og tag might look like :&lt;/p&gt;
+&lt;p&gt;For Facebook:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;meta property=&amp;quot;og:title&amp;quot; content=&amp;quot; The Geeky Way&amp;quot;/&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;For Twitter:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;meta name=&amp;quot;twitter:title&amp;quot; content=&amp;quot;The Geeky Way&amp;quot;/&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div&gt;
+
+&lt;/div&gt;
+
+&lt;p&gt;This will set the Title of the object as it should appear in Graph. For example, in the first image that we created using Facebook share as shown above, we have &lt;code&gt;WordPress.com: Create a website or a blog&lt;/code&gt; as the title for the og tag.&lt;/p&gt;
+&lt;h2&gt;How does it work?&lt;/h2&gt;
+&lt;p&gt;There are a number of &lt;a href="http://ogp.me/#implementations"&gt;parsers&lt;/a&gt; that parse information from these og tags and render them as the social graph that we've seen above.&lt;/p&gt;
+&lt;p&gt;Facebook also has its &lt;a href="https://developers.facebook.com/tools/debug/"&gt;official parser&lt;/a&gt; using which you can see how your website will look like after setting all the nice og tags. It'll tell you the value set for the og tags that it read.&lt;/p&gt;
+&lt;p&gt;Like if you do that for TheGeekyWay.com you can see the og:title tag as :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;og:title         | The Geeky Way&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And that's just what the image above shows!&lt;/p&gt;
+&lt;h2&gt;Some basic OG tags&lt;/h2&gt;
+&lt;h3&gt;For Facebook&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;og:title&lt;/code&gt; - The Title of the object, web page.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;o​g:type&lt;/code&gt; - The &lt;a href="http://ogp.me/#types"&gt;type of content&lt;/a&gt; of that object, like website, music.[song| album| playlist ... ]&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;og:image&lt;/code&gt; - URL of an image that represents the object.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;og:url&lt;/code&gt; - The &lt;a href="https://en.wikipedia.org/wiki/Canonical_link_element"&gt;canonical&lt;/a&gt; URL of the object, i.e the one you want to provide to a user. Not necessarily the one which created the object.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;These should get you going with a perfectly working object graph.&lt;/p&gt;
+&lt;p&gt;But, that's not all! Extra metadata can be attached to each property. For instance, for an image you can specify width, height, alt text etc. You can refer to &lt;a href="http://ogp.me/#types"&gt;this&lt;/a&gt; link to see how much metadata can be added.&lt;/p&gt;
+&lt;h3&gt;For Twitter&lt;/h3&gt;
+&lt;p&gt;It's called &lt;a href="https://developer.twitter.com/en/docs/tweets/optimize-with-cards/overview/abouts-cards"&gt;Twitter cards&lt;/a&gt; on Twitter.&lt;/p&gt;
+&lt;p&gt;Basic tags for twitter graph can be summarized as :&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;&amp;lt;meta name="twitter:card" content="summary"/&amp;gt;&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;&amp;lt;meta name="twitter:site" content="@username"/&amp;gt; &amp;lt;meta name="twitter:title" content="Title Of The Page goes here"/&amp;gt; &amp;lt;meta name="twitter:description" content="This contains a brief description of the page"/&amp;gt; &amp;lt;meta name="twitter:image" content="www.url.of/the/image.jpg"/&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;But, It might happen that you inserted the OG tags for the Facebook graph, but you forgot the to add the twitter version of it that helps create twitter card. Well, Twitter takes care of it. If it's not able to find the necessary meta tags, then it uses OG tags, and according to a predefined relationship between them, it uses the value from those OG tags to create the twitter card.&lt;/p&gt;
+&lt;p&gt;Hope this quick tip about og tags helps you better set up and optimize your website. If you've any questions, please feel free to ask in the comments section below.&lt;/p&gt;</content><category term="HTML"></category></entry></feed>

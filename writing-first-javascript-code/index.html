@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Javascript">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Writing your First Javascript code  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/writing-first-javascript-code/">Writing your First Javascript code</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Deep_Singh.html"> Deep_Singh</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/Introduction-to-javascript.png" title="Writing your first javascript code"><img alt="Writing your first javascript code" src="thegeekyway.com/uploads/images/2014/02/Introduction-to-javascript.png"></a>  </p>
+</div>
+<p>In the <a href="http://www.thegeekyway.com/introduction-javascript/">previous article</a> we discussed about introduction to javascript, in this article we will discuss about how to write a javascript code, where we can add javascript in our web pages, how to use tools that are built in our web browser, how to validate HTML5/javascript code.</p>
+<p><p style="font-size: x-large;"><u>Validation of HTML5 document</u></p></p>
+<p>In order to validate HTML5 code, we write the following code.</p>
+<div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>TheGeekyWay.com<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">body</span><span class="p">&gt;</span>
+   <span class="p">&lt;</span><span class="nt">h1</span><span class="p">&gt;</span>Welcome to TheGeekyWay.com<span class="p">&lt;/</span><span class="nt">h1</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+
+
+<p>There are various validators online to check the validation, the reason we are doing this so as to correct them now as it might create a problem in future when we are writing the code. The famous validator is <a href="http://html5.validator.nu">http://html5.validator.nu</a>/ validator. Copy and paste the code there, and select the text field and click on validate. After validation you must get this green box.<br>
+<div style="text-align:center" markdown="1">
+<img alt="validated" src="thegeekyway.com/uploads/images/2014/02/validated.png"><br>
+</div>
+If you are getting a red/pink box, please recheck the code.</p>
+<p><p style="font-size: x-large;"><u>Find your Javascript editor </u></p></p>
+<p>A good editor is a must, some features that might help you to determine what makes a good editor.</p>
+<p><strong>Code is more writable</strong></p>
+<ul>
+<li>Auto-typing</li>
+<li>Block balancing</li>
+</ul>
+<p><strong>Code is more readable</strong></p>
+<ul>
+<li>Syntax Highlighting</li>
+<li>Code Folding</li>
+<li>Function navigation</li>
+</ul>
+<p><strong>Some of the good editors are</strong></p>
+<ul>
+<li><a href="http://www.sublimetext.com">Sublime Text</a>(Windows, Linux, Mac)</li>
+<li><a href="http://www.adobe.com/in/products/dreamweaver.html">Adobe Dreamweaver</a>(Mac, Windows)</li>
+<li><a href="http://aptana.com/">Aptana Studio</a>(Mac, Windows, Linux)</li>
+<li><a href="http://www.barebones.com/products/bbedit/">BBEdit</a>(Mac)</li>
+<li><a href="http://download.cnet.com/TextWrangler/3000-2351_4-10220012.html">Text Wrangler</a>(Mac)</li>
+</ul>
+<p><p style="font-size: x-large;"><u>Browsers</u></p></p>
+<p>In this section we are going to discuss browsers and web consoles, various tools that are used for intersection between browsers and web pages. For now you just should pick one, any browser you pick will probably have some tools built in.<br>
+Here are some of the options :-</p>
+<p><strong>Google Chrome</strong></p>
+<ul>
+<li>Console : Developer Tools</li>
+<li>Developer Version : Chrome Canary (if you are a serious developer then you should use chrome canary, it has great development tools).</li>
+</ul>
+<p><strong>Firefox</strong></p>
+<ul>
+<li>It has a web inspector but generally speaking if you want to do any serious work you need to have a firebug addon.</li>
+</ul>
+<p><strong>Safari</strong></p>
+<ul>
+<li>Console : Web inspector</li>
+<li>Developer version : Webkit Nightly</li>
+</ul>
+<p><strong>Internet Explorer</strong></p>
+<ul>
+<li>F12 Developer Tools(built-in)</li>
+</ul>
+<p style="text-decoration: underline;"/p><p style="font-size: x-large;">Writing your first javascript code</p></p>
+
+<p>In order to write our first javascript code, we need to include a script tag in the head section of html coding (later in the articles Ill show why we should never use script tag in javasctipt inside html) but for now, since the code is small, so we can use this method.</p>
+<p>Analyze the following code</p>
+<div class="highlight"><pre><span></span><span class="nt">&lt;html&gt;</span>
+<span class="nt">&lt;head&gt;</span>  
+  <span class="nt">&lt;title&gt;</span> TheGeekyWay.com <span class="nt">&lt;/title&gt;</span>
+    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+        function replace() {
+            var myValue = document.getElementById(&#39;textBox1&#39;).value;
+            var getTitle = document.getElementById(&#39;title&#39;);
+            if (myValue.length == 0) {
+                getTitle.innerHTML = &quot;Nothing entered, enter a valid character&quot;;
+                return;
+            }
+            else {
+                getTitle.innerHTML = myValue;
+            }                
+        }
+
+    <span class="nt">&lt;/script&gt;</span>
+   <span class="nt">&lt;/head&gt;</span>
+<span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;form1&quot;</span> <span class="na">runat=</span><span class="s">&quot;server&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;div&gt;</span>
+        <span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Welcome to TheGeekyWay.com<span class="nt">&lt;/h1&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">id=</span><span class="s">&quot;textBox1&quot;</span> <span class="nt">/&gt;</span>
+        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span> <span class="na">id=</span><span class="s">&quot;myButton&quot;</span> <span class="na">onclick=</span><span class="s">&quot;replace()&quot;</span> <span class="nt">/&gt;</span>
+    <span class="nt">&lt;/div&gt;</span>
+    <span class="nt">&lt;/form&gt;</span>
+<span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</pre></div>
+
+
+<p>[codepen_embed height=220 theme_id=3 slug_hash='wLDGe' user='Deep_Singh' default_tab='Result' animations='run'/]</p>
+<p>Remember that all your javascript code will be written under script tag with the type "text/javascript". Now lets analyze line by line, in the first line we are creating a variable myValue which gets the value from textbox via getElementById() method which takes the value from the text box id, similarly we take the id from title. In the if condition, if the length of the code entered is 0, then it will display "Nothing entered, enter a valid character", else it will take the value from textbox and put the value in title. (Remember that this is just the starting of the javascript series tutorial, its highly recommended not to put your javascript code under the head tag, the exact reason will be discussed in the following tutorials.</p>
+<p>Hope this tutorial finds you interesting, hit the following social buttons below and spread this article.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 24 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/javascript.html">Javascript</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/javascript.html">Javascript</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Android">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Second simple Android Application Part 2 (Android-Part 5)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/secondapp2/">Second simple Android Application Part 2 (Android-Part 5)</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/gagan93.html"> gagan93</a> </p>
+  <div class="article_text">
+    <p>Welcome back geeks, this tutorial is a continuation of <a href="http://www.thegeekyway.com/secondapp1/" title="previous">previous</a><a href="http://www.thegeekyway.com/secondapp1/" title="this"> </a>tutorial. So please read the previous one if you have not read it.</p>
+<p>So we had created a simple layout and it looked something like this :<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/02/7.jpg"><img alt="7" src="thegeekyway.com/uploads/images/2014/02/7.jpg"></a>
+</div></p>
+<p>Double click on the button to change the text of the button, now the window will switch to XML version of the layout. In the XML file, the part of button definition is highlighted.</p>
+<p>Move to the top of XML file and we’ll understand each thing written in the file. The first two lines are just references to website.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/8.jpg"><img alt="8" src="thegeekyway.com/uploads/images/2014/02/8.jpg"></a><strong>1.  </strong> The default layout being used by eclipse here is <strong>Relative Layout.</strong> As obvious from the name, in Relative Layout each component is aligned with respect to its previous component(s) which was added to layout.</p>
+</div>
+<p><strong>2.  </strong> android:layout_width=”match_parent”. This code sets the width of Relative Layout to cover the complete width of layout. Similarly the next line sets the width to complete width of the layout.</p>
+<p><strong>3.  </strong> The next four lines of code just provide some padding to all the sides using constant value defined in dimension ( \@dimen ).</p>
+<p>The next code fragment adds an EditText (or textfield) to the layout whose attributes are :</p>
+<p>a)   android:id=”\@id/editText1”: This id is used to refer this textfield in java program, as well as to align other components using this EditText.</p>
+<p>b)   android:layout_width=”wrap_content” :  The width of component just wraps the content, or simply just sufficient to store a simple line of text. Similar is for height of EditText.</p>
+<p>c)   android:layout_alignParentLeft="true" : The component is aligned from left of its parent. This value is set to true to apply these changes. Similar is for next line. So by these two lines, the EditText is aligned to <u>Top-Left</u> of Parent (or the layout/screen).</p>
+<p>d)   android:layout_marginLeft="39dp" : A slight margin is given towards left side. <strong>dp</strong> is <strong>density pixels</strong>. It is better to specify spacing using <u>dp</u> rather than <u>px</u> (pixels) because px is not same for different android phones, whereas dp is same for different android phones. Similar is done by next line to set top margin.</p>
+<p>e)   android:ems=”10” : Simply means that the EditText (text field) can contain 10 characters. To Experiment with ems, try changing its value and see corresponding change in the Graphical Layout.</p>
+<p>We can specify many more attributes for a text field. Use <strong>Ctrl+Space</strong> in Eclipse to view more related properties. For eg. write this in eclipse and press <strong>Ctrl+Space</strong> to view more attributes.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/9.jpg"><img alt="9" src="thegeekyway.com/uploads/images/2014/02/9.jpg"></a></p>
+</div>
+<p>When you write <u>android:</u> on a blank line and press Ctrl+Space to view all these attributes. Similarly we can also use this shortcut to view suggestions in Java program also.</p>
+<p>In the second EditText, everything is same except <u>inputType </u>attribute which is set to “<u>textPassword</u>”. This sets the input mode to password, so the text input by user is set to bullets (to hide text).</p>
+<p>To experiment, you can use Ctrl+Space shortcut to see more available <u>inputTypes</u> (shown below).</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/10.jpg"><img alt="10" src="thegeekyway.com/uploads/images/2014/02/10.jpg"></a></p>
+</div>
+<p>For button, all the attributes are self-explanatory and similar to those explained previously except the <u>android:text </u>attribute. This attribute sets the Text which is displayed on the button and is visible to the user. If you notice carefully, you’ll see an exclamatory mark on the left corner of line where text for button is specified.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/111.jpg"><img alt="11" src="thegeekyway.com/uploads/images/2014/02/111.jpg"></a></p>
+</div>
+<p>When you bring mouse pointer close to the mark, you see the notice the warning “Hardcoded string ”Button”, should use \@string resource”. For now just ignore this warning, it would be discussed later where you will specify the String using strings.xml file.Now our XML work is complete and we’ll move to the <strong>MainActivity.java</strong> file to start the coding part.</p>
+<p>Out Java file contains this much code for now :<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/02/121.jpg"><img alt="12" src="thegeekyway.com/uploads/images/2014/02/121.jpg"></a>
+</div></p>
+<p>People familiar with java will understand the first two statements (package and import). Next is our class which extends the Activity class. In android, each new screen is an <strong>Activity,</strong> so it extends the Activity class which is present in <strong>android.app</strong> package. Click on ‘+’ sign on the left import to see other imported packages.</p>
+<p>The first method inside our class is onCreate method. This is a part of Android life cycle. Java programmers must be knowing <strong>Applet Life Cycle methods.</strong> Similarly, an android application also has a <a href="http://i.stack.imgur.com/rVnSi.png">life cycle</a> (which would be discussed in further tutorials). For now, just consider that onCreate is just an initialization method for our activity. In the first line of code, it simply calls the super class method. The second line sets the layout of our activity to <u>R.layout.activity_main</u>. This is nothing but a reference to the XML file just created by us and stored in layout folder. It is accessed by its defined in R.java file (auto-generated java file). The second method creates a menu which is rather not required here, so either let it be there or remove it. We’ll discuss about that method later. Paste <a href="http://pastebin.com/zs00wWNd">this code</a>to your application and in the next tutorial we’ll understand the java code and finish this second simple android application.</p>
+<p><a href="http://www.thegeekyway.com/secondapp3" title="link"> <p style="font-size: xx-large;">Link to next tutorial</p></a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 14 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/android.html">Android</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/android.html">Android</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

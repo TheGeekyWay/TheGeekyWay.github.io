@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; What are dotfiles?  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/what-are-dotfiles/">What are dotfiles?</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/GeekyShacklebolt.html"> GeekyShacklebolt</a> </p>
+  <div class="article_text">
+    <p>What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.</p>
+<p>Configuring a dev machine according to your liking would've been a really daunting task until and unless there were dotfiles.<!--more--></p>
+<h3>Introduction</h3>
+<p>These are simply the files whose names start with a dot (.) like <strong><em>.vimrc, .bashrc, .ssh, </em></strong>etc. And any file that begins with a <strong><em>dot</em></strong> is treated as hidden in all *<strong>nix</strong> operating systems. Therefore, having lots of dotfiles even in your home directory does not make it looks clumsy.</p>
+<h3>Where are dotfiles needed?</h3>
+<p>They are mainly used for software configuration. Therefore, they are also known as <strong>configuration files</strong>. We can always configure different tools that we use daily, easily using dotfiles.<br>
+They can also be used to automate a series of package installations. Their usefulness lies in the fact that anytime you can buy a new system and configure it like, you've been using it for years.</p>
+<h3>How to use dotfiles?</h3>
+<p>In order to maximize their utilization, we should save our dotfiles somewhere. That may be a USB drive, cloud storage and what most people use nowadays is, the GitHub repository. The idea is, they remain within our reach while switching between different machines.</p>
+<p>There are different dotfiles for different purposes. For example, <strong><em>.bashrc</em></strong> to configure bash and similarly <strong><em>.zshrc</em></strong> to configure zsh. We can also create our own dotfiles for different purposes like <strong><em>.aliases </em></strong>to declare all modified commands and <strong><em>.export</em></strong> to set environment variables we need. In this tutorial, we'll see a couple of examples to show the working of these dotfiles. Let's go ahead!</p>
+<h4>.bashrc</h4>
+<p>This is the default file, that runs every time when we open our bash. Either we can directly write all the bash configurations in this file or we can use a distributive approach, like having <strong>functions</strong> in one file and OS specific settings in different files, etc. Following is an example of a <strong><em>.bashrc.</em></strong></p>
+<div class="highlight"><pre><span></span>[ -n &quot;$PS1&quot; ] &amp;&amp; source ~/.profile
+</pre></div>
+
+
+<p>This means that, if <strong>"\$PS1"</strong> will return a non-empty string, then load <strong><em>.profile.</em></strong></p>
+<h4>.profile</h4>
+<p>We may use this to load OS-specific settings, and all other dotfiles, like <strong><em>.functions, .aliases, .exports,</em></strong> etc. Let's take a look.</p>
+<div class="highlight"><pre><span></span># Load ~/.extra, ~/.exports, ~/.aliases and ~/.functions
+# ~/.extra can be used for settings you don’t want to commit
+for file in ~/.{exports,aliases,functions,extra}; do
+    [ -r &quot;$file&quot; ] &amp;amp;&amp;amp; source &quot;$file&quot;
+done
+unset file
+
+# Detect and load OS specific settigs
+platform=&#39;unknown&#39;
+unamestr=`uname`
+if [[ &quot;$unamestr&quot; == &#39;Linux&#39; ]]; then
+   source ~/.linux
+elif [[ &quot;$unamestr&quot; == &#39;FreeBSD&#39; ]]; then
+   source ~/.freebsd
+elif [[ &quot;$unamestr&quot; == &#39;Darwin&#39; ]]; then
+   source ~/.osx
+fi
+</pre></div>
+
+
+<h4>.aliases</h4>
+<p>An alias can either be a modified command, or a shorthand for it that we may define ourselves. Suppose, for git commit, we always write <em><code>git commit -m "commit message"</code>.</em> In this case, we can create an alias by <em><code>alias gcm=git commit -m</code></em> with this, <strong><em>gcm </em></strong>is same as <strong><em>git commit -m.</em></strong> Following is a gist of a <strong><em>.aliases</em></strong> file.</p>
+<div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------------------</span>
+<span class="c1"># | Network |</span>
+<span class="c1"># ------------------------------------------------------------------------------</span>
+
+<span class="c1"># Enhanced WHOIS lookups</span>
+<span class="n">alias</span> <span class="n">whois</span><span class="o">=</span><span class="s2">&quot;whois -h whois-servers.net&quot;</span>
+
+<span class="c1"># IP addresses</span>
+<span class="n">alias</span> <span class="n">ip</span><span class="o">=</span><span class="s2">&quot;curl ipinfo.io/ip&quot;</span>
+<span class="n">alias</span> <span class="n">localip</span><span class="o">=</span><span class="s1">&#39;python -c &quot;import socket; print(socket.gethostbyname(socket.gethostname()));&quot;&#39;</span>
+
+<span class="c1"># Copy my public key to my clipboard</span>
+<span class="n">alias</span> <span class="n">pubkey</span><span class="o">=</span><span class="s2">&quot;more ~/.ssh/id_rsa.pub | pbcopy | echo &#39;=&amp;gt; Public key copied to pasteboard.&#39;&quot;</span>
+</pre></div>
+
+
+<p>The complete file is <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.aliases">here</a>.</p>
+<h4>.exports</h4>
+<p><strong>Export</strong> is widely used to set environment variables. Also, we <strong>export</strong> a variable, when we need it in other programs. That depends upon the shell as well. For bash, <strong>export</strong> makes a variable usable, in the environment for child processes. For more about export, you may see <a href="http://www.gnu.org/software/bash/manual/bash.html#index-export">GNU bash manual</a>. Your <strong><em>.export </em></strong>file may look like <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.exports">this</a>.</p>
+<div class="highlight"><pre><span></span># Make vim the default editor
+export EDITOR=&quot;vim&quot;
+
+# Don’t clear the screen after quitting a manual page
+export MANPAGER=&quot;less -X&quot;
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+</pre></div>
+
+
+<h4>.functions</h4>
+<p>If we want to create an alias that not just perform a shorthand or a group of commands but, also which behaves conditionally and can work with variables, then we have a better approach of <strong>"functions". </strong>A function is an independent block of script, which is more powerful than an alias because they can accept variables. We can create functions for various purposes like:</p>
+<div class="highlight"><pre><span></span><span class="err">#</span> <span class="nx">copy</span> <span class="nx">the</span> <span class="nx">work</span> <span class="nx">directory</span> <span class="nx">to</span> <span class="nx">clipboard</span>
+<span class="kd">function</span> <span class="nx">pwdc() {</span>
+  <span class="nx">pwd</span> <span class="o">|</span> <span class="nx">tr</span> <span class="o">-</span><span class="nx">d</span> <span class="s2">&quot;\r\n&quot;</span> <span class="o">|</span> <span class="nx">pbcopy</span>
+<span class="p">}</span>
+
+<span class="err">#</span> <span class="nx">touch</span> <span class="nx">a</span> <span class="nx">file</span> <span class="k">while</span> <span class="nx">creating</span> <span class="nx">directories</span>
+<span class="nx">supertouch() {</span> 
+         <span class="k">if</span> <span class="p">[</span> <span class="nx">$</span><span class="err">#</span> <span class="o">-</span><span class="nx">lt</span> <span class="mi">1</span> <span class="p">];</span> <span class="nx">then</span>
+                 <span class="nx">echo</span> <span class="s2">&quot;Missing argument&quot;</span><span class="p">;</span>
+                 <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+         <span class="nx">fi</span>
+         <span class="k">for</span> <span class="nx">f</span> <span class="k">in</span> <span class="s2">&quot;$@&quot;</span><span class="p">;</span> <span class="k">do</span> 
+                 <span class="nx">mkdir</span> <span class="o">-</span><span class="nx">p</span> <span class="o">--</span> <span class="s2">&quot;$(dirname -- &quot;</span><span class="nx">$f</span><span class="s2">&quot;)&quot;</span>
+                 <span class="nx">touch</span> <span class="o">--</span> <span class="s2">&quot;$f&quot;</span> 
+         <span class="nx">done</span>  
+<span class="p">}</span>
+</pre></div>
+
+
+<p>More functions are available <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.functions">here</a>.</p>
+<h4>.vimrc</h4>
+<p>This dotfile is specifically used for "<strong>vim</strong>" configuration. All the necessary commands that we use very often, we can put them in this file. We can also set up different variables of vim, with the value we desire while working on it. For Unix and MacOS, this file is always used and is recommended at <code>~/.vimrc</code>. To know more about .vimrc you may open the "<strong>vim</strong>" and use the command <code>:help vimrc-intro</code>.</p>
+<div class="highlight"><pre><span></span>set nocompatible
+set et
+set ai
+set sw=4
+set ts=8
+set ruler
+</pre></div>
+
+
+<h4>.gitignore</h4>
+<p>This file is used in the case, we want to avoid or ignore some files or folders while <strong>git</strong> makes a commit. These files may include <em>Thumbnail cache files, local virtual environment, etc.</em> If we want a particular file say <strong><em>Example.tmp</em></strong> to be ignored. Just give its name in this dotfile. And if we want to ignore all <strong><em>.tmp</em></strong> files then put <strong><em>*.tmp</em></strong> in <strong><em>.gitignore. </em></strong>A gist of this file is shown below and a complete file is available <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.gitignore">here</a>.</p>
+<div class="highlight"><pre><span></span># Files that might appear on external disks
+.Spotlight-V100
+.Trashesvenv
+
+# Packages ignore
+node_modules
+.tmp
+.sass-cache
+app/bower_components
+</pre></div>
+
+
+<h3>Conclusion</h3>
+<p>We're keeping this post short, as the main motive was to explain how you can store the configuration of your machine. The whole purpose of dotfiles is to make our work as easy as possible. These hidden files give us a comfortable &amp; quality working experience.<br>
+Dotfiles are specific to an individual because of different people like different configuration for the same tool. Go ahead and explore some of the best dotfiles out there. You're free to take inspirations and create your own :)</p>
+<p>You can have a look at one of the dotfiles repo here: <a href="https://github.com/CuriousLearner/dotfiles">https://github.com/CuriousLearner/dotfiles</a></p>
+<p>If you've any queries, please ask in comment section below.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 26 January 2018</p>
+    <p>Category: <a href="thegeekyway.com/category/uncategorized.html">Uncategorized</a>
+    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

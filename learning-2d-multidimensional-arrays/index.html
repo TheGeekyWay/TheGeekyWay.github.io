@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="2D, arrays, multidimensional">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Learning About 2D And Multidimensional Arrays  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/learning-2d-multidimensional-arrays/">Learning About 2D And Multidimensional Arrays</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>Well, I'm glad you reached at this point, we've already discussed about <a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)">1D arrays and the memory organization</a>, and in this post, we'll know about 2D arrays and Multidimensional Arrays. They are not very much different from 1 D arrays as we looked in the last tutorial. So, let's start:</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/07/2D_mutlidimensional_arrays.png" title="Learning about 2D and multidimensional arrays in C"><img alt="Learning about 2D and multidimensional arrays in C" src="thegeekyway.com/uploads/images/2014/07/2D_mutlidimensional_arrays.png"></a></p>
+</div>
+<p>In this tutorial, we'll cover the following topics:</p>
+<ul>
+<li>
+<p><a href="http://www.TheGeekyWay.com/learning-2d-multidimensional-arrays/#2d_arrays"><strong><em>2 Dimensional Arrays (2D Arrays)</em></strong></a></p>
+<ul>
+<li><a href="http://www.TheGeekyWay.com/learning-2d-multidimensional-arrays/#2d_declare"><strong><em>Declaration of 2D Arrays</em></strong></a></li>
+<li><a href="#2d_input"><strong><em>Inputting Data in 2D Arrays</em></strong></a></li>
+<li><a href="#2d_output"><strong><em>Traversing and Output from 2D Array</em></strong></a></li>
+</ul>
+</li>
+<li>
+<p><a href="#multidimensional_arrays"><strong><em>Multidimensional Arrays</em></strong></a></p>
+<ul>
+<li><a href="#multidimensional_declare"><strong><em>Declaration of Multidimensional Arrays</em></strong></a></li>
+<li><a href="#multidimensional_input"><strong><em>Inputting Data in Multidimensional Arrays</em></strong></a></li>
+<li><a href="#multidimensional_output"><strong><em>Traversing and output from Multidimensional Arrays</em></strong></a></li>
+</ul>
+</li>
+</ul>
+<h2 id="dimensional-arrays" style="text-align: center;"><strong>2 Dimensional Arrays</strong></h2>
+<p>Without saying anything much about 2D arrays here, let's first have a look at the memory organization in 2D arrays:</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/07/2DArrays_Representation.png" title="Memory Organization of 2D Arrays in memory"><img alt="Memory Organization of 2D Arrays in memory" src="thegeekyway.com/uploads/images/2014/07/2DArrays_Representation.png"></a></p>
+</div>
+<p>Clearly, it's much like 1D arrays but this time the contiguous memory blocks have to be occupied in two directions considered as along x and y co-ordinates.</p>
+<p>With this basic memory organization picture in mind, let's now see how we declare a 2D Array.</p>
+<p><p #2d_declare></p><strong>Declaration of 2D Array:</strong></p>
+<p>Let's take an example that you want to create a 3 x 3 Matrix named mat of integer data type, so we would declare as:</p>
+<div class="highlight"><pre><span></span>int mat[3][3];
+</pre></div>
+
+
+<p>The first number in square brackets is for the number of rows and the next one is for number of columns. For instance, now say we need to create a matrix of say 4 rows and 6 columns, of float data type. it would look like this:</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/07/mat_4x6.png" title="Matrix memory representation 4 X 6"><img alt="Matrix memory representation 4 X 6" src="thegeekyway.com/uploads/images/2014/07/mat_4x6.png"></a></p>
+</div>
+<p>Now, it would be declared as follows:</p>
+<div class="highlight"><pre><span></span>float mat[4][6];
+</pre></div>
+
+
+<p>Now let us come back to our original mat, which is a 3 x 3 matrix and see how to fill it.</p>
+<p><p #2d_input></p><strong>Putting in data to 2D Arrays:</strong></p>
+<p>Since we need to refer a location by both the row number and the column number, we need to fill in each block of memory by traversing through each row first and then each column in that row, then come to next row, traverse each column and so on...</p>
+<p>Here we would need two loops, one for updating the row number and the next to update the column number. Since we are moving from left to right for each row, remember that we will update the row value less frequently than the column value.</p>
+<p>So, basic syntax would be something like this:</p>
+<div class="highlight"><pre><span></span>for(int i = 0; i &lt;= row; i++ )
+{
+  for(int j = 0; j &lt;= col; j++)
+  {
+     scanf(&quot;%d&quot;,&amp;matrix[i][j]);
+  }
+}
+</pre></div>
+
+
+<p>Here row and col would correspond to the total number of rows and columns in the matrix. Inside the loop, we're just taking input from the user such that the value of <strong>j</strong> i.e. our column would update more frequently from left to right than the value of <strong>i</strong> i.e. our row.</p>
+<p>Now, let's start accepting values from user for our for our matrix named mat which is a 3 x 3 matrix.</p>
+<div class="highlight"><pre><span></span>int mat[3][3]; //Declaring 3 x 3 , 2D matrix
+
+int i,j; //Declaring variables to be used in loop
+
+for( i = 0; i &lt; 3; i++ )  // loop for updating row number
+{
+  for( j = 0; j &lt; 3; j++)  // loop for updating col number
+  {
+     scanf(&quot;%d&quot;,&amp;mat[i][j]);
+  }
+}
+</pre></div>
+
+
+<p><p #2d_output></p><strong>Traversing and Printing 2D Array:</strong></p>
+<p>Next, we need to traverse this array, it would be done as:</p>
+<p>Traversing means just processing through each element of the array and apply an operation.</p>
+<div class="highlight"><pre><span></span>// We have assumed to initialized the array by taking input from user as
+// shown in code snippet above.
+
+// Traversing
+for ( i = 0; i &lt; 3; i++)
+{
+  for( j = 0; j &lt; 3; j++)
+  {
+    //Traversing here and applying the printing on console operation
+    printf(&quot;%d&quot;,mat[i][j]);
+  }
+}
+</pre></div>
+
+
+<h2 id="multidimensional-array" style="text-align: center;"><strong>Multidimensional Array :</strong></h2>
+<p>Extending what we've learned about 1D and 2D arrays, there can be 3D, 4D, 5D and even 100D arrays, though the complexity would multiply at each level, so we don't use beyond 2D arrays generally. In some complex application, we may use 3D arrays, but beyond that, because of the increase in the complexity, they are hardly used.</p>
+<p><p #multidimensional_declare></p><strong>Declaration of Multidimensional Arrays:</strong></p>
+<p>So, for declaring a 3 D array, you just have to define one more dimension as follows:</p>
+<div class="highlight"><pre><span></span>int matrix [3][3][3]; //Declaring 3D Array which is 3 x 3 x 3
+</pre></div>
+
+
+<p>Similarly, for a 4 D array,  declaration would be :</p>
+<div class="highlight"><pre><span></span>int matrix [3][4][5][6]; // Declaring Matrix named matrix of type int and
+                         // size 3 x 4 x 5 x 6
+</pre></div>
+
+
+<p>So, generally, whatever dimension you want, you can add while declaring.</p>
+<p><p #multidimensional_input></p><strong>Putting in data to Multidimensional Array:</strong></p>
+<p>Very similar to filling up a 2 D array,  a 3D array can be filled up by using 3 loops (one for iterating through each dimension). Remember, the inner loop will always has a fast frequency to iterate than the loop enclosing it and so on...</p>
+<p>Let's fill up a 3D array of type float here as an example:</p>
+<div class="highlight"><pre><span></span>float mat[3][4][5]; // Declaring array mat of type float with dimensions
+                    // 3 x 4 x 5
+
+// Filling up data in array by taking values from user
+
+for( i = 0; i &lt; 3; i++)
+{
+  for( j = 0; j &lt; 4; j++)
+  {
+    for( k = 0; k &lt; 5; k++)
+    {
+      //Taking input from user here corresponding to each dimension
+      scanf(&quot;%f&quot;,&amp;mat[i][j][k]);
+    }
+  }
+}
+</pre></div>
+
+
+<p>Similarly, just increase the number of loops depending on the dimensions. Thus, if you have created an N dimension array, it would take N loops to fill it.</p>
+<p><p #multidimensional_output></p><strong>Traversing and Output of a  Multidimensional Array:</strong></p>
+<p>In the same way as explained above, you can print a multidimensional array by iterating through it using the same no. of loops as the dimension of the array as:</p>
+<div class="highlight"><pre><span></span>// This snippet assumes that we&#39;ve declared and filled up the array as shown // above.
+
+// Traversing and output
+
+for( i = 0; i &lt; 3; i++)
+{
+  for( j = 0; j &lt; 4; j++)
+  {
+    for( k = 0; k &lt; 5; k++)
+    {
+      //Taking input from user here corresponding to each dimension
+      printf(&quot;%f&quot;,mat[i][j][k]);
+    }
+  }
+}
+</pre></div>
+
+
+<p>I hope this had been a bit informative for you and would help you. Next, we'll be going to discuss about Structures in C language.</p>
+<p>Have any doubts? Just leave a comment below or give me a shout on twitter \@ErSanyamKhurana</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 24 July 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/2d.html">2D</a>,      <a href="thegeekyway.com/tag/arrays.html">arrays</a>,      <a href="thegeekyway.com/tag/multidimensional.html">multidimensional</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

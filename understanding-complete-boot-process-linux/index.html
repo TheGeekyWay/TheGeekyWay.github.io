@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="boot, linux">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Understanding Complete Boot Process In Linux  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/understanding-complete-boot-process-linux/">Understanding Complete Boot Process In Linux</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>Ever wondered, what happens behind the scenes to boot Linux? Knowing about what happens from the time you press the power button to the time when you get the login screen on Linux, i.e. boot process in Linux is very important. It can come very handy when you're debugging why isn't a system booting properly or even when it refuses to boot completely.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/09/Linux_boot.png"><img alt="Boot Process in Linux" src="thegeekyway.com/uploads/images/2014/09/Linux_boot.png"></a></p>
+</div>
+<p>So, let's start to understand the boot process in Linux in a step-by-step manner.</p>
+<h2>1) POST (POWER ON SELF TEST)</h2>
+<p>When you press the Power Button, the <em>POST operation (Power on Self Test)</em> occurs when <em>BIOS (Basic Input / Output System)</em> initializes the hardware, testing the main memory of your system and looking for all other hardware device including keyboard, screen, mouse etc. The BIOS is actually stored on the <em>ROM ( Read Only Memory)</em> on the Motherboard and after BIOS, all the operation is controlled by the Operating System itself.</p>
+<h2>2) Boot Loader - First &amp; Second stage Boot Loader</h2>
+<p>The control from BIOS is then passed to the Boot Loader once the POST operation is completed as explained above. The Boot Loader is actually stored in the boot sector, often the first sector of your disk for BIOS or <strong><em>MBR (Master Boot Records) System</em></strong> . The boot loader then searches for a bootable partition, and once it finds the bootable partition, it transfers control to (second stage) boot loader like GRUB and then loads it into the memory. This process can be carried out by <strong><em>EFI partition for Unified Extensible Firmware Interface (UEFI) systems.</em></strong> These systems reads the Boot Manager data to determine which UEFI application to load and from which partition on the disk. And then it launches the UEFI application like GRUB. This method is complicated yet versatile than the previous MBR method.</p>
+<p>The second stage boot loader is found in /boot directory and it presents a UI (splash screen) to the user where they can choose which OS to boot, in case of Multi-Boot system. The main aim of the boot loader is to lead kernel image along with initializing the RAM to load all the device drivers needed to start the system. There are many boot loaders available for Linux. However the most important one include <em>GRUB (Grand Unified Boot Loader) &amp; ISOLINUX</em>.</p>
+<h2>3) CMOS comes into play</h2>
+<p>Then the most crucial information about peripherals and current date and time are then loaded form CMOS, which is actually a battery-powered small store capable of storing and keeping track of date and time of the system even when it is turned off.</p>
+<h2>4) initramfs &amp; Kernel loaded</h2>
+<p>The boot loader loads the <strong><em>initramfs (initial RAM-based file system)</em></strong> and kernel into the main memory. Once the kernel is loaded into the memory, it configures the hardware that is attached to the system and loads important applications for users.</p>
+<p>The initramfs filesystem consists of Program and binary files which is essential for mounting proper root filesystem, providing kernel functionality, locating of devices, locating of drivers for devices and loading them and checking of errors in the root filesystem.</p>
+<p>The mount system actually instructs if the filesystem is ready to be used and then associates it with particular point in the overall hierarchy of the filesystem or the mount point. If this step is successfully carried out, then the initramfs would be cleared out from the RAM and then the init program from <strong>/sbin/init</strong> is executed. The init actually handles the mounting and pivoting of the final root system. This is the initial process of the system which then helps in starting other processes to get system running. If there are special device drivers needed to be accessed, then they must be included in the initramfs image.</p>
+<hr>
+<p>When you trace the path of origin for the processes, you’ll find all of them originated from init itself expect the kernel process which are started by kernel itself for managing of internal operating system details.</p>
+<hr>
+<h2>5) Runlevels in Linux</h2>
+<p>In the traditional System V Unix, there was a sequence of runlevels containing different scripts to start and stop services. There are a total of 6 runlevels:</p>
+<p>Runlevel 0</p>
+<p>Runlevel 1</p>
+<p>Runlevel 2</p>
+<p>Runlevel 3</p>
+<p>Runlevel 4</p>
+<p>Runlevel 5</p>
+<p>Within each runlevel, user can set each individual services to run or to shut down (We would understand about RunLevels in detail in the next post). Most distributions are now moving away from this standard of System V standard. init is responsible for system running and shutting it down for cleaning up the non-kernel processes whenever necessary. It also restarts the login services for users as needed when users login and logout.</p>
+<h2>6) Text-Mode Login</h2>
+<p>Next, there is a text-mode login prompt started by init (done by program getty). After entering the username and password, user is offered with a command shell which is often <strong><em>(Bourne After Shell) BASH</em></strong>, in most of the linux distros which is ready to take in commands and then execute the operation associated with each command.</p>
+<h2>7) X Window System</h2>
+<p>At the end of the boot process, the X Windows system is loaded which starts a display manager, loads x server for the x clients and manage graphical logins by starting with a desktop environment like Gnome, KDE etc. depending on the system.</p>
+<hr>
+<p>And Linux is now up and running for use. I hope this would be bit informative for you and would help you. Please let us know your thoughts through comments below.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 11 September 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/boot.html">boot</a>,      <a href="thegeekyway.com/tag/linux.html">linux</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

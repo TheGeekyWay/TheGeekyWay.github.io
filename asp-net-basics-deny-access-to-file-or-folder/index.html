@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="asp.net">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; ASP. Net Basics : Deny access to a particular folder  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/asp-net-basics-deny-access-to-file-or-folder/">ASP. Net Basics : Deny access to a particular folder</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Deep_Singh.html"> Deep_Singh</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"><img alt="ASP.NET.ARTICLE.Deny_Access_to_user_cover_page" src="thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"></a></p>
+</div>
+<p>Setting authentication is most important part of asp.net web application project, there can a time where you don't want any user to access a particular folder. For example while creating a Gallery project we don't want any user to access the /pictures folder.</p>
+<p><strong>ASP.net supports 3 modes of authentication.</strong></p>
+<ul>
+<li>Windows authentication</li>
+<li>Forms authentication</li>
+<li>Passport authentication</li>
+</ul>
+<p>Windows authentication means that you build authentication with build in authentication of windows authentication system.</p>
+<p>With form authentication we work with the database where all the roles of user are stored in database and every time we land on the page it will make connection to database and verify the database whether the user is allowed or not to access this page.</p>
+<p>And with passport authentication you are authenticating the users by passport credentials, a system of username and password stored by Microsoft itself.</p>
+<p>In this tutorial we will focus on forms authentication. In forms authentication model it requires configuration in the web-files in web.config file and then creating set of pages.</p>
+<p>The part of web.config file which we will edit looks like this :-</p>
+<p>If you see line 46, you will see that the line <strong>authentication mode="Windows"</strong> we need to change the value to <strong>"forms"</strong> and save the changes.</p>
+<h3>Locking down the website</h3>
+<p>Locking down the website means that whenever the user is navigated to a website then they are automatically redirected to the login page or the home page.<br>
+Let us assume we want to protect the page named "TheGeekyWay.aspx" stored in "TheGeekyWay" folder. Now using forms authentication we can block both TheGeekyWay.aspx page and TheGeekyWay folder.</p>
+<p>Here is the hierarchy of project of this tutorial :-<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/01/TUT.ASP_.ACCESS.1.png"><img alt="TUT.ASP.ACCESS.1" src="thegeekyway.com/uploads/images/2014/01/TUT.ASP_.ACCESS.1.png"></a>
+</div></p>
+<p>Now if we want to Lockout the TheGeekyWay folder. In the web.config file, navigate to the end of system.web element, in the above web.config file its on the 74th line, so on the 75th line add the following code</p>
+<p>This code will only allow people with admin roles and will deny any other user similarly we can block TheGeekyWay.aspx page by using the following code</p>
+<h3>Common mistakes people make while adding code to web.config</h3>
+<p>Sometimes we add deny code earlier than allow code, so no access is given to any of the user. So this must be kept in mind that deny code must always be used after allow code.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 24 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/aspnet-dot-net.html">Asp.net (Dot Net)</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/aspnet.html">asp.net</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

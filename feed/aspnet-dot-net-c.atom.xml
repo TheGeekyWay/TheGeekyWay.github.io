@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Asp.net (Dot Net), C#</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/aspnet-dot-net-c.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2014-07-19T12:31:00+05:30</updated><entry><title>ASP.Net Basics : Populate checkboxlist from database using C#</title><link href="thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/" rel="alternate"></link><published>2014-07-19T12:31:00+05:30</published><updated>2014-07-19T12:31:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:None,2014-07-19:thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/</id><summary type="html">&lt;p&gt;In this tutorial we will be discussing how to populate data in checkboxlist or radiobutton list from the values taken from database and display them on the screen.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/asp-net11.jpg" title="Populate checkboxlist from database using C#"&gt;&lt;img alt="Populate checkboxlist from database using C#" src="thegeekyway.com/uploads/images/2014/03/asp-net11.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Let us assume a database with following table definitions (from my &lt;a class="external" href="http://myCampusNotes.com"&gt;next project&lt;/a&gt;) and table values.&lt;br&gt;
+&lt;div style="text-align:center" markdown="1"&gt;
+&lt;a href="thegeekyway.com/uploads/images/2014/03/asp1.png"&gt;&lt;img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp1.png"&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+and the output should be&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/asp2.png"&gt;&lt;img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Various …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In this tutorial we will be discussing how to populate data in checkboxlist or radiobutton list from the values taken from database and display them on the screen.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/asp-net11.jpg" title="Populate checkboxlist from database using C#"&gt;&lt;img alt="Populate checkboxlist from database using C#" src="thegeekyway.com/uploads/images/2014/03/asp-net11.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Let us assume a database with following table definitions (from my &lt;a class="external" href="http://myCampusNotes.com"&gt;next project&lt;/a&gt;) and table values.&lt;br&gt;
+&lt;div style="text-align:center" markdown="1"&gt;
+&lt;a href="thegeekyway.com/uploads/images/2014/03/asp1.png"&gt;&lt;img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp1.png"&gt;&lt;/a&gt;&lt;br&gt;
+&lt;/div&gt;
+and the output should be&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/asp2.png"&gt;&lt;img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Various steps involved in populating data from database to CheckBoxList (You can directly jump to that link by clicking on the following links)&lt;/p&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_1"&gt;Step 1 : Select the checkBoxList control from the toolbox.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_2"&gt;Step 2 : On the C# side coding create a SQL connection.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_3"&gt;Step 3 : Write your SQL Query.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_4"&gt;Step 4 : Create a SQL Adapter.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_5"&gt;Step 5 : Create a Dataset.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_6"&gt;Step 6 : Fill the dataset with the values from the SqlDataAdapter.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_7"&gt;Step 7 : Check if the resultant dataset produce rows or not.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_8"&gt;Step 8 : Provide the dataSet to the Checkbox list.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_9"&gt;Step 9 : Bind the data of the checkboxlist.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_10"&gt;Step 10: The final step : Provide the DataTextField and DataValueField to the checkbox list.&lt;/a&gt;&lt;/h5&gt;
+&lt;h5&gt;&lt;a href="http://www.thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/#h_4_11"&gt;Step 11: The complete code&lt;/a&gt;&lt;/h5&gt;
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_1&gt;Step 1 :  &lt;p style="text-decoration: underline; color: black;"&gt;Select the checkBoxList control from the toolbox.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;You can get to the toolbox by pressing ctrl W,X and typing checkBoxList you can drag drop the checkBoxList control on the aspx page. You will get the following code :-&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;asp:CheckBoxList&lt;/span&gt; &lt;span class="na"&gt;ID=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;CheckBoxList1&amp;quot;&lt;/span&gt;&lt;span class="na"&gt;runat=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&amp;lt;/asp:CheckBoxList&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;ID = “CheckBoxList1″&lt;/strong&gt; means that the CheckBoxList has been allotted a specific ID so that we can work on the C# page using that reference.&lt;br&gt;
+&lt;strong&gt;runat=”server”&lt;/strong&gt; means that the code will run on the server side (i.e. on the C# end) also, if we remove the code then we are left with the client side scripting only.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_2&gt;Step 2 :  &lt;p style="text-decoration: underline; color: black;"&gt;On the C# side coding create a SQL connection.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;Sql connection can be created using the following asp (C#) snippet&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using System.Data.SqlClient;
+SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings[&amp;quot;ConnectionString&amp;quot;].Conn
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;and in web.config add the following lines under configurations tab&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;connectionStrings&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;add&lt;/span&gt; &lt;span class="na"&gt;name=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;ConnectionString&amp;quot;&lt;/span&gt;&lt;span class="na"&gt;connectionString=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Data Source=(LocalDB)v11.0;AttachDbFilename=|DataDirectory|(your database name);Integrated Security=True&amp;quot;&lt;/span&gt;
+      &lt;span class="na"&gt;providerName=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;System.Data.SqlClient&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+  &lt;span class="nt"&gt;&amp;lt;/connectionStrings&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;you need to include the System.Data.SqlClient class inorder to work with sql.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_3&gt;Step 3 :  &lt;p style="text-decoration: underline; color: black;"&gt;Write your SQL Query.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;The next step after creating the connection is to open the connection we can use con.open() [here con is the object of SqlConnection class created in Step2]. The SQL query for this table will be :-&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;stringquery=&amp;quot;SELECT distinct[Clg_name] FROM [Complete_table]&amp;quot;;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_4&gt;Step 4 :  &lt;p style="text-decoration: underline; color: black;"&gt;Create a SQL Adapter.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;SQL adapter is derived from calss System.Data.SqlClient.SqlDataAdapter which represents a set of data commands and a database connection that are used to fill the System.Data.Dataset and update a SQL Server database. This class cannot be inherited.&lt;/p&gt;
+&lt;p&gt;
+The following C\# snippet creates a SQL adapter
+
+&lt;textarea class="crayon-plain print-no" style="-moz-tab-size: 4; font-size: 16px ! important; line-height: 16px ! important; opacity: 0; overflow: hidden; z-index: 0;" readonly="readonly" wrap="soft" data-settings="dblclick"&gt;
+&lt;/textarea&gt;
+&lt;/p&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;SqlDataAdapter da=newSqlDataAdapter(query,con);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_5&gt;Step 5 :  &lt;p style="text-decoration: underline; color: black;"&gt;Create a Dataset.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;Dataset represents an in-memory cache of data, i.e. the data which is being retrieved from database and stored into checkboxlist is being stored in cache and data is retreived from cache using Dataset.&lt;/p&gt;
+&lt;p&gt;The C# snippet to create a Dataset is as follows:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DataSet ds=newDataSet();
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_6&gt;Step 6 :  &lt;p style="text-decoration: underline; color: black;"&gt;Fill the dataset with the values from the SqlDataAdapter.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;Now we need to fill in the data from sql dataAdapter using dataset, the C# snippet for the same is :-&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;da.Fill(ds);
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_7&gt;Step 7 :  &lt;p style="text-decoration: underline; color: black;"&gt;Check if the resultant dataset produce rows or not.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;We can check if the dataset which populates checkboxlist from database produce rows or not, if it doesnt produce rows we can simply give an error message that no results available.&lt;br&gt;
+Here is the C# snippet for the same :-&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(ds.Tables[0].Rows.Count!=0)
+{
+    // more coding will be discussed in next steps
+}else{
+   // Give an error message that no results found
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_8&gt;Step 8 :  &lt;p style="text-decoration: underline; color: black;"&gt;Provide the dataSet to the Checkbox list.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;Next step is to point the checkBoxList towards the SQL database for that we will use the dataset to point to the database. Here is the following C# snippet.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckBoxList1.DataSource=ds;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_9&gt;Step 9 :  &lt;p style="text-decoration: underline; color: black;"&gt;Bind the data of the checkboxlist.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;Now the next and the second last step is to bind the data. It can be done using following C# snippet&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckBoxList1.DataBind();
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;on writing till here we get the following output :-&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/asp4.png"&gt;&lt;img alt="populate checkboxlist from database using c# and .net" src="thegeekyway.com/uploads/images/2014/03/asp4.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_10&gt;Step 10:  &lt;p style="text-decoration: underline; color: black;"&gt;The final step : Provide the DataTextField and DataValueField to the checkbox list.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;Here the DataTextField and DataValueField is the name of the column in our database, the C# snippet for the same is :-&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckBoxList1.DataTextField=&amp;quot;Clg_Name&amp;quot;;
+CheckBoxList1.DataValueField=&amp;quot;Clg_Name&amp;quot;;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Thats it, the data in database will be binded to checkbox list and will be displayed.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h5&gt;&lt;p #h_4_11&gt;Step 11:  &lt;p style="text-decoration: underline; color: black;"&gt;The complete code.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
+&lt;p&gt;here is the complete code :-&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;protectedvoidPage_Load(objectsender,EventArgse)
+    {
+        SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings[&amp;quot;ConnectionString&amp;quot;].ConnectionString);
+        stringquery;
+        try
+        {
+            query=&amp;quot;SELECT distinct[Clg_name] FROM [Complete_table]&amp;quot;;
+            con.Open();
+            SqlDataAdapter da=newSqlDataAdapter(query,con);
+            DataSet ds=newDataSet();
+            da.Fill(ds);
+            if(ds.Tables[0].Rows.Count!=0)
+            {
+                CheckBoxList1.DataSource=ds;
+                CheckBoxList1.DataTextField=&amp;quot;Clg_Name&amp;quot;;
+                CheckBoxList1.DataValueField=&amp;quot;Clg_Name&amp;quot;;
+                CheckBoxList1.DataBind();
+            }
+            else
+            {
+                Response.Write(&amp;quot;No Results found&amp;quot;);
+            }
+        }
+        catch(Exception ex)
+        {
+            Response.Write(&amp;quot;&amp;lt;br&amp;gt;&amp;quot;+ex);
+        }
+        finally
+        {
+            con.Close();
+        }
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Have any doubt or stuck at any step? Feel free to ask in the comments section below.&lt;/p&gt;</content><category term="asp.net"></category><category term="checkboxlist"></category><category term="database"></category></entry></feed>

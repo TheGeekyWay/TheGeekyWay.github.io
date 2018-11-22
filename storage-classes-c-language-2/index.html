@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="auto, C language, extern, register, static, storage classes">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Storage Classes in C language  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/storage-classes-c-language-2/">Storage Classes in C language</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>In the previous tutorials, we have discussed about the conditional statements. In this tutorial we'll be learning about something known as Storage Classes in the C language. Every variable you define in the C language is generally associated with a Storage class which basically defines the Scope and lifetime of that variable.</p>
+<p>Before we get into detail about this, let's first understand<a href="http://www.TheGeekyWay.com/what-is-scope-and-lifetime-of-a-variable-in-c-language">what is exactly meant by scope and lifetime of variable.</a></p>
+<p>Now, let us take a look at different types of storage classes available in C programming language:</p>
+<ul>
+<li>auto</li>
+<li>register</li>
+<li>static</li>
+<li>extern</li>
+</ul>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/03/storage_class1.png" title="Storage classes in C language and keywords used to define them. auto, extern, static and register."><img alt="Storage classes in C language and keywords used to define them. auto, extern, static and register." src="thegeekyway.com/uploads/images/2014/03/storage_class1.png"></a></p>
+</div>
+<p>Now, we'll understand each one of this in detail :</p>
+<p><u><strong>Auto (Automatic) :</strong></u></p>
+<p>The default storage class of any variable is Automatic . It is created as soon as the declaration statement is encountered and is destroyed as soon as the program control leaves the block which contains your variable.</p>
+<p><p style="font-family: comic sans ms,sans-serif;"><em><u>Keyword used - auto</u></em></p></p>
+<p>For example, here we define two variables, first, count, which is a local variable and second,  counter inside a block (local variable using auto class).</p>
+<div class="highlight"><pre><span></span>{
+  int count;
+  auto int counter;
+}
+</pre></div>
+
+
+<p><u><strong>External Storage Class (Extern) :</strong></u></p>
+<p>They are the Global Variables, i.e. declared outside the function block but are accessible inside the function block as well. They are accessible by all the function blocks present in the program and hence they have lifetime for entire program.</p>
+<p>It is actually used to give a reference to the global variable which can be accessed in all your files. If we need to have a global variable, then in one file, we use that particular variable or function, and in the other file we define it by keyword extern so that when it is used in our other file, the reference is used from the first file.</p>
+<p><p style="text-decoration: underline;"> <p style="font-family: comic sans ms,sans-serif;">Keyword used - extern</p></p></p>
+<p>For example, let's have two files, first which would have our main function (main.c) and second one having a function named extern_storage (extern.c)</p>
+<p>First file : main.c</p>
+<div class="highlight"><pre><span></span>int counter = 1 ; // Global Variable
+
+void main()
+{
+  extern_storage();
+  counter++;
+  extern_storage();
+  counter--;
+  extern_storage();
+}
+</pre></div>
+
+
+<p>Second file : extern.c</p>
+<div class="highlight"><pre><span></span>void extern_storage(void);
+
+extern int counter;
+
+void extern_storage(void)
+{
+   printf(&quot;Current value of extern counter is %d n&quot;, &amp;counter);
+}
+</pre></div>
+
+
+<p>When the above two files are executed, the function extern_storage picks up the current value from our main.c file. So, the following output will be produced.</p>
+<p><p style="font-family: courier new,courier;">Current value of extern counter is 1</p></p>
+<p><p style="font-family: courier new,courier;">Current value of extern counter is 2</p></p>
+<p><p style="font-family: courier new,courier;">Current value of extern counter is 1</p></p>
+<p><u><strong>Static Storage Class (static) :</strong></u></p>
+<p>It has visibility of a local variable but lifetime of external variable. Thus, once defined, it would not be destroyed after the function finishes execution but would retain it's value in memory and can be used further in future function calls.</p>
+<p><p style="text-decoration: underline;"><em> <p style="font-family: comic sans ms,sans-serif;">Keyword used - static</p></em></p></p>
+<p>(Self-Explanatory through post on <a href="http://www.thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" title="What is scope and lifetime of a variable in C language">Scope and lifetime of variables</a>)</p>
+<p><u><strong>Register Storage Class (register) :</strong></u></p>
+<p>It is very similar in behavior to an automatic storage class variable. The difference between the two comes from the fact that auto storage class uses main memory for storage but register storage class variables might use CPU Registers.</p>
+<p><u><em><strong>NOTE:</strong> register keyword doesn't guarantee that CPU Registers would be used every time, it depends on hardware and other restrictions that may be there.</em></u></p>
+<p>The use of these registers facilitates faster accessing and helps in running programs faster. Thus variables that need quick access  like variables for storing counter values should be declared by using register keyword.</p>
+<p>For example :</p>
+<div class="highlight"><pre><span></span>{
+  register int count;
+}
+</pre></div>
+
+
+<p><em>We hope the concept of storage classes is now clear ! Have any doubt or something to say? Let us know through comments section below.</em></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 17 March 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/auto.html">auto</a>,      <a href="thegeekyway.com/tag/c-language.html">C language</a>,      <a href="thegeekyway.com/tag/extern.html">extern</a>,      <a href="thegeekyway.com/tag/register.html">register</a>,      <a href="thegeekyway.com/tag/static.html">static</a>,      <a href="thegeekyway.com/tag/storage-classes.html">storage classes</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

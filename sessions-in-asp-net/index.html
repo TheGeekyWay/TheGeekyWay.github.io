@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="asp.net, C#">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Maintaining Sessions in Asp.net  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/sessions-in-asp-net/">Maintaining Sessions in Asp.net</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Deep_Singh.html"> Deep_Singh</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"><img alt="aspnet_sessions" src="thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"></a></p>
+</div>
+<p>Session is amongst the most important part in creating asp.net applications. It is a variable where you can put data between page requests when the pages are either posting or redirecting to each other. It can contain small amount of data containing string, complex arrays or numbers.</p>
+<p>In Asp.net the copy of session variable is stored for each individual session and session are managed with <strong>cookies</strong>. <strong>Cookies</strong> are data created on server and are sent back to browser in response to http request. In asp.net session cookies are created automatically once the page is loaded into the browser.</p>
+<p>During the page load, the server detect a new user and then creates a session cookie for the new user and then sends back to the browser and then use cookies for each subsequent request. Session variable can be of many types from string to complex numbers and arrays.The session variable are stored in <strong>SessionStateItemCollection</strong> Class.</p>
+<p>****The format to create a session object in asp.net is</p>
+<blockquote>
+<h4>Session[key_name] = (any dynamic or arbitrary name)</h4>
+</blockquote>
+<p>Let us consider an example where we are using a login interface with 2 aspx pages (Session_page.aspx,Landing_Page.aspx) and username and password are being stored in session and displaying the username and password on Landing_Page.aspx.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.1.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 1)"><img alt="Asp.net tutorial : Maintaining sessions in asp.net" src="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.1.png"></a></p>
+</div>
+<p>Let us use "Test_User" as username and "Test_Password" as password. (Note that at this point of tutorial the values are not comparing with the database values we are just assuming that "Test_User" and "Test_Password" are registered and we have reached Landing_page.aspx )</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.2.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 2)"><img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 2)" src="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.2.png"></a></p>
+</div>
+<p>The main coding is done on the "Login" button where we will fetch the values from text boxes and store the values in sessions.<br>
+The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> code for the login button is given as follows</p>
+<div class="highlight"><pre><span></span>    protected void Login_Button(object sender, EventArgs e)
+    {
+        Session[&quot;User_name&quot;] = TextBox1.Text;
+        Session[&quot;Password&quot;] = TextBox2.Text;
+        Response.Redirect(&quot;~/Landing_Page.aspx&quot;);
+    }
+</pre></div>
+
+
+<p>where TextBox1.Text contains the text entered in the username field and TextBox2.Text contains the text entered in password field, once the login button is pressed the session is created and the username and password is stored in the session variable, now we can use this session variable anywhere within our project.</p>
+<p>After clicking the login button here is the Landing_page.aspx where the session variable is used, here is the output of Landing_Page.aspx</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)"><img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)" src="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png"></a></p>
+</div>
+<p>Here is the code for the Landing_Page.aspx</p>
+<div class="highlight"><pre><span></span>protected void Page_Load(object sender, EventArgs e)
+    {
+            Session_Username.Text = Session[&quot;User_Name&quot;].ToString();
+            Session_Passowrd.Text = Session[&quot;Password&quot;].ToString();
+    }
+</pre></div>
+
+
+<p>Now since Label7.Text expects a string but there is now way in asp.net that it automatically identifies it as a string so we have to explicitly store the value as a string, now there are 2 ways, the first way is using <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> , the code is</p>
+<div class="highlight"><pre><span></span> Label7.Text = (String)Session[&quot;User_Name&quot;];
+</pre></div>
+
+
+<p>and the second way is to append .ToString() function to the session variable, the code is given below</p>
+<div class="highlight"><pre><span></span> Session_Username.Text = Session[&quot;User_Name&quot;].ToString();
+</pre></div>
+
+
+<p>Some FAQ's related to Sessions using asp.net</p>
+<p><strong>Q:</strong> What happens if we close the browser and reopen Landing_Page.aspx, will the session be maintained ?<br>
+<strong>A:</strong> The answer is <strong>NO</strong> once the browser is closed the cookies are destroyed and so as the session.</p>
+<p><strong>Q:</strong> So what happens if we directly open the Landing_Page.aspx page ?<br>
+<strong>A:</strong> Since we directly opened the Landing_Page.aspx page, no session was created for username and password so it will display blank values for username and password. But its not recommended to either redirect or display an error message. For example consider the following code segment</p>
+<div class="highlight"><pre><span></span>protected void Page_Load(object sender, EventArgs e)
+    {
+        if (Session[&quot;User_Name&quot;] == null || Session[&quot;Password&quot;] == null)
+        {   //Your redirection code here.
+            Top_Header_Text.Visible = false;
+            Session_Username.Text = &quot; No session created, you will be soon redirected to Session_Page.aspx. &quot;;
+            Session_Password.Visible = false;
+            Username.Visible = false;
+            Password.Visible = false;
+        }
+        else
+        {
+           Session_Username.Text = (String)Session[&quot;User_Name&quot;];
+            Session_Password.Text = Session[&quot;Password&quot;].ToString();
+        }
+    }
+</pre></div>
+
+
+<p>Then the output will be</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.4.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 4)"><img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 4)" src="thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.4.png"></a></p>
+</div>
+<hr>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 14 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/aspnet-dot-net.html">Asp.net (Dot Net)</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/aspnet.html">asp.net</a>,      <a href="thegeekyway.com/tag/c.html">C#</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

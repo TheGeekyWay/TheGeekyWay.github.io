@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="initd, linux, runlevel">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Runlevels and rc.d scripts  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/runlevels-and-rc-d-scripts/">Runlevels and rc.d scripts</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/storymode7.html"> storymode7</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"><img alt="" src="thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"></a></p>
+</div>
+<p>Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post <a href="http://thegeekyway.com/understanding-complete-boot-process-linux/">how Linux boots</a> it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.</p>
+<h2>Runlevels</h2>
+<p>Runlevels are the state to which a computer intends to go, or it intends to reach. There are total 7 runlevels.</p>
+<p>Runlevel 0: Halt or Shutdown</p>
+<p>Runlevel 1: Single-user mode</p>
+<p>Runlevel 2: Basic Multi-user mode but without networking</p>
+<p>Runlevel 3: Full text-based Multi-user mode (includes networking)</p>
+<p>Runlevel 4: X11 with session managers (Generally not used by most of the operating systems and is customizable)</p>
+<p>Runlevel 5: Full GUI based Multi-user mode</p>
+<p>Runlevel 6: Reboot</p>
+<p>These are the basic definitions what each runlevel is responsible for. For example, if an operating system is required to shut down, then it'd go to runlevel 0. You can even switch between these runlevels using the init command. Just type init \&lt;runlevel> and it'd change the current runlevel to the one specified. For example:</p>
+<div class="highlight"><pre><span></span>init 0
+</pre></div>
+
+
+<p>will shut down the system.</p>
+<p>Each system has a default runlevel to which it boots. Like Fedora has runlevel as default. To see which runlevel you are in type:</p>
+<div class="highlight"><pre><span></span>runlevel
+</pre></div>
+
+
+<p>To check the default runlevel of your system, type:</p>
+<div class="highlight"><pre><span></span>systemctl get-default
+</pre></div>
+
+
+<p>You can even change the default, keeping in mind what runlevel provided, like you want it to be multiuser or the graphical one. Using it you can set the default like:</p>
+<div class="highlight"><pre><span></span>systemctl set-default multi-user.target 
+rm &#39;/etc/systemd/system/default.target  # To remove current default
+ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/system/default.target&#39;
+</pre></div>
+
+
+<p>Runlevel and target file have the following relation:</p>
+<p>runlevel 0: poweroff.target</p>
+<p>runlevel 1: rescue.target</p>
+<p>runlevel 2: multi-user.target</p>
+<p>runlevel 3: multi-user.target</p>
+<p>runlevel 4: multi-user.target</p>
+<p>runlevel 5: graphical.target</p>
+<p>runlevel 6: reboot.target</p>
+<p>You should never mess with the default runlevel unless you are absolutely sure with what you're doing. Like, if you manage to set runlevel 0 or 6 as default you will end up in a loop kind of condition. Your PC will shut down( or reboot depending on what runlevel you set) as soon as it has booted.</p>
+<h2>rc Scripts</h2>
+<p>When a computer has entered into a specific runlevel, it runs scripts according to the runlevel it's in. The rc here comes from use in the older computers which had rc files to contain commands that run at startup. These files were called runcom files. Where runcom files meant files used to RunCommand.</p>
+<p>Your script must contain the line before any command executes:</p>
+<div class="highlight"><pre><span></span>. /etc/init.d/functions
+</pre></div>
+
+
+<p>This is because, your script might be executed at a time when nothing is loaded, not even file system( though it can be specified in boot facilities in <code>Required-Start</code> in LSB styled stanzas discussed below) so we can not say that each command we write will already be present( Remeber that each command is executed from a script present in PATH variable of your system). Hence in order for those commands to work, we need the functions file to be loaded as the first step. This function file contains the functions that a shell script might use.</p>
+<p>Fedora and most of the distros have folders that contain scripts that are to be run at a specific runlevel. They are located in the <code>/etc</code> folder. The folders containing these scripts are:</p>
+<p><code>/etc/init.d</code><br>
+<code>/etc/rc.d/rc0.d</code><br>
+<code>/etc/rc.d/rc1.d</code><br>
+<code>/etc/rc.d/rc2.d</code><br>
+<code>/etc/rc.d/rc3.d</code><br>
+<code>/etc/rc.d/rc4.d</code><br>
+<code>/etc/rc.d/rc5.d</code><br>
+<code>/etc/rc.d/rc6.d</code></p>
+<p>And, folders with the same name also exist in <code>/etc</code> but they are actually symbolic links of there corresponding folders in <code>/etc/rc.d</code> For example:</p>
+<p><code>/etc/rc0.d      (Symbolic link of /etc/rc.d/rc0.d)</code></p>
+<p>Each of these folders contain symbolic links of scripts that are actually stored in init.d for the runlevel they have in their name. Like <code>/etc/rc.d/rc0.d</code> contains a symbolic link for scripts in <code>/etc/init.d</code> that are required to be run at shutdown.</p>
+<p>Now if you open any of these folders you'd find out weird names with the structure like</p>
+<p><code>S|K[01-99]filename</code> where filename is the name of the script in <code>/etc/int.d</code></p>
+<p>Like K50netconsole. Now let's see what these names mean.</p>
+<h2>Demystifying the symlink names</h2>
+<p>The terms have their meanings as follows:</p>
+<p>S: start the service, if it's not already started.</p>
+<p>K: Kill the service, if it's running.</p>
+<p>01-99 is the priority for that start or kill task</p>
+<p>filename is the exact same name of the file in <code>/etc/init.d</code> folder.</p>
+<p>(Remember that it's actually <code>/etc/init.d</code> that actually houses those scripts. Rest of the folders just have symlinks to these.)</p>
+<p>So, If a file named shutdown-script is to be run at shutdown all times with a priority of 90 then the file <code>shutdown-script</code> should be present in <code>init.d</code> folder. And a symlink to it must be created in <code>/etc/rc.d/rc0.d</code> with the name S90shutdown-script, rest of the folders rc[1-6] can have K90shutdown-script. If 90 is the priority required to shut down.</p>
+<h2>Priority Of these scripts</h2>
+<p>Essentially, it can be better thought of as a position, and think of them being executed downwards from 01 to 99. For example, if you have a script that requires the network to be switched on then the network script should be at a higher position or priority than your script. Like the network, a script can have a priority of 01 and your script can have any number greater than it. So that it's executed <em>after the network script.</em></p>
+<h2>The chkconfig</h2>
+<p>the chkconfig command here deserves the 'The' in the heading for how easy it makes to manage these scripts and runlevels! Yes, this command just needs your source script file and manages creation deletion, the setting of S or D and also the priority level!</p>
+<p>chkconfig has an amazing man page and here are the basic commands that will get you going.</p>
+<div class="highlight"><pre><span></span>chkconfig --list
+</pre></div>
+
+
+<p>This prints the System V services, and that will do for us.</p>
+<div class="highlight"><pre><span></span>chkconfig --add
+</pre></div>
+
+
+<p>Is used to add your file for management by chkconfig. BUT wait. This command won't run unless you have some things set with your script.</p>
+<p>First and foremost, your script should exist in the home of all scripts, and that is:</p>
+<div class="highlight"><pre><span></span>/etc/init.d
+</pre></div>
+
+
+<p>Paste your script here.</p>
+<p>Secondly, your file must have certain comment lines so that it can be managed by chkconfig.</p>
+<p>It must have these comment lines, though the description is not absolutely necessary and the script would work without it, it's recommended. So that anyone who intends to clean up the unnecessary services knows if this script is essential or not:</p>
+<div class="highlight"><pre><span></span># chkconfig: 235 29 88
+# description: The description of the script like what it does
+</pre></div>
+
+
+<p>The first line here has some numbers ahead <code>chkconfig:</code> like 235, 29 and 88.</p>
+<p>here the First number is the runlevels it's required to run on combined into a string. Like 235 here means it's supposed to run in runlevel 2,3 and 5.</p>
+<p>The next two numbers are the priority for start and stop respectively. So in this example, start priority is 29 and stop priority is 88.</p>
+<p>you can use backslash for a multiline comment though you still require a <code>#</code>, in the beginning, to identify it as a comment.</p>
+<p>This is how it creates the symlinks with required priorities.</p>
+<p>Another way you can do this is enter LSB(Linux Standard Base) style init stanzas instead of these two comments. For it you can do it like:</p>
+<div class="highlight"><pre><span></span> ### BEGIN INIT INFO
+ # Provides: scriptA
+ # Required-Start: scriptB
+ # Default-Start: 2 3 5
+ # Default-Stop: 0 1 6
+ # Description: Description of what the script does
+ ### END INIT INFO
+</pre></div>
+
+
+<p>This one gives you more ease though it just looks a bit more complicated.</p>
+<p>In this, <code>Required-Start</code> is the script that is required to start this script. That is, it should be running before the current script gets up. <code>Provides</code>: It tells about the boot facilities that this script provides so that those will be counted as already present when another script requires it. Hence priorities will be set accordingly to what is required to be already present and what it'll provide. <code>Default-Start</code> or <code>Stop</code> tells which runlevel should this start on and stopped(if running) respectively.</p>
+<p>And don't forget a shebang at the beginning of the file.</p>
+<p>Now we are all set to go with these things done. Let's execute this command to add it to the management of chkconfig:</p>
+<div class="highlight"><pre><span></span>chkconfig --add filename
+</pre></div>
+
+
+<p>like for a file named bootpref in <code>init.d</code> it would be:</p>
+<div class="highlight"><pre><span></span>chkconfig --add bootpref
+</pre></div>
+
+
+<p>Now most probably your file will be visible with a status of on under the respective runlevels when you run</p>
+<div class="highlight"><pre><span></span>chkconfig --list
+</pre></div>
+
+
+<p>And if it's not or you want to change runlevels you can go like:</p>
+<div class="highlight"><pre><span></span>chkconfig bootpref --level 0 on
+</pre></div>
+
+
+<p>Will make it run on runlevel 0 that is at shutdown.</p>
+<p>Similarly off argument will kill it if present in that level. If no level is specified then these act on level 2,3,4 and 5. You can also specify multiple levels like <code>--level 26</code> for level 2 and 6.</p>
+<div class="highlight"><pre><span></span>chkconfig --del bootpref
+</pre></div>
+
+
+<p>will delete its symlinks from all rc folders but not from the init.d folder. That is required to be done manually. Ad chkconfig generally doesn't modify the content of init.d but rc folders.</p>
+<p>Hope this will help you play with your scripts in a better and safe manner.</p>
+<p>Thank you for reading!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Fri 16 March 2018</p>
+    <p>Category: <a href="thegeekyway.com/category/how-to-diy-linux.html">How To DIY, Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/initd.html">initd</a>,      <a href="thegeekyway.com/tag/linux.html">linux</a>,      <a href="thegeekyway.com/tag/runlevel.html">runlevel</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

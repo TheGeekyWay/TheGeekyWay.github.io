@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Android, java">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Creating your first Java Program (J4A - 2)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/creating-first-java-program/">Creating your first Java Program (J4A - 2)</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/gagan93.html"> gagan93</a> </p>
+  <div class="article_text">
+    <p><u>Beginning Java Programming</u></p>
+<p>Some institutes/tutorials start java directly using Netbeans or Eclipse IDE. But this is not the correct way. A better method is to use a basic text editor like Notepad2 or Notepad++ to begin Java. IDE’s provide shortcuts which experienced programmers use. If beginners opt for these methods, they will leave half of the work for IDE and miss this ‘half’.</p>
+<p><strong>IDE</strong> is an Integrated Development Environment or a software which accelerates software development and provides features like syntax completion, error detection,error correction, auto indentation, drag and drop for G.U.I. and much more. One should go for an IDE only after practising a programming language on text editors.</p>
+<p>The best text editor for starting java is TextPad (<a href="http://www.textpad.com/download/index.html" title="link">download from here</a>). The best part of TextPad is that it provides Program compilation and execution shortcuts just like Turbo C++. ‘Ctrl + 1’ can be used to compile a Java program and ‘Ctrl + 2’ can be used to execute a compiled program.</p>
+<p><u>First Simple Java Program</u></p>
+<p><strong><u> </u></strong></p>
+<p><strong>class Demo</strong></p>
+<p><strong>{</strong></p>
+<p><strong>     public static void main(String[] args)</strong></p>
+<p><strong>     {</strong></p>
+<p><strong>           System.out.println(“My first java program”);</strong></p>
+<p><strong>     }</strong></p>
+<p><strong>}</strong></p>
+<p><u>Noteworthy points about this small program</u> :</p>
+<ol>
+<li>In Java, even the main method lies inside a class, and Java file is saved with the name of the class containing main method so, the above code should be saved as “Demo.java”.</li>
+<li>In Java, ‘functions’ are known as ‘methods’ and variables are called as ‘attributes’</li>
+<li>Indentation is used to increase readability. Programmers <strong>must</strong> use indentation to make their code look clean.</li>
+<li>Main method is both public and static. Public methods are accessible outside the class also (public is similar to what it was in C++). As main method is accessed by Java Virtual Machine during execution, so it <strong>must</strong> be public. Static keyword is described later. For now, just keep in mind that ‘static’ method or variable has only copy for entire class irrespective of no. of objects.</li>
+<li>The main method takes a string array as an argument. This argument can be passed when executing the program.(Consider String to be a data type till further discussion)</li>
+<li>System.out.println() is similar to printf or cout\&lt;\&lt;. Here System is a class, out is a stream and println() is a method. ‘out’ is a <u>static stream </u>so it is accessed by name of class (System) rather than object of system class.</li>
+</ol>
+<p>Write the above program (don’t copy) in a simple text editor (or Textpad). Save the file as “Demo.java” at some specific path. If you are using Textpad, use shortcuts described above to compile and execute the code.</p>
+<p>If you are using a simple text editor, follow these steps</p>
+<ol>
+<li>Open command prompt (goto  start -> run -> cmd - > Enter).</li>
+<li>Navigate to the directory containing the file which you have just saved.</li>
+<li>To compile java program, type “javac Demo.java”. Here ‘javac’ is the java compiler application and Demo.java is the name of the java program which we are compiling. After this step, Demo.class file is created in the directory.</li>
+<li>To execute java program, type “java Demo”. Here java is the name of application which will execute the .class file and show the output as shown here.</li>
+</ol>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/61.jpg"><img alt="6" src="thegeekyway.com/uploads/images/2014/02/61.jpg"></a></p>
+</div>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 22 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/j4a-java-for-android-programming.html">J4A (Java for Android), Programming</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/android.html">Android</a>,      <a href="thegeekyway.com/tag/java.html">java</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

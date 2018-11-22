@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Bash, cli, Fish, linux, ohmyfish, Shell, terminal, zsh">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Get rid of your old terminal, Go Fish-ing  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/">Get rid of your old terminal, Go Fish-ing</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/vipulgupta2048.html"> vipulgupta2048</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p>Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more. Read on for my take on Fish and how it can make you more productive in your day-to-day.<a href="thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"><img alt="" src="thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"></a></p>
+</div>
+<!--more-->
+
+<h3>Simple Installation</h3>
+<p>Fish is easily available on Linux (All popular distros), Windows, and MacOS. Here are the steps for installing it on Debian.</p>
+<div class="highlight"><pre><span></span>sudo apt-add-repository ppa:fish-shell/release-2
+sudo apt-get update
+sudo apt-get install fish
+</pre></div>
+
+
+<p>You can find similar installation steps, for other distros and operating systems <a href="https://fishshell.com/">here</a>. When fish gets installed, type the following in your terminal.</p>
+<div class="highlight"><pre><span></span>- $ fish
+</pre></div>
+
+
+<p>And you are ready to go.</p>
+<p>For Fish to remember and suggest properly, try running this command when you install new applications. This will start scanning the man pages of your distros and suggest new arguments as you type in the terminal. To accept a suggestion, press the right arrow key to complete the command and it as simple as that.</p>
+<div class="highlight"><pre><span></span>- $ fish_update_completions
+</pre></div>
+
+
+<h3>Let's Play</h3>
+<p>The official website of Fish offers an easy tutorial for both beginners and professionals to get started and make the most of it. I'll be mentioning the features I use the most and love while using Fish.</p>
+<h4>Summons commands like a pro</h4>
+<p>Fish provides suggestions and completions to every command and their specific arguments that you would type in the shell, from the get-go. Start typing to see it for yourself.<br>
+This works on its ability to predict arguments straight from man pages and from the history it maintains, of the previous commands you entered. (Don't worry its smart enough not to record any sensitive information)</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2018/04/completions.png" title="A glimpse of what suggestions feel like in Fish"><img alt="" src="thegeekyway.com/uploads/images/2018/04/completions-e1522570951842.png"></a></p>
+</div>
+<p>No need to remember arcane syntax, arguments or commands. Since it remembers what you type, it will keep suggesting you more recent commands to increase productivity and let you focus more on what you are going to type next.</p>
+<h4>Similarity to old 'Bash' (and some new scripting rules)</h4>
+<p>Commands you use in bash or to write shell scripts in Bash are mostly the same in Fish. There are some differences. But the alternatives are much easier to use. Check out the <a href="https://fishshell.com/docs/current/index.html">documentation</a> for more information.<br>
+Man pages are a smart way to get more information about commands. But reading and searching for them are a pain. Fish comes to the rescue by opening man pages in web browsers. Give it a try.</p>
+<div class="highlight"><pre><span></span>- $ help set
+</pre></div>
+
+
+<h4>Magic happens when you press Tab</h4>
+<p>Terminals usually autocomplete your half-written commands when you press the Tab key. Fish does that and a ton of other stuff. Here are a few snippets</p>
+<div class="highlight"><pre><span></span>&gt; /geek @press{Tab} → /geekyway/
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&gt; ~/geekyway/v @press{Tab}
+~/stuff/vipul.sh  (Executable, 4.8kB)  ~/stuff/vipul/  (Directory)
+</pre></div>
+
+
+<div class="highlight"><pre><span></span>&gt; ~/vipulgupta2048/ @press{tab} 
+go/ 
+aeious/ 
+Android/ 
+AndroidStudioProjects/
+…and 44 more rows
+</pre></div>
+
+
+<p>Keep pressing tab, shift+tab, arrow keys and other combinations to fully explore all the amazing features of Fish. Comment down below to let us know what cool new features you found while exploring.</p>
+<h4>Want to customize? Fish has you covered</h4>
+<p>Programmers love to customize their own personal setups be it desktop environments, text editors, and even terminals. I am no different. Hence when I found that you can customize Fish using a web browser and not write code for it. I was blown away. Try it out by typing</p>
+<div class="highlight"><pre><span></span>&gt; fish_config
+</pre></div>
+
+
+<p>I can bet you haven't seen a smarter, more intuitive way to customize and change your terminal settings that include your prompt and its colors, change your functions, abbreviations and many other components.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png" title="Customise anything you want ..."><img alt="" src="thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png"></a></p>
+</div>
+<h4>Other Awesome Features</h4>
+<ul>
+<li>Syntax in Fish gets highlighted automatically.</li>
+<li>Separating Commands (Semicolon)</li>
+<li>Combiners (And, Or, Not)</li>
+<li>Conditionals (If, Else, Switch)</li>
+<li>And many more...</li>
+</ul>
+<h4>Sold Already, Make it default</h4>
+<p>To find the shells installed in your system, run this command.</p>
+<div class="highlight"><pre><span></span>&gt; cat /etc/shells
+/bin/sh
+/bin/dash
+/bin/bash
+/bin/rbash
+/usr/bin/tmux
+/usr/bin/fish
+/usr/local/bin/fish
+</pre></div>
+
+
+<p>You need to select "/usr/local/bin/fish" and then enter the command to change your default shell.</p>
+<div class="highlight"><pre><span></span>&gt; chsh -s /usr/local/bin/fish
+</pre></div>
+
+
+<p>That's it now for the basics to get you started, I guess Happy Fish-ing !!</p>
+<p>Share this post with your co-workers, batchmates, friends who struggle with using Bash, want a change, or just want to try new things.</p>
+<p><strong>More to come</strong> (Part 2- <strong>Tips/tricks of Fish</strong> and <strong>Writing Scripts for Fish</strong>)<br>
+Fork and star my dotfiles for more reference, and if you want the greeting message that I have on my terminal. - <a href="https://github.com/vipulgupta2048/dotvfiles/tree/master/fish">vipulgupta2048/dotvfiles/fish</a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 03 April 2018</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/bash.html">Bash</a>,      <a href="thegeekyway.com/tag/cli.html">cli</a>,      <a href="thegeekyway.com/tag/fish.html">Fish</a>,      <a href="thegeekyway.com/tag/linux.html">linux</a>,      <a href="thegeekyway.com/tag/ohmyfish.html">ohmyfish</a>,      <a href="thegeekyway.com/tag/shell.html">Shell</a>,      <a href="thegeekyway.com/tag/terminal.html">terminal</a>,      <a href="thegeekyway.com/tag/zsh.html">zsh</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

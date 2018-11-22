@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="linux, Text Editor">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; How To Install Sublime Text Editor In GNU/Linux ?  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/install-sublime-text-editor-gnulinux/">How To Install Sublime Text Editor In GNU/Linux ?</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Abhishek_Rawal.html"> Abhishek_Rawal</a> </p>
+  <div class="article_text">
+    <p>Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp; even Arduino. Sublime Text Editor is not opensource &amp; not an free editor, but in last update the expiry date has been removed by the developers, so you can use Sublime text as there is no enforce time limit for evaluation.</p>
+<p><strong>Sublime Text Editor can be installed manually following the steps below :</strong></p>
+<ul>
+<li>Download correct bit version of Sublime Text 2 from <a href="http://www.sublimetext.com/2" title="Sublime Text Download"><strong>Official Website.</strong></a></li>
+</ul>
+<!-- -->
+
+<ul>
+<li>Now, extract the downloaded Sublime text 2 .tar.bz2 in <strong>/home</strong> directory by simply right clicking on it.</li>
+</ul>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"><img alt="Sublime_text1" src="thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"></a></p>
+</div>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"><img alt="Sublime text 2" src="thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"></a></p>
+</div>
+<ul>
+<li>Now move the extracted folder 'Sublime Text 2' to the proper location. Open Terminal/Konsole and type :</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo mv Sublime Text 2 /opt/
+</pre></div>
+
+
+<p>The extracted folder will be moved in /opt directory of your system.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"><img alt="Sublime text 3" src="thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"></a></p>
+</div>
+<ul>
+<li>Now, we have to add following command for symbolic link. Open terminal &amp; type :</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo ln -s /opt/Sublime Text 2/sublime_text /usr/bin/sublime
+</pre></div>
+
+
+<ul>
+<li>Now, to add application icon in launcher. In terminal type :</li>
+</ul>
+<div class="highlight"><pre><span></span>sudo gedit /usr/share/applications/sublime.desktop
+</pre></div>
+
+
+<p>(Replace gedit by any other editor like kate, vim or even sublime) and copy the following lines into it &amp; hit on 'Save' button.</p>
+<div class="highlight"><pre><span></span><span class="k">[Desktop Entry]</span>
+<span class="na">Version</span><span class="o">=</span><span class="s">2.0</span>
+<span class="na">Name</span><span class="o">=</span><span class="s">Sublime Text 2</span>
+<span class="c1"># Only KDE 4 seems to use GenericName, so we reuse the KDE strings.</span>
+<span class="c1"># From Ubuntu&#39;s language-pack-kde-XX-base packages, version 9.04-20090413.</span>
+<span class="na">GenericName</span><span class="o">=</span><span class="s">Text Editor</span>
+
+<span class="na">Exec</span><span class="o">=</span><span class="s">sublime</span>
+<span class="na">Terminal</span><span class="o">=</span><span class="s">false</span>
+<span class="na">Icon</span><span class="o">=</span><span class="s">/opt/Sublime Text 2/Icon/48x48/sublime_text.png</span>
+<span class="na">Type</span><span class="o">=</span><span class="s">Application</span>
+<span class="na">Categories</span><span class="o">=</span><span class="s">TextEditor;IDE;Development</span>
+<span class="na">X-Ayatana-Desktop-Shortcuts</span><span class="o">=</span><span class="s">NewWindow</span>
+
+<span class="k">[NewWindow Shortcut Group]</span>
+<span class="na">Name</span><span class="o">=</span><span class="s">New Window</span>
+<span class="na">Exec</span><span class="o">=</span><span class="s">sublime -n</span>
+<span class="na">TargetEnvironment</span><span class="o">=</span><span class="s">Unity</span>
+</pre></div>
+
+
+<p>Login &amp; out &amp; you'll notice launcher icon of sublime text in Menu.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"><img alt="sublime text 4" src="thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"></a></p>
+</div>
+<blockquote>
+<p>I have tested same .desktop configuration in openSUSE Gnome &amp; it shows up in launcher too, so no need to modify if you're using other desktop environment. Didn't tested in KDE though.</p>
+</blockquote>
+<p>Happy coding.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 11 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/how-to-diy-linux.html">How To DIY, Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/linux.html">linux</a>,      <a href="thegeekyway.com/tag/text-editor.html">Text Editor</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

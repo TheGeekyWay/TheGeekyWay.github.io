@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Cloud Computing, Nova, Openstack, Openstack Architecture">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; OpenStack - Understanding The Architecture  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/openstack-understanding-architecture/">OpenStack - Understanding The Architecture</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
+  <div class="article_text">
+    <p>OpenStack is a cloud computing project to provide an Infrastructure as a Service(IaaS), jointly launched by RackSpace and NASA. A collection of open-source technologies combined together make it a massively scalable cloud operating system. One big quality of OpenStack is it’s simplicity, anyone can easily tie-up different hosts and provide cloud storage. Openstack has become a big phenomenon in past three years since its launch in 2010. It has its reach to almost every tech giant with more than 10,000 developers working on it.</p>
+<div style="text-align:center">
+<p><a href="{filename}/uploads/images/2013/12/images.jpg"><img alt="OpenStack" src="{filename}/uploads/images/2013/12/images.jpg"></a></p>
+</div>
+<p>Before we start discussing anything, the very first thing is to deploy OpenStack. Yes, it is that easy! You can deploy it without any knowledge of underlying architecture. Go to <a href="http://www.devstack.org">Devstack</a>, run the script and you are done!</p>
+<p>Now, the code of OpenStack is quite large, with more than 1.5 million lines of code. Fortunately, it has a good modular design. In this article, I would be discussing about the architecture of OpenStack. OpenStack has a modular architecture and is divided into 7 components. We will discuss them one by one. The name in the parentheses are the code-names for respective services.</p>
+<p><strong>1) Openstack Compute(Nova)</strong>: It is the central brain unit of the system. Nova is responsible to get the requests from user, choosing an appropriate host and running the instance on that host. It is a big component which uses the underlying hypervisor technology like KVM, qemu etc. It is designed to manage and automate pools of computer resources. Nova is also further divided into different parts including nova-volume, nova-network, nova-scheduler etc.</p>
+<p><strong>2) OpenStack Object Storage(Swift)</strong>: Swift is a scalable redundant storage system. It is responsible for keeping the data safe. Swift is a reliable data storage that maintains a number of replicas of the data and also ensures integrity. New storage can be easily added using swift.</p>
+<p><strong>3) OpenStack Block Storage(Cinder)</strong>: When user spawns an instance, she also needs some persistent block storage to work with. Here comes the cinder! It manages the creation, attaching and detaching of the block devices to servers. It can also be used to creates snapshots for backing up the data.</p>
+<p><strong>4) OpenStack Networking(Neutron)</strong>: Neutron (formerly known as Quantum), is responsible for managing networks and IP addresses. It can manage the networks in three ways: using flat network manager, flat DHCP network manager or VLAN network manager. Neutron is capable of providing both fixed and flexible IPs to the instances.</p>
+<p><strong>5)</strong> <strong>OpenStack Dashboard(Horizon)</strong>: Horizon provides administrators and users a graphical interface to access, provision and automate cloud-based resources. This web-based dashboard has a lot of features that make launching of an instance and administrating an easy task.</p>
+<p><strong>6)</strong> <strong>OpenStack Identity (Keystone)</strong>: Keystone is the one stop point of authentication. To access some features, or to initiate some tasks, users/services needs to authenticate themselves first. The idea behind keystone is to make the authentication process centralized. No matter the user, the admin or any project, everyone has to go through keystone first. Keystone supports several modes of authentication including the standard username-password matching and token based authentication.</p>
+<p><strong>7)</strong> <strong>OpenStack Image Service(Glance)</strong>: Glance is a service dedicated to the operations of disk and server images. It provides discovery, registration and delivery services for the images. Glance supports several formats like qcow2, vmdk etc. It can store the images in any of the back-ends like OpenStack Object Storage.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 18 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/cloud-computing.html">Cloud Computing</a>,      <a href="thegeekyway.com/tag/nova.html">Nova</a>,      <a href="thegeekyway.com/tag/openstack.html">Openstack</a>,      <a href="thegeekyway.com/tag/openstack-architecture.html">Openstack Architecture</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

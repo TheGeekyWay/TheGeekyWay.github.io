@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Raspberry Pi">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; How To Display Raspberry Pi On VGA Monitor/TV ?  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/connect-raspberry-pi-vga-monitortv/">How To Display Raspberry Pi On VGA Monitor/TV ?</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Abhishek_Rawal.html"> Abhishek_Rawal</a> </p>
+  <div class="article_text">
+    <p>Raspberry Pi, A \$25 ARM GNU/Linux box comes with RCA &amp; HDMI port. Connecting Raspberry Pi with HDMI supported TV/monitor is cake walk. But, unfortunately some of us still have monitors with only VGA connectors. Raspberry Pi didn't included VGA connectors keeping power consumption of the board in mind. Fortunately, there are plenty of converters available in the online stores which lets you convert HDMI(Digital) signal to VGA(Analog) signal.</p>
+<p>Following are the detailed steps which will help you to connect RPi with VGA monitors &amp; display RPi on VGA monitors without any problem.</p>
+<p><strong>1) HDMI to VGA Converter Adapter :</strong></p>
+<p>You have to purchase power free HDMI to VGA adapter. Here's the link of two HDMI\&lt;->VGA adapters which have been tested by me that just works.</p>
+<!--more-->
+
+<p>i) <a href="https://www.modmypi.com/pi-vew-raspberry-pi-hdmi-to-vga-converter">ModMyPi | PiView</a></p>
+<p>ii) <a href="https://www.crazypi.com/RASPBERRY-PI-HDMI-TO-VGA">CrazyPi | PiEyes</a></p>
+<p>Note that these adapters doesn't support audio from HDMI port, so external speakers are required to connect onboard. Since, I don't use RPi for entertainment purpose, I never cared much about audio signals.</p>
+<p><strong>2) Editing Config.txt located in Raspberry Pi distro :</strong></p>
+<p>Make SDHC bootable by installing RPi distribution into it. After installing RPi distribution in SDHC, insert the SD in computer &amp; open <em>config.txt</em> which is located under /boot directory.There will be set of lines for the different functions. We have to edit config.txt file inorder to obtain picture on VGA monitor.</p>
+<p>Uncomment following four lines in config.txt by removing '#' located at start of the line. (check Images below)</p>
+<div class="highlight"><pre><span></span>hdmi_force_hotplug=1
+hdmi_drive=2
+hdmi_group=1
+hdmi_mode=1
+</pre></div>
+
+
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/Image.png"><img alt="Image" src="thegeekyway.com/uploads/images/2013/12/Image.png"></a></p>
+</div>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/Image2.png"><img alt="Image2" src="thegeekyway.com/uploads/images/2013/12/Image2.png"></a></p>
+</div>
+<p><strong>hdmi_force_hotplug=1</strong> pretends that HDMI device is always attached</p>
+<p><strong>hdmi_drive=2</strong> forces monitor to HDMI mode so that sound signals are carried from HDMI cables.</p>
+<p><strong>hdmi_group</strong> specifies whether monitor is DMT type (Computers) or CEA type (TV)</p>
+<p><strong>hdmi_mode</strong> specifies the resolution of monitor.</p>
+<p><strong>For hdmi_group value selection :</strong></p>
+<p>If you're using output as Computer monitor then replace value '1' with '2', so the new config will be like :</p>
+<div class="highlight"><pre><span></span>hdmi_group=2
+</pre></div>
+
+
+<p>(Select value 1 for TV, Select value 2 for monitor)</p>
+<p><strong>For hdmi_mode value selection :</strong></p>
+<p>Now open <a href="http://elinux.org/RPiconfig#Video_mode_options">eLinux RPi config</a> scroll down, there in hdmi_mode two tables are given, select the correct resolution as per your monitor. (Table1 if you're using TV &amp; Table2 if you're using Monitor)<br>
+Since my monitor's resolution is 1366x768 px, hdmi_mode=39 fits me the best.So, the modified config.txt will be like.</p>
+<div class="highlight"><pre><span></span>hdmi_mode=39
+</pre></div>
+
+
+<p>So, overall my uncommented lines will look something like :</p>
+<div class="highlight"><pre><span></span>hdmi_force_hotplug=1
+hdmi_drive=2
+hdmi_group=2
+hdmi_mode=39
+</pre></div>
+
+
+<p>Now, save the edited config.txt</p>
+<p><strong>3) Connection of RPi with HDMI\&lt;->VGA adapter.</strong></p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"><img alt="HDMI-VGA" src="thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"></a></p>
+</div>
+<p>Happy hacking.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Wed 04 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/how-to-diy-linux.html">How To DIY, Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/raspberry-pi.html">Raspberry Pi</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

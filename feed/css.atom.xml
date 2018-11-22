@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - CSS</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/css.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2014-01-25T22:30:00+05:30</updated><entry><title>CSS - Border Radius for rounded corners</title><link href="thegeekyway.com/css-border-radius-rounded-corners/" rel="alternate"></link><published>2014-01-25T22:30:00+05:30</published><updated>2014-01-25T22:30:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2014-01-25:thegeekyway.com/css-border-radius-rounded-corners/</id><summary type="html">&lt;p&gt;Border radius is used to create rounded corners  see the following.&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=200 theme_id=1 slug_hash='emxdk' user='ianoop' default_tab='css' animations='run'/]&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/css3-web-design-examples.jpg" title="css border radius"&gt;&lt;img alt="css border radius" src="thegeekyway.com/uploads/images/2013/12/css3-web-design-examples.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;Above code fore border radius is equivalent to&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;border-top-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-top-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;or&lt;/span&gt;
+
+&lt;span class="nt"&gt;border-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can specify rounded …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Border radius is used to create rounded corners  see the following.&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=200 theme_id=1 slug_hash='emxdk' user='ianoop' default_tab='css' animations='run'/]&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/css3-web-design-examples.jpg" title="css border radius"&gt;&lt;img alt="css border radius" src="thegeekyway.com/uploads/images/2013/12/css3-web-design-examples.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;p style="line-height: 1.5em;"&gt;Above code fore border radius is equivalent to&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;border-top-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-top-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+
+&lt;span class="nt"&gt;or&lt;/span&gt;
+
+&lt;span class="nt"&gt;border-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt; &lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can specify rounded corners with different set of values.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;One :&lt;/strong&gt; only one value set for all four corners&lt;br&gt;
+&lt;em&gt;border-radius: 10px&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Two values :&lt;/strong&gt; &lt;em&gt; top-left + bottom-right and top-right + bottom-right , diagonally&lt;/em&gt;&lt;br&gt;
+&lt;em&gt;border-radius: 20px 30px&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Three values:&lt;/strong&gt;  &lt;em&gt;top-left ,  top-right + bottom-left ,  bottom-right&lt;/em&gt;&lt;br&gt;
+border-radius: 10px 30px 5px&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Four values:&lt;/strong&gt; &lt;em&gt;top-left ,  top-right, bottom-right,  bottom-left&lt;/em&gt;&lt;br&gt;
+border-radius: 20px 10px 15px 30px;&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=200 theme_id=1 slug_hash='logmL' user='ianoop' default_tab='result' animations='run'/]&lt;/p&gt;
+&lt;p&gt;You can even have different horizontal and vertical rounding&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;border-radius: 10px/30px /*Horizontal radius / Vertical Radius*/&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=200 theme_id=1 slug_hash='amzfr' user='ianoop' default_tab='result' animations='run'/]&lt;/p&gt;
+&lt;p&gt;Few other example:&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=200 theme_id=1 slug_hash='aqeBl' user='ianoop' default_tab='result' animations='run'/]&lt;/p&gt;</content></entry><entry><title>Z-Index in CSS</title><link href="thegeekyway.com/z-index-in-css/" rel="alternate"></link><published>2014-01-19T00:52:00+05:30</published><updated>2014-01-19T00:52:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:None,2014-01-19:thegeekyway.com/z-index-in-css/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/zindex.png"&gt;&lt;img alt="z-index" src="thegeekyway.com/uploads/images/2014/01/zindex.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1&gt;What is Z-Index ?&lt;/h1&gt;
+&lt;p&gt;Z-Index is the property of CSS which is used to order the elements behind and in front in the form of stack. You can consider this a virtual stack where the higher value of z-index is placed infront and the lower value of z index is placed …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/01/zindex.png"&gt;&lt;img alt="z-index" src="thegeekyway.com/uploads/images/2014/01/zindex.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h1&gt;What is Z-Index ?&lt;/h1&gt;
+&lt;p&gt;Z-Index is the property of CSS which is used to order the elements behind and in front in the form of stack. You can consider this a virtual stack where the higher value of z-index is placed infront and the lower value of z index is placed at the back.&lt;/p&gt;
+&lt;p&gt;To understand this let us consider the html and css code :-&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=620 theme_id=3 slug_hash='wnDcv' user='Deep_Singh' default_tab='Result' animations='run'/]&lt;/p&gt;
+&lt;p&gt;This is just a simple code to create 2 boxes and displaying them.The next step is to overlap these two boxes since HTML works on stack basis which means that the bottom code will be displayed on top, so now updating the code we get :-&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=620 theme_id=3 slug_hash='ctnjB' user='Deep_Singh' default_tab='Result' animations='run'/]&lt;/p&gt;
+&lt;p&gt;This is just the normal css code with margins defined, but &lt;strong&gt;What if we want DIV1 to be placed above DIV2 ?&lt;/strong&gt; , here Z-Index property comes into effect. Various attributes of z-index are :-&lt;/p&gt;
+&lt;p&gt;Value      Description&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;auto       The browser determines the stack order of the element (based on its order in the document). This is default
+  &lt;em&gt;number&lt;/em&gt;   An integer that defines the stack order of the element. Negative values are allowed
+  inherit    The value of the zIndex property is inherited from parent element&lt;/p&gt;
+&lt;p&gt;Now adding the z-index property in the CSS code we get the following output.&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=620 theme_id=3 slug_hash='vizcB' user='Deep_Singh' default_tab='Result' animations='run'/]&lt;/p&gt;
+&lt;h2&gt;Did it worked ?&lt;/h2&gt;
+&lt;p&gt;The answer is  &lt;p style="color: #f80b06;"&gt;&lt;strong&gt;No&lt;/strong&gt;&lt;/p&gt; ! The reason being that the z-index value is pretty much ignored by the browser unless the elements are positioned. We can use &lt;strong&gt;position:relative&lt;/strong&gt; declaration to both elements. Now if we use the code we will get the following output :-&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=620 theme_id=3 slug_hash='EzLmu' user='Deep_Singh' default_tab='Result' animations='run'/]&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Remember :&lt;/strong&gt; We should use larger values, the reason behind is that we should leave room for more values to add and values between 4 and 5 there is no whole number between it and in future we might need to add more z-index between these 2 div's, that's not that important but in advanced designs it might create a problem.&lt;/p&gt;
+&lt;h1&gt;What z-index cannot do ? (in respect to overlapping)&lt;/h1&gt;
+&lt;p&gt;Let us consider a child element of DIV2, a DIV3 which has the z index greater than DIV1 and DIV2, but since its the child element of DIV2 so it will be overlapped with DIV2 and DIV1 will be on the top. To demonstrate this let us consider an example below :-&lt;/p&gt;
+&lt;p&gt;[codepen_embed height=620 theme_id=3 slug_hash='dCxfl' user='Deep_Singh' default_tab='Result' animations='run'/]&lt;/p&gt;
+&lt;hr&gt;</content><category term="CSS"></category><category term="HTML"></category></entry><entry><title>CSS Regex selector - Using Regular Expression in CSS</title><link href="thegeekyway.com/css-regex-selector-using-regular-expression-css/" rel="alternate"></link><published>2014-01-01T13:53:00+05:30</published><updated>2014-01-01T13:53:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2014-01-01:thegeekyway.com/css-regex-selector-using-regular-expression-css/</id><summary type="html">&lt;p&gt;Just like JQuery, CSS also offer a great way to filter out elements with selectors using &lt;a href="http://www.w3.org/TR/selectors/#attribute-selectors"&gt;Regular Expressions&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Selecting on  Attribute and value&lt;/h4&gt;
+&lt;p&gt;[[att=str]]{style="font-family: 'courier new', courier;"} :- attribute value is exactly matching to str&lt;/p&gt;
+&lt;p&gt;[[att*=str] ]{style="font-family: 'courier new', courier;"}:-  attribute value contains str - value can …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Just like JQuery, CSS also offer a great way to filter out elements with selectors using &lt;a href="http://www.w3.org/TR/selectors/#attribute-selectors"&gt;Regular Expressions&lt;/a&gt;.&lt;/p&gt;
+&lt;h4&gt;Selecting on  Attribute and value&lt;/h4&gt;
+&lt;p&gt;[[att=str]]{style="font-family: 'courier new', courier;"} :- attribute value is exactly matching to str&lt;/p&gt;
+&lt;p&gt;[[att*=str] ]{style="font-family: 'courier new', courier;"}:-  attribute value contains str - value can contain str anywhere either in middle or at end.&lt;/p&gt;
+&lt;p&gt;[[att\^=str]]{style="font-family: 'courier new', courier;"} :- attribute value starting with str&lt;/p&gt;
+&lt;p&gt;[[att\$=str]]{style="font-family: 'courier new', courier;"} :- attribute value ends with str&lt;/p&gt;
+&lt;p&gt;[att] :-  Elements which contain attribute att with any value&lt;/p&gt;
+&lt;p&gt;Example:&lt;/p&gt;
+&lt;iframe width="100%" height="350px" src="http://codepen.io/ianoop/embed/nCJdi" scrollbar="none"&gt;&lt;/iframe&gt;
+
+&lt;h4&gt;Applying CSS with Pseudo-class :not&lt;/h4&gt;
+&lt;p&gt;This quite interesting using :not selector to filter out on element properties. Using not selector you can distinguish them from other elements. In this selector also you can use regular expressions to find your elements.&lt;/p&gt;
+&lt;p&gt;For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="nt"&gt;input&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="nd"&gt;not&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="cp"&gt;[&lt;/span&gt;&lt;span class="nx"&gt;DISABLED&lt;/span&gt;&lt;span class="cp"&gt;]&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+   &lt;span class="k"&gt;background-color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+ &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;iframe width="100%" height="250px" src="http://codepen.io/ianoop/embed/AcBfl" scrollbar="none"&gt;&lt;/iframe&gt;</content><category term="CSS"></category></entry><entry><title>CSS3 Animations: Getting started</title><link href="thegeekyway.com/css3-animations-getting-started/" rel="alternate"></link><published>2013-12-21T00:34:00+05:30</published><updated>2013-12-21T00:34:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2013-12-21:thegeekyway.com/css3-animations-getting-started/</id><summary type="html">&lt;p&gt;CSS animations is a great tool design website in very cool fashion without any gif images and reduced page size.&lt;br&gt;
+~(Keep\ in\ mind\ IE8\ and\ IE9\ are\ stone\ age\ browsers\ and\ CSS3\ animation\ won't\ work\ with\ it).~&lt;br&gt;
+There are two basic keyword used to generate animations using  &lt;p style="font-family: 'courier new', courier;"&gt;animation&lt;/p&gt; and &lt;p style="font-family: 'courier new', courier;"&gt; \@keyframes …&lt;/p&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;CSS animations is a great tool design website in very cool fashion without any gif images and reduced page size.&lt;br&gt;
+~(Keep\ in\ mind\ IE8\ and\ IE9\ are\ stone\ age\ browsers\ and\ CSS3\ animation\ won't\ work\ with\ it).~&lt;br&gt;
+There are two basic keyword used to generate animations using  &lt;p style="font-family: 'courier new', courier;"&gt;animation&lt;/p&gt; and &lt;p style="font-family: 'courier new', courier;"&gt; \@keyframes&lt;/p&gt; .&lt;!--more--&gt;&lt;/p&gt;
+&lt;p&gt;Example:  Animation Demo&lt;br&gt;
+&lt;iframe width="100%" height="350px" src="http://codepen.io/ianoop/embed/ndvrm" scrollbar="none"&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p style="font-family: 'courier new', courier;"&gt;*&lt;em&gt;animation: \&lt;animationName\&gt; \&lt;animationTime\&gt; \&lt;numberOfAnimation\&gt;** :&lt;/p&gt;&lt;/em&gt;  Defined as class property&lt;br&gt;
+&lt;strong&gt;&lt;em&gt; &lt;p style="font-family: 'courier new', courier;"&gt;\@keyframes  :&lt;/p&gt;&lt;/em&gt;&lt;/strong&gt;  A Rule which define your animation.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Note: you need to add &lt;strong&gt;&lt;em&gt;-webkit-&lt;/em&gt;&lt;/strong&gt; suffix to above properties in order to work in Chrome and safari.&lt;/p&gt;
+&lt;p&gt;One more a simple CSS3 loader like Facebook loading&lt;br&gt;
+&lt;iframe width="100%" height="350px" src="http://codepen.io/ianoop/embed/LeqAh" scrollbar="none"&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;h5&gt;How does it works:&lt;/h5&gt;
+&lt;p&gt;See in HTML and CSS tab, there is 3 divs and only one  &lt;p style="font-family: courier new,courier;"&gt;\@keyframes &lt;/p&gt;rule has been applied. Only difference is delay in animation.&lt;/p&gt;
+&lt;p&gt;&lt;p style="font-family: courier new,courier;"&gt;Infinite&lt;/p&gt; property allowing this animation to run in infinite loop.&lt;/p&gt;
+&lt;p&gt;One more thing is noticeable is  &lt;p style="font-family: courier new,courier;"&gt;alternate&lt;/p&gt; property in  &lt;p style="font-family: courier new,courier;"&gt;animation&lt;/p&gt;. watch carefully 2st div it is completing animation and then again going in reverse direction which is making this animation smooth.&lt;/p&gt;
+&lt;p&gt;Note: Infinite animation is not working after embedding. Please click on Edit this pen to open at CodePen.&lt;/p&gt;</content><category term="CSS"></category></entry><entry><title>How to add custom CSS in HTML</title><link href="thegeekyway.com/add-custom-css-html/" rel="alternate"></link><published>2013-12-12T23:47:00+05:30</published><updated>2013-12-12T23:47:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2013-12-12:thegeekyway.com/add-custom-css-html/</id><summary type="html">&lt;p&gt;I have already given the &lt;a href="http://www.thegeekyway.com/css-introduction-and-different-ways-of-using-css/" title="CSS – Introduction and How it works"&gt;introduction to CSS&lt;/a&gt; and advantages.Now, there are few ways to use your custom CSS in your site/blog/wordpress.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using style tag with HTML elements.&lt;/li&gt;
+&lt;li&gt;Using Style element inside HTML page&lt;/li&gt;
+&lt;li&gt;Linking external CSS file in your pages&lt;/li&gt;
+&lt;li&gt;Importing CSS file inside another CSS …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;I have already given the &lt;a href="http://www.thegeekyway.com/css-introduction-and-different-ways-of-using-css/" title="CSS – Introduction and How it works"&gt;introduction to CSS&lt;/a&gt; and advantages.Now, there are few ways to use your custom CSS in your site/blog/wordpress.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Using style tag with HTML elements.&lt;/li&gt;
+&lt;li&gt;Using Style element inside HTML page&lt;/li&gt;
+&lt;li&gt;Linking external CSS file in your pages&lt;/li&gt;
+&lt;li&gt;Importing CSS file inside another CSS file&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;1. Using Style tag in HTML element:&lt;/h4&gt;
+&lt;p&gt;You can simply use style tag like below to apply styling to your element.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;&lt;span class="n"&gt;strong&lt;/span&gt; &lt;span class="n"&gt;style&lt;/span&gt;=&lt;span class="s"&gt;&amp;quot;color:White; background:black&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;Text&lt;/span&gt;  &lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;/&lt;span class="n"&gt;strong&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/olJkD"&gt;olJkD&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;script type="text/javascript" src="//codepen.io/assets/embed/ei.js" async&gt;&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;h4&gt;2. Using Style element in your page&lt;/h4&gt;
+&lt;p&gt;Add a &lt;em&gt;style&lt;/em&gt; element in your Head element and define your css classes.&lt;/p&gt;
+&lt;style&gt;&lt;!--&lt;br /&gt;
+   .&lt;span class="hiddenSpellError" pre=""&gt;myclass&lt;/span&gt; {&lt;br /&gt;
+    color:red;&lt;br /&gt;
+    background:black;&lt;br /&gt;
+    }&lt;/p&gt;
+&lt;p&gt;--&gt;&lt;/style&gt;
+
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; Your Text
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/IeBwH"&gt;IeBwH&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;3.  Linking a external css file in page&lt;/h4&gt;
+&lt;p&gt;Add a link to your css file and those classes will be applied to your elements. This is best approach to have clean code and managing your CSS.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        css&amp;quot; href=&amp;quot;customstylesheet.css&amp;quot;&amp;gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;4. Import a CSS file inside another CSS file&lt;/h4&gt;
+&lt;p&gt;Use following format to import a CSS file. Remember following import tag should first line in your file.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;@import&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;mynewstylesheet.css&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: For point 3 and 4 location of your css file is relative to current file. If you are using direct name.css that means CSS file and HTML/CSS file both are in same directory.&lt;/p&gt;</content><category term="CSS"></category><category term="HTML"></category></entry><entry><title>CSS - Introduction and How it works</title><link href="thegeekyway.com/css-introduction-and-different-ways-of-using-css/" rel="alternate"></link><published>2013-12-11T22:57:00+05:30</published><updated>2013-12-11T22:57:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2013-12-11:thegeekyway.com/css-introduction-and-different-ways-of-using-css/</id><summary type="html">&lt;p&gt;CSS stands for &lt;strong&gt;&lt;em&gt;Cascading Style Sheet&lt;/em&gt;&lt;/strong&gt; which is used to style HTML elements.&lt;br&gt;
+While loading any webpage browser simply create DOM of requested web page and renders the HTML. CSS is basically a better way of managing HTML attributes  &lt;p style="color: #800000;"&gt;&lt;strong&gt;style&lt;/strong&gt;&lt;/p&gt; of any element.&lt;/p&gt;
+&lt;p&gt;To add style we simply use  &lt;p style="color: #800000;"&gt;&lt;em&gt;Style …&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;CSS stands for &lt;strong&gt;&lt;em&gt;Cascading Style Sheet&lt;/em&gt;&lt;/strong&gt; which is used to style HTML elements.&lt;br&gt;
+While loading any webpage browser simply create DOM of requested web page and renders the HTML. CSS is basically a better way of managing HTML attributes  &lt;p style="color: #800000;"&gt;&lt;strong&gt;style&lt;/strong&gt;&lt;/p&gt; of any element.&lt;/p&gt;
+&lt;p&gt;To add style we simply use  &lt;p style="color: #800000;"&gt;&lt;em&gt;Style&lt;/em&gt; &lt;/p&gt;attribute to add color, effect, transition or any other things. Like following&lt;/p&gt;
+&lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/jLmEx"&gt;jLmEx&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;script type="text/javascript" src="//codepen.io/assets/embed/ei.js" async&gt;&lt;/script&gt;
+Now using CSS
+
+&lt;/p&gt;
+
+&lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/ICDxa"&gt;ICDxa&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;A CSS  which is used to style a element is called as &lt;em&gt;CSS Class&lt;/em&gt; or simply &lt;em&gt;Class&lt;/em&gt; associated with element.&lt;/p&gt;
+&lt;p&gt;Now,  why to use CSS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;CSS are stored in separate file which contains all the classes to be applied on element&lt;/li&gt;
+&lt;li&gt;Easy to manage and avoid duplication. In a website if you want to make all the links to get into red color on hover you can simply just add a particular class and you are done.&lt;/li&gt;
+&lt;li&gt;You can use same HTML code to different place with different style by just editing small fragment of CSS class&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p style="text-decoration: underline;"&gt;Different ways of using CSS:&lt;/p&gt;
+
+&lt;h6&gt;(click on result tab and hover mouse on link)&lt;/h6&gt;
+&lt;ol&gt;
+-   #### Using class attribute in element.
+
+&lt;/ol&gt;
+
+&lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/Ikupj"&gt;Ikupj&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+-   #### Element ID specific css
+
+&lt;/ol&gt;
+
+&lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/HtmGa"&gt;HtmGa&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
+&lt;ol&gt;
+-   #### Directly using HTML tag as css class
+
+&lt;/ol&gt;
+
+&lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/AdCnL"&gt;AdCnL&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;</content><category term="CSS"></category><category term="HTML"></category></entry></feed>

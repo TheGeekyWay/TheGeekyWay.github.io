@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Android">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Anatomy of First Android Application (Android-Part 2)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/firstandroidapp/">Anatomy of First Android Application (Android-Part 2)</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/gagan93.html"> gagan93</a> </p>
+  <div class="article_text">
+    <p>Hello Geeks, hope you all have read the <a href="http://www.thegeekyway.com/setting-up-eclipse-ide-for-android-application-development/" title="Setup Android IDE">previous post</a> for setting up IDE, here we explain what each folder of a newly created Android Application means. As soon as you follow the steps described in previous post, a simple android application with the application name and a predefined string is created.The whole picture looks something like this (click on res/layout/activity_main.xml):</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/17.jpg"><img alt="New Proj" src="thegeekyway.com/uploads/images/2014/02/17.jpg"></a></p>
+</div>
+<p>The basic structure of an android application looks like this :</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/02/16.jpg"><img alt="package overview" src="thegeekyway.com/uploads/images/2014/02/16.jpg"></a></p>
+</div>
+<p>The highlighted part in the above image shows expanded form of a Android Project. On the top left of tree, we have the name of the Application itself. Under that we have the following folders :</p>
+<ul>
+<li><strong>src :</strong> SRC means SOURCE. Source folder stores the source of your application. This folder stores name of the package and then the source file(s). Here we have MainActivity.java as the main source file, which opens on Right side.</li>
+<li><strong>gen</strong> : Gen means Generated Java Files. The folder stores generated Java files like R.java . These are AUTO GENERATED JAVA FILES which should not be edited.If there is any error in project (xml/source), the file is not generated. So we must remove  The files like R.java are used to map layout files from <strong>Layout file (XML File) to MainActivity file (JAVA File).</strong></li>
+<li><strong>Android 4.3 and Android Private Libraries :</strong> These are source files given by google, normally we do not require to do anything from these files. These are just imported, as required.</li>
+<li><strong>assets :</strong> This folder stores the text files/HTMLs or databases related to your application.</li>
+<li><strong>bin :</strong> As clear from the name, bin folder stores the binary output of your application i.e. the <strong>APK file</strong> which is sufficient to execute independently on your android device.</li>
+<li><strong>lib :</strong> This folder contains one file by default (android support file). We can add any JAR files in this folder which may be used by our application. People who have worked with JAVA must be knowing how to include external jar files in application (by pasting in specific directories in C:/program files/java). This is just similar.</li>
+<li><strong>res :</strong> res folder contains all the resources in your application. There are accessible in your application using its ID which is maintained in <strong>R.java (auto-generated file).</strong> Most of the people are often confused between res and assets, but here's the difference : <strong>Files inside assets folder are accessible in your java file as if it exists in the same folder, No IDs are created for asset files inside R.java. Whereas files in res folder are accessible using their IDs defined in R.java.</strong> Here is the explanation of each subfolder of <strong>res.</strong></li>
+</ul>
+<p>The first five subfolders in res (<strong>drawable</strong> types) consists of images of different sizes which may be used in your android application. Here <strong>hdpi</strong> means <strong>High Density Picture, mdpi</strong> means <strong>Medium Density Picture</strong> and so on<strong>.</strong></p>
+<p>The next folder<strong>(layout)</strong> is the most important which consists of the layout of our application. By default, it consists of one file (activity_main.xml). As we create more activities, more files are added here as per our specification.</p>
+<p>The <strong>menu</strong> folder can be used to create a custom menu inside an Android Application. It is not discussed here in detail.</p>
+<p>The <strong>values</strong> folder contains many XML files which define constant objects for your Android Application. Our main concentration remains on <strong>strings.XML</strong> file which stores constant strings. These strings are accessed in Java application using their ID (eg. R.string.app_name) where <strong>string</strong> is the <strong>strings.xml</strong> file and <strong>app_name</strong> is the constant string <strong>defined in that xml file</strong> (app_name defines the name of android app).</p>
+<p>The other versions of values folder are used for different APIs versions. Other than this we have the AndroidManifest.xml file which defined basic information about the Android Application.</p>
+<p>Eclipse allows two views of an XML file which can be toggled by the TAB given below the XML file as shown here :<br>
+<div style="text-align:center" markdown="1">
+<a href="thegeekyway.com/uploads/images/2014/02/14.jpg"><img alt="AndroidManifest.XML" src="thegeekyway.com/uploads/images/2014/02/14.jpg"></a>
+</div></p>
+<p>The last tab <strong>(AndroidManifest.xml)</strong> represents the XML view of the file whereas the first four tabs <strong>(Manifest, Application,Permissions and Instrumentation)</strong> represent the GUI view of the file. This is the advantage of using <strong>Eclipse IDE,</strong> i.e. for adding some new information to manifest, when we don't know the syntax, we can use the first four tabs so that we enter the information using GUI and Eclipse automatically adds the same information to the XML file.</p>
+<p>The rest of the files describe basic properties of the file and do not require immediate discussion. So we defer this to future posts, they would be discussed as or when required. The next article describes how to create an Android Virtual Machine on your system to execute this created Application.</p>
+<p><a href="http://www.thegeekyway.com/executeandroid/" title="link"> <p style="font-size: xx-large">Link to next tutorial</p></a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 03 February 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/android.html">Android</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/android.html">Android</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

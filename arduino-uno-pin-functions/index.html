@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="Arduino, Openhardware">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Arduino Uno Pin Functions  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/arduino-uno-pin-functions/">Arduino Uno Pin Functions</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/Abhishek_Rawal.html"> Abhishek_Rawal</a> </p>
+  <div class="article_text">
+    <p>Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp; every pin is mentioned below the image.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"><img alt="Arduino Pin Functions" src="thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"></a></p>
+</div>
+<p><u><strong>PIN FUNCTIONS</strong></u> <strong>:<br>
+</strong></p>
+<p><strong>USB To PC :</strong> It is used to communicate Arduino via Universal Serial Bus to PC for programming/sending data to Arduino serially.</p>
+<p><strong>7V to 12V DC Input :</strong> For external supply, the voltage range of 7V to 12V DC is recommended. The 9V battery can be used to power your Arduino Uno board.</p>
+<p><strong>Reset Button :</strong> It Resets the Arduino board if pressed.</p>
+<p><strong>ICSP :</strong> Abbreviated as <em>In Circuit Serial Programming</em> which consists of MOSI, MISO, SCK, RESET, VCC, GND. It is either used to program USB or Microcontroller (For UNO, ATmega 328P-PU). ICSP allows the user to program the microcontroller when it is in circuits, In Arduino UNO it allows to program ATmega328P-PU directly with AVR instructions without using Arduino IDE.</p>
+<p><strong>SDA :</strong> Serial Data, It is the bidirectional data line that is used by I2C.</p>
+<p><strong>SCL :</strong> Serial Clock, It is used to indicate that data is ready on bidirectional data line that is used by I2C.</p>
+<p><strong>AREF :</strong> Analog Read Reference, It is mainly used for analogReference() function calls, as default it is not required but to use it you have to add some voltage source between 0V to 5V in AREF Pin which will be considered as accurate reference voltage.</p>
+<p><strong>GND :</strong> Ground.</p>
+<p><strong>SCK :</strong> Serial Clock, which is used by SPI (Serial Peripheral Interface). It is clock generated by 'Master' which is used to clock the data to the 'Slave'.</p>
+<p><strong>MOSI :</strong> Master Out Slave In, The data is transmitted from Master to Slave. (Master -> Slave)</p>
+<p><strong>MISO :</strong> Master In Slave Out, The data is transmitted to Master from Slave. (Slave -> Master)</p>
+<p><strong>SS :</strong> Slave Select, It is used to select the 'Slave'. Make high to SS pin to deactivate &amp; make low to activate it.</p>
+<p><strong>INT1 &amp; INT0 :</strong> These are hardware interrupts, it calls the ISR (Interrupt Service Routine) when the pin change occurs.</p>
+<p><strong>TX :</strong> Transmit, It is used to transmit TTL serial data. It is also referred as 'outwards' since it 'transmits' data from Arduino to other connected peripheral device.</p>
+<p><strong>RX :</strong> Receive, It is used to receive TTL serial data. IT is also referred as 'inwards' since it 'receives' data from external hardware to Arduino.</p>
+<p><strong>Vin :</strong> Voltage In, If you're powering your Arduino board from USB nothing is obtained from Vin pin. But, if you're powering the board with external supply then that supply is directly obtained from Vin pin. However, the supply obtained at Vin pin is usually lesser by 1V than voltage supplied to Power pin due to reverse polarity protection diode.</p>
+<p><strong>5V Pin :</strong> It is used to power external components connected to Arduino which needs 5V.</p>
+<p><strong>3.3V Pin :</strong> It is used to power external components connected to Arduino which needs 3.3V</p>
+<p><strong>IORef :</strong> Input Output Voltage Reference, It allows shields connected to Arduino board to check whether the board is running at 3.3V or 5V.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 23 December 2013</p>
+    <p>Category: <a href="thegeekyway.com/category/electronics.html">Electronics</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/arduino.html">Arduino</a>,      <a href="thegeekyway.com/tag/openhardware.html">Openhardware</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

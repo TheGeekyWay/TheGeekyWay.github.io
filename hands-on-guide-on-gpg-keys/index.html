@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="encryption, GPG, security">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Hands-on Guide on GPG Keys  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/hands-on-guide-on-gpg-keys/">Hands-on Guide on GPG Keys</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/GeekyShacklebolt.html"> GeekyShacklebolt</a> </p>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><img alt="" src="thegeekyway.com/uploads/images/2018/03/GPG_guide.png"></p>
+</div>
+<p>GPG or GNU Privacy Guard is a complete and free implementation of the OpenPGP standard as defined by <a href="https://www.ietf.org/rfc/rfc4880.txt">RFC4880</a> (also known as PGP). It is a tool that provides encryption and signing services, using which, you can encrypt or sign your files, messages, emails and can even sign your github commits. In this guide, let's get a walk through GPG keys and its use cases.<!--more--></p>
+<p>GPG is basically an implementation of a cryptosystem that you can use to exchange encrypted or signed messages and it is based on <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">asymmetric cryptography</a>. It fulfills the <a href="http://whatis.techtarget.com/definition/Confidentiality-integrity-and-availability-CIA">CIA of security</a> where <strong>"C"</strong> stands for "Confidentiality", <strong>"I"</strong> stands for "Integrity" and <strong>"A"</strong> stands for "Availability".</p>
+<h2>Before Generating a Key Pair</h2>
+<p>In this tutorial, I am using <strong>"gpg2"</strong>, but you may go with <strong>"gpg"</strong> as well, because most of the commands are same for both. However, a comparison between both the versions is available at the end of this post.</p>
+<p>To generate a key pair, first make sure you can run the following command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --version
+gpg <span class="o">(</span>GnuPG<span class="o">)</span> <span class="m">2</span>.1.11
+libgcrypt <span class="m">1</span>.6.5
+Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2016</span> Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version <span class="m">3</span> or later <span class="p">&amp;</span>lt<span class="p">;</span>http://gnu.org/licenses/gpl.html<span class="p">&amp;</span>gt<span class="p">;</span>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Home: ~/.gnupg
+Supported algorithms:
+Pubkey: RSA, ELG, DSA, ECDH, ECDSA, EDDSA
+Cipher: IDEA, 3DES, CAST5, BLOWFISH, AES, AES192, AES256, TWOFISH,
+        CAMELLIA128, CAMELLIA192, CAMELLIA256
+Hash: SHA1, RIPEMD160, SHA256, SHA384, SHA512, SHA224
+Compression: Uncompressed, ZIP, ZLIB, BZIP2
+</pre></div>
+
+
+<p>It gives the version number of <strong>gpg</strong> like <strong>2.1.11</strong>. If not, then you need to install it, the package is <strong>gnupg</strong> (for gpg) or <strong>gnupg2</strong> (for gpg2).</p>
+<div class="highlight"><pre><span></span>$ sudo apt-get update
+$ sudo apt-get install gnupg2
+</pre></div>
+
+
+<h2>Generate a Key Pair</h2>
+<p>Simply run the following command to generate a new key pair.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --full-gen-key
+</pre></div>
+
+
+<p>You may try this command with <strong>"sudo"</strong> if required.</p>
+<p><strong>Note:- Either use "gpg", "gpg2", "sudo gpg" or "sudo gpg2". But whatever you use, keep that same.</strong> That means, if <strong>"sudo gpg2" </strong>worked for you, then keep it same for all the upcoming commands.</p>
+<p>This command will ask you the following questions.</p>
+<ul>
+<li><strong><em>What kind of key do you want (RSA, DSA, etc)?</em></strong><br>
+   You should go with default selection.</li>
+<li><strong><em>Key size?</em></strong><br>
+   The longer, the better.</li>
+<li><strong><em>How long should the key be valid?</em></strong><br>
+   It is good to give here some value e.i <strong>"2y"</strong> (2 years) as it is suggested to all people that start with PGP to use an expiring key. Because at some point, you are likely to lose access to the private key, and then you can't revoke the key so that other people stop using it. But if it expires, everyone will stop using it at the expiration date.</li>
+<li><strong><em>Your real name?</em></strong></li>
+<li><strong><em>Your email address?</em></strong></li>
+<li><strong><em>Any comment?</em></strong><br>
+   For now, you may leave the comment empty. But comments are used to distinctly identify a key, in case you have multiple GPG keys.</li>
+<li><strong><em>Final confirmation (y/n)?</em></strong></li>
+<li><strong><em>Your passphrase</em>?</strong><br>
+   Enter a strong passphrase twice and proceed ahead.</li>
+</ul>
+<p>At this point, <strong>GPG</strong> will generate the keys using entropy. <em>Entropy</em> describes the amount of unpredictability and nondeterminism that exists in a system. This entropy is needed to generate a secure set of keys. This process may take some time depending on how active your system is, and the key size you selected. The terminal may look like this.</p>
+<div class="highlight"><pre><span></span>$ <span class="n">gpg2</span> --<span class="n">full-gen-key</span> 
+<span class="n">gpg</span> (<span class="n">GnuPG</span>) <span class="mf">2.1.11</span>; <span class="n">Copyright</span> (<span class="n">C</span>) <span class="mi">2016</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span>, <span class="n">Inc</span>.
+<span class="n">This</span> <span class="k">is</span> <span class="n">free</span> <span class="n">software:</span> <span class="n">you</span> <span class="n">are</span> <span class="n">free</span> <span class="nb">to</span> <span class="n">change</span> <span class="o">and</span> <span class="n">redistribute</span> <span class="n">it</span>.
+<span class="n">There</span> <span class="k">is</span> <span class="n">NO</span> <span class="n">WARRANTY</span>, <span class="nb">to</span> <span class="n">the</span> <span class="n">extent</span> <span class="n">permitted</span> <span class="nb">by</span> <span class="n">law</span>.
+
+<span class="n">Please</span> <span class="n">select</span> <span class="n">what</span> <span class="n">kind</span> <span class="k">of</span> <span class="nb">key</span> <span class="n">you</span> <span class="n">want:</span>
+(<span class="mi">1</span>) <span class="n">RSA</span> <span class="o">and</span> <span class="n">RSA</span> (<span class="k">default</span>)
+(<span class="mi">2</span>) <span class="n">DSA</span> <span class="o">and</span> <span class="n">Elgamal</span>
+(<span class="mi">3</span>) <span class="n">DSA</span> (<span class="nb">sign</span> <span class="k">only</span>)
+(<span class="mi">4</span>) <span class="n">RSA</span> (<span class="nb">sign</span> <span class="k">only</span>)
+<span class="n">Your</span> <span class="n">selection</span>? <span class="mi">1</span>
+
+<span class="n">RSA</span> <span class="nb">keys</span> <span class="n">may</span> <span class="n">be</span> <span class="n">between</span> <span class="mi">1024</span> <span class="o">and</span> <span class="mi">4096</span> <span class="n">bits</span> <span class="n">long</span>.
+<span class="n">What</span> <span class="n">keysize</span> <span class="k">do</span> <span class="n">you</span> <span class="nb">want</span>? (<span class="mi">2048</span>) <span class="mi">4096</span>
+
+<span class="n">Requested</span> <span class="n">keysize</span> <span class="k">is</span> <span class="mi">4096</span> <span class="n">bits</span>
+<span class="n">Please</span> <span class="n">specify</span> <span class="n">how</span> <span class="n">long</span> <span class="n">the</span> <span class="nb">key</span> <span class="n">should</span> <span class="n">be</span> <span class="n">valid</span>.
+<span class="mi">0</span> = <span class="nb">key</span> <span class="nb">does</span> <span class="nb">not</span> <span class="n">expire</span>
+<span class="nv">&amp;lt</span>;<span class="n">n</span><span class="nv">&amp;gt</span>; = <span class="nb">key</span> <span class="n">expires</span> <span class="n">in</span> <span class="n">n</span> <span class="n">days</span>
+<span class="nv">&amp;lt</span>;<span class="n">n</span><span class="nv">&amp;gt</span>;<span class="n">w</span> = <span class="nb">key</span> <span class="n">expires</span> <span class="n">in</span> <span class="n">n</span> <span class="n">weeks</span>
+<span class="nv">&amp;lt</span>;<span class="n">n</span><span class="nv">&amp;gt</span>;<span class="sr">m = key expires in n months</span>
+<span class="sr">&amp;lt;n&amp;gt;y =</span> <span class="nb">key</span> <span class="n">expires</span> <span class="n">in</span> <span class="n">n</span> <span class="n">years</span>
+
+<span class="n">Key</span> <span class="k">is</span> <span class="n">valid</span> <span class="k">for</span>? (<span class="mi">0</span>) <span class="mi">2</span><span class="n">y</span>
+<span class="n">Key</span> <span class="n">expires</span> <span class="n">at</span> <span class="n">Tuesday</span> <span class="mo">03</span> <span class="n">March</span> <span class="mi">2020</span> <span class="mo">02</span>:<span class="mi">08</span>:<span class="mi">15</span> <span class="n">PM</span> <span class="n">IST</span>
+<span class="n">Is</span> <span class="n">this</span> <span class="n">correct</span>? (<span class="n">y</span><span class="o">/</span><span class="n">N</span>) <span class="n">y</span>
+
+<span class="n">GnuPG</span> <span class="n">needs</span> <span class="nb">to</span> <span class="n">construct</span> <span class="n">a</span> <span class="n">user</span> <span class="n">ID</span> <span class="nb">to</span> <span class="n">identify</span> <span class="n">your</span> <span class="nb">key</span>.
+
+<span class="n">Real</span> <span class="n">name:</span> <span class="n">Your</span> <span class="n">Name</span>
+<span class="n">Email</span> <span class="n">address:</span> <span class="n">your</span>.<span class="n">email</span><span class="nv">@example</span>.<span class="n">com</span>
+<span class="n">Comment:</span> 
+<span class="n">You</span> <span class="n">selected</span> <span class="n">this</span> <span class="n">USER-ID:</span>
+<span class="s">&quot;Your Name &amp;lt;your.email@example.com&amp;gt;&quot;</span>
+
+<span class="n">Change</span> (<span class="n">N</span>)<span class="n">ame</span>, (<span class="n">C</span>)<span class="n">omment</span>, (<span class="n">E</span>)<span class="n">mail</span> <span class="o">or</span> (<span class="n">O</span>)<span class="n">kay</span>/(<span class="s">Q)uit? O</span>
+<span class="s">We need to generate a lot of random bytes. It is a good idea to perform</span>
+<span class="s">some other action (type on the keyboard, move the mouse, utilize the</span>
+<span class="s">disks)</span> <span class="n">during</span> <span class="n">the</span> <span class="n">prime</span> <span class="n">generation</span>; <span class="n">this</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">random</span> <span class="n">number</span>
+<span class="n">generator</span> <span class="n">a</span> <span class="n">better</span> <span class="n">chance</span> <span class="nb">to</span> <span class="n">gain</span> <span class="n">enough</span> <span class="n">entropy</span>.
+</pre></div>
+
+
+<h2>Generate an Authentication Subkey</h2>
+<p>An authentication subkey is used if you want to use your GPG key for SSH authentication. To generate this, just follow these steps:</p>
+<ul>
+<li><strong>\$ gpg2 --expert --edit-key your_key_id</strong></li>
+<li>Enter <strong>addkey</strong> (to select the operation)</li>
+<li>Select the type of key (e.i select "<strong>8</strong>" for RSA)</li>
+<li>Enter <strong>'S'</strong> to toggle signing to OFF.</li>
+<li>Enter <strong>'E'</strong> to toggle encrypting to OFF.</li>
+<li>Enter <strong>'A'</strong> to toggle authentication to ON.</li>
+<li>Enter <strong>'Q'</strong> to quit.</li>
+<li>Enter key size. (e.i <strong>4096</strong>)</li>
+<li>Enter validity period. (e.i <strong>"2y"</strong>)</li>
+<li>Confirm your entries.</li>
+<li>Confirm creation.</li>
+<li>Enter Passphrase twice.</li>
+</ul>
+<p>After some time your authentication subkey would be generated. Output of the process is shown below.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --expert --edit-key 123EE456
+gpg <span class="o">(</span>GnuPG<span class="o">)</span> <span class="m">2</span>.1.11<span class="p">;</span> Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2016</span> Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+Secret key is available.
+
+sec rsa4096/123EE456
+ created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: SC 
+ trust: ultimate     validity: ultimate
+ssb rsa4096/7891EEFF
+ created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: E 
+<span class="o">[</span>ultimate<span class="o">]</span> <span class="o">(</span><span class="m">1</span><span class="o">)</span>. Real Name your.email@gmail.com
+
+gpg<span class="p">&amp;</span>gt<span class="p">;</span> addkey
+Please <span class="k">select</span> what kind of key you want:
+ <span class="o">(</span><span class="m">3</span><span class="o">)</span> DSA <span class="o">(</span>sign only<span class="o">)</span>
+ <span class="o">(</span><span class="m">4</span><span class="o">)</span> RSA <span class="o">(</span>sign only<span class="o">)</span>
+ <span class="o">(</span><span class="m">5</span><span class="o">)</span> Elgamal <span class="o">(</span>encrypt only<span class="o">)</span>
+ <span class="o">(</span><span class="m">6</span><span class="o">)</span> RSA <span class="o">(</span>encrypt only<span class="o">)</span>
+ <span class="o">(</span><span class="m">7</span><span class="o">)</span> DSA <span class="o">(</span><span class="nb">set</span> your own capabilities<span class="o">)</span>
+ <span class="o">(</span><span class="m">8</span><span class="o">)</span> RSA <span class="o">(</span><span class="nb">set</span> your own capabilities<span class="o">)</span>
+ <span class="o">(</span><span class="m">10</span><span class="o">)</span> ECC <span class="o">(</span>sign only<span class="o">)</span>
+ <span class="o">(</span><span class="m">11</span><span class="o">)</span> ECC <span class="o">(</span><span class="nb">set</span> your own capabilities<span class="o">)</span>
+ <span class="o">(</span><span class="m">12</span><span class="o">)</span> ECC <span class="o">(</span>encrypt only<span class="o">)</span>
+ <span class="o">(</span><span class="m">13</span><span class="o">)</span> Existing key
+Your selection? <span class="m">8</span>
+
+Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
+Current allowed actions: Sign Encrypt
+
+ <span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+ <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+ <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+ <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? S
+
+Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
+Current allowed actions: Encrypt
+
+<span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+ <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+ <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+ <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? E
+
+Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
+Current allowed actions:
+
+<span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+ <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+ <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+ <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? A
+
+Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
+Current allowed actions: Authenticate
+
+<span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
+ <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
+ <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
+ <span class="o">(</span>Q<span class="o">)</span> Finished
+
+Your selection? Q
+RSA keys may be between <span class="m">1024</span> and <span class="m">4096</span> bits long.
+What keysize <span class="k">do</span> you want? <span class="o">(</span><span class="m">2048</span><span class="o">)</span> <span class="m">4096</span>
+Requested keysize is <span class="m">4096</span> bits
+Please specify how long the key should be valid.
+ <span class="nv">0</span> <span class="o">=</span> key does not expire
+ <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span> <span class="o">=</span> key expires in n days
+ <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span><span class="nv">w</span> <span class="o">=</span> key expires in n weeks
+ <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span><span class="nv">m</span> <span class="o">=</span> key expires in n months
+ <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span><span class="nv">y</span> <span class="o">=</span> key expires in n years
+Key is valid <span class="k">for</span>? <span class="o">(</span><span class="m">0</span><span class="o">)</span> 2y
+Key expires at Thursday <span class="m">05</span> March <span class="m">2020</span> <span class="m">02</span>:30:01 AM IST
+Is this correct? <span class="o">(</span>y/N<span class="o">)</span> y
+Really create? <span class="o">(</span>y/N<span class="o">)</span> y
+We need to generate a lot of random bytes. It is a good idea to perform
+some other action <span class="o">(</span><span class="nb">type</span> on the keyboard, move the mouse, utilize the
+disks<span class="o">)</span> during the prime generation<span class="p">;</span> this gives the random number
+generator a better chance to gain enough entropy.
+
+sec rsa4096/123EE456
+ created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: SC 
+ trust: ultimate validity: ultimate
+ssb rsa4096/7891EEFF
+ created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: E 
+ssb rsa4096/6A127E44
+ created: <span class="m">2018</span>-03-05 expires: <span class="m">2020</span>-03-04 usage: A
+</pre></div>
+
+
+<p>Last 2 lines of the output show newly created authentication [A] subkey.</p>
+<h2>List Keys</h2>
+<p>To list all the public GPG keys. Give the following command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --list-keys
+</pre></div>
+
+
+<p>To obtain the key id in LONG (complete) format, use this flag <strong>"--keyid-format LONG".</strong></p>
+<div class="highlight"><pre><span></span>$ gpg2 --list-keys --keyid-format LONG
+</pre></div>
+
+
+<p>To list all the private GPG keys.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --list-secret-keys
+</pre></div>
+
+
+<p>All these commands give you the following information about your GPG keys and subkeys.</p>
+<ul>
+<li>Which algorithm your keys use, e.i <strong>rsa.</strong></li>
+<li>Key size, e.i <strong>4096 bits.<br>
+</strong></li>
+<li>Key IDs, e.i <strong>123AB456</strong> (this is the short key id of 8-bytes, in the long format you get the complete key id of 16-bytes).</li>
+<li>Date of creation.</li>
+<li>Their usage e.i  <p .st><strong>'E'</strong>=encryption, <strong>'S'</strong>=signing, <strong>'C'</strong>=certification, <strong>'A'</strong>=authentication.</p></li>
+<li>Their expiry date.</li>
+<li>Their trust level, e.i <strong>Ultimate, unknown, etc.</strong></li>
+<li>Name and Email associated with them that's also known as <strong>UID</strong> "User ID".</li>
+</ul>
+<h2>Exporting Keys</h2>
+<p>Exporting means, to bring out the keys from GPG database so that we may see or store them in files.</p>
+<p>If you want to see your GPG key in ASCII characters, then you need to export it to a file by the following command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --output public.key --armor --export your.email@example.com
+</pre></div>
+
+
+<p><strong>--output:</strong> specifies the output file.<br>
+<strong>--export:</strong> to instruct GPG to export your public key.<br>
+<strong>--armor:</strong> to export in ASCII characters.</p>
+<p>Similarly, to export a private key directly on the terminal just change one flag.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --armor --export-secret-keys your.email@example.com
+</pre></div>
+
+
+<p>This will ask for your passphrase. Here you may also add the <strong>--output</strong> flag to put its output in a file as done in the previous command.</p>
+<p><strong>Note: Never give/share your private key anywhere. Keep it as secure as you can.</strong> The private key is required to decrypt the data encrypted just for you. So, compromising this key may result in security issues whose severity depends on the data you deal with.</p>
+<h2>Fingerprints</h2>
+<p>A key can be verified by a number of ways. One such way is to use its fingerprint. The fingerprint is a shorter number (usually expressed as a 40-hexadecimal-digit number) that contains a cryptographically strong hash of the public key.</p>
+<p>To see the fingerprint of any GPG key associated with an email. Use this command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --fingerprint email@example.com
+</pre></div>
+
+
+<p>You can cross check this fingerprint with the person to verify if it is trustworthy.</p>
+<p>Now when you have seen and understand your GPG keys. It's time to generate a revocation certificate.</p>
+<h2>Generating a Revocation Certificate</h2>
+<p>It is vital to have revocation certificate to declare your keys invalid in case your private key has been compromised or lost. It should be generated as soon as you generate your key pair, not when you need it. So, let's generate it with the following command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --output ~/revocation.crt --gen-revoke your.email@example.com
+Please <span class="k">select</span> the reason <span class="k">for</span> the revocation: 
+ <span class="nv">0</span> <span class="o">=</span> No reason specified
+ <span class="nv">1</span> <span class="o">=</span> Key has been compromised
+ <span class="nv">2</span> <span class="o">=</span> Key is superseded
+ <span class="nv">3</span> <span class="o">=</span> Key is no longer used
+ <span class="nv">Q</span> <span class="o">=</span> Cancel 
+<span class="o">(</span>Probably you want to <span class="k">select</span> <span class="m">1</span> here<span class="o">)</span> 
+Your decision? <span class="m">0</span>
+</pre></div>
+
+
+<p>It would ask for your confirmation for generating the certificate and the reason for which you are creating this. It is also suggested that you should have revocation certificates for every possibility listed there for maximum flexibility, but for now, you may go for <strong>"0: No reason specified"</strong>.</p>
+<p>Now give a comment (I left it empty) and your passphrase. Soon, your certificate is generated. You should keep this as secure and hidden as you keep your private keys. Here is the output.</p>
+<div class="highlight"><pre><span></span>Enter an optional description; end it with an empty line:
+&amp;gt; 
+Reason for revocation: No reason specified
+(No description given)
+Is this okay? (y/N) y
+ASCII armored output forced.
+Revocation certificate created.
+
+Please move it to a medium which you can hide away; if Mallory gets
+access to this certificate he can use it to make your key unusable.
+It is smart to print this certificate and store it away, just in case
+your media become unreadable. But have some caution: The print system of
+your machine might store the data and make it available to others!
+</pre></div>
+
+
+<p>In order to save this file from unauthorized access, you may immediately put restrictions (if not present by default).</p>
+<div class="highlight"><pre><span></span>$ chmod <span class="m">600</span> ~/revocation.crt
+</pre></div>
+
+
+<p>In case you want to revoke your key, then you would have to upload this revocation certificate to a public keyserver (assuming that you have already sent <em>your public key to a keyserver</em>. See below.)</p>
+<h2>Sending and Importing Keys</h2>
+<h4><strong>Sending:</strong></h4>
+<p><strong><em>Why are you using GPG keys in the first place?</em></strong><br>
+Because with GPG you can sign messages or other people can encrypt messages to you.</p>
+<p>Therefore, to make your key publicly available might be of great help. So that, anyone can take your public key to encrypt messages to you. For this, we can send our public key to a keyserver.</p>
+<p><strong><em>Would it be safe to upload your public key on keyservers?</em></strong><br>
+Absolutely yes, as I have already mentioned before that GPG works on <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">asymmetric cryptography</a>, therefore having your public key to someone doesn't make a threat to your security. Because it is practically impossible to generate a private key from a public key.</p>
+<p>There are multiple keyservers available to hold public keys like, <strong><em><a href="https://keys.fedoraproject.org/">keys.fedoraproject.org</a>, <a href="http://keyserver.ubuntu.com/">keyserver.ubuntu.com, etc</a>.</em></strong><strong> </strong>and they regularly synchronize among themselves. So if you send your key on <em>keyserver.ubuntu.com, then</em> after some time, it would also be available at <em>keys.fedoraproject.org.</em></p>
+<p>To send your key to the keyserver use the following command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --send-keys --keyserver keyserver_url key_id
+</pre></div>
+
+
+<p>If you don't want to upload your key to a keyserver (in case your communication is limited to a group of people) then you can also send your public key to them through email.</p>
+<h4><strong>Importing:</strong></h4>
+<p>Importing means to include the key in your GPG database, so that you may use them in future. For example, if you wanna send your friends an encrypted message, which can be done with their public keys. Therefore, first, you would need to import their keys into your GPG system and then only you may use them for encryption.</p>
+<p>You can import the key of someone from a file, with the following command. For this, you must have their public key in a file say <strong>"their_gpg.key"</strong>.</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">gpg2</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">their_gpg.key</span>
+</pre></div>
+
+
+<p>Now when you would list-keys with "<strong>gpg2 --list-keys</strong>", this imported key will also be listed.</p>
+<p>But if the person's key is available at a keyserver, then you can also directly pull their keys from there. Because keyservers distribute public keys to anyone who requests them. Once you have sent your key to a keyserver, others can request your key using the command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --keyserver keyserver_url --recv-keys key_id
+</pre></div>
+
+
+<p>To refresh all your keys from a keyserver, to obtain new signatures, new UIDs and new key revocations, use this.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --refresh-keys
+</pre></div>
+
+
+<p><kbd>And to pull from specific servers, use this.</kbd></p>
+<div class="highlight"><pre><span></span>$ gpg2 --keyserver keyserver_url --refresh-keys
+</pre></div>
+
+
+<p>You should do this regularly. But you may receive error messages if any of your keys cannot be found on the key server.</p>
+<h2>Signing Keys</h2>
+<p>A major benefit of GPG is that you can sign a file to prove that it is genuinely coming form you. Because signs are created using private keys and only the person who owns the GPG keys, have its private key (if not compromised or lost).</p>
+<p>Your key is already signed by you when it was created. That you may verify with.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --list-sig your.email@example.com
+</pre></div>
+
+
+<p>In the output, the line after <strong>"sig"</strong> shows the <strong>UID</strong> of those people who have signed your key.</p>
+<p>You can also sign keys of other people (assuming that you have already imported the key of that person). Signing a key means you verify that you trust the person, who they claim to be. If you sign a person's key then sending the signed key back to him/her is a good idea, otherwise, they won't be able to take advantage of your sign. For this, you have 2 methods.</p>
+<p><strong>Method 1:</strong></p>
+<div class="highlight"><pre><span></span>$ gpg2 --sign-key person.email@example.com
+$ gpg2 --output ~/signed.key --sign-key person.email@example.com
+</pre></div>
+
+
+<p>Then you can send this "<strong>signed.key</strong>" file to the person via mail.</p>
+<p>Once that person receives your signed key, then s//he can update their own GPG database to include your signature.</p>
+<div class="highlight"><pre><span></span><span class="err">$</span> <span class="n">gpg2</span> <span class="o">--</span><span class="kn">import</span> <span class="nn">signed.key</span>
+</pre></div>
+
+
+<p><strong>Method 2:</strong></p>
+<div class="highlight"><pre><span></span>$ gpg2 --sign-key person.email@example.com
+$ gpg2 --keyserver key_server --send-key person_keyid
+</pre></div>
+
+
+<p>This will directly upload your sign to the keyserver (assuming that the person has sent his key to a keyserver). So when next time that person would refresh his/her GPG database, your sign would be included.</p>
+<p><strong><em>Why should you sign a person's key?</em><em><br>
+</em>Because this can help other people decide whether to trust that person too or not. If someone trusts you, and they see that you've signed this person's key, they may be more likely to trust their identity too. There is a concept behind signing a key known as </strong><a href="https://en.wikipedia.org/wiki/Web_of_trust">Web of Trust</a>.** (see below)</p>
+<h2>Trust Levels and Validity</h2>
+<p>Trust levels is a medium by which we can inform GPG that how much we trust a UID of a person associated with a key.</p>
+<p>There are following trust levels available</p>
+<ul>
+<li><strong>Unknown:</strong> This is the default level that is set on validity and trust.</li>
+<li><strong>Undefined:</strong> This is explicitly defining trust level to be unknown. Means you would like to confirm it later on.</li>
+<li><strong>Never:</strong> This indicates that you do not trust the UID of that key.</li>
+<li><strong>Marginal:</strong> This means you have half trust on the UID of that key.</li>
+<li><strong>Full:</strong> This means you fully trust that person.</li>
+<li><strong>Ultimate:</strong> There is only one UID that is marked with <strong>Ultimate</strong> trust, and that is of yourself.</li>
+</ul>
+<p>More detail about trust-levels is available <a href="https://gpgtools.tenderapp.com/kb/faq/what-is-ownertrust-trust-levels-explained">here</a>.</p>
+<p>You may check the <strong>trust</strong> and <strong>validity</strong> levels of any <strong>UID</strong> among the keys you have imported, with this command.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --edit-key email@example.com
+gpg <span class="o">(</span>GnuPG<span class="o">)</span> <span class="m">2</span>.1.11<span class="p">;</span> Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2016</span> Free Software Foundation, Inc.
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+pub rsa2048/4A5N1031
+ created: <span class="m">2016</span>-10-10 expires: <span class="m">2018</span>-10-10 usage: SC 
+ trust: unknown         validity: unknown
+sub rsa2048/73E6DB92
+ created: <span class="m">2016</span>-10-10 expires: <span class="m">2018</span>-10-10 usage: E 
+<span class="o">[</span> unknown <span class="o">]</span> <span class="o">(</span><span class="m">1</span><span class="o">)</span>. Person Name email@example.com
+
+gpg: Q
+</pre></div>
+
+
+<p>To modify <strong>trust</strong> of the key, enter "<strong>trust"</strong> instead of <strong>"Q"</strong> (in the last line of output). And you'll get a prompt like this.</p>
+<div class="highlight"><pre><span></span>Please decide how far you trust this user to correctly verify other users&#39; keys
+(by looking at passports, checking fingerprints from different sources, etc.)
+
+ 1 = I don&#39;t know or won&#39;t say
+ 2 = I do NOT trust
+ 3 = I trust marginally
+ 4 = I trust fully
+ 5 = I trust ultimately
+ m = back to the main menu
+
+Your decision? m
+</pre></div>
+
+
+<p>Enter your decision, and that trust level would be set for that key.</p>
+<p><strong>Why do we have trust levels?</strong></p>
+<p>To understand this, first, you must understand <strong>validity.</strong> When you sign a key, you say that the key is <strong>valid</strong>. But you sign a key if and only if you are sure, that the key belongs the person whose UID is attached to the key. This verification could be done by personally contacting that person and cross-checking the fingerprint of the key.</p>
+<p>Isn't it a tedious task to every time contacting people just to confirm the fingerprint of their GPG key? Especially, in the case when you haven't met that person before. Therefore, we have something called <strong>"<a href="https://en.wikipedia.org/wiki/Web_of_trust">Web of Trust</a>".</strong></p>
+<p>Suppose you trust "<strong>Mike</strong>" and <strong>"John"</strong> that they sign GPG keys of other people only after completely verifying a UID. Then giving following <strong>Trust-levels</strong> to them would affect your key as follows.</p>
+<ul>
+<li><strong>Unknown/Undefined</strong> to <strong>Mike:</strong> Keys signed by Mike won't be valid for you.</li>
+<li><strong>Never</strong> to <strong>Mike:</strong> Same as above, but here you have explicitly given that you don't trust <strong>Mike.</strong></li>
+<li><strong>Marginal</strong> to <strong>Mike:</strong> Keys signed by Mike will be marginally valid for you.</li>
+<li><strong>Marginal</strong> to <strong>Mike</strong> and <strong>John:</strong> Keys signed by both Mike and John will be valid for you (if the marginal limit is set to 2, otherwise if the marginal limit is set to <strong>"n"</strong> then a key becomes valid if it is signed by <strong>"n"</strong> UIDs).</li>
+<li><strong>Full</strong> to <strong>Mike:</strong> Keys signed by Mike will be valid for you as well.</li>
+</ul>
+<p>I recommend you to read <a href="https://www.gnupg.org/gph/en/manual/x334.html">this document</a> to get a better understanding of trust-levels and validity.</p>
+<h2>Encryption-Decryption with GPG</h2>
+<h4>Encrypting a file</h4>
+<p>To encrypt and sign a file for a recipient you must have his/her public key imported.</p>
+<div class="highlight"><pre><span></span>$ gpg2 -r email.of.recipient@example.com -r your.email@example.com --encrypt --sign --armor file_name
+</pre></div>
+
+
+<ul>
+<li><strong>gpg2:</strong> command</li>
+<li><strong>-r:</strong> to give email_address to possible recipients (who can decrypt this file).</li>
+<li><strong>-r:</strong> adding yourself as one of the recipients so that you can also decrypt the file otherwise after encrypting, even you won't be able to decrypt it.</li>
+<li><strong>--encrypt:</strong> instructing to encrypt.</li>
+<li><strong>--sign:</strong> instructing to sign the file as well.</li>
+<li><strong>--armor:</strong> to encrypt in ASCII characters.<strong> </strong></li>
+<li><strong>file_name:</strong> complete path of the file, If you omit this part, then after giving this command, the terminal will wait for you to enter the text. When you are done with entering your message, press <strong>CTRL + d</strong> (Linux). It would generate the encrypted form of your message, which you may copy to clipboard and paste in any file.</li>
+</ul>
+<p>If you haven't set any trust level for that recipient, then you are likely to get here a confirmation prompt for using the recipient's public key for encryption. And finally, it would prompt you for your passphrase.</p>
+<p>Soon an encrypted file would be created with <strong>.asc</strong> extension. But still, that unencrypted file is available. You are yourself responsible to delete the original file.</p>
+<h4>Decrypting a file</h4>
+<p>To decrypt a file that was encrypted by your public key just use.</p>
+<div class="highlight"><pre><span></span>$ gpg2 file_name.asc
+</pre></div>
+
+
+<p>It would ask for your passphrase and a decrypted file would be available to you without "<strong>.asc"</strong> extension.</p>
+<p>If the encrypted file was also <strong>signed</strong> by the sender, then the output of above command would also give information about signature like <strong><em>date_of_signature</em></strong> and <em><strong>status_of_signature</strong> (good or bad)</em> otherwise not.</p>
+<h2>Signed messages</h2>
+<h4><strong>Clearsign:</strong></h4>
+<p>Using GPG you may send signed files without encryption. Create a file say "<strong>newfile</strong>", add some message to it and sign it.</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Hello World&quot;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> newfile
+$ gpg2 --clearsign newfile
+</pre></div>
+
+
+<p><strong>--clearsign:</strong> wraps the message without encryption with your <strong>armored</strong> signature, so that any non-GPG user can read the message and any GPG user can verify it (if needed).</p>
+<p>Soon "<strong>newfile.asc</strong>" would be created and anyone can verify, that it is signed by you.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --verify newfile
+</pre></div>
+
+
+<p>But it can give you warning of not having a detached signature.</p>
+<div class="highlight"><pre><span></span><span class="n">gpg</span><span class="o">:</span> <span class="n">WARNING</span><span class="o">:</span> <span class="n">not</span> <span class="n">a</span> <span class="n">detached</span> <span class="n">signature</span><span class="o">;</span> <span class="n">file</span> <span class="s1">&#39;newfile&#39;</span> <span class="n">was</span> <span class="n">NOT</span> <span class="n">verified</span><span class="o">!</span>
+</pre></div>
+
+
+<p>(if yes, see below)</p>
+<h4><strong>Detached signature:</strong></h4>
+<p>Till now newfile<strong>.</strong>asc consisted both unencrypted message and signature in the same file. To solve this issue, we can sign a file with a detached signature so that the file and the signature can be kept separately.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --detach-sign newfile
+</pre></div>
+
+
+<p>Now a new file with name "<strong>newfile.sig</strong>" is created which contains just your signature. You may verify that with.</p>
+<div class="highlight"><pre><span></span>$ gpg2 --verify newfile.sig
+</pre></div>
+
+
+<p>This will return verification statement and signature's information, together with the attached file's name. Now, if you change the file's (newfile) content and again check for verification, then it would fail. Because the new content wasn't signed by the signer. This way GPG maintains <strong>"Integrity"</strong>.</p>
+<p>In case the signature verification failed, then understand that the content of the message has been modified in between.</p>
+<h2>Integrated with GPG</h2>
+<h4>Thunderbird</h4>
+<p>You can use an email client like Thunderbird to automatically encrypt and sign your emails. For this, you would need to install an addon "<strong>Enigmail</strong>" in your Thunderbird and configure it. To configure Thunderbird proceed as follows.</p>
+<ul>
+<li>Open <strong>Thunderbird.</strong></li>
+<li>From <strong>Menu Bar -> Tools -> Add-ons</strong>, install <strong>Enigmail.</strong></li>
+<li>From <strong>Menu Bar -> Enigmail -> Setup Wizard</strong>, configure it.</li>
+<li>Choose <strong>Standard Configuration</strong> then <strong>Next</strong>.</li>
+<li>Now Select your GPG key and Complete the wizard.</li>
+</ul>
+<p>Now whenever you would send any mail to the email ID that you have already imported in GPG, your Thunderbird will itself encrypt it. You may explore more configuration options at <strong>Menu Bar -> Enigmail.</strong></p>
+<h4>Github and Git</h4>
+<p>You can add your GPG key to your <strong>GitHub profile</strong> and can configure your <strong>Git</strong> to sign your commits. Follow these steps or refer <a href="https://help.github.com/articles/signing-commits-with-gpg/">this</a>.</p>
+<p><strong>To add your key to Github:</strong></p>
+<ul>
+<li>Login to your <strong>Github</strong> account.</li>
+<li>At upper-right corner, click your profile photo and select <strong>Settings.</strong></li>
+<li>From left panel select <strong>SSH and GPG keys</strong>.</li>
+<li>Click on <strong>New GPG key</strong> button.</li>
+<li>Paste your <strong>GPG public key</strong> there.<br>
+   You can export your GPG public key to your terminal with<br>
+<strong>\$ gpg2 --armor --export<br>
+</strong>Select your complete GPG public key and <strong>CTRL + SHIFT + C</strong> to copy.</li>
+</ul>
+<p><strong>To configure git with GPG key:</strong></p>
+<ul>
+<li><strong>\$ gpg2 --list-keys --keyid-format LONG</strong></li>
+<li>Copy your complete key ID.</li>
+<li><strong>\$ git config --global user.signingkey your_key_id</strong></li>
+</ul>
+<p>Now to sign your commits you may use <strong>-S</strong> flag in your <strong>git commit</strong> command.</p>
+<div class="highlight"><pre><span></span>$ git commit -S -m <span class="s2">&quot;commit message&quot;</span>
+</pre></div>
+
+
+<p>You will be prompted to enter your passphrase while making commits.</p>
+<h2>A Brief Comparison of GPG and GPG2</h2>
+<ul>
+<li>GPG2 is extended version of GPG. Where changes are mostly in internal levels, thus commands are same.</li>
+<li>A major change between GPG and GPG2 is that all the crypto operations have been moved to the GPG agent, so without an agent, GPG2 can't work.</li>
+<li><strong>man gpg2 </strong>command gives the following statement <em>"In contrast to the standalone version gpg, which is more suited for server and embedded platforms, this version is commonly installed under the name gpg2 and more targeted to the desktop as it requires several other modules to be installed."</em></li>
+<li>An important change came with GPG 2.1, which combines the formerly separated public and private keyrings (pubring.gpg and secring.gpg) into the public keyring.</li>
+<li>Explore more about what's new in GPG2 <a href="https://www.gnupg.org/faq/whats-new-in-2.1.html">here</a>.</li>
+</ul>
+<h2>Conclusion</h2>
+<p>GPG is a recommended tool if you don't want to compromise security in your communication with people over an unsecured network like our Internet.</p>
+<p>Regardless whether you are sending a sensitive information or a friendly message, using GPG keys is extremely helpful to verify that the author of the message is genuine. Thanks for reading, and in case of a query or suggestions to improve this post, please feel free to write in the comments section below.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 05 March 2018</p>
+    <p>Category: <a href="thegeekyway.com/category/devops-linux.html">DevOps, Linux</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/encryption.html">encryption</a>,      <a href="thegeekyway.com/tag/gpg.html">GPG</a>,      <a href="thegeekyway.com/tag/security.html">security</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

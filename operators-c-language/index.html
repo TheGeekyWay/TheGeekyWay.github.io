@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+
+<meta name="keywords" content="C language, Operators">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Operators in the C language  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories/" target="_blank">Categories</a></li>
+        <li><a href="/tags/" target="_blank">Tags</a></li>
+        <li><a href="/archives/" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors/" target="_blank">Authors</a></li>
+        <hr/>
+        <p> Social Media </p>
+
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+        </a>
+
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside out!
+      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="thegeekyway.com/operators-c-language/">Operators in the C language</a></h1>
+  </div>
+  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
+  <div class="article_text">
+    <p>Welcome to your next tutorial in the C language,  today, we’ll discuss about operators in the C language. We have already discussed about <a href="http://www.thegeekyway.com/variables-in-c/" title="Learning about Variables in C">Variables in C language</a>, and <a href="http://www.thegeekyway.com/learn-c-variables/" title="Learn C – More about variables">how we can store data in variables</a> input by user, next we may need to update this data , or make various operations on the variables to produce desired results. This can be done through Operators in the C language.</p>
+<div style="text-align:center">
+<p><a href="thegeekyway.com/uploads/images/2014/01/Operators_in_C1.png" title="Operators in C"><img alt="Operators_in_C" src="thegeekyway.com/uploads/images/2014/01/Operators_in_C1.png"></a></p>
+</div>
+<p>Operators can be classified broadly as follows :</p>
+<ul>
+<li>Arithmetic Operators</li>
+<li>Logical Operators</li>
+<li>Relational Operators</li>
+<li>Assignment Operator</li>
+<li>Bitwise</li>
+<li>Conditional Operator</li>
+<li>Miscellaneous Operators</li>
+</ul>
+<p>Now we’ll discuss about each category one by one, let us assume that we have declared two variables num1 and num2 and initialized them as shown below.</p>
+<div class="highlight"><pre><span></span>int num1 = 3;
+int num2 = 6;
+</pre></div>
+
+
+<p>Let's have another variable named res for storing result, so that we can analyze the value of result after applying each operator and understand their functioning.</p>
+<p>But before this, we need to understand that there are basically two kinds of <em><strong>Operators depending on the number of operands</strong> they operate upon</em>. They are :-</p>
+<p><strong>Unary Operators</strong> : which operate on only one operand.</p>
+<p><strong>Binary Operators</strong> : which requires two operands to be operated upon.</p>
+<p>Now, we'll carry on with understanding different types of operator.</p>
+<p><strong>Arithmetic Operators</strong></p>
+<p>They are binary operators used to do arithmetic operations like addition , subtraction , multiplication , division etc.</p>
+<p><em><u>+ used for addition</u></em> like</p>
+<div class="highlight"><pre><span></span>res = num1 + num2;
+</pre></div>
+
+
+<p>This would add the two values ie 5 and 6 and store the result to variable res which is 9 in this case.</p>
+<p><em><u>- used for subtraction</u></em> like</p>
+<div class="highlight"><pre><span></span>res = num2 - num1;
+</pre></div>
+
+
+<p>This would subtract num1 from num2 and then store the result in variable res which is 3 in this case.</p>
+<p><em><u>* used for multiplication</u></em> like</p>
+<div class="highlight"><pre><span></span>res = num1 * num2;
+</pre></div>
+
+
+<p>This would multiply num1 and num2 and store the result in variable res which is 18 in this case.</p>
+<p><em><u> / used for division</u></em> like</p>
+<div class="highlight"><pre><span></span>res = num2 / num1;
+</pre></div>
+
+
+<p>This would divide the two values ie num2 by num1 and then store the result in variable res which is 2 in this case.</p>
+<p><em><u>% (modulus operator )</u></em> like</p>
+<div class="highlight"><pre><span></span>res = num2 % num1;
+</pre></div>
+
+
+<p>This operator will divide num2 by num1 and then gives us the <em>REMAINDER</em> which will be stored in variable res and it's value would be 0 in this case , since, when 6 is divided by 3, it would give remainder 0.</p>
+<p><strong>Logical Operators</strong>:</p>
+<p>They are included in logical expressions and are of following types :</p>
+<ul>
+<li>Logical AND (&amp;&amp;)</li>
+<li>Logical NOT ( ! )</li>
+<li>Logical OR ( || )</li>
+</ul>
+<p>Note that in Logical AND and Logical OR, we use the respective symbol two times as mentioned. We'll study their complete usage in the coming tutorials specially in <em><u>Loops</u></em> and <em><u>Conditional Statements</u> .</em></p>
+<p><strong>Relational Operator:</strong></p>
+<p>As the name suggests, they are used to depict relations among variables. Mostly they return either a true (1) value or a false (0) value. They are of the following types :</p>
+<ul>
+<li>Less than or equal to ( \&lt;= )</li>
+<li>More than or equal to ( >= )</li>
+<li>Not equal to ( != )</li>
+</ul>
+<p>Again, they would be better understood when we'll discuss about Conditional Statements and Loops, so we'll discuss them in the upcoming tutorials, just remember the types of operators for now.</p>
+<p><strong>Assignment Operator:</strong></p>
+<p>They are used to assign values to a variables, we are already using this operator since we studied about assigning a value to our variables, so consider the following :</p>
+<div class="highlight"><pre><span></span>int num = 5;
+</pre></div>
+
+
+<p>Here ( = ) ie assignment operator is used to assign value 5 to variable num.</p>
+<p><strong>Miscellaneous Operators</strong>:</p>
+<p>There are other operators too, but we have covered the most important operators here.</p>
+<p>Unary + and Unary - are some of the operators you would see often. As the name suggests they operate on only one operand. To understand what they do, consider the following code snippet :</p>
+<div class="highlight"><pre><span></span>int num = 5;
+num = (+num);
+printf(&quot;Value of num after Unary + is %d n&quot;,&amp;num);
+num = -num;
+printf(&quot;Value of num after Unary - is %d&quot;,&amp;num);
+</pre></div>
+
+
+<p>Including all the necessary header files and other stuff required, it would produce the output as follows:</p>
+<p>Value of num after Unary + is 5</p>
+<p>Value of num after Unary - is -5</p>
+<p>So, you understood it right Unary + doesn't changed the sign of the value, while unary - reversed the sign of integer value, so +5 become -5 , and it would be vice-versa if we have a negative value in variable.</p>
+<p>In the next post, we'll study about Conditional statements and then about Loops in C and their usage, they would help us understand the concept of operators like logical and relational operator in much more detail. If you have any doubts/question, please feel free to flood them in the comments section, we'll help you !</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Thu 09 January 2014</p>
+    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+ &ndash; Tags:
+      <a href="thegeekyway.com/tag/c-language.html">C language</a>,      <a href="thegeekyway.com/tag/operators.html">Operators</a>    </p>
+  </div>
+
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href='/disclaimer/'>Disclaimer</a>
+      <a href='/privacy-policy/'>Privacy Policy</a>
+    </div>
+  </main>
+</body>
+</html>

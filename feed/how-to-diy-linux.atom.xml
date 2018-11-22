@@ -1,0 +1,544 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - How To DIY, Linux</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/how-to-diy-linux.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2018-03-16T16:07:00+05:30</updated><entry><title>Runlevels and rc.d scripts</title><link href="thegeekyway.com/runlevels-and-rc-d-scripts/" rel="alternate"></link><published>2018-03-16T16:07:00+05:30</published><updated>2018-03-16T16:07:00+05:30</updated><author><name>storymode7</name></author><id>tag:None,2018-03-16:thegeekyway.com/runlevels-and-rc-d-scripts/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
+&lt;h2&gt;Runlevels&lt;/h2&gt;
+&lt;p&gt;Runlevels are …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
+&lt;h2&gt;Runlevels&lt;/h2&gt;
+&lt;p&gt;Runlevels are the state to which a computer intends to go, or it intends to reach. There are total 7 runlevels.&lt;/p&gt;
+&lt;p&gt;Runlevel 0: Halt or Shutdown&lt;/p&gt;
+&lt;p&gt;Runlevel 1: Single-user mode&lt;/p&gt;
+&lt;p&gt;Runlevel 2: Basic Multi-user mode but without networking&lt;/p&gt;
+&lt;p&gt;Runlevel 3: Full text-based Multi-user mode (includes networking)&lt;/p&gt;
+&lt;p&gt;Runlevel 4: X11 with session managers (Generally not used by most of the operating systems and is customizable)&lt;/p&gt;
+&lt;p&gt;Runlevel 5: Full GUI based Multi-user mode&lt;/p&gt;
+&lt;p&gt;Runlevel 6: Reboot&lt;/p&gt;
+&lt;p&gt;These are the basic definitions what each runlevel is responsible for. For example, if an operating system is required to shut down, then it'd go to runlevel 0. You can even switch between these runlevels using the init command. Just type init \&amp;lt;runlevel&gt; and it'd change the current runlevel to the one specified. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;init 0
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;will shut down the system.&lt;/p&gt;
+&lt;p&gt;Each system has a default runlevel to which it boots. Like Fedora has runlevel as default. To see which runlevel you are in type:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;runlevel
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;To check the default runlevel of your system, type:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl get-default
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can even change the default, keeping in mind what runlevel provided, like you want it to be multiuser or the graphical one. Using it you can set the default like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl set-default multi-user.target 
+rm &amp;#39;/etc/systemd/system/default.target  # To remove current default
+ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/systemd/system/default.target&amp;#39;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Runlevel and target file have the following relation:&lt;/p&gt;
+&lt;p&gt;runlevel 0: poweroff.target&lt;/p&gt;
+&lt;p&gt;runlevel 1: rescue.target&lt;/p&gt;
+&lt;p&gt;runlevel 2: multi-user.target&lt;/p&gt;
+&lt;p&gt;runlevel 3: multi-user.target&lt;/p&gt;
+&lt;p&gt;runlevel 4: multi-user.target&lt;/p&gt;
+&lt;p&gt;runlevel 5: graphical.target&lt;/p&gt;
+&lt;p&gt;runlevel 6: reboot.target&lt;/p&gt;
+&lt;p&gt;You should never mess with the default runlevel unless you are absolutely sure with what you're doing. Like, if you manage to set runlevel 0 or 6 as default you will end up in a loop kind of condition. Your PC will shut down( or reboot depending on what runlevel you set) as soon as it has booted.&lt;/p&gt;
+&lt;h2&gt;rc Scripts&lt;/h2&gt;
+&lt;p&gt;When a computer has entered into a specific runlevel, it runs scripts according to the runlevel it's in. The rc here comes from use in the older computers which had rc files to contain commands that run at startup. These files were called runcom files. Where runcom files meant files used to RunCommand.&lt;/p&gt;
+&lt;p&gt;Your script must contain the line before any command executes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;. /etc/init.d/functions
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is because, your script might be executed at a time when nothing is loaded, not even file system( though it can be specified in boot facilities in &lt;code&gt;Required-Start&lt;/code&gt; in LSB styled stanzas discussed below) so we can not say that each command we write will already be present( Remeber that each command is executed from a script present in PATH variable of your system). Hence in order for those commands to work, we need the functions file to be loaded as the first step. This function file contains the functions that a shell script might use.&lt;/p&gt;
+&lt;p&gt;Fedora and most of the distros have folders that contain scripts that are to be run at a specific runlevel. They are located in the &lt;code&gt;/etc&lt;/code&gt; folder. The folders containing these scripts are:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/init.d&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;/etc/rc.d/rc0.d&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;/etc/rc.d/rc1.d&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;/etc/rc.d/rc2.d&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;/etc/rc.d/rc3.d&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;/etc/rc.d/rc4.d&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;/etc/rc.d/rc5.d&lt;/code&gt;&lt;br&gt;
+&lt;code&gt;/etc/rc.d/rc6.d&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;And, folders with the same name also exist in &lt;code&gt;/etc&lt;/code&gt; but they are actually symbolic links of there corresponding folders in &lt;code&gt;/etc/rc.d&lt;/code&gt; For example:&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;/etc/rc0.d      (Symbolic link of /etc/rc.d/rc0.d)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Each of these folders contain symbolic links of scripts that are actually stored in init.d for the runlevel they have in their name. Like &lt;code&gt;/etc/rc.d/rc0.d&lt;/code&gt; contains a symbolic link for scripts in &lt;code&gt;/etc/init.d&lt;/code&gt; that are required to be run at shutdown.&lt;/p&gt;
+&lt;p&gt;Now if you open any of these folders you'd find out weird names with the structure like&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;S|K[01-99]filename&lt;/code&gt; where filename is the name of the script in &lt;code&gt;/etc/int.d&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Like K50netconsole. Now let's see what these names mean.&lt;/p&gt;
+&lt;h2&gt;Demystifying the symlink names&lt;/h2&gt;
+&lt;p&gt;The terms have their meanings as follows:&lt;/p&gt;
+&lt;p&gt;S: start the service, if it's not already started.&lt;/p&gt;
+&lt;p&gt;K: Kill the service, if it's running.&lt;/p&gt;
+&lt;p&gt;01-99 is the priority for that start or kill task&lt;/p&gt;
+&lt;p&gt;filename is the exact same name of the file in &lt;code&gt;/etc/init.d&lt;/code&gt; folder.&lt;/p&gt;
+&lt;p&gt;(Remember that it's actually &lt;code&gt;/etc/init.d&lt;/code&gt; that actually houses those scripts. Rest of the folders just have symlinks to these.)&lt;/p&gt;
+&lt;p&gt;So, If a file named shutdown-script is to be run at shutdown all times with a priority of 90 then the file &lt;code&gt;shutdown-script&lt;/code&gt; should be present in &lt;code&gt;init.d&lt;/code&gt; folder. And a symlink to it must be created in &lt;code&gt;/etc/rc.d/rc0.d&lt;/code&gt; with the name S90shutdown-script, rest of the folders rc[1-6] can have K90shutdown-script. If 90 is the priority required to shut down.&lt;/p&gt;
+&lt;h2&gt;Priority Of these scripts&lt;/h2&gt;
+&lt;p&gt;Essentially, it can be better thought of as a position, and think of them being executed downwards from 01 to 99. For example, if you have a script that requires the network to be switched on then the network script should be at a higher position or priority than your script. Like the network, a script can have a priority of 01 and your script can have any number greater than it. So that it's executed &lt;em&gt;after the network script.&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;The chkconfig&lt;/h2&gt;
+&lt;p&gt;the chkconfig command here deserves the 'The' in the heading for how easy it makes to manage these scripts and runlevels! Yes, this command just needs your source script file and manages creation deletion, the setting of S or D and also the priority level!&lt;/p&gt;
+&lt;p&gt;chkconfig has an amazing man page and here are the basic commands that will get you going.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --list
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This prints the System V services, and that will do for us.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --add
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Is used to add your file for management by chkconfig. BUT wait. This command won't run unless you have some things set with your script.&lt;/p&gt;
+&lt;p&gt;First and foremost, your script should exist in the home of all scripts, and that is:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/etc/init.d
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Paste your script here.&lt;/p&gt;
+&lt;p&gt;Secondly, your file must have certain comment lines so that it can be managed by chkconfig.&lt;/p&gt;
+&lt;p&gt;It must have these comment lines, though the description is not absolutely necessary and the script would work without it, it's recommended. So that anyone who intends to clean up the unnecessary services knows if this script is essential or not:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# chkconfig: 235 29 88
+# description: The description of the script like what it does
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The first line here has some numbers ahead &lt;code&gt;chkconfig:&lt;/code&gt; like 235, 29 and 88.&lt;/p&gt;
+&lt;p&gt;here the First number is the runlevels it's required to run on combined into a string. Like 235 here means it's supposed to run in runlevel 2,3 and 5.&lt;/p&gt;
+&lt;p&gt;The next two numbers are the priority for start and stop respectively. So in this example, start priority is 29 and stop priority is 88.&lt;/p&gt;
+&lt;p&gt;you can use backslash for a multiline comment though you still require a &lt;code&gt;#&lt;/code&gt;, in the beginning, to identify it as a comment.&lt;/p&gt;
+&lt;p&gt;This is how it creates the symlinks with required priorities.&lt;/p&gt;
+&lt;p&gt;Another way you can do this is enter LSB(Linux Standard Base) style init stanzas instead of these two comments. For it you can do it like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; ### BEGIN INIT INFO
+ # Provides: scriptA
+ # Required-Start: scriptB
+ # Default-Start: 2 3 5
+ # Default-Stop: 0 1 6
+ # Description: Description of what the script does
+ ### END INIT INFO
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This one gives you more ease though it just looks a bit more complicated.&lt;/p&gt;
+&lt;p&gt;In this, &lt;code&gt;Required-Start&lt;/code&gt; is the script that is required to start this script. That is, it should be running before the current script gets up. &lt;code&gt;Provides&lt;/code&gt;: It tells about the boot facilities that this script provides so that those will be counted as already present when another script requires it. Hence priorities will be set accordingly to what is required to be already present and what it'll provide. &lt;code&gt;Default-Start&lt;/code&gt; or &lt;code&gt;Stop&lt;/code&gt; tells which runlevel should this start on and stopped(if running) respectively.&lt;/p&gt;
+&lt;p&gt;And don't forget a shebang at the beginning of the file.&lt;/p&gt;
+&lt;p&gt;Now we are all set to go with these things done. Let's execute this command to add it to the management of chkconfig:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --add filename
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;like for a file named bootpref in &lt;code&gt;init.d&lt;/code&gt; it would be:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --add bootpref
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now most probably your file will be visible with a status of on under the respective runlevels when you run&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --list
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And if it's not or you want to change runlevels you can go like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig bootpref --level 0 on
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Will make it run on runlevel 0 that is at shutdown.&lt;/p&gt;
+&lt;p&gt;Similarly off argument will kill it if present in that level. If no level is specified then these act on level 2,3,4 and 5. You can also specify multiple levels like &lt;code&gt;--level 26&lt;/code&gt; for level 2 and 6.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --del bootpref
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;will delete its symlinks from all rc folders but not from the init.d folder. That is required to be done manually. Ad chkconfig generally doesn't modify the content of init.d but rc folders.&lt;/p&gt;
+&lt;p&gt;Hope this will help you play with your scripts in a better and safe manner.&lt;/p&gt;
+&lt;p&gt;Thank you for reading!&lt;/p&gt;</content><category term="initd"></category><category term="linux"></category><category term="runlevel"></category></entry><entry><title>Convert GIMP Into Photoshop Like UI</title><link href="thegeekyway.com/convert-gimp-photoshop-like-ui/" rel="alternate"></link><published>2014-03-10T08:11:00+05:30</published><updated>2014-03-10T08:11:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2014-03-10:thegeekyway.com/convert-gimp-photoshop-like-ui/</id><summary type="html">&lt;p&gt;An artist in Deviantart with profile name &lt;a href="http://doctormo.deviantart.com/" title="Doctormo Profile"&gt;'doctormo'&lt;/a&gt; published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might …&lt;/p&gt;</summary><content type="html">&lt;p&gt;An artist in Deviantart with profile name &lt;a href="http://doctormo.deviantart.com/" title="Doctormo Profile"&gt;'doctormo'&lt;/a&gt; published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might be missing&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/03/TGW-imported-3.0-RGB-color-1-layer-351x320-%e2%80%93-GIMP_0051.png"&gt;&lt;img alt="[TGW] (imported)-3.0 (RGB color, 1 layer) 351x320 – GIMP_005" src="thegeekyway.com/uploads/images/2014/03/TGW-imported-3.0-RGB-color-1-layer-351x320-%e2%80%93-GIMP_0051.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Steps To Installation :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;1) Download Tweaks.zip from &lt;a href="http://doctormo.deviantart.com/art/Gimp-2-8-Photoshop-Tweaks-432736644" title="Download Tweaks"&gt;Official Page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;2) Make backup of your current GIMP configuration (Just incase if anything goes wrong, you can back it up). To do so, go to /home and press 'Ctrl+h' it will show hidden files. Now copy entire folder named &lt;strong&gt;'.gimp-2.8'&lt;/strong&gt; to anywhere but /home&lt;/p&gt;
+&lt;p&gt;3) Extracted the downloaded .zip file&lt;/p&gt;
+&lt;p&gt;4) It will contain file named .gimp-2.8&lt;/p&gt;
+&lt;p&gt;5) Simply copy that file &amp;amp; paste it in /Home &amp;amp; overwrite it on current .gimp-2.8&lt;/p&gt;
+&lt;p&gt;And you're done!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE :&lt;/strong&gt; You can perform this tweak in &lt;strong&gt;Windows&lt;/strong&gt; &amp;amp; &lt;strong&gt;OS X&lt;/strong&gt; operating systems too. I don't use Windows nor OS X so I don't know how to do it. But I guess from these steps you can figure it out on your own.&lt;/p&gt;</content><category term="GIMP"></category><category term="Photoshop"></category><category term="Tweaks"></category></entry><entry><title>Raspberry Pi: Change Password, Auto Login and Remote Desktop</title><link href="thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/" rel="alternate"></link><published>2013-12-22T00:56:00+05:30</published><updated>2013-12-22T00:56:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2013-12-22:thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/</id><summary type="html">&lt;p&gt;I have already given tutorial for &lt;a href="http://www.thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" title="Installation and first boot"&gt;RaspberryPi First Installation and Boot&lt;/a&gt;.  Let's go with advance configuration of RasPi.&lt;/p&gt;
+&lt;h1 id="things-to-do-after-1st-boot-of-raspberry-pi" style="font-size: 1em;"&gt;Things to do after 1st boot of Raspberry Pi&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#changePass"&gt;Changing Default Password&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#AddUser"&gt;Adding New User to Raspi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#autoLogin"&gt;Auto Login to GUI without Entering username/password&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Remote"&gt;Setting up Remote Desktop: Connect Raspi from …&lt;/a&gt;&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;I have already given tutorial for &lt;a href="http://www.thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" title="Installation and first boot"&gt;RaspberryPi First Installation and Boot&lt;/a&gt;.  Let's go with advance configuration of RasPi.&lt;/p&gt;
+&lt;h1 id="things-to-do-after-1st-boot-of-raspberry-pi" style="font-size: 1em;"&gt;Things to do after 1st boot of Raspberry Pi&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#changePass"&gt;Changing Default Password&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#AddUser"&gt;Adding New User to Raspi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#autoLogin"&gt;Auto Login to GUI without Entering username/password&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#Remote"&gt;Setting up Remote Desktop: Connect Raspi from another computer&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="changing-default-password" style="font-size: 1.3em;"&gt;&lt;p #changePass&gt;&lt;/p&gt;1. Changing Default Password&lt;/h2&gt;
+&lt;p&gt;Open terminal and run following command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo raspi-config
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You will see following screen. Navigate using  &lt;p style="font-family: 'courier new', courier;"&gt;arrow keys&lt;/p&gt; and  &lt;p style="font-family: 'courier new', courier;"&gt;tab.&lt;/p&gt; Hit &lt;p style="font-family: 'courier new', courier;"&gt; Enter&lt;/p&gt; to select .&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;img alt="raspi-config" src="thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;On selecting  &lt;p style="font-family: 'courier new', courier;"&gt;Change User Password&lt;/p&gt; , Hit  &lt;p style="font-family: 'courier new', courier;"&gt;Enter&lt;/p&gt; to give new password.&lt;/p&gt;
+&lt;h2 id="adding-new-user-to-pi" style="font-size: 1.3em;"&gt;&lt;p #AddUser&gt;&lt;/p&gt;2. Adding new user to Pi:&lt;/h2&gt;
+&lt;p&gt;To add new user just run following command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo adduser
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It will create a new user and asks for password, Create password for new user here.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"&gt;&lt;img alt="raspi-addUser" src="thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="raspi-auto-login-to-gui-without-entering-usernamepassword" style="font-size: 1.3em;"&gt;&lt;p #autoLogin&gt;&lt;/p&gt;3. Raspi Auto Login to GUI without entering username/password&lt;/h2&gt;
+&lt;p&gt;Run again following command and select  &lt;p style="font-family: 'courier new', courier;"&gt;Enable boot to Desktop/S&lt;/p&gt; &lt;p style="font-family: 'courier new', courier;"&gt;cratch and select 2nd option&lt;/p&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo raspi-config
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;img alt="Auto-Login-GUI" src="thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h5 id="auto-login-using-command-version" style="font-size: 1em;"&gt;Auto-Login using Command version&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nano /etc/inittab
+
+/*Find following line*/
+
+1:2345:respawn:/sbin/getty 115200 tty1
+
+/*and comment it by adding # in front of it*/
+
+#1:2345:respawn:/sbin/getty 115200 tty1
+
+/*After that add new line with following content*/
+
+1:2345:respawn:/bin/login -f pi tty1 /dev/tty1 2&amp;gt;&amp;amp;1
+
+/*Ctrl+X to exit, Y to save followed by enter twice*/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h5 id="auto-start-to-gui" style="font-size: 1em;"&gt;Auto Start to GUI&lt;/h5&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*Edit rc.local using following line*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+sudo&lt;span class="w"&gt; &lt;/span&gt;nano&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;etc&lt;span class="o"&gt;/&lt;/span&gt;rc&lt;span class="o"&gt;.&lt;/span&gt;local&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="cm"&gt;/*Scroll to the end and add the following above exit 0:*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+
+su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;span class="w"&gt; &lt;/span&gt;pi&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;startx&lt;span class="w"&gt;&lt;/span&gt;
+
+&lt;span class="cm"&gt;/*Ctrl+X to exit, Y to save followed by enter twice*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2 id="raspi-setup-remote-desktop-from-windows-machine" style="font-size: 1.3em;"&gt;&lt;p #Remote&gt;&lt;/p&gt;4. Raspi Setup Remote Desktop from windows machine&lt;/h2&gt;
+&lt;p&gt;Step 1:  In Respi open  terminal and run following command&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install xrdp
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;It will install  &lt;p style="font-family: 'courier new', courier;"&gt;xrdp on respi, which will be automatically started on boot up. &lt;/p&gt;After installing xrdp, reboot your pi and you can verify in boot process, you can see following line&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p style="font-family: 'courier new', courier;"&gt;xrdp sesman&lt;/p&gt;*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Step2: Open Remote control application from windows (Run --&gt; mstsc) , Enter local IP of respi and proceed.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"&gt;&lt;img alt="MS-RemoteDesktop" src="thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;After successful connection xVnc will ask to authorize at raspberry pi&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"&gt;&lt;img alt="Respi-Sesman-xvnc" src="thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;On successful login to xVnc you will see following screen and  then Raspberry pi on your another machine&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"&gt;&lt;img alt="raspi-remote-login" src="thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h2 id="control-raspberry-pi-over-ssh-see-this-tutorial" style="font-size: 1.3em;"&gt;&lt;a href="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH" title="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH"&gt;Control Raspberry Pi over SSH:  See this Tutorial&lt;/a&gt;&lt;/h2&gt;</content><category term="linux"></category><category term="Raspberry Pi"></category></entry><entry><title>Raspberry Pi - How to install and first boot</title><link href="thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" rel="alternate"></link><published>2013-12-18T23:01:00+05:30</published><updated>2013-12-18T23:01:00+05:30</updated><author><name>Anoop</name></author><id>tag:None,2013-12-18:thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/</id><summary type="html">&lt;p&gt;Installing and setting up &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; is fairly easy in following steps&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Buy RasPi from &lt;a href="www.element14.com"&gt;Element14&lt;/a&gt;  / (&lt;a href="http://www.crazypi.com/"&gt;CrazyPi&lt;/a&gt;in India)&lt;/li&gt;
+&lt;li&gt;Get a SD card (&gt;4GB) and format in FAT32 system (&lt;a href="#windowsformat"&gt;Windows Method&lt;/a&gt; / &lt;a href="#LinuxFormat"&gt;Linux Method&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Download &lt;a href="http://www.raspberrypi.org/downloads"&gt;NOOB version of Raspberry Pi from here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Extract and copy everything in your SD card&lt;/li&gt;
+&lt;li&gt;Plug …&lt;/li&gt;&lt;/ul&gt;</summary><content type="html">&lt;p&gt;Installing and setting up &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; is fairly easy in following steps&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Buy RasPi from &lt;a href="www.element14.com"&gt;Element14&lt;/a&gt;  / (&lt;a href="http://www.crazypi.com/"&gt;CrazyPi&lt;/a&gt;in India)&lt;/li&gt;
+&lt;li&gt;Get a SD card (&gt;4GB) and format in FAT32 system (&lt;a href="#windowsformat"&gt;Windows Method&lt;/a&gt; / &lt;a href="#LinuxFormat"&gt;Linux Method&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Download &lt;a href="http://www.raspberrypi.org/downloads"&gt;NOOB version of Raspberry Pi from here&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Extract and copy everything in your SD card&lt;/li&gt;
+&lt;li&gt;Plug your HDTV/Monitor using HDMI cable / RCA Cable&lt;/li&gt;
+&lt;li&gt;Plug the power using any micro USB mobile charger (5v , 0.7 A)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h5&gt;&lt;strong&gt; Components of Raspberry-Pi&lt;/strong&gt;&lt;/h5&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/RaspberryPi.jpg"&gt;&lt;img alt="RaspberryPi" src="thegeekyway.com/uploads/images/2013/12/RaspberryPi.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;em&gt;&lt;u&gt;&lt;strong&gt;Preparing your SD card for installing Linux variant for RasPi.&lt;/strong&gt;&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;h5&gt;&lt;p #LinuxFormat&gt;&lt;/p&gt;Linx Method:&lt;/h5&gt;
+&lt;p&gt;Install &lt;a href="http://gparted.org/"&gt;Gparted utility&lt;/a&gt; using following command&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p style="font-family: 'courier new', courier;"&gt;sudo apt-get install gparted&lt;/p&gt;*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;and Run&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;p style="font-family: 'courier new', courier;"&gt;sudo gparted&lt;/p&gt;*&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You should be able to see following screen and just select your SD card and format to FAT32.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/gParted.png"&gt;&lt;img alt="gParted" src="thegeekyway.com/uploads/images/2013/12/gParted.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h5&gt;&lt;p #windowsformat&gt;&lt;/p&gt;Windows Method:&lt;/h5&gt;
+&lt;p&gt;Use &lt;a href="https://www.sdcard.org/downloads/formatter_4/"&gt;SDFormatter&lt;/a&gt;and select your SD drive and just go for format.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Capture1.png"&gt;&lt;img alt="SD Formatter" src="thegeekyway.com/uploads/images/2013/12/Capture1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;After formatting just extract downloaded&lt;a href="http://www.raspberrypi.org/downloads"&gt;NOOB version&lt;/a&gt;and copy to your SD card.&lt;/p&gt;
+&lt;p&gt;Now plugin your RasPi to Tv/Monitor using HDMI or RCA Video cable. To connect VGA monitor you can use &lt;em&gt;&lt;a href="http://www.thegeekyway.com/connect-raspberry-pi-vga-monitortv/"&gt;converter given in this tutorial&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thegeekyway.com/connect-raspberry-pi-vga-monitortv/"&gt;Power with &lt;em&gt;micro usb mobile charger &lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;img alt="microUSB" src="thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Note: Please check your charger specification it should be  5 V and ampere range between 0.7-1.2A.&lt;/p&gt;
+&lt;p&gt;Power on your charger and you should be able to see following screen after some time&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Raspi_Options.png"&gt;&lt;img alt="Raspi_Options" src="thegeekyway.com/uploads/images/2013/12/Raspi_Options-1024x970.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Select Raspbian as recommended and proceed.&lt;/p&gt;
+&lt;p&gt;Note down default  &lt;p style="font-family: 'courier new', courier;"&gt;user/password : pi/raspberry&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;Note: If you go ahead with default option you will be in command line without any GUI. to change into GUI you just have to run command &lt;strong&gt;&lt;em&gt; &lt;p style="font-family: 'courier new', courier; color: #0000ff;"&gt;startx &lt;/p&gt;&lt;/em&gt;&lt;/strong&gt;and you will get your GUI desktop.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/raspi.png"&gt;&lt;img alt="raspi" src="thegeekyway.com/uploads/images/2013/12/raspi.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Raspi has only two USB port , you should be using it for keyboard and mouse for initial setup.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SD Card&lt;/strong&gt;: Faster SD card is recommended, should be Class 10.&lt;/p&gt;</content><category term="linux"></category><category term="Raspberry Pi"></category></entry><entry><title>How To Install Sublime Text Editor In GNU/Linux ?</title><link href="thegeekyway.com/install-sublime-text-editor-gnulinux/" rel="alternate"></link><published>2013-12-11T07:25:00+05:30</published><updated>2013-12-11T07:25:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2013-12-11:thegeekyway.com/install-sublime-text-editor-gnulinux/</id><summary type="html">&lt;p&gt;Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp;amp; even Arduino. Sublime Text Editor is not opensource &amp;amp; not an free editor, but …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp;amp; even Arduino. Sublime Text Editor is not opensource &amp;amp; not an free editor, but in last update the expiry date has been removed by the developers, so you can use Sublime text as there is no enforce time limit for evaluation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Sublime Text Editor can be installed manually following the steps below :&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Download correct bit version of Sublime Text 2 from &lt;a href="http://www.sublimetext.com/2" title="Sublime Text Download"&gt;&lt;strong&gt;Official Website.&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;!-- --&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Now, extract the downloaded Sublime text 2 .tar.bz2 in &lt;strong&gt;/home&lt;/strong&gt; directory by simply right clicking on it.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"&gt;&lt;img alt="Sublime_text1" src="thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"&gt;&lt;img alt="Sublime text 2" src="thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Now move the extracted folder 'Sublime Text 2' to the proper location. Open Terminal/Konsole and type :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo mv Sublime Text 2 /opt/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The extracted folder will be moved in /opt directory of your system.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"&gt;&lt;img alt="Sublime text 3" src="thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;ul&gt;
+&lt;li&gt;Now, we have to add following command for symbolic link. Open terminal &amp;amp; type :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo ln -s /opt/Sublime Text 2/sublime_text /usr/bin/sublime
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;ul&gt;
+&lt;li&gt;Now, to add application icon in launcher. In terminal type :&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo gedit /usr/share/applications/sublime.desktop
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(Replace gedit by any other editor like kate, vim or even sublime) and copy the following lines into it &amp;amp; hit on 'Save' button.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[Desktop Entry]&lt;/span&gt;
+&lt;span class="na"&gt;Version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2.0&lt;/span&gt;
+&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Sublime Text 2&lt;/span&gt;
+&lt;span class="c1"&gt;# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.&lt;/span&gt;
+&lt;span class="c1"&gt;# From Ubuntu&amp;#39;s language-pack-kde-XX-base packages, version 9.04-20090413.&lt;/span&gt;
+&lt;span class="na"&gt;GenericName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Text Editor&lt;/span&gt;
+
+&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;sublime&lt;/span&gt;
+&lt;span class="na"&gt;Terminal&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;span class="na"&gt;Icon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/opt/Sublime Text 2/Icon/48x48/sublime_text.png&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Application&lt;/span&gt;
+&lt;span class="na"&gt;Categories&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;TextEditor;IDE;Development&lt;/span&gt;
+&lt;span class="na"&gt;X-Ayatana-Desktop-Shortcuts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;NewWindow&lt;/span&gt;
+
+&lt;span class="k"&gt;[NewWindow Shortcut Group]&lt;/span&gt;
+&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;New Window&lt;/span&gt;
+&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;sublime -n&lt;/span&gt;
+&lt;span class="na"&gt;TargetEnvironment&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Unity&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Login &amp;amp; out &amp;amp; you'll notice launcher icon of sublime text in Menu.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"&gt;&lt;img alt="sublime text 4" src="thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I have tested same .desktop configuration in openSUSE Gnome &amp;amp; it shows up in launcher too, so no need to modify if you're using other desktop environment. Didn't tested in KDE though.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Happy coding.&lt;/p&gt;</content><category term="linux"></category><category term="Text Editor"></category></entry><entry><title>How To Install Any Application From Source Code ?</title><link href="thegeekyway.com/install-application-source-code-2/" rel="alternate"></link><published>2013-12-10T10:44:00+05:30</published><updated>2013-12-10T10:44:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2013-12-10:thegeekyway.com/install-application-source-code-2/</id><summary type="html">&lt;style type="text/css"&gt;&lt;!--&lt;br /&gt;
+P { margin-bottom: 0.08in; }&lt;br /&gt;
+--&gt;&lt;/style&gt;
+
+&lt;p&gt;Most of the applications are available in the official repository of your Linux distribution. However, there are times when some of the applications you're installing haven't been updated in the repository &amp;amp; you want to get the latest version of that application.Learning how to …&lt;/p&gt;</summary><content type="html">&lt;style type="text/css"&gt;&lt;!--&lt;br /&gt;
+P { margin-bottom: 0.08in; }&lt;br /&gt;
+--&gt;&lt;/style&gt;
+
+&lt;p&gt;Most of the applications are available in the official repository of your Linux distribution. However, there are times when some of the applications you're installing haven't been updated in the repository &amp;amp; you want to get the latest version of that application.Learning how to install application from the source code comes handy during this time.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;There are 6 steps to follow :&lt;/strong&gt;&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt; Obtaining source code&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; Unzipping source code&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; Configuring source code&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; Resolving dependencies (if any dependency is missing)&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; Compiling the source code&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt; Installing the binaries&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;1) Obtaining source code :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Source code of the opensource application can be obtained from Github using git if the source is uploaded in Github, or you can even visit the official website of the application &amp;amp; download it's source code. In most case, you'll find source of opensource application from the official website, easily.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) Unzipping source code :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;The downloaded source code will be in &lt;em&gt;.tar.bz2&lt;/em&gt;  or &lt;em&gt;.tar.gz&lt;/em&gt; ,you need to extract the files within the tar ball &amp;amp; place it anywhere in the &lt;em&gt;/home&lt;/em&gt; directory. Note that, it is not necessary to put the extracted source code in &lt;em&gt;/home&lt;/em&gt; directory only. But, &lt;em&gt;/home&lt;/em&gt; directory is usually selected by most of the user as it is convenient to access.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3) Configuring the source code :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Since you've downloaded the source code &amp;amp; extracted it in /home directory; Use &lt;strong&gt;cd&lt;/strong&gt; (change directory) command to enter the directory where the source code is available.&lt;/p&gt;
+&lt;p&gt;For Example :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /home/user_name/extracted_sourcecode_folder
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, before configuring the source code let's understand what is it.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;'Configure'&lt;/strong&gt; is the title given to the configuration script which is usually shipped in package alongwith the source code. The configuration script makes sure that all the required tools for the compilation is installed within the system or not. If the dependency is missing, the configuration script will give you error &amp;amp; you won't be able to compile the software unless all the missing dependencies are not met.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;You can execute the configuration script using following command (Make sure you're in root) :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./configure
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;All source codes are &lt;strong&gt;not&lt;/strong&gt; shipped with configuration script, In that case you've to access documentation of that specific application &amp;amp; manually check the required dependencies &amp;amp; whether all the dependencies are met or not.&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;4) Resolving dependencies :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;After process of 'configuring', if any dependency is missing the compilation won't proceed. So, if the configuration script pops the dependency error, then install the missing dependency &amp;amp; execute the configuration script again ( i.e ./configure). After configure script is successfully executed, it will generate the &lt;strong&gt;'Make'&lt;/strong&gt; file which will be used for the compilation of the source code.&lt;/p&gt;
+&lt;p&gt;Configuration &amp;amp; resolving dependencies are most important part of entire process as you've to match all the required dependencies, after that everything is cake walk.&lt;/p&gt;
+&lt;p&gt;Now if all the dependencies are met, you can proceed the next step.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5) Compiling the source code:&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now open terminal &amp;amp; type&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This command will compile the software &amp;amp; all the binaries are generated. The duration taken by the system for compilation process depends on the size of the program &amp;amp; processing speed of your computer hardware. Now, we have to install the generated binaries created after compilation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;6) Installing the binaries :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If no error is invoked during the compilation of the software, open terminal/konsole &amp;amp; type :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This command will install all the required binaries in the system.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Example for installing an application from the source code :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Following is the short example of the entire process of installing application from the source code. In this example, I will be installing &lt;a href="http://satya164.deviantart.com/art/Gnome-Shell-Elegance-Colors-305966388"&gt;&lt;strong&gt;'elegance-colors'&lt;/strong&gt;&lt;/a&gt; in my system.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 1 :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I have downloaded the source code of 'elegance-colors' from &lt;a href="https://github.com/satya164/elegance-colors" title="Elegance Colors"&gt;&lt;strong&gt;HERE&lt;/strong&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 2 :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Downloaded source code is extracted in /home directory&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Home_012.png" title="Home directory where source code is placed"&gt;&lt;img alt="Home_012" src="thegeekyway.com/uploads/images/2013/12/Home_012.png" title="Home directory"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Step 3 :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I have to configure manually, since configuration script is not available for this opensource application.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 4 :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I resolved all the dependencies that were missing after checking the &lt;a href="https://github.com/satya164/elegance-colors/blob/master/README.md"&gt;&lt;strong&gt;documentation&lt;/strong&gt;&lt;/a&gt;. and proceeded to next step.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 5 :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Compiled the source code by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_010.png" title="'make' command - Generating binaries"&gt;&lt;img alt="abhishek\@linux-f3qk:-home-abhishek-elegance-colors_010" src="thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_010.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;Step 6 :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Installed the compiled source code by typing&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_011.png" title="'make install' command - Installing generated binaries"&gt;&lt;img alt="abhishek\@linux-f3qk:-home-abhishek-elegance-colors_011" src="thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_011.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;and successfully installed the application from the source code.&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-10-111926.png" title="Installed application can be accessed from launcher"&gt;&lt;img alt="Screenshot from 2013-12-10 11:19:26" src="thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-10-111926.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;This tutorial is containing the basics &amp;amp; simply gives hints on how you can compile any software from source code. There are many reasons by which error in configuring &amp;amp; compilation can occur &amp;amp; leaves you headbanging, like missing of shared libraries, no configuration script, unable to install dependencies ,etc. But somehow there's always a way to rectify the errors, if you know the basics.&lt;/p&gt;</content><category term="linux"></category><category term="open source"></category><category term="source code"></category></entry><entry><title>How To Display Raspberry Pi On VGA Monitor/TV ?</title><link href="thegeekyway.com/connect-raspberry-pi-vga-monitortv/" rel="alternate"></link><published>2013-12-04T23:43:00+05:30</published><updated>2013-12-04T23:43:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2013-12-04:thegeekyway.com/connect-raspberry-pi-vga-monitortv/</id><summary type="html">&lt;p&gt;Raspberry Pi, A \$25 ARM GNU/Linux box comes with RCA &amp;amp; HDMI port. Connecting Raspberry Pi with HDMI supported TV/monitor is cake walk. But, unfortunately some of us still have monitors with only VGA connectors. Raspberry Pi didn't included VGA connectors keeping power consumption of the board in mind …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry Pi, A \$25 ARM GNU/Linux box comes with RCA &amp;amp; HDMI port. Connecting Raspberry Pi with HDMI supported TV/monitor is cake walk. But, unfortunately some of us still have monitors with only VGA connectors. Raspberry Pi didn't included VGA connectors keeping power consumption of the board in mind. Fortunately, there are plenty of converters available in the online stores which lets you convert HDMI(Digital) signal to VGA(Analog) signal.&lt;/p&gt;
+&lt;p&gt;Following are the detailed steps which will help you to connect RPi with VGA monitors &amp;amp; display RPi on VGA monitors without any problem.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1) HDMI to VGA Converter Adapter :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;You have to purchase power free HDMI to VGA adapter. Here's the link of two HDMI\&amp;lt;-&gt;VGA adapters which have been tested by me that just works.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;i) &lt;a href="https://www.modmypi.com/pi-vew-raspberry-pi-hdmi-to-vga-converter"&gt;ModMyPi | PiView&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;ii) &lt;a href="https://www.crazypi.com/RASPBERRY-PI-HDMI-TO-VGA"&gt;CrazyPi | PiEyes&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note that these adapters doesn't support audio from HDMI port, so external speakers are required to connect onboard. Since, I don't use RPi for entertainment purpose, I never cared much about audio signals.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2) Editing Config.txt located in Raspberry Pi distro :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Make SDHC bootable by installing RPi distribution into it. After installing RPi distribution in SDHC, insert the SD in computer &amp;amp; open &lt;em&gt;config.txt&lt;/em&gt; which is located under /boot directory.There will be set of lines for the different functions. We have to edit config.txt file inorder to obtain picture on VGA monitor.&lt;/p&gt;
+&lt;p&gt;Uncomment following four lines in config.txt by removing '#' located at start of the line. (check Images below)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_force_hotplug=1
+hdmi_drive=2
+hdmi_group=1
+hdmi_mode=1
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Image.png"&gt;&lt;img alt="Image" src="thegeekyway.com/uploads/images/2013/12/Image.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/Image2.png"&gt;&lt;img alt="Image2" src="thegeekyway.com/uploads/images/2013/12/Image2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;&lt;strong&gt;hdmi_force_hotplug=1&lt;/strong&gt; pretends that HDMI device is always attached&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;hdmi_drive=2&lt;/strong&gt; forces monitor to HDMI mode so that sound signals are carried from HDMI cables.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;hdmi_group&lt;/strong&gt; specifies whether monitor is DMT type (Computers) or CEA type (TV)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;hdmi_mode&lt;/strong&gt; specifies the resolution of monitor.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For hdmi_group value selection :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you're using output as Computer monitor then replace value '1' with '2', so the new config will be like :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_group=2
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(Select value 1 for TV, Select value 2 for monitor)&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;For hdmi_mode value selection :&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Now open &lt;a href="http://elinux.org/RPiconfig#Video_mode_options"&gt;eLinux RPi config&lt;/a&gt; scroll down, there in hdmi_mode two tables are given, select the correct resolution as per your monitor. (Table1 if you're using TV &amp;amp; Table2 if you're using Monitor)&lt;br&gt;
+Since my monitor's resolution is 1366x768 px, hdmi_mode=39 fits me the best.So, the modified config.txt will be like.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_mode=39
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So, overall my uncommented lines will look something like :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_force_hotplug=1
+hdmi_drive=2
+hdmi_group=2
+hdmi_mode=39
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, save the edited config.txt&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3) Connection of RPi with HDMI\&amp;lt;-&gt;VGA adapter.&lt;/strong&gt;&lt;/p&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"&gt;&lt;img alt="HDMI-VGA" src="thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Happy hacking.&lt;/p&gt;</content><category term="Raspberry Pi"></category></entry></feed>
