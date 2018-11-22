@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - J4A (Java for Android), Programming</title><link href="thegeekyway.com/" rel="alternate"></link><link href="thegeekyway.com/feed/j4a-java-for-android-programming.atom.xml" rel="self"></link><id>thegeekyway.com/</id><updated>2014-02-22T23:58:00+05:30</updated><entry><title>Creating your first Java Program (J4A - 2)</title><link href="thegeekyway.com/creating-first-java-program/" rel="alternate"></link><published>2014-02-22T23:58:00+05:30</published><updated>2014-02-22T23:58:00+05:30</updated><author><name>gagan93</name></author><id>tag:None,2014-02-22:thegeekyway.com/creating-first-java-program/</id><summary type="html">&lt;p&gt;&lt;u&gt;Beginning Java Programming&lt;/u&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - J4A (Java for Android), Programming</title><link href="/" rel="alternate"></link><link href="/feed/j4a-java-for-android-programming.atom.xml" rel="self"></link><id>/</id><updated>2014-02-22T23:58:00+05:30</updated><entry><title>Creating your first Java Program (J4A - 2)</title><link href="/creating-first-java-program/" rel="alternate"></link><published>2014-02-22T23:58:00+05:30</published><updated>2014-02-22T23:58:00+05:30</updated><author><name>gagan93</name></author><id>tag:None,2014-02-22:/creating-first-java-program/</id><summary type="html">&lt;p&gt;&lt;u&gt;Beginning Java Programming&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;Some institutes/tutorials start java directly using Netbeans or Eclipse IDE. But this is not the correct way. A better method is to use a basic text editor like Notepad2 or Notepad++ to begin Java. IDE’s provide shortcuts which experienced programmers use. If beginners opt for …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;u&gt;Beginning Java Programming&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;Some institutes/tutorials start java directly using Netbeans or Eclipse IDE. But this is not the correct way. A better method is to use a basic text editor like Notepad2 or Notepad++ to begin Java. IDE’s provide shortcuts which experienced programmers use. If beginners opt for these methods, they will leave half of the work for IDE and miss this ‘half’.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;IDE&lt;/strong&gt; is an Integrated Development Environment or a software which accelerates software development and provides features like syntax completion, error detection,error correction, auto indentation, drag and drop for G.U.I. and much more. One should go for an IDE only after practising a programming language on text editors.&lt;/p&gt;
@@ -31,8 +31,8 @@
 &lt;li&gt;To execute java program, type “java Demo”. Here java is the name of application which will execute the .class file and show the output as shown here.&lt;/li&gt;
 &lt;/ol&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/61.jpg"&gt;&lt;img alt="6" src="thegeekyway.com/uploads/images/2014/02/61.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
-&lt;/div&gt;</content><category term="Android"></category><category term="java"></category></entry><entry><title>Moving from C++ to Java (J4A - 1)</title><link href="thegeekyway.com/moving-c-java/" rel="alternate"></link><published>2014-02-22T23:51:00+05:30</published><updated>2014-02-22T23:51:00+05:30</updated><author><name>gagan93</name></author><id>tag:None,2014-02-22:thegeekyway.com/moving-c-java/</id><summary type="html">&lt;p&gt;&lt;u&gt;C to C++ and C++ to Java:&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/uploads/images/2014/02/61.jpg"&gt;&lt;img alt="6" src="/uploads/images/2014/02/61.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</content><category term="Android"></category><category term="java"></category></entry><entry><title>Moving from C++ to Java (J4A - 1)</title><link href="/moving-c-java/" rel="alternate"></link><published>2014-02-22T23:51:00+05:30</published><updated>2014-02-22T23:51:00+05:30</updated><author><name>gagan93</name></author><id>tag:None,2014-02-22:/moving-c-java/</id><summary type="html">&lt;p&gt;&lt;u&gt;C to C++ and C++ to Java:&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;C was a powerful programming language but used structural approach. So when the length of code exceeded a particular no. of lines, the code became unmanageable. So this led to Object Oriented Programming techniques and birth of C++. But C++ compilers at that …&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;u&gt;C to C++ and C++ to Java:&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;C was a powerful programming language but used structural approach. So when the length of code exceeded a particular no. of lines, the code became unmanageable. So this led to Object Oriented Programming techniques and birth of C++. But C++ compilers at that time were not platform independent. You needed a different code for Windows, different for Mac, Unix and other operating systems. Today programs written in C++ are also categorized by 32 and 64 bit versions. So C++ followed the W.O.C.A. principle, i.e. &lt;u&gt;Write Once, Compile Anywhere&lt;/u&gt;. The main focus was to create programs which could execute on any platform and any O.S. These forces led to the development of Java (originally called as ‘Oak’) which followed W.O.R.A. principle, i.e. &lt;u&gt;Write Once, Run Anywhere.&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;&lt;u&gt; &lt;/u&gt;&lt;/p&gt;
@@ -60,24 +60,24 @@
 &lt;p&gt;&lt;u&gt;Downloading &amp;amp; Installing JDK&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;Download JDK from &lt;a href="http://www.oracle.com/technetwork/java/javase/downloads/jdk7-downloads-1880260.html"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/112.jpg"&gt;&lt;img alt="1" src="thegeekyway.com/uploads/images/2014/02/112.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/uploads/images/2014/02/112.jpg"&gt;&lt;img alt="1" src="/uploads/images/2014/02/112.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Scroll down to see screen as shown above. Accept the License Agreement to start download. As you can see, JDK is implemented for almost all major operating systems. After downloading, install JDK with default settings. After installation, go to&lt;/p&gt;
 &lt;p&gt;C:/program files/java/jdk\&amp;lt;version_name&gt;/bin/&lt;/p&gt;
 &lt;p&gt;Make sure ‘javac’ and ‘java’ are present in this folder. Now copy the complete path from the address bar of explorer as shown in the pic below.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/25.jpg"&gt;&lt;img alt="2" src="thegeekyway.com/uploads/images/2014/02/25.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="/uploads/images/2014/02/25.jpg"&gt;&lt;img alt="2" src="/uploads/images/2014/02/25.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Now, follow these steps&lt;/p&gt;
 &lt;p&gt;Go to Start Menu -&gt; Run. Type ‘sysdm.cpl’ and press OK. You get the following screen.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/32.jpg"&gt;&lt;img alt="3" src="thegeekyway.com/uploads/images/2014/02/32.jpg"&gt;&lt;/a&gt;  Click on ‘Advanced’ tab and then on Environment Variables button.&lt;/p&gt;
+&lt;p&gt;&lt;a href="/uploads/images/2014/02/32.jpg"&gt;&lt;img alt="3" src="/uploads/images/2014/02/32.jpg"&gt;&lt;/a&gt;  Click on ‘Advanced’ tab and then on Environment Variables button.&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/41.jpg"&gt;&lt;img alt="4" src="thegeekyway.com/uploads/images/2014/02/41.jpg"&gt;&lt;/a&gt; You will get following screen now&lt;/p&gt;
+&lt;p&gt;&lt;a href="/uploads/images/2014/02/41.jpg"&gt;&lt;img alt="4" src="/uploads/images/2014/02/41.jpg"&gt;&lt;/a&gt; You will get following screen now&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="thegeekyway.com/uploads/images/2014/02/51.jpg"&gt;&lt;img alt="5" src="thegeekyway.com/uploads/images/2014/02/51.jpg"&gt;&lt;/a&gt;  &lt;/p&gt;
+&lt;p&gt;&lt;a href="/uploads/images/2014/02/51.jpg"&gt;&lt;img alt="5" src="/uploads/images/2014/02/51.jpg"&gt;&lt;/a&gt;  &lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Create a new user variable using button as shown above. Write the following values in text field provided.&lt;/p&gt;
 &lt;p&gt;Variable name : path&lt;/p&gt;

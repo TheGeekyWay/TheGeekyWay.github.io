@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="deployment">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="thegeekyway.com">
+      <a href="/">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="/">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories/" target="_blank">Categories</a></li>
@@ -51,16 +51,14 @@
         <li><a href="/archives/" target="_blank">Archives</a></li>
         <li><a href="/about-us/" target="_blank">About us</a></li>
         <li><a href="/authors/" target="_blank">Authors</a></li>
-        <hr/>
-        <p> Social Media </p>
-
+        <hr>
+        <p><b>Social Media</b></p>
         <a href="https://www.twitter.com/thegeekyway" target="_blank">
-               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
         </a>
         <a href="https://www.facebook.com/thegeekyway" target="_blank">
-               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
         </a>
-
       </ul>
     </div>
   </aside>
@@ -68,21 +66,22 @@
   <main>
     <header>
       <p>
-      Technology Inside out!
-      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="thegeekyway.com/blue-green-deployment/">Blue-Green Deployment</a></h1>
+    <h1><a href="/blue-green-deployment/">Blue-Green Deployment</a></h1>
   </div>
-  <p><em> Post by: </em><a href="thegeekyway.com/author/GeekyShacklebolt.html"> GeekyShacklebolt</a> </p>
   <div class="article_text">
     <p>A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see nowadays, there are some simpler and more efficient ways to perform the same. We are going to discuss one such technique, that is called "Blue-Green Deployment".<!--more--></p>
 <div style="text-align:center">
-<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"></p>
+<p><img alt="" src="/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"></p>
 </div>
 <p>Before we jump on to understand Blue-Green Deployment, let's first discuss some relevant terms in brief.</p>
 <h3>Deployment:</h3>
@@ -100,7 +99,7 @@ For this technique, we need 2 identically configured hardware components or serv
 - another one is termed as <strong>"green"</strong> that would be an <strong>idle</strong> environment.</p>
 <p>Initially, some applications <strong>(e.i app1 ver1, app2 ver1)</strong> are running in our blue environment. As shown in the picture.</p>
 <div style="text-align:center">
-<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Active-blue-env.png" title="Active blue environment"></p>
+<p><img alt="" src="/uploads/images/2018/02/Active-blue-env.png" title="Active blue environment"></p>
 </div>
 <p>Suppose, now we come up with different versions of applications <strong>(i.e. app1 ver2, app2 ver2)</strong>. We want them to deploy and then test these applications. If everything goes right, we'll use these versions in future, but if not, then we would go for the "rollback".</p>
 <p>Let's accomplish this using blue-green deployment:</p>
@@ -108,12 +107,12 @@ For this technique, we need 2 identically configured hardware components or serv
 2. Here a testing team may test the working of these new versions.<br>
 3. Gradually, using load balancer we start diverting the traffic to this green environment. As shown in the picture. With this live testing is also possible.</p>
 <div style="text-align:center">
-<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Active-blue-green-env.png" title="Diverting traffic from blue to green environment"></p>
+<p><img alt="" src="/uploads/images/2018/02/Active-blue-green-env.png" title="Diverting traffic from blue to green environment"></p>
 </div>
 <p>4. If now, these versions fail or crash due to any possible reason. We can quickly roll back to the previous versions in the blue environment using the load balancer.<br>
 5. If new versions are found to be perfectly interacting with the user's traffic, then this <strong>"green"</strong> environment is kept to be <strong>active</strong> and <strong>"blue"</strong> becomes <strong>idle</strong>.</p>
 <div style="text-align:center">
-<p><img alt="" src="thegeekyway.com/uploads/images/2018/02/Active-green-env.png" title="Active green environment"></p>
+<p><img alt="" src="/uploads/images/2018/02/Active-green-env.png" title="Active green environment"></p>
 </div>
 <p>After successful blue-green deployment, the idle environment is either used to deploy the next version of the application or is simply destroyed.</p>
 <p><em><u><strong>Some points to ponder:</strong></u></em></p>
@@ -133,9 +132,9 @@ Implementing blue-green deployment become complex with the database, especially 
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 15 February 2018</p>
-    <p>Category: <a href="thegeekyway.com/category/devops.html">DevOps</a>
+    <p>Category: <a href="/category/devops.html">DevOps</a>
  &ndash; Tags:
-      <a href="thegeekyway.com/tag/deployment.html">deployment</a>    </p>
+      <a href="/tag/deployment.html">deployment</a>    </p>
   </div>
 
 
@@ -144,8 +143,8 @@ Implementing blue-green deployment become complex with the database, especially 
 
     <div id="ending_message">
       <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href='/disclaimer/'>Disclaimer</a>
-      <a href='/privacy-policy/'>Privacy Policy</a>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
     </div>
   </main>
 </body>

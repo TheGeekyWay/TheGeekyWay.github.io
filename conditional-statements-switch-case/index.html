@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="C language, conditional, switch">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="thegeekyway.com">
+      <a href="/">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="/">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories/" target="_blank">Categories</a></li>
@@ -51,16 +51,14 @@
         <li><a href="/archives/" target="_blank">Archives</a></li>
         <li><a href="/about-us/" target="_blank">About us</a></li>
         <li><a href="/authors/" target="_blank">Authors</a></li>
-        <hr/>
-        <p> Social Media </p>
-
+        <hr>
+        <p><b>Social Media</b></p>
         <a href="https://www.twitter.com/thegeekyway" target="_blank">
-               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
         </a>
         <a href="https://www.facebook.com/thegeekyway" target="_blank">
-               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
         </a>
-
       </ul>
     </div>
   </aside>
@@ -68,21 +66,22 @@
   <main>
     <header>
       <p>
-      Technology Inside out!
-      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="thegeekyway.com/conditional-statements-switch-case/">Conditional Statements : Switch Case</a></h1>
+    <h1><a href="/conditional-statements-switch-case/">Conditional Statements : Switch Case</a></h1>
   </div>
-  <p><em> Post by: </em><a href="thegeekyway.com/author/sanyam_khurana.html"> sanyam_khurana</a> </p>
   <div class="article_text">
     <p>In the previous tutorial, we've discussed about <a href="http://www.thegeekyway.com/conditional-statements-if-else/" title="Understanding Conditional Statements: if else">if - else and nested if - else statements</a> and how we can use them to test certain conditions and execute a block of code depending on whether the condition becomes true or false. In this tutorial, we'll be covering another Conditional Statement used in C known as Switch Case. The major difference between choosing to use if-else and switch is, when we have to compare a single variable to different set of values, then Switch is preferred, and if-else if preferred otherwise.</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"><img alt="Conditional Statements : Switch Case C language" src="thegeekyway.com/uploads/images/2014/02/SwitchCase1.png"></a></p>
+<p><a href="/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"><img alt="Conditional Statements : Switch Case C language" src="/uploads/images/2014/02/SwitchCase1.png"></a></p>
 </div>
 <p>The basic semantics of a switch block statement is as follows :</p>
 <div class="highlight"><pre><span></span>switch(variable-name)
@@ -166,7 +165,7 @@ return 0;
 
 <p>Now, if we run this and input 2 is given then output would be as shown below</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2014/02/Switch_Case.png" title="Switch case in C language Output Screen"><img alt="Switch case in C language Output Screen" src="thegeekyway.com/uploads/images/2014/02/Switch_Case.png"></a></p>
+<p><a href="/uploads/images/2014/02/Switch_Case.png" title="Switch case in C language Output Screen"><img alt="Switch case in C language Output Screen" src="/uploads/images/2014/02/Switch_Case.png"></a></p>
 </div>
 <p>See, we not only got Number is 2 statement printed, but got all statements printed after that case, in a sequential manner, this is because in a switch condition we need to have conditional flow of statement using break statement.</p>
 <p>Now, if you include break after each case but doesn't do it with default case, it would run fine too, this is because if the default case is true, then after executing set of statements with that case, the control would automatically be out of the switch block, so technically we do not need break after default case.</p>
@@ -192,9 +191,9 @@ return 0;
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 01 February 2014</p>
-    <p>Category: <a href="thegeekyway.com/category/c.html">C</a>
+    <p>Category: <a href="/category/c.html">C</a>
  &ndash; Tags:
-      <a href="thegeekyway.com/tag/c-language.html">C language</a>,      <a href="thegeekyway.com/tag/conditional.html">conditional</a>,      <a href="thegeekyway.com/tag/switch.html">switch</a>    </p>
+      <a href="/tag/c-language.html">C language</a>,      <a href="/tag/conditional.html">conditional</a>,      <a href="/tag/switch.html">switch</a>    </p>
   </div>
 
 
@@ -203,8 +202,8 @@ return 0;
 
     <div id="ending_message">
       <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href='/disclaimer/'>Disclaimer</a>
-      <a href='/privacy-policy/'>Privacy Policy</a>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
     </div>
   </main>
 </body>

@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="Arduino, IDE, linux">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="thegeekyway.com">
+      <a href="/">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="/">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories/" target="_blank">Categories</a></li>
@@ -51,16 +51,14 @@
         <li><a href="/archives/" target="_blank">Archives</a></li>
         <li><a href="/about-us/" target="_blank">About us</a></li>
         <li><a href="/authors/" target="_blank">Authors</a></li>
-        <hr/>
-        <p> Social Media </p>
-
+        <hr>
+        <p><b>Social Media</b></p>
         <a href="https://www.twitter.com/thegeekyway" target="_blank">
-               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
         </a>
         <a href="https://www.facebook.com/thegeekyway" target="_blank">
-               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
         </a>
-
       </ul>
     </div>
   </aside>
@@ -68,24 +66,25 @@
   <main>
     <header>
       <p>
-      Technology Inside out!
-      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="thegeekyway.com/install-alternative-arduino-ide/">Install Alternative To Arduino IDE</a></h1>
+    <h1><a href="/install-alternative-arduino-ide/">Install Alternative To Arduino IDE</a></h1>
   </div>
-  <p><em> Post by: </em><a href="thegeekyway.com/author/Abhishek_Rawal.html"> Abhishek_Rawal</a> </p>
   <div class="article_text">
     <p>Arduino, the world famous opensource electronic prototyping platform is undoubtedly the best series of boards used by makers &amp; Engineers. However, the official Arduino IDE which is used to load the arduino sketch is bit clumsy. I never really liked Arduino IDE, so after searching a lot, I came to know about 'Stino', the plugin for world's slickest text editor Sublime Text 2. Using Stino you can edit arduino codes and even upload sketches to your Arduino board. All you have to do is follow the steps mentioned below.</p>
 <p><strong>Step 1 : Download Arduino IDE .tgz</strong></p>
 <p>Yeah, we need Arduino IDE for their libraries which we'll import in Sublime Text 2. So, download Arduino IDE.tgz from the <a href="http://arduino.cc/en/main/software" title="Download Arduino">Arduino Website</a> as per your system architecture.</p>
 <p>Now extract the downloaded .tgz &amp; copy the extracted folder to /home directory.</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2013/12/Home_005.png" title="Extracted Arduino moved to /home directory"><img alt="Home_005" src="thegeekyway.com/uploads/images/2013/12/Home_005.png" title="Extracted Arduino moved to /home directory"></a></p>
+<p><a href="/uploads/images/2013/12/Home_005.png" title="Extracted Arduino moved to /home directory"><img alt="Home_005" src="/uploads/images/2013/12/Home_005.png" title="Extracted Arduino moved to /home directory"></a></p>
 </div>
 <p><strong>Step 2 : Install Sublime text Editor</strong></p>
 <p>View <a href="http://www.thegeekyway.com/install-sublime-text-editor-gnulinux/" title="Steps to install Sublime Text"><strong>THIS ARTICLE</strong></a> for procedure to install Sublime Text editor in your Linux system.</p>
@@ -98,24 +97,24 @@
 
 <p>and press 'Enter' . Something like below shown image will appear.</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2013/12/sublimearduino.png" title="Package control installed in Sublime text 2"><img alt="sublimearduino" src="thegeekyway.com/uploads/images/2013/12/sublimearduino.png" title="Package control installed in Sublime text 2"></a></p>
+<p><a href="/uploads/images/2013/12/sublimearduino.png" title="Package control installed in Sublime text 2"><img alt="sublimearduino" src="/uploads/images/2013/12/sublimearduino.png" title="Package control installed in Sublime text 2"></a></p>
 </div>
 <p>Restart the Sublime Text editor.</p>
 <p><strong> Step 4 : Installing Stino</strong></p>
 <p>Stino is the plugin for Sublime text editor written by Robot-Will, you can view the code of Stino from <a href="https://github.com/Robot-Will/Stino" title="Stino Source code">Github</a></p>
 <p>Now, Open Sublime text editor &amp; go to <strong>Preference -> Package Control</strong> and click on <strong>Install Packages.</strong></p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2013/12/package-control.png" title="Selecting 'Install Package' in Package control"><img alt="package control" src="thegeekyway.com/uploads/images/2013/12/package-control.png"></a></p>
+<p><a href="/uploads/images/2013/12/package-control.png" title="Selecting 'Install Package' in Package control"><img alt="package control" src="/uploads/images/2013/12/package-control.png"></a></p>
 </div>
 <p>Wait for while till the repository is loading, once repository is loaded, you'll be able to access all the available plugins &amp; install it. Search for 'Arduino IDE' &amp; press 'Enter'. This will install 'Stino' in sublime text editor.</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2013/12/sublime-package-stino.png" title="Installing Stino"><img alt="sublime package stino" src="thegeekyway.com/uploads/images/2013/12/sublime-package-stino.png" title="Installing Stino"></a></p>
+<p><a href="/uploads/images/2013/12/sublime-package-stino.png" title="Installing Stino"><img alt="sublime package stino" src="/uploads/images/2013/12/sublime-package-stino.png" title="Installing Stino"></a></p>
 </div>
 <p><strong>Step 5 : Configuring Stino to make Sublime text editor to work like Arduino IDE.</strong></p>
 <p>Now open Sublime text edito, in their one more tab will be available now, called 'Arduino'. Click on it &amp; go to Preferences -> Select Arduino Application Folder. Then select the path where you've extracted arduino.tgz (In this we extracted in /home folder, so select home while declaring path to Stino)</p>
 <p>If you've extracted arduino.tgz the steps will be like : <strong>Preferences -> Select Arduino Application Folder -> / -> home -> your_username -> arduino-1.0.5</strong> and you'll get the output as given below :</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2013/12/sublime-linked-arduino.png" title="Selecting Arduino application folder"><img alt="sublime linked arduino" src="thegeekyway.com/uploads/images/2013/12/sublime-linked-arduino.png" title="Selecting Arduino application folder from sublime"></a></p>
+<p><a href="/uploads/images/2013/12/sublime-linked-arduino.png" title="Selecting Arduino application folder"><img alt="sublime linked arduino" src="/uploads/images/2013/12/sublime-linked-arduino.png" title="Selecting Arduino application folder from sublime"></a></p>
 </div>
 <p>That's all. Now, you can select your arduino board in which you're going to upload sketches from <strong>Arduino -> Arduino AVR boards. </strong> Use <strong>'Verify/Compile'</strong> option to compile your arduino sketch &amp; <strong>'Upload'</strong> option to upload the sketch into arduino connected to your PC.</p>
 <blockquote>
@@ -125,9 +124,9 @@
   </div>
   <div class="article_meta">
     <p>Posted on: Wed 11 December 2013</p>
-    <p>Category: <a href="thegeekyway.com/category/how-to-diy.html">How To DIY</a>
+    <p>Category: <a href="/category/how-to-diy.html">How To DIY</a>
  &ndash; Tags:
-      <a href="thegeekyway.com/tag/arduino.html">Arduino</a>,      <a href="thegeekyway.com/tag/ide.html">IDE</a>,      <a href="thegeekyway.com/tag/linux.html">linux</a>    </p>
+      <a href="/tag/arduino.html">Arduino</a>,      <a href="/tag/ide.html">IDE</a>,      <a href="/tag/linux.html">linux</a>    </p>
   </div>
 
 
@@ -136,8 +135,8 @@
 
     <div id="ending_message">
       <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href='/disclaimer/'>Disclaimer</a>
-      <a href='/privacy-policy/'>Privacy Policy</a>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
     </div>
   </main>
 </body>

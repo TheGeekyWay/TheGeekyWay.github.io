@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="kvm, libvirt, qemu, virtualization">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="thegeekyway.com">
+      <a href="/">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="/">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories/" target="_blank">Categories</a></li>
@@ -51,16 +51,14 @@
         <li><a href="/archives/" target="_blank">Archives</a></li>
         <li><a href="/about-us/" target="_blank">About us</a></li>
         <li><a href="/authors/" target="_blank">Authors</a></li>
-        <hr/>
-        <p> Social Media </p>
-
+        <hr>
+        <p><b>Social Media</b></p>
         <a href="https://www.twitter.com/thegeekyway" target="_blank">
-               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
         </a>
         <a href="https://www.facebook.com/thegeekyway" target="_blank">
-               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
         </a>
-
       </ul>
     </div>
   </aside>
@@ -68,21 +66,22 @@
   <main>
     <header>
       <p>
-      Technology Inside out!
-      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="thegeekyway.com/kvm-vs-qemu-vs-libvirt/">KVM vs QEMU vs Libvirt</a></h1>
+    <h1><a href="/kvm-vs-qemu-vs-libvirt/">KVM vs QEMU vs Libvirt</a></h1>
   </div>
-  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
   <div class="article_text">
     <p>Since the day I started to read about the virtualization concept, I have been troubled by QEMU and KVM. They both look like complementary, but what exactly they do? And then there is libvirt, what role does it play? Let’s try to understand that.</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2014/02/download.jpg"><img alt="KVM" src="thegeekyway.com/uploads/images/2014/02/download-300x94.jpg"></a></p>
+<p><a href="/uploads/images/2014/02/download.jpg"><img alt="KVM" src="/uploads/images/2014/02/download-300x94.jpg"></a></p>
 </div>
 <p>When you dive deep into the virtualization, you find hypervisor. Hypervisor is the agent that helps you create virtual machines. He is the guy who creates and runs the guest machine and provide the host’s resource to the guest. QEMU and KVM both are able to act as hypervisor. Then why are they used together? Well, because QEMU is dumb! Well, not exactly, but it is a little slower when it comes to system which dont have hardware virtualization. So, to achieve that, we have our own very dear KVM. KVM helps QEMU to access hardware virtualization features on different architectures. It also adds the acceleration feature to the QEMU process. So, in short, when they are together, QEMU is the hypervisor/emulator and KVM is the accelerating agent.</p>
 <p>Then we come to libvirt. Libvirt is quite innocent in the sense that is doesn’t confuse you! It is simply a virtualization management library. And what does it do? It manages both KVM and QEMU. It consists of three utilities namely - an API library, a daemon (libvirtd) and a command line tool -virsh. Libvirt is quite effective and it can manage a lot of hypervisors altogether.</p>
@@ -90,9 +89,9 @@
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 14 February 2014</p>
-    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+    <p>Category: <a href="/category/linux.html">Linux</a>
  &ndash; Tags:
-      <a href="thegeekyway.com/tag/kvm.html">kvm</a>,      <a href="thegeekyway.com/tag/libvirt.html">libvirt</a>,      <a href="thegeekyway.com/tag/qemu.html">qemu</a>,      <a href="thegeekyway.com/tag/virtualization.html">virtualization</a>    </p>
+      <a href="/tag/kvm.html">kvm</a>,      <a href="/tag/libvirt.html">libvirt</a>,      <a href="/tag/qemu.html">qemu</a>,      <a href="/tag/virtualization.html">virtualization</a>    </p>
   </div>
 
 
@@ -101,8 +100,8 @@
 
     <div id="ending_message">
       <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href='/disclaimer/'>Disclaimer</a>
-      <a href='/privacy-policy/'>Privacy Policy</a>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
     </div>
   </main>
 </body>

@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="automation, Chef, chef-solo, Python, python with chef">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="thegeekyway.com">
+      <a href="/">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="/">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories/" target="_blank">Categories</a></li>
@@ -51,16 +51,14 @@
         <li><a href="/archives/" target="_blank">Archives</a></li>
         <li><a href="/about-us/" target="_blank">About us</a></li>
         <li><a href="/authors/" target="_blank">Authors</a></li>
-        <hr/>
-        <p> Social Media </p>
-
+        <hr>
+        <p><b>Social Media</b></p>
         <a href="https://www.twitter.com/thegeekyway" target="_blank">
-               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
         </a>
         <a href="https://www.facebook.com/thegeekyway" target="_blank">
-               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
         </a>
-
       </ul>
     </div>
   </aside>
@@ -68,17 +66,18 @@
   <main>
     <header>
       <p>
-      Technology Inside out!
-      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="thegeekyway.com/running-python-script-using-chef/">Running A Python Script Using Chef</a></h1>
+    <h1><a href="/running-python-script-using-chef/">Running A Python Script Using Chef</a></h1>
   </div>
-  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
   <div class="article_text">
     <p>Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through <a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/">this</a> article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration of the designated server. Resource have their predefined task like to run a command, to copy a file, to use a template etc. In this article we are going to talk about script resource. This is going to run any script, it could be bash, python or perl. There are separate resources for these scripts.</p>
 <p>You put the resources in your recipe. Here is a simple bash script example:</p>
@@ -121,9 +120,9 @@ end
   </div>
   <div class="article_meta">
     <p>Posted on: Tue 18 March 2014</p>
-    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+    <p>Category: <a href="/category/linux.html">Linux</a>
  &ndash; Tags:
-      <a href="thegeekyway.com/tag/automation.html">automation</a>,      <a href="thegeekyway.com/tag/chef.html">Chef</a>,      <a href="thegeekyway.com/tag/chef-solo.html">chef-solo</a>,      <a href="thegeekyway.com/tag/python.html">Python</a>,      <a href="thegeekyway.com/tag/python-with-chef.html">python with chef</a>    </p>
+      <a href="/tag/automation.html">automation</a>,      <a href="/tag/chef.html">Chef</a>,      <a href="/tag/chef-solo.html">chef-solo</a>,      <a href="/tag/python.html">Python</a>,      <a href="/tag/python-with-chef.html">python with chef</a>    </p>
   </div>
 
 
@@ -132,8 +131,8 @@ end
 
     <div id="ending_message">
       <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href='/disclaimer/'>Disclaimer</a>
-      <a href='/privacy-policy/'>Privacy Policy</a>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
     </div>
   </main>
 </body>

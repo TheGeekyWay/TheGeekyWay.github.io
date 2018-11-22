@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="benchmarking, Openstack, openstack benchmarking, performance measure, rally, scaling">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="thegeekyway.com">
+      <a href="/">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="/">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories/" target="_blank">Categories</a></li>
@@ -51,16 +51,14 @@
         <li><a href="/archives/" target="_blank">Archives</a></li>
         <li><a href="/about-us/" target="_blank">About us</a></li>
         <li><a href="/authors/" target="_blank">Authors</a></li>
-        <hr/>
-        <p> Social Media </p>
-
+        <hr>
+        <p><b>Social Media</b></p>
         <a href="https://www.twitter.com/thegeekyway" target="_blank">
-               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
         </a>
         <a href="https://www.facebook.com/thegeekyway" target="_blank">
-               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
         </a>
-
       </ul>
     </div>
   </aside>
@@ -68,24 +66,25 @@
   <main>
     <header>
       <p>
-      Technology Inside out!
-      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="thegeekyway.com/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
+    <h1><a href="/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
   </div>
-  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
   <div class="article_text">
     <p>When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three steps:</p>
 <p><strong>1. Deployment:</strong> Rally is not a deployment tool by itself, instead it works as a plugin with devstack, RDO etc.</p>
 <p><strong>2. Verification:</strong> Here Rally uses tempest to verify the OpenStack cloud deployment.</p>
 <p><strong>3. Benchmarking:</strong> This step is used to calculate load and performance of the particular cloud deployment.</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"><img alt="Openstack with Rally" src="thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg"></a></p>
+<p><a href="/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"><img alt="Openstack with Rally" src="/uploads/images/2014/02/openstack-logo1.jpg"></a></p>
 </div>
 <p>Rally generally works a command line tool (GUI is work in progress) and helps in detecting scaling and performance issues, figuring out how the code change affects the system and finding out suitable architecture of deployment etc.</p>
 <p>The first step is to install rally in OpenStack environment. I am going to use rally as a plugin with devstack, though it is possible to install it manually in an already deployed environment. To start, clone the following repositories from github:</p>
@@ -152,9 +151,9 @@ echo &quot;enable_service rally&quot; &gt;&gt; localrc
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 28 February 2014</p>
-    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+    <p>Category: <a href="/category/linux.html">Linux</a>
  &ndash; Tags:
-      <a href="thegeekyway.com/tag/benchmarking.html">benchmarking</a>,      <a href="thegeekyway.com/tag/openstack.html">Openstack</a>,      <a href="thegeekyway.com/tag/openstack-benchmarking.html">openstack benchmarking</a>,      <a href="thegeekyway.com/tag/performance-measure.html">performance measure</a>,      <a href="thegeekyway.com/tag/rally.html">rally</a>,      <a href="thegeekyway.com/tag/scaling.html">scaling</a>    </p>
+      <a href="/tag/benchmarking.html">benchmarking</a>,      <a href="/tag/openstack.html">Openstack</a>,      <a href="/tag/openstack-benchmarking.html">openstack benchmarking</a>,      <a href="/tag/performance-measure.html">performance measure</a>,      <a href="/tag/rally.html">rally</a>,      <a href="/tag/scaling.html">scaling</a>    </p>
   </div>
 
 
@@ -163,8 +162,8 @@ echo &quot;enable_service rally&quot; &gt;&gt; localrc
 
     <div id="ending_message">
       <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href='/disclaimer/'>Disclaimer</a>
-      <a href='/privacy-policy/'>Privacy Policy</a>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
     </div>
   </main>
 </body>

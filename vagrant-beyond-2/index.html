@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="Vagrant, VagrantFile, virtual machines">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="thegeekyway.com">
+      <a href="/">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="/">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories/" target="_blank">Categories</a></li>
@@ -51,16 +51,14 @@
         <li><a href="/archives/" target="_blank">Archives</a></li>
         <li><a href="/about-us/" target="_blank">About us</a></li>
         <li><a href="/authors/" target="_blank">Authors</a></li>
-        <hr/>
-        <p> Social Media </p>
-
+        <hr>
+        <p><b>Social Media</b></p>
         <a href="https://www.twitter.com/thegeekyway" target="_blank">
-               <img src="/icons/twitter.svg" alt="twitter" style="width:26px;height:26px;border:0;">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
         </a>
         <a href="https://www.facebook.com/thegeekyway" target="_blank">
-               <img src="/icons/facebook.svg" alt="facebook" style="width:26px;height:26px;border:0;">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
         </a>
-
       </ul>
     </div>
   </aside>
@@ -68,17 +66,18 @@
   <main>
     <header>
       <p>
-      Technology Inside out!
-      &brvbar; <a href="thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="thegeekyway.com/feed/">RSS</a>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="thegeekyway.com/vagrant-beyond-2/">Vagrant up And Beyond!</a></h1>
+    <h1><a href="/vagrant-beyond-2/">Vagrant up And Beyond!</a></h1>
   </div>
-  <p><em> Post by: </em><a href="thegeekyway.com/author/Peeyush_Gupta.html"> Peeyush_Gupta</a> </p>
   <div class="article_text">
     <p>When you are working on a project with a team, a big question is how to make them work on same environment? One solution is to make them work on same machine, but this gets messy as everyone is making changes. The other solution is to provide everyone with same environment. And that’s where Vagrant comes! In this tutorial we will learn how to use Vagrant.</p>
 <p>Vagrant gives you portable work environments which can be controlled by a pre-defined workflow. The idea is when you are working on a project and there are a lot of dependencies, configuration settings, scripts involved, you can combine them all up with vagrant and pass it around to be used by everyone. Let’s start with getting a VM up and running.</p>
@@ -102,7 +101,7 @@ $ vagrant up
 <p>So, how do you control the whole environment? Well, that’s why we have a Vagrantfile! The primary objective of a Vagrantfile is to describe the type, attributes etc. of the virtual machine. There is one Vagrantfile per project and it takes care of all the installation, script execution etc. When you do “vagrant init” in a directory, a Vagrantfile is placed there. Now, you can use this Vagrantfile to launch virtual machines from this directory. If you want to do it from another directory, you will first have to do “vagrant init” there or you would have to copy Vagrantfile in that directory.</p>
 <p>Vagrantfile can be ported from one platform to another. It is written in Ruby, but you don’t need to learn Ruby to specify attributes through it. Let’s say, after launching a machine, you want to run a shell script on it. The content of the Vagrantfile would be:</p>
 <div style="text-align:center">
-<p><a href="thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"><img alt="Screenshot from 2013-12-23 15:23:11" src="thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"></a></p>
+<p><a href="/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"><img alt="Screenshot from 2013-12-23 15:23:11" src="/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"></a></p>
 </div>
 <p>As you can see here, the name of the box and machine is fedora1 and I have given the provisioner as shell and the script that is going to run (after the virtual machine is booted) is bootstrap.sh. Here bootstrap.sh is present in the same directory, you can also give the absolute./relative path to you shell script. You can modify the Vagrant file and use</p>
 <div class="highlight"><pre><span></span>$ vagrant reload
@@ -113,9 +112,9 @@ $ vagrant up
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 23 December 2013</p>
-    <p>Category: <a href="thegeekyway.com/category/linux.html">Linux</a>
+    <p>Category: <a href="/category/linux.html">Linux</a>
  &ndash; Tags:
-      <a href="thegeekyway.com/tag/vagrant.html">Vagrant</a>,      <a href="thegeekyway.com/tag/vagrantfile.html">VagrantFile</a>,      <a href="thegeekyway.com/tag/virtual-machines.html">virtual machines</a>    </p>
+      <a href="/tag/vagrant.html">Vagrant</a>,      <a href="/tag/vagrantfile.html">VagrantFile</a>,      <a href="/tag/virtual-machines.html">virtual machines</a>    </p>
   </div>
 
 
@@ -124,8 +123,8 @@ $ vagrant up
 
     <div id="ending_message">
       <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href='/disclaimer/'>Disclaimer</a>
-      <a href='/privacy-policy/'>Privacy Policy</a>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
     </div>
   </main>
 </body>
