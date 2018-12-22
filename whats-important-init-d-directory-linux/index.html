@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="Linux Filesystem">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,11 +78,14 @@
   <div class="article_title">
     <h1><a href="/whats-important-init-d-directory-linux/">Understanding init.d Directory In Linux Filesystem.</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/Abhishek_Rawal.html>Abhishek_Rawal</a></strong></p>
+  </div>
   <div class="article_text">
     <p><strong><em>init.d</em></strong> is the sub-directory of <strong><em>/etc</em></strong> directory in Linux file system. init.d basically contains the bunch of start/stop scripts which are used to control (start,stop,reload,restart) the daemon while the system is running or during boot. If you look at <strong><em>/etc/init.d</em></strong> then you will notice all the scripts for different services of your system.</p>
 <p>The scripts within the directory varies as per the applications installed in your system. In server system you'll find many network related scripts while in desktop there will be the only basic ones like 'networking'.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2013/12/init_main_featureimage.png"><img alt="init_main_featureimage" src="/uploads/images/2013/12/init_main_featureimage.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2013/12/init_main_featureimage.png"><img alt="init_main_featureimage" src="http://thegeekyway.com/uploads/images/2013/12/init_main_featureimage.png"></a></p>
 </div>
 <p>There are two types of scripts :  K scripts &amp; S scripts.</p>
 <p>K scripts are known <strong>'kill'</strong> scripts while S scripts are known as <strong>'startup'</strong> scripts. Kill scripts always run before startup scripts. The configuration file (.conf) of these scripts are located under <strong><em>/etc/init</em></strong> &amp; the scripts that are used as defaults are located under <strong><em>/etc/default</em></strong>.</p>
@@ -90,10 +93,10 @@
 
 <p>Within <em>/etc/init.d</em> you'll find the script <strong><em>rc.local</em></strong> ,this script is automatically executed after all primarily priortized scripts are executed. Which means first K scripts are executed, following by S scripts, then all other remaining init level scripts (if there's any) &amp; finally rc.local script.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2013/12/init_pic2.png"><img alt="init_pic2" src="/uploads/images/2013/12/init_pic2.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2013/12/init_pic2.png"><img alt="init_pic2" src="http://thegeekyway.com/uploads/images/2013/12/init_pic2.png"></a></p>
 </div>
 <div style="text-align:center">
-<p><a href="/uploads/images/2013/12/init_pic3.png"><img alt="init_pic3" src="/uploads/images/2013/12/init_pic3.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2013/12/init_pic3.png"><img alt="init_pic3" src="http://thegeekyway.com/uploads/images/2013/12/init_pic3.png"></a></p>
 </div>
 <p>Now to control any script, you'll need the superuser (sudo/su) permission. You can manually control the scripts using console/terminal. The syntax for controlling the script is like :</p>
 <div class="highlight"><pre><span></span># /etc/init.d/&lt;script&gt; &lt;option&gt;
@@ -115,6 +118,19 @@
       <a href="/tag/linux-filesystem.html">Linux Filesystem</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/whats-important-init-d-directory-linux/";
+      this.page.identifier = "whats-important-init-d-directory-linux/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

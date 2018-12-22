@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="linux, SSH">
 
@@ -69,14 +69,17 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
     <h1><a href="/ultimate-guide-how-ssh-works/">[Ultimate Guide] How SSH works?</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/GeekyShacklebolt.html>GeekyShacklebolt</a></strong></p>
   </div>
   <div class="article_text">
     <p>SSH is quite an interesting protocol in itself. A lot of people are using it for a secure communication between two machines. This blog post hits behind the scenes that go on, between machines connected via SSH.</p>
@@ -88,13 +91,13 @@
 <li>It is better than other communication protocols like FTP, telnet, etc. The picture below describes how SSH encryption doesn't let someone sniff in its signals. If someone tries to intercept the signal, s/he would receive nothing but an encrypted data packet. To know more about how SSH better than others visit <a href="https://www.yireo.com/blog/1452-why-ssh-instead-of-ftp">here</a>.</li>
 </ul>
 <div style="text-align:center">
-<div class="highlight"><pre><span></span>![An un-encrypte telnet connection]({filename}/uploads/images/2017/11/howsshworks1-300x220.png &quot;An un-encrypte telnet connection&quot;)
+<div class="highlight"><pre><span></span>![An un-encrypte telnet connection]({static}/uploads/images/2017/11/howsshworks1-300x220.png &quot;An un-encrypte telnet connection&quot;)
 </pre></div>
 
 
 </div>
 <div style="text-align:center">
-<div class="highlight"><pre><span></span>![An encrypted SSH sesion]({filename}/uploads/images/2017/11/howsshworks2-300x219.png &quot;An encrypted SSH sesion&quot;)
+<div class="highlight"><pre><span></span>![An encrypted SSH sesion]({static}/uploads/images/2017/11/howsshworks2-300x219.png &quot;An encrypted SSH sesion&quot;)
 </pre></div>
 
 
@@ -283,6 +286,19 @@ authorized_keys id_rsa id_rsa.pub known_hosts
       <a href="/tag/linux.html">linux</a>,      <a href="/tag/ssh.html">SSH</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/ultimate-guide-how-ssh-works/";
+      this.page.identifier = "ultimate-guide-how-ssh-works/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="file permissions, linux, Linux Filesystem, umask">
 
@@ -69,14 +69,17 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
     <h1><a href="/understanding-permissions-umask/">Understanding Permissions With umask</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/Peeyush_Gupta.html>Peeyush_Gupta</a></strong></p>
   </div>
   <div class="article_text">
     <p>Linux was developed as a multi-user system. One big problem with multi-user systems is securing information of a particular user from other users. To do that, a concept of permissions was introduced. When you create a file, you have the right to read and write it. In this article we are going to understand how these permissions are handled.</p>
@@ -107,6 +110,19 @@
       <a href="/tag/file-permissions.html">file permissions</a>,      <a href="/tag/linux.html">linux</a>,      <a href="/tag/linux-filesystem.html">Linux Filesystem</a>,      <a href="/tag/umask.html">umask</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/understanding-permissions-umask/";
+      this.page.identifier = "understanding-permissions-umask/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

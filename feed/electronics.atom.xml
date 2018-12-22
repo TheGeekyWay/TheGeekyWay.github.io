@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Electronics</title><link href="/" rel="alternate"></link><link href="/feed/electronics.atom.xml" rel="self"></link><id>/</id><updated>2013-12-23T10:23:00+05:30</updated><entry><title>Arduino Uno Pin Functions</title><link href="/arduino-uno-pin-functions/" rel="alternate"></link><published>2013-12-23T10:23:00+05:30</published><updated>2013-12-23T10:23:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:None,2013-12-23:/arduino-uno-pin-functions/</id><summary type="html">&lt;p&gt;Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp;amp; every pin is mentioned below the image.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Electronics</title><link href="http://thegeekyway.com/" rel="alternate"></link><link href="http://thegeekyway.com/feed/electronics.atom.xml" rel="self"></link><id>http://thegeekyway.com/</id><updated>2013-12-23T10:23:00+05:30</updated><entry><title>Arduino Uno Pin Functions</title><link href="http://thegeekyway.com/arduino-uno-pin-functions/" rel="alternate"></link><published>2013-12-23T10:23:00+05:30</published><updated>2013-12-23T10:23:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-23:/arduino-uno-pin-functions/</id><summary type="html">&lt;p&gt;Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp;amp; every pin is mentioned below the image.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;img alt="Arduino Pin Functions" src="/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;img alt="Arduino Pin Functions" src="http://thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;u&gt;&lt;strong&gt;PIN FUNCTIONS&lt;/strong&gt;&lt;/u&gt; &lt;strong&gt;:&lt;br&gt;
 &lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;USB To PC :&lt;/strong&gt; It is used to communicate Arduino via Universal Serial Bus to PC for programming/sending data to Arduino serially.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;7V to 12V DC Input …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp;amp; every pin is mentioned below the image.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;img alt="Arduino Pin Functions" src="/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;img alt="Arduino Pin Functions" src="http://thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;u&gt;&lt;strong&gt;PIN FUNCTIONS&lt;/strong&gt;&lt;/u&gt; &lt;strong&gt;:&lt;br&gt;
 &lt;/strong&gt;&lt;/p&gt;

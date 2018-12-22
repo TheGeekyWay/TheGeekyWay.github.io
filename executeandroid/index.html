@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="Android">
 
@@ -69,14 +69,17 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
     <h1><a href="/executeandroid/">Executing your Android Application (AVD's) (Android-Part 3)</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/gagan93.html>gagan93</a></strong></p>
   </div>
   <div class="article_text">
     <p>[Hello Geeks, hope you have gone through <a href="http://www.thegeekyway.com/firstandroidapp/" title="prev post">this post</a>and have a good understanding of Android projects before proceeding further. To test / debug our Android Application, we can use any of available methods :]{style="font-size: 14px;line-height: 1.5em"}<br>
@@ -95,10 +98,10 @@
 <p>Now we will be able to use this device for executing the Android Applications we create. But we may also opt for Mobile Phone / Bluestacks method as they are very fast. The AVDs take a long time to start, approx 2 minutes on core i7 4th generation processor to over 5-7 minutes on old systems. If you still prefer executing application using AVDs then you must start AVD when you start the Eclipse IDE, so that the AVD loads while you code your application.</p>
 <p>To execute the first Android Project Goto "Run" from Menu Bar and select first option, or you could simply use Ctrl+ F11. Choose your AVD, which would be the one just created, or your phone(if attached) / bluestacks (if installed).Preview of this application (Executed on Bluestacks) is shows here<br>
 <div style="text-align:center" markdown="1">
-<a href="/uploads/images/2014/02/15.jpg"><img alt="1" src="/uploads/images/2014/02/15-1024x604.jpg"></a>
+<a href="http://thegeekyway.com/uploads/images/2014/02/15.jpg"><img alt="1" src="http://thegeekyway.com/uploads/images/2014/02/15-1024x604.jpg"></a>
 </div></p>
 <div style="text-align:center">
-<p>A similar application with two labels and buttons executed on Android 4.0 Virtual Device is as shown below : <a href="/uploads/images/2014/02/18.jpg"><img alt="1" src="/uploads/images/2014/02/18.jpg"></a></p>
+<p>A similar application with two labels and buttons executed on Android 4.0 Virtual Device is as shown below : <a href="http://thegeekyway.com/uploads/images/2014/02/18.jpg"><img alt="1" src="http://thegeekyway.com/uploads/images/2014/02/18.jpg"></a></p>
 </div>
 <p>This was a very short tutorial to setup AVD and execute your first android application.In the next Article, we will create simple application by creating its GUI in layout.xml file and obtaining IDs in the JAVA code. Till then stay tuned &amp; comment if you have any suggestions/doubts.</p>
 <p><a href="http://www.thegeekyway.com/secondapp1/" title="link"> <p style="font-size: xx-large">Link to next tutorial</p></a></p>
@@ -110,6 +113,19 @@
       <a href="/tag/android.html">Android</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/executeandroid/";
+      this.page.identifier = "executeandroid/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

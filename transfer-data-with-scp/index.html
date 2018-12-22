@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="encryption, file transfer, SCP">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,9 +78,12 @@
   <div class="article_title">
     <h1><a href="/transfer-data-with-scp/">Transfer data with SCP</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/GeekyShacklebolt.html>GeekyShacklebolt</a></strong></p>
+  </div>
   <div class="article_text">
     <div style="text-align:center">
-<p><img alt="" src="/uploads/images/2018/03/Secure_copy_protocol.png"></p>
+<p><img alt="" src="http://thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"></p>
 </div>
 <p>Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a <strong>network,</strong> to a machine that's out of your reach, like transferring data between an EC2 instance and your local computer? If yes, then <strong>scp</strong> is a simple tool to help you out there. Let's find out then, what is <strong>scp</strong> and what are its use cases?<!--more--></p>
 <h2>What is Secure Copy Protocol (SCP)?</h2>
@@ -201,6 +204,19 @@
       <a href="/tag/encryption.html">encryption</a>,      <a href="/tag/file-transfer.html">file transfer</a>,      <a href="/tag/scp.html">SCP</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/transfer-data-with-scp/";
+      this.page.identifier = "transfer-data-with-scp/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

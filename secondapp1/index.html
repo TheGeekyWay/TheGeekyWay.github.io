@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="Android">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,12 +78,15 @@
   <div class="article_title">
     <h1><a href="/secondapp1/">Second simple Android Application Part 1 (Android-Part 4)</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/gagan93.html>gagan93</a></strong></p>
+  </div>
   <div class="article_text">
     <p>Hey Geeks ! Hope you all have gone through previous tutorials and are clear with the basics of android. Here we’ll create our second simple android application which will consist of creating our own layout and a bit of java coding. As discussed previously, the <strong>layout of our android application is written in XML file</strong>, so we’ll create the layout with a button and two text fields. When the button is pressed, the contents of text fields are shown. For demonstration, the two text fields input the ‘user Id’ and ‘password’ from the user and they are displayed to the user when the button is pressed..</p>
 <p>So open Eclipse and create a new Android Project from File-> New -> Android project (or use keyboard shortcut Alt+Shift+N).</p>
 <p>Fill in the name of application as “UserId” or something similar. Fill in package name and project name. Let everything else remain <strong>default</strong> and finish to get a similar screen.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/19.jpg"><img alt="1" src="/uploads/images/2014/02/19.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/19.jpg"><img alt="1" src="http://thegeekyway.com/uploads/images/2014/02/19.jpg"></a></p>
 </div>
 <p>Eclipse opens two files by default for us (highlighted in above pic):</p>
 <ol>
@@ -91,31 +94,31 @@
 <li>Activity_main.xml: XML file contains the components added by us and their positioning or simply the layout of the activity. Usually, each <strong>new activity</strong> will have its own layout defined in its respective XML file.</li>
 </ol>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/24.jpg"><img alt="2" src="/uploads/images/2014/02/24.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/24.jpg"><img alt="2" src="http://thegeekyway.com/uploads/images/2014/02/24.jpg"></a></p>
 </div>
 <p>Just  to refresh, MainActivity.java file is stored in <strong>src</strong> folder and layout files like activit_main.xml are stored in <strong>res/layout</strong> folder. Click on the activity_main.xml and the following screen is opened by Eclipse.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/31.jpg"><img alt="3" src="/uploads/images/2014/02/31.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/31.jpg"><img alt="3" src="http://thegeekyway.com/uploads/images/2014/02/31.jpg"></a></p>
 </div>
 <p>One important part is highlighted in this screenshot, <u>Graphical Layout</u> tab and <u>activity_main</u> tab. <strong>Graphical Layout</strong> tab is used to view the graphical state of layout or to drag and drop components onto your activity. To view what is happening on the coding side, click on <strong>activity_main.xml</strong> tab.</p>
 <p>For most of the part, you can use drag and drop to add components to your activity, but being a programmer you must know what is actually happening in the XML file. Also, when you are working with layouts and for better positioning of components, you will need to have a good understanding of what is happening on the XML side, so that you can customize the components from the code also. So we’ll use drag and drop for adding components and at the same time we’ll also understand what changes are taking place in XML file.</p>
 <p>By clicking all the component types (Form widgets, textfields, layouts etc.), you can have an overview of what all components you have (you must close the upper folder to view lower folder due to limited space in eclipse window).</p>
 <p>Now we’ll start creating layout for our application. Click on “Hello World” on the screen so that it is selected as shown below.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/4.jpg"><img alt="4" src="/uploads/images/2014/02/4.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/4.jpg"><img alt="4" src="http://thegeekyway.com/uploads/images/2014/02/4.jpg"></a></p>
 </div>
 <p>Now right click and Delete this TextView (or use Delete key from keyboard). Now what’s a TextView? In Android, all components are subclasses of a class called <strong>View.</strong> Or put in simpler words, in Android every component is a View. Each component whether a <u>button</u>,<u> text field</u> etc. are directly or indirectly subclasses of View.</p>
 <p>Coming back to our TextView, it is a passive component like a JLabel in Java. It simply displays some text and doesn’t interact with the user other than this. After removing the ‘Hello World’ TextView, we are left with only the title of the application. So now we’ll start dragging components from the left panel to the layout.</p>
 <p>Expand the <u>Text Fields</u> section and use your mouse to drag a <u>Plain Text</u> and a <u>Password</u> field on to your layout.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/5.jpg"><img alt="5" src="/uploads/images/2014/02/5.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/5.jpg"><img alt="5" src="http://thegeekyway.com/uploads/images/2014/02/5.jpg"></a></p>
 </div>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/6.jpg"><img alt="6" src="/uploads/images/2014/02/6.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/6.jpg"><img alt="6" src="http://thegeekyway.com/uploads/images/2014/02/6.jpg"></a></p>
 </div>
 <p>Next, use the <u>Form Widgets</u> to insert a button under these two fields, preferably in the middle of the screen.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/7.jpg"><img alt="7" src="/uploads/images/2014/02/7.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/7.jpg"><img alt="7" src="http://thegeekyway.com/uploads/images/2014/02/7.jpg"></a></p>
 </div>
 <p>So now our layout is ready with two textfields and a button. We don't want to make this tutorial lengthy for you guys, so we'll just stop here and do check next tutorial to proceed further.</p>
 <p><a href="http://www.thegeekyway.com/secondapp2/" title="link"> <p style="font-size: xx-large">Link to next tutorial</p></a></p>
@@ -127,6 +130,19 @@
       <a href="/tag/android.html">Android</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/secondapp1/";
+      this.page.identifier = "secondapp1/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

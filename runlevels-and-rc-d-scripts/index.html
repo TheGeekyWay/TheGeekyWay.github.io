@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="initd, linux, runlevel">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,9 +78,12 @@
   <div class="article_title">
     <h1><a href="/runlevels-and-rc-d-scripts/">Runlevels and rc.d scripts</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/storymode7.html>storymode7</a></strong></p>
+  </div>
   <div class="article_text">
     <div style="text-align:center">
-<p><a href="/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"><img alt="" src="/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"><img alt="" src="http://thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"></a></p>
 </div>
 <p>Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post <a href="http://thegeekyway.com/understanding-complete-boot-process-linux/">how Linux boots</a> it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.</p>
 <h2>Runlevels</h2>
@@ -239,6 +242,19 @@ ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/syst
       <a href="/tag/initd.html">initd</a>,      <a href="/tag/linux.html">linux</a>,      <a href="/tag/runlevel.html">runlevel</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/runlevels-and-rc-d-scripts/";
+      this.page.identifier = "runlevels-and-rc-d-scripts/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

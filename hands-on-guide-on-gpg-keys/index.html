@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="encryption, GPG, security">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,9 +78,12 @@
   <div class="article_title">
     <h1><a href="/hands-on-guide-on-gpg-keys/">Hands-on Guide on GPG Keys</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/GeekyShacklebolt.html>GeekyShacklebolt</a></strong></p>
+  </div>
   <div class="article_text">
     <div style="text-align:center">
-<p><img alt="" src="/uploads/images/2018/03/GPG_guide.png"></p>
+<p><img alt="" src="http://thegeekyway.com/uploads/images/2018/03/GPG_guide.png"></p>
 </div>
 <p>GPG or GNU Privacy Guard is a complete and free implementation of the OpenPGP standard as defined by <a href="https://www.ietf.org/rfc/rfc4880.txt">RFC4880</a> (also known as PGP). It is a tool that provides encryption and signing services, using which, you can encrypt or sign your files, messages, emails and can even sign your github commits. In this guide, let's get a walk through GPG keys and its use cases.<!--more--></p>
 <p>GPG is basically an implementation of a cryptosystem that you can use to exchange encrypted or signed messages and it is based on <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">asymmetric cryptography</a>. It fulfills the <a href="http://whatis.techtarget.com/definition/Confidentiality-integrity-and-availability-CIA">CIA of security</a> where <strong>"C"</strong> stands for "Confidentiality", <strong>"I"</strong> stands for "Integrity" and <strong>"A"</strong> stands for "Availability".</p>
@@ -623,6 +626,19 @@ $ gpg2 --clearsign newfile
       <a href="/tag/encryption.html">encryption</a>,      <a href="/tag/gpg.html">GPG</a>,      <a href="/tag/security.html">security</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/hands-on-guide-on-gpg-keys/";
+      this.page.identifier = "hands-on-guide-on-gpg-keys/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

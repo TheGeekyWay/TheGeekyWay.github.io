@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="automation, Chef, chef-solo, Python, python with chef">
 
@@ -69,14 +69,17 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
     <h1><a href="/running-python-script-using-chef/">Running A Python Script Using Chef</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/Peeyush_Gupta.html>Peeyush_Gupta</a></strong></p>
   </div>
   <div class="article_text">
     <p>Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through <a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/">this</a> article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration of the designated server. Resource have their predefined task like to run a command, to copy a file, to use a template etc. In this article we are going to talk about script resource. This is going to run any script, it could be bash, python or perl. There are separate resources for these scripts.</p>
@@ -100,7 +103,7 @@ end
 
 execute &#39;execute_file&#39; do
  cwd &#39;/home/peeyush&#39;
- command &quot;python #{filename}&quot;
+ command &quot;python #{static}&quot;
 end
 </pre></div>
 
@@ -125,6 +128,19 @@ end
       <a href="/tag/automation.html">automation</a>,      <a href="/tag/chef.html">Chef</a>,      <a href="/tag/chef-solo.html">chef-solo</a>,      <a href="/tag/python.html">Python</a>,      <a href="/tag/python-with-chef.html">python with chef</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/running-python-script-using-chef/";
+      this.page.identifier = "running-python-script-using-chef/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

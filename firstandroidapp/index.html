@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="Android">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,14 +78,17 @@
   <div class="article_title">
     <h1><a href="/firstandroidapp/">Anatomy of First Android Application (Android-Part 2)</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/gagan93.html>gagan93</a></strong></p>
+  </div>
   <div class="article_text">
     <p>Hello Geeks, hope you all have read the <a href="http://www.thegeekyway.com/setting-up-eclipse-ide-for-android-application-development/" title="Setup Android IDE">previous post</a> for setting up IDE, here we explain what each folder of a newly created Android Application means. As soon as you follow the steps described in previous post, a simple android application with the application name and a predefined string is created.The whole picture looks something like this (click on res/layout/activity_main.xml):</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/17.jpg"><img alt="New Proj" src="/uploads/images/2014/02/17.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/17.jpg"><img alt="New Proj" src="http://thegeekyway.com/uploads/images/2014/02/17.jpg"></a></p>
 </div>
 <p>The basic structure of an android application looks like this :</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/16.jpg"><img alt="package overview" src="/uploads/images/2014/02/16.jpg"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/16.jpg"><img alt="package overview" src="http://thegeekyway.com/uploads/images/2014/02/16.jpg"></a></p>
 </div>
 <p>The highlighted part in the above image shows expanded form of a Android Project. On the top left of tree, we have the name of the Application itself. Under that we have the following folders :</p>
 <ul>
@@ -104,7 +107,7 @@
 <p>The other versions of values folder are used for different APIs versions. Other than this we have the AndroidManifest.xml file which defined basic information about the Android Application.</p>
 <p>Eclipse allows two views of an XML file which can be toggled by the TAB given below the XML file as shown here :<br>
 <div style="text-align:center" markdown="1">
-<a href="/uploads/images/2014/02/14.jpg"><img alt="AndroidManifest.XML" src="/uploads/images/2014/02/14.jpg"></a>
+<a href="http://thegeekyway.com/uploads/images/2014/02/14.jpg"><img alt="AndroidManifest.XML" src="http://thegeekyway.com/uploads/images/2014/02/14.jpg"></a>
 </div></p>
 <p>The last tab <strong>(AndroidManifest.xml)</strong> represents the XML view of the file whereas the first four tabs <strong>(Manifest, Application,Permissions and Instrumentation)</strong> represent the GUI view of the file. This is the advantage of using <strong>Eclipse IDE,</strong> i.e. for adding some new information to manifest, when we don't know the syntax, we can use the first four tabs so that we enter the information using GUI and Eclipse automatically adds the same information to the XML file.</p>
 <p>The rest of the files describe basic properties of the file and do not require immediate discussion. So we defer this to future posts, they would be discussed as or when required. The next article describes how to create an Android Virtual Machine on your system to execute this created Application.</p>
@@ -117,6 +120,19 @@
       <a href="/tag/android.html">Android</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/firstandroidapp/";
+      this.page.identifier = "firstandroidapp/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

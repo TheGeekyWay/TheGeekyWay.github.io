@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="asp.net, C#">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,9 +78,12 @@
   <div class="article_title">
     <h1><a href="/uploading-a-file-in-asp-part-1/">Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/Deep_Singh.html>Deep_Singh</a></strong></p>
+  </div>
   <div class="article_text">
     <div style="text-align:center">
-<p><a href="/uploads/images/2014/01/CoverImageASPNetFileUpload.png"><img alt="CoverImageASPNetFileUpload" src="/uploads/images/2014/01/CoverImageASPNetFileUpload.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"><img alt="CoverImageASPNetFileUpload" src="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"></a></p>
 </div>
 <hr>
 <p>Contents of this 5 part tutorial<br>
@@ -101,7 +104,7 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
 <p>This is the basic form of file upload, where no validations are being used, user can upload as much large file as possible. But one thing must be noted that this method should be strictly avoided as there is no validations used in this method (validations explained in v1.1 and v1.2) and can be a subject to DDoS attacks (Denial of service) and can shut down the server. This code is just to show how to upload a file and save it on server.</p>
 <p>Here is the back end structure I am using on Microsoft Visual Studio 2008.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/01/FileUpload41.png"><img alt="FileUpload4" src="/uploads/images/2014/01/FileUpload41.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/01/FileUpload41.png"><img alt="FileUpload4" src="http://thegeekyway.com/uploads/images/2014/01/FileUpload41.png"></a></p>
 </div>
 <p>Here a file upload control is used which is used to select the file and an upload button which will upload the file. The second row will display the characteristics of the file, whether the file is a ".pdf" or a ".doc" (and other extensions) file and display the image of file type. The second row is being hidden with a panel until the file isnt uploaded.</p>
 <p>Let us take a ".pdf" file which will be uploaded on the server under the "uploads" folder. The main code used for uploading a file onto server is :-</p>
@@ -121,7 +124,7 @@ FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName)
 </blockquote>
 <p>Now let us upload a file on the server for example "SampleFile.pdf" is being uploaded on the server. The output once the file is uploaded is :-</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/01/FileUpload2.png"><img alt="FileUpload2" src="/uploads/images/2014/01/FileUpload2.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/01/FileUpload2.png"><img alt="FileUpload2" src="http://thegeekyway.com/uploads/images/2014/01/FileUpload2.png"></a></p>
 </div>
 <p>The complete cs code for v1.0 is (remember this doesn't use any validations, only retrieves the name and the file extension of the file) :-</p>
 <div class="highlight"><pre><span></span>protected void Page_Load(object sender, EventArgs e)
@@ -192,6 +195,19 @@ FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName)
       <a href="/tag/aspnet.html">asp.net</a>,      <a href="/tag/c.html">C#</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/uploading-a-file-in-asp-part-1/";
+      this.page.identifier = "uploading-a-file-in-asp-part-1/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

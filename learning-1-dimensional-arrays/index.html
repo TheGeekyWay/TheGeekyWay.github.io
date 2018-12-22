@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="1 dimensional, array">
 
@@ -69,14 +69,17 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
     <h1><a href="/learning-1-dimensional-arrays/">Learning About 1 Dimensional Arrays (1 D Arrays)</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/sanyam_khurana.html>sanyam_khurana</a></strong></p>
   </div>
   <div class="article_text">
     <p>You may have heard of arrays or "tuples" before, if you've learnt any programming language. If not, then don't worry, you'll learn everything about them in this tutorial and how are they used in C to handle <strong>large amounts of data of same data type</strong> effectively and easily. So, let's know about them. In this tutorial we'll learn about 1 Dimensional Arrays and in later tutorials we'll look at 2 Dimensional Arrays and Multidimensional arrays.</p>
@@ -109,7 +112,7 @@ int rollnon = n; //Here n is the last roll number
 <p>I know, you haven't been introduced to "How to declare arrays", which we would see in just a moment, but I just wanted to show how systematically you can use array to store and manage data efficiently. Below is an image describing how array is stored in the memory location. Note here, that each item can be accessed via index number (explained in detail later), and remember, this index value as shown would always start from 0. Many errors, newbie programmers fall trap to, is because they confuse the first index of the array to be 1, which is not the case, as the first index is always 0.</p>
 <p>The contiguous memory means, the data cells of memory would be one after the other, so if we need to store 60 items, we need a location in memory with at least 60 cells one after the other. Consider contiguous as being "continuous".</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/07/arrays11.png" title="Array representation in memory."><img alt="Array representation in memory." src="/uploads/images/2014/07/arrays11.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/07/arrays11.png" title="Array representation in memory."><img alt="Array representation in memory." src="http://thegeekyway.com/uploads/images/2014/07/arrays11.png"></a></p>
 </div>
 <h2 id="how-to-declare-a-1-dimensional-array" style="text-align: center;">How to declare a 1 Dimensional array?</h2>
 <p>Now let us see how you can declare an array :</p>
@@ -180,6 +183,19 @@ for (int i = 0,i &lt;= 59, i++)
       <a href="/tag/1-dimensional.html">1 dimensional</a>,      <a href="/tag/array.html">array</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/learning-1-dimensional-arrays/";
+      this.page.identifier = "learning-1-dimensional-arrays/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 

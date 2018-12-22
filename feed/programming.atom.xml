@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Programming</title><link href="/" rel="alternate"></link><link href="/feed/programming.atom.xml" rel="self"></link><id>/</id><updated>2018-02-06T18:50:00+05:30</updated><entry><title>What is Git Blame &amp; it's usecases</title><link href="/what-is-git-blame-and-its-usecases/" rel="alternate"></link><published>2018-02-06T18:50:00+05:30</published><updated>2018-02-06T18:50:00+05:30</updated><author><name>storymode7</name></author><id>tag:None,2018-02-06:/what-is-git-blame-and-its-usecases/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;h3&gt;&lt;img alt="Git Logo" src="/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Programming</title><link href="http://thegeekyway.com/" rel="alternate"></link><link href="http://thegeekyway.com/feed/programming.atom.xml" rel="self"></link><id>http://thegeekyway.com/</id><updated>2018-02-06T18:50:00+05:30</updated><entry><title>What is Git Blame &amp; it's usecases</title><link href="http://thegeekyway.com/what-is-git-blame-and-its-usecases/" rel="alternate"></link><published>2018-02-06T18:50:00+05:30</published><updated>2018-02-06T18:50:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-02-06:/what-is-git-blame-and-its-usecases/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;h3&gt;&lt;img alt="Git Logo" src="http://thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;h3&gt;Git Blame&lt;/h3&gt;
 &lt;p&gt;Have you ever wondered who touched a bunch of lines in this code last time? There have been lot of situations which can leave people baffled for a while to know who actually changed what. Blame labels each line in the code with the details of the last …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;h3&gt;&lt;img alt="Git Logo" src="/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;img alt="Git Logo" src="http://thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;h3&gt;Git Blame&lt;/h3&gt;
 &lt;p&gt;Have you ever wondered who touched a bunch of lines in this code last time? There have been lot of situations which can leave people baffled for a while to know who actually changed what. Blame labels each line in the code with the details of the last revision that took place on that part of the file, including moving the line from one place to other.&lt;/p&gt;

@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
+  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
+  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="C language, conditional, switch">
 
@@ -69,8 +69,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -78,10 +78,13 @@
   <div class="article_title">
     <h1><a href="/conditional-statements-switch-case/">Conditional Statements : Switch Case</a></h1>
   </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/sanyam_khurana.html>sanyam_khurana</a></strong></p>
+  </div>
   <div class="article_text">
     <p>In the previous tutorial, we've discussed about <a href="http://www.thegeekyway.com/conditional-statements-if-else/" title="Understanding Conditional Statements: if else">if - else and nested if - else statements</a> and how we can use them to test certain conditions and execute a block of code depending on whether the condition becomes true or false. In this tutorial, we'll be covering another Conditional Statement used in C known as Switch Case. The major difference between choosing to use if-else and switch is, when we have to compare a single variable to different set of values, then Switch is preferred, and if-else if preferred otherwise.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"><img alt="Conditional Statements : Switch Case C language" src="/uploads/images/2014/02/SwitchCase1.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"><img alt="Conditional Statements : Switch Case C language" src="http://thegeekyway.com/uploads/images/2014/02/SwitchCase1.png"></a></p>
 </div>
 <p>The basic semantics of a switch block statement is as follows :</p>
 <div class="highlight"><pre><span></span>switch(variable-name)
@@ -165,7 +168,7 @@ return 0;
 
 <p>Now, if we run this and input 2 is given then output would be as shown below</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/Switch_Case.png" title="Switch case in C language Output Screen"><img alt="Switch case in C language Output Screen" src="/uploads/images/2014/02/Switch_Case.png"></a></p>
+<p><a href="http://thegeekyway.com/uploads/images/2014/02/Switch_Case.png" title="Switch case in C language Output Screen"><img alt="Switch case in C language Output Screen" src="http://thegeekyway.com/uploads/images/2014/02/Switch_Case.png"></a></p>
 </div>
 <p>See, we not only got Number is 2 statement printed, but got all statements printed after that case, in a sequential manner, this is because in a switch condition we need to have conditional flow of statement using break statement.</p>
 <p>Now, if you include break after each case but doesn't do it with default case, it would run fine too, this is because if the default case is true, then after executing set of statements with that case, the control would automatically be out of the switch block, so technically we do not need break after default case.</p>
@@ -196,6 +199,19 @@ return 0;
       <a href="/tag/c-language.html">C language</a>,      <a href="/tag/conditional.html">conditional</a>,      <a href="/tag/switch.html">switch</a>    </p>
   </div>
 
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "http://thegeekyway.com/conditional-statements-switch-case/";
+      this.page.identifier = "conditional-statements-switch-case/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
 
 </article>
 
