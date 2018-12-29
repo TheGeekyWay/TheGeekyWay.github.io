@@ -15,8 +15,6 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
 
 <meta name="keywords" content="Vagrant, VagrantFile, virtual machines">
 
@@ -24,17 +22,6 @@
     The Geeky Way - Techonology Inside Out
 &ndash; Vagrant up And Beyond!  </title>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-46055942-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
 </head>
 
 <body>
@@ -69,14 +56,15 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
     <h1><a href="/drafts/vagrant-beyond.html">Vagrant up And Beyond!</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=/author/Peeyush_Gupta.html>Peeyush_Gupta</a></strong></p>
   </div>
   <div class="article_text">
     <p>When you are working on a project with a team, a big question is how to make them work on same environment? One solution is to make them work on same machine, but this gets messy as everyone is making changes. The other solution is to provide everyone with same environment. And that’s where Vagrant comes! In this tutorial we will learn how to use Vagrant.</p>
@@ -101,7 +89,7 @@ $ vagrant up
 <p>So, how do you control the whole environment? Well, that’s why we have a Vagrantfile! The primary objective of a Vagrantfile is to describe the type, attributes etc. of the virtual machine. There is one Vagrantfile per project and it takes care of all the installation, script execution etc. When you do “vagrant init” in a directory, a Vagrantfile is placed there. Now, you can use this Vagrantfile to launch virtual machines from this directory. If you want to do it from another directory, you will first have to do “vagrant init” there or you would have to copy Vagrantfile in that directory.</p>
 <p>Vagrantfile can be ported from one platform to another. It is written in Ruby, but you don’t need to learn Ruby to specify attributes through it. Let’s say, after launching a machine, you want to run a shell script on it. The content of the Vagrantfile would be:</p>
 <div style="text-align:center">
-<p><strong><em>*<a href="/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"><img alt="Screenshot from 2013-12-23 15:23:11" src="/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"></a></em></strong>*</p>
+<p><strong><em>*<a href="../uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"><img alt="Screenshot from 2013-12-23 15:23:11" src="../uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"></a></em></strong>*</p>
 </div>
 <p>As you can see here, the name of the box and machine is fedora1 and I have given the provisioner as shell and the script that is going to run (after the virtual machine is booted) is bootstrap.sh. Here bootstrap.sh is present in the same directory, you can also give the absolute./relative path to you shell script. You can modify the Vagrant file and use</p>
 <div class="highlight"><pre><span></span>$ vagrant reload
@@ -112,9 +100,9 @@ $ vagrant up
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 23 December 2013</p>
-    <p>Category: <a href="/category/linux.html">Linux</a>
+    <p>Category: <a href="/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/vagrant.html">Vagrant</a>,      <a href="/tag/vagrantfile.html">VagrantFile</a>,      <a href="/tag/virtual-machines.html">virtual machines</a>    </p>
+      <a href="/tag/vagrant/">Vagrant</a>,      <a href="/tag/vagrantfile/">VagrantFile</a>,      <a href="/tag/virtual-machines/">virtual machines</a>    </p>
   </div>
 
 
