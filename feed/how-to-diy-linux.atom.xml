@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - How To DIY, Linux</title><link href="http://thegeekyway.com/" rel="alternate"></link><link href="http://thegeekyway.com/feed/how-to-diy-linux.atom.xml" rel="self"></link><id>http://thegeekyway.com/</id><updated>2018-03-16T16:07:00+05:30</updated><entry><title>Runlevels and rc.d scripts</title><link href="http://thegeekyway.com/runlevels-and-rc-d-scripts/" rel="alternate"></link><published>2018-03-16T16:07:00+05:30</published><updated>2018-03-16T16:07:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-03-16:/runlevels-and-rc-d-scripts/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - How To DIY, Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/how-to-diy-linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-03-16T16:07:00+05:30</updated><entry><title>Runlevels and rc.d scripts</title><link href="//thegeekyway.com/runlevels-and-rc-d-scripts/" rel="alternate"></link><published>2018-03-16T16:07:00+05:30</published><updated>2018-03-16T16:07:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-03-16:/runlevels-and-rc-d-scripts/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
 &lt;h2&gt;Runlevels&lt;/h2&gt;
 &lt;p&gt;Runlevels are …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
 &lt;h2&gt;Runlevels&lt;/h2&gt;
@@ -155,9 +155,9 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 
 &lt;p&gt;will delete its symlinks from all rc folders but not from the init.d folder. That is required to be done manually. Ad chkconfig generally doesn't modify the content of init.d but rc folders.&lt;/p&gt;
 &lt;p&gt;Hope this will help you play with your scripts in a better and safe manner.&lt;/p&gt;
-&lt;p&gt;Thank you for reading!&lt;/p&gt;</content><category term="initd"></category><category term="linux"></category><category term="runlevel"></category></entry><entry><title>Convert GIMP Into Photoshop Like UI</title><link href="http://thegeekyway.com/convert-gimp-photoshop-like-ui/" rel="alternate"></link><published>2014-03-10T08:11:00+05:30</published><updated>2014-03-10T08:11:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2014-03-10:/convert-gimp-photoshop-like-ui/</id><summary type="html">&lt;p&gt;An artist in Deviantart with profile name &lt;a href="http://doctormo.deviantart.com/" title="Doctormo Profile"&gt;'doctormo'&lt;/a&gt; published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might …&lt;/p&gt;</summary><content type="html">&lt;p&gt;An artist in Deviantart with profile name &lt;a href="http://doctormo.deviantart.com/" title="Doctormo Profile"&gt;'doctormo'&lt;/a&gt; published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might be missing&lt;/p&gt;
+&lt;p&gt;Thank you for reading!&lt;/p&gt;</content><category term="initd"></category><category term="linux"></category><category term="runlevel"></category></entry><entry><title>Convert GIMP Into Photoshop Like UI</title><link href="//thegeekyway.com/convert-gimp-photoshop-like-ui/" rel="alternate"></link><published>2014-03-10T08:11:00+05:30</published><updated>2014-03-10T08:11:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2014-03-10:/convert-gimp-photoshop-like-ui/</id><summary type="html">&lt;p&gt;An artist in Deviantart with profile name &lt;a href="http://doctormo.deviantart.com/" title="Doctormo Profile"&gt;'doctormo'&lt;/a&gt; published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might …&lt;/p&gt;</summary><content type="html">&lt;p&gt;An artist in Deviantart with profile name &lt;a href="http://doctormo.deviantart.com/" title="Doctormo Profile"&gt;'doctormo'&lt;/a&gt; published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might be missing&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/03/TGW-imported-3.0-RGB-color-1-layer-351x320-%e2%80%93-GIMP_0051.png"&gt;&lt;img alt="[TGW] (imported)-3.0 (RGB color, 1 layer) 351x320 – GIMP_005" src="http://thegeekyway.com/uploads/images/2014/03/TGW-imported-3.0-RGB-color-1-layer-351x320-%e2%80%93-GIMP_0051.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/03/TGW-imported-3.0-RGB-color-1-layer-351x320-%e2%80%93-GIMP_0051.png"&gt;&lt;img alt="[TGW] (imported)-3.0 (RGB color, 1 layer) 351x320 – GIMP_005" src="//thegeekyway.com/uploads/images/2014/03/TGW-imported-3.0-RGB-color-1-layer-351x320-%e2%80%93-GIMP_0051.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Steps To Installation :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;1) Download Tweaks.zip from &lt;a href="http://doctormo.deviantart.com/art/Gimp-2-8-Photoshop-Tweaks-432736644" title="Download Tweaks"&gt;Official Page&lt;/a&gt;.&lt;/p&gt;
@@ -166,7 +166,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;p&gt;4) It will contain file named .gimp-2.8&lt;/p&gt;
 &lt;p&gt;5) Simply copy that file &amp;amp; paste it in /Home &amp;amp; overwrite it on current .gimp-2.8&lt;/p&gt;
 &lt;p&gt;And you're done!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;NOTE :&lt;/strong&gt; You can perform this tweak in &lt;strong&gt;Windows&lt;/strong&gt; &amp;amp; &lt;strong&gt;OS X&lt;/strong&gt; operating systems too. I don't use Windows nor OS X so I don't know how to do it. But I guess from these steps you can figure it out on your own.&lt;/p&gt;</content><category term="GIMP"></category><category term="Photoshop"></category><category term="Tweaks"></category></entry><entry><title>Raspberry Pi: Change Password, Auto Login and Remote Desktop</title><link href="http://thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/" rel="alternate"></link><published>2013-12-22T00:56:00+05:30</published><updated>2013-12-22T00:56:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2013-12-22:/raspberry-pi-change-password-auto-login-remote-desktop/</id><summary type="html">&lt;p&gt;I have already given tutorial for &lt;a href="http://www.thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" title="Installation and first boot"&gt;RaspberryPi First Installation and Boot&lt;/a&gt;.  Let's go with advance configuration of RasPi.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NOTE :&lt;/strong&gt; You can perform this tweak in &lt;strong&gt;Windows&lt;/strong&gt; &amp;amp; &lt;strong&gt;OS X&lt;/strong&gt; operating systems too. I don't use Windows nor OS X so I don't know how to do it. But I guess from these steps you can figure it out on your own.&lt;/p&gt;</content><category term="GIMP"></category><category term="Photoshop"></category><category term="Tweaks"></category></entry><entry><title>Raspberry Pi: Change Password, Auto Login and Remote Desktop</title><link href="//thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/" rel="alternate"></link><published>2013-12-22T00:56:00+05:30</published><updated>2013-12-22T00:56:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2013-12-22:/raspberry-pi-change-password-auto-login-remote-desktop/</id><summary type="html">&lt;p&gt;I have already given tutorial for &lt;a href="http://www.thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" title="Installation and first boot"&gt;RaspberryPi First Installation and Boot&lt;/a&gt;.  Let's go with advance configuration of RasPi.&lt;/p&gt;
 &lt;h1 id="things-to-do-after-1st-boot-of-raspberry-pi" style="font-size: 1em;"&gt;Things to do after 1st boot of Raspberry Pi&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#changePass"&gt;Changing Default Password&lt;/a&gt;&lt;/li&gt;
@@ -188,7 +188,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 
 &lt;p&gt;You will see following screen. Navigate using  &lt;p style="font-family: 'courier new', courier;"&gt;arrow keys&lt;/p&gt; and  &lt;p style="font-family: 'courier new', courier;"&gt;tab.&lt;/p&gt; Hit &lt;p style="font-family: 'courier new', courier;"&gt; Enter&lt;/p&gt; to select .&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;img alt="raspi-config" src="http://thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;img alt="raspi-config" src="//thegeekyway.com/uploads/images/2013/12/raspi-config.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;On selecting  &lt;p style="font-family: 'courier new', courier;"&gt;Change User Password&lt;/p&gt; , Hit  &lt;p style="font-family: 'courier new', courier;"&gt;Enter&lt;/p&gt; to give new password.&lt;/p&gt;
 &lt;h2 id="adding-new-user-to-pi" style="font-size: 1.3em;"&gt;&lt;p #AddUser&gt;&lt;/p&gt;2. Adding new user to Pi:&lt;/h2&gt;
@@ -199,7 +199,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 
 &lt;p&gt;It will create a new user and asks for password, Create password for new user here.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"&gt;&lt;img alt="raspi-addUser" src="http://thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"&gt;&lt;img alt="raspi-addUser" src="//thegeekyway.com/uploads/images/2013/12/raspi-addUser.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h2 id="raspi-auto-login-to-gui-without-entering-usernamepassword" style="font-size: 1.3em;"&gt;&lt;p #autoLogin&gt;&lt;/p&gt;3. Raspi Auto Login to GUI without entering username/password&lt;/h2&gt;
 &lt;p&gt;Run again following command and select  &lt;p style="font-family: 'courier new', courier;"&gt;Enable boot to Desktop/S&lt;/p&gt; &lt;p style="font-family: 'courier new', courier;"&gt;cratch and select 2nd option&lt;/p&gt;&lt;/p&gt;
@@ -208,7 +208,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 
 
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;img alt="Auto-Login-GUI" src="http://thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;img alt="Auto-Login-GUI" src="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h5 id="auto-login-using-command-version" style="font-size: 1em;"&gt;Auto-Login using Command version&lt;/h5&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nano /etc/inittab
@@ -254,17 +254,17 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;/ul&gt;
 &lt;p&gt;Step2: Open Remote control application from windows (Run --&gt; mstsc) , Enter local IP of respi and proceed.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"&gt;&lt;img alt="MS-RemoteDesktop" src="http://thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"&gt;&lt;img alt="MS-RemoteDesktop" src="//thegeekyway.com/uploads/images/2013/12/MS-RemoteDesktop.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;After successful connection xVnc will ask to authorize at raspberry pi&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"&gt;&lt;img alt="Respi-Sesman-xvnc" src="http://thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"&gt;&lt;img alt="Respi-Sesman-xvnc" src="//thegeekyway.com/uploads/images/2013/12/Respi-Sesman-xvnc.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;On successful login to xVnc you will see following screen and  then Raspberry pi on your another machine&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"&gt;&lt;img alt="raspi-remote-login" src="http://thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"&gt;&lt;img alt="raspi-remote-login" src="//thegeekyway.com/uploads/images/2013/12/raspi-remote-login.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;h2 id="control-raspberry-pi-over-ssh-see-this-tutorial" style="font-size: 1.3em;"&gt;&lt;a href="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH" title="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH"&gt;Control Raspberry Pi over SSH:  See this Tutorial&lt;/a&gt;&lt;/h2&gt;</content><category term="linux"></category><category term="Raspberry Pi"></category></entry><entry><title>Raspberry Pi - How to install and first boot</title><link href="http://thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" rel="alternate"></link><published>2013-12-18T23:01:00+05:30</published><updated>2013-12-18T23:01:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2013-12-18:/raspberry-pi-how-to-install-and-first-boot/</id><summary type="html">&lt;p&gt;Installing and setting up &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; is fairly easy in following steps&lt;/p&gt;
+&lt;h2 id="control-raspberry-pi-over-ssh-see-this-tutorial" style="font-size: 1.3em;"&gt;&lt;a href="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH" title="http://www.thegeekyway.com/play-vidoes-raspberry-pi-omxplayer/#SSH"&gt;Control Raspberry Pi over SSH:  See this Tutorial&lt;/a&gt;&lt;/h2&gt;</content><category term="linux"></category><category term="Raspberry Pi"></category></entry><entry><title>Raspberry Pi - How to install and first boot</title><link href="//thegeekyway.com/raspberry-pi-how-to-install-and-first-boot/" rel="alternate"></link><published>2013-12-18T23:01:00+05:30</published><updated>2013-12-18T23:01:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2013-12-18:/raspberry-pi-how-to-install-and-first-boot/</id><summary type="html">&lt;p&gt;Installing and setting up &lt;a href="http://www.raspberrypi.org/"&gt;Raspberry Pi&lt;/a&gt; is fairly easy in following steps&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Buy RasPi from &lt;a href="www.element14.com"&gt;Element14&lt;/a&gt;  / (&lt;a href="http://www.crazypi.com/"&gt;CrazyPi&lt;/a&gt;in India)&lt;/li&gt;
 &lt;li&gt;Get a SD card (&gt;4GB) and format in FAT32 system (&lt;a href="#windowsformat"&gt;Windows Method&lt;/a&gt; / &lt;a href="#LinuxFormat"&gt;Linux Method&lt;/a&gt;)&lt;/li&gt;
@@ -281,7 +281,7 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;/ul&gt;
 &lt;h5&gt;&lt;strong&gt; Components of Raspberry-Pi&lt;/strong&gt;&lt;/h5&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/RaspberryPi.jpg"&gt;&lt;img alt="RaspberryPi" src="http://thegeekyway.com/uploads/images/2013/12/RaspberryPi.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/RaspberryPi.jpg"&gt;&lt;img alt="RaspberryPi" src="//thegeekyway.com/uploads/images/2013/12/RaspberryPi.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt;&lt;strong&gt;Preparing your SD card for installing Linux variant for RasPi.&lt;/strong&gt;&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;h5&gt;&lt;p #LinuxFormat&gt;&lt;/p&gt;Linx Method:&lt;/h5&gt;
@@ -295,32 +295,32 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;/ul&gt;
 &lt;p&gt;You should be able to see following screen and just select your SD card and format to FAT32.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/gParted.png"&gt;&lt;img alt="gParted" src="http://thegeekyway.com/uploads/images/2013/12/gParted.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/gParted.png"&gt;&lt;img alt="gParted" src="//thegeekyway.com/uploads/images/2013/12/gParted.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h5&gt;&lt;p #windowsformat&gt;&lt;/p&gt;Windows Method:&lt;/h5&gt;
 &lt;p&gt;Use &lt;a href="https://www.sdcard.org/downloads/formatter_4/"&gt;SDFormatter&lt;/a&gt;and select your SD drive and just go for format.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Capture1.png"&gt;&lt;img alt="SD Formatter" src="http://thegeekyway.com/uploads/images/2013/12/Capture1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Capture1.png"&gt;&lt;img alt="SD Formatter" src="//thegeekyway.com/uploads/images/2013/12/Capture1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;After formatting just extract downloaded&lt;a href="http://www.raspberrypi.org/downloads"&gt;NOOB version&lt;/a&gt;and copy to your SD card.&lt;/p&gt;
 &lt;p&gt;Now plugin your RasPi to Tv/Monitor using HDMI or RCA Video cable. To connect VGA monitor you can use &lt;em&gt;&lt;a href="http://www.thegeekyway.com/connect-raspberry-pi-vga-monitortv/"&gt;converter given in this tutorial&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.thegeekyway.com/connect-raspberry-pi-vga-monitortv/"&gt;Power with &lt;em&gt;micro usb mobile charger &lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;img alt="microUSB" src="http://thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;img alt="microUSB" src="//thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Note: Please check your charger specification it should be  5 V and ampere range between 0.7-1.2A.&lt;/p&gt;
 &lt;p&gt;Power on your charger and you should be able to see following screen after some time&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Raspi_Options.png"&gt;&lt;img alt="Raspi_Options" src="http://thegeekyway.com/uploads/images/2013/12/Raspi_Options-1024x970.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Raspi_Options.png"&gt;&lt;img alt="Raspi_Options" src="//thegeekyway.com/uploads/images/2013/12/Raspi_Options-1024x970.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Select Raspbian as recommended and proceed.&lt;/p&gt;
 &lt;p&gt;Note down default  &lt;p style="font-family: 'courier new', courier;"&gt;user/password : pi/raspberry&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;Note: If you go ahead with default option you will be in command line without any GUI. to change into GUI you just have to run command &lt;strong&gt;&lt;em&gt; &lt;p style="font-family: 'courier new', courier; color: #0000ff;"&gt;startx &lt;/p&gt;&lt;/em&gt;&lt;/strong&gt;and you will get your GUI desktop.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/raspi.png"&gt;&lt;img alt="raspi" src="http://thegeekyway.com/uploads/images/2013/12/raspi.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/raspi.png"&gt;&lt;img alt="raspi" src="//thegeekyway.com/uploads/images/2013/12/raspi.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Raspi has only two USB port , you should be using it for keyboard and mouse for initial setup.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;SD Card&lt;/strong&gt;: Faster SD card is recommended, should be Class 10.&lt;/p&gt;</content><category term="linux"></category><category term="Raspberry Pi"></category></entry><entry><title>How To Install Sublime Text Editor In GNU/Linux ?</title><link href="http://thegeekyway.com/install-sublime-text-editor-gnulinux/" rel="alternate"></link><published>2013-12-11T07:25:00+05:30</published><updated>2013-12-11T07:25:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-11:/install-sublime-text-editor-gnulinux/</id><summary type="html">&lt;p&gt;Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp;amp; even Arduino. Sublime Text Editor is not opensource &amp;amp; not an free editor, but …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp;amp; even Arduino. Sublime Text Editor is not opensource &amp;amp; not an free editor, but in last update the expiry date has been removed by the developers, so you can use Sublime text as there is no enforce time limit for evaluation.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;SD Card&lt;/strong&gt;: Faster SD card is recommended, should be Class 10.&lt;/p&gt;</content><category term="linux"></category><category term="Raspberry Pi"></category></entry><entry><title>How To Install Sublime Text Editor In GNU/Linux ?</title><link href="//thegeekyway.com/install-sublime-text-editor-gnulinux/" rel="alternate"></link><published>2013-12-11T07:25:00+05:30</published><updated>2013-12-11T07:25:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-11:/install-sublime-text-editor-gnulinux/</id><summary type="html">&lt;p&gt;Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp;amp; even Arduino. Sublime Text Editor is not opensource &amp;amp; not an free editor, but …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp;amp; even Arduino. Sublime Text Editor is not opensource &amp;amp; not an free editor, but in last update the expiry date has been removed by the developers, so you can use Sublime text as there is no enforce time limit for evaluation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Sublime Text Editor can be installed manually following the steps below :&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Download correct bit version of Sublime Text 2 from &lt;a href="http://www.sublimetext.com/2" title="Sublime Text Download"&gt;&lt;strong&gt;Official Website.&lt;/strong&gt;&lt;/a&gt;&lt;/li&gt;
@@ -331,10 +331,10 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;li&gt;Now, extract the downloaded Sublime text 2 .tar.bz2 in &lt;strong&gt;/home&lt;/strong&gt; directory by simply right clicking on it.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"&gt;&lt;img alt="Sublime_text1" src="http://thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"&gt;&lt;img alt="Sublime_text1" src="//thegeekyway.com/uploads/images/2013/12/Sublime_text1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"&gt;&lt;img alt="Sublime text 2" src="http://thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"&gt;&lt;img alt="Sublime text 2" src="//thegeekyway.com/uploads/images/2013/12/Sublime-text-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Now move the extracted folder 'Sublime Text 2' to the proper location. Open Terminal/Konsole and type :&lt;/li&gt;
@@ -345,7 +345,7 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 
 &lt;p&gt;The extracted folder will be moved in /opt directory of your system.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"&gt;&lt;img alt="Sublime text 3" src="http://thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"&gt;&lt;img alt="Sublime text 3" src="//thegeekyway.com/uploads/images/2013/12/Sublime-text-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;Now, we have to add following command for symbolic link. Open terminal &amp;amp; type :&lt;/li&gt;
@@ -385,12 +385,12 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 
 &lt;p&gt;Login &amp;amp; out &amp;amp; you'll notice launcher icon of sublime text in Menu.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"&gt;&lt;img alt="sublime text 4" src="http://thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"&gt;&lt;img alt="sublime text 4" src="//thegeekyway.com/uploads/images/2013/12/sublime-text-4.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I have tested same .desktop configuration in openSUSE Gnome &amp;amp; it shows up in launcher too, so no need to modify if you're using other desktop environment. Didn't tested in KDE though.&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;Happy coding.&lt;/p&gt;</content><category term="linux"></category><category term="Text Editor"></category></entry><entry><title>How To Install Any Application From Source Code ?</title><link href="http://thegeekyway.com/install-application-source-code-2/" rel="alternate"></link><published>2013-12-10T10:44:00+05:30</published><updated>2013-12-10T10:44:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-10:/install-application-source-code-2/</id><summary type="html">&lt;style type="text/css"&gt;&lt;!--&lt;br /&gt;
+&lt;p&gt;Happy coding.&lt;/p&gt;</content><category term="linux"></category><category term="Text Editor"></category></entry><entry><title>How To Install Any Application From Source Code ?</title><link href="//thegeekyway.com/install-application-source-code-2/" rel="alternate"></link><published>2013-12-10T10:44:00+05:30</published><updated>2013-12-10T10:44:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-10:/install-application-source-code-2/</id><summary type="html">&lt;style type="text/css"&gt;&lt;!--&lt;br /&gt;
 P { margin-bottom: 0.08in; }&lt;br /&gt;
 --&gt;&lt;/style&gt;
 
@@ -457,7 +457,7 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;p&gt;&lt;strong&gt;Step 2 :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Downloaded source code is extracted in /home directory&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Home_012.png" title="Home directory where source code is placed"&gt;&lt;img alt="Home_012" src="http://thegeekyway.com/uploads/images/2013/12/Home_012.png" title="Home directory"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Home_012.png" title="Home directory where source code is placed"&gt;&lt;img alt="Home_012" src="//thegeekyway.com/uploads/images/2013/12/Home_012.png" title="Home directory"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Step 3 :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;I have to configure manually, since configuration script is not available for this opensource application.&lt;/p&gt;
@@ -470,7 +470,7 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 
 
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_010.png" title="'make' command - Generating binaries"&gt;&lt;img alt="abhishek\@linux-f3qk:-home-abhishek-elegance-colors_010" src="http://thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_010.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_010.png" title="'make' command - Generating binaries"&gt;&lt;img alt="abhishek\@linux-f3qk:-home-abhishek-elegance-colors_010" src="//thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_010.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Step 6 :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Installed the compiled source code by typing&lt;/p&gt;
@@ -479,13 +479,13 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 
 
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_011.png" title="'make install' command - Installing generated binaries"&gt;&lt;img alt="abhishek\@linux-f3qk:-home-abhishek-elegance-colors_011" src="http://thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_011.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_011.png" title="'make install' command - Installing generated binaries"&gt;&lt;img alt="abhishek\@linux-f3qk:-home-abhishek-elegance-colors_011" src="//thegeekyway.com/uploads/images/2013/12/abhishek@linux-f3qk-home-abhishek-elegance-colors_011.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;and successfully installed the application from the source code.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-10-111926.png" title="Installed application can be accessed from launcher"&gt;&lt;img alt="Screenshot from 2013-12-10 11:19:26" src="http://thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-10-111926.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-10-111926.png" title="Installed application can be accessed from launcher"&gt;&lt;img alt="Screenshot from 2013-12-10 11:19:26" src="//thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-10-111926.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;This tutorial is containing the basics &amp;amp; simply gives hints on how you can compile any software from source code. There are many reasons by which error in configuring &amp;amp; compilation can occur &amp;amp; leaves you headbanging, like missing of shared libraries, no configuration script, unable to install dependencies ,etc. But somehow there's always a way to rectify the errors, if you know the basics.&lt;/p&gt;</content><category term="linux"></category><category term="open source"></category><category term="source code"></category></entry><entry><title>How To Display Raspberry Pi On VGA Monitor/TV ?</title><link href="http://thegeekyway.com/connect-raspberry-pi-vga-monitortv/" rel="alternate"></link><published>2013-12-04T23:43:00+05:30</published><updated>2013-12-04T23:43:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-04:/connect-raspberry-pi-vga-monitortv/</id><summary type="html">&lt;p&gt;Raspberry Pi, A \$25 ARM GNU/Linux box comes with RCA &amp;amp; HDMI port. Connecting Raspberry Pi with HDMI supported TV/monitor is cake walk. But, unfortunately some of us still have monitors with only VGA connectors. Raspberry Pi didn't included VGA connectors keeping power consumption of the board in mind …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry Pi, A \$25 ARM GNU/Linux box comes with RCA &amp;amp; HDMI port. Connecting Raspberry Pi with HDMI supported TV/monitor is cake walk. But, unfortunately some of us still have monitors with only VGA connectors. Raspberry Pi didn't included VGA connectors keeping power consumption of the board in mind. Fortunately, there are plenty of converters available in the online stores which lets you convert HDMI(Digital) signal to VGA(Analog) signal.&lt;/p&gt;
+&lt;p&gt;This tutorial is containing the basics &amp;amp; simply gives hints on how you can compile any software from source code. There are many reasons by which error in configuring &amp;amp; compilation can occur &amp;amp; leaves you headbanging, like missing of shared libraries, no configuration script, unable to install dependencies ,etc. But somehow there's always a way to rectify the errors, if you know the basics.&lt;/p&gt;</content><category term="linux"></category><category term="open source"></category><category term="source code"></category></entry><entry><title>How To Display Raspberry Pi On VGA Monitor/TV ?</title><link href="//thegeekyway.com/connect-raspberry-pi-vga-monitortv/" rel="alternate"></link><published>2013-12-04T23:43:00+05:30</published><updated>2013-12-04T23:43:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-04:/connect-raspberry-pi-vga-monitortv/</id><summary type="html">&lt;p&gt;Raspberry Pi, A \$25 ARM GNU/Linux box comes with RCA &amp;amp; HDMI port. Connecting Raspberry Pi with HDMI supported TV/monitor is cake walk. But, unfortunately some of us still have monitors with only VGA connectors. Raspberry Pi didn't included VGA connectors keeping power consumption of the board in mind …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Raspberry Pi, A \$25 ARM GNU/Linux box comes with RCA &amp;amp; HDMI port. Connecting Raspberry Pi with HDMI supported TV/monitor is cake walk. But, unfortunately some of us still have monitors with only VGA connectors. Raspberry Pi didn't included VGA connectors keeping power consumption of the board in mind. Fortunately, there are plenty of converters available in the online stores which lets you convert HDMI(Digital) signal to VGA(Analog) signal.&lt;/p&gt;
 &lt;p&gt;Following are the detailed steps which will help you to connect RPi with VGA monitors &amp;amp; display RPi on VGA monitors without any problem.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1) HDMI to VGA Converter Adapter :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You have to purchase power free HDMI to VGA adapter. Here's the link of two HDMI\&amp;lt;-&gt;VGA adapters which have been tested by me that just works.&lt;/p&gt;
@@ -505,10 +505,10 @@ hdmi_mode=1
 
 
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Image.png"&gt;&lt;img alt="Image" src="http://thegeekyway.com/uploads/images/2013/12/Image.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Image.png"&gt;&lt;img alt="Image" src="//thegeekyway.com/uploads/images/2013/12/Image.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/Image2.png"&gt;&lt;img alt="Image2" src="http://thegeekyway.com/uploads/images/2013/12/Image2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Image2.png"&gt;&lt;img alt="Image2" src="//thegeekyway.com/uploads/images/2013/12/Image2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;hdmi_force_hotplug=1&lt;/strong&gt; pretends that HDMI device is always attached&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;hdmi_drive=2&lt;/strong&gt; forces monitor to HDMI mode so that sound signals are carried from HDMI cables.&lt;/p&gt;
@@ -539,6 +539,6 @@ hdmi_mode=39
 &lt;p&gt;Now, save the edited config.txt&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3) Connection of RPi with HDMI\&amp;lt;-&gt;VGA adapter.&lt;/strong&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"&gt;&lt;img alt="HDMI-VGA" src="http://thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"&gt;&lt;img alt="HDMI-VGA" src="//thegeekyway.com/uploads/images/2013/12/HDMI-VGA.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Happy hacking.&lt;/p&gt;</content><category term="Raspberry Pi"></category></entry></feed>
