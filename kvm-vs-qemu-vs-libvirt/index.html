@@ -15,9 +15,6 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
-
 <meta name="keywords" content="kvm, libvirt, qemu, virtualization">
 
   <title>
@@ -69,8 +66,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -79,12 +76,12 @@
     <h1><a href="/kvm-vs-qemu-vs-libvirt/">KVM vs QEMU vs Libvirt</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=/author/Peeyush_Gupta.html>Peeyush_Gupta</a></strong></p>
+    <p><strong>By: <a href=//thegeekyway.com/author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
   </div>
   <div class="article_text">
     <p>Since the day I started to read about the virtualization concept, I have been troubled by QEMU and KVM. They both look like complementary, but what exactly they do? And then there is libvirt, what role does it play? Let’s try to understand that.</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/02/download.jpg"><img alt="KVM" src="http://thegeekyway.com/uploads/images/2014/02/download-300x94.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/download.jpg"><img alt="KVM" src="//thegeekyway.com/uploads/images/2014/02/download-300x94.jpg"></a></p>
 </div>
 <p>When you dive deep into the virtualization, you find hypervisor. Hypervisor is the agent that helps you create virtual machines. He is the guy who creates and runs the guest machine and provide the host’s resource to the guest. QEMU and KVM both are able to act as hypervisor. Then why are they used together? Well, because QEMU is dumb! Well, not exactly, but it is a little slower when it comes to system which dont have hardware virtualization. So, to achieve that, we have our own very dear KVM. KVM helps QEMU to access hardware virtualization features on different architectures. It also adds the acceleration feature to the QEMU process. So, in short, when they are together, QEMU is the hypervisor/emulator and KVM is the accelerating agent.</p>
 <p>Then we come to libvirt. Libvirt is quite innocent in the sense that is doesn’t confuse you! It is simply a virtualization management library. And what does it do? It manages both KVM and QEMU. It consists of three utilities namely - an API library, a daemon (libvirtd) and a command line tool -virsh. Libvirt is quite effective and it can manage a lot of hypervisors altogether.</p>
@@ -92,15 +89,15 @@
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 14 February 2014</p>
-    <p>Category: <a href="/category/linux.html">Linux</a>
+    <p>Category: <a href="/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/kvm.html">kvm</a>,      <a href="/tag/libvirt.html">libvirt</a>,      <a href="/tag/qemu.html">qemu</a>,      <a href="/tag/virtualization.html">virtualization</a>    </p>
+      <a href="/tag/kvm/">kvm</a>,      <a href="/tag/libvirt/">libvirt</a>,      <a href="/tag/qemu/">qemu</a>,      <a href="/tag/virtualization/">virtualization</a>    </p>
   </div>
 
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = "http://thegeekyway.com/kvm-vs-qemu-vs-libvirt/";
+      this.page.url = "//thegeekyway.com/kvm-vs-qemu-vs-libvirt/";
       this.page.identifier = "kvm-vs-qemu-vs-libvirt/";
     };
     (function() {

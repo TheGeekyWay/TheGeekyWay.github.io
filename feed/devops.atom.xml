@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - DevOps</title><link href="http://thegeekyway.com/" rel="alternate"></link><link href="http://thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>http://thegeekyway.com/</id><updated>2018-02-15T17:11:00+05:30</updated><entry><title>Blue-Green Deployment</title><link href="http://thegeekyway.com/blue-green-deployment/" rel="alternate"></link><published>2018-02-15T17:11:00+05:30</published><updated>2018-02-15T17:11:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-02-15:/blue-green-deployment/</id><summary type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see nowadays, there are some simpler and more efficient ways to perform the same. We are going to discuss one such technique, that is called "Blue-Green Deployment".&lt;!--more--&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - DevOps</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-02-15T17:11:00+05:30</updated><entry><title>Blue-Green Deployment</title><link href="//thegeekyway.com/blue-green-deployment/" rel="alternate"></link><published>2018-02-15T17:11:00+05:30</published><updated>2018-02-15T17:11:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-02-15:/blue-green-deployment/</id><summary type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see nowadays, there are some simpler and more efficient ways to perform the same. We are going to discuss one such technique, that is called "Blue-Green Deployment".&lt;!--more--&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Before we jump on to understand Blue-Green Deployment, let's first discuss some relevant terms in brief.&lt;/p&gt;
 &lt;h3&gt;Deployment:&lt;/h3&gt;
@@ -19,7 +19,7 @@ For this technique, we need 2 identically configured hardware components or serv
 - another one is termed as &lt;strong&gt;"green"&lt;/strong&gt; that would be an &lt;strong&gt;idle&lt;/strong&gt; environment.&lt;/p&gt;
 &lt;p&gt;Initially, some applications &lt;strong&gt;(e.i app1 ver1, app2 ver1)&lt;/strong&gt; are running in our blue environment. As shown in the picture.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/02/Active-blue-env.png" title="Active blue environment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Active-blue-env.png" title="Active blue environment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Suppose, now we come up with different versions of applications &lt;strong&gt;(i.e. app1 ver2, app2 ver2)&lt;/strong&gt;. We want them to deploy and then test these applications. If everything goes right, we'll use these versions in future, but if not, then we would go for the "rollback".&lt;/p&gt;
 &lt;p&gt;Let's accomplish this using blue-green deployment:&lt;/p&gt;
@@ -27,12 +27,12 @@ For this technique, we need 2 identically configured hardware components or serv
 2. Here a testing team may test the working of these new versions.&lt;br&gt;
 3. Gradually, using load balancer we start diverting the traffic to this green environment. As shown in the picture. With this live testing is also possible.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/02/Active-blue-green-env.png" title="Diverting traffic from blue to green environment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Active-blue-green-env.png" title="Diverting traffic from blue to green environment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;4. If now, these versions fail or crash due to any possible reason. We can quickly roll back to the previous versions in the blue environment using the load balancer.&lt;br&gt;
 5. If new versions are found to be perfectly interacting with the user's traffic, then this &lt;strong&gt;"green"&lt;/strong&gt; environment is kept to be &lt;strong&gt;active&lt;/strong&gt; and &lt;strong&gt;"blue"&lt;/strong&gt; becomes &lt;strong&gt;idle&lt;/strong&gt;.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/02/Active-green-env.png" title="Active green environment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Active-green-env.png" title="Active green environment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;After successful blue-green deployment, the idle environment is either used to deploy the next version of the application or is simply destroyed.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt;&lt;strong&gt;Some points to ponder:&lt;/strong&gt;&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;

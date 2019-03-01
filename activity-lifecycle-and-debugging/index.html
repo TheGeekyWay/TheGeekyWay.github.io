@@ -15,9 +15,6 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
-
 <meta name="keywords" content="Android, debugging, life cycle">
 
   <title>
@@ -69,8 +66,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -79,68 +76,68 @@
     <h1><a href="/activity-lifecycle-and-debugging/">Android Activity lifecycle (Code) & Debugging using LogCat (Android Part – 8)</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=/author/gagan93.html>gagan93</a></strong></p>
+    <p><strong>By: <a href=//thegeekyway.com/author/gagan93/>gagan93</a></strong></p>
   </div>
   <div class="article_text">
     <p>Hello Geeks, hope you have read the <a href="http://www.thegeekyway.com/android-activity-lifecycle/">previous article</a> and are clear with the theoretical concepts of an <strong>Android Activity</strong> and its <strong>Lifecycle.</strong> Now we will create a code for the same to see what all methods are called in which cases. This code is similar to what you might have created to study lifecycle of an <strong>Applet in Java (</strong>for those who are from java background). Create a new Android Application in Eclipse IDE and paste <a class="external" href="http://pastebin.com/pN7bx4ii">this</a> code.</p>
 <div style="text-align:center">
-<p><img alt="Android Lifecycle and Debugging" src="http://thegeekyway.com/uploads/images/2014/03/command_line_android_debugging.jpg" title="Android Lifecycle and Debugging"></p>
+<p><img alt="Android Lifecycle and Debugging" src="//thegeekyway.com/uploads/images/2014/03/command_line_android_debugging.jpg" title="Android Lifecycle and Debugging"></p>
 </div>
 <p>As you can see in the code, that we have extended the <strong>Activity</strong> class and overwritten all the methods which we had discussed in previous tutorial. In each method, we first call the super class version of the method (using <strong>super</strong> keyword) and then we write our own statement. Here we use a special class from android.util package. This is the <strong>Log</strong> class which is used for debugging in android. We use Log.d method in this program which has the following signature.</p>
 <p><strong>static void d ( String tag, String message )</strong></p>
 <p>First parameter takes the tag (you will shortly get to know what it is) and second takes the message to be printed. Anything printed using <strong>Log.d</strong> method is shown on the LogCat. LogCat is generally visible at the bottom as shown below:</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/logcat.jpg"><img alt="logcat" src="http://thegeekyway.com/uploads/images/2014/03/logcat.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/logcat.jpg"><img alt="logcat" src="//thegeekyway.com/uploads/images/2014/03/logcat.jpg"></a></p>
 </div>
 <p>The above screenshot shows the LogCat under the text area where we code. We can use the position marked as “Extend” in above screenshot to extend the logcat upwards so that it more messages are visible without scrolling.</p>
 <p>Moreover, we also have a <strong>Debug perspective</strong> in which tabs like Console, Logcat, Variables and program breakpoints as shown here :</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/debug_perspective.jpg"><img alt="debug_perspective" src="http://thegeekyway.com/uploads/images/2014/03/debug_perspective-1024x545.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/debug_perspective.jpg"><img alt="debug_perspective" src="//thegeekyway.com/uploads/images/2014/03/debug_perspective-1024x545.jpg"></a></p>
 </div>
 <p>The default perspective is <strong>Java</strong> (extreme left). In the above screenshot, the <strong>Tag</strong> is nothing but the string visible inside “Tag” column (Lifecycle here) and <strong>Message</strong> is the string visible inside “Text” column (inside onCreate(), inside onStart() etc).</p>
 <p>For those who are from pure java background, we can also use System.out.println() for debugging, and it will be visible in <strong>Console</strong> tab, but it is not recommended by Android Developers. Moreover, it may or may not work for some versions.</p>
 <p>When we execute a typical android application in android virtual device, we get many messages from the system (or the virtual device). So sometimes it may become hard to locate our own messages in the LogCat. To overcome this problem, we can create custom LogCat filters so that our custom LogCat reads only specific tags or messages.</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/11.jpg"><img alt="1" src="http://thegeekyway.com/uploads/images/2014/03/11.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/11.jpg"><img alt="1" src="//thegeekyway.com/uploads/images/2014/03/11.jpg"></a></p>
 </div>
 <p>In the above screenshot, we need to focus only on the tags marked above, but the LogCat shows all the tags which are coming from AVD. So we can create custom LogCat filter by clicking on this icon present on left side of LogCat filter.</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/add_filter.jpg"><img alt="add_filter" src="http://thegeekyway.com/uploads/images/2014/03/add_filter.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/add_filter.jpg"><img alt="add_filter" src="//thegeekyway.com/uploads/images/2014/03/add_filter.jpg"></a></p>
 </div>
 <p>Then this dialog box appears</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/create_filter.jpg"><img alt="create_filter" src="http://thegeekyway.com/uploads/images/2014/03/create_filter.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/create_filter.jpg"><img alt="create_filter" src="//thegeekyway.com/uploads/images/2014/03/create_filter.jpg"></a></p>
 </div>
 <p>I have all tags with name “LifeCycle”, so I have named the tag “LifeCycle”. The message doesn’t matter so I keep it blank. Click OK to create the filter.Now we are clear with basics of debugging and will execute our application with our virtual device and notice the output in LogCat when the Lifecycle methods are called.Execute the application and select your custom filter.</p>
 <p>As per the <a href="http://www.thegeekyway.com/android-activity-lifecycle/">previous tutorial</a>, when the application starts, the methods shown below are called:</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/111.jpg"><img alt="11" src="http://thegeekyway.com/uploads/images/2014/03/111.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/111.jpg"><img alt="11" src="//thegeekyway.com/uploads/images/2014/03/111.jpg"></a></p>
 </div>
 <p>When we come back to home screen (using Home button on emulator), the GUI is updated and our activity is no more visible so these methods are called:</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/2.jpg"><img alt="2" src="http://thegeekyway.com/uploads/images/2014/03/2.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/2.jpg"><img alt="2" src="//thegeekyway.com/uploads/images/2014/03/2.jpg"></a></p>
 </div>
 <p>The application still remains in memory, so onDestroy() is not called yet !  Now we come back to our application using Menu and these methods are called in quick succession :</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/3.jpg"><img alt="3" src="http://thegeekyway.com/uploads/images/2014/03/3.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/3.jpg"><img alt="3" src="//thegeekyway.com/uploads/images/2014/03/3.jpg"></a></p>
 </div>
 <p>Now we use <strong>BACK</strong> button to exit the application and these methods are called :</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/03/4.jpg"><img alt="4" src="http://thegeekyway.com/uploads/images/2014/03/4.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/4.jpg"><img alt="4" src="//thegeekyway.com/uploads/images/2014/03/4.jpg"></a></p>
 </div>
 <p>So this completes the 7 basic methods in Android Lifecycle. Comment if you have any doubt !</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 17 July 2014</p>
-    <p>Category: <a href="/category/j4a-java-for-android.html">J4A (Java for Android)</a>
+    <p>Category: <a href="/category/j4a-java-for-android/">J4A (Java for Android)</a>
  &ndash; Tags:
-      <a href="/tag/android.html">Android</a>,      <a href="/tag/debugging.html">debugging</a>,      <a href="/tag/life-cycle.html">life cycle</a>    </p>
+      <a href="/tag/android/">Android</a>,      <a href="/tag/debugging/">debugging</a>,      <a href="/tag/life-cycle/">life cycle</a>    </p>
   </div>
 
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = "http://thegeekyway.com/activity-lifecycle-and-debugging/";
+      this.page.url = "//thegeekyway.com/activity-lifecycle-and-debugging/";
       this.page.identifier = "activity-lifecycle-and-debugging/";
     };
     (function() {

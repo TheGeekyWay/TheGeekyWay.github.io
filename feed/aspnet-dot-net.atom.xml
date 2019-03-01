@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Asp.net (Dot Net)</title><link href="http://thegeekyway.com/" rel="alternate"></link><link href="http://thegeekyway.com/feed/aspnet-dot-net.atom.xml" rel="self"></link><id>http://thegeekyway.com/</id><updated>2014-01-24T00:36:00+05:30</updated><entry><title>ASP. Net Basics : Deny access to a particular folder</title><link href="http://thegeekyway.com/asp-net-basics-deny-access-to-file-or-folder/" rel="alternate"></link><published>2014-01-24T00:36:00+05:30</published><updated>2014-01-24T00:36:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-24:/asp-net-basics-deny-access-to-file-or-folder/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;img alt="ASP.NET.ARTICLE.Deny_Access_to_user_cover_page" src="http://thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;/a&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Asp.net (Dot Net)</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/aspnet-dot-net.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-01-24T00:36:00+05:30</updated><entry><title>ASP. Net Basics : Deny access to a particular folder</title><link href="//thegeekyway.com/asp-net-basics-deny-access-to-file-or-folder/" rel="alternate"></link><published>2014-01-24T00:36:00+05:30</published><updated>2014-01-24T00:36:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-24:/asp-net-basics-deny-access-to-file-or-folder/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;img alt="ASP.NET.ARTICLE.Deny_Access_to_user_cover_page" src="//thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Setting authentication is most important part of asp.net web application project, there can a time where you don't want any user to access a particular folder. For example while creating a Gallery project we don't want any user to access the /pictures folder.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;ASP.net supports 3 modes of …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;img alt="ASP.NET.ARTICLE.Deny_Access_to_user_cover_page" src="http://thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;img alt="ASP.NET.ARTICLE.Deny_Access_to_user_cover_page" src="//thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Setting authentication is most important part of asp.net web application project, there can a time where you don't want any user to access a particular folder. For example while creating a Gallery project we don't want any user to access the /pictures folder.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;ASP.net supports 3 modes of authentication.&lt;/strong&gt;&lt;/p&gt;
@@ -24,12 +24,12 @@
 Let us assume we want to protect the page named "TheGeekyWay.aspx" stored in "TheGeekyWay" folder. Now using forms authentication we can block both TheGeekyWay.aspx page and TheGeekyWay folder.&lt;/p&gt;
 &lt;p&gt;Here is the hierarchy of project of this tutorial :-&lt;br&gt;
 &lt;div style="text-align:center" markdown="1"&gt;
-&lt;a href="http://thegeekyway.com/uploads/images/2014/01/TUT.ASP_.ACCESS.1.png"&gt;&lt;img alt="TUT.ASP.ACCESS.1" src="http://thegeekyway.com/uploads/images/2014/01/TUT.ASP_.ACCESS.1.png"&gt;&lt;/a&gt;
+&lt;a href="//thegeekyway.com/uploads/images/2014/01/TUT.ASP_.ACCESS.1.png"&gt;&lt;img alt="TUT.ASP.ACCESS.1" src="//thegeekyway.com/uploads/images/2014/01/TUT.ASP_.ACCESS.1.png"&gt;&lt;/a&gt;
 &lt;/div&gt;&lt;/p&gt;
 &lt;p&gt;Now if we want to Lockout the TheGeekyWay folder. In the web.config file, navigate to the end of system.web element, in the above web.config file its on the 74th line, so on the 75th line add the following code&lt;/p&gt;
 &lt;p&gt;This code will only allow people with admin roles and will deny any other user similarly we can block TheGeekyWay.aspx page by using the following code&lt;/p&gt;
 &lt;h3&gt;Common mistakes people make while adding code to web.config&lt;/h3&gt;
-&lt;p&gt;Sometimes we add deny code earlier than allow code, so no access is given to any of the user. So this must be kept in mind that deny code must always be used after allow code.&lt;/p&gt;</content><category term="asp.net"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 5 of 5)</title><link href="http://thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/" rel="alternate"></link><published>2014-01-07T05:22:00+05:30</published><updated>2014-01-07T05:22:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-07:/asp-net-basics-uploading-file-asp-net-using-validations-part-5/</id><summary type="html">&lt;p&gt;&lt;center&gt;
+&lt;p&gt;Sometimes we add deny code earlier than allow code, so no access is given to any of the user. So this must be kept in mind that deny code must always be used after allow code.&lt;/p&gt;</content><category term="asp.net"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 5 of 5)</title><link href="//thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/" rel="alternate"></link><published>2014-01-07T05:22:00+05:30</published><updated>2014-01-07T05:22:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-07:/asp-net-basics-uploading-file-asp-net-using-validations-part-5/</id><summary type="html">&lt;p&gt;&lt;center&gt;
 &lt;u&gt;This is a part 5 of the 5 part tutorial.&lt;/u&gt;&lt;br&gt;
 If you are visiting this page for the first time then you must visit part 1 of the tutorial&lt;br&gt;
 on how to upload a file on server &lt;a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/"&gt;here&lt;/a&gt;
@@ -47,7 +47,7 @@ Part 3 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-
 Part 4 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/"&gt;ASP.Net file uploading using FileExtension validator.&lt;/a&gt;&lt;br&gt;
 Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/"&gt;Complete ASP.Net file uploading using all the Validations one at a time.&lt;/a&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart5.png"&gt;&lt;img alt="CoverImageASPNetFileUploadPart5" src="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart5.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart5.png"&gt;&lt;img alt="CoverImageASPNetFileUploadPart5" src="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart5.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2&gt;&lt;strong&gt;&lt;em&gt;*File Upload in asp.net : v1.4final&lt;/em&gt;&lt;/strong&gt;*&lt;/h2&gt;
@@ -188,21 +188,21 @@ public partial class _Default : System.Web.UI.Page
 &lt;p&gt;and here are the outputs, all the outputs are explained within the description of image&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Situation : Uploading a file which has a limit of 2MB and the file type limit is it should be a ".pdf" file.&lt;/strong&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-1.png" title="This is the structure of file upload system, this image should be used as reference while studying the code"&gt;&lt;img alt="This is the structure of file upload system, this image should be used as reference while studying the code" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-1.png" title="This is the structure of file upload system, this image should be used as reference while studying the code"&gt;&lt;img alt="This is the structure of file upload system, this image should be used as reference while studying the code" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-2.png" title="This is a condition where the file type uploaded is correct but the file size limit exceeded."&gt;&lt;img alt="This is a condition where the file type uploaded is correct but the file size limit exceeded." src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-2.png" title="This is a condition where the file type uploaded is correct but the file size limit exceeded."&gt;&lt;img alt="This is a condition where the file type uploaded is correct but the file size limit exceeded." src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-4.png" title="This is the state where the file size limit is under 2MB but the file type is incorrect."&gt;&lt;img alt="This is the state where the file size limit is under 2MB but the file type is incorrect." src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-4.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-4.png" title="This is the state where the file size limit is under 2MB but the file type is incorrect."&gt;&lt;img alt="This is the state where the file size limit is under 2MB but the file type is incorrect." src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-4.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-3.png" title="This is the state where all the conditions are true and the file is finally uploaded."&gt;&lt;img alt="This is the state where all the conditions are true and the file is finally uploaded." src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-3.png" title="This is the state where all the conditions are true and the file is finally uploaded."&gt;&lt;img alt="This is the state where all the conditions are true and the file is finally uploaded." src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-5.png" title="This is the state where no file is uploaded and the user clicks the upload button."&gt;&lt;img alt="This is the state where no file is uploaded and the user clicks the upload button." src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut5-5.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-5.png" title="This is the state where no file is uploaded and the user clicks the upload button."&gt;&lt;img alt="This is the state where no file is uploaded and the user clicks the upload button." src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut5-5.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;That's all for file uploading system. Hope you enjoyed the article. Please share it in/with your groups/circles/friends and do comment if liked the article.&lt;/p&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 4 of 5)</title><link href="http://thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/" rel="alternate"></link><published>2014-01-06T16:00:00+05:30</published><updated>2014-01-06T16:00:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-06:/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/</id><summary type="html">&lt;p&gt;&lt;center&gt;
+&lt;p&gt;That's all for file uploading system. Hope you enjoyed the article. Please share it in/with your groups/circles/friends and do comment if liked the article.&lt;/p&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 4 of 5)</title><link href="//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/" rel="alternate"></link><published>2014-01-06T16:00:00+05:30</published><updated>2014-01-06T16:00:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-06:/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/</id><summary type="html">&lt;p&gt;&lt;center&gt;
 &lt;u&gt;This is a part 4 of the 5 part tutorial.&lt;/u&gt;&lt;br&gt;
 If you are visiting this page for the first time then you must visit part 1 of the tutorial&lt;br&gt;
 on how to upload a file on server &lt;a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/"&gt;here&lt;/a&gt;
@@ -220,7 +220,7 @@ Part 3 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-
 Part 4 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/"&gt;ASP.Net file uploading using FileExtension validator.&lt;/a&gt;&lt;br&gt;
 Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/"&gt;Complete ASP.Net file uploading using all the Validations one at a time.&lt;/a&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut4-1.png"&gt;&lt;img alt="FileUploadTut4-1" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut4-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut4-1.png"&gt;&lt;img alt="FileUploadTut4-1" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut4-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2&gt;&lt;strong&gt;&lt;em&gt;*File Upload in asp.net : v1.3 (File Extension Validation)&lt;/em&gt;&lt;/strong&gt;*&lt;/h2&gt;
@@ -254,9 +254,9 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 
 &lt;p&gt;Output of the current code will be&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut4-2.png"&gt;&lt;img alt="FileUploadTut4-2" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut4-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut4-2.png"&gt;&lt;img alt="FileUploadTut4-2" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut4-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;p&gt;Thats the final part of the file upload system, in the next tutorial we'll add up all the part of this tutorial and present the final part of asp.net file upload tutorial.&lt;/p&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 3 of 5)</title><link href="http://thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/" rel="alternate"></link><published>2014-01-05T01:03:00+05:30</published><updated>2014-01-05T01:03:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-05:/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/</id><summary type="html">&lt;p&gt;&lt;center&gt;
+&lt;p&gt;Thats the final part of the file upload system, in the next tutorial we'll add up all the part of this tutorial and present the final part of asp.net file upload tutorial.&lt;/p&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 3 of 5)</title><link href="//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/" rel="alternate"></link><published>2014-01-05T01:03:00+05:30</published><updated>2014-01-05T01:03:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-05:/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/</id><summary type="html">&lt;p&gt;&lt;center&gt;
 &lt;u&gt;This is a part 3 of the 5 part tutorial.&lt;/u&gt;&lt;br&gt;
 If you are visiting this page for the first time then you must visit part 1 of the tutorial&lt;br&gt;
 on how to upload a file on server &lt;a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/"&gt;here&lt;/a&gt;
@@ -274,7 +274,7 @@ Part 3 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-
 Part 4 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/"&gt;ASP.Net file uploading using FileExtension validator.&lt;/a&gt;&lt;br&gt;
 Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/"&gt;Complete ASP.Net file uploading using all the Validations one at a time.&lt;/a&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart3.png"&gt;&lt;img alt="CoverImageASPNetFileUploadPart3" src="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart3.png"&gt;&lt;img alt="CoverImageASPNetFileUploadPart3" src="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h2&gt;&lt;strong&gt;&lt;em&gt;*File Upload in asp.net : v1.2 (File Size Validation)&lt;/em&gt;&lt;/strong&gt;*&lt;/h2&gt;
@@ -305,7 +305,7 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;h2&gt;Step 1 : Configuring the web.config file.&lt;/h2&gt;
 &lt;p&gt;The web.config gives us httpRuntime element. The attribute executionTimeout and maxRequestLength is required for this purpose but you can explore other options also. The default size for maxRequestLength is 4MB. Here is the screenshot of web.config file :-&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadT3.1.png"&gt;&lt;img alt="FileUploadT3.1" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadT3.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadT3.1.png"&gt;&lt;img alt="FileUploadT3.1" src="//thegeekyway.com/uploads/images/2014/01/FileUploadT3.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;here executionTimeout = "999" means that the file will upload for 999 seconds if the upload time is greater than 999 seconds then the upload will fail and connection will reset, and maxRequestLength = "2097151" means that it will upload max of 2097151KB or 2GB.&lt;/p&gt;
 &lt;h2&gt;Step 2 : C# coding.&lt;/h2&gt;
@@ -336,13 +336,13 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2
 
 &lt;p&gt;The output of the above C# code is :-&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut3-2.png"&gt;&lt;img alt="FileUploadTut3-2" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut3-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut3-2.png"&gt;&lt;img alt="FileUploadTut3-2" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut3-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut3-3.png"&gt;&lt;img alt="FileUploadTut3-3" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut3-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut3-3.png"&gt;&lt;img alt="FileUploadTut3-3" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut3-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;That's all for the FileSize validation. In the next section we will discuss about the FileType or FileExtension validation.&lt;/p&gt;
-&lt;hr&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 2 of 5)</title><link href="http://thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/" rel="alternate"></link><published>2014-01-04T18:10:00+05:30</published><updated>2014-01-04T18:10:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-04:/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/</id><summary type="html">&lt;p&gt;&lt;center&gt;
+&lt;hr&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 2 of 5)</title><link href="//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/" rel="alternate"></link><published>2014-01-04T18:10:00+05:30</published><updated>2014-01-04T18:10:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-04:/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/</id><summary type="html">&lt;p&gt;&lt;center&gt;
 &lt;u&gt;This is a part 2 of the 5 part tutorial.&lt;/u&gt;&lt;br&gt;
 If you are visiting this page for the first time then you must visit part 1 of the tutorial&lt;br&gt;
 on how to upload a file on server &lt;a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/"&gt;here&lt;/a&gt;
@@ -360,14 +360,14 @@ Part 3 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-
 Part 4 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/"&gt;ASP.Net file uploading using FileExtension validator.&lt;/a&gt;&lt;br&gt;
 Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/"&gt;Complete ASP.Net file uploading using all the Validations one at a time.&lt;/a&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart2.png"&gt;&lt;img alt="CoverImageASPNetFileUploadPart2" src="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart2.png"&gt;&lt;img alt="CoverImageASPNetFileUploadPart2" src="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUploadPart2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h2&gt;&lt;strong&gt;&lt;em&gt;*File Upload in asp.net : v1.1 (Empty File Validation)&lt;/em&gt;&lt;/strong&gt;*&lt;/h2&gt;
 &lt;p&gt;The first validation used is the empty file validation, what if the user doesn't upload a file and simply pres the upload button, here is the output if the user presses only the upload button. Then an exception error will be generated on the server side.&lt;/p&gt;
 &lt;p&gt;Now since in &lt;a href="http://www.thegeekyway.com/uploading-a-file-in-asp-part-1/"&gt;tutorial 1&lt;/a&gt; we discussed on how to upload file to server without any validations now we are using our first validation &lt;strong&gt;Empty File Validation&lt;/strong&gt; it checks whether the user has selected the file or not in file control panel or if the user has directly clicked the upload button without selecting the file. If the user has directly clicked the upload button then an exception &lt;strong&gt;System.IO.DirectoryNotFoundException&lt;/strong&gt; will be generated.&lt;/p&gt;
 &lt;p&gt;Here is the image below showing the details of the exception.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/DirectoryNotFoundException.png"&gt;&lt;img alt="DirectoryNotFoundException" src="http://thegeekyway.com/uploads/images/2014/01/DirectoryNotFoundException.png"&gt;&lt;/a&gt; &lt;p style="text-decoration: underline; color: #000000;"&gt;2 ways of handling this exception&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/DirectoryNotFoundException.png"&gt;&lt;img alt="DirectoryNotFoundException" src="//thegeekyway.com/uploads/images/2014/01/DirectoryNotFoundException.png"&gt;&lt;/a&gt; &lt;p style="text-decoration: underline; color: #000000;"&gt;2 ways of handling this exception&lt;/p&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;h3&gt;1. Using try-catch mechanism&lt;/h3&gt;
@@ -399,13 +399,13 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/
 &lt;strong&gt;Image 2 :&lt;/strong&gt; Clicking the upload button when no file is selected.&lt;br&gt;
 &lt;strong&gt;Image 3 :&lt;/strong&gt; Clicking the upload button when a file is selected and uploaded.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2-1.png"&gt;&lt;img alt="FileUploadTut2-1" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2-1.png"&gt;&lt;img alt="FileUploadTut2-1" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2-3.png"&gt;&lt;img alt="FileUploadTut2-2" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2-3.png"&gt;&lt;img alt="FileUploadTut2-2" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2-2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2-3.png"&gt;&lt;img alt="FileUploadTut2-3" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2-3.png"&gt;&lt;img alt="FileUploadTut2-3" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2-3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h3&gt;2. Using Boolean property "HasFile"&lt;/h3&gt;
 &lt;p&gt;Another way of handling this exception is by using the Boolean property "HasFile" which will return the value as true or false. If the value returned is false then you can return the error message else it can continue with the uploading of file.&lt;br&gt;
@@ -431,11 +431,11 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/
 
 
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2.2-1.png"&gt;&lt;img alt="FileUploadTut2.2-1" src="http://thegeekyway.com/uploads/images/2014/01/FileUploadTut2.2-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2.2-1.png"&gt;&lt;img alt="FileUploadTut2.2-1" src="//thegeekyway.com/uploads/images/2014/01/FileUploadTut2.2-1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Thats all for the empty file validations property. In the next part of our tutorial we'll discuss about the SizeValidation( Limiting the size of upload on the server).&lt;/p&gt;
-&lt;hr&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)</title><link href="http://thegeekyway.com/uploading-a-file-in-asp-part-1/" rel="alternate"></link><published>2014-01-04T15:59:00+05:30</published><updated>2014-01-04T15:59:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-04:/uploading-a-file-in-asp-part-1/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;img alt="CoverImageASPNetFileUpload" src="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)</title><link href="//thegeekyway.com/uploading-a-file-in-asp-part-1/" rel="alternate"></link><published>2014-01-04T15:59:00+05:30</published><updated>2014-01-04T15:59:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-04:/uploading-a-file-in-asp-part-1/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;img alt="CoverImageASPNetFileUpload" src="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;p&gt;Contents of this 5 part tutorial&lt;br&gt;
@@ -444,7 +444,7 @@ Part 2 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-
 Part 3 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/"&gt;ASP.Net file uploading using FileSize validation.&lt;/a&gt;&lt;br&gt;
 Part 4 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/"&gt;ASP.Net file uploading using FileExtension validator.&lt;/a&gt;&lt;br&gt;
 Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/"&gt;Complete …&lt;/a&gt;&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;img alt="CoverImageASPNetFileUpload" src="http://thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;img alt="CoverImageASPNetFileUpload" src="//thegeekyway.com/uploads/images/2014/01/CoverImageASPNetFileUpload.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;
 &lt;p&gt;Contents of this 5 part tutorial&lt;br&gt;
@@ -465,7 +465,7 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;p&gt;This is the basic form of file upload, where no validations are being used, user can upload as much large file as possible. But one thing must be noted that this method should be strictly avoided as there is no validations used in this method (validations explained in v1.1 and v1.2) and can be a subject to DDoS attacks (Denial of service) and can shut down the server. This code is just to show how to upload a file and save it on server.&lt;/p&gt;
 &lt;p&gt;Here is the back end structure I am using on Microsoft Visual Studio 2008.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUpload41.png"&gt;&lt;img alt="FileUpload4" src="http://thegeekyway.com/uploads/images/2014/01/FileUpload41.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUpload41.png"&gt;&lt;img alt="FileUpload4" src="//thegeekyway.com/uploads/images/2014/01/FileUpload41.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Here a file upload control is used which is used to select the file and an upload button which will upload the file. The second row will display the characteristics of the file, whether the file is a ".pdf" or a ".doc" (and other extensions) file and display the image of file type. The second row is being hidden with a panel until the file isnt uploaded.&lt;/p&gt;
 &lt;p&gt;Let us take a ".pdf" file which will be uploaded on the server under the "uploads" folder. The main code used for uploading a file onto server is :-&lt;/p&gt;
@@ -485,7 +485,7 @@ FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.F
 &lt;/blockquote&gt;
 &lt;p&gt;Now let us upload a file on the server for example "SampleFile.pdf" is being uploaded on the server. The output once the file is uploaded is :-&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2014/01/FileUpload2.png"&gt;&lt;img alt="FileUpload2" src="http://thegeekyway.com/uploads/images/2014/01/FileUpload2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUpload2.png"&gt;&lt;img alt="FileUpload2" src="//thegeekyway.com/uploads/images/2014/01/FileUpload2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The complete cs code for v1.0 is (remember this doesn't use any validations, only retrieves the name and the file extension of the file) :-&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;protected void Page_Load(object sender, EventArgs e)
@@ -547,12 +547,12 @@ FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.F
 
 
 &lt;p&gt;We will discuss about our first validation (empty file validation) in our next tutorial.&lt;/p&gt;
-&lt;hr&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Maintaining Sessions in Asp.net</title><link href="http://thegeekyway.com/sessions-in-asp-net/" rel="alternate"></link><published>2013-12-14T01:33:00+05:30</published><updated>2013-12-14T01:33:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2013-12-14:/sessions-in-asp-net/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;img alt="aspnet_sessions" src="http://thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;</content><category term="asp.net"></category><category term="C#"></category></entry><entry><title>Maintaining Sessions in Asp.net</title><link href="//thegeekyway.com/sessions-in-asp-net/" rel="alternate"></link><published>2013-12-14T01:33:00+05:30</published><updated>2013-12-14T01:33:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2013-12-14:/sessions-in-asp-net/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;img alt="aspnet_sessions" src="//thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Session is amongst the most important part in creating asp.net applications. It is a variable where you can put data between page requests when the pages are either posting or redirecting to each other. It can contain small amount of data containing string, complex arrays or numbers.&lt;/p&gt;
 &lt;p&gt;In Asp …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;img alt="aspnet_sessions" src="http://thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;img alt="aspnet_sessions" src="//thegeekyway.com/uploads/images/2013/12/aspnet_sessions.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Session is amongst the most important part in creating asp.net applications. It is a variable where you can put data between page requests when the pages are either posting or redirecting to each other. It can contain small amount of data containing string, complex arrays or numbers.&lt;/p&gt;
 &lt;p&gt;In Asp.net the copy of session variable is stored for each individual session and session are managed with &lt;strong&gt;cookies&lt;/strong&gt;. &lt;strong&gt;Cookies&lt;/strong&gt; are data created on server and are sent back to browser in response to http request. In asp.net session cookies are created automatically once the page is loaded into the browser.&lt;/p&gt;
@@ -563,11 +563,11 @@ FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.F
 &lt;/blockquote&gt;
 &lt;p&gt;Let us consider an example where we are using a login interface with 2 aspx pages (Session_page.aspx,Landing_Page.aspx) and username and password are being stored in session and displaying the username and password on Landing_Page.aspx.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.1.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 1)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net" src="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.1.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 1)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net" src="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Let us use "Test_User" as username and "Test_Password" as password. (Note that at this point of tutorial the values are not comparing with the database values we are just assuming that "Test_User" and "Test_Password" are registered and we have reached Landing_page.aspx )&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.2.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 2)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 2)" src="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.2.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.2.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 2)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 2)" src="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The main coding is done on the "Login" button where we will fetch the values from text boxes and store the values in sessions.&lt;br&gt;
 The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/"&gt;C#&lt;/a&gt; code for the login button is given as follows&lt;/p&gt;
@@ -583,7 +583,7 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2
 &lt;p&gt;where TextBox1.Text contains the text entered in the username field and TextBox2.Text contains the text entered in password field, once the login button is pressed the session is created and the username and password is stored in the session variable, now we can use this session variable anywhere within our project.&lt;/p&gt;
 &lt;p&gt;After clicking the login button here is the Landing_page.aspx where the session variable is used, here is the output of Landing_Page.aspx&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)" src="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)" src="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Here is the code for the Landing_Page.aspx&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;protected void Page_Load(object sender, EventArgs e)
@@ -630,6 +630,6 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2
 
 &lt;p&gt;Then the output will be&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.4.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 4)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 4)" src="http://thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.4.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.4.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 4)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 4)" src="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.4.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;hr&gt;</content><category term="asp.net"></category><category term="C#"></category></entry></feed>

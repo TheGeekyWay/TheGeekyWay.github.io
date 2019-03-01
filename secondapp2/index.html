@@ -15,9 +15,6 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="http://thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out Atom" />
-  <link href="http://thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way - Techonology Inside Out RSS" />
-
 <meta name="keywords" content="Android">
 
   <title>
@@ -69,8 +66,8 @@
       Technology Inside Out!
       <br><br>
       <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      &brvbar; <a href="http://thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="http://thegeekyway.com/feed/">RSS</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
@@ -79,18 +76,18 @@
     <h1><a href="/secondapp2/">Second simple Android Application Part 2 (Android-Part 5)</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=/author/gagan93.html>gagan93</a></strong></p>
+    <p><strong>By: <a href=//thegeekyway.com/author/gagan93/>gagan93</a></strong></p>
   </div>
   <div class="article_text">
     <p>Welcome back geeks, this tutorial is a continuation of <a href="http://www.thegeekyway.com/secondapp1/" title="previous">previous</a><a href="http://www.thegeekyway.com/secondapp1/" title="this"> </a>tutorial. So please read the previous one if you have not read it.</p>
 <p>So we had created a simple layout and it looked something like this :<br>
 <div style="text-align:center" markdown="1">
-<a href="http://thegeekyway.com/uploads/images/2014/02/7.jpg"><img alt="7" src="http://thegeekyway.com/uploads/images/2014/02/7.jpg"></a>
+<a href="//thegeekyway.com/uploads/images/2014/02/7.jpg"><img alt="7" src="//thegeekyway.com/uploads/images/2014/02/7.jpg"></a>
 </div></p>
 <p>Double click on the button to change the text of the button, now the window will switch to XML version of the layout. In the XML file, the part of button definition is highlighted.</p>
 <p>Move to the top of XML file and we’ll understand each thing written in the file. The first two lines are just references to website.</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/02/8.jpg"><img alt="8" src="http://thegeekyway.com/uploads/images/2014/02/8.jpg"></a><strong>1.  </strong> The default layout being used by eclipse here is <strong>Relative Layout.</strong> As obvious from the name, in Relative Layout each component is aligned with respect to its previous component(s) which was added to layout.</p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/8.jpg"><img alt="8" src="//thegeekyway.com/uploads/images/2014/02/8.jpg"></a><strong>1.  </strong> The default layout being used by eclipse here is <strong>Relative Layout.</strong> As obvious from the name, in Relative Layout each component is aligned with respect to its previous component(s) which was added to layout.</p>
 </div>
 <p><strong>2.  </strong> android:layout_width=”match_parent”. This code sets the width of Relative Layout to cover the complete width of layout. Similarly the next line sets the width to complete width of the layout.</p>
 <p><strong>3.  </strong> The next four lines of code just provide some padding to all the sides using constant value defined in dimension ( \@dimen ).</p>
@@ -102,22 +99,22 @@
 <p>e)   android:ems=”10” : Simply means that the EditText (text field) can contain 10 characters. To Experiment with ems, try changing its value and see corresponding change in the Graphical Layout.</p>
 <p>We can specify many more attributes for a text field. Use <strong>Ctrl+Space</strong> in Eclipse to view more related properties. For eg. write this in eclipse and press <strong>Ctrl+Space</strong> to view more attributes.</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/02/9.jpg"><img alt="9" src="http://thegeekyway.com/uploads/images/2014/02/9.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/9.jpg"><img alt="9" src="//thegeekyway.com/uploads/images/2014/02/9.jpg"></a></p>
 </div>
 <p>When you write <u>android:</u> on a blank line and press Ctrl+Space to view all these attributes. Similarly we can also use this shortcut to view suggestions in Java program also.</p>
 <p>In the second EditText, everything is same except <u>inputType </u>attribute which is set to “<u>textPassword</u>”. This sets the input mode to password, so the text input by user is set to bullets (to hide text).</p>
 <p>To experiment, you can use Ctrl+Space shortcut to see more available <u>inputTypes</u> (shown below).</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/02/10.jpg"><img alt="10" src="http://thegeekyway.com/uploads/images/2014/02/10.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/10.jpg"><img alt="10" src="//thegeekyway.com/uploads/images/2014/02/10.jpg"></a></p>
 </div>
 <p>For button, all the attributes are self-explanatory and similar to those explained previously except the <u>android:text </u>attribute. This attribute sets the Text which is displayed on the button and is visible to the user. If you notice carefully, you’ll see an exclamatory mark on the left corner of line where text for button is specified.</p>
 <div style="text-align:center">
-<p><a href="http://thegeekyway.com/uploads/images/2014/02/111.jpg"><img alt="11" src="http://thegeekyway.com/uploads/images/2014/02/111.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/111.jpg"><img alt="11" src="//thegeekyway.com/uploads/images/2014/02/111.jpg"></a></p>
 </div>
 <p>When you bring mouse pointer close to the mark, you see the notice the warning “Hardcoded string ”Button”, should use \@string resource”. For now just ignore this warning, it would be discussed later where you will specify the String using strings.xml file.Now our XML work is complete and we’ll move to the <strong>MainActivity.java</strong> file to start the coding part.</p>
 <p>Out Java file contains this much code for now :<br>
 <div style="text-align:center" markdown="1">
-<a href="http://thegeekyway.com/uploads/images/2014/02/121.jpg"><img alt="12" src="http://thegeekyway.com/uploads/images/2014/02/121.jpg"></a>
+<a href="//thegeekyway.com/uploads/images/2014/02/121.jpg"><img alt="12" src="//thegeekyway.com/uploads/images/2014/02/121.jpg"></a>
 </div></p>
 <p>People familiar with java will understand the first two statements (package and import). Next is our class which extends the Activity class. In android, each new screen is an <strong>Activity,</strong> so it extends the Activity class which is present in <strong>android.app</strong> package. Click on ‘+’ sign on the left import to see other imported packages.</p>
 <p>The first method inside our class is onCreate method. This is a part of Android life cycle. Java programmers must be knowing <strong>Applet Life Cycle methods.</strong> Similarly, an android application also has a <a href="http://i.stack.imgur.com/rVnSi.png">life cycle</a> (which would be discussed in further tutorials). For now, just consider that onCreate is just an initialization method for our activity. In the first line of code, it simply calls the super class method. The second line sets the layout of our activity to <u>R.layout.activity_main</u>. This is nothing but a reference to the XML file just created by us and stored in layout folder. It is accessed by its defined in R.java file (auto-generated java file). The second method creates a menu which is rather not required here, so either let it be there or remove it. We’ll discuss about that method later. Paste <a href="http://pastebin.com/zs00wWNd">this code</a>to your application and in the next tutorial we’ll understand the java code and finish this second simple android application.</p>
@@ -125,15 +122,15 @@
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 14 February 2014</p>
-    <p>Category: <a href="/category/android.html">Android</a>
+    <p>Category: <a href="/category/android/">Android</a>
  &ndash; Tags:
-      <a href="/tag/android.html">Android</a>    </p>
+      <a href="/tag/android/">Android</a>    </p>
   </div>
 
   <div id="disqus_thread"></div>
   <script>
     var disqus_config = function () {
-      this.page.url = "http://thegeekyway.com/secondapp2/";
+      this.page.url = "//thegeekyway.com/secondapp2/";
       this.page.identifier = "secondapp2/";
     };
     (function() {
