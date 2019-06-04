@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-06-04T08:39:00+05:30</updated><entry><title>Introduction to Shell Script</title><link href="//thegeekyway.com/introduction-to-shell-script/" rel="alternate"></link><published>2019-06-04T08:39:00+05:30</published><updated>2019-06-04T08:39:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2019-06-04:/introduction-to-shell-script/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;!--more--&gt;&lt;/p&gt;
 &lt;h2&gt;What is …&lt;/h2&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;!--more--&gt;&lt;/p&gt;
 &lt;h2&gt;What is a shell?&lt;/h2&gt;
