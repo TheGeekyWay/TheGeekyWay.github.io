@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+<meta name="keywords" content="Scripting, Shell">
+
+  <title>
+    The Geeky Way - Techonology Inside Out
+&ndash; Introduction to Shell Script  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="/">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="/">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="/introduction-to-shell-script/">Introduction to Shell Script</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
+  </div>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><img alt="" src="http://thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"></p>
+</div>
+<p>Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.<!--more--></p>
+<h2>What is a shell?</h2>
+<p>The shell is a user program or it is an environment provided for user interaction. It is a command language interpreter, that executes commands read from the standard input device such as a keyboard or from a file.</p>
+<p>Several shells are available for Linux including:</p>
+<ul>
+<li><a href="https://bash.cyberciti.biz/guide/BASH" title="BASH">BASH</a> ( Bourne-Again SHell ) - Most common shell in Linux. It's Open Source.</li>
+<li><a href="https://bash.cyberciti.biz/guide/CSH" title="CSH">CSH</a> (C SHell) - The C shell's syntax and usage are very similar to the C programming language.</li>
+<li><a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=KSH&amp;action=edit&amp;redlink=1" title="KSH (page does not exist)">KSH</a> (Korn SHell) - Created by <a href="https://bash.cyberciti.biz/guide/David_Korn" title="David Korn">David Korn</a> at <a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=AT_%26_T_Bell_Labs&amp;action=edit&amp;redlink=1" title="AT &amp; T Bell Labs (page does not exist)">AT &amp; T Bell Labs</a>. The Korn Shell also was the base for the POSIX Shell standard specifications.</li>
+<li><a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=TCSH&amp;action=edit&amp;redlink=1" title="TCSH (page does not exist)">TCSH</a> - It is an enhanced but completely compatible version of the Berkeley <a class="mw-redirect" href="https://bash.cyberciti.biz/guide/UNIX" title="UNIX">UNIX</a> <a href="https://bash.cyberciti.biz/guide/C_shell" title="C shell">C shell</a> (<a href="https://bash.cyberciti.biz/guide/CSH" title="CSH">CSH</a>).</li>
+</ul>
+<p>A shell is simply accessible using a terminal. If you are familiar with *nix, then you might have an experience of using it. Now, if you want to know what all shells are available in your system, then use the following command.</p>
+<div class="highlight"><pre><span></span>$ cat /etc/shells
+<span class="c1"># /etc/shells: valid login shells</span>
+/bin/sh
+/bin/dash
+/bin/bash
+/bin/rbash
+/bin/zsh
+/usr/bin/zsh
+</pre></div>
+
+
+<h2>What is a shell script?</h2>
+<p>It is a programming language of shells, where you may write a set of commands to execute for a particular shell. And similar to programming, shell scripts support that sequential, conditional and iteration flow along with functions that help to make your programs more modular.</p>
+<p><strong>Shell Program:</strong> It is simply the file containing shell commands. You may directly run this file instead of individually executing each command.</p>
+<p><strong>Please note that each shell does the same job, but each understands different command syntax and provides different built-in functions.</strong> In this tutorial, we'll discuss shell scripting <strong>w.r.t</strong> bash. Because <strong>"bash"</strong> is used as a default shell in most *nix systems.</p>
+<h2>Use cases of shell scripting</h2>
+<p>The following tasks could be done easily with shell scripting.</p>
+<ul>
+<li><strong>Automating a series of tasks:</strong><br>
+   Like loading script files according to the availability of shells found in your system. Or loading OS-specific settings. (here loading means to source/run a file)</li>
+<li><strong>Setting cron/anacron jobs:</strong><br>
+   Like every week, auto removing packages that are no longer usable.</li>
+<li><strong>Executing a set of commands.</strong><br>
+   Like installing no. of packages, without repeatedly giving your confirmations (y).</li>
+</ul>
+<p>Commands you write in a script can also be executed directly on a shell, and commands you write in the shell can also be written in the script. Therefore, you may do everything with scripting, that you may think of doing with a shell.</p>
+<h2>Writing your first script</h2>
+<p>To create a shell program you need to go through the following steps:</p>
+<p><strong>1. Create a file for the shell program.</strong></p>
+<div class="highlight"><pre><span></span>$ touch newfile.sh
+</pre></div>
+
+
+<p>Here, we have given the extension <strong>.sh </strong> or <strong>.bash</strong> (conventional for bash script), though it is not necessary, but quite useful to distinguish between scripts of different shells.</p>
+<p><strong>2. Put a shebang (#!) on the first line of the file<br>
+</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong>Shebang(#!)</strong> is a special comment, that informs, which shell to be selected while executing this file. It is actually the path to the shell required to run this script.</p>
+<p><strong>3. Add some commands to the file</strong></p>
+<div class="highlight"><pre><span></span>echo &quot;Script is working fine!&quot;
+</pre></div>
+
+
+<p><strong>4. Save the file.</strong></p>
+<p><strong>5. Make the file executable and run the program.</strong></p>
+<p>To run a script file, at least it must have the permission of <strong>"readability"</strong> so that we can explicitly execute it using a shell.</p>
+<div class="highlight"><pre><span></span>$ bash newfile.sh
+Script is working fine!
+</pre></div>
+
+
+<p>And if the script file is <strong>"executable"</strong>, then we may directly run the file as shown below.</p>
+<div class="highlight"><pre><span></span>$ chmod +x newfile.sh
+$ ./newfile.sh 
+Script is working fine!
+</pre></div>
+
+
+<p>Hurray! You got your first shell script running. Let's go ahead and explore more programming elements of scripting.</p>
+<h2>Comments</h2>
+<p>Writing comments is really useful in any programming language. Because the code is read much more times than it is written. Also, comments make the code easy to comprehend, thus, it is advisable to use comments to explain complex parts of the code.</p>
+<p>In shell scripting, you may give comments with <strong>hash (#)</strong> symbol.</p>
+<div class="highlight"><pre><span></span># File: newfile.sh
+# Purpose: To learn and practice shell script
+# Author: Your name
+# These are comments in a shell script.
+</pre></div>
+
+
+<h2>Shell Parameters</h2>
+<p>Values you pass to a shell program from a terminal while executing the script, are called program parameters. For example.</p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh Hello World
+</pre></div>
+
+
+<p>Here, <strong><em>"Hello"</em></strong> and <strong><em>"World"</em></strong> are <strong>2</strong> parameters that are passed to <strong>newfile.sh</strong>. You may pass any number of parameters to a shell script. But, the question arises, how are we gonna use them in a program?</p>
+<h4><strong>\$0 to \$9</strong></h4>
+<ul>
+<li><strong>\$0:</strong> It holds the complete path to the script file from the current working directory.</li>
+<li><strong>\$1-\$9:</strong> These hold shell parameters. For example: <strong>\$2</strong> is second parameter.</li>
+<li><strong>\$#:</strong> It holds the total number of shell parameters (i.e exclude \$0).</li>
+</ul>
+<p>To access these parameters we may use <strong>dollar (\$)</strong> symbol followed by the number of parameter. For example, if your file is.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">&quot;Running script </span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;First parameter is </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Second parameter is </span><span class="nv">$2</span><span class="s2">&quot;</span>
+</pre></div>
+</td></tr></table>
+
+<p>Output:</p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh Hello World
+Running script: ./newfile.sh
+First parameter is: Hello
+Second parameter is: World
+</pre></div>
+
+
+<p>Along with these you also have other predefined variables.</p>
+<h4>\$* and \$@</h4>
+<ul>
+<li><strong>\$*: </strong>It has all the parameters passed as <strong>a single word</strong>, where each element is space separated.</li>
+<li><strong>\$@:</strong> It has all the parameters passed but it holds each parameter as a separate word.</li>
+</ul>
+<p><strong>\$* and \$@</strong> seems confusing from the definition, therefore, let's take a look at the example below.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">&quot;With \$*&quot;</span>
+<span class="nb">echo</span> <span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="k">for</span> i in <span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="k">do</span>
+   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<p>The output is.</p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
+Total parameters: <span class="m">3</span>
+With <span class="nv">$*</span>
+<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+</pre></div>
+
+
+<p>See, here total parameters are <strong>3</strong>, but you are actually getting <strong>1</strong> string that includes all parameters<strong>.<br>
+</strong></p>
+<p><strong>Note: While using \$*, if the parameter is "2 3", then it is treated as "2" and "3". This means the shell interprets the space symbol. But, this is not the case with \$@.</strong></p>
+<p>If you use <strong>"\$@"</strong> instead of <strong>"\$*"</strong> you'll get the following.</p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
+Total parameters: <span class="m">3</span>
+With <span class="nv">$@</span>
+<span class="m">1</span>
+<span class="m">2</span> <span class="m">3</span>
+<span class="m">4</span> <span class="m">5</span>
+</pre></div>
+
+
+<p>Here, <strong>3</strong> separate parameters can be easily seen.</p>
+<h4><strong>\$\$ and \$?</strong></h4>
+<ul>
+<li>
+<p><strong>\$\$:</strong> It shows the <strong>process ID</strong>. Following command shows the process ID of the current terminal.</p>
+<div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="nv">$$</span>
+<span class="m">2123</span>
+</pre></div>
+
+
+</li>
+<li>
+<p><strong>\$?:</strong> It holds <strong>exit status</strong> of the last command. For example.</p>
+<div class="highlight"><pre><span></span>$ clear
+$ <span class="nb">echo</span> <span class="nv">$?</span>
+<span class="m">0</span>
+</pre></div>
+
+
+<p>Here, <strong>0</strong> indicates that last command (<strong>clear</strong>) was successful. In case of failure, <strong>\$?</strong> returns any non-zero value.<br>
+   To return exit status <strong>0</strong> or <strong>1</strong> from your shell script, simply use the <strong>exit</strong> command.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">echo</span> <span class="s2">&quot;Successful&quot;</span>
+<span class="nb">exit</span> <span class="m">0</span>
+</pre></div>
+</td></tr></table>
+
+</li>
+</ul>
+<h4>Shift Command to access more than 9 parameters</h4>
+<p>You may easily go from <strong>\$1</strong> to <strong>\$9.</strong> But how would you use the 10th parameter?</p>
+<p>Accessing 10th parameter is not possible with <strong>"\$10"</strong> because the shell will interpret only the first digit, that is <strong>"1"</strong>, and output of this statement would be the first parameter followed by a <strong>"0"</strong>.</p>
+<p>To solve this issue we have <strong>shift command</strong>. This command shifts all the parameter to left by one. As a result, it also decreases the number of total parameters <strong>(\$#).</strong> For example.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="k">for</span> i in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span>
+<span class="k">do</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+   <span class="nb">shift</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Parameters: </span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<p>The output of this command.</p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh a b c d e f
+Total parameters: <span class="m">6</span>
+Parameters: b c d e f
+Total parameters: <span class="m">5</span>
+Parameters: c d e f
+Total parameters: <span class="m">4</span>
+Parameters: d e f
+Total parameters: <span class="m">3</span>
+Parameters: e f
+</pre></div>
+
+
+<p>We can see, that parameters are shifting to left and getting reduced by one. So, if you want to access 10th parameter then you need to left shift once and access <strong>\$9.</strong> However, this command is not much recommended due to the side effect of losing earlier parameters.</p>
+<h2>Variables and Expressions</h2>
+<p>Expressions are valid combination of variables and operators.</p>
+<p><strong><em>Variables:</em></strong> These are <strong>shell parameters</strong> or any other initialized variable in a shell program like.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">var</span><span class="o">=</span><span class="m">10</span>  <span class="c1"># An integer variable</span>
+<span class="nv">str</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span>  <span class="c1"># A string variable</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong>Note: No space around "=" (assignment) operator.</strong></p>
+<p><strong><em>Operators:</em></strong> These are special symbols to operate on variables. For example.</p>
+<p><strong>String operations</strong></p>
+<hr>
+<p><code>-z string</code>           True: if the length of a <code>string</code> is 0.
+  <code>-n string</code>           True: if the length of a <code>string</code> is not 0.
+  <code>string1 = string2</code>   True: if the two strings are identical.
+  <code>string != string2</code>   True: if the two strings are NOT identical.
+  <code>string</code>              True: if the <code>string</code> is not NULL.</p>
+<hr>
+<p><strong>Integer operations</strong></p>
+<hr>
+<p><code>int1 -eq int2</code>   True: if the first int is equal to the second.
+  <code>int1 -ne int2</code>   True: if the first int is not equal to the second.
+  <code>int1 -gt int2</code>   True: if the first int is greater than the second.
+  <code>int1 -ge int2</code>   True: if the first int is greater than or equal to the second.
+  <code>int1 -lt int2</code>   True: if the first int is less than the second.
+  <code>int1 -le int2</code>   True: if the first int is less than or equal to the second.</p>
+<hr>
+<p><strong>File operations</strong></p>
+<hr>
+<p><code>-r file</code>   <code>True: if the file</code> exists and is readable.
+  <code>-w file</code>   <code>True: if the file</code> exists and is writable.
+  <code>-x file</code>   <code>True: if the file</code> exists and is executable.
+  <code>-f file</code>   <code>True: if the file</code> exists and is a regular file.
+  <code>-d file</code>   <code>True: if the file</code> exists and is the directory.</p>
+<hr>
+<p><strong>Logical operations</strong></p>
+<hr>
+<p><code>!</code>   reverse the result of expression
+  <code>-a</code>   AND operator
+  <code>-o</code>   OR operator</p>
+<hr>
+<h2>Conditional Flow</h2>
+<p>When program control flows sequentially from start to end of a program, it is known as the sequential flow of programming. But, in case of conditional flow, the program is executed on the basis of conditional statements. If the result of such statements is true, one part of the code is executed, and if the result is false, another part of the code is executed, not both. This is called "Mutual Exclusion".</p>
+<p>Shell script provides 2 conditional statements 1) <code>if-else</code> and 2) <code>case</code>. Let's have a look at their syntax and usage.</p>
+<h4><strong>If-else statement</strong></h4>
+<p><strong><em>Usage:</em></strong> To execute a set of commands, on the basis of evaluation of an expression.</p>
+<p><strong><em>Syntax:</em></strong></p>
+<div class="highlight"><pre><span></span>if command1    # if block started
+then
+     command-list1
+elif command2  # optional
+then
+     command-list2
+else           # optional: to accept rest of the conditions.
+     command-list3
+fi             # end of if-else block
+</pre></div>
+
+
+<p>Here, <strong>elif</strong> and <strong>else</strong> parts are optional. This implies <strong>if command1</strong> returns success <strong>(0),</strong> then execute <strong>command-list1.</strong> Otherwise, <strong>if command2</strong> returns success <strong>(0),</strong> then execute <strong>command-list2,</strong> and if no condition turns out to be successful, then execute <strong>command-list3.</strong></p>
+<p><strong><em>Example:</em></strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="k">if</span> ls <span class="p">|</span> grep ^z <span class="p">&amp;</span>gt<span class="p">;</span> /dev/null
+<span class="k">then</span>
+   <span class="nb">echo</span> Firt <span class="k">case</span>.
+<span class="k">elif</span> ls <span class="p">|</span> grep ^a <span class="p">&amp;</span>gt<span class="p">;</span> /dev/null
+<span class="k">then</span> 
+   <span class="nb">echo</span> Second <span class="k">case</span>.
+<span class="k">else</span>
+   <span class="nb">echo</span> Third <span class="k">case</span>.
+<span class="k">fi</span>
+</pre></div>
+</td></tr></table>
+
+<p>Here, "<strong>ls | grep \^z" </strong> searches files/folders in the current directory that starts with <strong>"z". </strong>And <strong>"> /dev/null" </strong>sends the output of the file in a <strong>null</strong> device (typically used for disposing of unwanted output streams of a process).</p>
+<p><strong><em>The output</em></strong> of the above program is shown below. (As I don't have any file that starts with <strong>"z"</strong>)</p>
+<div class="highlight"><pre><span></span>Second case.
+</pre></div>
+
+
+<h4><strong>Test Condition</strong></h4>
+<p><strong><em>Usage:</em></strong> It is mostly used in association with if-else to evaluate expressions instead of commands.</p>
+<p><strong><em>Syntax:</em></strong> <code>test expression</code> or <code>[ expression ]</code></p>
+<p><strong><em>Example:</em></strong></p>
+<div class="highlight"><pre><span></span>if [ expression ]
+then
+     command-list1
+fi
+</pre></div>
+
+
+<p>Let's put all this in a short example.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -gt <span class="m">1</span> <span class="o">]</span> <span class="c1"># if total number of parameters exceed 1</span>
+<span class="k">then</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Sorry, you entered too many parameters.&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -eq <span class="m">1</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span> <span class="o">]</span> <span class="c1"># if only one parameter is 1</span>
+<span class="k">then</span> 
+   <span class="nb">echo</span> <span class="s2">&quot;Hi! Nice to meet you!&quot;</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -eq <span class="m">1</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span> <span class="o">]</span>  <span class="c1"># if only one parameter is 2</span>
+<span class="k">then</span> 
+    <span class="nb">pwd</span>
+<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -eq <span class="m">1</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;1&quot;</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;2&quot;</span> <span class="o">]</span> <span class="c1"># if only one is parameter is neither 1 nor 2</span>
+<span class="k">then</span>
+   <span class="nb">echo</span> <span class="s2">&quot;You entered the wrong parameter.&quot;</span>
+<span class="k">else</span>            <span class="c1"># if the total number of parameters is below 1</span>
+   <span class="nb">echo</span> <span class="s2">&quot;Sorry, you entered fewer parameters.&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong><em>Output:</em></strong></p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh
+Sorry, you entered fewer parameters.
+$ ./newfile.sh <span class="m">1</span>
+Hi! Nice to meet you!
+$ ./newfile.sh <span class="m">2</span>
+/home/thegeekyway
+$ ./newfile.sh <span class="m">3</span>
+Sorry, you entered the wrong parameter.
+</pre></div>
+
+
+<h4>Case statement</h4>
+<p><strong><em>Usage:</em></strong> Shell script also supports <strong>case conditional statement. </strong>It is used to evaluate a particular variable with some set of values.</p>
+<p><strong><em>Syntax:</em></strong></p>
+<div class="highlight"><pre><span></span>case value in
+     pattern1)     command-list1;;
+     pattern2)     command-list2;;
+     *) command-list2;;   # this is optional: to accept rest of the conditions
+esac
+</pre></div>
+
+
+<p><strong><em>Example:</em></strong> Let's make the above command using <strong>case statements.</strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="k">case</span> <span class="nv">$#</span> in
+     <span class="s2">&quot;0&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered fewer parameters.&quot;</span>
+          exit<span class="p">;;</span>
+     <span class="s2">&quot;2&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered too many parameters.&quot;</span>
+          exit<span class="p">;;</span>
+<span class="k">esac</span>
+
+<span class="k">case</span> <span class="nv">$1</span> in
+     <span class="s2">&quot;1&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;Hi, nice to meet you!&quot;</span><span class="p">;;</span>
+     <span class="s2">&quot;2&quot;</span><span class="o">)</span> pwd<span class="p">;;</span>
+     *<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered the wrong parameters.&quot;</span><span class="p">;;</span>
+<span class="k">esac</span>
+</pre></div>
+</td></tr></table>
+
+<p>The output is same as above.</p>
+<h2>Repeated action commands (Loops)</h2>
+<p>To write a set of commands, which repeat themselves until a condition is satisfied, we have loops in programming languages. Bash supports 3 types of loops:</p>
+<ul>
+<li>For loop</li>
+<li>While loop</li>
+<li>Until loop</li>
+</ul>
+<h4>For Loop</h4>
+<p><strong><em>Usage:</em></strong> When iterating any variable over an iterator like "\$@", we use "for-loop".</p>
+<p>Iterators are objects, having multiple values within them like lists in python. Therefore, using a for-loop we may access their individual values one by one.</p>
+<p><strong><em>Syntax:</em></strong></p>
+<div class="highlight"><pre><span></span>for var in iterator
+do
+    command-list
+done
+</pre></div>
+
+
+<p><strong><em>Example:</em></strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="k">for</span> var in <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="k">do</span>
+    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong><em>Output:</em></strong></p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh The Geeky Way
+The
+Geeky
+Way
+</pre></div>
+
+
+<h4>While Loop</h4>
+<p><strong><em>Usage:</em></strong> To repeat a set of commands, till an expression remains true.</p>
+<p><strong><em>Syntax:</em></strong></p>
+<div class="highlight"><pre><span></span>while [ expression ]
+do
+     command-list
+done
+</pre></div>
+
+
+<p><strong><em>Example:</em></strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">var</span><span class="o">=</span><span class="m">0</span>
+<span class="k">while</span> <span class="o">[</span> <span class="nv">$var</span> -le <span class="m">3</span> <span class="o">]</span>
+<span class="k">do</span>
+      <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
+     <span class="o">((</span>var++<span class="o">))</span>
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong><em>Output:</em></strong></p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh
+<span class="m">0</span>
+<span class="m">1</span>
+<span class="m">2</span>
+<span class="m">3</span>
+</pre></div>
+
+
+<h4>Until Loop</h4>
+<p><strong><em>Usage:</em></strong> It is reverse of <strong>while loop</strong>, it repeats a set of commands, untill an expression becomes true.</p>
+<p><strong><em>Syntax:</em></strong></p>
+<div class="highlight"><pre><span></span>until [ expression ]
+do
+     command-list
+done
+</pre></div>
+
+
+<p><strong><em>Example:</em></strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nv">var</span><span class="o">=</span><span class="m">0</span>
+<span class="k">until</span> <span class="o">[</span> <span class="nv">$var</span> -eq <span class="m">3</span> <span class="o">]</span>
+<span class="k">do</span>
+   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
+   <span class="o">((</span>var++<span class="o">))</span>
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong><em>Output:</em></strong></p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh
+<span class="m">0</span>
+<span class="m">1</span>
+<span class="m">2</span>
+</pre></div>
+
+
+<h2>Read input at runtime</h2>
+<p><strong>Read Command:</strong> To read input from the user at runtime of shell script.</p>
+<p><strong><em>Syntax:</em></strong> <code>read var1 var2</code></p>
+<p>This command will hold (pause) the script to take input from the terminal. Once you give appropriate values, the shell script would run ahead.</p>
+<p><strong><em>Example:</em></strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<span class="nb">read</span> var
+<span class="k">for</span> i in <span class="nv">$var</span>
+<span class="k">do</span>
+   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="k">done</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong><em>Output:</em></strong></p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh
+The Geeky Way
+The
+Geeky
+Way
+</pre></div>
+
+
+<h2>Functions</h2>
+<p><strong><em>Usage:</em></strong> These are set of commands, which can be called any number of times in a script. Thus, it gives the feature of re-usability of code and makes the code modular.</p>
+<p><strong><em>Syntax:</em></strong></p>
+<div class="highlight"><pre><span></span>function_name()
+{
+command-list
+return value    # optional
+}
+</pre></div>
+
+
+<p><strong><em>Example:</em></strong></p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+confirm<span class="o">()</span>
+<span class="o">{</span>
+<span class="nb">echo</span> -e <span class="s2">&quot;Are you sure, that you want to continue (y)?: \c&quot;</span>
+<span class="nb">read</span> var
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$var</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span> <span class="o">]</span>
+<span class="k">then</span>
+   <span class="k">return</span> <span class="m">0</span>
+<span class="k">else</span>
+   <span class="k">return</span> <span class="m">1</span> 
+<span class="k">fi</span> 
+<span class="o">}</span>
+
+<span class="k">if</span> confirm -eq <span class="m">0</span>
+<span class="k">then</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Continue process!&quot;</span>
+<span class="k">else</span> 
+    <span class="nb">echo</span> <span class="s2">&quot;Discontinue process!&quot;</span>
+<span class="k">fi</span>
+</pre></div>
+</td></tr></table>
+
+<p><strong>Note that, no test expression in the last block of "if-else", because calling function is a command in itself. And we put expressions in the test, not commands.</strong></p>
+<p><strong><em>Output:</em></strong></p>
+<div class="highlight"><pre><span></span>$ ./newfile.sh
+Are you sure, that you want to <span class="k">continue</span> <span class="o">(</span>y<span class="o">)</span>?: y
+Continue process!!
+</pre></div>
+
+
+<h2>Conclusion</h2>
+<p>Knowledge of shell scripting is a required norm, not only for Linux administrators but for a general Linux user as well.</p>
+<p>Being a Linux user, learning shell script is simply a boon. This sets you apart from those who just use Linux, then those who know how to use Linux!</p>
+<p>To know more about shell and scripting, you may visit <a href="http://linuxcommand.org/">here</a>.</p>
+<p>If you have any query or idea to improve this post, please feel free to write in the comments section below.</p>
+<p>Thanks for reading!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Tue 04 June 2019</p>
+    <p>Category: <a href="/category/linux/">Linux</a>
+ &ndash; Tags:
+      <a href="/tag/scripting/">Scripting</a>,      <a href="/tag/shell/">Shell</a>    </p>
+  </div>
+
+  <div id="disqus_thread"></div>
+  <script>
+    var disqus_config = function () {
+      this.page.url = "//thegeekyway.com/introduction-to-shell-script/";
+      this.page.identifier = "introduction-to-shell-script/";
+    };
+    (function() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://thegeekyway.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

@@ -1,5 +1,630 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/all.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-06-14T17:13:00+05:30</updated><entry><title>[CHEAT-SHEET] List of Important IRC Commands</title><link href="//thegeekyway.com/list-important-irc-commands/" rel="alternate"></link><published>2018-06-14T17:13:00+05:30</published><updated>2018-06-14T17:13:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2018-06-14:/list-important-irc-commands/</id><summary type="html">&lt;p&gt;While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/all.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-06-04T08:39:00+05:30</updated><entry><title>Introduction to Shell Script</title><link href="//thegeekyway.com/introduction-to-shell-script/" rel="alternate"></link><published>2019-06-04T08:39:00+05:30</published><updated>2019-06-04T08:39:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2019-06-04:/introduction-to-shell-script/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2&gt;What is …&lt;/h2&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="" src="http://thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;!--more--&gt;&lt;/p&gt;
+&lt;h2&gt;What is a shell?&lt;/h2&gt;
+&lt;p&gt;The shell is a user program or it is an environment provided for user interaction. It is a command language interpreter, that executes commands read from the standard input device such as a keyboard or from a file.&lt;/p&gt;
+&lt;p&gt;Several shells are available for Linux including:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://bash.cyberciti.biz/guide/BASH" title="BASH"&gt;BASH&lt;/a&gt; ( Bourne-Again SHell ) - Most common shell in Linux. It's Open Source.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bash.cyberciti.biz/guide/CSH" title="CSH"&gt;CSH&lt;/a&gt; (C SHell) - The C shell's syntax and usage are very similar to the C programming language.&lt;/li&gt;
+&lt;li&gt;&lt;a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=KSH&amp;amp;action=edit&amp;amp;redlink=1" title="KSH (page does not exist)"&gt;KSH&lt;/a&gt; (Korn SHell) - Created by &lt;a href="https://bash.cyberciti.biz/guide/David_Korn" title="David Korn"&gt;David Korn&lt;/a&gt; at &lt;a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=AT_%26_T_Bell_Labs&amp;amp;action=edit&amp;amp;redlink=1" title="AT &amp;amp; T Bell Labs (page does not exist)"&gt;AT &amp;amp; T Bell Labs&lt;/a&gt;. The Korn Shell also was the base for the POSIX Shell standard specifications.&lt;/li&gt;
+&lt;li&gt;&lt;a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=TCSH&amp;amp;action=edit&amp;amp;redlink=1" title="TCSH (page does not exist)"&gt;TCSH&lt;/a&gt; - It is an enhanced but completely compatible version of the Berkeley &lt;a class="mw-redirect" href="https://bash.cyberciti.biz/guide/UNIX" title="UNIX"&gt;UNIX&lt;/a&gt; &lt;a href="https://bash.cyberciti.biz/guide/C_shell" title="C shell"&gt;C shell&lt;/a&gt; (&lt;a href="https://bash.cyberciti.biz/guide/CSH" title="CSH"&gt;CSH&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;A shell is simply accessible using a terminal. If you are familiar with *nix, then you might have an experience of using it. Now, if you want to know what all shells are available in your system, then use the following command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cat /etc/shells
+&lt;span class="c1"&gt;# /etc/shells: valid login shells&lt;/span&gt;
+/bin/sh
+/bin/dash
+/bin/bash
+/bin/rbash
+/bin/zsh
+/usr/bin/zsh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;What is a shell script?&lt;/h2&gt;
+&lt;p&gt;It is a programming language of shells, where you may write a set of commands to execute for a particular shell. And similar to programming, shell scripts support that sequential, conditional and iteration flow along with functions that help to make your programs more modular.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Shell Program:&lt;/strong&gt; It is simply the file containing shell commands. You may directly run this file instead of individually executing each command.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Please note that each shell does the same job, but each understands different command syntax and provides different built-in functions.&lt;/strong&gt; In this tutorial, we'll discuss shell scripting &lt;strong&gt;w.r.t&lt;/strong&gt; bash. Because &lt;strong&gt;"bash"&lt;/strong&gt; is used as a default shell in most *nix systems.&lt;/p&gt;
+&lt;h2&gt;Use cases of shell scripting&lt;/h2&gt;
+&lt;p&gt;The following tasks could be done easily with shell scripting.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Automating a series of tasks:&lt;/strong&gt;&lt;br&gt;
+   Like loading script files according to the availability of shells found in your system. Or loading OS-specific settings. (here loading means to source/run a file)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Setting cron/anacron jobs:&lt;/strong&gt;&lt;br&gt;
+   Like every week, auto removing packages that are no longer usable.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Executing a set of commands.&lt;/strong&gt;&lt;br&gt;
+   Like installing no. of packages, without repeatedly giving your confirmations (y).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Commands you write in a script can also be executed directly on a shell, and commands you write in the shell can also be written in the script. Therefore, you may do everything with scripting, that you may think of doing with a shell.&lt;/p&gt;
+&lt;h2&gt;Writing your first script&lt;/h2&gt;
+&lt;p&gt;To create a shell program you need to go through the following steps:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;1. Create a file for the shell program.&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ touch newfile.sh
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, we have given the extension &lt;strong&gt;.sh &lt;/strong&gt; or &lt;strong&gt;.bash&lt;/strong&gt; (conventional for bash script), though it is not necessary, but quite useful to distinguish between scripts of different shells.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;2. Put a shebang (#!) on the first line of the file&lt;br&gt;
+&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Shebang(#!)&lt;/strong&gt; is a special comment, that informs, which shell to be selected while executing this file. It is actually the path to the shell required to run this script.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;3. Add some commands to the file&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &amp;quot;Script is working fine!&amp;quot;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;4. Save the file.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;5. Make the file executable and run the program.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;To run a script file, at least it must have the permission of &lt;strong&gt;"readability"&lt;/strong&gt; so that we can explicitly execute it using a shell.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ bash newfile.sh
+Script is working fine!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And if the script file is &lt;strong&gt;"executable"&lt;/strong&gt;, then we may directly run the file as shown below.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ chmod +x newfile.sh
+$ ./newfile.sh 
+Script is working fine!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Hurray! You got your first shell script running. Let's go ahead and explore more programming elements of scripting.&lt;/p&gt;
+&lt;h2&gt;Comments&lt;/h2&gt;
+&lt;p&gt;Writing comments is really useful in any programming language. Because the code is read much more times than it is written. Also, comments make the code easy to comprehend, thus, it is advisable to use comments to explain complex parts of the code.&lt;/p&gt;
+&lt;p&gt;In shell scripting, you may give comments with &lt;strong&gt;hash (#)&lt;/strong&gt; symbol.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# File: newfile.sh
+# Purpose: To learn and practice shell script
+# Author: Your name
+# These are comments in a shell script.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Shell Parameters&lt;/h2&gt;
+&lt;p&gt;Values you pass to a shell program from a terminal while executing the script, are called program parameters. For example.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh Hello World
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, &lt;strong&gt;&lt;em&gt;"Hello"&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;"World"&lt;/em&gt;&lt;/strong&gt; are &lt;strong&gt;2&lt;/strong&gt; parameters that are passed to &lt;strong&gt;newfile.sh&lt;/strong&gt;. You may pass any number of parameters to a shell script. But, the question arises, how are we gonna use them in a program?&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;\$0 to \$9&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;\$0:&lt;/strong&gt; It holds the complete path to the script file from the current working directory.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\$1-\$9:&lt;/strong&gt; These hold shell parameters. For example: &lt;strong&gt;\$2&lt;/strong&gt; is second parameter.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\$#:&lt;/strong&gt; It holds the total number of shell parameters (i.e exclude \$0).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To access these parameters we may use &lt;strong&gt;dollar (\$)&lt;/strong&gt; symbol followed by the number of parameter. For example, if your file is.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Running script &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;First parameter is &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Second parameter is &lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh Hello World
+Running script: ./newfile.sh
+First parameter is: Hello
+Second parameter is: World
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Along with these you also have other predefined variables.&lt;/p&gt;
+&lt;h4&gt;\$* and \$@&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;\$*: &lt;/strong&gt;It has all the parameters passed as &lt;strong&gt;a single word&lt;/strong&gt;, where each element is space separated.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;\$@:&lt;/strong&gt; It has all the parameters passed but it holds each parameter as a separate word.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;\$* and \$@&lt;/strong&gt; seems confusing from the definition, therefore, let's take a look at the example below.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;With \$*&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Total parameters: &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$*&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;The output is.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2 3&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4 5&amp;quot;&lt;/span&gt;
+Total parameters: &lt;span class="m"&gt;3&lt;/span&gt;
+With &lt;span class="nv"&gt;$*&lt;/span&gt;
+&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;See, here total parameters are &lt;strong&gt;3&lt;/strong&gt;, but you are actually getting &lt;strong&gt;1&lt;/strong&gt; string that includes all parameters&lt;strong&gt;.&lt;br&gt;
+&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note: While using \$*, if the parameter is "2 3", then it is treated as "2" and "3". This means the shell interprets the space symbol. But, this is not the case with \$@.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;If you use &lt;strong&gt;"\$@"&lt;/strong&gt; instead of &lt;strong&gt;"\$*"&lt;/strong&gt; you'll get the following.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2 3&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4 5&amp;quot;&lt;/span&gt;
+Total parameters: &lt;span class="m"&gt;3&lt;/span&gt;
+With &lt;span class="nv"&gt;$@&lt;/span&gt;
+&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;
+&lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, &lt;strong&gt;3&lt;/strong&gt; separate parameters can be easily seen.&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;\$\$ and \$?&lt;/strong&gt;&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;\$\$:&lt;/strong&gt; It shows the &lt;strong&gt;process ID&lt;/strong&gt;. Following command shows the process ID of the current terminal.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$$&lt;/span&gt;
+&lt;span class="m"&gt;2123&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;\$?:&lt;/strong&gt; It holds &lt;strong&gt;exit status&lt;/strong&gt; of the last command. For example.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ clear
+$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$?&lt;/span&gt;
+&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, &lt;strong&gt;0&lt;/strong&gt; indicates that last command (&lt;strong&gt;clear&lt;/strong&gt;) was successful. In case of failure, &lt;strong&gt;\$?&lt;/strong&gt; returns any non-zero value.&lt;br&gt;
+   To return exit status &lt;strong&gt;0&lt;/strong&gt; or &lt;strong&gt;1&lt;/strong&gt; from your shell script, simply use the &lt;strong&gt;exit&lt;/strong&gt; command.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Successful&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;Shift Command to access more than 9 parameters&lt;/h4&gt;
+&lt;p&gt;You may easily go from &lt;strong&gt;\$1&lt;/strong&gt; to &lt;strong&gt;\$9.&lt;/strong&gt; But how would you use the 10th parameter?&lt;/p&gt;
+&lt;p&gt;Accessing 10th parameter is not possible with &lt;strong&gt;"\$10"&lt;/strong&gt; because the shell will interpret only the first digit, that is &lt;strong&gt;"1"&lt;/strong&gt;, and output of this statement would be the first parameter followed by a &lt;strong&gt;"0"&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;To solve this issue we have &lt;strong&gt;shift command&lt;/strong&gt;. This command shifts all the parameter to left by one. As a result, it also decreases the number of total parameters &lt;strong&gt;(\$#).&lt;/strong&gt; For example.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Total parameters: &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+   &lt;span class="nb"&gt;shift&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Parameters: &lt;/span&gt;&lt;span class="nv"&gt;$*&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;The output of this command.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh a b c d e f
+Total parameters: &lt;span class="m"&gt;6&lt;/span&gt;
+Parameters: b c d e f
+Total parameters: &lt;span class="m"&gt;5&lt;/span&gt;
+Parameters: c d e f
+Total parameters: &lt;span class="m"&gt;4&lt;/span&gt;
+Parameters: d e f
+Total parameters: &lt;span class="m"&gt;3&lt;/span&gt;
+Parameters: e f
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;We can see, that parameters are shifting to left and getting reduced by one. So, if you want to access 10th parameter then you need to left shift once and access &lt;strong&gt;\$9.&lt;/strong&gt; However, this command is not much recommended due to the side effect of losing earlier parameters.&lt;/p&gt;
+&lt;h2&gt;Variables and Expressions&lt;/h2&gt;
+&lt;p&gt;Expressions are valid combination of variables and operators.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Variables:&lt;/em&gt;&lt;/strong&gt; These are &lt;strong&gt;shell parameters&lt;/strong&gt; or any other initialized variable in a shell program like.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;  &lt;span class="c1"&gt;# An integer variable&lt;/span&gt;
+&lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# A string variable&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: No space around "=" (assignment) operator.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Operators:&lt;/em&gt;&lt;/strong&gt; These are special symbols to operate on variables. For example.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;String operations&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;-z string&lt;/code&gt;           True: if the length of a &lt;code&gt;string&lt;/code&gt; is 0.
+  &lt;code&gt;-n string&lt;/code&gt;           True: if the length of a &lt;code&gt;string&lt;/code&gt; is not 0.
+  &lt;code&gt;string1 = string2&lt;/code&gt;   True: if the two strings are identical.
+  &lt;code&gt;string != string2&lt;/code&gt;   True: if the two strings are NOT identical.
+  &lt;code&gt;string&lt;/code&gt;              True: if the &lt;code&gt;string&lt;/code&gt; is not NULL.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Integer operations&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;int1 -eq int2&lt;/code&gt;   True: if the first int is equal to the second.
+  &lt;code&gt;int1 -ne int2&lt;/code&gt;   True: if the first int is not equal to the second.
+  &lt;code&gt;int1 -gt int2&lt;/code&gt;   True: if the first int is greater than the second.
+  &lt;code&gt;int1 -ge int2&lt;/code&gt;   True: if the first int is greater than or equal to the second.
+  &lt;code&gt;int1 -lt int2&lt;/code&gt;   True: if the first int is less than the second.
+  &lt;code&gt;int1 -le int2&lt;/code&gt;   True: if the first int is less than or equal to the second.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;File operations&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;-r file&lt;/code&gt;   &lt;code&gt;True: if the file&lt;/code&gt; exists and is readable.
+  &lt;code&gt;-w file&lt;/code&gt;   &lt;code&gt;True: if the file&lt;/code&gt; exists and is writable.
+  &lt;code&gt;-x file&lt;/code&gt;   &lt;code&gt;True: if the file&lt;/code&gt; exists and is executable.
+  &lt;code&gt;-f file&lt;/code&gt;   &lt;code&gt;True: if the file&lt;/code&gt; exists and is a regular file.
+  &lt;code&gt;-d file&lt;/code&gt;   &lt;code&gt;True: if the file&lt;/code&gt; exists and is the directory.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;Logical operations&lt;/strong&gt;&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;code&gt;!&lt;/code&gt;   reverse the result of expression
+  &lt;code&gt;-a&lt;/code&gt;   AND operator
+  &lt;code&gt;-o&lt;/code&gt;   OR operator&lt;/p&gt;
+&lt;hr&gt;
+&lt;h2&gt;Conditional Flow&lt;/h2&gt;
+&lt;p&gt;When program control flows sequentially from start to end of a program, it is known as the sequential flow of programming. But, in case of conditional flow, the program is executed on the basis of conditional statements. If the result of such statements is true, one part of the code is executed, and if the result is false, another part of the code is executed, not both. This is called "Mutual Exclusion".&lt;/p&gt;
+&lt;p&gt;Shell script provides 2 conditional statements 1) &lt;code&gt;if-else&lt;/code&gt; and 2) &lt;code&gt;case&lt;/code&gt;. Let's have a look at their syntax and usage.&lt;/p&gt;
+&lt;h4&gt;&lt;strong&gt;If-else statement&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; To execute a set of commands, on the basis of evaluation of an expression.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if command1    # if block started
+then
+     command-list1
+elif command2  # optional
+then
+     command-list2
+else           # optional: to accept rest of the conditions.
+     command-list3
+fi             # end of if-else block
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here, &lt;strong&gt;elif&lt;/strong&gt; and &lt;strong&gt;else&lt;/strong&gt; parts are optional. This implies &lt;strong&gt;if command1&lt;/strong&gt; returns success &lt;strong&gt;(0),&lt;/strong&gt; then execute &lt;strong&gt;command-list1.&lt;/strong&gt; Otherwise, &lt;strong&gt;if command2&lt;/strong&gt; returns success &lt;strong&gt;(0),&lt;/strong&gt; then execute &lt;strong&gt;command-list2,&lt;/strong&gt; and if no condition turns out to be successful, then execute &lt;strong&gt;command-list3.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^z &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; /dev/null
+&lt;span class="k"&gt;then&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; Firt &lt;span class="k"&gt;case&lt;/span&gt;.
+&lt;span class="k"&gt;elif&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^a &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; /dev/null
+&lt;span class="k"&gt;then&lt;/span&gt; 
+   &lt;span class="nb"&gt;echo&lt;/span&gt; Second &lt;span class="k"&gt;case&lt;/span&gt;.
+&lt;span class="k"&gt;else&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; Third &lt;span class="k"&gt;case&lt;/span&gt;.
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;Here, "&lt;strong&gt;ls | grep \^z" &lt;/strong&gt; searches files/folders in the current directory that starts with &lt;strong&gt;"z". &lt;/strong&gt;And &lt;strong&gt;"&gt; /dev/null" &lt;/strong&gt;sends the output of the file in a &lt;strong&gt;null&lt;/strong&gt; device (typically used for disposing of unwanted output streams of a process).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;The output&lt;/em&gt;&lt;/strong&gt; of the above program is shown below. (As I don't have any file that starts with &lt;strong&gt;"z"&lt;/strong&gt;)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Second case.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;&lt;strong&gt;Test Condition&lt;/strong&gt;&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; It is mostly used in association with if-else to evaluate expressions instead of commands.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt; &lt;code&gt;test expression&lt;/code&gt; or &lt;code&gt;[ expression ]&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if [ expression ]
+then
+     command-list1
+fi
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Let's put all this in a short example.&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -gt &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# if total number of parameters exceed 1&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sorry, you entered too many parameters.&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;1&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# if only one parameter is 1&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt; 
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hi! Nice to meet you!&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;1&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# if only one parameter is 2&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt; 
+    &lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;1&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; !&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; !&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# if only one is parameter is neither 1 nor 2&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered the wrong parameter.&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;            &lt;span class="c1"&gt;# if the total number of parameters is below 1&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sorry, you entered fewer parameters.&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh
+Sorry, you entered fewer parameters.
+$ ./newfile.sh &lt;span class="m"&gt;1&lt;/span&gt;
+Hi! Nice to meet you!
+$ ./newfile.sh &lt;span class="m"&gt;2&lt;/span&gt;
+/home/thegeekyway
+$ ./newfile.sh &lt;span class="m"&gt;3&lt;/span&gt;
+Sorry, you entered the wrong parameter.
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Case statement&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; Shell script also supports &lt;strong&gt;case conditional statement. &lt;/strong&gt;It is used to evaluate a particular variable with some set of values.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;case value in
+     pattern1)     command-list1;;
+     pattern2)     command-list2;;
+     *) command-list2;;   # this is optional: to accept rest of the conditions
+esac
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt; Let's make the above command using &lt;strong&gt;case statements.&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$#&lt;/span&gt; in
+     &lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered fewer parameters.&amp;quot;&lt;/span&gt;
+          exit&lt;span class="p"&gt;;;&lt;/span&gt;
+     &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered too many parameters.&amp;quot;&lt;/span&gt;
+          exit&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="k"&gt;esac&lt;/span&gt;
+
+&lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt; in
+     &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hi, nice to meet you!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+     &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; pwd&lt;span class="p"&gt;;;&lt;/span&gt;
+     *&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered the wrong parameters.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="k"&gt;esac&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;The output is same as above.&lt;/p&gt;
+&lt;h2&gt;Repeated action commands (Loops)&lt;/h2&gt;
+&lt;p&gt;To write a set of commands, which repeat themselves until a condition is satisfied, we have loops in programming languages. Bash supports 3 types of loops:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For loop&lt;/li&gt;
+&lt;li&gt;While loop&lt;/li&gt;
+&lt;li&gt;Until loop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4&gt;For Loop&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; When iterating any variable over an iterator like "\$@", we use "for-loop".&lt;/p&gt;
+&lt;p&gt;Iterators are objects, having multiple values within them like lists in python. Therefore, using a for-loop we may access their individual values one by one.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for var in iterator
+do
+    command-list
+done
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; var in &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh The Geeky Way
+The
+Geeky
+Way
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;While Loop&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; To repeat a set of commands, till an expression remains true.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;while [ expression ]
+do
+     command-list
+done
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$var&lt;/span&gt; -le &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+      &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+     &lt;span class="o"&gt;((&lt;/span&gt;var++&lt;span class="o"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh
+&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="m"&gt;2&lt;/span&gt;
+&lt;span class="m"&gt;3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h4&gt;Until Loop&lt;/h4&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; It is reverse of &lt;strong&gt;while loop&lt;/strong&gt;, it repeats a set of commands, untill an expression becomes true.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;until [ expression ]
+do
+     command-list
+done
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;until&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$var&lt;/span&gt; -eq &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+   &lt;span class="o"&gt;((&lt;/span&gt;var++&lt;span class="o"&gt;))&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh
+&lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="m"&gt;1&lt;/span&gt;
+&lt;span class="m"&gt;2&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Read input at runtime&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;Read Command:&lt;/strong&gt; To read input from the user at runtime of shell script.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt; &lt;code&gt;read var1 var2&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;This command will hold (pause) the script to take input from the terminal. Once you give appropriate values, the shell script would run ahead.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+&lt;span class="nb"&gt;read&lt;/span&gt; var
+&lt;span class="k"&gt;for&lt;/span&gt; i in &lt;span class="nv"&gt;$var&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;done&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh
+The Geeky Way
+The
+Geeky
+Way
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Functions&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; These are set of commands, which can be called any number of times in a script. Thus, it gives the feature of re-usability of code and makes the code modular.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;function_name()
+{
+command-list
+return value    # optional
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
+confirm&lt;span class="o"&gt;()&lt;/span&gt;
+&lt;span class="o"&gt;{&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;quot;Are you sure, that you want to continue (y)?: \c&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;read&lt;/span&gt; var
+&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$var&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;y&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; 
+&lt;span class="k"&gt;fi&lt;/span&gt; 
+&lt;span class="o"&gt;}&lt;/span&gt;
+
+&lt;span class="k"&gt;if&lt;/span&gt; confirm -eq &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Continue process!&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; 
+    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Discontinue process!&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;Note that, no test expression in the last block of "if-else", because calling function is a command in itself. And we put expressions in the test, not commands.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh
+Are you sure, that you want to &lt;span class="k"&gt;continue&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;y&lt;span class="o"&gt;)&lt;/span&gt;?: y
+Continue process!!
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Knowledge of shell scripting is a required norm, not only for Linux administrators but for a general Linux user as well.&lt;/p&gt;
+&lt;p&gt;Being a Linux user, learning shell script is simply a boon. This sets you apart from those who just use Linux, then those who know how to use Linux!&lt;/p&gt;
+&lt;p&gt;To know more about shell and scripting, you may visit &lt;a href="http://linuxcommand.org/"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you have any query or idea to improve this post, please feel free to write in the comments section below.&lt;/p&gt;
+&lt;p&gt;Thanks for reading!&lt;/p&gt;</content><category term="Scripting"></category><category term="Shell"></category></entry><entry><title>[CHEAT-SHEET] List of Important IRC Commands</title><link href="//thegeekyway.com/list-important-irc-commands/" rel="alternate"></link><published>2018-06-14T17:13:00+05:30</published><updated>2018-06-14T17:13:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2018-06-14:/list-important-irc-commands/</id><summary type="html">&lt;p&gt;While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Changing …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Changing your Nick&lt;/strong&gt;&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/nick YourNick
