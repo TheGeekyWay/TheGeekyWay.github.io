@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="Javascript">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Writing your First Javascript code  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/writing-first-javascript-code/">Writing your First Javascript code</a></h1>
+    <h1><a href="//thegeekyway.com/writing-first-javascript-code/">Writing your First Javascript code</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -148,34 +151,34 @@ Here are some of the options :-</p>
 
 <p>In order to write our first javascript code, we need to include a script tag in the head section of html coding (later in the articles Ill show why we should never use script tag in javasctipt inside html) but for now, since the code is small, so we can use this method.</p>
 <p>Analyze the following code</p>
-<div class="highlight"><pre><span></span><span class="nt">&lt;html&gt;</span>
-<span class="nt">&lt;head&gt;</span>  
-  <span class="nt">&lt;title&gt;</span> TheGeekyWay.com <span class="nt">&lt;/title&gt;</span>
-    <span class="nt">&lt;script</span> <span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
-        function replace() {
-            var myValue = document.getElementById(&#39;textBox1&#39;).value;
-            var getTitle = document.getElementById(&#39;title&#39;);
-            if (myValue.length == 0) {
-                getTitle.innerHTML = &quot;Nothing entered, enter a valid character&quot;;
-                return;
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">html</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">head</span><span class="o">&gt;</span>  
+  <span class="o">&lt;</span><span class="nv">title</span><span class="o">&gt;</span> <span class="nv">TheGeekyWay</span>.<span class="nv">com</span> <span class="o">&lt;/</span><span class="nv">title</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">script</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">text/javascript</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+        <span class="nv">function</span> <span class="nv">replace</span><span class="ss">()</span> {
+            <span class="nv">var</span> <span class="nv">myValue</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">textBox1</span><span class="s1">&#39;</span><span class="ss">)</span>.<span class="nv">value</span><span class="c1">;</span>
+            <span class="nv">var</span> <span class="k">getTitle</span> <span class="o">=</span> <span class="nv">document</span>.<span class="nv">getElementById</span><span class="ss">(</span><span class="s1">&#39;</span><span class="s">title</span><span class="s1">&#39;</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">myValue</span>.<span class="nv">length</span> <span class="o">==</span> <span class="mi">0</span><span class="ss">)</span> {
+                <span class="k">getTitle</span>.<span class="nv">innerHTML</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Nothing entered, enter a valid character</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="k">return</span><span class="c1">;</span>
             }
-            else {
-                getTitle.innerHTML = myValue;
+            <span class="k">else</span> {
+                <span class="k">getTitle</span>.<span class="nv">innerHTML</span> <span class="o">=</span> <span class="nv">myValue</span><span class="c1">;</span>
             }                
         }
 
-    <span class="nt">&lt;/script&gt;</span>
-   <span class="nt">&lt;/head&gt;</span>
-<span class="nt">&lt;body&gt;</span>
-    <span class="nt">&lt;form</span> <span class="na">id=</span><span class="s">&quot;form1&quot;</span> <span class="na">runat=</span><span class="s">&quot;server&quot;</span><span class="nt">&gt;</span>
-    <span class="nt">&lt;div&gt;</span>
-        <span class="nt">&lt;h1</span> <span class="na">id=</span><span class="s">&quot;title&quot;</span><span class="nt">&gt;</span>Welcome to TheGeekyWay.com<span class="nt">&lt;/h1&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">id=</span><span class="s">&quot;textBox1&quot;</span> <span class="nt">/&gt;</span>
-        <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;button&quot;</span> <span class="na">value=</span><span class="s">&quot;Submit&quot;</span> <span class="na">id=</span><span class="s">&quot;myButton&quot;</span> <span class="na">onclick=</span><span class="s">&quot;replace()&quot;</span> <span class="nt">/&gt;</span>
-    <span class="nt">&lt;/div&gt;</span>
-    <span class="nt">&lt;/form&gt;</span>
-<span class="nt">&lt;/body&gt;</span>
-<span class="nt">&lt;/html&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">script</span><span class="o">&gt;</span>
+   <span class="o">&lt;/</span><span class="nv">head</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="nv">body</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">form</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">form1</span><span class="s2">&quot;</span> <span class="nv">runat</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">server</span><span class="s2">&quot;</span><span class="o">&gt;</span>
+    <span class="o">&lt;</span><span class="nv">div</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">h1</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">title</span><span class="s2">&quot;</span><span class="o">&gt;</span><span class="nv">Welcome</span> <span class="nv">to</span> <span class="nv">TheGeekyWay</span>.<span class="nv">com</span><span class="o">&lt;/</span><span class="nv">h1</span><span class="o">&gt;</span>
+        <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">text</span><span class="s2">&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">textBox1</span><span class="s2">&quot;</span> <span class="o">/&gt;</span>
+        <span class="o">&lt;</span><span class="nv">input</span> <span class="nv">type</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">button</span><span class="s2">&quot;</span> <span class="nv">value</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Submit</span><span class="s2">&quot;</span> <span class="nv">id</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">myButton</span><span class="s2">&quot;</span> <span class="nv">onclick</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">replace()</span><span class="s2">&quot;</span> <span class="o">/&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">div</span><span class="o">&gt;</span>
+    <span class="o">&lt;/</span><span class="nv">form</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">body</span><span class="o">&gt;</span>
+<span class="o">&lt;/</span><span class="nv">html</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -185,24 +188,22 @@ Here are some of the options :-</p>
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 24 February 2014</p>
-    <p>Category: <a href="/category/javascript/">Javascript</a>
+    <p>Category: <a href="//thegeekyway.com/category/javascript/">Javascript</a>
  &ndash; Tags:
-      <a href="/tag/javascript/">Javascript</a>    </p>
+      <a href="//thegeekyway.com/tag/javascript/">Javascript</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/writing-first-javascript-code/";
-      this.page.identifier = "writing-first-javascript-code/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "writing-first-javascript-code/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

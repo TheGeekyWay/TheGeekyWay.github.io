@@ -1,5 +1,210 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - DevOps</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-02-15T17:11:00+05:30</updated><entry><title>Blue-Green Deployment</title><link href="//thegeekyway.com/blue-green-deployment/" rel="alternate"></link><published>2018-02-15T17:11:00+05:30</published><updated>2018-02-15T17:11:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-02-15:/blue-green-deployment/</id><summary type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see nowadays, there are some simpler and more efficient ways to perform the same. We are going to discuss one such technique, that is called "Blue-Green Deployment".&lt;!--more--&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - DevOps</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T00:58:20+05:30</updated><entry><title>Ansible?</title><link href="//thegeekyway.com/ansible/" rel="alternate"></link><published>2019-08-24T00:58:20+05:30</published><updated>2019-08-24T00:58:20+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2019-08-24:/ansible/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="Ansible Logo" src="//thegeekyway.com/uploads/images/2019/08/ansible_logo.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hearing about Ansible lately? Everyone's using it! But what's the buzz about, what is ansible actually? And why should you use it? Lot's of questions and lot's of answers. Let's dive!&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2&gt;What is it?&lt;/h2&gt;
+&lt;p&gt;Well Ansible is a tool to automate the setup of an EC2 instance, a vagrant box …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="Ansible Logo" src="//thegeekyway.com/uploads/images/2019/08/ansible_logo.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;Hearing about Ansible lately? Everyone's using it! But what's the buzz about, what is ansible actually? And why should you use it? Lot's of questions and lot's of answers. Let's dive!&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2&gt;What is it?&lt;/h2&gt;
+&lt;p&gt;Well Ansible is a tool to automate the setup of an EC2 instance, a vagrant box, and almost anything that you can ssh into.&lt;/p&gt;
+&lt;h2&gt;What's the usecase?&lt;/h2&gt;
+&lt;p&gt;Imagine you've to setup an instance and use it as a server using nginx. Simple, right? Just ssh into it, do the nginx conf and leave it running. But wait, you did the setup on say an Ubuntu instance, but for some reasons, you have to change your server OS, to something like a Fedora may be? Or an Amazon linux? Now, you need to repeat all the steps you just did for ubuntu setup to perform the exactly same task. Another usecase is to setup multiple instances automatically, all you need to define is the tasks, roles etc. for Ansible. We'll be getting to it shortly.&lt;/p&gt;
+&lt;h2&gt;Installing Ansible&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;sudo apt-get install ansible&lt;/code&gt; should do just fine. Or &lt;code&gt;dnf&lt;/code&gt; in place of &lt;code&gt;apt-get&lt;/code&gt; for RHEL. Interestingly, you don't need to install ansible on the target machine! You just install it on your local machine once. And just exploit it using the tasks you define. This is because Ansible basically just SSH into your remote machine, and executes task if required.&lt;/p&gt;
+&lt;h2&gt;Getting started&lt;/h2&gt;
+&lt;p&gt;We'll start with doing everything in a get it done way. And then move to the way of how it should be done. Firstly you define the target(s) to act upon. This is called the inventory. You can name this file anything, inventory, hosts, instances, etc. it's upto you. In this file, type in the IPs of the instances you wish to control in format:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[name]&lt;/span&gt;
+&lt;span class="na"&gt;0.0.0.1 ansible_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ubuntu&amp;#39; ansible_ssh_private_key_file=&amp;#39;path/to/privateKey/for/server&amp;#39;&lt;/span&gt;
+&lt;span class="na"&gt;0.0.1.2 ansible_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;userName_to_login_as&amp;#39; ansible_ssh_private_key_file=&amp;#39;path/to/private/key&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;You can access these IPs using the *name* you provided. If you want to test this on vagrant, write an inventory file in the format:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[vag]&lt;/span&gt;
+&lt;span class="na"&gt;127.0.0.1 ansible_port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2222 ansible_user=&amp;#39;vagrant&amp;#39; ansible_ssh_private_key_file=&amp;#39;/path/toVagrantfile/.vagrant/machines/default/virtualbox/private_key&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;If you wish, you can follow along by performing the commands on your machine instead of a server too.
+Using localhost:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[me]&lt;/span&gt;
+&lt;span class="na"&gt;localhost ansible_connection&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;local&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, if you wish to use localhost, just use &lt;code&gt;me&lt;/code&gt; in place of &lt;code&gt;vag&lt;/code&gt;/&lt;code&gt;groupName&lt;/code&gt;.&lt;br&gt;
+If the inventory is ready we can begin executing the commands!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Though most of the commands used in this blog are non destructive and would not change anything in your PC to cause problems. Caution should be excercised when hacking through the different commands on your own. Especially if the target machine hosts important data, or you are performing all the commands on your localhost&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you get an error/warning related to usage of python2 interpreter, you can create a file &lt;code&gt;ansible.cfg&lt;/code&gt; and specify python3 interpreter by writing this in the file:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;[defaults]&lt;/span&gt;
+&lt;span class="na"&gt;interpreter_python&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s"&gt;/usr/bin/python3&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Executing some commands&lt;/h2&gt;
+&lt;p&gt;Ansible can work only when the target machine is ready to ssh, and the credentials provided in the inventory file are correct. Now that ansible knows how to authenticate itself to the machines, it'll have no problems executing any commands.&lt;/p&gt;
+&lt;p&gt;A little idea about Modules and arguments, and we are ready to go.&lt;/p&gt;
+&lt;p&gt;Modules are small pieces of python code, that ansible uses to handle resources on the target machine. And some modules require arguments to act upon. Let's see first an example that doesn't require an argument.&lt;/p&gt;
+&lt;p&gt;Ping module. Since we have already provided the inventory file, we don't need to provide ansible with the IPs of the instances to ping.&lt;/p&gt;
+&lt;p&gt;We can simply do:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ansible&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;inventory_file&lt;/span&gt; &lt;span class="n"&gt;groupName&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;ping&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;groupName, like we provided &lt;code&gt;vag&lt;/code&gt; in the inventory file example above. It's just a collection of IPs or domains along with their options under one name.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;-m&lt;/code&gt;: states that we're going to use a module Whose name in this case is ping&lt;/p&gt;
+&lt;p&gt;If you've provided inventory file and group name correctly you should get an output like:&lt;br&gt;
+&lt;code&gt;default | SUCCESS =&amp;gt; {     "changed": false,     "ping": "pong" }&lt;/code&gt;&lt;br&gt;
+Congratulations, you just executed your first command using ansible.&lt;/p&gt;
+&lt;p&gt;Now let's try one example which takes an argument. How about a Hello World sample? For this we're going to use &lt;code&gt;shell&lt;/code&gt; module.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ansible&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;inventory&lt;/span&gt; &lt;span class="n"&gt;groupName&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;shell&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;echo Hello World!&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output comes out to be:&lt;br&gt;
+&lt;code&gt;default | SUCCESS | rc=0 &amp;gt;&amp;gt; Hello World!&lt;/code&gt;&lt;br&gt;
+Let's try one last thing, installing a package. We'll be using apt module.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ansible&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;inventory&lt;/span&gt; &lt;span class="n"&gt;groupName&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;name=nginx state=present update_cache=true&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The argument here is self explanatory. apt module, takes arguments name, state mainly. Name states which package to act upon, and state tells what action is needed to be performed if any. This makes sure idempotence is there. Means, the same action performed repeatedly should not alter the state of the resource. state can be absent, present, latest, etc.&lt;/p&gt;
+&lt;p&gt;Update_cache is suggested because most of the images used to setup an instance would require you to update repository cache before you install anything.&lt;/p&gt;
+&lt;p&gt;This command should give you an error&lt;br&gt;
+&lt;code&gt;default | FAILED! =&amp;gt; {     "changed": false,     "msg": "Failed to lock apt for exclusive operation" }&lt;/code&gt;&lt;br&gt;
+And that is because the default user doesn't have enough privileges. For privilege escalation, we need to supply another flag. &lt;code&gt;-b&lt;/code&gt; .&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ansible&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;inventory&lt;/span&gt; &lt;span class="n"&gt;groupName&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;m&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;name=nginx state=present update_cache=true&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;code&gt;-b&lt;/code&gt; or &lt;code&gt;--become&lt;/code&gt; tells ansible whether to activate or deactivate privilege escalation. Default for privilege escalation is root, and hence the command will be executed as root. But you can also specify another user, as whom you'd like to execute the command. This can be done using &lt;code&gt;--become-user userName&lt;/code&gt; . Note that, if you the target system has requires a password, you need to pass &lt;code&gt;-K&lt;/code&gt; flag to ask for become pass.&lt;/p&gt;
+&lt;p&gt;Now the terminal will take time depending on the internet connection available to the target machine and will generate output like:  &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;SUCCESS&lt;/span&gt; &lt;span class="o"&gt;=&amp;gt;&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+     &lt;span class="ss"&gt;&amp;quot;cache_update_time&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1526681063&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+     &lt;span class="ss"&gt;&amp;quot;cache_updated&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+     &lt;span class="ss"&gt;&amp;quot;changed&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+     &lt;span class="ss"&gt;&amp;quot;stderr&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+     &lt;span class="ss"&gt;&amp;quot;stderr_lines&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[],&lt;/span&gt;
+     &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;In every output the value for&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;changed&amp;quot;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;variable is the gist of success or failure. This and the color of the output are enough to denote unchanged, changed, failure.&lt;/p&gt;
+&lt;p&gt;But ansible can do a lot more. This method is easy if you need to run one single module. But this is often not the case. You'd almost always require a collection of modules to setup a target machine. To see how many modules ansible provides head on to &lt;a href="http://docs.ansible.com/ansible/latest/modules/modules_by_category.html"&gt;this&lt;/a&gt; page. In that case giving arguments to ansible command wont be the best choice. Now enters ansible playbook.&lt;/p&gt;
+&lt;h2&gt;Ansible playbook&lt;/h2&gt;
+&lt;p&gt;Playbook is like a collection of ansible commands put together in a single YAML file. We performed 3 tasks all unrelated, but in case of a setup used to install and configure a single package inside the target machine, like setting up nginx, would require more tasks. And it'd be more logical to group all of them in a single playbook. Let's create a simple playbook, to say hello world, and then we'll move to installing nginx using playbook.&lt;/p&gt;
+&lt;h3&gt;A bit of YAML&lt;/h3&gt;
+&lt;p&gt;Before typing out your first YAML, let's just get a basic idea of it's syntax. These syntax basics have nothing specific with ansible. These basics will be same in every YAML file, so if you are already familiar with it's syntax, feel free to skip to the playbook part.&lt;/p&gt;
+&lt;p&gt;A YAML file can optionally begin with &lt;code&gt;---&lt;/code&gt; (triple dash) and end with &lt;code&gt;...&lt;/code&gt; (triple dot)&lt;br&gt;
+&lt;code&gt;#&lt;/code&gt; before any line comments it.&lt;br&gt;
+A list is represented by lines starting with a &lt;code&gt;-&lt;/code&gt; at same indentation level. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;---&lt;/span&gt;
+&lt;span class="n"&gt;numbers&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;three&lt;/span&gt;
+    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;four&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And a dictionary is represented like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;---&lt;/span&gt;
+&lt;span class="n"&gt;name_of_dictionary&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+    &lt;span class="n"&gt;key1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value1&lt;/span&gt;
+    &lt;span class="n"&gt;key2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value2&lt;/span&gt; 
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now there can be combinations of keys, dictionaries. Let's do one example of list of dictionary that is used in playbooks.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;---&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;dictionary1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+     &lt;span class="n"&gt;key1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value1&lt;/span&gt;
+     &lt;span class="n"&gt;key2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value2&lt;/span&gt;
+     &lt;span class="n"&gt;key3&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;one&lt;/span&gt;
+        &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;dictionary2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+     &lt;span class="n"&gt;key4&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value4&lt;/span&gt;
+     &lt;span class="n"&gt;key5&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value5&lt;/span&gt;
+     &lt;span class="n"&gt;key6&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; 
+        &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;foo&lt;/span&gt;
+        &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;bar&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Here we have a list of dictionaries, dictionary1 and dictionary2. In these dictionaries, some of the values are themselves a list. Like key3 in dictionary1 and key6 in dictionary2.&lt;/p&gt;
+&lt;p&gt;If you're a pythonista, there's another format that'd be more familiar to you:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;---&lt;/span&gt;
+&lt;span class="n"&gt;dictionary1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;key1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value1&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;key2&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;value2&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="n"&gt;list1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;one&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;two&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;three&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;There's whole lot of other details that you might like to have a glance. They are available with the &lt;a href="http://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html"&gt;ansible documentation&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;Back to the playbooks&lt;/h3&gt;
+&lt;p&gt;Let's create the playbook 'nginx.yml' now, and then we'll see that in detail:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c1"&gt;---&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;hosts&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;vag&lt;/span&gt;
+  &lt;span class="n"&gt;become&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;yes&lt;/span&gt;
+  &lt;span class="n"&gt;tasks&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; 
+    &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Install&lt;/span&gt; &lt;span class="n"&gt;Nginx&lt;/span&gt;
+      &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+        &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt;
+        &lt;span class="k"&gt;state&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;present&lt;/span&gt;
+        &lt;span class="n"&gt;update_cache&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is just the playbook version of the bash command we performed earlier using ansible to install nginx.&lt;/p&gt;
+&lt;p&gt;First let's see what each key means and then we'll run this playbook.&lt;/p&gt;
+&lt;p&gt;We can perform a lot of tasks for different hosts defined in the inventory, inside a single playbook. We can have a list of dictionaries, and depending upon the hosts specified, the tasks will be executed for that specific host. If you want to perform the tasks for all the hosts defined in the inventory file, you can also give the value &lt;code&gt;all&lt;/code&gt; for hosts key. Here we are considering the host &lt;code&gt;vag&lt;/code&gt; we defined previously in the inventory.&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;become&lt;/code&gt; is required to use apt. Otherwise, we'd come across an error (as we did while executing directly using bash). Note that, &lt;code&gt;yes&lt;/code&gt; is just one of the ways to provide a boolean value. You can specify &lt;code&gt;True&lt;/code&gt;, &lt;code&gt;TRUE&lt;/code&gt;, &lt;code&gt;yes&lt;/code&gt; and so on...&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;tasks&lt;/code&gt; is again a list of dictionaries defining the tasks we want to perform against the target machine.&lt;br&gt;
+Inside tasks, the first key is &lt;code&gt;name&lt;/code&gt; , we can name it anything, this will be shown when we run the playbook, so keep the name quite descriptive.&lt;br&gt;
+Secondly we specify the module to use for this first task. Here &lt;code&gt;apt&lt;/code&gt; is used.&lt;br&gt;
+Now we are supplying arguments to &lt;code&gt;apt&lt;/code&gt; using YAML syntax, values are same as we did while executing from terminal. The arguments are just key value pair, where the module name acts as dictionary name.&lt;/p&gt;
+&lt;p&gt;You can also specify &lt;code&gt;latest&lt;/code&gt; as a value to &lt;code&gt;state&lt;/code&gt; key. This will update the package too, if an update comes. Whereas &lt;code&gt;present&lt;/code&gt; would just ensure that the package is installed on the target machine.&lt;/p&gt;
+&lt;p&gt;Run the playbook using:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;ansible&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;playbook&lt;/span&gt; &lt;span class="n"&gt;nginx&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;yml&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;inventory&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is same as the single line command we performed earlier, just that we have a named task here. Output here will be similar to this:
+(If you are trying this on your local machine, you might need to pass a : &lt;code&gt;--ask-become-pass&lt;/code&gt; or &lt;code&gt;-K&lt;/code&gt; as a flag to &lt;code&gt;ansible-playbook&lt;/code&gt; command.)&lt;/p&gt;
+&lt;pre&gt;PLAY [me] **********...
+
+TASK [Gathering Facts] **********...
+&lt;font color="#4E9A06"&gt;ok: [vag]&lt;/font&gt;
+
+TASK [Install Nginx] **********...
+&lt;font color="#C4A000"&gt;changed: [vag]&lt;/font&gt;
+
+PLAY RECAP **********...
+&lt;font color="#C4A000"&gt;vag&lt;/font&gt;                  : &lt;font color="#4E9A06"&gt;ok=2   &lt;/font&gt; &lt;font color="#C4A000"&gt;changed=1   &lt;/font&gt; unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+&lt;/pre&gt;
+
+&lt;p&gt;Now you got a playbook running, you can add more tasks, find more modules and hack through.
+Bigger projects even have a playbook spread over folders, where, tasks, defaults, vars, etc. all have a separate folder and a main.yml in each of them. &lt;/p&gt;
+&lt;p&gt;Hope this will get you started on ansible.&lt;/p&gt;
+&lt;p&gt;Thanks a lot for reading!&lt;/p&gt;</content></entry><entry><title>Blue-Green Deployment</title><link href="//thegeekyway.com/blue-green-deployment/" rel="alternate"></link><published>2018-02-15T17:11:00+05:30</published><updated>2018-02-15T17:11:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-02-15:/blue-green-deployment/</id><summary type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see nowadays, there are some simpler and more efficient ways to perform the same. We are going to discuss one such technique, that is called "Blue-Green Deployment".&lt;!--more--&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"&gt;&lt;/p&gt;
 &lt;/div&gt;

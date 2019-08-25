@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Java</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/java.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-02-13T22:52:00+05:30</updated><entry><title>Java: Autoboxing and -XX:AutoBoxCacheMax</title><link href="//thegeekyway.com/java-autoboxing-xxautoboxcachemax/" rel="alternate"></link><published>2014-02-13T22:52:00+05:30</published><updated>2014-02-13T22:52:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2014-02-13:/java-autoboxing-xxautoboxcachemax/</id><summary type="html">&lt;p&gt;Autoboxing is the mechanism in Java to convert primitive type values to respective wrapper class object. Java programmer mostly use autoboxing while using collections, since collection only holds object and to put primitive type data into collection, it's need to use wrapper classes to convert into objects.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Java</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/java.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T01:11:30+05:30</updated><entry><title>Understanding Event Dispatching Thread in Java</title><link href="//thegeekyway.com/edt_java/" rel="alternate"></link><published>2019-08-24T01:11:30+05:30</published><updated>2019-08-24T01:11:30+05:30</updated><author><name>gagan93</name></author><id>tag:thegeekyway.com,2019-08-24:/edt_java/</id><summary type="html">&lt;p&gt;Swing provides a rich toolkit of GUI components which can be used to create powerful User Interface. Sometimes, we don’t get expected results when we are working on complex GUI &amp;amp; try to update GUI of that running application. From &lt;strong&gt;running application&lt;/strong&gt; we mean that we have a Swing application …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Swing provides a rich toolkit of GUI components which can be used to create powerful User Interface. Sometimes, we don’t get expected results when we are working on complex GUI &amp;amp; try to update GUI of that running application. From &lt;strong&gt;running application&lt;/strong&gt; we mean that we have a Swing application running and we update something in the app while it is running. There are some rules (as per API documentation), which if followed correctly, can lead to expected results in a GUI application.&lt;/p&gt;
+&lt;p&gt;A normal swing application is started within the event dispatching thread in this way :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="n"&gt;SwingUtilities&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;invokeLater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Runnable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+        &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;ConstructorOfClass&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt;   
+    &lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;According to Oracle Documentation, when a Swing Application starts, two threads start running : &lt;strong&gt;Main Thread&lt;/strong&gt;  and &lt;strong&gt;Event Dispatching Thread (EDT) .&lt;/strong&gt; The ED thread consists of the code related to GUI of the application. The main thread just executes the logic of the application, but whenever GUI needs to be updated, it must be passed to the EDT. The usual way of calling code inside EDT is :&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;SwingUtilities&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;invokeLater&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;Runnable&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+    &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="cm"&gt;/*       EDT code here like updating label, button&lt;/span&gt;
+&lt;span class="cm"&gt;         or some other work related to GUI updation&lt;/span&gt;
+&lt;span class="cm"&gt;*/&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;So if we are calculating something and after that we need to update some component in GUI, we will write the GUI updation code inside the &lt;strong&gt;run&lt;/strong&gt; method as shown above. SwingUtilities's invokeLater method takes Runnable objects and executes them one by one on a single thread (EDT) so that their is no ambiguity related to updation of GUI. In contrast to this approach, if we write the GUI updation code in some other thread (or even main thread), we may not get expected results.This is so because many Swing methods are not thread-safe.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Thread Safety&lt;/strong&gt; : Thread safe simply means that it may be used from multiple threads at the same time without causing problems. This can mean that access to any resources are synchronized.This is given in API documentation that &lt;strong&gt;all GUI updation should be strictly done in only one thread called the Event Dispatching Thread.&lt;br&gt;
+&lt;/strong&gt;&lt;/p&gt;</content><category term="java"></category></entry><entry><title>Java: Autoboxing and -XX:AutoBoxCacheMax</title><link href="//thegeekyway.com/java-autoboxing-xxautoboxcachemax/" rel="alternate"></link><published>2014-02-13T22:52:00+05:30</published><updated>2014-02-13T22:52:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2014-02-13:/java-autoboxing-xxautoboxcachemax/</id><summary type="html">&lt;p&gt;Autoboxing is the mechanism in Java to convert primitive type values to respective wrapper class object. Java programmer mostly use autoboxing while using collections, since collection only holds object and to put primitive type data into collection, it's need to use wrapper classes to convert into objects.&lt;/p&gt;
 &lt;p&gt;So , here is …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Autoboxing is the mechanism in Java to convert primitive type values to respective wrapper class object. Java programmer mostly use autoboxing while using collections, since collection only holds object and to put primitive type data into collection, it's need to use wrapper classes to convert into objects.&lt;/p&gt;
 &lt;p&gt;So , here is autoboxing to assign primitive type to wrapper type directly.&lt;/p&gt;
 &lt;ul&gt;
@@ -14,25 +44,25 @@
 &lt;/ul&gt;
 &lt;p&gt;You can directly compare wrapper classes using &lt;p style="background-color: #ffff99;"&gt; &lt;em&gt;==&lt;/em&gt; , &lt;p style="background-color: #ffffff;"&gt; just like primitive types but &lt;/p&gt;&lt;/p&gt;for certain range which is by default (-128 to 127) .Which is default value of   &lt;p style="background-color: #ffff00;"&gt;-XX:AutoBoxCacheMax .&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;Here is the demo program when your object which is a autoboxed primitive type can be compared directly.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        int int1 = 100;
-        int int2 = 100;
-        System.out.println(int1 == int2);    // true as they are primitive
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;int1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;int2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;int1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;int2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;they&lt;/span&gt; &lt;span class="k"&gt;are&lt;/span&gt; &lt;span class="n"&gt;primitive&lt;/span&gt;
 
-        Integer integerObj1 = new Integer(100);
-        Integer integerObj2 = new Integer(100);
-        System.out.println(integerObj1 == integerObj2);   // always false as these are objects 
+        &lt;span class="nb"&gt;Integer&lt;/span&gt; &lt;span class="n"&gt;integerObj1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="nb"&gt;Integer&lt;/span&gt; &lt;span class="n"&gt;integerObj2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nb"&gt;Integer&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;integerObj1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;integerObj2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;always&lt;/span&gt; &lt;span class="k"&gt;false&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;these&lt;/span&gt; &lt;span class="k"&gt;are&lt;/span&gt; &lt;span class="n"&gt;objects&lt;/span&gt; 
 
-        Integer integer1 = 100;
-        Integer integer2 = 100;
-        System.out.println(integer1 == integer2);   // true
+        &lt;span class="nb"&gt;Integer&lt;/span&gt; &lt;span class="n"&gt;integer1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nb"&gt;Integer&lt;/span&gt; &lt;span class="n"&gt;integer2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;integer1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;integer2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
 
-        Character c1 = 110;
-        Character c2 = 110;
-        System.out.println(c1 == c2);    //true
+        &lt;span class="nb"&gt;Character&lt;/span&gt; &lt;span class="n"&gt;c1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;110&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nb"&gt;Character&lt;/span&gt; &lt;span class="n"&gt;c2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;110&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;c1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;c2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;
 
-        Short s = 56;
-        Short s1 = 56;
-        System.out.println(s == s1);    //true
+        &lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;56&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="n"&gt;s1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;56&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;s1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -40,9 +70,9 @@
 &lt;p&gt;This short range are generally used and  performance of &lt;strong&gt; &lt;p style="font-family: courier new,courier; background-color: #ffff00;"&gt;&lt;em&gt;public static valueOf( i)&lt;/em&gt;&lt;/p&gt;&lt;/strong&gt;  as this method is likely to yield significantly better space and time performance by caching frequently requested values.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt; Changing  -XX:AutoBoxCacheMax :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can set the -XX:AutoBoxCacheMax=1000, and it will catch integer upto 1000 which means following code will results true&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Integer integer1 = 1000;
-        Integer integer2 = 1000;
-        System.out.println(integer1 == integer2);   // true
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;Integer&lt;/span&gt; &lt;span class="n"&gt;integer1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="nb"&gt;Integer&lt;/span&gt; &lt;span class="n"&gt;integer2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;integer1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;integer2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -67,7 +97,7 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;/li&gt;
 &lt;li&gt;&lt;a href="timedWait"&gt;TIMED_WAITING &lt;/a&gt;: &lt;em&gt;Current thread is waits for another thread for specified time to perform the aciton.&lt;/em&gt;&lt;ul&gt;
 &lt;li&gt;Thread.sleep (long timeInMilliSecond) : &lt;em&gt;Makes current thread to cease the execution for specified time.&lt;/em&gt;&lt;/li&gt;
-&lt;li&gt;Object.wait (long timeInMilliSecond) : &lt;em&gt; Causes current thread to wait for specified time until time elapsed or get notified by  &lt;p style="font-family: 'courier new', courier;"&gt;notify()&lt;/p&gt; or  &lt;p style="font-family: 'courier new', courier;"&gt;notifyAll()&lt;/p&gt;.&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;Object.wait (long timeInMilliSecond) : * Causes current thread to wait for specified time until time elapsed or get notified by  &lt;p style="font-family: 'courier new', courier;"&gt;notify()&lt;/p&gt; or  &lt;p style="font-family: 'courier new', courier;"&gt;notifyAll()&lt;/p&gt;.*&lt;/li&gt;
 &lt;li&gt;Thread.join (long millis) : &lt;em&gt;Current thread waits for specified time to die the thread.&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;LockSupport.parkNanos (long nanoSeconds) : &lt;em&gt;Disables the current thread for thread scheduling purposes, for up to the specified waiting time, unless the permit is available.&lt;/em&gt;&lt;/li&gt;
 &lt;li&gt;LockSupport.parkUntil ()&lt;/li&gt;
@@ -77,152 +107,152 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;/ul&gt;
 &lt;p&gt;Also, how to set &lt;a href="#priority"&gt;Thread Priority&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;   &lt;p #newRT&gt;&lt;/p&gt;NEW, RUNNING and TERMINATED&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ThreadStates&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-  &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;throws&lt;/span&gt; &lt;span class="nx"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nx"&gt;MyThreads&lt;/span&gt; &lt;span class="nx"&gt;firstObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MyThreads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;MyThreads&lt;/span&gt; &lt;span class="nx"&gt;secondObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MyThreads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;firstObj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;firstThread&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;secondObj&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;secondThread&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-    &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-    &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-    &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;ThreadStates&lt;/span&gt; {
+  &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; []&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;throws&lt;/span&gt; &lt;span class="nv"&gt;Exception&lt;/span&gt;{
+    &lt;span class="nv"&gt;MyThreads&lt;/span&gt; &lt;span class="nv"&gt;firstObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;MyThreads&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;MyThreads&lt;/span&gt; &lt;span class="nv"&gt;secondObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;  &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;MyThreads&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;firstObj&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;firstThread&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;secondObj&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;secondThread&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;getName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;getState&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;getName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;getState&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;sleep&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;getName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;getState&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;getName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;getState&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-  &lt;span class="p"&gt;}&lt;/span&gt;
+  }
 
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;MyThreads&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+}
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;MyThreads&lt;/span&gt; &lt;span class="nv"&gt;implements&lt;/span&gt; &lt;span class="nv"&gt;Runnable&lt;/span&gt; {
 
-  &lt;span class="kr"&gt;long&lt;/span&gt; &lt;span class="nx"&gt;sleeptime&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="nx"&gt;MyThreads&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;long&lt;/span&gt; &lt;span class="nx"&gt;sleeptime&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-    &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleeptime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;sleeptime&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
-  &lt;span class="kd"&gt;@Override&lt;/span&gt;
-  &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run() {&lt;/span&gt;
-    &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-      &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentThread&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;sleeptime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="p"&gt;}&lt;/span&gt;
-      &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-      &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="nv"&gt;long&lt;/span&gt; &lt;span class="nv"&gt;sleeptime&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;MyThreads&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;long&lt;/span&gt; &lt;span class="nv"&gt;sleeptime&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+    &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;sleeptime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;sleeptime&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  }
+  @&lt;span class="nv"&gt;Override&lt;/span&gt;
+  &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+    &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i&amp;lt;=5; i++){&lt;/span&gt;
+      &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;currentThread&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;.&lt;span class="nv"&gt;getName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      &lt;span class="nv"&gt;try&lt;/span&gt; {
+        &lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;sleep&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sleeptime&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      }
+      &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;InterruptedException&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+        &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;printStackTrace&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+      }
 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    }
+  }
+}
 
-&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="nx"&gt;Output&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="nx"&gt;NEW&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="nx"&gt;NEW&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="nx"&gt;firstThread&lt;/span&gt; &lt;span class="nx"&gt;TERMINATED&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="nx"&gt;TIMED_WAITING&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;due&lt;/span&gt; &lt;span class="nx"&gt;to&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;time&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="nx"&gt;call&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
-&lt;span class="nx"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="o"&gt;---&lt;/span&gt; &lt;span class="nv"&gt;Output&lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="nv"&gt;NEW&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="nv"&gt;NEW&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nv"&gt;firstThread&lt;/span&gt; &lt;span class="nv"&gt;TERMINATED&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="nv"&gt;TIMED_WAITING&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;due&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;sleep&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;time&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;call&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="nv"&gt;secondThread&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;WAITING and  &lt;p #timedWait&gt;&lt;/p&gt;TIMED_WAITING due to&lt;em&gt; &lt;p style="font-family: 'courier new', courier;"&gt; wait()&lt;/p&gt;&lt;/em&gt; and  &lt;p style="font-family: 'courier new', courier;"&gt;&lt;em&gt;wait(timeGiven)&lt;/em&gt; :&lt;/p&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;When &lt;em&gt;wait()&lt;/em&gt; is called on a Thread, it will keep waiting until notified.&lt;/p&gt;
 &lt;p&gt;While &lt;em&gt;wait(timeGiven)&lt;/em&gt;, wait until the &lt;em&gt;timeGiven&lt;/em&gt; expired or notified.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;RunWait&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;throws&lt;/span&gt; &lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;WaitDemo&lt;/span&gt; &lt;span class="nx"&gt;waitDemo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;WaitDemo&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;waitDemo&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;WaitThread&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; checking in main() &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-        &lt;span class="nx"&gt;waitDemo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setValue&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;WaitDemo&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;boolean&lt;/span&gt; &lt;span class="nx"&gt;isValueSet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;false&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;RunWait&lt;/span&gt; {
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; []&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;throws&lt;/span&gt; &lt;span class="nv"&gt;InterruptedException&lt;/span&gt; {
+        &lt;span class="nv"&gt;WaitDemo&lt;/span&gt; &lt;span class="nv"&gt;waitDemo&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;WaitDemo&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;waitDemo&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;WaitThread&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;sleep&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;.&lt;span class="nv"&gt;getName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; checking in main() &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt;.&lt;span class="nv"&gt;getState&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;waitDemo&lt;/span&gt;.&lt;span class="nv"&gt;setValue&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;WaitDemo&lt;/span&gt; &lt;span class="nv"&gt;implements&lt;/span&gt; &lt;span class="nv"&gt;Runnable&lt;/span&gt;{
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;boolean&lt;/span&gt; &lt;span class="nv"&gt;isValueSet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-    &lt;span class="kd"&gt;@Override&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run() {&lt;/span&gt;
-        &lt;span class="kr"&gt;synchronized&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nx"&gt;isValueSet&lt;/span&gt; &lt;span class="p"&gt;){&lt;/span&gt;
-                &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                    &lt;span class="nx"&gt;wait&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  &lt;span class="c1"&gt;// Check with wait(1000) for TIMED_WAITING&lt;/span&gt;
-                &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                    &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-                &lt;span class="p"&gt;}&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
+    @&lt;span class="nv"&gt;Override&lt;/span&gt;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+        &lt;span class="nv"&gt;synchronized&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;this&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+            &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;isValueSet&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;{
+                &lt;span class="nv"&gt;try&lt;/span&gt; {
+                    &lt;span class="k"&gt;wait&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;  // Check with wait(1000) for TIMED_WAITING&lt;/span&gt;
+                } &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;InterruptedException&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                    &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;printStackTrace&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                }
+            }
 
-        &lt;span class="p"&gt;}&lt;/span&gt;
+        }
 
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Got the Value: &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;isValueSet&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Got the Value: &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;isValueSet&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
 
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;setValue&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-        &lt;span class="kr"&gt;synchronized&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;isValueSet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="nx"&gt;notifyAll&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;setValue&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+        &lt;span class="nv"&gt;synchronized&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;this&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+            &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;isValueSet&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;notifyAll&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        }
+    }
+}
 
 &lt;span class="o"&gt;---&lt;/span&gt;
-&lt;span class="nx"&gt;Output&lt;/span&gt;
-&lt;span class="nx"&gt;WaitThread&lt;/span&gt; &lt;span class="nx"&gt;checking&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="nx"&gt;WAITING&lt;/span&gt;
-&lt;span class="nx"&gt;Got&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nx"&gt;Value&lt;/span&gt;: &lt;span class="kt"&gt;true&lt;/span&gt;
+&lt;span class="nv"&gt;Output&lt;/span&gt;
+&lt;span class="nv"&gt;WaitThread&lt;/span&gt; &lt;span class="nv"&gt;checking&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="nv"&gt;WAITING&lt;/span&gt;
+&lt;span class="nv"&gt;Got&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;Value&lt;/span&gt;: &lt;span class="nv"&gt;true&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt; &lt;p #blocked&gt;&lt;/p&gt;BLOCKED&lt;/strong&gt; : When thread is waiting to enter acquire monitor lock or to enter into synchronized method/block  or to enter into Critical Section&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;BlockedDemo&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="nx"&gt;BlockedThread&lt;/span&gt; &lt;span class="nx"&gt;blockedThread&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;BlockedThread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;BlockedDemo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;static&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;[]&lt;/span&gt;&lt;span class="n"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;BlockedThread&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;blockedThread&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;BlockedThread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;blockedThread&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;t1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;blockedThread&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;t2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;blockedThread&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;t1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;blockedThread&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;t2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;BlockedThread&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;private&lt;/span&gt; &lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="nx"&gt;BlockedThread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-         &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;givenVar&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="kd"&gt;@Override&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run() {&lt;/span&gt;
-        &lt;span class="kr"&gt;synchronized&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-                &lt;span class="nx"&gt;givenVar&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt;  &lt;span class="nx"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentThread&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; changed value &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;BlockedThread&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;implements&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Runnable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nc"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;BlockedThread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nc"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;givenVar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nv"&gt;@Override&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;run&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="n"&gt;synchronized&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="k"&gt;try&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="n"&gt;givenVar&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;catch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;InterruptedException&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;                &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;currentThread&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="n"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; changed value &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;givenVar&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 
-&lt;span class="o"&gt;--------------&lt;/span&gt;
-&lt;span class="nx"&gt;Output&lt;/span&gt;
-&lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="nx"&gt;TIMED_WAITING&lt;/span&gt;
-&lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="nx"&gt;BLOCKED&lt;/span&gt;
-&lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="nx"&gt;changed&lt;/span&gt; &lt;span class="nx"&gt;value&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;
-&lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="nx"&gt;changed&lt;/span&gt; &lt;span class="nx"&gt;value&lt;/span&gt; &lt;span class="mi"&gt;20&lt;/span&gt;
+&lt;span class="c1"&gt;--------------&lt;/span&gt;
+&lt;span class="k"&gt;Output&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;TIMED_WAITING&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;BLOCKED&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;t1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;changed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;t2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;changed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;value&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -231,112 +261,112 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;p&gt;&lt;strong&gt;WAITING and TIMED_WAITING becuase of  &lt;p style="font-family: 'courier new', courier;"&gt;Thread.join()&lt;/p&gt; and  &lt;p style="font-family: 'courier new', courier;"&gt;Thread.join(givenTime)&lt;/p&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;threadX.join() --  It makes calling thread to wait for threadXto finish.&lt;/p&gt;
 &lt;p&gt;threadX.join(1000) -- Calling thread will be glued to thread threadX for 1000 miliSeconds and resume after this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ThreadJoinDemo&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;throws&lt;/span&gt; &lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;ThreadJoin&lt;/span&gt; &lt;span class="nx"&gt;threadJoin&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;ThreadJoin&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;threadJoin&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;ThreadJoinDemo&lt;/span&gt; {
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; []&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;throws&lt;/span&gt; &lt;span class="nv"&gt;InterruptedException&lt;/span&gt; {
+        &lt;span class="nv"&gt;ThreadJoin&lt;/span&gt; &lt;span class="nv"&gt;threadJoin&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;ThreadJoin&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;threadJoin&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;t&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;join&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;in main() method&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nv"&gt;t&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t&lt;/span&gt;.&lt;span class="nv"&gt;join&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;in main() method&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
 
-&lt;span class="kr"&gt;class&lt;/span&gt;  &lt;span class="nx"&gt;ThreadJoin&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="nv"&gt;class&lt;/span&gt;  &lt;span class="nv"&gt;ThreadJoin&lt;/span&gt; &lt;span class="nv"&gt;implements&lt;/span&gt; &lt;span class="nv"&gt;Runnable&lt;/span&gt;{
 
-    &lt;span class="kd"&gt;@Override&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run() {&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Entered run()&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    @&lt;span class="nv"&gt;Override&lt;/span&gt;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+        &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Entered run()&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+            &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;+=&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-            &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Finished run()&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+            &lt;span class="nv"&gt;try&lt;/span&gt; {
+                &lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;sleep&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2000&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            } &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;InterruptedException&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;printStackTrace&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            }
+        }
+        &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Finished run()&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt; WAITING due to[  &lt;p style="font-family: 'courier new', courier;"&gt;LockSupport.park()&lt;/p&gt; : &lt;a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/LockSupport.html"&gt;Javadoc&lt;/a&gt;]{style="font-family: 'courier new', courier;"}&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Methods park and unpark provide efficient means of blocking and unblocking threads and avoids the the Race condition between one thread is parking another is unparking.&lt;/p&gt;
 &lt;p&gt;Following is simplest program I code to demonstrate this situation to &lt;em&gt;unpark&lt;/em&gt; by other thread.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;NewPark&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;throws&lt;/span&gt; &lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;FIFOMutex&lt;/span&gt; &lt;span class="nx"&gt;fifoMutex&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;FIFOMutex&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;fifoMutex&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;t1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getState&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-        &lt;span class="nx"&gt;fifoMutex&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;unlock&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;//unPaking thread t1&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;class&lt;/span&gt; &lt;span class="nt"&gt;NewPark&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="err"&gt;public&lt;/span&gt; &lt;span class="err"&gt;static&lt;/span&gt; &lt;span class="err"&gt;void&lt;/span&gt; &lt;span class="err"&gt;main(String&lt;/span&gt; &lt;span class="cp"&gt;[]&lt;/span&gt;&lt;span class="err"&gt;args)&lt;/span&gt; &lt;span class="err"&gt;throws&lt;/span&gt; &lt;span class="err"&gt;InterruptedException&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;FIFOMutex&lt;/span&gt; &lt;span class="err"&gt;fifoMutex&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;new&lt;/span&gt; &lt;span class="err"&gt;FIFOMutex()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;Thread&lt;/span&gt; &lt;span class="err"&gt;t1&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;new&lt;/span&gt; &lt;span class="err"&gt;Thread(fifoMutex,&amp;quot;t1&amp;quot;)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;t1.start()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;Thread.sleep(1000)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;System.out.println(t1.getName()&lt;/span&gt; &lt;span class="err"&gt;+&amp;quot;&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;+&lt;/span&gt; &lt;span class="err"&gt;t1.getState())&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="err"&gt;fifoMutex.unlock(t1)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="err"&gt;//unPaking&lt;/span&gt; &lt;span class="err"&gt;thread&lt;/span&gt; &lt;span class="err"&gt;t1&lt;/span&gt;
 
     &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;FIFOMutex&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-     &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;lock&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-         &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Parking Thread &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentThread&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-         &lt;span class="nx"&gt;LockSupport&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;park&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-         &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;After unpark &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentThread&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+&lt;span class="nt"&gt;class&lt;/span&gt; &lt;span class="nt"&gt;FIFOMutex&lt;/span&gt; &lt;span class="nt"&gt;implements&lt;/span&gt; &lt;span class="nt"&gt;Runnable&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+     &lt;span class="err"&gt;public&lt;/span&gt; &lt;span class="err"&gt;void&lt;/span&gt; &lt;span class="err"&gt;lock(){&lt;/span&gt;
+         &lt;span class="err"&gt;System.out.println(&amp;quot;Parking&lt;/span&gt; &lt;span class="err"&gt;Thread&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;+Thread.currentThread().getName())&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+         &lt;span class="err"&gt;LockSupport.park()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+         &lt;span class="err"&gt;System.out.println(&amp;quot;After&lt;/span&gt; &lt;span class="err"&gt;unpark&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;+Thread.currentThread().getName())&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
      &lt;span class="p"&gt;}&lt;/span&gt;
 
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;unlock&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;thread&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Unparking: &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
-        &lt;span class="nx"&gt;LockSupport&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;unpark&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;thread&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;unlock&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;Thread&lt;/span&gt; &lt;span class="nt"&gt;thread&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;System.out.println(&amp;quot;&lt;/span&gt;&lt;span class="n"&gt;Unparking&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="err"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;thread&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="nf"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;());&lt;/span&gt;
+        &lt;span class="err"&gt;LockSupport.unpark(thread)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
     &lt;span class="p"&gt;}&lt;/span&gt;
 
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-        &lt;span class="nx"&gt;lock&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="nt"&gt;public&lt;/span&gt; &lt;span class="nt"&gt;void&lt;/span&gt; &lt;span class="nt"&gt;run&lt;/span&gt;&lt;span class="o"&gt;()&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="err"&gt;lock()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
     &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 
-&lt;span class="o"&gt;---&lt;/span&gt;
-&lt;span class="nx"&gt;Output&lt;/span&gt;:
-&lt;span class="kt"&gt;Parking&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt;
-&lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="nx"&gt;WAITING&lt;/span&gt;
-&lt;span class="nx"&gt;Unparking&lt;/span&gt;: &lt;span class="kt"&gt;t1&lt;/span&gt;
-&lt;span class="nx"&gt;After&lt;/span&gt; &lt;span class="nx"&gt;unpark&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt;
+&lt;span class="nt"&gt;---&lt;/span&gt;
+&lt;span class="nt"&gt;Output&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;
+&lt;span class="nt"&gt;Parking&lt;/span&gt; &lt;span class="nt"&gt;Thread&lt;/span&gt; &lt;span class="nt"&gt;t1&lt;/span&gt;
+&lt;span class="nt"&gt;t1&lt;/span&gt; &lt;span class="nt"&gt;WAITING&lt;/span&gt;
+&lt;span class="nt"&gt;Unparking&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nt"&gt;t1&lt;/span&gt;
+&lt;span class="nt"&gt;After&lt;/span&gt; &lt;span class="nt"&gt;unpark&lt;/span&gt; &lt;span class="nt"&gt;t1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt; &lt;p #priority&gt;&lt;/p&gt;Setting Thread Priority&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can set priority from 1 (lowest) to 10 (highest) by using thread.setPriority(number) or can use Thread.MAX_PRIORITY, Thread.MIN_PRIORITY. By default thread priority set to 5 that is Thread.NORM_PRIORITY.&lt;/p&gt;
 &lt;p&gt;Setting priority doesn't guarantee to execute higher priority thread to run first. It just hint the scheduler that this thread has high priority but it's depends on scheduler how to queue the threads.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ThreadPriority&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="kr"&gt;throws&lt;/span&gt; &lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-        &lt;span class="nx"&gt;PriorityThread&lt;/span&gt; &lt;span class="nx"&gt;priorityThread&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;PriorityThread&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;priorityThread&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Thread1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;priorityThread&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Thread2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;priorityThread&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Thread3&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;t3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setPriority&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;MAX_PRIORITY&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setPriority&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;MIN_PRIORITY&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setPriority&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;NORM_PRIORITY&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;ThreadPriority&lt;/span&gt; {
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; []&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;throws&lt;/span&gt; &lt;span class="nv"&gt;InterruptedException&lt;/span&gt; {
+        &lt;span class="nv"&gt;PriorityThread&lt;/span&gt; &lt;span class="nv"&gt;priorityThread&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;PriorityThread&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;priorityThread&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Thread1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;priorityThread&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Thread2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;priorityThread&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Thread3&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t3&lt;/span&gt;.&lt;span class="nv"&gt;setPriority&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;MAX_PRIORITY&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;setPriority&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;MIN_PRIORITY&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;setPriority&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;NORM_PRIORITY&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;t3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t3&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
 
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;PriorityThread&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;PriorityThread&lt;/span&gt; &lt;span class="nv"&gt;implements&lt;/span&gt; &lt;span class="nv"&gt;Runnable&lt;/span&gt; {
 
-    &lt;span class="kd"&gt;@Override&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run() {&lt;/span&gt;
-        &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;currentThread&lt;/span&gt;&lt;span class="p"&gt;().&lt;/span&gt;&lt;span class="nx"&gt;getName&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    @&lt;span class="nv"&gt;Override&lt;/span&gt;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+        &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; 5 ; i++){&lt;/span&gt;
+            &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;currentThread&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;.&lt;span class="nv"&gt;getName&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        }
+    }
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;I hope threads states are clear now, Feel free to comment and share.&lt;/p&gt;</content><category term="java"></category></entry><entry><title>Java Multithreading</title><link href="//thegeekyway.com/java-multithreading/" rel="alternate"></link><published>2014-02-05T23:31:00+05:30</published><updated>2014-02-05T23:31:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2014-02-05:/java-multithreading/</id><summary type="html">&lt;p&gt;&lt;em&gt;Threads. &lt;/em&gt; Thread is also known as lightweight process. Java multithreading allows to process multiple task simultaneously with less overhead than process. Mostly use to monitor session, background synchronization etc.&lt;/p&gt;
+&lt;p&gt;I hope threads states are clear now, Feel free to comment and share.&lt;/p&gt;</content><category term="java"></category></entry><entry><title>Java Multithreading</title><link href="//thegeekyway.com/java-multithreading/" rel="alternate"></link><published>2014-02-05T23:31:00+05:30</published><updated>2014-02-05T23:31:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2014-02-05:/java-multithreading/</id><summary type="html">&lt;p&gt;*Threads. * Thread is also known as lightweight process. Java multithreading allows to process multiple task simultaneously with less overhead than process. Mostly use to monitor session, background synchronization etc.&lt;/p&gt;
 &lt;h5&gt;Content&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#processes"&gt;Process vs Thread&lt;/a&gt;&lt;/li&gt;
@@ -347,7 +377,7 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;li&gt;&lt;a href="#lifecycle"&gt;Thread State and Life cycle&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#daemonthread"&gt;Daemon Thread&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;p #processes&gt;&lt;/p&gt;&lt;strong&gt;Processes …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;&lt;em&gt;Threads. &lt;/em&gt; Thread is also known as lightweight process. Java multithreading allows to process multiple task simultaneously with less overhead than process. Mostly use to monitor session, background synchronization etc.&lt;/p&gt;
+&lt;p&gt;&lt;p #processes&gt;&lt;/p&gt;&lt;strong&gt;Processes …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;*Threads. * Thread is also known as lightweight process. Java multithreading allows to process multiple task simultaneously with less overhead than process. Mostly use to monitor session, background synchronization etc.&lt;/p&gt;
 &lt;h5&gt;Content&lt;/h5&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="#processes"&gt;Process vs Thread&lt;/a&gt;&lt;/li&gt;
@@ -375,57 +405,57 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;ol&gt;
 &lt;li&gt;Implementing &lt;em&gt;Runnable interface &lt;/em&gt;:&lt;/li&gt;
 &lt;/ol&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;ThreadExtendingRunnable&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="nx"&gt;MyThread1&lt;/span&gt; &lt;span class="nx"&gt;obj1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MyThread1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;thread1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;MyThread1&lt;/span&gt; &lt;span class="nx"&gt;obj2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MyThread1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;thread2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;ThreadExtendingRunnable&lt;/span&gt; {
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; []&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="nv"&gt;MyThread1&lt;/span&gt; &lt;span class="nv"&gt;obj1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;MyThread1&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;thread1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;MyThread1&lt;/span&gt; &lt;span class="nv"&gt;obj2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;MyThread1&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;thread2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;obj1&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;obj2&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// you can pass the same object. It allows you to associate single object to multiple threads&lt;/span&gt;
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;obj1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;obj2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; // you can pass the same object. It allows you to associate single object to multiple threads&lt;/span&gt;
+        &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
 
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;MyThread1&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;MyThread1&lt;/span&gt; &lt;span class="nv"&gt;implements&lt;/span&gt; &lt;span class="nv"&gt;Runnable&lt;/span&gt; {
+    &lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-    &lt;span class="nx"&gt;MyThread1&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-       &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="kd"&gt;@Override&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run() {&lt;/span&gt;
-        &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-            &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nv"&gt;MyThread1&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+       &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    @&lt;span class="nv"&gt;Override&lt;/span&gt;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
+        &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i&amp;lt;=5; i++){&lt;/span&gt;
+            &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        }
+    }
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;2.   &lt;p style="line-height: 1.5em;"&gt;Extending &lt;/p&gt;&lt;em&gt;Thread class &lt;/em&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;MyThreadExtendingThread&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="nx"&gt;MyThread2&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MyThread2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;thread1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="nx"&gt;MyThread2&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;MyThread2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;thread2&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
+&lt;p&gt;2.   &lt;p style="line-height: 1.5em;"&gt;Extending &lt;/p&gt;*Thread class *&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;MyThreadExtendingThread&lt;/span&gt; {
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; []&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="nv"&gt;MyThread2&lt;/span&gt; &lt;span class="nv"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;MyThread2&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;thread1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;MyThread2&lt;/span&gt; &lt;span class="nv"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;MyThread2&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;thread2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="c1"&gt;;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
 
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;MyThread2&lt;/span&gt; &lt;span class="kr"&gt;extends&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;MyThread2&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;{
+    &lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-    &lt;span class="nx"&gt;MyThread2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run&lt;/span&gt;&lt;span class="p"&gt;(){&lt;/span&gt;
-       &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-           &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;str&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-       &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="nv"&gt;MyThread2&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;str&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;{
+       &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i&amp;lt;=5; i++){&lt;/span&gt;
+           &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+       }
+    }
+}
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -468,54 +498,54 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;li&gt;To set a user created thread as daemon, you need to set by  &lt;p style="font-family: 'courier new', courier;"&gt;&lt;em&gt;Thread.setDaemon(true)&lt;/em&gt;&lt;/p&gt; (Make sure you set a daemon before calling&lt;em&gt; &lt;p style="font-family: 'courier new', courier;"&gt; start()&lt;/p&gt;&lt;/em&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;&lt;p style="font-size: x-small;"&gt;Example: Daemon Thread&lt;/p&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;DaemonTest&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="kr"&gt;static&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;main&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="nx"&gt;args&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-        &lt;span class="nx"&gt;DaemonObject&lt;/span&gt; &lt;span class="nx"&gt;deamonObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;DaemonObject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;daemonThread&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;DaemonObject&lt;/span&gt; &lt;span class="nx"&gt;notDaemonObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;DaemonObject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;notDaemonThread&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;DaemonTest&lt;/span&gt; {
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;static&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt; []&lt;span class="nv"&gt;args&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+        &lt;span class="nv"&gt;DaemonObject&lt;/span&gt; &lt;span class="nv"&gt;deamonObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;DaemonObject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;daemonThread&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;DaemonObject&lt;/span&gt; &lt;span class="nv"&gt;notDaemonObj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;DaemonObject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;500&lt;/span&gt;, &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;notDaemonThread&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;deamonObj&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;Thread&lt;/span&gt; &lt;span class="nx"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;notDaemonObj&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;deamonObj&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Thread&lt;/span&gt; &lt;span class="nv"&gt;t2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;Thread&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;notDaemonObj&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;setDaemon&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kc"&gt;true&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-        &lt;span class="nx"&gt;t1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-        &lt;span class="nx"&gt;t2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;start&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;setDaemon&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t1&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;t2&lt;/span&gt;.&lt;span class="nv"&gt;start&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+}
 
-&lt;span class="kr"&gt;class&lt;/span&gt; &lt;span class="nx"&gt;DaemonObject&lt;/span&gt; &lt;span class="kr"&gt;implements&lt;/span&gt; &lt;span class="nx"&gt;Runnable&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-    &lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;sleepTime&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="nx"&gt;threadname&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="nx"&gt;DaemonObject&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;sleepTime&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nb"&gt;String&lt;/span&gt; &lt;span class="nx"&gt;threadname&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-       &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleepTime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;sleepTime&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-       &lt;span class="k"&gt;this&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;threadname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nx"&gt;threadname&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-    &lt;span class="kd"&gt;@Override&lt;/span&gt;
-    &lt;span class="kr"&gt;public&lt;/span&gt; &lt;span class="k"&gt;void&lt;/span&gt; &lt;span class="nx"&gt;run() {&lt;/span&gt;
+&lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;DaemonObject&lt;/span&gt; &lt;span class="nv"&gt;implements&lt;/span&gt; &lt;span class="nv"&gt;Runnable&lt;/span&gt;{
+    &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;sleepTime&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="nv"&gt;threadname&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;DaemonObject&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;sleepTime&lt;/span&gt;, &lt;span class="nv"&gt;String&lt;/span&gt; &lt;span class="nv"&gt;threadname&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+       &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;sleepTime&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;sleepTime&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+       &lt;span class="nv"&gt;this&lt;/span&gt;.&lt;span class="nv"&gt;threadname&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;threadname&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    }
+    @&lt;span class="nv"&gt;Override&lt;/span&gt;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;run&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; {
 
-       &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kr"&gt;int&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-           &lt;span class="nx"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;out&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;threadname&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot; &amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nx"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-           &lt;span class="k"&gt;try&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-               &lt;span class="nx"&gt;Thread&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;sleep&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;sleepTime&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-           &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="k"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;InterruptedException&lt;/span&gt; &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-               &lt;span class="nx"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nx"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-           &lt;span class="p"&gt;}&lt;/span&gt;
-       &lt;span class="p"&gt;}&lt;/span&gt;
+       &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; 5; i++){&lt;/span&gt;
+           &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;threadname&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+           &lt;span class="nv"&gt;try&lt;/span&gt; {
+               &lt;span class="nv"&gt;Thread&lt;/span&gt;.&lt;span class="nv"&gt;sleep&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sleepTime&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+           } &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;InterruptedException&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+               &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;printStackTrace&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+           }
+       }
 
-    &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
+    }
+}
 &lt;span class="o"&gt;----------&lt;/span&gt;
-&lt;span class="nx"&gt;Output&lt;/span&gt; &lt;span class="nx"&gt;will&lt;/span&gt; &lt;span class="nx"&gt;be&lt;/span&gt; &lt;span class="nx"&gt;like&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; 
+&lt;span class="nv"&gt;Output&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;like&lt;/span&gt;: 
 &lt;span class="o"&gt;----------&lt;/span&gt;
-&lt;span class="nx"&gt;daemonThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="nx"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="nx"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="nx"&gt;daemonThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="nx"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="nx"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
-&lt;span class="nx"&gt;daemonThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="nx"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="nv"&gt;daemonThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nv"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nv"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nv"&gt;daemonThread&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nv"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nv"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="nv"&gt;daemonThread&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="nv"&gt;notDaemonThread&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;
 
-&lt;span class="nx"&gt;Process&lt;/span&gt; &lt;span class="nx"&gt;finished&lt;/span&gt; &lt;span class="kd"&gt;with&lt;/span&gt; &lt;span class="nx"&gt;exit&lt;/span&gt; &lt;span class="nx"&gt;code&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nv"&gt;Process&lt;/span&gt; &lt;span class="nv"&gt;finished&lt;/span&gt; &lt;span class="nv"&gt;with&lt;/span&gt; &lt;span class="k"&gt;exit&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -590,129 +620,129 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;li&gt;&lt;a href="#ways"&gt;Ways of invoking methods at Runtime&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2 id="getting-list-of-method-objects" style="font-size: 1.2em;"&gt;&lt;p #methodList&gt;&lt;/p&gt;Getting List of Method Objects&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//Getting all methods of class java.lang.reflect.Method itself. by loading a class at run time
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;Getting&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="n"&gt;methods&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;java&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;lang&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;reflect&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;Method&lt;/span&gt; &lt;span class="n"&gt;itself&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="k"&gt;by&lt;/span&gt; &lt;span class="n"&gt;loading&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="k"&gt;at&lt;/span&gt; &lt;span class="n"&gt;run&lt;/span&gt; &lt;span class="n"&gt;time&lt;/span&gt;
 
-Method[] methodList = Class.forName(&amp;quot;java.lang.reflect.Method&amp;quot;).getDeclaredMethods();
+&lt;span class="k"&gt;Method&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;methodList&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Class&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;java.lang.reflect.Method&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;).&lt;/span&gt;&lt;span class="n"&gt;getDeclaredMethods&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 
-//you can also use object of a class, but in this case you need to create an object of class
-Method[] methodList = myClass.getDeclaredMethods();
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;can&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="n"&gt;use&lt;/span&gt; &lt;span class="k"&gt;object&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;need&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="k"&gt;create&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="k"&gt;object&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt;
+&lt;span class="k"&gt;Method&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt; &lt;span class="n"&gt;methodList&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;myClass&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getDeclaredMethods&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="getting-informationmetadata-about-methods" style="font-size: 1.2em;"&gt;Getting information/metadata about methods&lt;/h2&gt;
 &lt;p&gt;Expand following code snippet.&lt;/p&gt;
 &lt;p&gt;Following code  will print whole method signature. Alternatively you can use specific method to get &lt;strong&gt;parameters, returnType&lt;/strong&gt; and &lt;strong&gt;exceptions&lt;/strong&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; for (Method method : methodList){
-            System.out.println(method.toString); 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Method&lt;/span&gt; &lt;span class="nv"&gt;method&lt;/span&gt; : &lt;span class="nv"&gt;methodList&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;{
+            &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;method&lt;/span&gt;.&lt;span class="nv"&gt;toString&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
       }
 
-Following methods are availble in class java.lang.reflect.Method
-/*
-invoke
-equals
-toString
-hashCode
-getModifiers
-getName
-getAnnotation
-getDeclaredAnnotations
-getDeclaringClass
-getFactory
-getGenericInfo
-getGenericInfo
-getParameterTypes
-getReturnType
-getTypeParameters
-isSynthetic
-toGenericString
-copy
-getGenericSignature
-getGenericParameterTypes
-getParameterAnnotations
-getParameterCount
-isVarArgs
-acquireMethodAccessor
-getAnnotatedReturnType
-getAnnotationBytes
-getDefaultValue
-getExceptionTypes
-getGenericExceptionTypes
-getGenericReturnType
-getMethodAccessor
-handleParameterNumberMismatch
-hasGenericInformation
-isBridge
-isDefault
-setMethodAccessor
-specificToGenericStringHeader
-specificToStringHeader
-*/
+&lt;span class="nv"&gt;Following&lt;/span&gt; &lt;span class="nv"&gt;methods&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;availble&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;java&lt;/span&gt;.&lt;span class="nv"&gt;lang&lt;/span&gt;.&lt;span class="nv"&gt;reflect&lt;/span&gt;.&lt;span class="nv"&gt;Method&lt;/span&gt;
+&lt;span class="cm"&gt;/*&lt;/span&gt;
+&lt;span class="cm"&gt;invoke&lt;/span&gt;
+&lt;span class="cm"&gt;equals&lt;/span&gt;
+&lt;span class="cm"&gt;toString&lt;/span&gt;
+&lt;span class="cm"&gt;hashCode&lt;/span&gt;
+&lt;span class="cm"&gt;getModifiers&lt;/span&gt;
+&lt;span class="cm"&gt;getName&lt;/span&gt;
+&lt;span class="cm"&gt;getAnnotation&lt;/span&gt;
+&lt;span class="cm"&gt;getDeclaredAnnotations&lt;/span&gt;
+&lt;span class="cm"&gt;getDeclaringClass&lt;/span&gt;
+&lt;span class="cm"&gt;getFactory&lt;/span&gt;
+&lt;span class="cm"&gt;getGenericInfo&lt;/span&gt;
+&lt;span class="cm"&gt;getGenericInfo&lt;/span&gt;
+&lt;span class="cm"&gt;getParameterTypes&lt;/span&gt;
+&lt;span class="cm"&gt;getReturnType&lt;/span&gt;
+&lt;span class="cm"&gt;getTypeParameters&lt;/span&gt;
+&lt;span class="cm"&gt;isSynthetic&lt;/span&gt;
+&lt;span class="cm"&gt;toGenericString&lt;/span&gt;
+&lt;span class="cm"&gt;copy&lt;/span&gt;
+&lt;span class="cm"&gt;getGenericSignature&lt;/span&gt;
+&lt;span class="cm"&gt;getGenericParameterTypes&lt;/span&gt;
+&lt;span class="cm"&gt;getParameterAnnotations&lt;/span&gt;
+&lt;span class="cm"&gt;getParameterCount&lt;/span&gt;
+&lt;span class="cm"&gt;isVarArgs&lt;/span&gt;
+&lt;span class="cm"&gt;acquireMethodAccessor&lt;/span&gt;
+&lt;span class="cm"&gt;getAnnotatedReturnType&lt;/span&gt;
+&lt;span class="cm"&gt;getAnnotationBytes&lt;/span&gt;
+&lt;span class="cm"&gt;getDefaultValue&lt;/span&gt;
+&lt;span class="cm"&gt;getExceptionTypes&lt;/span&gt;
+&lt;span class="cm"&gt;getGenericExceptionTypes&lt;/span&gt;
+&lt;span class="cm"&gt;getGenericReturnType&lt;/span&gt;
+&lt;span class="cm"&gt;getMethodAccessor&lt;/span&gt;
+&lt;span class="cm"&gt;handleParameterNumberMismatch&lt;/span&gt;
+&lt;span class="cm"&gt;hasGenericInformation&lt;/span&gt;
+&lt;span class="cm"&gt;isBridge&lt;/span&gt;
+&lt;span class="cm"&gt;isDefault&lt;/span&gt;
+&lt;span class="cm"&gt;setMethodAccessor&lt;/span&gt;
+&lt;span class="cm"&gt;specificToGenericStringHeader&lt;/span&gt;
+&lt;span class="cm"&gt;specificToStringHeader&lt;/span&gt;
+&lt;span class="cm"&gt;*/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="getting-a-method-object" style="font-size: 1.2em;"&gt;&lt;p #methodobject&gt;&lt;/p&gt; getting a Method object&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//Load a class and get method object
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Load&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;get&lt;/span&gt; &lt;span class="nv"&gt;method&lt;/span&gt; &lt;span class="nv"&gt;object&lt;/span&gt;
 
-Class clazz = Class.forName(&amp;quot;theGeekyWay.myClass&amp;quot;);
-Method method = clazz.getMethod(&amp;quot;myPublicMethod&amp;quot;, String.class);
+&lt;span class="nv"&gt;Class&lt;/span&gt; &lt;span class="nv"&gt;clazz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Class&lt;/span&gt;.&lt;span class="nv"&gt;forName&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;theGeekyWay.myClass&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;Method&lt;/span&gt; &lt;span class="nv"&gt;method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;clazz&lt;/span&gt;.&lt;span class="nv"&gt;getMethod&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;myPublicMethod&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;String&lt;/span&gt;.&lt;span class="nv"&gt;class&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-//Note: getMethod throws NoSuchMethodException (if method not available) , SecurityException (if method not accessible)
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Note&lt;/span&gt;: &lt;span class="nv"&gt;getMethod&lt;/span&gt; &lt;span class="nv"&gt;throws&lt;/span&gt; &lt;span class="nv"&gt;NoSuchMethodException&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;method&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;available&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; , &lt;span class="nv"&gt;SecurityException&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;method&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;accessible&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="invoking-methods-at-runtime" style="font-size: 1.2em;"&gt;&lt;p #invokemethod&gt;&lt;/p&gt;Invoking methods at Runtime&lt;/h2&gt;
 &lt;p&gt;&lt;p style="font-family: courier new,courier;"&gt;public Object invoke(Object obj, Object... args) throws IllegalAccessException, IllegalArgumentException,&lt;/p&gt; &lt;p style="font-family: courier new,courier;"&gt;InvocationTargetException&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;Method invoke take variable length parameter, so you need to provide parameter type and number of parameter as calling method.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;MyClass myclassobj = new MyClass();
-Method method = myclassobj .getMethod(&amp;quot;myPublicMethod&amp;quot;, String.class);
-method.invoke(myclassobj , &amp;quot;invoked a method through reflection&amp;quot;);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;MyClass&lt;/span&gt; &lt;span class="n"&gt;myclassobj&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="k"&gt;Method&lt;/span&gt; &lt;span class="k"&gt;method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;myclassobj&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getMethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;myPublicMethod&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;invoke&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;myclassobj&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;invoked a method through reflection&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-//invoke method throws IllegalAccessException, IllegalArgumentException, InvocationTargetException
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;invoke&lt;/span&gt; &lt;span class="k"&gt;method&lt;/span&gt; &lt;span class="n"&gt;throws&lt;/span&gt; &lt;span class="n"&gt;IllegalAccessException&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;IllegalArgumentException&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;InvocationTargetException&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If &lt;strong&gt;&lt;em&gt;method is static&lt;/em&gt;&lt;/strong&gt; just pass &lt;strong&gt; &lt;p style="font-family: courier new,courier;"&gt;null&lt;/p&gt;&lt;/strong&gt; in place of classObject&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Class clazz1 = Class.forName(&amp;quot;theGeekyWay.MyClass&amp;quot;);
-Method method1 = clazz1.getMethod(&amp;quot;aStaticMethod&amp;quot;); //No mathod parameter
-method1.invoke(null);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Class&lt;/span&gt; &lt;span class="n"&gt;clazz1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Class&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;theGeekyWay.MyClass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="k"&gt;Method&lt;/span&gt; &lt;span class="n"&gt;method1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;clazz1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getMethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;aStaticMethod&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;No&lt;/span&gt; &lt;span class="n"&gt;mathod&lt;/span&gt; &lt;span class="k"&gt;parameter&lt;/span&gt;
+&lt;span class="n"&gt;method1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;invoke&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;null&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-//Note: my static method doesn&amp;#39;t have any parameter
+&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;Note&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="k"&gt;method&lt;/span&gt; &lt;span class="n"&gt;doesn&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="k"&gt;any&lt;/span&gt; &lt;span class="k"&gt;parameter&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="ways-of-loading-class-at-run-time-and-invoking-method-at-run-time" style="font-size: 1.2em;"&gt;&lt;p #ways&gt;&lt;/p&gt;Ways of loading class at run time and invoking method at run time&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;//invoking a method using 100% Reflection
-        try {
-            Class clazz = Class.forName(&amp;quot;theGeekyWay.MyClass&amp;quot;);
-            Method method = clazz.getMethod(&amp;quot;myPublicMethod&amp;quot;, String.class);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;invoking&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="k"&gt;method&lt;/span&gt; &lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;Reflection&lt;/span&gt;
+        &lt;span class="n"&gt;try&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;Class&lt;/span&gt; &lt;span class="n"&gt;clazz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Class&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;theGeekyWay.MyClass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="k"&gt;Method&lt;/span&gt; &lt;span class="k"&gt;method&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;clazz&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;getMethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;myPublicMethod&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;class&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-            method.invoke((theGeekyWay.MyClass)clazz.newInstance(), &amp;quot;invoked a method through reflection&amp;quot;);
+            &lt;span class="k"&gt;method&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;invoke&lt;/span&gt;&lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;theGeekyWay&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;clazz&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;newInstance&lt;/span&gt;&lt;span class="p"&gt;(),&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;invoked a method through reflection&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();  
-        }
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;NoSuchMethodException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;InvocationTargetException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IllegalAccessException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ClassNotFoundException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;InstantiationException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;  
+        &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Another way to load class at run time and call method&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        try {
-            Class clzz = Class.forName(&amp;quot;theGeekyWay.MyClass&amp;quot;);
-            ((MyClass)clzz.newInstance()).myPublicMethod(&amp;quot;hkh........&amp;quot;); // make sure 
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        }
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;        &lt;span class="n"&gt;try&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="k"&gt;Class&lt;/span&gt; &lt;span class="n"&gt;clzz&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Class&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;forName&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;theGeekyWay.MyClass&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+            &lt;span class="p"&gt;((&lt;/span&gt;&lt;span class="n"&gt;MyClass&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="n"&gt;clzz&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;newInstance&lt;/span&gt;&lt;span class="p"&gt;()).&lt;/span&gt;&lt;span class="n"&gt;myPublicMethod&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;hkh........&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;sure&lt;/span&gt; 
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;InstantiationException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ClassNotFoundException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;IllegalAccessException&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;printStackTrace&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+        &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -722,72 +752,72 @@ method1.invoke(null);
 &lt;p&gt;Now from Java 7, there are two interfaces included  &lt;p style="font-family: courier new,courier;"&gt;Closeable&lt;/p&gt; and  &lt;p style="font-family: courier new,courier;"&gt;AutoCloseable&lt;/p&gt; with single abstract method  &lt;p style="font-family: courier new,courier;"&gt;close(),&lt;/p&gt;  which enables implementing class to close resources aromatically after try block.&lt;/p&gt;
 &lt;p&gt;Lets see how it works.&lt;/p&gt;
 &lt;p&gt;Conventional way of using FileInputStream&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nt"&gt;File&lt;/span&gt; &lt;span class="nt"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;new&lt;/span&gt; &lt;span class="nt"&gt;File&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C:\Document1.txt&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt;
-        &lt;span class="nt"&gt;InputStream&lt;/span&gt; &lt;span class="nt"&gt;fis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nt"&gt;null&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
-        &lt;span class="nt"&gt;try&lt;/span&gt;
-        &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="err"&gt;fis&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;new&lt;/span&gt; &lt;span class="err"&gt;FileInputStream(file)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="err"&gt;System.out.println(file.getAbsolutePath())&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="err"&gt;int&lt;/span&gt; &lt;span class="err"&gt;readLocation&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="err"&gt;while&lt;/span&gt; &lt;span class="err"&gt;((readLocation&lt;/span&gt; &lt;span class="err"&gt;=&lt;/span&gt; &lt;span class="err"&gt;fis.read())&lt;/span&gt; &lt;span class="err"&gt;!=&lt;/span&gt; &lt;span class="err"&gt;-1)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-                &lt;span class="err"&gt;System.out.print((char)&lt;/span&gt; &lt;span class="err"&gt;readLocation)&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-            &lt;span class="p"&gt;}&lt;/span&gt;
-        &lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="nt"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;IOException&lt;/span&gt; &lt;span class="nt"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="err"&gt;e.printStackTrace()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-        &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="nt"&gt;finally&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
-            &lt;span class="err"&gt;if&lt;/span&gt; &lt;span class="err"&gt;(fis&lt;/span&gt; &lt;span class="err"&gt;!=&lt;/span&gt; &lt;span class="err"&gt;null)&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-                &lt;span class="err"&gt;try&lt;/span&gt; &lt;span class="err"&gt;{&lt;/span&gt;
-                    &lt;span class="err"&gt;fis.close()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                &lt;span class="p"&gt;}&lt;/span&gt; &lt;span class="nt"&gt;catch&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nt"&gt;IOException&lt;/span&gt; &lt;span class="nt"&gt;e&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
-                    &lt;span class="err"&gt;e.printStackTrace()&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-                &lt;span class="p"&gt;}&lt;/span&gt;
-            &lt;span class="err"&gt;}&lt;/span&gt;
-        &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;File&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;File&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C:\Document1.txt&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;InputStream&lt;/span&gt; &lt;span class="nv"&gt;fis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;try&lt;/span&gt;
+        {
+            &lt;span class="nv"&gt;fis&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;FileInputStream&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;file&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;println&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;file&lt;/span&gt;.&lt;span class="nv"&gt;getAbsolutePath&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;readLocation&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;readLocation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;fis&lt;/span&gt;.&lt;span class="nv"&gt;read&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;print&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;char&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;readLocation&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            }
+        } &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;IOException&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;printStackTrace&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        } &lt;span class="nv"&gt;finally&lt;/span&gt;{
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;fis&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="nv"&gt;try&lt;/span&gt; {
+                    &lt;span class="nv"&gt;fis&lt;/span&gt;.&lt;span class="nv"&gt;close&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                } &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;IOException&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                    &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;printStackTrace&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                }
+            }
+        }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now with using Try-with-Resource&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;try (InputStream fileInputStream = new FileInputStream(new File(&amp;quot;C:\Document1.txt&amp;quot;)))   {
-            int readLocation;
-            while ((readLocation = fileInputStream.read()) != -1) {
-                System.out.print((char) readLocation);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;try&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;InputStream&lt;/span&gt; &lt;span class="nv"&gt;fileInputStream&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;FileInputStream&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;File&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;C:\Document1.txt&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)))&lt;/span&gt;   {
+            &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;readLocation&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;readLocation&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;fileInputStream&lt;/span&gt;.&lt;span class="nv"&gt;read&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;out&lt;/span&gt;.&lt;span class="nv"&gt;print&lt;/span&gt;&lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;char&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;readLocation&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+        } &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;IOException&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;printStackTrace&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;How it works:&lt;/h4&gt;
 &lt;p&gt;Compare the changes. Initialization, of resource which needs to be close, happening with try and there is no finally block to close. &lt;a href="http://docs.oracle.com/javase/6/docs/api/java/io/FileInputStream.html" title="Java Doc"&gt;FileInputStream&lt;/a&gt; implements &lt;a href="http://docs.oracle.com/javase/6/docs/api/java/io/Closeable.html" title="interface in java.io"&gt;Closeable&lt;/a&gt; which have following code in method  &lt;p style="font-family: 'courier new', courier;"&gt;close()&lt;/p&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; public void close() throws IOException {
-        synchronized (closeLock) {
-            if (closed) {
-                return;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;close&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="nv"&gt;throws&lt;/span&gt; &lt;span class="nv"&gt;IOException&lt;/span&gt; {
+        &lt;span class="nv"&gt;synchronized&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;closeLock&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;closed&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+                &lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
-            closed = true;
+            &lt;span class="nv"&gt;closed&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
-        if (channel != null) {
-            /*
-             * Decrement the FD use count associated with the channel
-             * The use count is incremented whenever a new channel
-             * is obtained from this stream.
-             */
-           fd.decrementAndGetUseCount();
-           channel.close();
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;channel&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; {
+            &lt;span class="cm"&gt;/*&lt;/span&gt;
+&lt;span class="cm"&gt;             * Decrement the FD use count associated with the channel&lt;/span&gt;
+&lt;span class="cm"&gt;             * The use count is incremented whenever a new channel&lt;/span&gt;
+&lt;span class="cm"&gt;             * is obtained from this stream.&lt;/span&gt;
+&lt;span class="cm"&gt;             */&lt;/span&gt;
+           &lt;span class="nv"&gt;fd&lt;/span&gt;.&lt;span class="nv"&gt;decrementAndGetUseCount&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+           &lt;span class="nv"&gt;channel&lt;/span&gt;.&lt;span class="nv"&gt;close&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
 
-        /*
-         * Decrement the FD use count associated with this stream
-         */
-        int useCount = fd.decrementAndGetUseCount();
+        &lt;span class="cm"&gt;/*&lt;/span&gt;
+&lt;span class="cm"&gt;         * Decrement the FD use count associated with this stream&lt;/span&gt;
+&lt;span class="cm"&gt;         */&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;useCount&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;fd&lt;/span&gt;.&lt;span class="nv"&gt;decrementAndGetUseCount&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-        /*
-         * If FileDescriptor is still in use by another stream, the finalizer
-         * will not close it.
-         */
-        if ((useCount &amp;lt;= 0) || !isRunningFinalize()) {
-            close0();
+        &lt;span class="cm"&gt;/*&lt;/span&gt;
+&lt;span class="cm"&gt;         * If FileDescriptor is still in use by another stream, the finalizer&lt;/span&gt;
+&lt;span class="cm"&gt;         * will not close it.&lt;/span&gt;
+&lt;span class="cm"&gt;         */&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;((&lt;/span&gt;&lt;span class="nv"&gt;useCount&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="nv"&gt;isRunningFinalize&lt;/span&gt;&lt;span class="ss"&gt;())&lt;/span&gt; {
+            &lt;span class="nv"&gt;close0&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 &lt;/pre&gt;&lt;/div&gt;
@@ -796,27 +826,27 @@ method1.invoke(null);
 &lt;p&gt;Note that you can still use  &lt;p style="font-family: courier new,courier;"&gt;finally&lt;/p&gt; block if you want.&lt;/p&gt;
 &lt;h4&gt;Closeable vs AutoCloseable&lt;/h4&gt;
 &lt;p&gt;Here is the code&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public interface AutoCloseable {
- /**
-     * Closes this resource, relinquishing any underlying resources.
-     * This method is invoked automatically on objects managed by the
-     * {@code try}-with-resources statement.
-*/
-    public void close() throws Exception;
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;interface&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;AutoCloseable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;     * Closes this resource, relinquishing any underlying resources.&lt;/span&gt;
+&lt;span class="cm"&gt;     * This method is invoked automatically on objects managed by the&lt;/span&gt;
+&lt;span class="cm"&gt;     * {@code try}-with-resources statement.&lt;/span&gt;
+&lt;span class="cm"&gt;*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;close&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;throws&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;Exception&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public interface Closeable extends AutoCloseable {
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;interface&lt;/span&gt; &lt;span class="nv"&gt;Closeable&lt;/span&gt; &lt;span class="nv"&gt;extends&lt;/span&gt; &lt;span class="nv"&gt;AutoCloseable&lt;/span&gt; {
 
-    /**
-     * Closes this stream and releases any system resources associated
-     * with it. If the stream is already closed then invoking this
-     * method has no effect.
-     *
-     * @throws IOException if an I/O error occurs
-     */
-    public void close() throws IOException; 
+    &lt;span class="cm"&gt;/**&lt;/span&gt;
+&lt;span class="cm"&gt;     * Closes this stream and releases any system resources associated&lt;/span&gt;
+&lt;span class="cm"&gt;     * with it. If the stream is already closed then invoking this&lt;/span&gt;
+&lt;span class="cm"&gt;     * method has no effect.&lt;/span&gt;
+&lt;span class="cm"&gt;     *&lt;/span&gt;
+&lt;span class="cm"&gt;     * @throws IOException if an I/O error occurs&lt;/span&gt;
+&lt;span class="cm"&gt;     */&lt;/span&gt;
+    &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;close&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="nv"&gt;throws&lt;/span&gt; &lt;span class="nv"&gt;IOException&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -826,9 +856,9 @@ method1.invoke(null);
 &lt;p&gt;&lt;strong&gt;What is a Literal&lt;/strong&gt; :  A literal is source code representation of source code. Which can …&lt;/p&gt;</summary><content type="html">&lt;p&gt;From Java 7 Binary type also joins the category of literal with * &lt;p style="font-family: 'courier new', courier;"&gt;byte, short, int and long&lt;/p&gt;.* Which means a binary value can be assigned  by using &lt;strong&gt;&lt;em&gt;0b &lt;/em&gt;&lt;/strong&gt;or&lt;strong&gt;&lt;em&gt; 0B  &lt;/em&gt;&lt;/strong&gt;prefix to a  primitive type.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;What is a Literal&lt;/strong&gt; :  A literal is source code representation of source code. Which can be directly assigned to any &lt;em&gt;primitive&lt;/em&gt; type.&lt;/p&gt;
 &lt;p&gt;Try following in your code with JDK1.7+&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int intType = 0b100; 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;intType&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;b100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
 
-char charType = 0B1100001;
+&lt;span class="nb"&gt;char&lt;/span&gt; &lt;span class="n"&gt;charType&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="n"&gt;B1100001&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -838,15 +868,15 @@ char charType = 0B1100001;
 &lt;li&gt;Benefit to programs where bit per bit operation is required.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Other literal type are following&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;char capitalC = &amp;#39;C&amp;#39;; /*Character type or you can use unicode &amp;#39;u0043&amp;#39; */
-byte b = 100;   /* byte limit is -128 to 127*/
-short s = 10000; /* short limit is -32768 to 32767*/
-int i = 100000;  /*int limit is -2^31 to 2^31 - 1*/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;char&lt;/span&gt; &lt;span class="n"&gt;capitalC&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;C&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/*Character type or you can use unicode &amp;#39;u0043&amp;#39; */&lt;/span&gt;
+&lt;span class="n"&gt;byte&lt;/span&gt; &lt;span class="n"&gt;b&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;   &lt;span class="cm"&gt;/* byte limit is -128 to 127*/&lt;/span&gt;
+&lt;span class="n"&gt;short&lt;/span&gt; &lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="cm"&gt;/* short limit is -32768 to 32767*/&lt;/span&gt;
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100000&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;  &lt;span class="cm"&gt;/*int limit is -2^31 to 2^31 - 1*/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;One more feature introduced related to primitive type.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Underscore in integer type&lt;/strong&gt;: To improve readability of code in integer delimiters.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int newInt = 100_00_00;
-float newfloat = 3.12_34_67f;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;newInt&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="n"&gt;_00_00&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nb"&gt;float&lt;/span&gt; &lt;span class="n"&gt;newfloat&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="n"&gt;_34_67f&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;</content><category term="java"></category></entry></feed>

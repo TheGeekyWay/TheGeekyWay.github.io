@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="Raspberry Pi">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; How play videos on Raspberry Pi - OMXPlayer  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/play-videos-raspberry-pi-omxplayer/">How play videos on Raspberry Pi - OMXPlayer</a></h1>
+    <h1><a href="//thegeekyway.com/play-videos-raspberry-pi-omxplayer/">How play videos on Raspberry Pi - OMXPlayer</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/anoop/>Anoop</a></strong></p>
@@ -88,19 +91,19 @@
 
 <h2 id="installing-omx-player" style="font-size: 1.2em;">Installing OMX Player</h2>
 <p>Download and install player from source</p>
-<div class="highlight"><pre><span></span>Stable Build (Already added in Raspbian also in ArcLinux): 
-wget https://github.com/downloads/torarin/omxplayer_0.3.3~git20131216~b34143c_armhf.deb
+<div class="highlight"><pre><span></span><span class="k">Stable</span> <span class="n">Build</span> <span class="p">(</span><span class="n">Already</span> <span class="n">added</span> <span class="k">in</span> <span class="n">Raspbian</span> <span class="n">also</span> <span class="k">in</span> <span class="n">ArcLinux</span><span class="p">):</span> 
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="n">torarin</span><span class="o">/</span><span class="n">omxplayer_0</span><span class="p">.</span><span class="mi">3</span><span class="p">.</span><span class="mi">3</span><span class="o">~</span><span class="n">git20131216</span><span class="o">~</span><span class="n">b34143c_armhf</span><span class="p">.</span><span class="n">deb</span>
 
-Experimental Build: (Android app prefers experimental build)
+<span class="n">Experimental</span> <span class="n">Build</span><span class="p">:</span> <span class="p">(</span><span class="n">Android</span> <span class="n">app</span> <span class="n">prefers</span> <span class="n">experimental</span> <span class="n">build</span><span class="p">)</span>
 
-wget https://github.com/downloads/torarin/omxplayer/omxplayer_3~experimental~git20121208~ebfa6fc6_armhf.deb
+<span class="n">wget</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">downloads</span><span class="o">/</span><span class="n">torarin</span><span class="o">/</span><span class="n">omxplayer</span><span class="o">/</span><span class="n">omxplayer_3</span><span class="o">~</span><span class="n">experimental</span><span class="o">~</span><span class="n">git20121208</span><span class="o">~</span><span class="n">ebfa6fc6_armhf</span><span class="p">.</span><span class="n">deb</span>
 
-Install:
-sudo dpkg -i mxplayer_0.3.3~git20131216~b34143c_armhf.deb
+<span class="n">Install</span><span class="p">:</span>
+<span class="n">sudo</span> <span class="n">dpkg</span> <span class="o">-</span><span class="n">i</span> <span class="n">mxplayer_0</span><span class="p">.</span><span class="mi">3</span><span class="p">.</span><span class="mi">3</span><span class="o">~</span><span class="n">git20131216</span><span class="o">~</span><span class="n">b34143c_armhf</span><span class="p">.</span><span class="n">deb</span>
 </pre></div>
 
 
-<p><em>Note: OMXPlayer will not play MPEG-2 files, you need purchase licence to play. </em></p>
+<p>*Note: OMXPlayer will not play MPEG-2 files, you need purchase licence to play. *</p>
 <p>{#section style="font-size: 1.2em;"}</p>
 <h2 id="get-android-app" style="font-size: 1.2em;"><p #android></p>Get Android App</h2>
 <p><a href="https://play.google.com/store/apps/details?id=com.raspberry.remote&amp;hl=en">Raspberry Pi Remote Control Google Play link</a></p>
@@ -129,11 +132,11 @@ sudo dpkg -i mxplayer_0.3.3~git20131216~b34143c_armhf.deb
 <p><em>(In host name or ip address, I already given <strong> <p style="color: #ff0000;"> <p style="font-family: 'courier new', courier;">\<userName\>@\<ip\> </p></p></strong>, So I don't have to give username again. it will only asks for password in next step.)</em></p>
 <p>Provide your password in next step, and you will land on home of pi in command prompt version. Here you can run any command which will be executed on Raspi directly.</p>
 <p>Now just browse to your media file and run</p>
-<div class="highlight"><pre><span></span>omxplayer -s 
+<div class="highlight"><pre><span></span><span class="nv">omxplayer</span> <span class="o">-</span><span class="nv">s</span> 
 
-For HDMI (video+audio)
+<span class="k">For</span> <span class="nv">HDMI</span> <span class="ss">(</span><span class="nv">video</span><span class="o">+</span><span class="nv">audio</span><span class="ss">)</span>
 
-omxplayer -o hdmi
+<span class="nv">omxplayer</span> <span class="o">-</span><span class="nv">o</span> <span class="nv">hdmi</span>
 </pre></div>
 
 
@@ -141,28 +144,28 @@ omxplayer -o hdmi
 <p><a href="//thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"><img alt="omxPlayer-command" src="//thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"></a></p>
 </div>
 <p>Here are some more OMXPlayer commands</p>
-<div class="highlight"><pre><span></span>http://lukasz-skalski.com/index.php/projekty-inne/raspberry-control-control-raspberry-pi-with-your-android-device.html
+<div class="highlight"><pre><span></span><span class="nv">http</span>:<span class="o">//</span><span class="nv">lukasz</span><span class="o">-</span><span class="nv">skalski</span>.<span class="nv">com</span><span class="o">/</span><span class="nv">index</span>.<span class="nv">php</span><span class="o">/</span><span class="nv">projekty</span><span class="o">-</span><span class="nv">inne</span><span class="o">/</span><span class="nv">raspberry</span><span class="o">-</span><span class="nv">control</span><span class="o">-</span><span class="nv">control</span><span class="o">-</span><span class="nv">raspberry</span><span class="o">-</span><span class="nv">pi</span><span class="o">-</span><span class="nv">with</span><span class="o">-</span><span class="nv">your</span><span class="o">-</span><span class="nv">android</span><span class="o">-</span><span class="nv">device</span>.<span class="nv">html</span>
 
-# dpkg -i omxplayer_0.0.1-arm.deb
-####  .... fails with missing dependencies ...
-# apt-get -f install
-### fetches the missing dependencies, configures the sym links etc
-$ omxplayer --help
-Usage: omxplayer [OPTIONS] [FILE]
-Options :
--h / --help                    print this help
--a / --alang language          audio language        : e.g. ger
--n / --aidx  index             audio stream index    : e.g. 1
--o / --adev  device            audio out device      : e.g. hdmi/local
--i / --info                    dump stream format and exit
--s / --stats                   pts and buffer stats
--p / --passthrough             audio passthrough
--d / --deinterlace             deinterlacing
--w / --hw                      hw audio decoding
--3 / --3d                      switch tv into 3d mode
--y / --hdmiclocksync           adjust display refresh rate to match video
--t / --sid index               show subtitle with index
--r / --refresh                 adjust framerate/resolution to video
+# <span class="nv">dpkg</span> <span class="o">-</span><span class="nv">i</span> <span class="nv">omxplayer_0</span>.<span class="mi">0</span>.<span class="mi">1</span><span class="o">-</span><span class="nv">arm</span>.<span class="nv">deb</span>
+####  .... <span class="nv">fails</span> <span class="nv">with</span> <span class="nv">missing</span> <span class="nv">dependencies</span> ...
+# <span class="nv">apt</span><span class="o">-</span><span class="nv">get</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">install</span>
+### <span class="nv">fetches</span> <span class="nv">the</span> <span class="nv">missing</span> <span class="nv">dependencies</span>, <span class="nv">configures</span> <span class="nv">the</span> <span class="nv">sym</span> <span class="nv">links</span> <span class="nv">etc</span>
+$ <span class="nv">omxplayer</span> <span class="o">--</span><span class="nv">help</span>
+<span class="nv">Usage</span>: <span class="nv">omxplayer</span> [<span class="nv">OPTIONS</span>] [<span class="nv">FILE</span>]
+<span class="nv">Options</span> :
+<span class="o">-</span><span class="nv">h</span> <span class="o">/</span> <span class="o">--</span><span class="nv">help</span>                    <span class="nv">print</span> <span class="nv">this</span> <span class="nv">help</span>
+<span class="o">-</span><span class="nv">a</span> <span class="o">/</span> <span class="o">--</span><span class="nv">alang</span> <span class="nv">language</span>          <span class="nv">audio</span> <span class="nv">language</span>        : <span class="nv">e</span>.<span class="nv">g</span>. <span class="nv">ger</span>
+<span class="o">-</span><span class="nv">n</span> <span class="o">/</span> <span class="o">--</span><span class="nv">aidx</span>  <span class="nv">index</span>             <span class="nv">audio</span> <span class="nv">stream</span> <span class="nv">index</span>    : <span class="nv">e</span>.<span class="nv">g</span>. <span class="mi">1</span>
+<span class="o">-</span><span class="nv">o</span> <span class="o">/</span> <span class="o">--</span><span class="nv">adev</span>  <span class="nv">device</span>            <span class="nv">audio</span> <span class="nv">out</span> <span class="nv">device</span>      : <span class="nv">e</span>.<span class="nv">g</span>. <span class="nv">hdmi</span><span class="o">/</span><span class="nv">local</span>
+<span class="o">-</span><span class="nv">i</span> <span class="o">/</span> <span class="o">--</span><span class="nv">info</span>                    <span class="nv">dump</span> <span class="nv">stream</span> <span class="nv">format</span> <span class="nv">and</span> <span class="k">exit</span>
+<span class="o">-</span><span class="nv">s</span> <span class="o">/</span> <span class="o">--</span><span class="nv">stats</span>                   <span class="nv">pts</span> <span class="nv">and</span> <span class="nv">buffer</span> <span class="nv">stats</span>
+<span class="o">-</span><span class="nv">p</span> <span class="o">/</span> <span class="o">--</span><span class="nv">passthrough</span>             <span class="nv">audio</span> <span class="nv">passthrough</span>
+<span class="o">-</span><span class="nv">d</span> <span class="o">/</span> <span class="o">--</span><span class="nv">deinterlace</span>             <span class="nv">deinterlacing</span>
+<span class="o">-</span><span class="nv">w</span> <span class="o">/</span> <span class="o">--</span><span class="nv">hw</span>                      <span class="nv">hw</span> <span class="nv">audio</span> <span class="nv">decoding</span>
+<span class="o">-</span><span class="mi">3</span> <span class="o">/</span> <span class="o">--</span><span class="mi">3</span><span class="nv">d</span>                      <span class="nv">switch</span> <span class="nv">tv</span> <span class="nv">into</span> <span class="mi">3</span><span class="nv">d</span> <span class="nv">mode</span>
+<span class="o">-</span><span class="nv">y</span> <span class="o">/</span> <span class="o">--</span><span class="nv">hdmiclocksync</span>           <span class="nv">adjust</span> <span class="nv">display</span> <span class="nv">refresh</span> <span class="nv">rate</span> <span class="nv">to</span> <span class="nv">match</span> <span class="nv">video</span>
+<span class="o">-</span><span class="nv">t</span> <span class="o">/</span> <span class="o">--</span><span class="nv">sid</span> <span class="nv">index</span>               <span class="k">show</span> <span class="nv">subtitle</span> <span class="nv">with</span> <span class="nv">index</span>
+<span class="o">-</span><span class="nv">r</span> <span class="o">/</span> <span class="o">--</span><span class="nv">refresh</span>                 <span class="nv">adjust</span> <span class="nv">framerate</span><span class="o">/</span><span class="nv">resolution</span> <span class="nv">to</span> <span class="nv">video</span>
 </pre></div>
 
 
@@ -170,24 +173,22 @@ Options :
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 23 December 2013</p>
-    <p>Category: <a href="/category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/raspberry-pi/">Raspberry Pi</a>    </p>
+      <a href="//thegeekyway.com/tag/raspberry-pi/">Raspberry Pi</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/play-videos-raspberry-pi-omxplayer/";
-      this.page.identifier = "play-videos-raspberry-pi-omxplayer/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "play-videos-raspberry-pi-omxplayer/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

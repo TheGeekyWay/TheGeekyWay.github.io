@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="linux, SSH">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; [Ultimate Guide] How SSH works?  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/ultimate-guide-how-ssh-works/">[Ultimate Guide] How SSH works?</a></h1>
+    <h1><a href="//thegeekyway.com/ultimate-guide-how-ssh-works/">[Ultimate Guide] How SSH works?</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
@@ -88,13 +91,13 @@
 <li>It is better than other communication protocols like FTP, telnet, etc. The picture below describes how SSH encryption doesn't let someone sniff in its signals. If someone tries to intercept the signal, s/he would receive nothing but an encrypted data packet. To know more about how SSH better than others visit <a href="https://www.yireo.com/blog/1452-why-ssh-instead-of-ftp">here</a>.</li>
 </ul>
 <div style="text-align:center">
-<div class="highlight"><pre><span></span>![An un-encrypte telnet connection]({static}/uploads/images/2017/11/howsshworks1-300x220.png &quot;An un-encrypte telnet connection&quot;)
+<div class="highlight"><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">An</span> <span class="n">un</span><span class="o">-</span><span class="n">encrypte</span> <span class="n">telnet</span> <span class="k">connection</span><span class="p">](</span><span class="err">{</span><span class="k">static</span><span class="err">}</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="mi">2017</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="n">howsshworks1</span><span class="o">-</span><span class="mi">300</span><span class="n">x220</span><span class="p">.</span><span class="n">png</span> <span class="ss">&quot;An un-encrypte telnet connection&quot;</span><span class="p">)</span>
 </pre></div>
 
 
 </div>
 <div style="text-align:center">
-<div class="highlight"><pre><span></span>![An encrypted SSH sesion]({static}/uploads/images/2017/11/howsshworks2-300x219.png &quot;An encrypted SSH sesion&quot;)
+<div class="highlight"><pre><span></span><span class="o">!</span><span class="p">[</span><span class="n">An</span> <span class="k">encrypted</span> <span class="n">SSH</span> <span class="n">sesion</span><span class="p">](</span><span class="err">{</span><span class="k">static</span><span class="err">}</span><span class="o">/</span><span class="n">uploads</span><span class="o">/</span><span class="n">images</span><span class="o">/</span><span class="mi">2017</span><span class="o">/</span><span class="mi">11</span><span class="o">/</span><span class="n">howsshworks2</span><span class="o">-</span><span class="mi">300</span><span class="n">x219</span><span class="p">.</span><span class="n">png</span> <span class="ss">&quot;An encrypted SSH sesion&quot;</span><span class="p">)</span>
 </pre></div>
 
 
@@ -115,11 +118,11 @@
 <p>The SSH connection is always invoked by a client to a server. Therefore, server authentication comes first than client authentication.</p>
 <p><strong><em>STEP 1:  Connect to simple FTP connection</em></strong></p>
 <p>For a successful SSH establishment. A simple connection between a client and a server is a must. For the same reason, first of all, a simple (FTP/Telnet) connection is created between the client and the server. And with telnet, we get details like this:</p>
-<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ telnet thegeekyway.com 22
-Trying 192.168.42.119...
-Connected to thegeekyway.com.
-Escape character is &#39;^]&#39;.
-SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
+<div class="highlight"><pre><span></span><span class="n">coderunner</span><span class="nv">@geekyshacklebolt</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">telnet</span><span class="w"> </span><span class="n">thegeekyway</span><span class="p">.</span><span class="n">com</span><span class="w"> </span><span class="mi">22</span><span class="w"></span>
+<span class="n">Trying</span><span class="w"> </span><span class="mf">192.168.42.119</span><span class="p">...</span><span class="w"></span>
+<span class="n">Connected</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">thegeekyway</span><span class="p">.</span><span class="n">com</span><span class="p">.</span><span class="w"></span>
+<span class="k">Escape</span><span class="w"> </span><span class="k">character</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="s1">&#39;^]&#39;</span><span class="p">.</span><span class="w"></span>
+<span class="n">SSH</span><span class="o">-</span><span class="mf">2.0</span><span class="o">-</span><span class="n">OpenSSH_7</span><span class="mf">.2</span><span class="n">p2</span><span class="w"> </span><span class="n">Ubuntu</span><span class="o">-</span><span class="mi">4</span><span class="n">ubuntu2</span><span class="mf">.2</span><span class="w"></span>
 </pre></div>
 
 
@@ -133,17 +136,17 @@ SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
 <ul>
 <li>1) <strong>Server's host key</strong>: It is an RSA public key, which is stored in "known_hosts" file of the client (if you have already connected before with that server). You may see your known_hosts file here:</li>
 </ul>
-<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ cd .ssh/
-coderunner@geekyshacklebolt:~/.ssh$ ls
-authorized_keys   id_rsa   id_rsa.pub   known_hosts
+<div class="highlight"><pre><span></span><span class="n">coderunner</span><span class="nv">@geekyshacklebolt</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="w"></span>
+<span class="n">coderunner</span><span class="nv">@geekyshacklebolt</span><span class="err">:</span><span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"></span>
+<span class="n">authorized_keys</span><span class="w">   </span><span class="n">id_rsa</span><span class="w">   </span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span><span class="w">   </span><span class="n">known_hosts</span><span class="w"></span>
 </pre></div>
 
 
 <p>At this point, the client will search for this "rsa_public" key in client's `known_hosts` file and if the key is not already present, then it may be the case of connecting with that server for the first time. So, in this case, what you would get is a "WARNING!" like: "<em>Are you sure you want to continue connecting?</em>"</p>
-<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ ssh geekyshacklebolt
-The authenticity of host &#39;geekyshacklebolt (192.168.42.222)&#39; can&#39;t be established.
-ECDSA key fingerprint is SHA256:Ql/KnGlolY9eCGuYK3OX3opnSyJQzsbtM3DW/UZIxms.
-Are you sure you want to continue connecting (yes/no)?
+<div class="highlight"><pre><span></span><span class="nv">coderunner</span>@<span class="nv">geekyshacklebolt</span>:<span class="o">~</span>$ <span class="nv">ssh</span> <span class="nv">geekyshacklebolt</span>
+<span class="nv">The</span> <span class="nv">authenticity</span> <span class="nv">of</span> <span class="nv">host</span> <span class="s1">&#39;</span><span class="s">geekyshacklebolt (192.168.42.222)</span><span class="s1">&#39;</span> <span class="nv">can</span><span class="s1">&#39;</span><span class="s">t be established.</span>
+<span class="nv">ECDSA</span> <span class="nv">key</span> <span class="nv">fingerprint</span> <span class="nv">is</span> <span class="nv">SHA256</span>:<span class="nv">Ql</span><span class="o">/</span><span class="nv">KnGlolY9eCGuYK3OX3opnSyJQzsbtM3DW</span><span class="o">/</span><span class="nv">UZIxms</span>.
+<span class="nv">Are</span> <span class="nv">you</span> <span class="nv">sure</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="k">continue</span> <span class="nv">connecting</span> <span class="ss">(</span><span class="nv">yes</span><span class="o">/</span><span class="nv">no</span><span class="ss">)</span>?
 </pre></div>
 
 
@@ -152,9 +155,9 @@ Are you sure you want to continue connecting (yes/no)?
 <li>2) <strong>Server's server key</strong>: (There is no concept of server key in SSH-2) With host key, server also provide one server key.</li>
 </ul>
 <p>This server key goes on changing every hour or so. And this key may be of 768 bits or 1024 bits it depends on the configuration. You may find it at  "/etc/ssh/"  in "sshd_config"  file. Let me see mine.</p>
-<div class="highlight"><pre><span></span># Lifetime and size of ephemeral version 1 server key
-KeyRegenerationInterval 3600
-ServerKeyBits 1024
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">Lifetime</span> <span class="k">and</span> <span class="k">size</span> <span class="k">of</span> <span class="n">ephemeral</span> <span class="k">version</span> <span class="mi">1</span> <span class="n">server</span> <span class="k">key</span>
+<span class="n">KeyRegenerationInterval</span> <span class="mi">3600</span>
+<span class="n">ServerKeyBits</span> <span class="mi">1024</span>
 </pre></div>
 
 
@@ -189,9 +192,9 @@ ServerKeyBits 1024
 <p>In this, the server has a list of host keys stored in /etc/ssh_known_host, and additionally, each user has host keys in \$HOME/.ssh/known_hosts. SSH uses the naming service to obtain the canonical name of the client host, looks for its public key in its known_host files, and requires the client to prove that it knows the private host key. This prevents IP and routing spoofing attacks (as long as the client machine private host key has not been leaked), but is still vulnerable to DNS (domain name server) attacks (to a limited extent), and relies on the integrity of the client machine as to who is requesting to log in. If maximal security is desired, only RSA authentication (host keys authentication) should be used.</p>
 <p>4. <strong>Host keys based</strong>:</p>
 <p>It is the most secure method of authentication for an SSH session. In this, client authentication is based on a pair of host keys i.e: the public key and the private key that can be seen in "\~/.ssh/" directory.</p>
-<div class="highlight"><pre><span></span>coderunner@geekyshacklebolt:~$ cd .ssh/
-coderunner@geekyshacklebolt:~/.ssh$ ls
-authorized_keys id_rsa id_rsa.pub known_hosts
+<div class="highlight"><pre><span></span><span class="n">coderunner</span><span class="nv">@geekyshacklebolt</span><span class="err">:</span><span class="o">~</span><span class="err">$</span><span class="w"> </span><span class="n">cd</span><span class="w"> </span><span class="p">.</span><span class="n">ssh</span><span class="o">/</span><span class="w"></span>
+<span class="n">coderunner</span><span class="nv">@geekyshacklebolt</span><span class="err">:</span><span class="o">~/</span><span class="p">.</span><span class="n">ssh</span><span class="err">$</span><span class="w"> </span><span class="n">ls</span><span class="w"></span>
+<span class="n">authorized_keys</span><span class="w"> </span><span class="n">id_rsa</span><span class="w"> </span><span class="n">id_rsa</span><span class="p">.</span><span class="n">pub</span><span class="w"> </span><span class="n">known_hosts</span><span class="w"></span>
 </pre></div>
 
 
@@ -278,24 +281,22 @@ authorized_keys id_rsa id_rsa.pub known_hosts
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 30 November 2017</p>
-    <p>Category: <a href="/category/devops-linux/">DevOps, Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/devops-linux/">DevOps, Linux</a>
  &ndash; Tags:
-      <a href="/tag/linux/">linux</a>,      <a href="/tag/ssh/">SSH</a>    </p>
+      <a href="//thegeekyway.com/tag/linux/">linux</a>,      <a href="//thegeekyway.com/tag/ssh/">SSH</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/ultimate-guide-how-ssh-works/";
-      this.page.identifier = "ultimate-guide-how-ssh-works/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "ultimate-guide-how-ssh-works/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

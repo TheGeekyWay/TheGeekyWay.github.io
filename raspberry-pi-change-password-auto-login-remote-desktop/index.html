@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="linux, Raspberry Pi">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Raspberry Pi: Change Password, Auto Login and Remote Desktop  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/raspberry-pi-change-password-auto-login-remote-desktop/">Raspberry Pi: Change Password, Auto Login and Remote Desktop</a></h1>
+    <h1><a href="//thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/">Raspberry Pi: Change Password, Auto Login and Remote Desktop</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/anoop/>Anoop</a></strong></p>
@@ -89,7 +92,7 @@
 </ul>
 <h2 id="changing-default-password" style="font-size: 1.3em;"><p #changePass></p>1. Changing Default Password</h2>
 <p>Open terminal and run following command</p>
-<div class="highlight"><pre><span></span>sudo raspi-config
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">raspi</span><span class="o">-</span><span class="n">config</span>
 </pre></div>
 
 
@@ -100,7 +103,7 @@
 <p>On selecting  <p style="font-family: 'courier new', courier;">Change User Password</p> , Hit  <p style="font-family: 'courier new', courier;">Enter</p> to give new password.</p>
 <h2 id="adding-new-user-to-pi" style="font-size: 1.3em;"><p #AddUser></p>2. Adding new user to Pi:</h2>
 <p>To add new user just run following command</p>
-<div class="highlight"><pre><span></span>sudo adduser
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">adduser</span>
 </pre></div>
 
 
@@ -110,7 +113,7 @@
 </div>
 <h2 id="raspi-auto-login-to-gui-without-entering-usernamepassword" style="font-size: 1.3em;"><p #autoLogin></p>3. Raspi Auto Login to GUI without entering username/password</h2>
 <p>Run again following command and select  <p style="font-family: 'courier new', courier;">Enable boot to Desktop/S</p> <p style="font-family: 'courier new', courier;">cratch and select 2nd option</p></p>
-<div class="highlight"><pre><span></span>sudo raspi-config
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">raspi</span><span class="o">-</span><span class="n">config</span>
 </pre></div>
 
 
@@ -118,40 +121,40 @@
 <p><a href="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"><img alt="Auto-Login-GUI" src="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"></a></p>
 </div>
 <h5 id="auto-login-using-command-version" style="font-size: 1em;">Auto-Login using Command version</h5>
-<div class="highlight"><pre><span></span>sudo nano /etc/inittab
+<div class="highlight"><pre><span></span><span class="nv">sudo</span> <span class="nv">nano</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">inittab</span>
 
-/*Find following line*/
+<span class="cm">/*Find following line*/</span>
 
-1:2345:respawn:/sbin/getty 115200 tty1
+<span class="mi">1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">getty</span> <span class="mi">115200</span> <span class="nv">tty1</span>
 
-/*and comment it by adding # in front of it*/
+<span class="cm">/*and comment it by adding # in front of it*/</span>
 
-#1:2345:respawn:/sbin/getty 115200 tty1
+<span class="sc">#1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">getty</span> <span class="mi">115200</span> <span class="nv">tty1</span>
 
-/*After that add new line with following content*/
+<span class="cm">/*After that add new line with following content*/</span>
 
-1:2345:respawn:/bin/login -f pi tty1 /dev/tty1 2&gt;&amp;1
+<span class="mi">1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">login</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">pi</span> <span class="nv">tty1</span> <span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">tty1</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
 
-/*Ctrl+X to exit, Y to save followed by enter twice*/
+<span class="cm">/*Ctrl+X to exit, Y to save followed by enter twice*/</span>
 </pre></div>
 
 
 <h5 id="auto-start-to-gui" style="font-size: 1em;">Auto Start to GUI</h5>
-<div class="highlight"><pre><span></span><span class="cm">/*Edit rc.local using following line*/</span><span class="w"></span>
+<div class="highlight"><pre><span></span><span class="cm">/*Edit rc.local using following line*/</span>
 
-sudo<span class="w"> </span>nano<span class="w"> </span><span class="o">/</span>etc<span class="o">/</span>rc<span class="o">.</span>local<span class="w"></span>
+<span class="nv">sudo</span> <span class="nv">nano</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">rc</span>.<span class="nv">local</span>
 
-<span class="cm">/*Scroll to the end and add the following above exit 0:*/</span><span class="w"></span>
+<span class="cm">/*Scroll to the end and add the following above exit 0:*/</span>
 
-su<span class="w"> </span><span class="o">-</span>l<span class="w"> </span>pi<span class="w"> </span><span class="o">-</span>c<span class="w"> </span>startx<span class="w"></span>
+<span class="nv">su</span> <span class="o">-</span><span class="nv">l</span> <span class="nv">pi</span> <span class="o">-</span><span class="nv">c</span> <span class="nv">startx</span>
 
-<span class="cm">/*Ctrl+X to exit, Y to save followed by enter twice*/</span><span class="w"></span>
+<span class="cm">/*Ctrl+X to exit, Y to save followed by enter twice*/</span>
 </pre></div>
 
 
 <h2 id="raspi-setup-remote-desktop-from-windows-machine" style="font-size: 1.3em;"><p #Remote></p>4. Raspi Setup Remote Desktop from windows machine</h2>
 <p>Step 1:  In Respi open  terminal and run following command</p>
-<div class="highlight"><pre><span></span>sudo apt-get install xrdp
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">xrdp</span>
 </pre></div>
 
 
@@ -175,24 +178,22 @@ su<span class="w"> </span><span class="o">-</span>l<span class="w"> </span>pi<sp
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 22 December 2013</p>
-    <p>Category: <a href="/category/how-to-diy-linux/">How To DIY, Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/how-to-diy-linux/">How To DIY, Linux</a>
  &ndash; Tags:
-      <a href="/tag/linux/">linux</a>,      <a href="/tag/raspberry-pi/">Raspberry Pi</a>    </p>
+      <a href="//thegeekyway.com/tag/linux/">linux</a>,      <a href="//thegeekyway.com/tag/raspberry-pi/">Raspberry Pi</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/raspberry-pi-change-password-auto-login-remote-desktop/";
-      this.page.identifier = "raspberry-pi-change-password-auto-login-remote-desktop/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "raspberry-pi-change-password-auto-login-remote-desktop/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

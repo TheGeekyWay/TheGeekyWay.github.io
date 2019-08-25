@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="C, do while, entry controlled, exit controlled, for, loops, programming, while">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; [Ultimate Guide] What are loops in programming and how are they important?  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/loops-programming-important/">[Ultimate Guide] What are loops in programming and how are they important?</a></h1>
+    <h1><a href="//thegeekyway.com/loops-programming-important/">[Ultimate Guide] What are loops in programming and how are they important?</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -105,16 +108,16 @@
 </ul>
 <p>Now, let's look at the syntax of each of these and how they can be used, in detail. To understand all these in a better way, let's consider a common and simple example to print numbers from 1 to let's say 500.</p>
 <p>The most basic approach to carry out this task is to keep printing each line having different numbers from 1 to 500 which would look something like this :</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-void main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">void</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  printf(&quot;1 n&quot;);
-  printf(&quot;2 n&quot;);
-  printf(&quot;3 n&quot;);
-  printf(&quot;4 n&quot;);
-  printf(&quot;5 n&quot;);
-  printf(&quot;6 n&quot;);
-  printf(&quot;7 n&quot;);
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">1 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">2 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">3 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">4 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">5 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">6 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">7 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   . 
   .
   .
@@ -122,26 +125,26 @@ void main()
   .
   .
   .
-  printf(&quot;499 n&quot;);
-  printf(&quot;500 n&quot;);
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">499 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">500 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>Now, let's try to improve upon this a little bit.<br>
 We can take a counter variable and after each step just update it's value, then it would be something like this :</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-void main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">void</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  int counter = 1;
-  printf(&quot;%d n&quot;,counter);
-  counter++;
-  printf(&quot;%d n&quot;,counter);
-  counter++;
-  printf(&quot;%d n&quot;,counter);
-  counter++;
-  printf(&quot;%d n&quot;,counter);
-  counter++;
+  <span class="nv">int</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
   .
   .
   .
@@ -149,8 +152,8 @@ void main()
   .
   .
   .
-  printf(&quot;%d n&quot;,counter);    /* Carry on this 
-  counter++;                      500 times   */
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;    /* Carry on this </span>
+  <span class="nv">counter</span><span class="o">++</span><span class="c1">;                      500 times   */</span>
 }
 </pre></div>
 
@@ -171,7 +174,7 @@ void main()
 <p><p #for-loop></p></p>
 <h3><u><strong>Understanding and using for loop</strong></u></h3>
 <p>* <strong>Syntax</strong> :*</p>
-<div class="highlight"><pre><span></span>for ( initialization ; test condition ; updation )
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="ss">(</span> <span class="nv">initialization</span> <span class="c1">; test condition ; updation )</span>
 {
   .
   .
@@ -182,17 +185,17 @@ void main()
 
 <p>Now let's carry out the given task to print numbers from 1 to 500.</p>
 <p>The for loop for this would be something like this, here we have a counter variable named i which would be incremented from 1 to 500.</p>
-<div class="highlight"><pre><span></span>for( i = 1 ; i&lt;=500 ; i++ )
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="ss">(</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">; i&lt;=500 ; i++ )</span>
 {
-  printf(&quot;%d n&quot;, i );
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>, <span class="nv">i</span> <span class="ss">)</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>We can also define the counter variable inside the loop, and then it would have<a href="http://www.thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" title="What is scope and lifetime of a variable in C language">scope of the loop as explained in tutorial on Scope and lifetime of variables.</a></p>
-<div class="highlight"><pre><span></span>for(int i = 1 ; i&lt;=500 ; i++ )
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">; i&lt;=500 ; i++ )</span>
 {
-  printf(&quot;%d n&quot;, i );
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>, <span class="nv">i</span> <span class="ss">)</span><span class="c1">;</span>
 }
 </pre></div>
 
@@ -204,22 +207,22 @@ void main()
 <h3><p #while-loop></p></h3>
 <h3><u><strong>Understanding and Using while loop</strong></u></h3>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span>initialization
-while(test_condition)
+<div class="highlight"><pre><span></span><span class="nv">initialization</span>
+<span class="k">while</span><span class="ss">(</span><span class="nv">test_condition</span><span class="ss">)</span>
 {
- //all code
-  updation 
+ <span class="o">//</span><span class="nv">all</span> <span class="nv">code</span>
+  <span class="nv">updation</span> 
 }
 </pre></div>
 
 
 <p>In while loop, initialization is done even before control enters the loop, as shown. Updation is done as the last statement of the loop and test condition is given as shown.</p>
 <p>Now let us print the numbers from 1 to 500 using while loop.</p>
-<div class="highlight"><pre><span></span>int i = 1;
-while( i &lt;= 500)
+<div class="highlight"><pre><span></span><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">;</span>
+<span class="k">while</span><span class="ss">(</span> <span class="nv">i</span> <span class="o">&lt;=</span> <span class="mi">500</span><span class="ss">)</span>
 {
-  printf(&quot;%d n&quot;,i);
-  i++ ;
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">i</span><span class="o">++</span> <span class="c1">;</span>
 }
 </pre></div>
 
@@ -231,21 +234,21 @@ while( i &lt;= 500)
 <h3><p #do-while-loop></p></h3>
 <h3><u><strong>Understanding and Using do - while loop</strong></u></h3>
 <p><strong>Syntax:</strong></p>
-<div class="highlight"><pre><span></span>initialization
-do {
-  //executing statements
-  updation
-} while(test condition);
+<div class="highlight"><pre><span></span><span class="nv">initialization</span>
+<span class="k">do</span> {
+  <span class="o">//</span><span class="nv">executing</span> <span class="nv">statements</span>
+  <span class="nv">updation</span>
+} <span class="k">while</span><span class="ss">(</span><span class="nv">test</span> <span class="nv">condition</span><span class="ss">)</span><span class="c1">;</span>
 </pre></div>
 
 
 <p><u>Notice that in do while loop, we have a semi-colon at the end of while statement.</u></p>
 <p>Let's now print the numbers from 1 to 500 using do while loop.</p>
-<div class="highlight"><pre><span></span>int i = 1;
-do {
-     printf(&quot;%d n&quot;,i);
-     i++;
-} while(i &lt;= 500);
+<div class="highlight"><pre><span></span><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">;</span>
+<span class="k">do</span> {
+     <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
+     <span class="nv">i</span><span class="o">++</span><span class="c1">;</span>
+} <span class="k">while</span><span class="ss">(</span><span class="nv">i</span> <span class="o">&lt;=</span> <span class="mi">500</span><span class="ss">)</span><span class="c1">;</span>
 </pre></div>
 
 
@@ -261,24 +264,22 @@ do {
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 27 March 2014</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/c/">C</a>,      <a href="/tag/do-while/">do while</a>,      <a href="/tag/entry-controlled/">entry controlled</a>,      <a href="/tag/exit-controlled/">exit controlled</a>,      <a href="/tag/for/">for</a>,      <a href="/tag/loops/">loops</a>,      <a href="/tag/programming/">programming</a>,      <a href="/tag/while/">while</a>    </p>
+      <a href="//thegeekyway.com/tag/c/">C</a>,      <a href="//thegeekyway.com/tag/do-while/">do while</a>,      <a href="//thegeekyway.com/tag/entry-controlled/">entry controlled</a>,      <a href="//thegeekyway.com/tag/exit-controlled/">exit controlled</a>,      <a href="//thegeekyway.com/tag/for/">for</a>,      <a href="//thegeekyway.com/tag/loops/">loops</a>,      <a href="//thegeekyway.com/tag/programming/">programming</a>,      <a href="//thegeekyway.com/tag/while/">while</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/loops-programming-important/";
-      this.page.identifier = "loops-programming-important/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "loops-programming-important/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

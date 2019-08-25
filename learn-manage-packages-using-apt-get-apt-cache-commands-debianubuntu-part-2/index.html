@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="apt-get, linux, Ubuntu">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-2  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-2</a></h1>
+    <h1><a href="//thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-2</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/abhishek_rawal/>Abhishek_Rawal</a></strong></p>
@@ -87,71 +90,71 @@
 <p><strong>11) Removing Packages From The System Using APT-GET :</strong></p>
 <p>This command will help you to remove the installed packages from the system. However, you should note that it won't remove configuration files at all. Which means, if you remove the application using this command &amp; then re-install it later, then the application settings you had previously will still be there.</p>
 <p>Command Syntax :</p>
-<div class="highlight"><pre><span></span>sudo apt-get remove &lt;package_name&gt;
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">remove</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>Example :</p>
-<div class="highlight"><pre><span></span>sudo apt-get remove vlc
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">remove</span> <span class="n">vlc</span>
 </pre></div>
 
 
 <p><strong>12) Removing Packages With Configuration Settings Using APT-GET :</strong></p>
 <p>Using this command, you can completely remove packages alongwith configuration settings. So, if you will reinstall that application later, you'll have to reconfigure again. This command can be extremely useful when you're messing with configuration settings &amp; something goes extremely wrong &amp; you cannot back it up to original state. Removing with this command &amp; re-installing the package can help you in such case.</p>
 <p>Command Syntax :</p>
-<div class="highlight"><pre><span></span>sudo apt-get purge &lt;package_name&gt;
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">purge</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>Example :</p>
-<div class="highlight"><pre><span></span>sudo apt-get purge synaptic
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">purge</span> <span class="n">synaptic</span>
 </pre></div>
 
 
 <p><strong>13) Cleaning Up The Disk Space Using APT-GET :</strong></p>
 <p>It will cleanup the disk space by cleaning debian packages (.deb) that are downloaded from local repository.</p>
 <p>Command :</p>
-<div class="highlight"><pre><span></span>sudo apt-get clean
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">clean</span>
 </pre></div>
 
 
 <p><strong>14) Auto Cleaning The Cache Using APT-GET :</strong></p>
 <p>The packages which users download is usually stored in /var/cache/apt/archives in form of cache, consuming hefty amount of space. You can simply remove all the .deb cache packages from this directory using this command.</p>
 <p>Command :</p>
-<div class="highlight"><pre><span></span>sudo apt-get autoclean
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">autoclean</span>
 </pre></div>
 
 
 <p><strong>15) Observe The Changelog Of The Package :</strong></p>
 <p>Using the following command you can view the changelog of the desired application. It is usually useful to see what new features are included in the latest build or upgrade.</p>
 <p>Command Syntax :</p>
-<div class="highlight"><pre><span></span>sudo apt-get changelog &lt;package_name&gt;
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">changelog</span> <span class="o">&lt;</span><span class="n">package_name</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>Example :</p>
-<div class="highlight"><pre><span></span>sudo apt-get changelog wine
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">changelog</span> <span class="n">wine</span>
 </pre></div>
 
 
 <p><strong>16) Fixing Missing Dependencies &amp; Re-installing The Package Using APT-GET :</strong></p>
 <p>There are times when you're having poor internet connectivity, some packages are unable to retrieve but easily can. However, an application depends on some of it's dependencies, due to such problems it doesn't meet the require dependency &amp; package won't get install. So, the following command usually helpful when the dependencies are missing &amp; you want to install the missing dependencies to fix the problem.</p>
 <p>Command:</p>
-<div class="highlight"><pre><span></span>sudo apt-get install -f
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="o">-</span><span class="n">f</span>
 </pre></div>
 
 
 <p><strong>17) Auto-Removing The Installed Packages Using APT-GET :</strong></p>
 <p>Sometimes, when you remove any package, it's dependencies are not removed with it. They remain in system as 'Orphan'. To remove the Orphan packages auto-remove command is used.</p>
 <p>Command :</p>
-<div class="highlight"><pre><span></span>sudo apt-get autoremove
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">autoremove</span>
 </pre></div>
 
 
 <p><strong>18) Checking The Dependencies Of The Application Using APT-GET :</strong></p>
 <p>You can check the broken dependencies required for the package you wanna install using the following command. Quite handy, it is!</p>
 <p>Command :</p>
-<div class="highlight"><pre><span></span>sudo apt-get check
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">check</span>
 </pre></div>
 
 
@@ -159,24 +162,22 @@
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 10 March 2014</p>
-    <p>Category: <a href="/category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/apt-get/">apt-get</a>,      <a href="/tag/linux/">linux</a>,      <a href="/tag/ubuntu/">Ubuntu</a>    </p>
+      <a href="//thegeekyway.com/tag/apt-get/">apt-get</a>,      <a href="//thegeekyway.com/tag/linux/">linux</a>,      <a href="//thegeekyway.com/tag/ubuntu/">Ubuntu</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/";
-      this.page.identifier = "learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

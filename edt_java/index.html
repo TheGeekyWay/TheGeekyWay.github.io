@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="java">
+
+  <title>
+    The Geeky Way
+&ndash; Understanding Event Dispatching Thread in Java  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/edt_java/">Understanding Event Dispatching Thread in Java</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/gagan93/>gagan93</a></strong></p>
+  </div>
+  <div class="article_text">
+    <p>Swing provides a rich toolkit of GUI components which can be used to create powerful User Interface. Sometimes, we don’t get expected results when we are working on complex GUI &amp; try to update GUI of that running application. From <strong>running application</strong> we mean that we have a Swing application running and we update something in the app while it is running. There are some rules (as per API documentation), which if followed correctly, can lead to expected results in a GUI application.</p>
+<p>A normal swing application is started within the event dispatching thread in this way :</p>
+<div class="highlight"><pre><span></span><span class="k">public</span> <span class="k">static</span> <span class="n">void</span> <span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="p">[]</span><span class="n">args</span><span class="p">)</span>
+<span class="err">{</span>
+    <span class="n">SwingUtilities</span><span class="p">.</span><span class="n">invokeLater</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span>
+    <span class="err">{</span>
+        <span class="k">public</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span>
+        <span class="err">{</span>
+            <span class="k">new</span> <span class="n">ConstructorOfClass</span><span class="p">();</span>
+        <span class="err">}</span>   
+    <span class="err">}</span><span class="p">);</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>According to Oracle Documentation, when a Swing Application starts, two threads start running : <strong>Main Thread</strong>  and <strong>Event Dispatching Thread (EDT) .</strong> The ED thread consists of the code related to GUI of the application. The main thread just executes the logic of the application, but whenever GUI needs to be updated, it must be passed to the EDT. The usual way of calling code inside EDT is :</p>
+<div class="highlight"><pre><span></span><span class="n">SwingUtilities</span><span class="p">.</span><span class="n">invokeLater</span><span class="p">(</span><span class="k">new</span> <span class="n">Runnable</span><span class="p">()</span>
+<span class="err">{</span>
+    <span class="k">public</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span>
+    <span class="err">{</span>
+<span class="cm">/*       EDT code here like updating label, button</span>
+<span class="cm">         or some other work related to GUI updation</span>
+<span class="cm">*/</span>
+    <span class="err">}</span>
+<span class="err">}</span><span class="p">);</span>
+</pre></div>
+
+
+<p>So if we are calculating something and after that we need to update some component in GUI, we will write the GUI updation code inside the <strong>run</strong> method as shown above. SwingUtilities's invokeLater method takes Runnable objects and executes them one by one on a single thread (EDT) so that their is no ambiguity related to updation of GUI. In contrast to this approach, if we write the GUI updation code in some other thread (or even main thread), we may not get expected results.This is so because many Swing methods are not thread-safe.</p>
+<p><strong>Thread Safety</strong> : Thread safe simply means that it may be used from multiple threads at the same time without causing problems. This can mean that access to any resources are synchronized.This is given in API documentation that <strong>all GUI updation should be strictly done in only one thread called the Event Dispatching Thread.<br>
+</strong></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 24 August 2019</p>
+    <p>Category: <a href="//thegeekyway.com/category/java/">Java</a>
+ &ndash; Tags:
+      <a href="//thegeekyway.com/tag/java/">java</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "edt_java/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

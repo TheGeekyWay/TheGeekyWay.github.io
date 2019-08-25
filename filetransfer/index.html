@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="java, networking, sockets">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Create your own Simple File Transfer App over LAN (with Source code in JAVA)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/filetransfer/">Create your own Simple File Transfer App over LAN (with Source code in JAVA)</a></h1>
+    <h1><a href="//thegeekyway.com/filetransfer/">Create your own Simple File Transfer App over LAN (with Source code in JAVA)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/gagan93/>gagan93</a></strong></p>
@@ -311,7 +314,7 @@ In networking, there is a simple concept of a socket which is the combination of
             <span class="p">{</span>
                 <span class="k">try</span>
                 <span class="p">{</span>
-                    <span class="k">if</span><span class="p">(</span><span class="n">counter</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+                    <span class="k">if</span><span class="p">(</span><span class="n">counter</span><span class="o">&gt;=</span><span class="mi">4</span><span class="p">)</span>
                         <span class="n">new</span> <span class="n">Integer</span><span class="p">(</span><span class="s2">&quot;g&quot;</span><span class="p">);</span>
                     <span class="n">add</span><span class="p">[</span><span class="n">counter</span><span class="o">++</span><span class="p">]</span><span class="o">=</span><span class="n">new</span> <span class="n">Integer</span><span class="p">(</span><span class="n">st</span><span class="o">.</span><span class="n">nextToken</span><span class="p">());</span>
                 <span class="p">}</span>
@@ -323,7 +326,7 @@ In networking, there is a simple concept of a socket which is the combination of
                     <span class="k">return</span><span class="p">;</span>
                 <span class="p">}</span>
             <span class="p">}</span>
-            <span class="k">if</span><span class="p">(</span>  <span class="err">!</span><span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">255</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">255</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">255</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span> <span class="mi">255</span> <span class="p">)</span>
+            <span class="k">if</span><span class="p">(</span>  <span class="err">!</span><span class="p">(</span><span class="n">counter</span> <span class="o">==</span> <span class="mi">4</span><span class="p">)</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">255</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">255</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">255</span> <span class="o">||</span> <span class="n">add</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">255</span> <span class="p">)</span>
             <span class="p">{</span>
                 <span class="n">address</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">);</span>
                 <span class="n">recieve</span><span class="o">.</span><span class="n">setEnabled</span><span class="p">(</span><span class="n">true</span><span class="p">);</span>
@@ -406,7 +409,7 @@ In networking, there is a simple concept of a socket which is the combination of
             <span class="k">while</span><span class="p">(</span><span class="n">true</span><span class="p">)</span>
             <span class="p">{</span>
                 <span class="n">done</span><span class="o">+=</span><span class="n">read</span><span class="p">;</span>
-                <span class="k">if</span><span class="p">(</span><span class="n">done</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="o">=</span><span class="n">length</span><span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span><span class="n">done</span><span class="o">&gt;=</span><span class="n">length</span><span class="p">)</span>
                     <span class="k">break</span><span class="p">;</span>
                 <span class="n">read</span><span class="o">=</span><span class="n">bis</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">b</span><span class="p">);</span>
                 <span class="n">ClientSwingWorker</span> <span class="n">csw</span> <span class="o">=</span> <span class="n">new</span> <span class="n">ClientSwingWorker</span> <span class="p">(</span><span class="n">done</span><span class="p">,</span><span class="n">length</span><span class="p">,</span><span class="n">read</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">fos</span><span class="p">,</span><span class="n">jpb</span><span class="p">);</span>
@@ -484,7 +487,7 @@ In networking, there is a simple concept of a socket which is the combination of
         <span class="p">});</span>
     <span class="p">}</span>
 <span class="p">}</span>
-<span class="k">class</span> <span class="nc">ClientSwingWorker</span> <span class="n">extends</span> <span class="n">SwingWorker</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">void</span><span class="p">,</span><span class="n">void</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span>
+<span class="k">class</span> <span class="nc">ClientSwingWorker</span> <span class="n">extends</span> <span class="n">SwingWorker</span><span class="o">&lt;</span><span class="n">void</span><span class="p">,</span><span class="n">void</span><span class="o">&gt;</span>
 <span class="p">{</span>
     <span class="n">JProgressBar</span> <span class="n">jpb</span><span class="p">;</span>
     <span class="n">final</span> <span class="n">double</span> <span class="n">done</span><span class="p">,</span><span class="n">size</span><span class="p">;</span>
@@ -515,7 +518,7 @@ In networking, there is a simple concept of a socket which is the combination of
             <span class="p">{</span>
                 <span class="n">String</span> <span class="n">tString</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Double</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
                 <span class="nb">int</span> <span class="n">index</span><span class="o">=</span><span class="n">tString</span><span class="o">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
-                <span class="nb">int</span> <span class="n">breakPoint</span><span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">()</span><span class="err">?</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">():(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span>
+                <span class="nb">int</span> <span class="n">breakPoint</span><span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">()</span><span class="err">?</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">():(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span>
                 <span class="n">tString</span><span class="o">=</span><span class="n">tString</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">breakPoint</span><span class="p">);</span>
                 <span class="n">jpb</span><span class="o">.</span><span class="n">setString</span><span class="p">(</span><span class="s2">&quot;Recieving : &quot;</span><span class="o">+</span><span class="n">tString</span><span class="o">+</span><span class="s2">&quot; %&quot;</span><span class="p">);</span>
                 <span class="n">jpb</span><span class="o">.</span><span class="n">setValue</span><span class="p">((</span><span class="nb">int</span><span class="p">)</span><span class="n">temp</span><span class="p">);</span>
@@ -754,7 +757,7 @@ In networking, there is a simple concept of a socket which is the combination of
         <span class="p">}</span>
         <span class="n">String</span> <span class="n">extension</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">.</span><span class="n">lastIndexOf</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">f</span><span class="o">.</span><span class="n">toString</span><span class="p">()</span><span class="o">.</span><span class="n">length</span><span class="p">())</span><span class="o">.</span><span class="n">toUpperCase</span><span class="p">();</span>
         <span class="nb">long</span> <span class="n">tempSize</span><span class="o">=</span><span class="p">(</span><span class="nb">long</span><span class="p">)</span><span class="n">fileSize</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="n">tempSize</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="mi">1000</span><span class="p">)</span>
+        <span class="k">while</span><span class="p">(</span><span class="n">tempSize</span><span class="o">&gt;</span><span class="mi">1000</span><span class="p">)</span>
         <span class="p">{</span>
             <span class="n">counter</span><span class="o">++</span><span class="p">;</span>
             <span class="n">tempSize</span><span class="o">/=</span><span class="mi">1024</span><span class="p">;</span>
@@ -800,7 +803,7 @@ In networking, there is a simple concept of a socket which is the combination of
                     <span class="p">}</span>
                 <span class="p">})</span><span class="o">.</span><span class="n">start</span><span class="p">();</span>
             <span class="k">else</span>
-                <span class="n">JOptionPane</span><span class="o">.</span><span class="n">showMessageDialog</span><span class="p">(</span><span class="n">null</span><span class="p">,</span><span class="s2">&quot;Select a Valid file first ( size &amp;gt; 0B )&quot;</span><span class="p">,</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
+                <span class="n">JOptionPane</span><span class="o">.</span><span class="n">showMessageDialog</span><span class="p">(</span><span class="n">null</span><span class="p">,</span><span class="s2">&quot;Select a Valid file first ( size &gt; 0B )&quot;</span><span class="p">,</span><span class="s2">&quot;Error&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">);</span>
     <span class="p">}</span>
     <span class="n">private</span> <span class="n">void</span> <span class="n">startServer</span><span class="p">()</span>
     <span class="p">{</span>
@@ -908,7 +911,7 @@ In networking, there is a simple concept of a socket which is the combination of
             <span class="n">double</span> <span class="n">time</span><span class="o">=</span><span class="p">(</span><span class="n">endTime</span><span class="o">-</span><span class="n">startTime</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span><span class="p">;</span>
             <span class="n">double</span> <span class="n">speed</span><span class="o">=</span><span class="p">(</span><span class="n">fileSize</span><span class="o">/</span><span class="n">time</span><span class="p">)</span><span class="o">/</span><span class="mi">1048576</span><span class="p">;</span>
             <span class="n">String</span> <span class="n">speedString</span><span class="o">=</span><span class="n">String</span><span class="o">.</span><span class="n">valueOf</span><span class="p">(</span><span class="n">speed</span><span class="p">);</span>
-            <span class="n">speedString</span><span class="o">=</span><span class="p">((</span><span class="n">speedString</span><span class="o">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span><span class="n">speedString</span><span class="o">.</span><span class="n">length</span><span class="p">()</span><span class="err">?</span><span class="n">speedString</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">speedString</span><span class="o">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">):</span><span class="n">speedString</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
+            <span class="n">speedString</span><span class="o">=</span><span class="p">((</span><span class="n">speedString</span><span class="o">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">&lt;</span><span class="n">speedString</span><span class="o">.</span><span class="n">length</span><span class="p">()</span><span class="err">?</span><span class="n">speedString</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">speedString</span><span class="o">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">)</span><span class="o">+</span><span class="mi">3</span><span class="p">):</span><span class="n">speedString</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">));</span>
             <span class="n">pw</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">time</span><span class="p">);</span>
             <span class="n">pw</span><span class="o">.</span><span class="n">flush</span><span class="p">();</span>
             <span class="n">pw</span><span class="o">.</span><span class="n">println</span><span class="p">(</span><span class="n">speedString</span><span class="p">);</span>
@@ -939,7 +942,7 @@ In networking, there is a simple concept of a socket which is the combination of
         <span class="p">{</span>
             <span class="n">public</span> <span class="n">void</span> <span class="n">run</span><span class="p">()</span>
             <span class="p">{</span>
-                <span class="k">if</span><span class="p">(</span> <span class="n">args</span><span class="o">.</span><span class="n">length</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span><span class="o">&amp;</span><span class="n">amp</span><span class="p">;</span> <span class="err">!</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s2">&quot;%1&quot;</span><span class="p">))</span> <span class="p">)</span>
+                <span class="k">if</span><span class="p">(</span> <span class="n">args</span><span class="o">.</span><span class="n">length</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="err">!</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">equals</span><span class="p">(</span><span class="s2">&quot;%1&quot;</span><span class="p">))</span> <span class="p">)</span>
                     <span class="n">new</span> <span class="n">Server</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">]);</span>
                 <span class="k">else</span>
                     <span class="n">new</span> <span class="n">Server</span><span class="p">();</span>
@@ -978,7 +981,7 @@ In networking, there is a simple concept of a socket which is the combination of
             <span class="p">{</span>
                 <span class="n">String</span> <span class="n">tString</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Double</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
                 <span class="nb">int</span> <span class="n">index</span><span class="o">=</span><span class="n">tString</span><span class="o">.</span><span class="n">indexOf</span><span class="p">(</span><span class="s2">&quot;.&quot;</span><span class="p">);</span>
-                <span class="nb">int</span> <span class="n">breakPoint</span><span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">&amp;</span><span class="n">gt</span><span class="p">;</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">()</span><span class="err">?</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">():(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span>
+                <span class="nb">int</span> <span class="n">breakPoint</span><span class="o">=</span> <span class="p">(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">)</span><span class="o">&gt;</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">()</span><span class="err">?</span><span class="n">tString</span><span class="o">.</span><span class="n">length</span><span class="p">():(</span><span class="n">index</span><span class="o">+</span><span class="mi">3</span><span class="p">);</span>
                 <span class="n">tString</span> <span class="o">=</span> <span class="n">new</span> <span class="n">Double</span><span class="p">(</span><span class="n">temp</span><span class="p">)</span><span class="o">.</span><span class="n">toString</span><span class="p">();</span>
                 <span class="n">tString</span><span class="o">=</span><span class="n">tString</span><span class="o">.</span><span class="n">substring</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="n">breakPoint</span><span class="p">);</span>
                 <span class="n">jpb</span><span class="o">.</span><span class="n">setString</span><span class="p">(</span><span class="s2">&quot;Sending : &quot;</span><span class="o">+</span><span class="n">tString</span><span class="o">+</span><span class="s2">&quot; %&quot;</span><span class="p">);</span>
@@ -994,24 +997,22 @@ In networking, there is a simple concept of a socket which is the combination of
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 30 January 2014</p>
-    <p>Category: <a href="/category/how-to-diy/">How To DIY</a>
+    <p>Category: <a href="//thegeekyway.com/category/how-to-diy/">How To DIY</a>
  &ndash; Tags:
-      <a href="/tag/java/">java</a>,      <a href="/tag/networking/">networking</a>,      <a href="/tag/sockets/">sockets</a>    </p>
+      <a href="//thegeekyway.com/tag/java/">java</a>,      <a href="//thegeekyway.com/tag/networking/">networking</a>,      <a href="//thegeekyway.com/tag/sockets/">sockets</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/filetransfer/";
-      this.page.identifier = "filetransfer/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "filetransfer/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

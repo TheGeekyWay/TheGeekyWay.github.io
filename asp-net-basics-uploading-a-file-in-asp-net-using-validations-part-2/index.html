@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="asp.net, C#">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Asp.net Basics : Uploading a file in asp.net using validations (Part 2 of 5)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/">Asp.net Basics : Uploading a file in asp.net using validations (Part 2 of 5)</a></h1>
+    <h1><a href="//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/">Asp.net Basics : Uploading a file in asp.net using validations (Part 2 of 5)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -104,23 +107,23 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
 <h3>1. Using try-catch mechanism</h3>
 <p>Now since DirectoryNotFound Expression is thrown by the server then it can be caught by the try-catch mechanism.<br>
 The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> code for method 1 (try-catch) is :-</p>
-<div class="highlight"><pre><span></span>private void isFileEmpty()
+<div class="highlight"><pre><span></span><span class="nv">private</span> <span class="nv">void</span> <span class="nv">isFileEmpty</span><span class="ss">()</span>
     {
-        Panel1.Visible = true;
-        try
+        <span class="nv">Panel1</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
+        <span class="nv">try</span>
         {
-            Image1.ImageUrl = &quot;~//images//success.png&quot;;
-            File_Upload_Status.Text = &quot;Everything OK! File Uploaded&quot;;
-            File_Upload_Status.ForeColor = Color.Green;
-           //Provide the C# code for uploading the file which was discussed in part 1 of this tutorial
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Everything OK! File Uploaded</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Green</span><span class="c1">;</span>
+           <span class="o">//</span><span class="nv">Provide</span> <span class="nv">the</span> <span class="nv">C</span># <span class="nv">code</span> <span class="k">for</span> <span class="nv">uploading</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">which</span> <span class="nv">was</span> <span class="nv">discussed</span> <span class="nv">in</span> <span class="nv">part</span> <span class="mi">1</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">tutorial</span>
         }
-        catch (DirectoryNotFoundException dnfe)
+        <span class="nv">catch</span> <span class="ss">(</span><span class="nv">DirectoryNotFoundException</span> <span class="nv">dnfe</span><span class="ss">)</span>
         {
 
-            string _substring = dnfe.ToString();
-            Image1.ImageUrl = &quot;~//images//not_success.png&quot;;
-            File_Upload_Status.Text = _substring.Substring(0, 72) + &quot;. Please upload a valid file.&quot;;
-            File_Upload_Status.ForeColor = Color.Red;
+            <span class="nv">string</span> <span class="nv">_substring</span> <span class="o">=</span> <span class="nv">dnfe</span>.<span class="nv">ToString</span><span class="ss">()</span><span class="c1">;</span>
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="nv">_substring</span>.<span class="nv">Substring</span><span class="ss">(</span><span class="mi">0</span>, <span class="mi">72</span><span class="ss">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s">. Please upload a valid file.</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
         }
 </pre></div>
 
@@ -141,21 +144,21 @@ The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C
 <h3>2. Using Boolean property "HasFile"</h3>
 <p>Another way of handling this exception is by using the Boolean property "HasFile" which will return the value as true or false. If the value returned is false then you can return the error message else it can continue with the uploading of file.<br>
 The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> code for method 2 (Boolean method) is :-</p>
-<div class="highlight"><pre><span></span>private void isFileEmpty()
+<div class="highlight"><pre><span></span><span class="nv">private</span> <span class="nv">void</span> <span class="nv">isFileEmpty</span><span class="ss">()</span>
     {
-        Panel1.Visible = true;
-        if(FileUpload1.HasFile)
+        <span class="nv">Panel1</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
+        <span class="k">if</span><span class="ss">(</span><span class="nv">FileUpload1</span>.<span class="nv">HasFile</span><span class="ss">)</span>
         {
-            Image1.ImageUrl = &quot;~//images//success.png&quot;;
-            File_Upload_Status.Text = &quot;Everything OK! File Uploaded&quot;;
-            File_Upload_Status.ForeColor = Color.Green;
-            //Provide the C# code for uploading the file which was discussed in part 1 of this tutorial
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Everything OK! File Uploaded</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Green</span><span class="c1">;</span>
+            <span class="o">//</span><span class="nv">Provide</span> <span class="nv">the</span> <span class="nv">C</span># <span class="nv">code</span> <span class="k">for</span> <span class="nv">uploading</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">which</span> <span class="nv">was</span> <span class="nv">discussed</span> <span class="nv">in</span> <span class="nv">part</span> <span class="mi">1</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">tutorial</span>
         }
-        else
+        <span class="k">else</span>
         {
-            Image1.ImageUrl = &quot;~//images//not_success.png&quot;;
-            File_Upload_Status.Text =&quot;Please upload a valid file.&quot;;
-            File_Upload_Status.ForeColor = Color.Red;
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span><span class="s2">&quot;</span><span class="s">Please upload a valid file.</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
         }
     }
 </pre></div>
@@ -169,24 +172,22 @@ The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 04 January 2014</p>
-    <p>Category: <a href="/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
+    <p>Category: <a href="//thegeekyway.com/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
  &ndash; Tags:
-      <a href="/tag/aspnet/">asp.net</a>,      <a href="/tag/c/">C#</a>    </p>
+      <a href="//thegeekyway.com/tag/aspnet/">asp.net</a>,      <a href="//thegeekyway.com/tag/c/">C#</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/";
-      this.page.identifier = "asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

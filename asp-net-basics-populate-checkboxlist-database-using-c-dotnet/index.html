@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="asp.net, checkboxlist, database">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; ASP.Net Basics : Populate checkboxlist from database using C#  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/">ASP.Net Basics : Populate checkboxlist from database using C#</a></h1>
+    <h1><a href="//thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/">ASP.Net Basics : Populate checkboxlist from database using C#</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -115,8 +118,8 @@ and the output should be</p>
 <hr>
 <h5><p #h_4_2>Step 2 :  <p style="text-decoration: underline; color: black;">On the C# side coding create a SQL connection.</p></p></h5>
 <p>Sql connection can be created using the following asp (C#) snippet</p>
-<div class="highlight"><pre><span></span>using System.Data.SqlClient;
-SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings[&quot;ConnectionString&quot;].Conn
+<div class="highlight"><pre><span></span><span class="k">using</span> <span class="k">System</span><span class="p">.</span><span class="k">Data</span><span class="p">.</span><span class="n">SqlClient</span><span class="p">;</span>
+<span class="n">SqlConnection</span> <span class="n">con</span><span class="o">=</span><span class="n">newSqlConnection</span><span class="p">(</span><span class="k">System</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Configuration</span><span class="p">.</span><span class="n">WebConfigurationManager</span><span class="p">.</span><span class="n">ConnectionStrings</span><span class="p">[</span><span class="ss">&quot;ConnectionString&quot;</span><span class="p">].</span><span class="n">Conn</span>
 </pre></div>
 
 
@@ -132,7 +135,7 @@ SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationMana
 <hr>
 <h5><p #h_4_3>Step 3 :  <p style="text-decoration: underline; color: black;">Write your SQL Query.</p></p></h5>
 <p>The next step after creating the connection is to open the connection we can use con.open() [here con is the object of SqlConnection class created in Step2]. The SQL query for this table will be :-</p>
-<div class="highlight"><pre><span></span>stringquery=&quot;SELECT distinct[Clg_name] FROM [Complete_table]&quot;;
+<div class="highlight"><pre><span></span><span class="n">stringquery</span><span class="o">=</span><span class="ss">&quot;SELECT distinct[Clg_name] FROM [Complete_table]&quot;</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 
@@ -146,7 +149,7 @@ The following C\# snippet creates a SQL adapter
 </textarea>
 </p>
 
-<div class="highlight"><pre><span></span>SqlDataAdapter da=newSqlDataAdapter(query,con);
+<div class="highlight"><pre><span></span><span class="n">SqlDataAdapter</span> <span class="n">da</span><span class="o">=</span><span class="n">newSqlDataAdapter</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">con</span><span class="p">);</span>
 </pre></div>
 
 
@@ -154,14 +157,14 @@ The following C\# snippet creates a SQL adapter
 <h5><p #h_4_5>Step 5 :  <p style="text-decoration: underline; color: black;">Create a Dataset.</p></p></h5>
 <p>Dataset represents an in-memory cache of data, i.e. the data which is being retrieved from database and stored into checkboxlist is being stored in cache and data is retreived from cache using Dataset.</p>
 <p>The C# snippet to create a Dataset is as follows:</p>
-<div class="highlight"><pre><span></span>DataSet ds=newDataSet();
+<div class="highlight"><pre><span></span><span class="n">DataSet</span> <span class="n">ds</span><span class="o">=</span><span class="n">newDataSet</span><span class="p">();</span>
 </pre></div>
 
 
 <hr>
 <h5><p #h_4_6>Step 6 :  <p style="text-decoration: underline; color: black;">Fill the dataset with the values from the SqlDataAdapter.</p></p></h5>
 <p>Now we need to fill in the data from sql dataAdapter using dataset, the C# snippet for the same is :-</p>
-<div class="highlight"><pre><span></span>da.Fill(ds);
+<div class="highlight"><pre><span></span><span class="n">da</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span><span class="n">ds</span><span class="p">);</span>
 </pre></div>
 
 
@@ -169,11 +172,11 @@ The following C\# snippet creates a SQL adapter
 <h5><p #h_4_7>Step 7 :  <p style="text-decoration: underline; color: black;">Check if the resultant dataset produce rows or not.</p></p></h5>
 <p>We can check if the dataset which populates checkboxlist from database produce rows or not, if it doesnt produce rows we can simply give an error message that no results available.<br>
 Here is the C# snippet for the same :-</p>
-<div class="highlight"><pre><span></span>if(ds.Tables[0].Rows.Count!=0)
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="ss">(</span><span class="nv">ds</span>.<span class="nv">Tables</span>[<span class="mi">0</span>].<span class="nv">Rows</span>.<span class="nv">Count</span><span class="o">!=</span><span class="mi">0</span><span class="ss">)</span>
 {
-    // more coding will be discussed in next steps
-}else{
-   // Give an error message that no results found
+    <span class="o">//</span> <span class="nv">more</span> <span class="nv">coding</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">discussed</span> <span class="nv">in</span> <span class="k">next</span> <span class="nv">steps</span>
+}<span class="k">else</span>{
+   <span class="o">//</span> <span class="nv">Give</span> <span class="nv">an</span> <span class="nv">error</span> <span class="nv">message</span> <span class="nv">that</span> <span class="nv">no</span> <span class="nv">results</span> <span class="nv">found</span>
 }
 </pre></div>
 
@@ -181,14 +184,14 @@ Here is the C# snippet for the same :-</p>
 <hr>
 <h5><p #h_4_8>Step 8 :  <p style="text-decoration: underline; color: black;">Provide the dataSet to the Checkbox list.</p></p></h5>
 <p>Next step is to point the checkBoxList towards the SQL database for that we will use the dataset to point to the database. Here is the following C# snippet.</p>
-<div class="highlight"><pre><span></span>CheckBoxList1.DataSource=ds;
+<div class="highlight"><pre><span></span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataSource</span><span class="o">=</span><span class="n">ds</span><span class="p">;</span>
 </pre></div>
 
 
 <hr>
 <h5><p #h_4_9>Step 9 :  <p style="text-decoration: underline; color: black;">Bind the data of the checkboxlist.</p></p></h5>
 <p>Now the next and the second last step is to bind the data. It can be done using following C# snippet</p>
-<div class="highlight"><pre><span></span>CheckBoxList1.DataBind();
+<div class="highlight"><pre><span></span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataBind</span><span class="p">();</span>
 </pre></div>
 
 
@@ -199,8 +202,8 @@ Here is the C# snippet for the same :-</p>
 <hr>
 <h5><p #h_4_10>Step 10:  <p style="text-decoration: underline; color: black;">The final step : Provide the DataTextField and DataValueField to the checkbox list.</p></p></h5>
 <p>Here the DataTextField and DataValueField is the name of the column in our database, the C# snippet for the same is :-</p>
-<div class="highlight"><pre><span></span>CheckBoxList1.DataTextField=&quot;Clg_Name&quot;;
-CheckBoxList1.DataValueField=&quot;Clg_Name&quot;;
+<div class="highlight"><pre><span></span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataTextField</span><span class="o">=</span><span class="ss">&quot;Clg_Name&quot;</span><span class="p">;</span>
+<span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataValueField</span><span class="o">=</span><span class="ss">&quot;Clg_Name&quot;</span><span class="p">;</span>
 </pre></div>
 
 
@@ -208,36 +211,36 @@ CheckBoxList1.DataValueField=&quot;Clg_Name&quot;;
 <hr>
 <h5><p #h_4_11>Step 11:  <p style="text-decoration: underline; color: black;">The complete code.</p></p></h5>
 <p>here is the complete code :-</p>
-<div class="highlight"><pre><span></span>protectedvoidPage_Load(objectsender,EventArgse)
+<div class="highlight"><pre><span></span><span class="nv">protectedvoidPage_Load</span><span class="ss">(</span><span class="nv">objectsender</span>,<span class="nv">EventArgse</span><span class="ss">)</span>
     {
-        SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings[&quot;ConnectionString&quot;].ConnectionString);
-        stringquery;
-        try
+        <span class="nv">SqlConnection</span> <span class="nv">con</span><span class="o">=</span><span class="nv">newSqlConnection</span><span class="ss">(</span><span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">Configuration</span>.<span class="nv">WebConfigurationManager</span>.<span class="nv">ConnectionStrings</span>[<span class="s2">&quot;</span><span class="s">ConnectionString</span><span class="s2">&quot;</span>].<span class="nv">ConnectionString</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">stringquery</span><span class="c1">;</span>
+        <span class="nv">try</span>
         {
-            query=&quot;SELECT distinct[Clg_name] FROM [Complete_table]&quot;;
-            con.Open();
-            SqlDataAdapter da=newSqlDataAdapter(query,con);
-            DataSet ds=newDataSet();
-            da.Fill(ds);
-            if(ds.Tables[0].Rows.Count!=0)
+            <span class="nv">query</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">SELECT distinct[Clg_name] FROM [Complete_table]</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">con</span>.<span class="nv">Open</span><span class="ss">()</span><span class="c1">;</span>
+            <span class="nv">SqlDataAdapter</span> <span class="nv">da</span><span class="o">=</span><span class="nv">newSqlDataAdapter</span><span class="ss">(</span><span class="nv">query</span>,<span class="nv">con</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="nv">DataSet</span> <span class="nv">ds</span><span class="o">=</span><span class="nv">newDataSet</span><span class="ss">()</span><span class="c1">;</span>
+            <span class="nv">da</span>.<span class="nv">Fill</span><span class="ss">(</span><span class="nv">ds</span><span class="ss">)</span><span class="c1">;</span>
+            <span class="k">if</span><span class="ss">(</span><span class="nv">ds</span>.<span class="nv">Tables</span>[<span class="mi">0</span>].<span class="nv">Rows</span>.<span class="nv">Count</span><span class="o">!=</span><span class="mi">0</span><span class="ss">)</span>
             {
-                CheckBoxList1.DataSource=ds;
-                CheckBoxList1.DataTextField=&quot;Clg_Name&quot;;
-                CheckBoxList1.DataValueField=&quot;Clg_Name&quot;;
-                CheckBoxList1.DataBind();
+                <span class="nv">CheckBoxList1</span>.<span class="nv">DataSource</span><span class="o">=</span><span class="nv">ds</span><span class="c1">;</span>
+                <span class="nv">CheckBoxList1</span>.<span class="nv">DataTextField</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Clg_Name</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">CheckBoxList1</span>.<span class="nv">DataValueField</span><span class="o">=</span><span class="s2">&quot;</span><span class="s">Clg_Name</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">CheckBoxList1</span>.<span class="nv">DataBind</span><span class="ss">()</span><span class="c1">;</span>
             }
-            else
+            <span class="k">else</span>
             {
-                Response.Write(&quot;No Results found&quot;);
+                <span class="nv">Response</span>.<span class="nv">Write</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">No Results found</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
             }
         }
-        catch(Exception ex)
+        <span class="nv">catch</span><span class="ss">(</span><span class="nv">Exception</span> <span class="nv">ex</span><span class="ss">)</span>
         {
-            Response.Write(&quot;&lt;br&gt;&quot;+ex);
+            <span class="nv">Response</span>.<span class="nv">Write</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">&lt;br&gt;</span><span class="s2">&quot;</span><span class="o">+</span><span class="nv">ex</span><span class="ss">)</span><span class="c1">;</span>
         }
-        finally
+        <span class="nv">finally</span>
         {
-            con.Close();
+            <span class="nv">con</span>.<span class="nv">Close</span><span class="ss">()</span><span class="c1">;</span>
         }
     }
 }
@@ -248,24 +251,22 @@ CheckBoxList1.DataValueField=&quot;Clg_Name&quot;;
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 19 July 2014</p>
-    <p>Category: <a href="/category/aspnet-dot-net-c/">Asp.net (Dot Net), C#</a>
+    <p>Category: <a href="//thegeekyway.com/category/aspnet-dot-net-c/">Asp.net (Dot Net), C#</a>
  &ndash; Tags:
-      <a href="/tag/aspnet/">asp.net</a>,      <a href="/tag/checkboxlist/">checkboxlist</a>,      <a href="/tag/database/">database</a>    </p>
+      <a href="//thegeekyway.com/tag/aspnet/">asp.net</a>,      <a href="//thegeekyway.com/tag/checkboxlist/">checkboxlist</a>,      <a href="//thegeekyway.com/tag/database/">database</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/";
-      this.page.identifier = "asp-net-basics-populate-checkboxlist-database-using-c-dotnet/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "asp-net-basics-populate-checkboxlist-database-using-c-dotnet/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

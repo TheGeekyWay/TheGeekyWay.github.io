@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - DevOps, Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops-linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-03-05T22:35:00+05:30</updated><entry><title>Hands-on Guide on GPG Keys</title><link href="//thegeekyway.com/hands-on-guide-on-gpg-keys/" rel="alternate"></link><published>2018-03-05T22:35:00+05:30</published><updated>2018-03-05T22:35:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-03-05:/hands-on-guide-on-gpg-keys/</id><summary type="html">&lt;div style="text-align:center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - DevOps, Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops-linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-03-05T22:35:00+05:30</updated><entry><title>Hands-on Guide on GPG Keys</title><link href="//thegeekyway.com/hands-on-guide-on-gpg-keys/" rel="alternate"></link><published>2018-03-05T22:35:00+05:30</published><updated>2018-03-05T22:35:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-03-05:/hands-on-guide-on-gpg-keys/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/GPG_guide.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;GPG or GNU Privacy Guard is a complete and free implementation of the OpenPGP standard as defined by &lt;a href="https://www.ietf.org/rfc/rfc4880.txt"&gt;RFC4880&lt;/a&gt; (also known as PGP). It is a tool that provides encryption and signing services, using which, you can encrypt or sign your files, messages, emails and can even sign your github …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
@@ -14,7 +14,7 @@
 gpg &lt;span class="o"&gt;(&lt;/span&gt;GnuPG&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.1.11
 libgcrypt &lt;span class="m"&gt;1&lt;/span&gt;.6.5
 Copyright &lt;span class="o"&gt;(&lt;/span&gt;C&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2016&lt;/span&gt; Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version &lt;span class="m"&gt;3&lt;/span&gt; or later &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;http://gnu.org/licenses/gpl.html&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;
+License GPLv3+: GNU GPL version &lt;span class="m"&gt;3&lt;/span&gt; or later &amp;lt;http://gnu.org/licenses/gpl.html&amp;gt;
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
@@ -59,46 +59,46 @@ $ sudo apt-get install gnupg2
    Enter a strong passphrase twice and proceed ahead.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;At this point, &lt;strong&gt;GPG&lt;/strong&gt; will generate the keys using entropy. &lt;em&gt;Entropy&lt;/em&gt; describes the amount of unpredictability and nondeterminism that exists in a system. This entropy is needed to generate a secure set of keys. This process may take some time depending on how active your system is, and the key size you selected. The terminal may look like this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="n"&gt;gpg2&lt;/span&gt; --&lt;span class="n"&gt;full-gen-key&lt;/span&gt; 
-&lt;span class="n"&gt;gpg&lt;/span&gt; (&lt;span class="n"&gt;GnuPG&lt;/span&gt;) &lt;span class="mf"&gt;2.1.11&lt;/span&gt;; &lt;span class="n"&gt;Copyright&lt;/span&gt; (&lt;span class="n"&gt;C&lt;/span&gt;) &lt;span class="mi"&gt;2016&lt;/span&gt; &lt;span class="n"&gt;Free&lt;/span&gt; &lt;span class="n"&gt;Software&lt;/span&gt; &lt;span class="n"&gt;Foundation&lt;/span&gt;, &lt;span class="n"&gt;Inc&lt;/span&gt;.
-&lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt; &lt;span class="n"&gt;software:&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;change&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="n"&gt;redistribute&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;.
-&lt;span class="n"&gt;There&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;NO&lt;/span&gt; &lt;span class="n"&gt;WARRANTY&lt;/span&gt;, &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;extent&lt;/span&gt; &lt;span class="n"&gt;permitted&lt;/span&gt; &lt;span class="nb"&gt;by&lt;/span&gt; &lt;span class="n"&gt;law&lt;/span&gt;.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;full&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;key&lt;/span&gt; 
+&lt;span class="nv"&gt;gpg&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;GnuPG&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;.&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="c1"&gt;; Copyright (C) 2016 Free Software Foundation, Inc.&lt;/span&gt;
+&lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;free&lt;/span&gt; &lt;span class="nv"&gt;software&lt;/span&gt;: &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;free&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;change&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;redistribute&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt;.
+&lt;span class="nv"&gt;There&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;NO&lt;/span&gt; &lt;span class="nv"&gt;WARRANTY&lt;/span&gt;, &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;extent&lt;/span&gt; &lt;span class="nv"&gt;permitted&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;law&lt;/span&gt;.
 
-&lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;select&lt;/span&gt; &lt;span class="n"&gt;what&lt;/span&gt; &lt;span class="n"&gt;kind&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want:&lt;/span&gt;
-(&lt;span class="mi"&gt;1&lt;/span&gt;) &lt;span class="n"&gt;RSA&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="n"&gt;RSA&lt;/span&gt; (&lt;span class="k"&gt;default&lt;/span&gt;)
-(&lt;span class="mi"&gt;2&lt;/span&gt;) &lt;span class="n"&gt;DSA&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="n"&gt;Elgamal&lt;/span&gt;
-(&lt;span class="mi"&gt;3&lt;/span&gt;) &lt;span class="n"&gt;DSA&lt;/span&gt; (&lt;span class="nb"&gt;sign&lt;/span&gt; &lt;span class="k"&gt;only&lt;/span&gt;)
-(&lt;span class="mi"&gt;4&lt;/span&gt;) &lt;span class="n"&gt;RSA&lt;/span&gt; (&lt;span class="nb"&gt;sign&lt;/span&gt; &lt;span class="k"&gt;only&lt;/span&gt;)
-&lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;selection&lt;/span&gt;? &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nv"&gt;Please&lt;/span&gt; &lt;span class="nv"&gt;select&lt;/span&gt; &lt;span class="nv"&gt;what&lt;/span&gt; &lt;span class="nv"&gt;kind&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt;:
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;default&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;DSA&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;Elgamal&lt;/span&gt;
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;DSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;selection&lt;/span&gt;? &lt;span class="mi"&gt;1&lt;/span&gt;
 
-&lt;span class="n"&gt;RSA&lt;/span&gt; &lt;span class="nb"&gt;keys&lt;/span&gt; &lt;span class="n"&gt;may&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;between&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;and&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="n"&gt;bits&lt;/span&gt; &lt;span class="n"&gt;long&lt;/span&gt;.
-&lt;span class="n"&gt;What&lt;/span&gt; &lt;span class="n"&gt;keysize&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="nb"&gt;want&lt;/span&gt;? (&lt;span class="mi"&gt;2048&lt;/span&gt;) &lt;span class="mi"&gt;4096&lt;/span&gt;
+&lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="nv"&gt;keys&lt;/span&gt; &lt;span class="nv"&gt;may&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;between&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="nv"&gt;bits&lt;/span&gt; &lt;span class="nv"&gt;long&lt;/span&gt;.
+&lt;span class="nv"&gt;What&lt;/span&gt; &lt;span class="nv"&gt;keysize&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2048&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;
 
-&lt;span class="n"&gt;Requested&lt;/span&gt; &lt;span class="n"&gt;keysize&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="n"&gt;bits&lt;/span&gt;
-&lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;specify&lt;/span&gt; &lt;span class="n"&gt;how&lt;/span&gt; &lt;span class="n"&gt;long&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;valid&lt;/span&gt;.
-&lt;span class="mi"&gt;0&lt;/span&gt; = &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="nb"&gt;does&lt;/span&gt; &lt;span class="nb"&gt;not&lt;/span&gt; &lt;span class="n"&gt;expire&lt;/span&gt;
-&lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;; = &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;days&lt;/span&gt;
-&lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;;&lt;span class="n"&gt;w&lt;/span&gt; = &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;weeks&lt;/span&gt;
-&lt;span class="nv"&gt;&amp;amp;lt&lt;/span&gt;;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="nv"&gt;&amp;amp;gt&lt;/span&gt;;&lt;span class="sr"&gt;m = key expires in n months&lt;/span&gt;
-&lt;span class="sr"&gt;&amp;amp;lt;n&amp;amp;gt;y =&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;in&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="n"&gt;years&lt;/span&gt;
+&lt;span class="nv"&gt;Requested&lt;/span&gt; &lt;span class="nv"&gt;keysize&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="nv"&gt;bits&lt;/span&gt;
+&lt;span class="nv"&gt;Please&lt;/span&gt; &lt;span class="nv"&gt;specify&lt;/span&gt; &lt;span class="nv"&gt;how&lt;/span&gt; &lt;span class="nv"&gt;long&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;should&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;valid&lt;/span&gt;.
+&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;does&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;expire&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;days&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;weeks&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;months&lt;/span&gt;
+&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;years&lt;/span&gt;
 
-&lt;span class="n"&gt;Key&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;valid&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;? (&lt;span class="mi"&gt;0&lt;/span&gt;) &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;
-&lt;span class="n"&gt;Key&lt;/span&gt; &lt;span class="n"&gt;expires&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;Tuesday&lt;/span&gt; &lt;span class="mo"&gt;03&lt;/span&gt; &lt;span class="n"&gt;March&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt; &lt;span class="mo"&gt;02&lt;/span&gt;:&lt;span class="mi"&gt;08&lt;/span&gt;:&lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="n"&gt;PM&lt;/span&gt; &lt;span class="n"&gt;IST&lt;/span&gt;
-&lt;span class="n"&gt;Is&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;correct&lt;/span&gt;? (&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;N&lt;/span&gt;) &lt;span class="n"&gt;y&lt;/span&gt;
+&lt;span class="nv"&gt;Key&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;valid&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;
+&lt;span class="nv"&gt;Key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;at&lt;/span&gt; &lt;span class="nv"&gt;Tuesday&lt;/span&gt; &lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="nv"&gt;March&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt; &lt;span class="mi"&gt;02&lt;/span&gt;:&lt;span class="mi"&gt;08&lt;/span&gt;:&lt;span class="mi"&gt;15&lt;/span&gt; &lt;span class="nv"&gt;PM&lt;/span&gt; &lt;span class="nv"&gt;IST&lt;/span&gt;
+&lt;span class="nv"&gt;Is&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;correct&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt;
 
-&lt;span class="n"&gt;GnuPG&lt;/span&gt; &lt;span class="n"&gt;needs&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;construct&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;user&lt;/span&gt; &lt;span class="n"&gt;ID&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;identify&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="nb"&gt;key&lt;/span&gt;.
+&lt;span class="nv"&gt;GnuPG&lt;/span&gt; &lt;span class="nv"&gt;needs&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;construct&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;ID&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;identify&lt;/span&gt; &lt;span class="nv"&gt;your&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;.
 
-&lt;span class="n"&gt;Real&lt;/span&gt; &lt;span class="n"&gt;name:&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;Name&lt;/span&gt;
-&lt;span class="n"&gt;Email&lt;/span&gt; &lt;span class="n"&gt;address:&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt;.&lt;span class="n"&gt;email&lt;/span&gt;&lt;span class="nv"&gt;@example&lt;/span&gt;.&lt;span class="n"&gt;com&lt;/span&gt;
-&lt;span class="n"&gt;Comment:&lt;/span&gt; 
-&lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;selected&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;USER-ID:&lt;/span&gt;
-&lt;span class="s"&gt;&amp;quot;Your Name &amp;amp;lt;your.email@example.com&amp;amp;gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;Real&lt;/span&gt; &lt;span class="nv"&gt;name&lt;/span&gt;: &lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;Name&lt;/span&gt;
+&lt;span class="nv"&gt;Email&lt;/span&gt; &lt;span class="nv"&gt;address&lt;/span&gt;: &lt;span class="nv"&gt;your&lt;/span&gt;.&lt;span class="nv"&gt;email&lt;/span&gt;@&lt;span class="nv"&gt;example&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;
+&lt;span class="nv"&gt;Comment&lt;/span&gt;: 
+&lt;span class="nv"&gt;You&lt;/span&gt; &lt;span class="nv"&gt;selected&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;USER&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;ID&lt;/span&gt;:
+&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Your Name &amp;lt;your.email@example.com&amp;gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 
-&lt;span class="n"&gt;Change&lt;/span&gt; (&lt;span class="n"&gt;N&lt;/span&gt;)&lt;span class="n"&gt;ame&lt;/span&gt;, (&lt;span class="n"&gt;C&lt;/span&gt;)&lt;span class="n"&gt;omment&lt;/span&gt;, (&lt;span class="n"&gt;E&lt;/span&gt;)&lt;span class="n"&gt;mail&lt;/span&gt; &lt;span class="o"&gt;or&lt;/span&gt; (&lt;span class="n"&gt;O&lt;/span&gt;)&lt;span class="n"&gt;kay&lt;/span&gt;/(&lt;span class="s"&gt;Q)uit? O&lt;/span&gt;
-&lt;span class="s"&gt;We need to generate a lot of random bytes. It is a good idea to perform&lt;/span&gt;
-&lt;span class="s"&gt;some other action (type on the keyboard, move the mouse, utilize the&lt;/span&gt;
-&lt;span class="s"&gt;disks)&lt;/span&gt; &lt;span class="n"&gt;during&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;prime&lt;/span&gt; &lt;span class="n"&gt;generation&lt;/span&gt;; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="n"&gt;gives&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;random&lt;/span&gt; &lt;span class="n"&gt;number&lt;/span&gt;
-&lt;span class="n"&gt;generator&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;better&lt;/span&gt; &lt;span class="n"&gt;chance&lt;/span&gt; &lt;span class="nb"&gt;to&lt;/span&gt; &lt;span class="n"&gt;gain&lt;/span&gt; &lt;span class="n"&gt;enough&lt;/span&gt; &lt;span class="n"&gt;entropy&lt;/span&gt;.
+&lt;span class="nv"&gt;Change&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;ame&lt;/span&gt;, &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;C&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;omment&lt;/span&gt;, &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;E&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;mail&lt;/span&gt; &lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;O&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;kay&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Q&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;uit&lt;/span&gt;? &lt;span class="nv"&gt;O&lt;/span&gt;
+&lt;span class="nv"&gt;We&lt;/span&gt; &lt;span class="nv"&gt;need&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;generate&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;lot&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="k"&gt;random&lt;/span&gt; &lt;span class="nv"&gt;bytes&lt;/span&gt;. &lt;span class="nv"&gt;It&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;good&lt;/span&gt; &lt;span class="nv"&gt;idea&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;perform&lt;/span&gt;
+&lt;span class="nv"&gt;some&lt;/span&gt; &lt;span class="nv"&gt;other&lt;/span&gt; &lt;span class="nv"&gt;action&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;type&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;keyboard&lt;/span&gt;, &lt;span class="nv"&gt;move&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;mouse&lt;/span&gt;, &lt;span class="nv"&gt;utilize&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt;
+&lt;span class="nv"&gt;disks&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;during&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;prime&lt;/span&gt; &lt;span class="nv"&gt;generation&lt;/span&gt;&lt;span class="c1"&gt;; this gives the random number&lt;/span&gt;
+&lt;span class="nv"&gt;generator&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;better&lt;/span&gt; &lt;span class="nv"&gt;chance&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;gain&lt;/span&gt; &lt;span class="nv"&gt;enough&lt;/span&gt; &lt;span class="nv"&gt;entropy&lt;/span&gt;.
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -119,98 +119,98 @@ $ sudo apt-get install gnupg2
 &lt;li&gt;Enter Passphrase twice.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;After some time your authentication subkey would be generated. Output of the process is shown below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --expert --edit-key 123EE456
-gpg &lt;span class="o"&gt;(&lt;/span&gt;GnuPG&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt;.1.11&lt;span class="p"&gt;;&lt;/span&gt; Copyright &lt;span class="o"&gt;(&lt;/span&gt;C&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;2016&lt;/span&gt; Free Software Foundation, Inc.
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;expert&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;edit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="nv"&gt;EE456&lt;/span&gt;
+&lt;span class="nv"&gt;gpg&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;GnuPG&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;.&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="c1"&gt;; Copyright (C) 2016 Free Software Foundation, Inc.&lt;/span&gt;
+&lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;free&lt;/span&gt; &lt;span class="nv"&gt;software&lt;/span&gt;: &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;free&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;change&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;redistribute&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt;.
+&lt;span class="nv"&gt;There&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;NO&lt;/span&gt; &lt;span class="nv"&gt;WARRANTY&lt;/span&gt;, &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;extent&lt;/span&gt; &lt;span class="nv"&gt;permitted&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;law&lt;/span&gt;.
 
-Secret key is available.
+&lt;span class="nv"&gt;Secret&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;available&lt;/span&gt;.
 
-sec rsa4096/123EE456
- created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: SC 
- trust: ultimate     validity: ultimate
-ssb rsa4096/7891EEFF
- created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: E 
-&lt;span class="o"&gt;[&lt;/span&gt;ultimate&lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;. Real Name your.email@gmail.com
+&lt;span class="nv"&gt;sec&lt;/span&gt; &lt;span class="nv"&gt;rsa4096&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="nv"&gt;EE456&lt;/span&gt;
+ &lt;span class="nv"&gt;created&lt;/span&gt;: &lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt;: &lt;span class="mi"&gt;2019&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt; &lt;span class="nv"&gt;usage&lt;/span&gt;: &lt;span class="nv"&gt;SC&lt;/span&gt; 
+ &lt;span class="nv"&gt;trust&lt;/span&gt;: &lt;span class="nv"&gt;ultimate&lt;/span&gt;     &lt;span class="nv"&gt;validity&lt;/span&gt;: &lt;span class="nv"&gt;ultimate&lt;/span&gt;
+&lt;span class="nv"&gt;ssb&lt;/span&gt; &lt;span class="nv"&gt;rsa4096&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;7891&lt;/span&gt;&lt;span class="nv"&gt;EEFF&lt;/span&gt;
+ &lt;span class="nv"&gt;created&lt;/span&gt;: &lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt;: &lt;span class="mi"&gt;2019&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt; &lt;span class="nv"&gt;usage&lt;/span&gt;: &lt;span class="nv"&gt;E&lt;/span&gt; 
+[&lt;span class="nv"&gt;ultimate&lt;/span&gt;] &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;. &lt;span class="nv"&gt;Real&lt;/span&gt; &lt;span class="nv"&gt;Name&lt;/span&gt; &lt;span class="nv"&gt;your&lt;/span&gt;.&lt;span class="nv"&gt;email&lt;/span&gt;@&lt;span class="nv"&gt;gmail&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;
 
-gpg&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; addkey
-Please &lt;span class="k"&gt;select&lt;/span&gt; what kind of key you want:
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; DSA &lt;span class="o"&gt;(&lt;/span&gt;sign only&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; RSA &lt;span class="o"&gt;(&lt;/span&gt;sign only&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; Elgamal &lt;span class="o"&gt;(&lt;/span&gt;encrypt only&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; RSA &lt;span class="o"&gt;(&lt;/span&gt;encrypt only&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;7&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; DSA &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; your own capabilities&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;8&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; RSA &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; your own capabilities&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; ECC &lt;span class="o"&gt;(&lt;/span&gt;sign only&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;11&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; ECC &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;set&lt;/span&gt; your own capabilities&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;12&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; ECC &lt;span class="o"&gt;(&lt;/span&gt;encrypt only&lt;span class="o"&gt;)&lt;/span&gt;
- &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;13&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; Existing key
-Your selection? &lt;span class="m"&gt;8&lt;/span&gt;
+&lt;span class="nv"&gt;gpg&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;addkey&lt;/span&gt;
+&lt;span class="nv"&gt;Please&lt;/span&gt; &lt;span class="nv"&gt;select&lt;/span&gt; &lt;span class="nv"&gt;what&lt;/span&gt; &lt;span class="nv"&gt;kind&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt;:
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;DSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Elgamal&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;encrypt&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;encrypt&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;DSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;your&lt;/span&gt; &lt;span class="nv"&gt;own&lt;/span&gt; &lt;span class="nv"&gt;capabilities&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;your&lt;/span&gt; &lt;span class="nv"&gt;own&lt;/span&gt; &lt;span class="nv"&gt;capabilities&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;ECC&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;ECC&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;set&lt;/span&gt; &lt;span class="nv"&gt;your&lt;/span&gt; &lt;span class="nv"&gt;own&lt;/span&gt; &lt;span class="nv"&gt;capabilities&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;12&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;ECC&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;encrypt&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;13&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Existing&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;selection&lt;/span&gt;? &lt;span class="mi"&gt;8&lt;/span&gt;
 
-Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
-Current allowed actions: Sign Encrypt
+&lt;span class="nv"&gt;Possible&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;: &lt;span class="nv"&gt;Sign&lt;/span&gt; &lt;span class="nv"&gt;Encrypt&lt;/span&gt; &lt;span class="nv"&gt;Authenticate&lt;/span&gt; 
+&lt;span class="nv"&gt;Current&lt;/span&gt; &lt;span class="nv"&gt;allowed&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt;: &lt;span class="nv"&gt;Sign&lt;/span&gt; &lt;span class="nv"&gt;Encrypt&lt;/span&gt;
 
- &lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
- &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
- &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
- &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;S&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;E&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;encrypt&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;A&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;authenticate&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Q&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Finished&lt;/span&gt;
 
-Your selection? S
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;selection&lt;/span&gt;? &lt;span class="nv"&gt;S&lt;/span&gt;
 
-Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
-Current allowed actions: Encrypt
+&lt;span class="nv"&gt;Possible&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;: &lt;span class="nv"&gt;Sign&lt;/span&gt; &lt;span class="nv"&gt;Encrypt&lt;/span&gt; &lt;span class="nv"&gt;Authenticate&lt;/span&gt; 
+&lt;span class="nv"&gt;Current&lt;/span&gt; &lt;span class="nv"&gt;allowed&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt;: &lt;span class="nv"&gt;Encrypt&lt;/span&gt;
 
-&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
- &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
- &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
- &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;S&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;E&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;encrypt&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;A&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;authenticate&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Q&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Finished&lt;/span&gt;
 
-Your selection? E
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;selection&lt;/span&gt;? &lt;span class="nv"&gt;E&lt;/span&gt;
 
-Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
-Current allowed actions:
+&lt;span class="nv"&gt;Possible&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;: &lt;span class="nv"&gt;Sign&lt;/span&gt; &lt;span class="nv"&gt;Encrypt&lt;/span&gt; &lt;span class="nv"&gt;Authenticate&lt;/span&gt; 
+&lt;span class="nv"&gt;Current&lt;/span&gt; &lt;span class="nv"&gt;allowed&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt;:
 
-&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
- &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
- &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
- &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;S&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;E&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;encrypt&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;A&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;authenticate&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Q&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Finished&lt;/span&gt;
 
-Your selection? A
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;selection&lt;/span&gt;? &lt;span class="nv"&gt;A&lt;/span&gt;
 
-Possible actions &lt;span class="k"&gt;for&lt;/span&gt; a RSA key: Sign Encrypt Authenticate 
-Current allowed actions: Authenticate
+&lt;span class="nv"&gt;Possible&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt;: &lt;span class="nv"&gt;Sign&lt;/span&gt; &lt;span class="nv"&gt;Encrypt&lt;/span&gt; &lt;span class="nv"&gt;Authenticate&lt;/span&gt; 
+&lt;span class="nv"&gt;Current&lt;/span&gt; &lt;span class="nv"&gt;allowed&lt;/span&gt; &lt;span class="nv"&gt;actions&lt;/span&gt;: &lt;span class="nv"&gt;Authenticate&lt;/span&gt;
 
-&lt;span class="o"&gt;(&lt;/span&gt;S&lt;span class="o"&gt;)&lt;/span&gt; Toggle the sign capability
- &lt;span class="o"&gt;(&lt;/span&gt;E&lt;span class="o"&gt;)&lt;/span&gt; Toggle the encrypt capability
- &lt;span class="o"&gt;(&lt;/span&gt;A&lt;span class="o"&gt;)&lt;/span&gt; Toggle the authenticate capability
- &lt;span class="o"&gt;(&lt;/span&gt;Q&lt;span class="o"&gt;)&lt;/span&gt; Finished
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;S&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;sign&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;E&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;encrypt&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;A&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Toggle&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;authenticate&lt;/span&gt; &lt;span class="nv"&gt;capability&lt;/span&gt;
+ &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Q&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;Finished&lt;/span&gt;
 
-Your selection? Q
-RSA keys may be between &lt;span class="m"&gt;1024&lt;/span&gt; and &lt;span class="m"&gt;4096&lt;/span&gt; bits long.
-What keysize &lt;span class="k"&gt;do&lt;/span&gt; you want? &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;2048&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="m"&gt;4096&lt;/span&gt;
-Requested keysize is &lt;span class="m"&gt;4096&lt;/span&gt; bits
-Please specify how long the key should be valid.
- &lt;span class="nv"&gt;0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key does not expire
- &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n days
- &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n weeks
- &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n months
- &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;lt&lt;span class="p"&gt;;&lt;/span&gt;n&lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; key expires in n years
-Key is valid &lt;span class="k"&gt;for&lt;/span&gt;? &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; 2y
-Key expires at Thursday &lt;span class="m"&gt;05&lt;/span&gt; March &lt;span class="m"&gt;2020&lt;/span&gt; &lt;span class="m"&gt;02&lt;/span&gt;:30:01 AM IST
-Is this correct? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
-Really create? &lt;span class="o"&gt;(&lt;/span&gt;y/N&lt;span class="o"&gt;)&lt;/span&gt; y
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action &lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;type&lt;/span&gt; on the keyboard, move the mouse, utilize the
-disks&lt;span class="o"&gt;)&lt;/span&gt; during the prime generation&lt;span class="p"&gt;;&lt;/span&gt; this gives the random number
-generator a better chance to gain enough entropy.
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;selection&lt;/span&gt;? &lt;span class="nv"&gt;Q&lt;/span&gt;
+&lt;span class="nv"&gt;RSA&lt;/span&gt; &lt;span class="nv"&gt;keys&lt;/span&gt; &lt;span class="nv"&gt;may&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;between&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="nv"&gt;bits&lt;/span&gt; &lt;span class="nv"&gt;long&lt;/span&gt;.
+&lt;span class="nv"&gt;What&lt;/span&gt; &lt;span class="nv"&gt;keysize&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;2048&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt;
+&lt;span class="nv"&gt;Requested&lt;/span&gt; &lt;span class="nv"&gt;keysize&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;4096&lt;/span&gt; &lt;span class="nv"&gt;bits&lt;/span&gt;
+&lt;span class="nv"&gt;Please&lt;/span&gt; &lt;span class="nv"&gt;specify&lt;/span&gt; &lt;span class="nv"&gt;how&lt;/span&gt; &lt;span class="nv"&gt;long&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;should&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;valid&lt;/span&gt;.
+ &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;does&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="nv"&gt;expire&lt;/span&gt;
+ &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;days&lt;/span&gt;
+ &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;weeks&lt;/span&gt;
+ &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;months&lt;/span&gt;
+ &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="nv"&gt;years&lt;/span&gt;
+&lt;span class="nv"&gt;Key&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;valid&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;
+&lt;span class="nv"&gt;Key&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt; &lt;span class="nv"&gt;at&lt;/span&gt; &lt;span class="nv"&gt;Thursday&lt;/span&gt; &lt;span class="mi"&gt;05&lt;/span&gt; &lt;span class="nv"&gt;March&lt;/span&gt; &lt;span class="mi"&gt;2020&lt;/span&gt; &lt;span class="mi"&gt;02&lt;/span&gt;:&lt;span class="mi"&gt;30&lt;/span&gt;:&lt;span class="mi"&gt;01&lt;/span&gt; &lt;span class="nv"&gt;AM&lt;/span&gt; &lt;span class="nv"&gt;IST&lt;/span&gt;
+&lt;span class="nv"&gt;Is&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;correct&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt;
+&lt;span class="nv"&gt;Really&lt;/span&gt; &lt;span class="nv"&gt;create&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt;
+&lt;span class="nv"&gt;We&lt;/span&gt; &lt;span class="nv"&gt;need&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;generate&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;lot&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="k"&gt;random&lt;/span&gt; &lt;span class="nv"&gt;bytes&lt;/span&gt;. &lt;span class="nv"&gt;It&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;good&lt;/span&gt; &lt;span class="nv"&gt;idea&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;perform&lt;/span&gt;
+&lt;span class="nv"&gt;some&lt;/span&gt; &lt;span class="nv"&gt;other&lt;/span&gt; &lt;span class="nv"&gt;action&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;type&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;keyboard&lt;/span&gt;, &lt;span class="nv"&gt;move&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;mouse&lt;/span&gt;, &lt;span class="nv"&gt;utilize&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt;
+&lt;span class="nv"&gt;disks&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;during&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;prime&lt;/span&gt; &lt;span class="nv"&gt;generation&lt;/span&gt;&lt;span class="c1"&gt;; this gives the random number&lt;/span&gt;
+&lt;span class="nv"&gt;generator&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;better&lt;/span&gt; &lt;span class="nv"&gt;chance&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;gain&lt;/span&gt; &lt;span class="nv"&gt;enough&lt;/span&gt; &lt;span class="nv"&gt;entropy&lt;/span&gt;.
 
-sec rsa4096/123EE456
- created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: SC 
- trust: ultimate validity: ultimate
-ssb rsa4096/7891EEFF
- created: &lt;span class="m"&gt;2017&lt;/span&gt;-04-03 expires: &lt;span class="m"&gt;2019&lt;/span&gt;-02-02 usage: E 
-ssb rsa4096/6A127E44
- created: &lt;span class="m"&gt;2018&lt;/span&gt;-03-05 expires: &lt;span class="m"&gt;2020&lt;/span&gt;-03-04 usage: A
+&lt;span class="nv"&gt;sec&lt;/span&gt; &lt;span class="nv"&gt;rsa4096&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="nv"&gt;EE456&lt;/span&gt;
+ &lt;span class="nv"&gt;created&lt;/span&gt;: &lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt;: &lt;span class="mi"&gt;2019&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt; &lt;span class="nv"&gt;usage&lt;/span&gt;: &lt;span class="nv"&gt;SC&lt;/span&gt; 
+ &lt;span class="nv"&gt;trust&lt;/span&gt;: &lt;span class="nv"&gt;ultimate&lt;/span&gt; &lt;span class="nv"&gt;validity&lt;/span&gt;: &lt;span class="nv"&gt;ultimate&lt;/span&gt;
+&lt;span class="nv"&gt;ssb&lt;/span&gt; &lt;span class="nv"&gt;rsa4096&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;7891&lt;/span&gt;&lt;span class="nv"&gt;EEFF&lt;/span&gt;
+ &lt;span class="nv"&gt;created&lt;/span&gt;: &lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt;: &lt;span class="mi"&gt;2019&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;02&lt;/span&gt; &lt;span class="nv"&gt;usage&lt;/span&gt;: &lt;span class="nv"&gt;E&lt;/span&gt; 
+&lt;span class="nv"&gt;ssb&lt;/span&gt; &lt;span class="nv"&gt;rsa4096&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="nv"&gt;A127E44&lt;/span&gt;
+ &lt;span class="nv"&gt;created&lt;/span&gt;: &lt;span class="mi"&gt;2018&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;05&lt;/span&gt; &lt;span class="nv"&gt;expires&lt;/span&gt;: &lt;span class="mi"&gt;2020&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;03&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;04&lt;/span&gt; &lt;span class="nv"&gt;usage&lt;/span&gt;: &lt;span class="nv"&gt;A&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -271,33 +271,33 @@ ssb rsa4096/6A127E44
 &lt;p&gt;Now when you have seen and understand your GPG keys. It's time to generate a revocation certificate.&lt;/p&gt;
 &lt;h2&gt;Generating a Revocation Certificate&lt;/h2&gt;
 &lt;p&gt;It is vital to have revocation certificate to declare your keys invalid in case your private key has been compromised or lost. It should be generated as soon as you generate your key pair, not when you need it. So, let's generate it with the following command.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --output ~/revocation.crt --gen-revoke your.email@example.com
-Please &lt;span class="k"&gt;select&lt;/span&gt; the reason &lt;span class="k"&gt;for&lt;/span&gt; the revocation: 
- &lt;span class="nv"&gt;0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; No reason specified
- &lt;span class="nv"&gt;1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Key has been compromised
- &lt;span class="nv"&gt;2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Key is superseded
- &lt;span class="nv"&gt;3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Key is no longer used
- &lt;span class="nv"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; Cancel 
-&lt;span class="o"&gt;(&lt;/span&gt;Probably you want to &lt;span class="k"&gt;select&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; here&lt;span class="o"&gt;)&lt;/span&gt; 
-Your decision? &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;output&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="nv"&gt;revocation&lt;/span&gt;.&lt;span class="nv"&gt;crt&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;gen&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;revoke&lt;/span&gt; &lt;span class="nv"&gt;your&lt;/span&gt;.&lt;span class="nv"&gt;email&lt;/span&gt;@&lt;span class="nv"&gt;example&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;
+&lt;span class="nv"&gt;Please&lt;/span&gt; &lt;span class="nv"&gt;select&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;reason&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;revocation&lt;/span&gt;: 
+ &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;No&lt;/span&gt; &lt;span class="nv"&gt;reason&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;
+ &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Key&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;been&lt;/span&gt; &lt;span class="nv"&gt;compromised&lt;/span&gt;
+ &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Key&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;superseded&lt;/span&gt;
+ &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Key&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;no&lt;/span&gt; &lt;span class="nv"&gt;longer&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt;
+ &lt;span class="nv"&gt;Q&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Cancel&lt;/span&gt; 
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Probably&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;select&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;here&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; 
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;decision&lt;/span&gt;? &lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;It would ask for your confirmation for generating the certificate and the reason for which you are creating this. It is also suggested that you should have revocation certificates for every possibility listed there for maximum flexibility, but for now, you may go for &lt;strong&gt;"0: No reason specified"&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;Now give a comment (I left it empty) and your passphrase. Soon, your certificate is generated. You should keep this as secure and hidden as you keep your private keys. Here is the output.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Enter an optional description; end it with an empty line:
-&amp;amp;gt; 
-Reason for revocation: No reason specified
-(No description given)
-Is this okay? (y/N) y
-ASCII armored output forced.
-Revocation certificate created.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;Enter&lt;/span&gt; &lt;span class="nv"&gt;an&lt;/span&gt; &lt;span class="nv"&gt;optional&lt;/span&gt; &lt;span class="nv"&gt;description&lt;/span&gt;&lt;span class="c1"&gt;; end it with an empty line:&lt;/span&gt;
+&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; 
+&lt;span class="nv"&gt;Reason&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;revocation&lt;/span&gt;: &lt;span class="nv"&gt;No&lt;/span&gt; &lt;span class="nv"&gt;reason&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;No&lt;/span&gt; &lt;span class="nv"&gt;description&lt;/span&gt; &lt;span class="nv"&gt;given&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="nv"&gt;Is&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;okay&lt;/span&gt;? &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;N&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="nv"&gt;y&lt;/span&gt;
+&lt;span class="nv"&gt;ASCII&lt;/span&gt; &lt;span class="nv"&gt;armored&lt;/span&gt; &lt;span class="nv"&gt;output&lt;/span&gt; &lt;span class="nv"&gt;forced&lt;/span&gt;.
+&lt;span class="nv"&gt;Revocation&lt;/span&gt; &lt;span class="nv"&gt;certificate&lt;/span&gt; &lt;span class="nv"&gt;created&lt;/span&gt;.
 
-Please move it to a medium which you can hide away; if Mallory gets
-access to this certificate he can use it to make your key unusable.
-It is smart to print this certificate and store it away, just in case
-your media become unreadable. But have some caution: The print system of
-your machine might store the data and make it available to others!
+&lt;span class="nv"&gt;Please&lt;/span&gt; &lt;span class="nv"&gt;move&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;medium&lt;/span&gt; &lt;span class="nv"&gt;which&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;can&lt;/span&gt; &lt;span class="nv"&gt;hide&lt;/span&gt; &lt;span class="nv"&gt;away&lt;/span&gt;&lt;span class="c1"&gt;; if Mallory gets&lt;/span&gt;
+&lt;span class="nv"&gt;access&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;certificate&lt;/span&gt; &lt;span class="nv"&gt;he&lt;/span&gt; &lt;span class="nv"&gt;can&lt;/span&gt; &lt;span class="nv"&gt;use&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;make&lt;/span&gt; &lt;span class="nv"&gt;your&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;unusable&lt;/span&gt;.
+&lt;span class="nv"&gt;It&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;smart&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;certificate&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;store&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;away&lt;/span&gt;, &lt;span class="nv"&gt;just&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;case&lt;/span&gt;
+&lt;span class="nv"&gt;your&lt;/span&gt; &lt;span class="nv"&gt;media&lt;/span&gt; &lt;span class="nv"&gt;become&lt;/span&gt; &lt;span class="nv"&gt;unreadable&lt;/span&gt;. &lt;span class="nv"&gt;But&lt;/span&gt; &lt;span class="nv"&gt;have&lt;/span&gt; &lt;span class="nv"&gt;some&lt;/span&gt; &lt;span class="nv"&gt;caution&lt;/span&gt;: &lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="nv"&gt;system&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt;
+&lt;span class="nv"&gt;your&lt;/span&gt; &lt;span class="nv"&gt;machine&lt;/span&gt; &lt;span class="nv"&gt;might&lt;/span&gt; &lt;span class="nv"&gt;store&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;make&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;available&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;others&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -316,7 +316,7 @@ Because with GPG you can sign messages or other people can encrypt messages to y
 Absolutely yes, as I have already mentioned before that GPG works on &lt;a href="https://en.wikipedia.org/wiki/Public-key_cryptography"&gt;asymmetric cryptography&lt;/a&gt;, therefore having your public key to someone doesn't make a threat to your security. Because it is practically impossible to generate a private key from a public key.&lt;/p&gt;
 &lt;p&gt;There are multiple keyservers available to hold public keys like, &lt;strong&gt;&lt;em&gt;&lt;a href="https://keys.fedoraproject.org/"&gt;keys.fedoraproject.org&lt;/a&gt;, &lt;a href="http://keyserver.ubuntu.com/"&gt;keyserver.ubuntu.com, etc&lt;/a&gt;.&lt;/em&gt;&lt;/strong&gt;&lt;strong&gt; &lt;/strong&gt;and they regularly synchronize among themselves. So if you send your key on &lt;em&gt;keyserver.ubuntu.com, then&lt;/em&gt; after some time, it would also be available at &lt;em&gt;keys.fedoraproject.org.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;To send your key to the keyserver use the following command.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --send-keys --keyserver keyserver_url key_id
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;keys&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;keyserver&lt;/span&gt; &lt;span class="nv"&gt;keyserver_url&lt;/span&gt; &lt;span class="nv"&gt;key_id&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -367,8 +367,8 @@ $ gpg2 --output ~/signed.key --sign-key person.email@example.com
 
 
 &lt;p&gt;&lt;strong&gt;Method 2:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ gpg2 --sign-key person.email@example.com
-$ gpg2 --keyserver key_server --send-key person_keyid
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;sign&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;person&lt;/span&gt;.&lt;span class="nv"&gt;email&lt;/span&gt;@&lt;span class="nv"&gt;example&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;
+$ &lt;span class="nv"&gt;gpg2&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;keyserver&lt;/span&gt; &lt;span class="nv"&gt;key_server&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="k"&gt;send&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;person_keyid&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -405,17 +405,17 @@ gpg: Q
 
 
 &lt;p&gt;To modify &lt;strong&gt;trust&lt;/strong&gt; of the key, enter "&lt;strong&gt;trust"&lt;/strong&gt; instead of &lt;strong&gt;"Q"&lt;/strong&gt; (in the last line of output). And you'll get a prompt like this.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Please decide how far you trust this user to correctly verify other users&amp;#39; keys
-(by looking at passports, checking fingerprints from different sources, etc.)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;Please&lt;/span&gt; &lt;span class="nv"&gt;decide&lt;/span&gt; &lt;span class="nv"&gt;how&lt;/span&gt; &lt;span class="nv"&gt;far&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;trust&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;correctly&lt;/span&gt; &lt;span class="nv"&gt;verify&lt;/span&gt; &lt;span class="nv"&gt;other&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt; keys&lt;/span&gt;
+&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;looking&lt;/span&gt; &lt;span class="nv"&gt;at&lt;/span&gt; &lt;span class="nv"&gt;passports&lt;/span&gt;, &lt;span class="nv"&gt;checking&lt;/span&gt; &lt;span class="nv"&gt;fingerprints&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="nv"&gt;different&lt;/span&gt; &lt;span class="nv"&gt;sources&lt;/span&gt;, &lt;span class="nv"&gt;etc&lt;/span&gt;.&lt;span class="ss"&gt;)&lt;/span&gt;
 
- 1 = I don&amp;#39;t know or won&amp;#39;t say
- 2 = I do NOT trust
- 3 = I trust marginally
- 4 = I trust fully
- 5 = I trust ultimately
- m = back to the main menu
+ &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;don&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;t know or won&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;say&lt;/span&gt;
+ &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; &lt;span class="nv"&gt;NOT&lt;/span&gt; &lt;span class="nv"&gt;trust&lt;/span&gt;
+ &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;trust&lt;/span&gt; &lt;span class="nv"&gt;marginally&lt;/span&gt;
+ &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;trust&lt;/span&gt; &lt;span class="nv"&gt;fully&lt;/span&gt;
+ &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;I&lt;/span&gt; &lt;span class="nv"&gt;trust&lt;/span&gt; &lt;span class="nv"&gt;ultimately&lt;/span&gt;
+ &lt;span class="nv"&gt;m&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;back&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt; &lt;span class="nv"&gt;menu&lt;/span&gt;
 
-Your decision? m
+&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;decision&lt;/span&gt;? &lt;span class="nv"&gt;m&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -461,7 +461,7 @@ Your decision? m
 &lt;h2&gt;Signed messages&lt;/h2&gt;
 &lt;h4&gt;&lt;strong&gt;Clearsign:&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;Using GPG you may send signed files without encryption. Create a file say "&lt;strong&gt;newfile&lt;/strong&gt;", add some message to it and sign it.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; newfile
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hello World&amp;quot;&lt;/span&gt; &amp;gt;&amp;gt; newfile
 $ gpg2 --clearsign newfile
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -547,13 +547,13 @@ $ gpg2 --clearsign newfile
 &lt;li&gt;It is better than other communication protocols like FTP, telnet, etc. The picture below describes how SSH encryption doesn't let someone sniff in its signals. If someone tries to intercept the signal, s/he would receive nothing but an encrypted data packet. To know more about how SSH better than others visit &lt;a href="https://www.yireo.com/blog/1452-why-ssh-instead-of-ftp"&gt;here&lt;/a&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;div style="text-align:center"&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;![An un-encrypte telnet connection]({static}/uploads/images/2017/11/howsshworks1-300x220.png &amp;quot;An un-encrypte telnet connection&amp;quot;)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;An&lt;/span&gt; &lt;span class="n"&gt;un&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;encrypte&lt;/span&gt; &lt;span class="n"&gt;telnet&lt;/span&gt; &lt;span class="k"&gt;connection&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="k"&gt;static&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;uploads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;howsshworks1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="n"&gt;x220&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;An un-encrypte telnet connection&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;/div&gt;
 &lt;div style="text-align:center"&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;![An encrypted SSH sesion]({static}/uploads/images/2017/11/howsshworks2-300x219.png &amp;quot;An encrypted SSH sesion&amp;quot;)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;An&lt;/span&gt; &lt;span class="k"&gt;encrypted&lt;/span&gt; &lt;span class="n"&gt;SSH&lt;/span&gt; &lt;span class="n"&gt;sesion&lt;/span&gt;&lt;span class="p"&gt;](&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="k"&gt;static&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;uploads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;images&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;2017&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;11&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;howsshworks2&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;300&lt;/span&gt;&lt;span class="n"&gt;x219&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;png&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;An encrypted SSH sesion&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -574,11 +574,11 @@ $ gpg2 --clearsign newfile
 &lt;p&gt;The SSH connection is always invoked by a client to a server. Therefore, server authentication comes first than client authentication.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;STEP 1:  Connect to simple FTP connection&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;For a successful SSH establishment. A simple connection between a client and a server is a must. For the same reason, first of all, a simple (FTP/Telnet) connection is created between the client and the server. And with telnet, we get details like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ telnet thegeekyway.com 22
-Trying 192.168.42.119...
-Connected to thegeekyway.com.
-Escape character is &amp;#39;^]&amp;#39;.
-SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;coderunner&lt;/span&gt;&lt;span class="nv"&gt;@geekyshacklebolt&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;telnet&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;thegeekyway&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;22&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Trying&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;192.168.42.119&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Connected&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;thegeekyway&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;Escape&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;character&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;is&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;^]&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;SSH&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mf"&gt;2.0&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;OpenSSH_7&lt;/span&gt;&lt;span class="mf"&gt;.2&lt;/span&gt;&lt;span class="n"&gt;p2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Ubuntu&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="n"&gt;ubuntu2&lt;/span&gt;&lt;span class="mf"&gt;.2&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -592,17 +592,17 @@ SSH-2.0-OpenSSH_7.2p2 Ubuntu-4ubuntu2.2
 &lt;ul&gt;
 &lt;li&gt;1) &lt;strong&gt;Server's host key&lt;/strong&gt;: It is an RSA public key, which is stored in "known_hosts" file of the client (if you have already connected before with that server). You may see your known_hosts file here:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ cd .ssh/
-coderunner@geekyshacklebolt:~/.ssh$ ls
-authorized_keys   id_rsa   id_rsa.pub   known_hosts
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;coderunner&lt;/span&gt;&lt;span class="nv"&gt;@geekyshacklebolt&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;coderunner&lt;/span&gt;&lt;span class="nv"&gt;@geekyshacklebolt&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ls&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;authorized_keys&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;id_rsa&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;id_rsa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub&lt;/span&gt;&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;known_hosts&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;At this point, the client will search for this "rsa_public" key in client's `known_hosts` file and if the key is not already present, then it may be the case of connecting with that server for the first time. So, in this case, what you would get is a "WARNING!" like: "&lt;em&gt;Are you sure you want to continue connecting?&lt;/em&gt;"&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ ssh geekyshacklebolt
-The authenticity of host &amp;#39;geekyshacklebolt (192.168.42.222)&amp;#39; can&amp;#39;t be established.
-ECDSA key fingerprint is SHA256:Ql/KnGlolY9eCGuYK3OX3opnSyJQzsbtM3DW/UZIxms.
-Are you sure you want to continue connecting (yes/no)?
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;coderunner&lt;/span&gt;@&lt;span class="nv"&gt;geekyshacklebolt&lt;/span&gt;:&lt;span class="o"&gt;~&lt;/span&gt;$ &lt;span class="nv"&gt;ssh&lt;/span&gt; &lt;span class="nv"&gt;geekyshacklebolt&lt;/span&gt;
+&lt;span class="nv"&gt;The&lt;/span&gt; &lt;span class="nv"&gt;authenticity&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;host&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;geekyshacklebolt (192.168.42.222)&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="nv"&gt;can&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;t be established.&lt;/span&gt;
+&lt;span class="nv"&gt;ECDSA&lt;/span&gt; &lt;span class="nv"&gt;key&lt;/span&gt; &lt;span class="nv"&gt;fingerprint&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;SHA256&lt;/span&gt;:&lt;span class="nv"&gt;Ql&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;KnGlolY9eCGuYK3OX3opnSyJQzsbtM3DW&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;UZIxms&lt;/span&gt;.
+&lt;span class="nv"&gt;Are&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;sure&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="k"&gt;continue&lt;/span&gt; &lt;span class="nv"&gt;connecting&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;yes&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;no&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;?
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -611,9 +611,9 @@ Are you sure you want to continue connecting (yes/no)?
 &lt;li&gt;2) &lt;strong&gt;Server's server key&lt;/strong&gt;: (There is no concept of server key in SSH-2) With host key, server also provide one server key.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This server key goes on changing every hour or so. And this key may be of 768 bits or 1024 bits it depends on the configuration. You may find it at  "/etc/ssh/"  in "sshd_config"  file. Let me see mine.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Lifetime and size of ephemeral version 1 server key
-KeyRegenerationInterval 3600
-ServerKeyBits 1024
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Lifetime&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="k"&gt;size&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;ephemeral&lt;/span&gt; &lt;span class="k"&gt;version&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;server&lt;/span&gt; &lt;span class="k"&gt;key&lt;/span&gt;
+&lt;span class="n"&gt;KeyRegenerationInterval&lt;/span&gt; &lt;span class="mi"&gt;3600&lt;/span&gt;
+&lt;span class="n"&gt;ServerKeyBits&lt;/span&gt; &lt;span class="mi"&gt;1024&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -648,9 +648,9 @@ ServerKeyBits 1024
 &lt;p&gt;In this, the server has a list of host keys stored in /etc/ssh_known_host, and additionally, each user has host keys in \$HOME/.ssh/known_hosts. SSH uses the naming service to obtain the canonical name of the client host, looks for its public key in its known_host files, and requires the client to prove that it knows the private host key. This prevents IP and routing spoofing attacks (as long as the client machine private host key has not been leaked), but is still vulnerable to DNS (domain name server) attacks (to a limited extent), and relies on the integrity of the client machine as to who is requesting to log in. If maximal security is desired, only RSA authentication (host keys authentication) should be used.&lt;/p&gt;
 &lt;p&gt;4. &lt;strong&gt;Host keys based&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;It is the most secure method of authentication for an SSH session. In this, client authentication is based on a pair of host keys i.e: the public key and the private key that can be seen in "\~/.ssh/" directory.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;coderunner@geekyshacklebolt:~$ cd .ssh/
-coderunner@geekyshacklebolt:~/.ssh$ ls
-authorized_keys id_rsa id_rsa.pub known_hosts
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;coderunner&lt;/span&gt;&lt;span class="nv"&gt;@geekyshacklebolt&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;coderunner&lt;/span&gt;&lt;span class="nv"&gt;@geekyshacklebolt&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ssh&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ls&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;authorized_keys&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id_rsa&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;id_rsa&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pub&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;known_hosts&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

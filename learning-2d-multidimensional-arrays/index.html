@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="2D, arrays, multidimensional">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Learning About 2D And Multidimensional Arrays  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/learning-2d-multidimensional-arrays/">Learning About 2D And Multidimensional Arrays</a></h1>
+    <h1><a href="//thegeekyway.com/learning-2d-multidimensional-arrays/">Learning About 2D And Multidimensional Arrays</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -111,7 +114,7 @@
 <p>With this basic memory organization picture in mind, let's now see how we declare a 2D Array.</p>
 <p><p #2d_declare></p><strong>Declaration of 2D Array:</strong></p>
 <p>Let's take an example that you want to create a 3 x 3 Matrix named mat of integer data type, so we would declare as:</p>
-<div class="highlight"><pre><span></span>int mat[3][3];
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">mat</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span>
 </pre></div>
 
 
@@ -120,7 +123,7 @@
 <p><a href="//thegeekyway.com/uploads/images/2014/07/mat_4x6.png" title="Matrix memory representation 4 X 6"><img alt="Matrix memory representation 4 X 6" src="//thegeekyway.com/uploads/images/2014/07/mat_4x6.png"></a></p>
 </div>
 <p>Now, it would be declared as follows:</p>
-<div class="highlight"><pre><span></span>float mat[4][6];
+<div class="highlight"><pre><span></span><span class="nb">float</span> <span class="n">mat</span><span class="p">[</span><span class="mi">4</span><span class="p">][</span><span class="mi">6</span><span class="p">];</span>
 </pre></div>
 
 
@@ -129,11 +132,11 @@
 <p>Since we need to refer a location by both the row number and the column number, we need to fill in each block of memory by traversing through each row first and then each column in that row, then come to next row, traverse each column and so on...</p>
 <p>Here we would need two loops, one for updating the row number and the next to update the column number. Since we are moving from left to right for each row, remember that we will update the row value less frequently than the column value.</p>
 <p>So, basic syntax would be something like this:</p>
-<div class="highlight"><pre><span></span>for(int i = 0; i &lt;= row; i++ )
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; i &lt;= row; i++ )</span>
 {
-  for(int j = 0; j &lt;= col; j++)
+  <span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">j</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; j &lt;= col; j++)</span>
   {
-     scanf(&quot;%d&quot;,&amp;matrix[i][j]);
+     <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="o">&amp;</span><span class="nv">matrix</span>[<span class="nv">i</span>][<span class="nv">j</span>]<span class="ss">)</span><span class="c1">;</span>
   }
 }
 </pre></div>
@@ -141,15 +144,15 @@
 
 <p>Here row and col would correspond to the total number of rows and columns in the matrix. Inside the loop, we're just taking input from the user such that the value of <strong>j</strong> i.e. our column would update more frequently from left to right than the value of <strong>i</strong> i.e. our row.</p>
 <p>Now, let's start accepting values from user for our for our matrix named mat which is a 3 x 3 matrix.</p>
-<div class="highlight"><pre><span></span>int mat[3][3]; //Declaring 3 x 3 , 2D matrix
+<div class="highlight"><pre><span></span><span class="nv">int</span> <span class="nv">mat</span>[<span class="mi">3</span>][<span class="mi">3</span>]<span class="c1">; //Declaring 3 x 3 , 2D matrix</span>
 
-int i,j; //Declaring variables to be used in loop
+<span class="nv">int</span> <span class="nv">i</span>,<span class="nv">j</span><span class="c1">; //Declaring variables to be used in loop</span>
 
-for( i = 0; i &lt; 3; i++ )  // loop for updating row number
+<span class="k">for</span><span class="ss">(</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; i &lt; 3; i++ )  // loop for updating row number</span>
 {
-  for( j = 0; j &lt; 3; j++)  // loop for updating col number
+  <span class="k">for</span><span class="ss">(</span> <span class="nv">j</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; j &lt; 3; j++)  // loop for updating col number</span>
   {
-     scanf(&quot;%d&quot;,&amp;mat[i][j]);
+     <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="o">&amp;</span><span class="nv">mat</span>[<span class="nv">i</span>][<span class="nv">j</span>]<span class="ss">)</span><span class="c1">;</span>
   }
 }
 </pre></div>
@@ -158,16 +161,16 @@ for( i = 0; i &lt; 3; i++ )  // loop for updating row number
 <p><p #2d_output></p><strong>Traversing and Printing 2D Array:</strong></p>
 <p>Next, we need to traverse this array, it would be done as:</p>
 <p>Traversing means just processing through each element of the array and apply an operation.</p>
-<div class="highlight"><pre><span></span>// We have assumed to initialized the array by taking input from user as
-// shown in code snippet above.
+<div class="highlight"><pre><span></span><span class="o">//</span> <span class="nv">We</span> <span class="nv">have</span> <span class="nv">assumed</span> <span class="nv">to</span> <span class="nv">initialized</span> <span class="nv">the</span> <span class="nv">array</span> <span class="nv">by</span> <span class="nv">taking</span> <span class="nv">input</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">as</span>
+<span class="o">//</span> <span class="nv">shown</span> <span class="nv">in</span> <span class="nv">code</span> <span class="nv">snippet</span> <span class="nv">above</span>.
 
-// Traversing
-for ( i = 0; i &lt; 3; i++)
+<span class="o">//</span> <span class="nv">Traversing</span>
+<span class="k">for</span> <span class="ss">(</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; i &lt; 3; i++)</span>
 {
-  for( j = 0; j &lt; 3; j++)
+  <span class="k">for</span><span class="ss">(</span> <span class="nv">j</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; j &lt; 3; j++)</span>
   {
-    //Traversing here and applying the printing on console operation
-    printf(&quot;%d&quot;,mat[i][j]);
+    <span class="o">//</span><span class="nv">Traversing</span> <span class="nv">here</span> <span class="nv">and</span> <span class="nv">applying</span> <span class="nv">the</span> <span class="nv">printing</span> <span class="nv">on</span> <span class="nv">console</span> <span class="nv">operation</span>
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="nv">mat</span>[<span class="nv">i</span>][<span class="nv">j</span>]<span class="ss">)</span><span class="c1">;</span>
   }
 }
 </pre></div>
@@ -177,13 +180,13 @@ for ( i = 0; i &lt; 3; i++)
 <p>Extending what we've learned about 1D and 2D arrays, there can be 3D, 4D, 5D and even 100D arrays, though the complexity would multiply at each level, so we don't use beyond 2D arrays generally. In some complex application, we may use 3D arrays, but beyond that, because of the increase in the complexity, they are hardly used.</p>
 <p><p #multidimensional_declare></p><strong>Declaration of Multidimensional Arrays:</strong></p>
 <p>So, for declaring a 3 D array, you just have to define one more dimension as follows:</p>
-<div class="highlight"><pre><span></span>int matrix [3][3][3]; //Declaring 3D Array which is 3 x 3 x 3
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">matrix</span> <span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">][</span><span class="mi">3</span><span class="p">];</span> <span class="o">//</span><span class="n">Declaring</span> <span class="mi">3</span><span class="n">D</span> <span class="nb">Array</span> <span class="n">which</span> <span class="k">is</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">3</span>
 </pre></div>
 
 
 <p>Similarly, for a 4 D array,  declaration would be :</p>
-<div class="highlight"><pre><span></span>int matrix [3][4][5][6]; // Declaring Matrix named matrix of type int and
-                         // size 3 x 4 x 5 x 6
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">matrix</span> <span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">4</span><span class="p">][</span><span class="mi">5</span><span class="p">][</span><span class="mi">6</span><span class="p">];</span> <span class="o">//</span> <span class="n">Declaring</span> <span class="n">Matrix</span> <span class="n">named</span> <span class="n">matrix</span> <span class="k">of</span> <span class="k">type</span> <span class="nb">int</span> <span class="k">and</span>
+                         <span class="o">//</span> <span class="k">size</span> <span class="mi">3</span> <span class="n">x</span> <span class="mi">4</span> <span class="n">x</span> <span class="mi">5</span> <span class="n">x</span> <span class="mi">6</span>
 </pre></div>
 
 
@@ -191,19 +194,19 @@ for ( i = 0; i &lt; 3; i++)
 <p><p #multidimensional_input></p><strong>Putting in data to Multidimensional Array:</strong></p>
 <p>Very similar to filling up a 2 D array,  a 3D array can be filled up by using 3 loops (one for iterating through each dimension). Remember, the inner loop will always has a fast frequency to iterate than the loop enclosing it and so on...</p>
 <p>Let's fill up a 3D array of type float here as an example:</p>
-<div class="highlight"><pre><span></span>float mat[3][4][5]; // Declaring array mat of type float with dimensions
-                    // 3 x 4 x 5
+<div class="highlight"><pre><span></span><span class="nv">float</span> <span class="nv">mat</span>[<span class="mi">3</span>][<span class="mi">4</span>][<span class="mi">5</span>]<span class="c1">; // Declaring array mat of type float with dimensions</span>
+                    <span class="o">//</span> <span class="mi">3</span> <span class="nv">x</span> <span class="mi">4</span> <span class="nv">x</span> <span class="mi">5</span>
 
-// Filling up data in array by taking values from user
+<span class="o">//</span> <span class="nv">Filling</span> <span class="nv">up</span> <span class="nv">data</span> <span class="nv">in</span> <span class="nv">array</span> <span class="nv">by</span> <span class="nv">taking</span> <span class="nv">values</span> <span class="nv">from</span> <span class="nv">user</span>
 
-for( i = 0; i &lt; 3; i++)
+<span class="k">for</span><span class="ss">(</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; i &lt; 3; i++)</span>
 {
-  for( j = 0; j &lt; 4; j++)
+  <span class="k">for</span><span class="ss">(</span> <span class="nv">j</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; j &lt; 4; j++)</span>
   {
-    for( k = 0; k &lt; 5; k++)
+    <span class="k">for</span><span class="ss">(</span> <span class="nv">k</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; k &lt; 5; k++)</span>
     {
-      //Taking input from user here corresponding to each dimension
-      scanf(&quot;%f&quot;,&amp;mat[i][j][k]);
+      <span class="o">//</span><span class="nv">Taking</span> <span class="nv">input</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">here</span> <span class="nv">corresponding</span> <span class="nv">to</span> <span class="nv">each</span> <span class="nv">dimension</span>
+      <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%f</span><span class="s2">&quot;</span>,<span class="o">&amp;</span><span class="nv">mat</span>[<span class="nv">i</span>][<span class="nv">j</span>][<span class="nv">k</span>]<span class="ss">)</span><span class="c1">;</span>
     }
   }
 }
@@ -213,18 +216,18 @@ for( i = 0; i &lt; 3; i++)
 <p>Similarly, just increase the number of loops depending on the dimensions. Thus, if you have created an N dimension array, it would take N loops to fill it.</p>
 <p><p #multidimensional_output></p><strong>Traversing and Output of a  Multidimensional Array:</strong></p>
 <p>In the same way as explained above, you can print a multidimensional array by iterating through it using the same no. of loops as the dimension of the array as:</p>
-<div class="highlight"><pre><span></span>// This snippet assumes that we&#39;ve declared and filled up the array as shown // above.
+<div class="highlight"><pre><span></span><span class="o">//</span> <span class="nv">This</span> <span class="nv">snippet</span> <span class="nv">assumes</span> <span class="nv">that</span> <span class="nv">we</span><span class="s1">&#39;</span><span class="s">ve declared and filled up the array as shown // above.</span>
 
-// Traversing and output
+<span class="o">//</span> <span class="nv">Traversing</span> <span class="nv">and</span> <span class="nv">output</span>
 
-for( i = 0; i &lt; 3; i++)
+<span class="k">for</span><span class="ss">(</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; i &lt; 3; i++)</span>
 {
-  for( j = 0; j &lt; 4; j++)
+  <span class="k">for</span><span class="ss">(</span> <span class="nv">j</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; j &lt; 4; j++)</span>
   {
-    for( k = 0; k &lt; 5; k++)
+    <span class="k">for</span><span class="ss">(</span> <span class="nv">k</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">; k &lt; 5; k++)</span>
     {
-      //Taking input from user here corresponding to each dimension
-      printf(&quot;%f&quot;,mat[i][j][k]);
+      <span class="o">//</span><span class="nv">Taking</span> <span class="nv">input</span> <span class="nv">from</span> <span class="nv">user</span> <span class="nv">here</span> <span class="nv">corresponding</span> <span class="nv">to</span> <span class="nv">each</span> <span class="nv">dimension</span>
+      <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%f</span><span class="s2">&quot;</span>,<span class="nv">mat</span>[<span class="nv">i</span>][<span class="nv">j</span>][<span class="nv">k</span>]<span class="ss">)</span><span class="c1">;</span>
     }
   }
 }
@@ -236,24 +239,22 @@ for( i = 0; i &lt; 3; i++)
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 24 July 2014</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/2d/">2D</a>,      <a href="/tag/arrays/">arrays</a>,      <a href="/tag/multidimensional/">multidimensional</a>    </p>
+      <a href="//thegeekyway.com/tag/2d/">2D</a>,      <a href="//thegeekyway.com/tag/arrays/">arrays</a>,      <a href="//thegeekyway.com/tag/multidimensional/">multidimensional</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/learning-2d-multidimensional-arrays/";
-      this.page.identifier = "learning-2d-multidimensional-arrays/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "learning-2d-multidimensional-arrays/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

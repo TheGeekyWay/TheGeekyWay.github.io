@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="asp.net, C#">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Asp.net Basics : Uploading a file in asp.net using validations (Part 4 of 5)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/">Asp.net Basics : Uploading a file in asp.net using validations (Part 4 of 5)</a></h1>
+    <h1><a href="//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/">Asp.net Basics : Uploading a file in asp.net using validations (Part 4 of 5)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -103,21 +106,21 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
 <p>where FileUpload1 is the fileupload control and FileName gets the current file which is being uploaded.</p>
 <p>Using this method we can get the file extension and we can compare the values using if-else.</p>
 <p>The complete <a href="http://www.thegeekyway.com/tag/c-2/">C#</a> code is</p>
-<div class="highlight"><pre><span></span>    private void GetFileExtension()
+<div class="highlight"><pre><span></span>    <span class="nv">private</span> <span class="nv">void</span> <span class="nv">GetFileExtension</span><span class="ss">()</span>
     {
-        string GetFileExtension = Path.GetExtension(FileUpload1.FileName);
-        if (GetFileExtension == &quot;.pdf&quot;)
+        <span class="nv">string</span> <span class="nv">GetFileExtension</span> <span class="o">=</span> <span class="nv">Path</span>.<span class="nv">GetExtension</span><span class="ss">(</span><span class="nv">FileUpload1</span>.<span class="nv">FileName</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">GetFileExtension</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">.pdf</span><span class="s2">&quot;</span><span class="ss">)</span>
         {
-            Image1.ImageUrl = &quot;~//images//success.png&quot;;
-            File_Extension.Text = &quot;File Extension OK ! File will be uploaded&quot;;
-            File_Extension.ForeColor = Color.GreenYellow;
-            // Provide upload code (discussed in part 1 of this tutorial)
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Extension</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">File Extension OK ! File will be uploaded</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Extension</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">GreenYellow</span><span class="c1">;</span>
+            <span class="o">//</span> <span class="nv">Provide</span> <span class="nv">upload</span> <span class="nv">code</span> <span class="ss">(</span><span class="nv">discussed</span> <span class="nv">in</span> <span class="nv">part</span> <span class="mi">1</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">tutorial</span><span class="ss">)</span>
         }
-        else
+        <span class="k">else</span>
         {
-            File_Extension.Text = &quot;File Extension detected : &#39;&quot; +GetFileExtension+ &quot;&#39;. Required file extension : &#39;.pdf&#39; &quot;+&quot;File Not uploaded&quot; ;
-            File_Extension.ForeColor = Color.Red;
-            Image1.ImageUrl = &quot;~//images//not_success.png&quot;;
+            <span class="nv">File_Extension</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">File Extension detected : &#39;</span><span class="s2">&quot;</span> <span class="o">+</span><span class="nv">GetFileExtension</span><span class="o">+</span> <span class="s2">&quot;</span><span class="s">&#39;. Required file extension : &#39;.pdf&#39; </span><span class="s2">&quot;</span><span class="o">+</span><span class="s2">&quot;</span><span class="s">File Not uploaded</span><span class="s2">&quot;</span> <span class="c1">;</span>
+            <span class="nv">File_Extension</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
         }
     }
 </pre></div>
@@ -131,24 +134,22 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 06 January 2014</p>
-    <p>Category: <a href="/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
+    <p>Category: <a href="//thegeekyway.com/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
  &ndash; Tags:
-      <a href="/tag/aspnet/">asp.net</a>,      <a href="/tag/c/">C#</a>    </p>
+      <a href="//thegeekyway.com/tag/aspnet/">asp.net</a>,      <a href="//thegeekyway.com/tag/c/">C#</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/";
-      this.page.identifier = "asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-4/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

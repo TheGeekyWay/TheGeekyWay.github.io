@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="IRC">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; [CHEAT-SHEET] List of Important IRC Commands  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/list-important-irc-commands/">[CHEAT-SHEET] List of Important IRC Commands</a></h1>
+    <h1><a href="//thegeekyway.com/list-important-irc-commands/">[CHEAT-SHEET] List of Important IRC Commands</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -81,106 +84,106 @@
   <div class="article_text">
     <p>While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.</p>
 <p><strong>Changing your Nick</strong></p>
-<div class="highlight"><pre><span></span>/nick YourNick
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">nick</span> <span class="n">YourNick</span>
 </pre></div>
 
 
 <p>Here, YourNick is the nick you want. So, if your nick was Harry, now it would be YourNick like:</p>
-<div class="highlight"><pre><span></span>/nick YourNick
-Harry has changed nick to YourNick
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">nick</span> <span class="n">YourNick</span>
+<span class="n">Harry</span> <span class="n">has</span> <span class="n">changed</span> <span class="n">nick</span> <span class="k">to</span> <span class="n">YourNick</span>
 </pre></div>
 
 
 <p>If YourNick is already registered, you have to identify by giving your password as shown:</p>
-<div class="highlight"><pre><span></span>/nick YourNick
-Harry has changed nick to YourNick
--NickServ- This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify &lt;password&gt;.
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">nick</span> <span class="n">YourNick</span>
+<span class="n">Harry</span> <span class="n">has</span> <span class="n">changed</span> <span class="n">nick</span> <span class="k">to</span> <span class="n">YourNick</span>
+<span class="o">-</span><span class="n">NickServ</span><span class="o">-</span> <span class="n">This</span> <span class="n">nickname</span> <span class="k">is</span> <span class="n">registered</span><span class="p">.</span> <span class="n">Please</span> <span class="n">choose</span> <span class="n">a</span> <span class="n">different</span> <span class="n">nickname</span><span class="p">,</span> <span class="k">or</span> <span class="n">identify</span> <span class="n">via</span> <span class="o">/</span><span class="n">msg</span> <span class="n">NickServ</span> <span class="n">identify</span> <span class="o">&lt;</span><span class="n">password</span><span class="o">&gt;</span><span class="p">.</span>
 </pre></div>
 
 
 <p>Here substitute \&lt;password> with the password you set when you registered your nick. When you enter your password, if it is correct, the following would be shown:</p>
-<div class="highlight"><pre><span></span>*NickServ* identify &lt;password&gt;
-[12:22] -NickServ- You are now identified for YourNick.
+<div class="highlight"><pre><span></span><span class="o">*</span><span class="nv">NickServ</span><span class="o">*</span> <span class="nv">identify</span> <span class="o">&lt;</span><span class="nv">password</span><span class="o">&gt;</span>
+[<span class="mi">12</span>:<span class="mi">22</span>] <span class="o">-</span><span class="nv">NickServ</span><span class="o">-</span> <span class="nv">You</span> <span class="nv">are</span> <span class="nv">now</span> <span class="nv">identified</span> <span class="k">for</span> <span class="nv">YourNick</span>.
 </pre></div>
 
 
 <p><strong>Getting help</strong></p>
-<div class="highlight"><pre><span></span>/help
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">help</span>
 </pre></div>
 
 
 <p>When used this way, you'll get an index of various things you can get help with as shown.</p>
-<div class="highlight"><pre><span></span>index Help topics available to users:
-== index  
-== index ACCEPT          ADMIN           AWAY            CHALLENGE
-== index CMODE           CNOTICE         CPRIVMSG        CREDITS
-== index ERROR           EXTBAN          HELP            INDEX
-== index INFO            INVITE          ISON            JOIN
-== index KICK            KNOCK           LINKS           LIST
-== index LUSERS          MAP             MOTD            NAMES
-== index NICK            NOTICE          OPER            PART
-== index PASS            PING            PONG            PRIVMSG
-== index QUIT            STATS           TIME            TOPIC
-== index TRACE           UMODE           USER            USERHOST
-== index USERS           VERSION         WHO             WHOIS
-== index WHOWAS
-== index End of /HELP.
+<div class="highlight"><pre><span></span><span class="nv">index</span> <span class="nv">Help</span> <span class="nv">topics</span> <span class="nv">available</span> <span class="nv">to</span> <span class="nv">users</span>:
+<span class="o">==</span> <span class="nv">index</span>  
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">ACCEPT</span>          <span class="nv">ADMIN</span>           <span class="nv">AWAY</span>            <span class="nv">CHALLENGE</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">CMODE</span>           <span class="nv">CNOTICE</span>         <span class="nv">CPRIVMSG</span>        <span class="nv">CREDITS</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">ERROR</span>           <span class="nv">EXTBAN</span>          <span class="nv">HELP</span>            <span class="nv">INDEX</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">INFO</span>            <span class="nv">INVITE</span>          <span class="nv">ISON</span>            <span class="nv">JOIN</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">KICK</span>            <span class="nv">KNOCK</span>           <span class="nv">LINKS</span>           <span class="nv">LIST</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">LUSERS</span>          <span class="nv">MAP</span>             <span class="nv">MOTD</span>            <span class="nv">NAMES</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">NICK</span>            <span class="nv">NOTICE</span>          <span class="nv">OPER</span>            <span class="nv">PART</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">PASS</span>            <span class="nv">PING</span>            <span class="nv">PONG</span>            <span class="nv">PRIVMSG</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">QUIT</span>            <span class="nv">STATS</span>           <span class="nv">TIME</span>            <span class="nv">TOPIC</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">TRACE</span>           <span class="nv">UMODE</span>           <span class="nv">USER</span>            <span class="nv">USERHOST</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">USERS</span>           <span class="nv">VERSION</span>         <span class="nv">WHO</span>             <span class="nv">WHOIS</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="nv">WHOWAS</span>
+<span class="o">==</span> <span class="nv">index</span> <span class="k">End</span> <span class="nv">of</span> <span class="o">/</span><span class="nv">HELP</span>.
 </pre></div>
 
 
 <p>You can get specific help by typing the stuff you need help with. For example, if you need help with WHOIS then it can be done as:</p>
-<div class="highlight"><pre><span></span>/help WHOIS
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">help</span> <span class="n">WHOIS</span>
 </pre></div>
 
 
 <p>This would give the following result:</p>
-<div class="highlight"><pre><span></span>== WHOIS WHOIS [remoteserver|nick] nick
-== WHOIS  
-== WHOIS WHOIS will display detailed user information for
-== WHOIS the specified nick.  If the first parameter is
-== WHOIS specified, WHOIS will display information from
-== WHOIS the specified server, or the server that the
-== WHOIS user is on.  This is how to remotely see
-== WHOIS idle time and away status.
-== WHOIS End of /HELP.
+<div class="highlight"><pre><span></span><span class="o">==</span> <span class="nv">WHOIS</span> <span class="nv">WHOIS</span> [<span class="nv">remoteserver</span><span class="o">|</span><span class="nv">nick</span>] <span class="nv">nick</span>
+<span class="o">==</span> <span class="nv">WHOIS</span>  
+<span class="o">==</span> <span class="nv">WHOIS</span> <span class="nv">WHOIS</span> <span class="nv">will</span> <span class="nv">display</span> <span class="nv">detailed</span> <span class="nv">user</span> <span class="nv">information</span> <span class="k">for</span>
+<span class="o">==</span> <span class="nv">WHOIS</span> <span class="nv">the</span> <span class="nv">specified</span> <span class="nv">nick</span>.  <span class="k">If</span> <span class="nv">the</span> <span class="nv">first</span> <span class="nv">parameter</span> <span class="nv">is</span>
+<span class="o">==</span> <span class="nv">WHOIS</span> <span class="nv">specified</span>, <span class="nv">WHOIS</span> <span class="nv">will</span> <span class="nv">display</span> <span class="nv">information</span> <span class="nv">from</span>
+<span class="o">==</span> <span class="nv">WHOIS</span> <span class="nv">the</span> <span class="nv">specified</span> <span class="nv">server</span>, <span class="nv">or</span> <span class="nv">the</span> <span class="nv">server</span> <span class="nv">that</span> <span class="nv">the</span>
+<span class="o">==</span> <span class="nv">WHOIS</span> <span class="nv">user</span> <span class="nv">is</span> <span class="nv">on</span>.  <span class="nv">This</span> <span class="nv">is</span> <span class="nv">how</span> <span class="nv">to</span> <span class="nv">remotely</span> <span class="nv">see</span>
+<span class="o">==</span> <span class="nv">WHOIS</span> <span class="nv">idle</span> <span class="nv">time</span> <span class="nv">and</span> <span class="nv">away</span> <span class="nv">status</span>.
+<span class="o">==</span> <span class="nv">WHOIS</span> <span class="k">End</span> <span class="nv">of</span> <span class="o">/</span><span class="nv">HELP</span>.
 </pre></div>
 
 
 <p><strong> Admin Info for servers</strong></p>
 <p>To get information about Admin of any server, you can use the following command:</p>
-<div class="highlight"><pre><span></span>/Admin [&lt;servers&gt;]
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="k">Admin</span> <span class="p">[</span><span class="o">&lt;</span><span class="n">servers</span><span class="o">&gt;</span><span class="p">]</span>
 </pre></div>
 
 
 <p>Here servers is optional, if used without any parameter, the admin information about current server would be returned.</p>
 <p>Else, the information about given server would be returned. Here is what I got when using irc.freenode.net. You can expect somewhat similar results.</p>
-<div class="highlight"><pre><span></span>== Administrative info about herbert.freenode.net
-== You&#39;re using freenode! For assistance, please &#39;/stats p&#39; and message someone on the list
-== For further assistance, please see http://freenode.net/faq.shtml, or email
-== support@freenode.net
+<div class="highlight"><pre><span></span><span class="o">==</span> <span class="nv">Administrative</span> <span class="nv">info</span> <span class="nv">about</span> <span class="nv">herbert</span>.<span class="nv">freenode</span>.<span class="nv">net</span>
+<span class="o">==</span> <span class="nv">You</span><span class="s1">&#39;</span><span class="s">re using freenode! For assistance, please </span><span class="s1">&#39;</span><span class="o">/</span><span class="nv">stats</span> <span class="nv">p</span><span class="s1">&#39;</span><span class="s"> and message someone on the list</span>
+<span class="o">==</span> <span class="k">For</span> <span class="nv">further</span> <span class="nv">assistance</span>, <span class="nv">please</span> <span class="nv">see</span> <span class="nv">http</span>:<span class="o">//</span><span class="nv">freenode</span>.<span class="nv">net</span><span class="o">/</span><span class="nv">faq</span>.<span class="nv">shtml</span>, <span class="nv">or</span> <span class="nv">email</span>
+<span class="o">==</span> <span class="nv">support</span>@<span class="nv">freenode</span>.<span class="nv">net</span>
 </pre></div>
 
 
 <p><strong> AWAY Message</strong></p>
 <p>The Away message could be used to inform other people that you're away for sometimes, it can be used as:</p>
-<div class="highlight"><pre><span></span>/AWAY &lt;message&gt;
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">AWAY</span> <span class="o">&lt;</span><span class="n">message</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>Here message is any information you want to tell people for why you are going away like:</p>
-<div class="highlight"><pre><span></span>/AWAY Going to get some food, feeling hungry, brb in 10 mins.
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">AWAY</span> <span class="n">Going</span> <span class="k">to</span> <span class="k">get</span> <span class="k">some</span> <span class="n">food</span><span class="p">,</span> <span class="n">feeling</span> <span class="n">hungry</span><span class="p">,</span> <span class="n">brb</span> <span class="k">in</span> <span class="mi">10</span> <span class="n">mins</span><span class="p">.</span>
 </pre></div>
 
 
 <p>This would return the following:</p>
-<div class="highlight"><pre><span></span>== You have been marked as being away
+<div class="highlight"><pre><span></span><span class="o">==</span> <span class="n">You</span> <span class="n">have</span> <span class="n">been</span> <span class="n">marked</span> <span class="k">as</span> <span class="n">being</span> <span class="n">away</span>
 </pre></div>
 
 
 <p>When used without any message, the away status will be removed.</p>
 <p><strong>Get WHOIS Information</strong></p>
 <p>Often you might want to see the whois information for someone, whom you don't recognize. The whois command can be used as:</p>
-<div class="highlight"><pre><span></span>/WHOIS BellBaghton
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">WHOIS</span> <span class="n">BellBaghton</span>
 </pre></div>
 
 
@@ -197,17 +200,17 @@ Harry has changed nick to YourNick
 <p><strong>NOTE:</strong> BellBaghton is just arbitrary nick and all information in result is changed here. It is for illustration purpose only.</p>
 <p><strong>Action Messages</strong></p>
 <p>All action messages can be displayed by using following command:</p>
-<div class="highlight"><pre><span></span>/me &lt;my action&gt;
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">me</span> <span class="o">&lt;</span><span class="n">my</span> <span class="n">action</span><span class="o">&gt;</span>
 </pre></div>
 
 
 <p>Here \&lt;my action> can be replaced with any action you're doing like:</p>
-<div class="highlight"><pre><span></span>/me thinks that IRC is really good.
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">me</span> <span class="n">thinks</span> <span class="n">that</span> <span class="n">IRC</span> <span class="k">is</span> <span class="n">really</span> <span class="n">good</span><span class="p">.</span>
 </pre></div>
 
 
 <p>This would return the following:</p>
-<div class="highlight"><pre><span></span>* YourNick thinks that IRC is really good.
+<div class="highlight"><pre><span></span><span class="o">*</span> <span class="n">YourNick</span> <span class="n">thinks</span> <span class="n">that</span> <span class="n">IRC</span> <span class="k">is</span> <span class="n">really</span> <span class="n">good</span><span class="p">.</span>
 </pre></div>
 
 
@@ -216,24 +219,22 @@ Harry has changed nick to YourNick
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 14 June 2018</p>
-    <p>Category: <a href="/category/miscellaneous/">Miscellaneous</a>
+    <p>Category: <a href="//thegeekyway.com/category/miscellaneous/">Miscellaneous</a>
  &ndash; Tags:
-      <a href="/tag/irc/">IRC</a>    </p>
+      <a href="//thegeekyway.com/tag/irc/">IRC</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/list-important-irc-commands/";
-      this.page.identifier = "list-important-irc-commands/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "list-important-irc-commands/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

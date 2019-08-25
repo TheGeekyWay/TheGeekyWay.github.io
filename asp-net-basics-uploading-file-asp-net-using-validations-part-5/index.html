@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="asp.net, C#">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Asp.net Basics : Uploading a file in asp.net using validations (Part 5 of 5)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/asp-net-basics-uploading-file-asp-net-using-validations-part-5/">Asp.net Basics : Uploading a file in asp.net using validations (Part 5 of 5)</a></h1>
+    <h1><a href="//thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/">Asp.net Basics : Uploading a file in asp.net using validations (Part 5 of 5)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -97,133 +100,133 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
 <h2><strong><em>*File Upload in asp.net : v1.4final</em></strong>*</h2>
 <p>In last 4 tutorials we discussed how to upload the file on server and validate the file with various validations. This is the last part of tutorial where all the validations are used at once.</p>
 <p>Here is the final C# code clubbed into all one</p>
-<div class="highlight"><pre><span></span>using System;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Drawing;
-using System.IO;
+<div class="highlight"><pre><span></span><span class="nv">using</span> <span class="nv">System</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Configuration</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Data</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Linq</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">Security</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span>.<span class="nv">HtmlControls</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span>.<span class="nv">WebControls</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span>.<span class="nv">WebControls</span>.<span class="nv">WebParts</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Xml</span>.<span class="nv">Linq</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Drawing</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">IO</span><span class="c1">;</span>
 
-public partial class _Default : System.Web.UI.Page 
+<span class="nv">public</span> <span class="nv">partial</span> <span class="nv">class</span> <span class="nv">_Default</span> : <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span>.<span class="nv">Page</span> 
 {    
-    protected void Page_Load(object sender, EventArgs e)
+    <span class="nv">protected</span> <span class="nv">void</span> <span class="nv">Page_Load</span><span class="ss">(</span><span class="nv">object</span> <span class="nv">sender</span>, <span class="nv">EventArgs</span> <span class="nv">e</span><span class="ss">)</span>
     {
-        Panel1.Visible = false;
+        <span class="nv">Panel1</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    <span class="nv">protected</span> <span class="nv">void</span> <span class="nv">Button1_Click</span><span class="ss">(</span><span class="nv">object</span> <span class="nv">sender</span>, <span class="nv">EventArgs</span> <span class="nv">e</span><span class="ss">)</span>
     {
 
-        Panel1.Visible = true;
-        int flag1 = isFileEmpty();
-        int flag2 = GetFileExtension();
-        int flag3 = checkFileSize();
-        if (flag1 == 1 &amp;amp;&amp;amp; flag2 == 1 &amp;amp;&amp;amp; flag3 == 1)
+        <span class="nv">Panel1</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
+        <span class="nv">int</span> <span class="nv">flag1</span> <span class="o">=</span> <span class="nv">isFileEmpty</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">int</span> <span class="nv">flag2</span> <span class="o">=</span> <span class="nv">GetFileExtension</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">int</span> <span class="nv">flag3</span> <span class="o">=</span> <span class="nv">checkFileSize</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">flag1</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nv">flag2</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="nv">flag3</span> <span class="o">==</span> <span class="mi">1</span><span class="ss">)</span>
         {
-            saveFile();
-            Image1.ImageUrl = &quot;~//images//success.png&quot;;
-            File_Upload_Status.Text = &quot;Success ! File uploaded successfully&quot;;
-            File_Upload_Status.ForeColor = Color.GreenYellow;
+            <span class="nv">saveFile</span><span class="ss">()</span><span class="c1">;</span>
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Success ! File uploaded successfully</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">GreenYellow</span><span class="c1">;</span>
         }
-        else
+        <span class="k">else</span>
         {
-            Image1.ImageUrl = &quot;~//images//not_success.png&quot;;
-            File_Upload_Status.Text = &quot;File Not uploaded &amp;lt;br&amp;gt; Please refer the notes below&quot;;
-            File_Upload_Status.ForeColor = Color.Red;
-        }
-    }
-    private int isFileEmpty()
-    {
-        if (FileUpload1.HasFile)
-        {
-            // This part is just the internal coding no need for it to display it on main screen 
-            return 1; 
-        }
-        else
-        {
-            return 0;
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">File Not uploaded &lt;br&gt; Please refer the notes below</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
         }
     }
-    private int GetFileExtension()
+    <span class="nv">private</span> <span class="nv">int</span> <span class="nv">isFileEmpty</span><span class="ss">()</span>
     {
-        string GetFileExtension = Path.GetExtension(FileUpload1.FileName);
-        if (GetFileExtension != null &amp;amp;&amp;amp; GetFileExtension == &quot;.pdf&quot;)
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">FileUpload1</span>.<span class="nv">HasFile</span><span class="ss">)</span>
         {
-            Image2.ImageUrl = &quot;~//images//success.png&quot;;
-            File_Extension.Text = &quot;File Extension&quot;;
-            File_Extension.ForeColor = Color.GreenYellow;
-            File_Type.Text = &quot;File Type&quot;;
-            File_Type.ForeColor = Color.GreenYellow;
-            File_Type0.Text = GetFileExtension;
-            File_Type0.ForeColor = Color.GreenYellow;
-            return 1;  
+            <span class="o">//</span> <span class="nv">This</span> <span class="nv">part</span> <span class="nv">is</span> <span class="nv">just</span> <span class="nv">the</span> <span class="nv">internal</span> <span class="nv">coding</span> <span class="nv">no</span> <span class="nv">need</span> <span class="k">for</span> <span class="nv">it</span> <span class="nv">to</span> <span class="nv">display</span> <span class="nv">it</span> <span class="nv">on</span> <span class="nv">main</span> <span class="nv">screen</span> 
+            <span class="k">return</span> <span class="mi">1</span><span class="c1">; </span>
         }
-        else
+        <span class="k">else</span>
         {
-            if (GetFileExtension == &quot;&quot;)
-            {
-                File_Extension.Text = &quot;Wrong file extension.&quot;;
-                File_Extension.ForeColor = Color.Red;
-                Image2.ImageUrl = &quot;~//images//not_success.png&quot;;
-                File_Type.Text = &quot;No file type available&quot;;
-                File_Type0.Text = &quot;X&quot;;
-                File_Type.ForeColor = Color.Red;
-                File_Type0.ForeColor = Color.Red;
-            }
-            else
-            {
-                File_Extension.Text = &quot;Wrong file extension.&quot;;
-                File_Extension.ForeColor = Color.Red;
-                Image2.ImageUrl = &quot;~//images//not_success.png&quot;;
-                File_Type.Text = &quot;File type&quot;;
-                File_Type.ForeColor = Color.Red;
-                File_Type0.Text = GetFileExtension;
-                File_Type0.ForeColor = Color.Red;
-            }
-            return 0;       
+            <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
         }
     }
-    private int checkFileSize()
+    <span class="nv">private</span> <span class="nv">int</span> <span class="nv">GetFileExtension</span><span class="ss">()</span>
+    {
+        <span class="nv">string</span> <span class="nv">GetFileExtension</span> <span class="o">=</span> <span class="nv">Path</span>.<span class="nv">GetExtension</span><span class="ss">(</span><span class="nv">FileUpload1</span>.<span class="nv">FileName</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">GetFileExtension</span> <span class="o">!=</span> <span class="nv">null</span> <span class="o">&amp;&amp;</span> <span class="nv">GetFileExtension</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">.pdf</span><span class="s2">&quot;</span><span class="ss">)</span>
+        {
+            <span class="nv">Image2</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Extension</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">File Extension</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Extension</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">GreenYellow</span><span class="c1">;</span>
+            <span class="nv">File_Type</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">File Type</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Type</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">GreenYellow</span><span class="c1">;</span>
+            <span class="nv">File_Type0</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="nv">GetFileExtension</span><span class="c1">;</span>
+            <span class="nv">File_Type0</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">GreenYellow</span><span class="c1">;</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="c1">;  </span>
+        }
+        <span class="k">else</span>
+        {
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">GetFileExtension</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="ss">)</span>
+            {
+                <span class="nv">File_Extension</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Wrong file extension.</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Extension</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+                <span class="nv">Image2</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Type</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">No file type available</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Type0</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">X</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Type</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+                <span class="nv">File_Type0</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+            }
+            <span class="k">else</span>
+            {
+                <span class="nv">File_Extension</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Wrong file extension.</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Extension</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+                <span class="nv">Image2</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Type</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">File type</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Type</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+                <span class="nv">File_Type0</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="nv">GetFileExtension</span><span class="c1">;</span>
+                <span class="nv">File_Type0</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+            }
+            <span class="k">return</span> <span class="mi">0</span><span class="c1">;       </span>
+        }
+    }
+    <span class="nv">private</span> <span class="nv">int</span> <span class="nv">checkFileSize</span><span class="ss">()</span>
     {
 
-        int filesize = (FileUpload1.PostedFile.ContentLength)/1024;
+        <span class="nv">int</span> <span class="nv">filesize</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">FileUpload1</span>.<span class="nv">PostedFile</span>.<span class="nv">ContentLength</span><span class="ss">)</span><span class="o">/</span><span class="mi">1024</span><span class="c1">;</span>
 
-            if (filesize != 0 &amp;amp;&amp;amp;filesize &amp;lt; 2048)
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">filesize</span> <span class="o">!=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span><span class="nv">filesize</span> <span class="o">&lt;</span> <span class="mi">2048</span><span class="ss">)</span>
             {
-                File_Size.Text = &quot; File size &quot;;
-                Image3.ImageUrl = &quot;~//images//success.png&quot;;
-                File_Size.ForeColor = Color.GreenYellow;
-                return 1;
+                <span class="nv">File_Size</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s"> File size </span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">Image3</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Size</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">GreenYellow</span><span class="c1">;</span>
+                <span class="k">return</span> <span class="mi">1</span><span class="c1">;</span>
             }
 
-        else
+        <span class="k">else</span>
         {
-            if (filesize == 0)
+            <span class="k">if</span> <span class="ss">(</span><span class="nv">filesize</span> <span class="o">==</span> <span class="mi">0</span><span class="ss">)</span>
             {
-                File_Size.Text = &quot;No file posted&quot;;
-                Image3.ImageUrl = &quot;~//images//not_success.png&quot;;
-                File_Size.ForeColor = Color.Red;
-                return 1;
+                <span class="nv">File_Size</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">No file posted</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">Image3</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Size</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+                <span class="k">return</span> <span class="mi">1</span><span class="c1">;</span>
             }
-            else
+            <span class="k">else</span>
             {
-                File_Size.Text = &quot;File size limit exceeded &amp;lt;br&amp;gt;(greater than 2MB)&quot;;
-                File_Size.ForeColor = Color.Red;
-                Image3.ImageUrl = &quot;~//images//not_success.png&quot;;
-                return 0;
+                <span class="nv">File_Size</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">File size limit exceeded &lt;br&gt;(greater than 2MB)</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="nv">File_Size</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+                <span class="nv">Image3</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+                <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
             }
         }
 
     }
-    private void saveFile()
+    <span class="nv">private</span> <span class="nv">void</span> <span class="nv">saveFile</span><span class="ss">()</span>
     {
-        FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName));
+        <span class="nv">FileUpload1</span>.<span class="nv">SaveAs</span><span class="ss">(</span><span class="nv">Server</span>.<span class="nv">MapPath</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">~/uploads/</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">FileUpload1</span>.<span class="nv">FileName</span><span class="ss">))</span><span class="c1">;</span>
     }
 }
 </pre></div>
@@ -250,24 +253,22 @@ public partial class _Default : System.Web.UI.Page
   </div>
   <div class="article_meta">
     <p>Posted on: Tue 07 January 2014</p>
-    <p>Category: <a href="/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
+    <p>Category: <a href="//thegeekyway.com/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
  &ndash; Tags:
-      <a href="/tag/aspnet/">asp.net</a>,      <a href="/tag/c/">C#</a>    </p>
+      <a href="//thegeekyway.com/tag/aspnet/">asp.net</a>,      <a href="//thegeekyway.com/tag/c/">C#</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/asp-net-basics-uploading-file-asp-net-using-validations-part-5/";
-      this.page.identifier = "asp-net-basics-uploading-file-asp-net-using-validations-part-5/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "asp-net-basics-uploading-file-asp-net-using-validations-part-5/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

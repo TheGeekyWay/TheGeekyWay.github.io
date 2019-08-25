@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Web Development</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/web-development.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2017-11-30T08:20:00+05:30</updated><entry><title>Have you ever heard of OG-TAGS?</title><link href="//thegeekyway.com/have-you-ever-heard-of-og-tags/" rel="alternate"></link><published>2017-11-30T08:20:00+05:30</published><updated>2017-11-30T08:20:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2017-11-30:/have-you-ever-heard-of-og-tags/</id><summary type="html">&lt;p&gt;Ever noticed how Facebook shows an excerpt from a website with its image, or how a tweet with just a URL changes into a short window to the actual website? It's because of og-tags. Let's understand more about it!&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Web Development</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/web-development.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T01:12:53+05:30</updated><entry><title>List of few tags that are supported in HTML5</title><link href="//thegeekyway.com/few-tags-now-supported-html5/" rel="alternate"></link><published>2019-08-24T01:12:53+05:30</published><updated>2019-08-24T01:12:53+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2019-08-24:/few-tags-now-supported-html5/</id><summary type="html">&lt;p&gt;Hi everyone, some of you might be new to web development, so you must have thought that what is HTML5, how is it different from previous versions, what is new in HTML5.&lt;br&gt;
+In this article we will be discussing about the new tags which are now there in HTML5 but …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Hi everyone, some of you might be new to web development, so you must have thought that what is HTML5, how is it different from previous versions, what is new in HTML5.&lt;br&gt;
+In this article we will be discussing about the new tags which are now there in HTML5 but were not there in previous versions of HTML.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;article tag&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This tag specifies an article which contains independent content. It doesn't co-relate to any other paragraph.&lt;br&gt;
+This tag is supported IE 9+, Firefox, Opera, Chrome, and Safari.  &lt;/p&gt;
+&lt;iframe height="265" style="width: 100%;" scrolling="no" title="iyqxF" src="//codepen.io/Deep_Singh/embed/iyqxF/?height=265&amp;theme-id=0&amp;default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true"&gt;
+  See the Pen &lt;a href='https://codepen.io/Deep_Singh/pen/iyqxF/'&gt;iyqxF&lt;/a&gt; by Deep Singh
+  (&lt;a href='https://codepen.io/Deep_Singh'&gt;@Deep_Singh&lt;/a&gt;) on &lt;a href='https://codepen.io'&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+
+&lt;ol&gt;
+&lt;li&gt;aside tag&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This tag is supported IE 9+, Firefox, Opera, Chrome, and Safari.&lt;/p&gt;
+&lt;iframe height="265" style="width: 100%;" scrolling="no" title="kCsJq" src="//codepen.io/Deep_Singh/embed/kCsJq/?height=265&amp;theme-id=0&amp;default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true"&gt;
+  See the Pen &lt;a href='https://codepen.io/Deep_Singh/pen/kCsJq/'&gt;kCsJq&lt;/a&gt; by Deep Singh
+  (&lt;a href='https://codepen.io/Deep_Singh'&gt;@Deep_Singh&lt;/a&gt;) on &lt;a href='https://codepen.io'&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;
+
+&lt;ol&gt;
+&lt;li&gt;audio tag&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;It defines music, audio and other strams.&lt;/p&gt;
+&lt;p&gt;This tag is supported IE 9+, Firefox, Opera, Chrome, and Safari.
+Firefox supports mp3&lt;/p&gt;
+&lt;iframe height="265" style="width: 100%;" scrolling="no" title="Sample audio tag" src="//codepen.io/jfreyre/embed/bIdvi/?height=265&amp;theme-id=0&amp;default-tab=html,result" frameborder="no" allowtransparency="true" allowfullscreen="true"&gt;
+  See the Pen &lt;a href='https://codepen.io/jfreyre/pen/bIdvi/'&gt;Sample audio tag&lt;/a&gt; by Freyre
+  (&lt;a href='https://codepen.io/jfreyre'&gt;@jfreyre&lt;/a&gt;) on &lt;a href='https://codepen.io'&gt;CodePen&lt;/a&gt;.
+&lt;/iframe&gt;</content></entry><entry><title>Have you ever heard of OG-TAGS?</title><link href="//thegeekyway.com/have-you-ever-heard-of-og-tags/" rel="alternate"></link><published>2017-11-30T08:20:00+05:30</published><updated>2017-11-30T08:20:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2017-11-30:/have-you-ever-heard-of-og-tags/</id><summary type="html">&lt;p&gt;Ever noticed how Facebook shows an excerpt from a website with its image, or how a tweet with just a URL changes into a short window to the actual website? It's because of og-tags. Let's understand more about it!&lt;/p&gt;
 &lt;!--more--&gt;
 
 &lt;div style="text-align:center"&gt;
@@ -25,7 +56,7 @@
 &lt;p&gt;Now, Let's see some of the details, how it works, basic syntax etc.&lt;/p&gt;
 &lt;p&gt;It's based on &lt;a href="https://en.wikipedia.org/wiki/RDFa"&gt;RDFa: Resource Description Framework in attributes.&lt;/a&gt; Hence, it uses metadata from a page to turn them into these graph objects. You can think of object as the website being displayed, and Graph as the small summary style window created using og-tags. And for it, &lt;code&gt;&amp;lt;meta&amp;gt;&lt;/code&gt; tags are required. In each meta tag, a property can be specified. A sample og tag might look like :&lt;/p&gt;
 &lt;p&gt;For Facebook:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;meta property=&amp;quot;og:title&amp;quot; content=&amp;quot; The Geeky Way&amp;quot;/&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;meta&lt;/span&gt; &lt;span class="n"&gt;property&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;og:title&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot; The Geeky Way&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -34,7 +65,7 @@
 &lt;/div&gt;
 
 &lt;p&gt;For Twitter:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;meta name=&amp;quot;twitter:title&amp;quot; content=&amp;quot;The Geeky Way&amp;quot;/&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;meta&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;twitter:title&amp;quot;&lt;/span&gt; &lt;span class="n"&gt;content&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;The Geeky Way&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;/&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

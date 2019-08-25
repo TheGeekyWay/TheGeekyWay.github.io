@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="C language, conditional, switch">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Conditional Statements : Switch Case  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/conditional-statements-switch-case/">Conditional Statements : Switch Case</a></h1>
+    <h1><a href="//thegeekyway.com/conditional-statements-switch-case/">Conditional Statements : Switch Case</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -84,81 +87,81 @@
 <p><a href="//thegeekyway.com/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"><img alt="Conditional Statements : Switch Case C language" src="//thegeekyway.com/uploads/images/2014/02/SwitchCase1.png"></a></p>
 </div>
 <p>The basic semantics of a switch block statement is as follows :</p>
-<div class="highlight"><pre><span></span>switch(variable-name)
+<div class="highlight"><pre><span></span><span class="nv">switch</span><span class="ss">(</span><span class="nv">variable</span><span class="o">-</span><span class="nv">name</span><span class="ss">)</span>
 {
-    case 1:
+    <span class="nv">case</span> <span class="mi">1</span>:
     .
-    break;
-    case 2:
+    <span class="k">break</span><span class="c1">;</span>
+    <span class="nv">case</span> <span class="mi">2</span>:
     .
-    break;
-    case 3:
+    <span class="k">break</span><span class="c1">;</span>
+    <span class="nv">case</span> <span class="mi">3</span>:
     .
-    break;
-    .
-    .
+    <span class="k">break</span><span class="c1">;</span>
     .
     .
-    default:
     .
-    break;
+    .
+    <span class="nv">default</span>:
+    .
+    <span class="k">break</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>Here variable-name corresponds to the variable you want to compare with a set of values and inside the curly braces we have defined cases such that if value of variable is 1 then the statement 1 and statement 2 would execute, for variable having value 2, statement 3 and 4 would execute and so on. If none of the cases are true, then statement n corresponding to default would execute.</p>
 <p>Let us take an example and understand how it's done. Let us consider we need to just print what number it is if the number is less than or equal to 5 else print number is not 1, 2, 3, 4 or 5. We'll consider that user has input a number which is stored in variable named num. This can be done through if - else statements as we studied earlier like this :</p>
-<div class="highlight"><pre><span></span>if(num == 1)
-   cout&lt;&lt;&quot;Number is 1 n&quot;;
-else if(num == 2)
-   cout&lt;&lt;&quot;Number is 2 n&quot;;
-else if(num == 3)
-   cout&lt;&lt;&quot;Number is 3 n&quot;;
-else if(num == 4)
-   cout&lt;&lt;&quot;Number is 4 n&quot;;
-else if(num == 5)
-   cout&lt;&lt;&quot;Number is 5 n&quot;;
-else
-   cout&lt;&lt;&quot;Number is not 1, 2, 3, 4 or 5 n&quot;;
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">1</span><span class="ss">)</span>
+   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 1 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">2</span><span class="ss">)</span>
+   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 2 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">3</span><span class="ss">)</span>
+   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 3 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">4</span><span class="ss">)</span>
+   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 4 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">5</span><span class="ss">)</span>
+   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="k">else</span>
+   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is not 1, 2, 3, 4 or 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
 </pre></div>
 
 
 <p>Now in the above case, since we need to compare just one variable with a set of values, this can be done easily through switch case as follows:</p>
-<div class="highlight"><pre><span></span>switch ( num )
+<div class="highlight"><pre><span></span><span class="nv">switch</span> <span class="ss">(</span> <span class="nv">num</span> <span class="ss">)</span>
 {
-   case 1 : cout&lt;&lt;&quot;Number is 1 n&quot;;
-   break;
-   case 2 : cout&lt;&lt;&quot;Number is 2 n&quot;;
-   break;
-   case 3 : cout&lt;&lt;&quot;Number is 3 n&quot;;
-   break;
-   case 4 : cout&lt;&lt;&quot;Number is 4 n&quot;;
-   break;
-   case 5 : cout&lt;&lt;&quot;Number is 5 n&quot;;
-   break;
-   default : cout&lt;&lt;&quot;Number is not 1, 2, 3, 4 or 5 n&quot;;
-   break;
+   <span class="nv">case</span> <span class="mi">1</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 1 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+   <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">case</span> <span class="mi">2</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 2 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+   <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">case</span> <span class="mi">3</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 3 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+   <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">case</span> <span class="mi">4</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 4 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+   <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">case</span> <span class="mi">5</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+   <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">default</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is not 1, 2, 3, 4 or 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+   <span class="k">break</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>Notice here that I have mentioned break statement after each case , this is to terminate the the case above it if it's executed. Let's see if we didn't include break what would happen, so consider this code snippet.</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-int main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  int num;
-  cout&lt;&lt;&quot;Enter a number &quot;;
-  cin&gt;&gt;num;
-  switch ( num )
+  <span class="nv">int</span> <span class="nv">num</span><span class="c1">;</span>
+  <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Enter a number </span><span class="s2">&quot;</span><span class="c1">;</span>
+  <span class="nv">cin</span><span class="o">&gt;&gt;</span><span class="nv">num</span><span class="c1">;</span>
+  <span class="nv">switch</span> <span class="ss">(</span> <span class="nv">num</span> <span class="ss">)</span>
   {
-     case 1 : cout&lt;&lt;&quot;Number is 1 n&quot;;
-     case 2 : cout&lt;&lt;&quot;Number is 2 n&quot;;
-     case 3 : cout&lt;&lt;&quot;Number is 3 n&quot;;
-     case 4 : cout&lt;&lt;&quot;Number is 4 n&quot;;
-     case 5 : cout&lt;&lt;&quot;Number is 5 n&quot;;
-     default : cout&lt;&lt;&quot;Number is not 1, 2, 3, 4 or 5 n&quot;;
+     <span class="nv">case</span> <span class="mi">1</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 1 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="nv">case</span> <span class="mi">2</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 2 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="nv">case</span> <span class="mi">3</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 3 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="nv">case</span> <span class="mi">4</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 4 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="nv">case</span> <span class="mi">5</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="nv">default</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is not 1, 2, 3, 4 or 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
   }
-return 0;
+<span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
 }
 </pre></div>
 
@@ -170,16 +173,16 @@ return 0;
 <p>See, we not only got Number is 2 statement printed, but got all statements printed after that case, in a sequential manner, this is because in a switch condition we need to have conditional flow of statement using break statement.</p>
 <p>Now, if you include break after each case but doesn't do it with default case, it would run fine too, this is because if the default case is true, then after executing set of statements with that case, the control would automatically be out of the switch block, so technically we do not need break after default case.</p>
 <p>Now let's see how to match a character type variable. Consider a character (char) type variable named character_variable , and if we need to use switch, it can be done in this way:</p>
-<div class="highlight"><pre><span></span>switch ( character_variable )
+<div class="highlight"><pre><span></span><span class="nv">switch</span> <span class="ss">(</span> <span class="nv">character_variable</span> <span class="ss">)</span>
 {
-   case &#39;a&#39; : cout&lt;&lt;&quot;Case a executed n&quot;;
-     break;
-   case &#39;b&#39; : cout&lt;&lt;&quot;Case b executed n&quot;;
-     break;
-   case &#39;c&#39; : cout&lt;&lt;&quot;Case c executed n&quot;;
-     break;
-   default : cout&lt;&lt;&quot;This is default case n&quot;;
-     break;
+   <span class="nv">case</span> <span class="s1">&#39;</span><span class="s">a</span><span class="s1">&#39;</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Case a executed n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">case</span> <span class="s1">&#39;</span><span class="s">b</span><span class="s1">&#39;</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Case b executed n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">case</span> <span class="s1">&#39;</span><span class="s">c</span><span class="s1">&#39;</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Case c executed n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="k">break</span><span class="c1">;</span>
+   <span class="nv">default</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">This is default case n</span><span class="s2">&quot;</span><span class="c1">;</span>
+     <span class="k">break</span><span class="c1">;</span>
 }
 </pre></div>
 
@@ -191,24 +194,22 @@ return 0;
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 01 February 2014</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/c-language/">C language</a>,      <a href="/tag/conditional/">conditional</a>,      <a href="/tag/switch/">switch</a>    </p>
+      <a href="//thegeekyway.com/tag/c-language/">C language</a>,      <a href="//thegeekyway.com/tag/conditional/">conditional</a>,      <a href="//thegeekyway.com/tag/switch/">switch</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/conditional-statements-switch-case/";
-      this.page.identifier = "conditional-statements-switch-case/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "conditional-statements-switch-case/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

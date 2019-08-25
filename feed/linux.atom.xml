@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-06-04T08:39:00+05:30</updated><entry><title>Introduction to Shell Script</title><link href="//thegeekyway.com/introduction-to-shell-script/" rel="alternate"></link><published>2019-06-04T08:39:00+05:30</published><updated>2019-06-04T08:39:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2019-06-04:/introduction-to-shell-script/</id><summary type="html">&lt;div style="text-align:center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-06-04T08:39:00+05:30</updated><entry><title>Introduction to Shell Script</title><link href="//thegeekyway.com/introduction-to-shell-script/" rel="alternate"></link><published>2019-06-04T08:39:00+05:30</published><updated>2019-06-04T08:39:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2019-06-04:/introduction-to-shell-script/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;/p&gt;
@@ -63,7 +63,7 @@
 
 &lt;p&gt;&lt;strong&gt;Shebang(#!)&lt;/strong&gt; is a special comment, that informs, which shell to be selected while executing this file. It is actually the path to the shell required to run this script.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;3. Add some commands to the file&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;echo &amp;quot;Script is working fine!&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;Script is working fine!&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -86,10 +86,10 @@ Script is working fine!
 &lt;h2&gt;Comments&lt;/h2&gt;
 &lt;p&gt;Writing comments is really useful in any programming language. Because the code is read much more times than it is written. Also, comments make the code easy to comprehend, thus, it is advisable to use comments to explain complex parts of the code.&lt;/p&gt;
 &lt;p&gt;In shell scripting, you may give comments with &lt;strong&gt;hash (#)&lt;/strong&gt; symbol.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# File: newfile.sh
-# Purpose: To learn and practice shell script
-# Author: Your name
-# These are comments in a shell script.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;File&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Purpose&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;To&lt;/span&gt; &lt;span class="n"&gt;learn&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt; &lt;span class="n"&gt;practice&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Your&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;These&lt;/span&gt; &lt;span class="k"&gt;are&lt;/span&gt; &lt;span class="n"&gt;comments&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;shell&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -284,15 +284,15 @@ Parameters: e f
 &lt;h4&gt;&lt;strong&gt;If-else statement&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; To execute a set of commands, on the basis of evaluation of an expression.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if command1    # if block started
-then
-     command-list1
-elif command2  # optional
-then
-     command-list2
-else           # optional: to accept rest of the conditions.
-     command-list3
-fi             # end of if-else block
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;command1&lt;/span&gt;    # &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;started&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list1&lt;/span&gt;
+&lt;span class="nv"&gt;elif&lt;/span&gt; &lt;span class="nv"&gt;command2&lt;/span&gt;  # &lt;span class="nv"&gt;optional&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;
+     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list2&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;           # &lt;span class="nv"&gt;optional&lt;/span&gt;: &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;accept&lt;/span&gt; &lt;span class="nv"&gt;rest&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;conditions&lt;/span&gt;.
+     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list3&lt;/span&gt;
+&lt;span class="nv"&gt;fi&lt;/span&gt;             # &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="nv"&gt;block&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -308,10 +308,10 @@ fi             # end of if-else block
  8
  9
 10&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^z &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; /dev/null
+&lt;span class="k"&gt;if&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^z &amp;gt; /dev/null
 &lt;span class="k"&gt;then&lt;/span&gt;
    &lt;span class="nb"&gt;echo&lt;/span&gt; Firt &lt;span class="k"&gt;case&lt;/span&gt;.
-&lt;span class="k"&gt;elif&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^a &lt;span class="p"&gt;&amp;amp;&lt;/span&gt;gt&lt;span class="p"&gt;;&lt;/span&gt; /dev/null
+&lt;span class="k"&gt;elif&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^a &amp;gt; /dev/null
 &lt;span class="k"&gt;then&lt;/span&gt; 
    &lt;span class="nb"&gt;echo&lt;/span&gt; Second &lt;span class="k"&gt;case&lt;/span&gt;.
 &lt;span class="k"&gt;else&lt;/span&gt;
@@ -322,7 +322,7 @@ fi             # end of if-else block
 
 &lt;p&gt;Here, "&lt;strong&gt;ls | grep \^z" &lt;/strong&gt; searches files/folders in the current directory that starts with &lt;strong&gt;"z". &lt;/strong&gt;And &lt;strong&gt;"&gt; /dev/null" &lt;/strong&gt;sends the output of the file in a &lt;strong&gt;null&lt;/strong&gt; device (typically used for disposing of unwanted output streams of a process).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;The output&lt;/em&gt;&lt;/strong&gt; of the above program is shown below. (As I don't have any file that starts with &lt;strong&gt;"z"&lt;/strong&gt;)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Second case.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Second&lt;/span&gt; &lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -330,10 +330,10 @@ fi             # end of if-else block
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; It is mostly used in association with if-else to evaluate expressions instead of commands.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt; &lt;code&gt;test expression&lt;/code&gt; or &lt;code&gt;[ expression ]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if [ expression ]
-then
-     command-list1
-fi
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; [ &lt;span class="nv"&gt;expression&lt;/span&gt; ]
+&lt;span class="k"&gt;then&lt;/span&gt;
+     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list1&lt;/span&gt;
+&lt;span class="nv"&gt;fi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -387,11 +387,11 @@ Sorry, you entered the wrong parameter.
 &lt;h4&gt;Case statement&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; Shell script also supports &lt;strong&gt;case conditional statement. &lt;/strong&gt;It is used to evaluate a particular variable with some set of values.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;case value in
-     pattern1)     command-list1;;
-     pattern2)     command-list2;;
-     *) command-list2;;   # this is optional: to accept rest of the conditions
-esac
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt;
+     &lt;span class="n"&gt;pattern1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;     &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list1&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+     &lt;span class="n"&gt;pattern2&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;     &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list2&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+     &lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list2&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;   &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;this&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;optional&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;accept&lt;/span&gt; &lt;span class="n"&gt;rest&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;conditions&lt;/span&gt;
+&lt;span class="n"&gt;esac&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -436,10 +436,10 @@ esac
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; When iterating any variable over an iterator like "\$@", we use "for-loop".&lt;/p&gt;
 &lt;p&gt;Iterators are objects, having multiple values within them like lists in python. Therefore, using a for-loop we may access their individual values one by one.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for var in iterator
-do
-    command-list
-done
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;var&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;iterator&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt;
+    &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
+&lt;span class="nv"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -467,10 +467,10 @@ Way
 &lt;h4&gt;While Loop&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; To repeat a set of commands, till an expression remains true.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;while [ expression ]
-do
-     command-list
-done
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;while&lt;/span&gt; [ &lt;span class="nv"&gt;expression&lt;/span&gt; ]
+&lt;span class="k"&gt;do&lt;/span&gt;
+     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
+&lt;span class="nv"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -503,10 +503,10 @@ done
 &lt;h4&gt;Until Loop&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; It is reverse of &lt;strong&gt;while loop&lt;/strong&gt;, it repeats a set of commands, untill an expression becomes true.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;until [ expression ]
-do
-     command-list
-done
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;until&lt;/span&gt; [ &lt;span class="nv"&gt;expression&lt;/span&gt; ]
+&lt;span class="k"&gt;do&lt;/span&gt;
+     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
+&lt;span class="nv"&gt;done&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -566,10 +566,10 @@ Way
 &lt;h2&gt;Functions&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; These are set of commands, which can be called any number of times in a script. Thus, it gives the feature of re-usability of code and makes the code modular.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;function_name()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;function_name&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-command-list
-return value    # optional
+&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;value&lt;/span&gt;    # &lt;span class="nv"&gt;optional&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -617,9 +617,9 @@ confirm&lt;span class="o"&gt;()&lt;/span&gt;
 
 &lt;p&gt;&lt;strong&gt;Note that, no test expression in the last block of "if-else", because calling function is a command in itself. And we put expressions in the test, not commands.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ ./newfile.sh
-Are you sure, that you want to &lt;span class="k"&gt;continue&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;y&lt;span class="o"&gt;)&lt;/span&gt;?: y
-Continue process!!
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ .&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;newfile&lt;/span&gt;.&lt;span class="nv"&gt;sh&lt;/span&gt;
+&lt;span class="nv"&gt;Are&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;sure&lt;/span&gt;, &lt;span class="nv"&gt;that&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="k"&gt;continue&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;?: &lt;span class="nv"&gt;y&lt;/span&gt;
+&lt;span class="k"&gt;Continue&lt;/span&gt; &lt;span class="nv"&gt;process&lt;/span&gt;&lt;span class="o"&gt;!!&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -676,20 +676,20 @@ This type of encryption is used, when we are interested in transmission speed su
 
 &lt;h3&gt;Simple Installation&lt;/h3&gt;
 &lt;p&gt;Fish is easily available on Linux (All popular distros), Windows, and MacOS. Here are the steps for installing it on Debian.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-add-repository ppa:fish-shell/release-2
-sudo apt-get update
-sudo apt-get install fish
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;fish&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;shell&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;release&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;fish&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You can find similar installation steps, for other distros and operating systems &lt;a href="https://fishshell.com/"&gt;here&lt;/a&gt;. When fish gets installed, type the following in your terminal.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;- $ fish
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;fish&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And you are ready to go.&lt;/p&gt;
 &lt;p&gt;For Fish to remember and suggest properly, try running this command when you install new applications. This will start scanning the man pages of your distros and suggest new arguments as you type in the terminal. To accept a suggestion, press the right arrow key to complete the command and it as simple as that.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;- $ fish_update_completions
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;fish_update_completions&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -705,34 +705,34 @@ This works on its ability to predict arguments straight from man pages and from 
 &lt;h4&gt;Similarity to old 'Bash' (and some new scripting rules)&lt;/h4&gt;
 &lt;p&gt;Commands you use in bash or to write shell scripts in Bash are mostly the same in Fish. There are some differences. But the alternatives are much easier to use. Check out the &lt;a href="https://fishshell.com/docs/current/index.html"&gt;documentation&lt;/a&gt; for more information.&lt;br&gt;
 Man pages are a smart way to get more information about commands. But reading and searching for them are a pain. Fish comes to the rescue by opening man pages in web browsers. Give it a try.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;- $ help set
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="err"&gt;$&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;Magic happens when you press Tab&lt;/h4&gt;
 &lt;p&gt;Terminals usually autocomplete your half-written commands when you press the Tab key. Fish does that and a ton of other stuff. Here are a few snippets&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; /geek @press{Tab} → /geekyway/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;geek&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;→&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;geekyway&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; ~/geekyway/v @press{Tab}
-~/stuff/vipul.sh  (Executable, 4.8kB)  ~/stuff/vipul/  (Directory)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;geekyway&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="nf"&gt;stuff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vipul&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Executable&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;4.8&lt;/span&gt;&lt;span class="n"&gt;kB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="nf"&gt;stuff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vipul&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Directory&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; ~/vipulgupta2048/ @press{tab} 
-go/ 
-aeious/ 
-Android/ 
-AndroidStudioProjects/
-…and 44 more rows
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;vipulgupta2048&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="n"&gt;aeious&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="n"&gt;Android&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="n"&gt;AndroidStudioProjects&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;more&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Keep pressing tab, shift+tab, arrow keys and other combinations to fully explore all the amazing features of Fish. Comment down below to let us know what cool new features you found while exploring.&lt;/p&gt;
 &lt;h4&gt;Want to customize? Fish has you covered&lt;/h4&gt;
 &lt;p&gt;Programmers love to customize their own personal setups be it desktop environments, text editors, and even terminals. I am no different. Hence when I found that you can customize Fish using a web browser and not write code for it. I was blown away. Try it out by typing&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; fish_config
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;fish_config&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -750,19 +750,19 @@ AndroidStudioProjects/
 &lt;/ul&gt;
 &lt;h4&gt;Sold Already, Make it default&lt;/h4&gt;
 &lt;p&gt;To find the shells installed in your system, run this command.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; cat /etc/shells
-/bin/sh
-/bin/dash
-/bin/bash
-/bin/rbash
-/usr/bin/tmux
-/usr/bin/fish
-/usr/local/bin/fish
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;shells&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;dash&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bash&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rbash&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tmux&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fish&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fish&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You need to select "/usr/local/bin/fish" and then enter the command to change your default shell.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;gt; chsh -s /usr/local/bin/fish
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;chsh&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;fish&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -781,12 +781,12 @@ Fork and star my dotfiles for more reference, and if you want the greeting messa
 &lt;p&gt;&lt;strong&gt;scp&lt;/strong&gt; uses Secure Socket Shell (&lt;strong&gt;SSH&lt;/strong&gt;) for data transfer and uses the same mechanisms for authentication, thereby ensuring the authenticity and confidentiality of the data. Therefore, for using , you first need to have an  &lt;strong&gt;&lt;a href="https://www.ssh.com/ssh/server"&gt;SSH&lt;/a&gt;&lt;a href="https://www.ssh.com/ssh/server"&gt;server&lt;/a&gt;&lt;/strong&gt;.  &lt;/p&gt;
 &lt;h4&gt;Syntax:&lt;/h4&gt;
 &lt;p&gt;Normal &lt;strong&gt;"cp"&lt;/strong&gt; (copy) command has the following syntax on *nix platforms. Here, data is copied to a different location in the same system.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ cp &lt;span class="o"&gt;[&lt;/span&gt;OPTION&lt;span class="o"&gt;]&lt;/span&gt;... &lt;span class="o"&gt;[&lt;/span&gt;-T&lt;span class="o"&gt;]&lt;/span&gt; SOURCE DEST
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;-T&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;SOURCE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;DEST&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Similarly, &lt;strong&gt;"scp"&lt;/strong&gt; follows the same format. But, in this case, data is transferred between 2 different systems. Thus, its syntax is as follows.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ scp &lt;span class="o"&gt;[&lt;/span&gt;OPTION&lt;span class="o"&gt;]&lt;/span&gt; user1@hostname:/source/ user2@hostname:/destination/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user1&lt;/span&gt;&lt;span class="nv"&gt;@hostname&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user2&lt;/span&gt;&lt;span class="nv"&gt;@hostname&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -845,24 +845,24 @@ Fork and star my dotfiles for more reference, and if you want the greeting messa
 
 
 &lt;p&gt;This option gives you background information while transferring files as shown below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Requesting&lt;/span&gt; &lt;span class="n"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;more&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sessions&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Entering&lt;/span&gt; &lt;span class="n"&gt;interactive&lt;/span&gt; &lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;pledge&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;network&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client_input_global_request&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;rtype&lt;/span&gt; &lt;span class="n"&gt;hostkeys&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt; &lt;span class="n"&gt;want_reply&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;environment&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;env&lt;/span&gt; &lt;span class="n"&gt;LANG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;en_IN&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;
-&lt;span class="n"&gt;Sending&lt;/span&gt; &lt;span class="n"&gt;file&lt;/span&gt; &lt;span class="n"&gt;modes&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;C0664&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;file_on_client&lt;/span&gt;
-&lt;span class="n"&gt;Sink&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;C0664&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;file_on_client&lt;/span&gt;
-&lt;span class="n"&gt;file_on_client&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="n"&gt;KB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt; 
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client_input_channel_req&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;rtype&lt;/span&gt; &lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="n"&gt;reply&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;free&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;nchannels&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;fd&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="n"&gt;clearing&lt;/span&gt; &lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;fd&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="n"&gt;clearing&lt;/span&gt; &lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;
-&lt;span class="n"&gt;Transferred&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sent&lt;/span&gt; &lt;span class="mi"&gt;3556&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;received&lt;/span&gt; &lt;span class="mi"&gt;2600&lt;/span&gt; &lt;span class="n"&gt;bytes&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="mf"&gt;2.9&lt;/span&gt; &lt;span class="n"&gt;seconds&lt;/span&gt;
-&lt;span class="n"&gt;Bytes&lt;/span&gt; &lt;span class="n"&gt;per&lt;/span&gt; &lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;sent&lt;/span&gt; &lt;span class="mf"&gt;1231.7&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt; &lt;span class="n"&gt;received&lt;/span&gt; &lt;span class="mf"&gt;900.6&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;Exit&lt;/span&gt; &lt;span class="n"&gt;status&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;: &lt;span class="nv"&gt;new&lt;/span&gt; [&lt;span class="nv"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;session&lt;/span&gt;]
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;Requesting&lt;/span&gt; &lt;span class="nv"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;more&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;sessions&lt;/span&gt;@&lt;span class="nv"&gt;openssh&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;Entering&lt;/span&gt; &lt;span class="nv"&gt;interactive&lt;/span&gt; &lt;span class="nv"&gt;session&lt;/span&gt;.
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;pledge&lt;/span&gt;: &lt;span class="nv"&gt;network&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;client_input_global_request&lt;/span&gt;: &lt;span class="nv"&gt;rtype&lt;/span&gt; &lt;span class="nv"&gt;hostkeys&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;@&lt;span class="nv"&gt;openssh&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt; &lt;span class="nv"&gt;want_reply&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;Sending&lt;/span&gt; &lt;span class="nv"&gt;environment&lt;/span&gt;.
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;Sending&lt;/span&gt; &lt;span class="nv"&gt;env&lt;/span&gt; &lt;span class="nv"&gt;LANG&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;en_IN&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;Sending&lt;/span&gt; &lt;span class="nv"&gt;command&lt;/span&gt;: &lt;span class="nv"&gt;scp&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;v&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;
+&lt;span class="nv"&gt;Sending&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;modes&lt;/span&gt;: &lt;span class="nv"&gt;C0664&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;file_on_client&lt;/span&gt;
+&lt;span class="nv"&gt;Sink&lt;/span&gt;: &lt;span class="nv"&gt;C0664&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;file_on_client&lt;/span&gt;
+&lt;span class="nv"&gt;file_on_client&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="nv"&gt;KB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt; &lt;span class="mi"&gt;00&lt;/span&gt;:&lt;span class="mi"&gt;00&lt;/span&gt; 
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;client_input_channel_req&lt;/span&gt;: &lt;span class="nv"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;rtype&lt;/span&gt; &lt;span class="k"&gt;exit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="nv"&gt;reply&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;channel&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;: &lt;span class="nv"&gt;free&lt;/span&gt;: &lt;span class="nv"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;session&lt;/span&gt;, &lt;span class="nv"&gt;nchannels&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;fd&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="nv"&gt;clearing&lt;/span&gt; &lt;span class="nv"&gt;O_NONBLOCK&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="nv"&gt;fd&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;clearing&lt;/span&gt; &lt;span class="nv"&gt;O_NONBLOCK&lt;/span&gt;
+&lt;span class="nv"&gt;Transferred&lt;/span&gt;: &lt;span class="nv"&gt;sent&lt;/span&gt; &lt;span class="mi"&gt;3556&lt;/span&gt;, &lt;span class="nv"&gt;received&lt;/span&gt; &lt;span class="mi"&gt;2600&lt;/span&gt; &lt;span class="nv"&gt;bytes&lt;/span&gt;, &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;.&lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="nv"&gt;seconds&lt;/span&gt;
+&lt;span class="nv"&gt;Bytes&lt;/span&gt; &lt;span class="nv"&gt;per&lt;/span&gt; &lt;span class="nv"&gt;second&lt;/span&gt;: &lt;span class="nv"&gt;sent&lt;/span&gt; &lt;span class="mi"&gt;1231&lt;/span&gt;.&lt;span class="mi"&gt;7&lt;/span&gt;, &lt;span class="nv"&gt;received&lt;/span&gt; &lt;span class="mi"&gt;900&lt;/span&gt;.&lt;span class="mi"&gt;6&lt;/span&gt;
+&lt;span class="nv"&gt;debug1&lt;/span&gt;: &lt;span class="k"&gt;Exit&lt;/span&gt; &lt;span class="nv"&gt;status&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -922,7 +922,7 @@ Fork and star my dotfiles for more reference, and if you want the greeting messa
 &lt;p&gt;So, before starting anything we need to understand what Git is and what it does. Git is a version control system, which records changes in your code/files over a period of time. You can recall older version and manage changes. The working of Git is a little different than other VCSs. Most of the VCSs store the information about the data as the changes that have been made in different files. If you have 3 files in a project and you change any one of them, the VCSs will keep record of the change. That’s where Git differs, it keeps record of the changes along with the new changed file. Moreover, other VCSs generally operate online, storing all the data at the remote servers, while Git stores all the data on the local system as well as the remote server, which makes it easy for the user to make changes even when she is offline and commit the changes when she gets the network connection. In other benefits of Git, you don’t need to go to remote server to check for your project history, it’s all there on your local machine.&lt;/p&gt;
 &lt;p&gt;Before getting started, I would like to discuss one more feature of Git and that is repositories. There are two kind of repositories in Git, namely, local repositories and remote repositories. And believe me, they are the exact same thing! So, what exactly is a repository? It’s the place where you store all of your working data, your project files etc. Local repository is the one that is set up on your system and the remote is the one that is hosted on a server, probably on another continent! And here is the beauty of a distributed version control system, you can work with both of them just as they are the same thing! You can make changes to your local repository, add/delete files etc. and push them to remote repository.&lt;/p&gt;
 &lt;p&gt;Enough of concepts, let’s get started! The very basic thing to do with Git is to create a local repository, of-course, first you have to install it on your system! Type this in your RHEL based system to install git (make appropriate changes for Debian based systems):&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo yum install git
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;yum&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;git&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -958,18 +958,18 @@ origin https://github.com/Pensu/test.git &lt;span class="o"&gt;(&lt;/span&gt;pus
 
 
 &lt;p&gt;Here fetch and push are the repositories where your local repository gets the data from and where it sends the changes respectively. As I just cloned a remote repository, I can fetch and push from this repository. Now, we are going to add a file and pushing it to the remote repository.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ touch newfile.txt
-$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Getting Started With Git&amp;quot;&lt;/span&gt; &amp;gt; newfile.txt 
-$ git status
-&lt;span class="c1"&gt;# On branch master&lt;/span&gt;
-&lt;span class="c1"&gt;#&lt;/span&gt;
-&lt;span class="c1"&gt;# Initial commit&lt;/span&gt;
-&lt;span class="c1"&gt;#&lt;/span&gt;
-&lt;span class="c1"&gt;# Untracked files:&lt;/span&gt;
-&lt;span class="c1"&gt;#   (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)&lt;/span&gt;
-&lt;span class="c1"&gt;#&lt;/span&gt;
-&lt;span class="c1"&gt;# newfile.txt&lt;/span&gt;
-nothing added to commit but untracked files present &lt;span class="o"&gt;(&lt;/span&gt;use &lt;span class="s2"&gt;&amp;quot;git add&amp;quot;&lt;/span&gt; to track&lt;span class="o"&gt;)&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;$ &lt;span class="nv"&gt;touch&lt;/span&gt; &lt;span class="nv"&gt;newfile&lt;/span&gt;.&lt;span class="nv"&gt;txt&lt;/span&gt;
+$ &lt;span class="nv"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Getting Started With Git&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="nv"&gt;newfile&lt;/span&gt;.&lt;span class="nv"&gt;txt&lt;/span&gt; 
+$ &lt;span class="nv"&gt;git&lt;/span&gt; &lt;span class="nv"&gt;status&lt;/span&gt;
+# &lt;span class="nv"&gt;On&lt;/span&gt; &lt;span class="nv"&gt;branch&lt;/span&gt; &lt;span class="nv"&gt;master&lt;/span&gt;
+#
+# &lt;span class="nv"&gt;Initial&lt;/span&gt; &lt;span class="nv"&gt;commit&lt;/span&gt;
+#
+# &lt;span class="nv"&gt;Untracked&lt;/span&gt; &lt;span class="nv"&gt;files&lt;/span&gt;:
+#   &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;use&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;git add &amp;lt;file&amp;gt;...&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="k"&gt;include&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;what&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;committed&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+#
+# &lt;span class="nv"&gt;newfile&lt;/span&gt;.&lt;span class="nv"&gt;txt&lt;/span&gt;
+&lt;span class="nv"&gt;nothing&lt;/span&gt; &lt;span class="nv"&gt;added&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;commit&lt;/span&gt; &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;untracked&lt;/span&gt; &lt;span class="nv"&gt;files&lt;/span&gt; &lt;span class="nv"&gt;present&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;use&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;git add&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;track&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1036,27 +1036,27 @@ Date:   Tue Apr &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;16&
 &lt;/div&gt;
 &lt;p&gt;Git is a very huge topic, but this article should get you started to clone remote repositories and push the changes. Happy sharing!&lt;/p&gt;</content><category term="Git"></category><category term="starting with Git"></category><category term="Understanding Git"></category><category term="VCS"></category><category term="version control systems"></category></entry><entry><title>Running A Python Script Using Chef</title><link href="//thegeekyway.com/running-python-script-using-chef/" rel="alternate"></link><published>2014-03-18T15:39:00+05:30</published><updated>2014-03-18T15:39:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:thegeekyway.com,2014-03-18:/running-python-script-using-chef/</id><summary type="html">&lt;p&gt;Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through &lt;a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/"&gt;this&lt;/a&gt; article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through &lt;a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/"&gt;this&lt;/a&gt; article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration of the designated server. Resource have their predefined task like to run a command, to copy a file, to use a template etc. In this article we are going to talk about script resource. This is going to run any script, it could be bash, python or perl. There are separate resources for these scripts.&lt;/p&gt;
 &lt;p&gt;You put the resources in your recipe. Here is a simple bash script example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;bash &amp;quot;install_something&amp;quot; do
- user &amp;quot;root&amp;quot;
- cwd &amp;quot;/home&amp;quot;
- code &amp;lt;&amp;lt;-EOH
- echo “Hello World!”
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;bash&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;install_something&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+ &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;root&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+ &lt;span class="nv"&gt;cwd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;/home&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+ &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;-&lt;/span&gt;&lt;span class="nv"&gt;EOH&lt;/span&gt;
+ &lt;span class="nv"&gt;echo&lt;/span&gt; “&lt;span class="nv"&gt;Hello&lt;/span&gt; &lt;span class="nv"&gt;World&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;”
 
- ls
- EOH
-end
+ &lt;span class="nv"&gt;ls&lt;/span&gt;
+ &lt;span class="nv"&gt;EOH&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;As you can see, the bash resource will run the script in the code section and will print “Hello World” to the terminal and the content of /home directory.&lt;/p&gt;
 &lt;p&gt;So, when you are going to run a python script, the first choice to come to mind is “python” script resource. But there is a limitation to script resources. They only run in-line scripts. Meaning you will have to write the whole script in the code section and it will be executed one line at a time. But you can’t run an external script. Here comes the “execute” resource to rescue!&lt;/p&gt;
 &lt;p&gt;To run an external script, the structure of the execute resource is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;filename = &amp;quot;test.py&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;test.py&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 
-execute &amp;#39;execute_file&amp;#39; do
- cwd &amp;#39;/home/peeyush&amp;#39;
- command &amp;quot;python #{static}&amp;quot;
-end
+&lt;span class="nv"&gt;execute&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;execute_file&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
+ &lt;span class="nv"&gt;cwd&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/home/peeyush&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+ &lt;span class="nv"&gt;command&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;python #{static}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;end&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1081,38 +1081,38 @@ end
 &lt;p&gt;&lt;strong&gt;19) Checking The Stats Of Cache Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This command will display all the statistics of the cache, from total number of packages to total number of dependencies, total number of globbed strings, slack space ,etc.&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache stats
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="n"&gt;stats&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;20) Listing All The Packages Available In The Repository Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Using this command you can list all the packages that are available in the repository.&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache pkgnames
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="n"&gt;pkgnames&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;21) Checking The Package Details Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This command will give you details of any package available in the repository, alongwith maintainer's name, description details, size, dependency, architecture,etc.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache show &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="nv"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cache&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache show minitube
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="nv"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cache&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt; &lt;span class="nv"&gt;minitube&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;22) Searching The Package Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can find the package name alongwith description using the following command syntax. Very handy tool when you're looking for similar name of packages.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache search &amp;lt;word_close_to_package_you&amp;#39;re_searching_for&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="k"&gt;search&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;word_close_to_package_you&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;re_searching_for&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache search mini
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="k"&gt;search&lt;/span&gt; &lt;span class="n"&gt;mini&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1120,12 +1120,12 @@ end
 &lt;p&gt;&lt;strong&gt;23) Getting Dependency Details Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can easily obtain dependency details using following command. It also gives details whether those packages are already installed in your system or not.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache showpkg &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="n"&gt;showpkg&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-cache showpkg vlc
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;cache&lt;/span&gt; &lt;span class="n"&gt;showpkg&lt;/span&gt; &lt;span class="n"&gt;vlc&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1144,71 +1144,71 @@ end
 &lt;p&gt;&lt;strong&gt;11) Removing Packages From The System Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This command will help you to remove the installed packages from the system. However, you should note that it won't remove configuration files at all. Which means, if you remove the application using this command &amp;amp; then re-install it later, then the application settings you had previously will still be there.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get remove &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;remove&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get remove vlc
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;remove&lt;/span&gt; &lt;span class="n"&gt;vlc&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;12) Removing Packages With Configuration Settings Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Using this command, you can completely remove packages alongwith configuration settings. So, if you will reinstall that application later, you'll have to reconfigure again. This command can be extremely useful when you're messing with configuration settings &amp;amp; something goes extremely wrong &amp;amp; you cannot back it up to original state. Removing with this command &amp;amp; re-installing the package can help you in such case.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get purge &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;purge&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get purge synaptic
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;purge&lt;/span&gt; &lt;span class="n"&gt;synaptic&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;13) Cleaning Up The Disk Space Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;It will cleanup the disk space by cleaning debian packages (.deb) that are downloaded from local repository.&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get clean
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;clean&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;14) Auto Cleaning The Cache Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The packages which users download is usually stored in /var/cache/apt/archives in form of cache, consuming hefty amount of space. You can simply remove all the .deb cache packages from this directory using this command.&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get autoclean
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;autoclean&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;15) Observe The Changelog Of The Package :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Using the following command you can view the changelog of the desired application. It is usually useful to see what new features are included in the latest build or upgrade.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get changelog &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;changelog&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get changelog wine
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;changelog&lt;/span&gt; &lt;span class="n"&gt;wine&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;16) Fixing Missing Dependencies &amp;amp; Re-installing The Package Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;There are times when you're having poor internet connectivity, some packages are unable to retrieve but easily can. However, an application depends on some of it's dependencies, due to such problems it doesn't meet the require dependency &amp;amp; package won't get install. So, the following command usually helpful when the dependencies are missing &amp;amp; you want to install the missing dependencies to fix the problem.&lt;/p&gt;
 &lt;p&gt;Command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install -f
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;17) Auto-Removing The Installed Packages Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Sometimes, when you remove any package, it's dependencies are not removed with it. They remain in system as 'Orphan'. To remove the Orphan packages auto-remove command is used.&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get autoremove
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;autoremove&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;18) Checking The Dependencies Of The Application Using APT-GET :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can check the broken dependencies required for the package you wanna install using the following command. Quite handy, it is!&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get check
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;check&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1226,12 +1226,12 @@ end
 
 &lt;p&gt;&lt;strong&gt;1) Installing Application In Ubuntu/Debian Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gimp
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gimp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1239,98 +1239,98 @@ end
 &lt;p&gt;&lt;strong&gt;2) Updating The System Repository Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This command will update the Debian/Ubuntu repository with the newer latest version that's available.&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;3) Upgrading The Software Packages Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;It is usually used to upgrade the installed packages in the system. For example, if new updated package are available in the repository, then this command will upgrade the installed package with the latest one that is available in repository.&lt;/p&gt;
 &lt;p&gt;Command :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get upgrade
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;upgrade&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;4) Upgrading Specific Desired Packages Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Using this command you can upgrade stacks of desired packages you want. The command is very much similar to that of installing packages.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt; --only-upgrade
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="c1"&gt;--only-upgrade&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gimp --only-upgrade
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gimp&lt;/span&gt; &lt;span class="c1"&gt;--only-upgrade&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt; 5) Installing Packages Without Upgrading Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The following command will install the desired package, but won't upgrade even if the upgrade is available.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt; --no-upgrade
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="c1"&gt;--no-upgrade&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install wine --no-upgrade
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;wine&lt;/span&gt; &lt;span class="c1"&gt;--no-upgrade&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;6) Installing Multiple Packages All At Once In One Command Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This command is used to install as many packages/application you want using one single command. Quite a productive command it is!&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_1&amp;gt; &amp;lt;package_2&amp;gt; &amp;lt;package_3&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_1&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_3&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install gimp wine vlc
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;gimp&lt;/span&gt; &lt;span class="n"&gt;wine&lt;/span&gt; &lt;span class="n"&gt;vlc&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt; 7) Install Only Desired Version Package Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Inserting '&lt;strong&gt;=&lt;/strong&gt;' after the package name and appending desired version, you can install specific version of the package&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install &amp;lt;package_name&amp;gt;=&amp;lt;version_number&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;=&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;version_number&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install wine=1.7
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;wine&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;7&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;8) Download Only Source Code Of The Desired Package Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can download source code of the desired package from the repository using following syntax.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --download-only source &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="c1"&gt;--download-only source &amp;lt;package_name&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --download-only source synapse
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="c1"&gt;--download-only source synapse&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;9) Downloading The .deb Package Without Installing It Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can download the .deb package of the desired application using following command. The downloaded .deb package is usually stored in /var/cache/apt/archive directory.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get download &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;download&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get download synaptic
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;download&lt;/span&gt; &lt;span class="n"&gt;synaptic&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;10) Download The Source Code, Decompress It &amp;amp; Then Compile It Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can download source code of the application you want to use, then decompress it &amp;amp; compile it using one single command.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --compile source &amp;lt;package_name&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="c1"&gt;--compile source &amp;lt;package_name&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get --compile source gimp
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="c1"&gt;--compile source gimp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1344,28 +1344,28 @@ end
 &lt;/div&gt;
 &lt;p&gt;Rally generally works a command line tool (GUI is work in progress) and helps in detecting scaling and performance issues, figuring out how the code change affects the system and finding out suitable architecture of deployment etc.&lt;/p&gt;
 &lt;p&gt;The first step is to install rally in OpenStack environment. I am going to use rally as a plugin with devstack, though it is possible to install it manually in an already deployed environment. To start, clone the following repositories from github:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git clone https://github.com/openstack-dev/devstack
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openstack&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;devstack&lt;/span&gt;
 
-git clone https://github.com/stackforge/rally
+&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;clone&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;stackforge&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rally&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now, execute the following commands from your terminal in order to set devstack up with rally:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp rally/contrib/devstack/lib/rally devstack/lib/
-cp rally/contrib/devstack/extras.d/70-rally.sh devstack/extras.d/
-cd devstack
-echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;rally&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;devstack&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rally&lt;/span&gt; &lt;span class="n"&gt;devstack&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;rally&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;contrib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;devstack&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;extras&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;70&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;rally&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt; &lt;span class="n"&gt;devstack&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;extras&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;devstack&lt;/span&gt;
+&lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;enable_service rally&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class="n"&gt;localrc&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Next, as usual, we run the installation script of devstack:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./stack.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;stack&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Go for a coffee or take a walk, until devstack completes its work!&lt;/p&gt;
 &lt;p&gt;After the installation is done, source the openrc file present in \~/.rally/ directory to start using OpenStack.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;source ~/.rally/openrc
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;source&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rally&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;openrc&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1382,7 +1382,7 @@ echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
 &lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-02-27 17:21:26.png" src="https://lh6.googleusercontent.com/CujE4Dm-jfe4s5aSB3eCpNwxWQWqedxz6oSFuvHZoSmppfLzmz17nxQb-6W_lUsNBds9XpjEA1PHyy8M4dyUh6adwwA7w7Euz7PN_Oe-hQlH8MHIszqKrmbj-w"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Next, we come to benchmarking. There are a lot of ways to test the deployment, we will use an example that comes with rally. This is a boot and delete test. First copy the test to you current directory:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cp doc/samples/tasks/nova/boot-and-delete.json my-task.json
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt; &lt;span class="n"&gt;doc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;samples&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;tasks&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nova&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;boot&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;and&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;delete&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt; &lt;span class="n"&gt;my&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;task&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;json&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1391,7 +1391,7 @@ echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
 &lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-02-27 17:25:25.png" src="https://lh6.googleusercontent.com/Wi-J5GrWHYqoyY-buqPouTYbeuSrsqwTVDhmqCL0j7CKpJCDaasJpZhuz-TRdb7Ew5w1B-5ikyQpFBSGp_uHG_RYBGOvnrDr9JXhAVTwNfNbouHZxAwvvYxyOQ"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Edit the falvor_id and image_id according to your system. Use “glance image-list” and “nova flavor-list” commands. And now we are ready to run our first task. Type this on your machine:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;rally --verbose task start --task=my-task.json
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;rally&lt;/span&gt; &lt;span class="c1"&gt;--verbose task start --task=my-task.json&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1454,7 +1454,7 @@ $ gem install chef
 
 &lt;p&gt;You can check if your installation was successful or not by running ‘chef-solo’ command as sudo/root. It will most probably give an error “No cookbook found”. That’s alright, if you are getting any other error, then you need to check the installation again. So, now we are going to write a recipe to print “Hello chef” on the command prompt.&lt;/p&gt;
 &lt;p&gt;First of all, make a directory where you are going to do all your work. Let’s call it chef.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# mkdir chef
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="n"&gt;chef&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1510,17 +1510,17 @@ $ gem install chef
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/Grub-Customizer_003.png" title="Grub Customizer -&gt; Appearance settings"&gt;&lt;img alt="Grub Customizer -&gt; Appearance settings" src="{static}/uploads/images/2014/01/Grub-Customizer_003.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;p style="color: #da243a;"&gt;To install &lt;strong&gt;Grub Customizer&lt;/strong&gt; in Ubuntu &amp;amp; it's derivatives, open Terminal &amp;amp; add PPA by typing :&lt;/p&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="k"&gt;add&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;repository&lt;/span&gt; &lt;span class="n"&gt;ppa&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="n"&gt;danielrichter2007&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;grub&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;customizer&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now update the repository,,&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now install the Grub-customizer&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install grub-customizer
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;grub&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;customizer&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1550,12 +1550,12 @@ $ gem install chef
 
 
 &lt;p&gt;Now, update the repository &amp;amp; upgrade the system by entering following commands in terminal :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get update &amp;amp;&amp;amp; sudo apt-get upgrade
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;update&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;upgrade&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now install 'Web' browser by entering following commands in terminal :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install epiphany-browser cgroup-bin libraspberrypi0 libwayland-client0 libwayland-cursor0 libwayland-server0a
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;epiphany&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;browser&lt;/span&gt; &lt;span class="n"&gt;cgroup&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt; &lt;span class="n"&gt;libraspberrypi0&lt;/span&gt; &lt;span class="n"&gt;libwayland&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;client0&lt;/span&gt; &lt;span class="n"&gt;libwayland&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;cursor0&lt;/span&gt; &lt;span class="n"&gt;libwayland&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;server0a&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1569,7 +1569,7 @@ $ gem install chef
 
 &lt;h2 id="installing-omx-player" style="font-size: 1.2em;"&gt;Installing OMX Player&lt;/h2&gt;
 &lt;p&gt;Download and install player from source&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Stable Build (Already added in Raspbian …&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;OMX player is a command line player which can be controlled via &lt;a href="#android"&gt;Android app&lt;/a&gt; or over &lt;a href="#SSH"&gt;SSH&lt;/a&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Stable&lt;/span&gt; &lt;span class="n"&gt;Build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Already&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Raspbian …&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;</summary><content type="html">&lt;p&gt;OMX player is a command line player which can be controlled via &lt;a href="#android"&gt;Android app&lt;/a&gt; or over &lt;a href="#SSH"&gt;SSH&lt;/a&gt;.&lt;/p&gt;
 &lt;h2 id="omx-playercan-play-all-common-files-including-.avi-.mp4-and-mkv-without-any-extra-codec-with-subtitle." style="font-size: 1em; font-weight: 300;"&gt;OMX player can play all common files including .avi, .mp4 and mkv without any extra codec with subtitle.&lt;/h2&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg" title="Raspberry Pi OMX Player"&gt;&lt;img alt="Raspberry Pi OMX Player" src="//thegeekyway.com/uploads/images/2013/12/RaspberryPi_Logo-617x640.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
@@ -1578,19 +1578,19 @@ $ gem install chef
 
 &lt;h2 id="installing-omx-player" style="font-size: 1.2em;"&gt;Installing OMX Player&lt;/h2&gt;
 &lt;p&gt;Download and install player from source&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Stable Build (Already added in Raspbian also in ArcLinux): 
-wget https://github.com/downloads/torarin/omxplayer_0.3.3~git20131216~b34143c_armhf.deb
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;Stable&lt;/span&gt; &lt;span class="n"&gt;Build&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Already&lt;/span&gt; &lt;span class="n"&gt;added&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Raspbian&lt;/span&gt; &lt;span class="n"&gt;also&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="n"&gt;ArcLinux&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt; 
+&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;downloads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;torarin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer_0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20131216&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;b34143c_armhf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
 
-Experimental Build: (Android app prefers experimental build)
+&lt;span class="n"&gt;Experimental&lt;/span&gt; &lt;span class="n"&gt;Build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Android&lt;/span&gt; &lt;span class="n"&gt;app&lt;/span&gt; &lt;span class="n"&gt;prefers&lt;/span&gt; &lt;span class="n"&gt;experimental&lt;/span&gt; &lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-wget https://github.com/downloads/torarin/omxplayer/omxplayer_3~experimental~git20121208~ebfa6fc6_armhf.deb
+&lt;span class="n"&gt;wget&lt;/span&gt; &lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;downloads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;torarin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer_3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;experimental&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20121208&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;ebfa6fc6_armhf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
 
-Install:
-sudo dpkg -i mxplayer_0.3.3~git20131216~b34143c_armhf.deb
+&lt;span class="n"&gt;Install&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;dpkg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="n"&gt;mxplayer_0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20131216&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;b34143c_armhf&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;&lt;em&gt;Note: OMXPlayer will not play MPEG-2 files, you need purchase licence to play. &lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;*Note: OMXPlayer will not play MPEG-2 files, you need purchase licence to play. *&lt;/p&gt;
 &lt;p&gt;{#section style="font-size: 1.2em;"}&lt;/p&gt;
 &lt;h2 id="get-android-app" style="font-size: 1.2em;"&gt;&lt;p #android&gt;&lt;/p&gt;Get Android App&lt;/h2&gt;
 &lt;p&gt;&lt;a href="https://play.google.com/store/apps/details?id=com.raspberry.remote&amp;amp;hl=en"&gt;Raspberry Pi Remote Control Google Play link&lt;/a&gt;&lt;/p&gt;
@@ -1619,11 +1619,11 @@ sudo dpkg -i mxplayer_0.3.3~git20131216~b34143c_armhf.deb
 &lt;p&gt;&lt;em&gt;(In host name or ip address, I already given &lt;strong&gt; &lt;p style="color: #ff0000;"&gt; &lt;p style="font-family: 'courier new', courier;"&gt;\&lt;userName\&gt;@\&lt;ip\&gt; &lt;/p&gt;&lt;/p&gt;&lt;/strong&gt;, So I don't have to give username again. it will only asks for password in next step.)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Provide your password in next step, and you will land on home of pi in command prompt version. Here you can run any command which will be executed on Raspi directly.&lt;/p&gt;
 &lt;p&gt;Now just browse to your media file and run&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;omxplayer -s 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;omxplayer&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt; 
 
-For HDMI (video+audio)
+&lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;HDMI&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;video&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;audio&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 
-omxplayer -o hdmi
+&lt;span class="nv"&gt;omxplayer&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;o&lt;/span&gt; &lt;span class="nv"&gt;hdmi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1631,28 +1631,28 @@ omxplayer -o hdmi
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"&gt;&lt;img alt="omxPlayer-command" src="//thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Here are some more OMXPlayer commands&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;http://lukasz-skalski.com/index.php/projekty-inne/raspberry-control-control-raspberry-pi-with-your-android-device.html
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;http&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;lukasz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;skalski&lt;/span&gt;.&lt;span class="nv"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt;.&lt;span class="nv"&gt;php&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;projekty&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;inne&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;raspberry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;control&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;control&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;raspberry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;with&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;your&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;android&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;device&lt;/span&gt;.&lt;span class="nv"&gt;html&lt;/span&gt;
 
-# dpkg -i omxplayer_0.0.1-arm.deb
-####  .... fails with missing dependencies ...
-# apt-get -f install
-### fetches the missing dependencies, configures the sym links etc
-$ omxplayer --help
-Usage: omxplayer [OPTIONS] [FILE]
-Options :
--h / --help                    print this help
--a / --alang language          audio language        : e.g. ger
--n / --aidx  index             audio stream index    : e.g. 1
--o / --adev  device            audio out device      : e.g. hdmi/local
--i / --info                    dump stream format and exit
--s / --stats                   pts and buffer stats
--p / --passthrough             audio passthrough
--d / --deinterlace             deinterlacing
--w / --hw                      hw audio decoding
--3 / --3d                      switch tv into 3d mode
--y / --hdmiclocksync           adjust display refresh rate to match video
--t / --sid index               show subtitle with index
--r / --refresh                 adjust framerate/resolution to video
+# &lt;span class="nv"&gt;dpkg&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="nv"&gt;omxplayer_0&lt;/span&gt;.&lt;span class="mi"&gt;0&lt;/span&gt;.&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;arm&lt;/span&gt;.&lt;span class="nv"&gt;deb&lt;/span&gt;
+####  .... &lt;span class="nv"&gt;fails&lt;/span&gt; &lt;span class="nv"&gt;with&lt;/span&gt; &lt;span class="nv"&gt;missing&lt;/span&gt; &lt;span class="nv"&gt;dependencies&lt;/span&gt; ...
+# &lt;span class="nv"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;get&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;f&lt;/span&gt; &lt;span class="nv"&gt;install&lt;/span&gt;
+### &lt;span class="nv"&gt;fetches&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;missing&lt;/span&gt; &lt;span class="nv"&gt;dependencies&lt;/span&gt;, &lt;span class="nv"&gt;configures&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;sym&lt;/span&gt; &lt;span class="nv"&gt;links&lt;/span&gt; &lt;span class="nv"&gt;etc&lt;/span&gt;
+$ &lt;span class="nv"&gt;omxplayer&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;help&lt;/span&gt;
+&lt;span class="nv"&gt;Usage&lt;/span&gt;: &lt;span class="nv"&gt;omxplayer&lt;/span&gt; [&lt;span class="nv"&gt;OPTIONS&lt;/span&gt;] [&lt;span class="nv"&gt;FILE&lt;/span&gt;]
+&lt;span class="nv"&gt;Options&lt;/span&gt; :
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;h&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;help&lt;/span&gt;                    &lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;help&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;alang&lt;/span&gt; &lt;span class="nv"&gt;language&lt;/span&gt;          &lt;span class="nv"&gt;audio&lt;/span&gt; &lt;span class="nv"&gt;language&lt;/span&gt;        : &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;g&lt;/span&gt;. &lt;span class="nv"&gt;ger&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;n&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;aidx&lt;/span&gt;  &lt;span class="nv"&gt;index&lt;/span&gt;             &lt;span class="nv"&gt;audio&lt;/span&gt; &lt;span class="nv"&gt;stream&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;    : &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;g&lt;/span&gt;. &lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;o&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;adev&lt;/span&gt;  &lt;span class="nv"&gt;device&lt;/span&gt;            &lt;span class="nv"&gt;audio&lt;/span&gt; &lt;span class="nv"&gt;out&lt;/span&gt; &lt;span class="nv"&gt;device&lt;/span&gt;      : &lt;span class="nv"&gt;e&lt;/span&gt;.&lt;span class="nv"&gt;g&lt;/span&gt;. &lt;span class="nv"&gt;hdmi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;local&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;info&lt;/span&gt;                    &lt;span class="nv"&gt;dump&lt;/span&gt; &lt;span class="nv"&gt;stream&lt;/span&gt; &lt;span class="nv"&gt;format&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="k"&gt;exit&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;stats&lt;/span&gt;                   &lt;span class="nv"&gt;pts&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;buffer&lt;/span&gt; &lt;span class="nv"&gt;stats&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;p&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;passthrough&lt;/span&gt;             &lt;span class="nv"&gt;audio&lt;/span&gt; &lt;span class="nv"&gt;passthrough&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;deinterlace&lt;/span&gt;             &lt;span class="nv"&gt;deinterlacing&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;w&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;hw&lt;/span&gt;                      &lt;span class="nv"&gt;hw&lt;/span&gt; &lt;span class="nv"&gt;audio&lt;/span&gt; &lt;span class="nv"&gt;decoding&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt;                      &lt;span class="nv"&gt;switch&lt;/span&gt; &lt;span class="nv"&gt;tv&lt;/span&gt; &lt;span class="nv"&gt;into&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt; &lt;span class="nv"&gt;mode&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;y&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;hdmiclocksync&lt;/span&gt;           &lt;span class="nv"&gt;adjust&lt;/span&gt; &lt;span class="nv"&gt;display&lt;/span&gt; &lt;span class="nv"&gt;refresh&lt;/span&gt; &lt;span class="nv"&gt;rate&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;match&lt;/span&gt; &lt;span class="nv"&gt;video&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;sid&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;               &lt;span class="k"&gt;show&lt;/span&gt; &lt;span class="nv"&gt;subtitle&lt;/span&gt; &lt;span class="nv"&gt;with&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;r&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="nv"&gt;refresh&lt;/span&gt;                 &lt;span class="nv"&gt;adjust&lt;/span&gt; &lt;span class="nv"&gt;framerate&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;resolution&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;video&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1711,13 +1711,13 @@ $ vagrant up
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/init_pic3.png"&gt;&lt;img alt="init_pic3" src="//thegeekyway.com/uploads/images/2013/12/init_pic3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Now to control any script, you'll need the superuser (sudo/su) permission. You can manually control the scripts using console/terminal. The syntax for controlling the script is like :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# /etc/init.d/&amp;lt;script&amp;gt; &amp;lt;option&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;script&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;option&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Where \&amp;lt;script&gt;  stands for the name of the script located under /etc/init.d which you wanna control, and \&amp;lt;option&gt; can be replaced by the control commands like : start,stop,reload,restart,force-reload.&lt;/p&gt;
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo /etc/init.d/pulseaudio reload
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pulseaudio&lt;/span&gt; &lt;span class="n"&gt;reload&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

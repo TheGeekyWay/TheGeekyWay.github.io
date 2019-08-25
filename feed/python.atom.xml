@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Python</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/python.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-02-26T17:44:00+05:30</updated><entry><title>Conditional Statements in Python</title><link href="//thegeekyway.com/conditional-statements/" rel="alternate"></link><published>2014-02-26T17:44:00+05:30</published><updated>2014-02-26T17:44:00+05:30</updated><author><name>Simerdeep Singh</name></author><id>tag:thegeekyway.com,2014-02-26:/conditional-statements/</id><summary type="html">&lt;div style="text-align:center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Python</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/python.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-02-26T17:44:00+05:30</updated><entry><title>Conditional Statements in Python</title><link href="//thegeekyway.com/conditional-statements/" rel="alternate"></link><published>2014-02-26T17:44:00+05:30</published><updated>2014-02-26T17:44:00+05:30</updated><author><name>Simerdeep Singh</name></author><id>tag:thegeekyway.com,2014-02-26:/conditional-statements/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/Conditional_Statements1.jpg" title="Conditional Statements in python"&gt;&lt;img alt="Conditional Statements in python" src="//thegeekyway.com/uploads/images/2014/02/Conditional_Statements1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;In this tutorial we will discuss about conditional statements in python. Conditional statements are used to perform different computation based on the &lt;strong&gt;Boolean expression&lt;/strong&gt; which turns out to be true or false . &lt;strong&gt;Boolean expression&lt;/strong&gt; is on which these conditional statement works. Various Conditional statement used are:&lt;/p&gt;
@@ -17,18 +17,18 @@
 &lt;/ul&gt;
 &lt;p&gt;&lt;strong&gt;If&lt;/strong&gt; condition&lt;/p&gt;
 &lt;p&gt;The general syntax for using if statement is&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if (Boolean expression) :
-   code  #indentation is required
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Boolean&lt;/span&gt; &lt;span class="nv"&gt;expression&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; :
+   &lt;span class="nv"&gt;code&lt;/span&gt;  #&lt;span class="nv"&gt;indentation&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;required&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;if&lt;/strong&gt; is a keyword used for if statements ,it is a followed by a boolean expression which is evaluated  . Now question arises is why space is given in front when we have written code statement . This is because as no brackets are used to hold the computations after the if statement as this is a case in c++,java which uses curly brackets {}. The symbol : signifies that from here if block starts .&lt;/p&gt;
 &lt;p&gt;In Python indentation is given rather than using brackets . If we not give the indentation compiler will give an error in case when no line is there in the if block .&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=2;
-if(a==2):
-print a
-else
-print &amp;quot;NO&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
+&lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+&lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;NO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -38,31 +38,31 @@ print &amp;quot;NO&amp;quot;
 &lt;p&gt;If statement can be used with else statements and can be used alone . If the condition evaluates to true then code inside if block is executed otherwise it is skip to the next line.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;else&lt;/strong&gt; condition&lt;/p&gt;
 &lt;p&gt;The syntax of the else statement is&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="o"&gt;:&lt;/span&gt;
-  &lt;span class="n"&gt;code&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt; :
+  &lt;span class="nv"&gt;code&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here else is a keyword used and there are no brackets used as in if statement ,else is also followed by the code segment and indentation is required. Else statement are followed by if statement and cant be used alone . Compiler checks the if block first if Boolean expression doesn't come out to be true ,code inside else statement gets executed.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Example&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=2
-if(a==2):
- print &amp;quot;YES&amp;quot;
-else :
- print &amp;quot;NO&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
+ &lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;YES&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; :
+ &lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;NO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In this example a has been assigned a value 2 , after that value of a is checked by using if statement . The statement (a==2) means a is compared to the value 2 if it comes to be true if statement will execute otherwise else statement will execute. The output for this case will be "YES".&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Elif&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;To avoid multiple if else statements we use else if .It is just like a else followed by a if .elif is a keyword used for else-if statemnts . This example will tell the use of elif keyword.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=9
-if(a%2==0):
- print &amp;quot;YES&amp;quot;
-elif (a%3==0):
- print &amp;quot;YES&amp;quot;
-else
- &amp;quot;NO&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
+ &lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;YES&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;elif&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;a&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;:
+ &lt;span class="nv"&gt;print&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;YES&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+ &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;NO&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -93,20 +93,20 @@ else
 &lt;p&gt;Values are assigned to variables by using (=) sign..There is no need to write keyword when initializing a variable as interpreter itself asisign it according to the value given .&lt;/p&gt;
 &lt;h2&gt;Integer&lt;/h2&gt;
 &lt;p&gt;Integer is used for storing integer data . The keyword for integer variables is int .&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=10
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The range of integer is (2\^32) and get promoted to long  when  a number greater than (2\^32)&lt;/p&gt;
 &lt;h2&gt;String&lt;/h2&gt;
 &lt;p&gt;Strings are used for storing character literals .When we want to save some names of person or for any character related data we use strings.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=&amp;quot;simer&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;simer&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We can apply various operations on strings . To print letters of string we can give the index of the letter and print it .Index of a string always start from 0.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=&amp;quot;simer&amp;quot;
-print a[0]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;simer&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -115,10 +115,10 @@ print a[0]
 &lt;/div&gt;
 &lt;p&gt;0 is the index of the 1 letter of the string ,similarly 1 idex will be of 2 letter and so on.&lt;/p&gt;
 &lt;p&gt;We can also give the range of letters which we want to print of the given string .These can be given as :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=&amp;quot;simer&amp;quot;
-print a[0:]   # to print all the letter from index 0
-print a[1:3]  # to print letter starting from index 1 to index 3
-print a[:4]   # to print first 4 letter of string
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;simer&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:]&lt;/span&gt;   &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="k"&gt;all&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;letter&lt;/span&gt; &lt;span class="k"&gt;from&lt;/span&gt; &lt;span class="k"&gt;index&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;  &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;letter&lt;/span&gt; &lt;span class="n"&gt;starting&lt;/span&gt; &lt;span class="k"&gt;from&lt;/span&gt; &lt;span class="k"&gt;index&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="k"&gt;index&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;[:&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;   &lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="k"&gt;first&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;letter&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -129,20 +129,20 @@ print a[:4]   # to print first 4 letter of string
 &lt;p&gt;float variables are used to store floating point values . They consist of two parts mantissa and exponent.&lt;/p&gt;
 &lt;p&gt;eg 2*10^-1  ^&lt;/p&gt;
 &lt;p&gt;Here 2 is the mantissa , -1 is the exponent and 10 is the base of the exponent.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=2.5
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Complex&lt;/h2&gt;
 &lt;p&gt;Complex numbers are represented by a+bj where a is the real part of number and b is the imaginary part of the number .They are used to repreent real floating point numbers.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=5+10i
-print a
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2&gt;Multiple Assignnmet&lt;/h2&gt;
 &lt;p&gt;We can assign multiple variables at the same  time to same value. This will save time by not initializing the variable every time.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=b=c=20
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;b&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -150,20 +150,20 @@ print a
 &lt;p&gt;We can convert datatype of a variable to another datatype .&lt;/p&gt;
 &lt;p&gt;Integer to float or vice versa&lt;/p&gt;
 &lt;p&gt;We can convert a floating point number to an  integer or a integer to floating point  by using int and float  keywords  with that variable.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=123.5
-print a
-a=int(a)
-print a
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/Screenshot-8.png"&gt;&lt;img alt="Screenshot-8" src="//thegeekyway.com/uploads/images/2014/01/Screenshot-8.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=123
-print a
-a=float(a)
-print a
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -172,20 +172,20 @@ print a
 &lt;/div&gt;
 &lt;p&gt;integer to string or vice versa&lt;/p&gt;
 &lt;p&gt;We can convert integer to sting and strings to integers by using int and str keywords .Numeric strings can be converted to integers only,alphabetic strings will not be converted.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=&amp;quot;1234&amp;quot;
-print a
-a=int(a)
-print a+2
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;1234&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/Screenshot-57.png"&gt;&lt;img alt="Screenshot-5" src="//thegeekyway.com/uploads/images/2014/01/Screenshot-57.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=1234
-print a
-a=str(a)
-print a,a+2 #a+2 to check that is been converted to string
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1234&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="k"&gt;check&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;been&lt;/span&gt; &lt;span class="n"&gt;converted&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;string&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -194,18 +194,18 @@ print a,a+2 #a+2 to check that is been converted to string
 &lt;/div&gt;
 &lt;p&gt;Complex to string or vice versa&lt;/p&gt;
 &lt;p&gt;Complex can only be converted to string datatype and only numeric string can be converted to complex datat type ,keyword used for complex is complex.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=&amp;quot;123&amp;quot;
-a=complex(a)
-print a
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;123&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;complex&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/Screenshot-61.png"&gt;&lt;img alt="Screenshot-6" src="//thegeekyway.com/uploads/images/2014/01/Screenshot-61.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;a=5+8j
-a=str(a)
-print a
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;&lt;span class="n"&gt;j&lt;/span&gt;
+&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;str&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -232,7 +232,7 @@ print a
 &lt;li&gt;&lt;p style="color: #000000"&gt;Writing a program in &lt;strong&gt;text file&lt;/strong&gt; or &lt;strong&gt;console&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;p style="color: #000000"&gt;&lt;strong&gt;Text File&lt;/strong&gt;&lt;/p&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;print &amp;#39;hello world&amp;#39;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hello world&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -271,15 +271,15 @@ print a
 &lt;p&gt;&lt;p style="color: #000000"&gt;There are two types of comments available in python:&lt;/p&gt;&lt;/p&gt;
 &lt;h3&gt;&lt;p style="color: #000000"&gt;&lt;strong&gt;Single line comments&lt;/strong&gt;&lt;/p&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;p style="color: #000000"&gt;# is used to write the single line comments . &lt;/p&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;print &amp;#39;hello world&amp;#39; #will print hello world
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hello world&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;#&lt;/span&gt;&lt;span class="n"&gt;will&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;hello&lt;/span&gt; &lt;span class="n"&gt;world&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;p style="color: #000000"&gt;&lt;strong&gt;will print hello world&lt;/strong&gt; is a comment and will be ignored by the compiler .&lt;/p&gt;&lt;/p&gt;
 &lt;h3&gt;&lt;p style="color: #000000"&gt;&lt;strong&gt;Multiple Line comments&lt;/strong&gt;&lt;/p&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;p style="color: #000000"&gt;To write multiline comments the symbol is """  """ .&lt;/p&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;print &amp;#39;hello world&amp;#39; &amp;quot;&amp;quot;&amp;quot; this is a 
-                          multiline comment &amp;quot;&amp;quot;&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;hello world&amp;#39;&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;&amp;quot;&amp;quot; this is a &lt;/span&gt;
+&lt;span class="ss"&gt;                          multiline comment &amp;quot;&amp;quot;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

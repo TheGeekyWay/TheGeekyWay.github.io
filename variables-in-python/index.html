@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="Python">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Variables in PYTHON  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/variables-in-python/">Variables in PYTHON</a></h1>
+    <h1><a href="//thegeekyway.com/variables-in-python/">Variables in PYTHON</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/simerdeep-singh/>Simerdeep Singh</a></strong></p>
@@ -93,20 +96,20 @@
 <p>Values are assigned to variables by using (=) sign..There is no need to write keyword when initializing a variable as interpreter itself asisign it according to the value given .</p>
 <h2>Integer</h2>
 <p>Integer is used for storing integer data . The keyword for integer variables is int .</p>
-<div class="highlight"><pre><span></span>a=10
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">10</span>
 </pre></div>
 
 
 <p>The range of integer is (2\^32) and get promoted to long  when  a number greater than (2\^32)</p>
 <h2>String</h2>
 <p>Strings are used for storing character literals .When we want to save some names of person or for any character related data we use strings.</p>
-<div class="highlight"><pre><span></span>a=&quot;simer&quot;
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="ss">&quot;simer&quot;</span>
 </pre></div>
 
 
 <p>We can apply various operations on strings . To print letters of string we can give the index of the letter and print it .Index of a string always start from 0.</p>
-<div class="highlight"><pre><span></span>a=&quot;simer&quot;
-print a[0]
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="ss">&quot;simer&quot;</span>
+<span class="n">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </pre></div>
 
 
@@ -115,10 +118,10 @@ print a[0]
 </div>
 <p>0 is the index of the 1 letter of the string ,similarly 1 idex will be of 2 letter and so on.</p>
 <p>We can also give the range of letters which we want to print of the given string .These can be given as :</p>
-<div class="highlight"><pre><span></span>a=&quot;simer&quot;
-print a[0:]   # to print all the letter from index 0
-print a[1:3]  # to print letter starting from index 1 to index 3
-print a[:4]   # to print first 4 letter of string
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="ss">&quot;simer&quot;</span>
+<span class="n">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">:]</span>   <span class="o">#</span> <span class="k">to</span> <span class="n">print</span> <span class="k">all</span> <span class="n">the</span> <span class="n">letter</span> <span class="k">from</span> <span class="k">index</span> <span class="mi">0</span>
+<span class="n">print</span> <span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">]</span>  <span class="o">#</span> <span class="k">to</span> <span class="n">print</span> <span class="n">letter</span> <span class="n">starting</span> <span class="k">from</span> <span class="k">index</span> <span class="mi">1</span> <span class="k">to</span> <span class="k">index</span> <span class="mi">3</span>
+<span class="n">print</span> <span class="n">a</span><span class="p">[:</span><span class="mi">4</span><span class="p">]</span>   <span class="o">#</span> <span class="k">to</span> <span class="n">print</span> <span class="k">first</span> <span class="mi">4</span> <span class="n">letter</span> <span class="k">of</span> <span class="n">string</span>
 </pre></div>
 
 
@@ -129,20 +132,20 @@ print a[:4]   # to print first 4 letter of string
 <p>float variables are used to store floating point values . They consist of two parts mantissa and exponent.</p>
 <p>eg 2*10^-1  ^</p>
 <p>Here 2 is the mantissa , -1 is the exponent and 10 is the base of the exponent.</p>
-<div class="highlight"><pre><span></span>a=2.5
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">2</span><span class="p">.</span><span class="mi">5</span>
 </pre></div>
 
 
 <h2>Complex</h2>
 <p>Complex numbers are represented by a+bj where a is the real part of number and b is the imaginary part of the number .They are used to repreent real floating point numbers.</p>
-<div class="highlight"><pre><span></span>a=5+10i
-print a
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="o">+</span><span class="mi">10</span><span class="n">i</span>
+<span class="n">print</span> <span class="n">a</span>
 </pre></div>
 
 
 <h2>Multiple Assignnmet</h2>
 <p>We can assign multiple variables at the same  time to same value. This will save time by not initializing the variable every time.</p>
-<div class="highlight"><pre><span></span>a=b=c=20
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">b</span><span class="o">=</span><span class="k">c</span><span class="o">=</span><span class="mi">20</span>
 </pre></div>
 
 
@@ -150,20 +153,20 @@ print a
 <p>We can convert datatype of a variable to another datatype .</p>
 <p>Integer to float or vice versa</p>
 <p>We can convert a floating point number to an  integer or a integer to floating point  by using int and float  keywords  with that variable.</p>
-<div class="highlight"><pre><span></span>a=123.5
-print a
-a=int(a)
-print a
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">123</span><span class="p">.</span><span class="mi">5</span>
+<span class="n">print</span> <span class="n">a</span>
+<span class="n">a</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">print</span> <span class="n">a</span>
 </pre></div>
 
 
 <div style="text-align:center">
 <p><a href="//thegeekyway.com/uploads/images/2014/01/Screenshot-8.png"><img alt="Screenshot-8" src="//thegeekyway.com/uploads/images/2014/01/Screenshot-8.png"></a></p>
 </div>
-<div class="highlight"><pre><span></span>a=123
-print a
-a=float(a)
-print a
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">123</span>
+<span class="n">print</span> <span class="n">a</span>
+<span class="n">a</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">print</span> <span class="n">a</span>
 </pre></div>
 
 
@@ -172,20 +175,20 @@ print a
 </div>
 <p>integer to string or vice versa</p>
 <p>We can convert integer to sting and strings to integers by using int and str keywords .Numeric strings can be converted to integers only,alphabetic strings will not be converted.</p>
-<div class="highlight"><pre><span></span>a=&quot;1234&quot;
-print a
-a=int(a)
-print a+2
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="ss">&quot;1234&quot;</span>
+<span class="n">print</span> <span class="n">a</span>
+<span class="n">a</span><span class="o">=</span><span class="nb">int</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">print</span> <span class="n">a</span><span class="o">+</span><span class="mi">2</span>
 </pre></div>
 
 
 <div style="text-align:center">
 <p><a href="//thegeekyway.com/uploads/images/2014/01/Screenshot-57.png"><img alt="Screenshot-5" src="//thegeekyway.com/uploads/images/2014/01/Screenshot-57.png"></a></p>
 </div>
-<div class="highlight"><pre><span></span>a=1234
-print a
-a=str(a)
-print a,a+2 #a+2 to check that is been converted to string
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">1234</span>
+<span class="n">print</span> <span class="n">a</span>
+<span class="n">a</span><span class="o">=</span><span class="n">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">print</span> <span class="n">a</span><span class="p">,</span><span class="n">a</span><span class="o">+</span><span class="mi">2</span> <span class="o">#</span><span class="n">a</span><span class="o">+</span><span class="mi">2</span> <span class="k">to</span> <span class="k">check</span> <span class="n">that</span> <span class="k">is</span> <span class="n">been</span> <span class="n">converted</span> <span class="k">to</span> <span class="n">string</span>
 </pre></div>
 
 
@@ -194,18 +197,18 @@ print a,a+2 #a+2 to check that is been converted to string
 </div>
 <p>Complex to string or vice versa</p>
 <p>Complex can only be converted to string datatype and only numeric string can be converted to complex datat type ,keyword used for complex is complex.</p>
-<div class="highlight"><pre><span></span>a=&quot;123&quot;
-a=complex(a)
-print a
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="ss">&quot;123&quot;</span>
+<span class="n">a</span><span class="o">=</span><span class="n">complex</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">print</span> <span class="n">a</span>
 </pre></div>
 
 
 <div style="text-align:center">
 <p><a href="//thegeekyway.com/uploads/images/2014/01/Screenshot-61.png"><img alt="Screenshot-6" src="//thegeekyway.com/uploads/images/2014/01/Screenshot-61.png"></a></p>
 </div>
-<div class="highlight"><pre><span></span>a=5+8j
-a=str(a)
-print a
+<div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="o">+</span><span class="mi">8</span><span class="n">j</span>
+<span class="n">a</span><span class="o">=</span><span class="n">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="n">print</span> <span class="n">a</span>
 </pre></div>
 
 
@@ -216,24 +219,22 @@ print a
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 31 January 2014</p>
-    <p>Category: <a href="/category/python/">Python</a>
+    <p>Category: <a href="//thegeekyway.com/category/python/">Python</a>
  &ndash; Tags:
-      <a href="/tag/python/">Python</a>    </p>
+      <a href="//thegeekyway.com/tag/python/">Python</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/variables-in-python/";
-      this.page.identifier = "variables-in-python/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "variables-in-python/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

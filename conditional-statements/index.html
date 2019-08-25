@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="Conditional Statements, Python">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Conditional Statements in Python  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/conditional-statements/">Conditional Statements in Python</a></h1>
+    <h1><a href="//thegeekyway.com/conditional-statements/">Conditional Statements in Python</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/simerdeep-singh/>Simerdeep Singh</a></strong></p>
@@ -90,18 +93,18 @@
 </ul>
 <p><strong>If</strong> condition</p>
 <p>The general syntax for using if statement is</p>
-<div class="highlight"><pre><span></span>if (Boolean expression) :
-   code  #indentation is required
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="ss">(</span><span class="nv">Boolean</span> <span class="nv">expression</span><span class="ss">)</span> :
+   <span class="nv">code</span>  #<span class="nv">indentation</span> <span class="nv">is</span> <span class="nv">required</span>
 </pre></div>
 
 
 <p><strong>if</strong> is a keyword used for if statements ,it is a followed by a boolean expression which is evaluated  . Now question arises is why space is given in front when we have written code statement . This is because as no brackets are used to hold the computations after the if statement as this is a case in c++,java which uses curly brackets {}. The symbol : signifies that from here if block starts .</p>
 <p>In Python indentation is given rather than using brackets . If we not give the indentation compiler will give an error in case when no line is there in the if block .</p>
-<div class="highlight"><pre><span></span>a=2;
-if(a==2):
-print a
-else
-print &quot;NO&quot;
+<div class="highlight"><pre><span></span><span class="nv">a</span><span class="o">=</span><span class="mi">2</span><span class="c1">;</span>
+<span class="k">if</span><span class="ss">(</span><span class="nv">a</span><span class="o">==</span><span class="mi">2</span><span class="ss">)</span>:
+<span class="nv">print</span> <span class="nv">a</span>
+<span class="k">else</span>
+<span class="nv">print</span> <span class="s2">&quot;</span><span class="s">NO</span><span class="s2">&quot;</span>
 </pre></div>
 
 
@@ -111,31 +114,31 @@ print &quot;NO&quot;
 <p>If statement can be used with else statements and can be used alone . If the condition evaluates to true then code inside if block is executed otherwise it is skip to the next line.</p>
 <p><strong>else</strong> condition</p>
 <p>The syntax of the else statement is</p>
-<div class="highlight"><pre><span></span><span class="k">else</span> <span class="o">:</span>
-  <span class="n">code</span>
+<div class="highlight"><pre><span></span><span class="k">else</span> :
+  <span class="nv">code</span>
 </pre></div>
 
 
 <p>Here else is a keyword used and there are no brackets used as in if statement ,else is also followed by the code segment and indentation is required. Else statement are followed by if statement and cant be used alone . Compiler checks the if block first if Boolean expression doesn't come out to be true ,code inside else statement gets executed.</p>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre><span></span>a=2
-if(a==2):
- print &quot;YES&quot;
-else :
- print &quot;NO&quot;
+<div class="highlight"><pre><span></span><span class="nv">a</span><span class="o">=</span><span class="mi">2</span>
+<span class="k">if</span><span class="ss">(</span><span class="nv">a</span><span class="o">==</span><span class="mi">2</span><span class="ss">)</span>:
+ <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">YES</span><span class="s2">&quot;</span>
+<span class="k">else</span> :
+ <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">NO</span><span class="s2">&quot;</span>
 </pre></div>
 
 
 <p>In this example a has been assigned a value 2 , after that value of a is checked by using if statement . The statement (a==2) means a is compared to the value 2 if it comes to be true if statement will execute otherwise else statement will execute. The output for this case will be "YES".</p>
 <p><strong>Elif</strong></p>
 <p>To avoid multiple if else statements we use else if .It is just like a else followed by a if .elif is a keyword used for else-if statemnts . This example will tell the use of elif keyword.</p>
-<div class="highlight"><pre><span></span>a=9
-if(a%2==0):
- print &quot;YES&quot;
-elif (a%3==0):
- print &quot;YES&quot;
-else
- &quot;NO&quot;
+<div class="highlight"><pre><span></span><span class="nv">a</span><span class="o">=</span><span class="mi">9</span>
+<span class="k">if</span><span class="ss">(</span><span class="nv">a</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="ss">)</span>:
+ <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">YES</span><span class="s2">&quot;</span>
+<span class="nv">elif</span> <span class="ss">(</span><span class="nv">a</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="ss">)</span>:
+ <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">YES</span><span class="s2">&quot;</span>
+<span class="k">else</span>
+ <span class="s2">&quot;</span><span class="s">NO</span><span class="s2">&quot;</span>
 </pre></div>
 
 
@@ -145,24 +148,22 @@ else
   </div>
   <div class="article_meta">
     <p>Posted on: Wed 26 February 2014</p>
-    <p>Category: <a href="/category/python/">Python</a>
+    <p>Category: <a href="//thegeekyway.com/category/python/">Python</a>
  &ndash; Tags:
-      <a href="/tag/conditional-statements/">Conditional Statements</a>,      <a href="/tag/python/">Python</a>    </p>
+      <a href="//thegeekyway.com/tag/conditional-statements/">Conditional Statements</a>,      <a href="//thegeekyway.com/tag/python/">Python</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/conditional-statements/";
-      this.page.identifier = "conditional-statements/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "conditional-statements/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

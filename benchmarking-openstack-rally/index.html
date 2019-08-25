@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="benchmarking, Openstack, openstack benchmarking, performance measure, rally, scaling">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Benchmarking OpenStack With Rally  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
+    <h1><a href="//thegeekyway.com/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
@@ -88,28 +91,28 @@
 </div>
 <p>Rally generally works a command line tool (GUI is work in progress) and helps in detecting scaling and performance issues, figuring out how the code change affects the system and finding out suitable architecture of deployment etc.</p>
 <p>The first step is to install rally in OpenStack environment. I am going to use rally as a plugin with devstack, though it is possible to install it manually in an already deployed environment. To start, clone the following repositories from github:</p>
-<div class="highlight"><pre><span></span>git clone https://github.com/openstack-dev/devstack
+<div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">openstack</span><span class="o">-</span><span class="n">dev</span><span class="o">/</span><span class="n">devstack</span>
 
-git clone https://github.com/stackforge/rally
+<span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">stackforge</span><span class="o">/</span><span class="n">rally</span>
 </pre></div>
 
 
 <p>Now, execute the following commands from your terminal in order to set devstack up with rally:</p>
-<div class="highlight"><pre><span></span>cp rally/contrib/devstack/lib/rally devstack/lib/
-cp rally/contrib/devstack/extras.d/70-rally.sh devstack/extras.d/
-cd devstack
-echo &quot;enable_service rally&quot; &gt;&gt; localrc
+<div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">rally</span><span class="o">/</span><span class="n">contrib</span><span class="o">/</span><span class="n">devstack</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rally</span> <span class="n">devstack</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span>
+<span class="n">cp</span> <span class="n">rally</span><span class="o">/</span><span class="n">contrib</span><span class="o">/</span><span class="n">devstack</span><span class="o">/</span><span class="n">extras</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="mi">70</span><span class="o">-</span><span class="n">rally</span><span class="p">.</span><span class="n">sh</span> <span class="n">devstack</span><span class="o">/</span><span class="n">extras</span><span class="p">.</span><span class="n">d</span><span class="o">/</span>
+<span class="n">cd</span> <span class="n">devstack</span>
+<span class="n">echo</span> <span class="ss">&quot;enable_service rally&quot;</span> <span class="o">&gt;&gt;</span> <span class="n">localrc</span>
 </pre></div>
 
 
 <p>Next, as usual, we run the installation script of devstack:</p>
-<div class="highlight"><pre><span></span>./stack.sh
+<div class="highlight"><pre><span></span><span class="p">.</span><span class="o">/</span><span class="n">stack</span><span class="p">.</span><span class="n">sh</span>
 </pre></div>
 
 
 <p>Go for a coffee or take a walk, until devstack completes its work!</p>
 <p>After the installation is done, source the openrc file present in \~/.rally/ directory to start using OpenStack.</p>
-<div class="highlight"><pre><span></span>source ~/.rally/openrc
+<div class="highlight"><pre><span></span><span class="k">source</span> <span class="o">~/</span><span class="p">.</span><span class="n">rally</span><span class="o">/</span><span class="n">openrc</span>
 </pre></div>
 
 
@@ -126,7 +129,7 @@ echo &quot;enable_service rally&quot; &gt;&gt; localrc
 <p><strong><img alt="Screenshot from 2014-02-27 17:21:26.png" src="https://lh6.googleusercontent.com/CujE4Dm-jfe4s5aSB3eCpNwxWQWqedxz6oSFuvHZoSmppfLzmz17nxQb-6W_lUsNBds9XpjEA1PHyy8M4dyUh6adwwA7w7Euz7PN_Oe-hQlH8MHIszqKrmbj-w"></strong></p>
 </div>
 <p>Next, we come to benchmarking. There are a lot of ways to test the deployment, we will use an example that comes with rally. This is a boot and delete test. First copy the test to you current directory:</p>
-<div class="highlight"><pre><span></span>cp doc/samples/tasks/nova/boot-and-delete.json my-task.json
+<div class="highlight"><pre><span></span><span class="n">cp</span> <span class="n">doc</span><span class="o">/</span><span class="n">samples</span><span class="o">/</span><span class="n">tasks</span><span class="o">/</span><span class="n">nova</span><span class="o">/</span><span class="n">boot</span><span class="o">-</span><span class="k">and</span><span class="o">-</span><span class="k">delete</span><span class="p">.</span><span class="n">json</span> <span class="n">my</span><span class="o">-</span><span class="n">task</span><span class="p">.</span><span class="n">json</span>
 </pre></div>
 
 
@@ -135,7 +138,7 @@ echo &quot;enable_service rally&quot; &gt;&gt; localrc
 <p><strong><img alt="Screenshot from 2014-02-27 17:25:25.png" src="https://lh6.googleusercontent.com/Wi-J5GrWHYqoyY-buqPouTYbeuSrsqwTVDhmqCL0j7CKpJCDaasJpZhuz-TRdb7Ew5w1B-5ikyQpFBSGp_uHG_RYBGOvnrDr9JXhAVTwNfNbouHZxAwvvYxyOQ"></strong></p>
 </div>
 <p>Edit the falvor_id and image_id according to your system. Use “glance image-list” and “nova flavor-list” commands. And now we are ready to run our first task. Type this on your machine:</p>
-<div class="highlight"><pre><span></span>rally --verbose task start --task=my-task.json
+<div class="highlight"><pre><span></span><span class="n">rally</span> <span class="c1">--verbose task start --task=my-task.json</span>
 </pre></div>
 
 
@@ -151,24 +154,22 @@ echo &quot;enable_service rally&quot; &gt;&gt; localrc
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 28 February 2014</p>
-    <p>Category: <a href="/category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/benchmarking/">benchmarking</a>,      <a href="/tag/openstack/">Openstack</a>,      <a href="/tag/openstack-benchmarking/">openstack benchmarking</a>,      <a href="/tag/performance-measure/">performance measure</a>,      <a href="/tag/rally/">rally</a>,      <a href="/tag/scaling/">scaling</a>    </p>
+      <a href="//thegeekyway.com/tag/benchmarking/">benchmarking</a>,      <a href="//thegeekyway.com/tag/openstack/">Openstack</a>,      <a href="//thegeekyway.com/tag/openstack-benchmarking/">openstack benchmarking</a>,      <a href="//thegeekyway.com/tag/performance-measure/">performance measure</a>,      <a href="//thegeekyway.com/tag/rally/">rally</a>,      <a href="//thegeekyway.com/tag/scaling/">scaling</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/benchmarking-openstack-rally/";
-      this.page.identifier = "benchmarking-openstack-rally/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "benchmarking-openstack-rally/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

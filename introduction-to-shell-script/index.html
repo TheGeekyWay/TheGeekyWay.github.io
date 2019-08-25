@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="Scripting, Shell">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Introduction to Shell Script  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/introduction-to-shell-script/">Introduction to Shell Script</a></h1>
+    <h1><a href="//thegeekyway.com/introduction-to-shell-script/">Introduction to Shell Script</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
@@ -137,7 +140,7 @@
 
 <p><strong>Shebang(#!)</strong> is a special comment, that informs, which shell to be selected while executing this file. It is actually the path to the shell required to run this script.</p>
 <p><strong>3. Add some commands to the file</strong></p>
-<div class="highlight"><pre><span></span>echo &quot;Script is working fine!&quot;
+<div class="highlight"><pre><span></span><span class="n">echo</span> <span class="ss">&quot;Script is working fine!&quot;</span>
 </pre></div>
 
 
@@ -160,10 +163,10 @@ Script is working fine!
 <h2>Comments</h2>
 <p>Writing comments is really useful in any programming language. Because the code is read much more times than it is written. Also, comments make the code easy to comprehend, thus, it is advisable to use comments to explain complex parts of the code.</p>
 <p>In shell scripting, you may give comments with <strong>hash (#)</strong> symbol.</p>
-<div class="highlight"><pre><span></span># File: newfile.sh
-# Purpose: To learn and practice shell script
-# Author: Your name
-# These are comments in a shell script.
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">File</span><span class="p">:</span> <span class="n">newfile</span><span class="p">.</span><span class="n">sh</span>
+<span class="o">#</span> <span class="n">Purpose</span><span class="p">:</span> <span class="k">To</span> <span class="n">learn</span> <span class="k">and</span> <span class="n">practice</span> <span class="n">shell</span> <span class="n">script</span>
+<span class="o">#</span> <span class="n">Author</span><span class="p">:</span> <span class="n">Your</span> <span class="n">name</span>
+<span class="o">#</span> <span class="n">These</span> <span class="k">are</span> <span class="n">comments</span> <span class="k">in</span> <span class="n">a</span> <span class="n">shell</span> <span class="n">script</span><span class="p">.</span>
 </pre></div>
 
 
@@ -358,15 +361,15 @@ Parameters: e f
 <h4><strong>If-else statement</strong></h4>
 <p><strong><em>Usage:</em></strong> To execute a set of commands, on the basis of evaluation of an expression.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span>if command1    # if block started
-then
-     command-list1
-elif command2  # optional
-then
-     command-list2
-else           # optional: to accept rest of the conditions.
-     command-list3
-fi             # end of if-else block
+<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nv">command1</span>    # <span class="k">if</span> <span class="nv">block</span> <span class="nv">started</span>
+<span class="k">then</span>
+     <span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
+<span class="nv">elif</span> <span class="nv">command2</span>  # <span class="nv">optional</span>
+<span class="k">then</span>
+     <span class="nv">command</span><span class="o">-</span><span class="nv">list2</span>
+<span class="k">else</span>           # <span class="nv">optional</span>: <span class="nv">to</span> <span class="nv">accept</span> <span class="nv">rest</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">conditions</span>.
+     <span class="nv">command</span><span class="o">-</span><span class="nv">list3</span>
+<span class="nv">fi</span>             # <span class="k">end</span> <span class="nv">of</span> <span class="k">if</span><span class="o">-</span><span class="k">else</span> <span class="nv">block</span>
 </pre></div>
 
 
@@ -382,10 +385,10 @@ fi             # end of if-else block
  8
  9
 10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="k">if</span> ls <span class="p">|</span> grep ^z <span class="p">&amp;</span>gt<span class="p">;</span> /dev/null
+<span class="k">if</span> ls <span class="p">|</span> grep ^z &gt; /dev/null
 <span class="k">then</span>
    <span class="nb">echo</span> Firt <span class="k">case</span>.
-<span class="k">elif</span> ls <span class="p">|</span> grep ^a <span class="p">&amp;</span>gt<span class="p">;</span> /dev/null
+<span class="k">elif</span> ls <span class="p">|</span> grep ^a &gt; /dev/null
 <span class="k">then</span> 
    <span class="nb">echo</span> Second <span class="k">case</span>.
 <span class="k">else</span>
@@ -396,7 +399,7 @@ fi             # end of if-else block
 
 <p>Here, "<strong>ls | grep \^z" </strong> searches files/folders in the current directory that starts with <strong>"z". </strong>And <strong>"> /dev/null" </strong>sends the output of the file in a <strong>null</strong> device (typically used for disposing of unwanted output streams of a process).</p>
 <p><strong><em>The output</em></strong> of the above program is shown below. (As I don't have any file that starts with <strong>"z"</strong>)</p>
-<div class="highlight"><pre><span></span>Second case.
+<div class="highlight"><pre><span></span><span class="k">Second</span> <span class="k">case</span><span class="p">.</span>
 </pre></div>
 
 
@@ -404,10 +407,10 @@ fi             # end of if-else block
 <p><strong><em>Usage:</em></strong> It is mostly used in association with if-else to evaluate expressions instead of commands.</p>
 <p><strong><em>Syntax:</em></strong> <code>test expression</code> or <code>[ expression ]</code></p>
 <p><strong><em>Example:</em></strong></p>
-<div class="highlight"><pre><span></span>if [ expression ]
-then
-     command-list1
-fi
+<div class="highlight"><pre><span></span><span class="k">if</span> [ <span class="nv">expression</span> ]
+<span class="k">then</span>
+     <span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
+<span class="nv">fi</span>
 </pre></div>
 
 
@@ -461,11 +464,11 @@ Sorry, you entered the wrong parameter.
 <h4>Case statement</h4>
 <p><strong><em>Usage:</em></strong> Shell script also supports <strong>case conditional statement. </strong>It is used to evaluate a particular variable with some set of values.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span>case value in
-     pattern1)     command-list1;;
-     pattern2)     command-list2;;
-     *) command-list2;;   # this is optional: to accept rest of the conditions
-esac
+<div class="highlight"><pre><span></span><span class="k">case</span> <span class="n">value</span> <span class="k">in</span>
+     <span class="n">pattern1</span><span class="p">)</span>     <span class="n">command</span><span class="o">-</span><span class="n">list1</span><span class="p">;;</span>
+     <span class="n">pattern2</span><span class="p">)</span>     <span class="n">command</span><span class="o">-</span><span class="n">list2</span><span class="p">;;</span>
+     <span class="o">*</span><span class="p">)</span> <span class="n">command</span><span class="o">-</span><span class="n">list2</span><span class="p">;;</span>   <span class="o">#</span> <span class="n">this</span> <span class="k">is</span> <span class="n">optional</span><span class="p">:</span> <span class="k">to</span> <span class="n">accept</span> <span class="n">rest</span> <span class="k">of</span> <span class="n">the</span> <span class="n">conditions</span>
+<span class="n">esac</span>
 </pre></div>
 
 
@@ -510,10 +513,10 @@ esac
 <p><strong><em>Usage:</em></strong> When iterating any variable over an iterator like "\$@", we use "for-loop".</p>
 <p>Iterators are objects, having multiple values within them like lists in python. Therefore, using a for-loop we may access their individual values one by one.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span>for var in iterator
-do
-    command-list
-done
+<div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">var</span> <span class="nv">in</span> <span class="nv">iterator</span>
+<span class="k">do</span>
+    <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
+<span class="nv">done</span>
 </pre></div>
 
 
@@ -541,10 +544,10 @@ Way
 <h4>While Loop</h4>
 <p><strong><em>Usage:</em></strong> To repeat a set of commands, till an expression remains true.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span>while [ expression ]
-do
-     command-list
-done
+<div class="highlight"><pre><span></span><span class="k">while</span> [ <span class="nv">expression</span> ]
+<span class="k">do</span>
+     <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
+<span class="nv">done</span>
 </pre></div>
 
 
@@ -577,10 +580,10 @@ done
 <h4>Until Loop</h4>
 <p><strong><em>Usage:</em></strong> It is reverse of <strong>while loop</strong>, it repeats a set of commands, untill an expression becomes true.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span>until [ expression ]
-do
-     command-list
-done
+<div class="highlight"><pre><span></span><span class="k">until</span> [ <span class="nv">expression</span> ]
+<span class="k">do</span>
+     <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
+<span class="nv">done</span>
 </pre></div>
 
 
@@ -640,10 +643,10 @@ Way
 <h2>Functions</h2>
 <p><strong><em>Usage:</em></strong> These are set of commands, which can be called any number of times in a script. Thus, it gives the feature of re-usability of code and makes the code modular.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span>function_name()
+<div class="highlight"><pre><span></span><span class="nv">function_name</span><span class="ss">()</span>
 {
-command-list
-return value    # optional
+<span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
+<span class="k">return</span> <span class="nv">value</span>    # <span class="nv">optional</span>
 }
 </pre></div>
 
@@ -691,9 +694,9 @@ confirm<span class="o">()</span>
 
 <p><strong>Note that, no test expression in the last block of "if-else", because calling function is a command in itself. And we put expressions in the test, not commands.</strong></p>
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh
-Are you sure, that you want to <span class="k">continue</span> <span class="o">(</span>y<span class="o">)</span>?: y
-Continue process!!
+<div class="highlight"><pre><span></span>$ .<span class="o">/</span><span class="nv">newfile</span>.<span class="nv">sh</span>
+<span class="nv">Are</span> <span class="nv">you</span> <span class="nv">sure</span>, <span class="nv">that</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="k">continue</span> <span class="ss">(</span><span class="nv">y</span><span class="ss">)</span>?: <span class="nv">y</span>
+<span class="k">Continue</span> <span class="nv">process</span><span class="o">!!</span>
 </pre></div>
 
 
@@ -706,24 +709,22 @@ Continue process!!
   </div>
   <div class="article_meta">
     <p>Posted on: Tue 04 June 2019</p>
-    <p>Category: <a href="/category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/scripting/">Scripting</a>,      <a href="/tag/shell/">Shell</a>    </p>
+      <a href="//thegeekyway.com/tag/scripting/">Scripting</a>,      <a href="//thegeekyway.com/tag/shell/">Shell</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/introduction-to-shell-script/";
-      this.page.identifier = "introduction-to-shell-script/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "introduction-to-shell-script/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

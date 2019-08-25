@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="java">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Java: Autoboxing and -XX:AutoBoxCacheMax  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/java-autoboxing-xxautoboxcachemax/">Java: Autoboxing and -XX:AutoBoxCacheMax</a></h1>
+    <h1><a href="//thegeekyway.com/java-autoboxing-xxautoboxcachemax/">Java: Autoboxing and -XX:AutoBoxCacheMax</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/anoop/>Anoop</a></strong></p>
@@ -93,25 +96,25 @@
 </ul>
 <p>You can directly compare wrapper classes using <p style="background-color: #ffff99;"> <em>==</em> , <p style="background-color: #ffffff;"> just like primitive types but </p></p>for certain range which is by default (-128 to 127) .Which is default value of   <p style="background-color: #ffff00;">-XX:AutoBoxCacheMax .</p></p>
 <p>Here is the demo program when your object which is a autoboxed primitive type can be compared directly.</p>
-<div class="highlight"><pre><span></span>        int int1 = 100;
-        int int2 = 100;
-        System.out.println(int1 == int2);    // true as they are primitive
+<div class="highlight"><pre><span></span>        <span class="nb">int</span> <span class="n">int1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="nb">int</span> <span class="n">int2</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">int1</span> <span class="o">==</span> <span class="n">int2</span><span class="p">);</span>    <span class="o">//</span> <span class="k">true</span> <span class="k">as</span> <span class="n">they</span> <span class="k">are</span> <span class="n">primitive</span>
 
-        Integer integerObj1 = new Integer(100);
-        Integer integerObj2 = new Integer(100);
-        System.out.println(integerObj1 == integerObj2);   // always false as these are objects 
+        <span class="nb">Integer</span> <span class="n">integerObj1</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Integer</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+        <span class="nb">Integer</span> <span class="n">integerObj2</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Integer</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span>
+        <span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">integerObj1</span> <span class="o">==</span> <span class="n">integerObj2</span><span class="p">);</span>   <span class="o">//</span> <span class="n">always</span> <span class="k">false</span> <span class="k">as</span> <span class="n">these</span> <span class="k">are</span> <span class="n">objects</span> 
 
-        Integer integer1 = 100;
-        Integer integer2 = 100;
-        System.out.println(integer1 == integer2);   // true
+        <span class="nb">Integer</span> <span class="n">integer1</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="nb">Integer</span> <span class="n">integer2</span> <span class="o">=</span> <span class="mi">100</span><span class="p">;</span>
+        <span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">integer1</span> <span class="o">==</span> <span class="n">integer2</span><span class="p">);</span>   <span class="o">//</span> <span class="k">true</span>
 
-        Character c1 = 110;
-        Character c2 = 110;
-        System.out.println(c1 == c2);    //true
+        <span class="nb">Character</span> <span class="n">c1</span> <span class="o">=</span> <span class="mi">110</span><span class="p">;</span>
+        <span class="nb">Character</span> <span class="n">c2</span> <span class="o">=</span> <span class="mi">110</span><span class="p">;</span>
+        <span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">c1</span> <span class="o">==</span> <span class="n">c2</span><span class="p">);</span>    <span class="o">//</span><span class="k">true</span>
 
-        Short s = 56;
-        Short s1 = 56;
-        System.out.println(s == s1);    //true
+        <span class="n">Short</span> <span class="n">s</span> <span class="o">=</span> <span class="mi">56</span><span class="p">;</span>
+        <span class="n">Short</span> <span class="n">s1</span> <span class="o">=</span> <span class="mi">56</span><span class="p">;</span>
+        <span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">s</span> <span class="o">==</span> <span class="n">s1</span><span class="p">);</span>    <span class="o">//</span><span class="k">true</span>
 </pre></div>
 
 
@@ -119,9 +122,9 @@
 <p>This short range are generally used and  performance of <strong> <p style="font-family: courier new,courier; background-color: #ffff00;"><em>public static valueOf( i)</em></p></strong>  as this method is likely to yield significantly better space and time performance by caching frequently requested values.</p>
 <p><strong> Changing  -XX:AutoBoxCacheMax :</strong></p>
 <p>You can set the -XX:AutoBoxCacheMax=1000, and it will catch integer upto 1000 which means following code will results true</p>
-<div class="highlight"><pre><span></span>Integer integer1 = 1000;
-        Integer integer2 = 1000;
-        System.out.println(integer1 == integer2);   // true
+<div class="highlight"><pre><span></span><span class="nb">Integer</span> <span class="n">integer1</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+        <span class="nb">Integer</span> <span class="n">integer2</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">;</span>
+        <span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">integer1</span> <span class="o">==</span> <span class="n">integer2</span><span class="p">);</span>   <span class="o">//</span> <span class="k">true</span>
 </pre></div>
 
 
@@ -134,24 +137,22 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 13 February 2014</p>
-    <p>Category: <a href="/category/java/">Java</a>
+    <p>Category: <a href="//thegeekyway.com/category/java/">Java</a>
  &ndash; Tags:
-      <a href="/tag/java/">java</a>    </p>
+      <a href="//thegeekyway.com/tag/java/">java</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/java-autoboxing-xxautoboxcachemax/";
-      this.page.identifier = "java-autoboxing-xxautoboxcachemax/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "java-autoboxing-xxautoboxcachemax/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

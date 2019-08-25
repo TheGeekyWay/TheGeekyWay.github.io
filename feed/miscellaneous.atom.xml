@@ -1,107 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Miscellaneous</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/miscellaneous.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-06-14T17:13:00+05:30</updated><entry><title>[CHEAT-SHEET] List of Important IRC Commands</title><link href="//thegeekyway.com/list-important-irc-commands/" rel="alternate"></link><published>2018-06-14T17:13:00+05:30</published><updated>2018-06-14T17:13:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2018-06-14:/list-important-irc-commands/</id><summary type="html">&lt;p&gt;While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Miscellaneous</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/miscellaneous.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-06-14T17:13:00+05:30</updated><entry><title>[CHEAT-SHEET] List of Important IRC Commands</title><link href="//thegeekyway.com/list-important-irc-commands/" rel="alternate"></link><published>2018-06-14T17:13:00+05:30</published><updated>2018-06-14T17:13:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2018-06-14:/list-important-irc-commands/</id><summary type="html">&lt;p&gt;While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Changing …&lt;/strong&gt;&lt;/p&gt;</summary><content type="html">&lt;p&gt;While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Changing your Nick&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/nick YourNick
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nick&lt;/span&gt; &lt;span class="n"&gt;YourNick&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here, YourNick is the nick you want. So, if your nick was Harry, now it would be YourNick like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/nick YourNick
-Harry has changed nick to YourNick
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nick&lt;/span&gt; &lt;span class="n"&gt;YourNick&lt;/span&gt;
+&lt;span class="n"&gt;Harry&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;changed&lt;/span&gt; &lt;span class="n"&gt;nick&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;YourNick&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;If YourNick is already registered, you have to identify by giving your password as shown:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/nick YourNick
-Harry has changed nick to YourNick
--NickServ- This nickname is registered. Please choose a different nickname, or identify via /msg NickServ identify &amp;lt;password&amp;gt;.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;nick&lt;/span&gt; &lt;span class="n"&gt;YourNick&lt;/span&gt;
+&lt;span class="n"&gt;Harry&lt;/span&gt; &lt;span class="n"&gt;has&lt;/span&gt; &lt;span class="n"&gt;changed&lt;/span&gt; &lt;span class="n"&gt;nick&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;YourNick&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;NickServ&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;This&lt;/span&gt; &lt;span class="n"&gt;nickname&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;registered&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Please&lt;/span&gt; &lt;span class="n"&gt;choose&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;different&lt;/span&gt; &lt;span class="n"&gt;nickname&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;or&lt;/span&gt; &lt;span class="n"&gt;identify&lt;/span&gt; &lt;span class="n"&gt;via&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;msg&lt;/span&gt; &lt;span class="n"&gt;NickServ&lt;/span&gt; &lt;span class="n"&gt;identify&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;password&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here substitute \&amp;lt;password&gt; with the password you set when you registered your nick. When you enter your password, if it is correct, the following would be shown:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;*NickServ* identify &amp;lt;password&amp;gt;
-[12:22] -NickServ- You are now identified for YourNick.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="nv"&gt;NickServ&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="nv"&gt;identify&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;password&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+[&lt;span class="mi"&gt;12&lt;/span&gt;:&lt;span class="mi"&gt;22&lt;/span&gt;] &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;NickServ&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="nv"&gt;You&lt;/span&gt; &lt;span class="nv"&gt;are&lt;/span&gt; &lt;span class="nv"&gt;now&lt;/span&gt; &lt;span class="nv"&gt;identified&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;YourNick&lt;/span&gt;.
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt;Getting help&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/help
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;When used this way, you'll get an index of various things you can get help with as shown.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;index Help topics available to users:
-== index  
-== index ACCEPT          ADMIN           AWAY            CHALLENGE
-== index CMODE           CNOTICE         CPRIVMSG        CREDITS
-== index ERROR           EXTBAN          HELP            INDEX
-== index INFO            INVITE          ISON            JOIN
-== index KICK            KNOCK           LINKS           LIST
-== index LUSERS          MAP             MOTD            NAMES
-== index NICK            NOTICE          OPER            PART
-== index PASS            PING            PONG            PRIVMSG
-== index QUIT            STATS           TIME            TOPIC
-== index TRACE           UMODE           USER            USERHOST
-== index USERS           VERSION         WHO             WHOIS
-== index WHOWAS
-== index End of /HELP.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;Help&lt;/span&gt; &lt;span class="nv"&gt;topics&lt;/span&gt; &lt;span class="nv"&gt;available&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;users&lt;/span&gt;:
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt;  
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;ACCEPT&lt;/span&gt;          &lt;span class="nv"&gt;ADMIN&lt;/span&gt;           &lt;span class="nv"&gt;AWAY&lt;/span&gt;            &lt;span class="nv"&gt;CHALLENGE&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;CMODE&lt;/span&gt;           &lt;span class="nv"&gt;CNOTICE&lt;/span&gt;         &lt;span class="nv"&gt;CPRIVMSG&lt;/span&gt;        &lt;span class="nv"&gt;CREDITS&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;ERROR&lt;/span&gt;           &lt;span class="nv"&gt;EXTBAN&lt;/span&gt;          &lt;span class="nv"&gt;HELP&lt;/span&gt;            &lt;span class="nv"&gt;INDEX&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;INFO&lt;/span&gt;            &lt;span class="nv"&gt;INVITE&lt;/span&gt;          &lt;span class="nv"&gt;ISON&lt;/span&gt;            &lt;span class="nv"&gt;JOIN&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;KICK&lt;/span&gt;            &lt;span class="nv"&gt;KNOCK&lt;/span&gt;           &lt;span class="nv"&gt;LINKS&lt;/span&gt;           &lt;span class="nv"&gt;LIST&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;LUSERS&lt;/span&gt;          &lt;span class="nv"&gt;MAP&lt;/span&gt;             &lt;span class="nv"&gt;MOTD&lt;/span&gt;            &lt;span class="nv"&gt;NAMES&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;NICK&lt;/span&gt;            &lt;span class="nv"&gt;NOTICE&lt;/span&gt;          &lt;span class="nv"&gt;OPER&lt;/span&gt;            &lt;span class="nv"&gt;PART&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;PASS&lt;/span&gt;            &lt;span class="nv"&gt;PING&lt;/span&gt;            &lt;span class="nv"&gt;PONG&lt;/span&gt;            &lt;span class="nv"&gt;PRIVMSG&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;QUIT&lt;/span&gt;            &lt;span class="nv"&gt;STATS&lt;/span&gt;           &lt;span class="nv"&gt;TIME&lt;/span&gt;            &lt;span class="nv"&gt;TOPIC&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;TRACE&lt;/span&gt;           &lt;span class="nv"&gt;UMODE&lt;/span&gt;           &lt;span class="nv"&gt;USER&lt;/span&gt;            &lt;span class="nv"&gt;USERHOST&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;USERS&lt;/span&gt;           &lt;span class="nv"&gt;VERSION&lt;/span&gt;         &lt;span class="nv"&gt;WHO&lt;/span&gt;             &lt;span class="nv"&gt;WHOIS&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="nv"&gt;WHOWAS&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;index&lt;/span&gt; &lt;span class="k"&gt;End&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;HELP&lt;/span&gt;.
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You can get specific help by typing the stuff you need help with. For example, if you need help with WHOIS then it can be done as:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/help WHOIS
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt; &lt;span class="n"&gt;WHOIS&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This would give the following result:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;== WHOIS WHOIS [remoteserver|nick] nick
-== WHOIS  
-== WHOIS WHOIS will display detailed user information for
-== WHOIS the specified nick.  If the first parameter is
-== WHOIS specified, WHOIS will display information from
-== WHOIS the specified server, or the server that the
-== WHOIS user is on.  This is how to remotely see
-== WHOIS idle time and away status.
-== WHOIS End of /HELP.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; [&lt;span class="nv"&gt;remoteserver&lt;/span&gt;&lt;span class="o"&gt;|&lt;/span&gt;&lt;span class="nv"&gt;nick&lt;/span&gt;] &lt;span class="nv"&gt;nick&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt;  
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;display&lt;/span&gt; &lt;span class="nv"&gt;detailed&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;information&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt; &lt;span class="nv"&gt;nick&lt;/span&gt;.  &lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;first&lt;/span&gt; &lt;span class="nv"&gt;parameter&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt;, &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;display&lt;/span&gt; &lt;span class="nv"&gt;information&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;specified&lt;/span&gt; &lt;span class="nv"&gt;server&lt;/span&gt;, &lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;server&lt;/span&gt; &lt;span class="nv"&gt;that&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt;.  &lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;how&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;remotely&lt;/span&gt; &lt;span class="nv"&gt;see&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="nv"&gt;idle&lt;/span&gt; &lt;span class="nv"&gt;time&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;away&lt;/span&gt; &lt;span class="nv"&gt;status&lt;/span&gt;.
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;WHOIS&lt;/span&gt; &lt;span class="k"&gt;End&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;HELP&lt;/span&gt;.
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt; Admin Info for servers&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;To get information about Admin of any server, you can use the following command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/Admin [&amp;lt;servers&amp;gt;]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;Admin&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;servers&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here servers is optional, if used without any parameter, the admin information about current server would be returned.&lt;/p&gt;
 &lt;p&gt;Else, the information about given server would be returned. Here is what I got when using irc.freenode.net. You can expect somewhat similar results.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;== Administrative info about herbert.freenode.net
-== You&amp;#39;re using freenode! For assistance, please &amp;#39;/stats p&amp;#39; and message someone on the list
-== For further assistance, please see http://freenode.net/faq.shtml, or email
-== support@freenode.net
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;Administrative&lt;/span&gt; &lt;span class="nv"&gt;info&lt;/span&gt; &lt;span class="nv"&gt;about&lt;/span&gt; &lt;span class="nv"&gt;herbert&lt;/span&gt;.&lt;span class="nv"&gt;freenode&lt;/span&gt;.&lt;span class="nv"&gt;net&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;You&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;re using freenode! For assistance, please &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;stats&lt;/span&gt; &lt;span class="nv"&gt;p&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt; and message someone on the list&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;further&lt;/span&gt; &lt;span class="nv"&gt;assistance&lt;/span&gt;, &lt;span class="nv"&gt;please&lt;/span&gt; &lt;span class="nv"&gt;see&lt;/span&gt; &lt;span class="nv"&gt;http&lt;/span&gt;:&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;freenode&lt;/span&gt;.&lt;span class="nv"&gt;net&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;faq&lt;/span&gt;.&lt;span class="nv"&gt;shtml&lt;/span&gt;, &lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="nv"&gt;email&lt;/span&gt;
+&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;support&lt;/span&gt;@&lt;span class="nv"&gt;freenode&lt;/span&gt;.&lt;span class="nv"&gt;net&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;strong&gt; AWAY Message&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The Away message could be used to inform other people that you're away for sometimes, it can be used as:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/AWAY &amp;lt;message&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;AWAY&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;message&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here message is any information you want to tell people for why you are going away like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/AWAY Going to get some food, feeling hungry, brb in 10 mins.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;AWAY&lt;/span&gt; &lt;span class="n"&gt;Going&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="k"&gt;some&lt;/span&gt; &lt;span class="n"&gt;food&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;feeling&lt;/span&gt; &lt;span class="n"&gt;hungry&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;brb&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="n"&gt;mins&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This would return the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;== You have been marked as being away
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;have&lt;/span&gt; &lt;span class="n"&gt;been&lt;/span&gt; &lt;span class="n"&gt;marked&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;being&lt;/span&gt; &lt;span class="n"&gt;away&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;When used without any message, the away status will be removed.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Get WHOIS Information&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Often you might want to see the whois information for someone, whom you don't recognize. The whois command can be used as:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/WHOIS BellBaghton
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;WHOIS&lt;/span&gt; &lt;span class="n"&gt;BellBaghton&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -118,17 +118,17 @@ Harry has changed nick to YourNick
 &lt;p&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; BellBaghton is just arbitrary nick and all information in result is changed here. It is for illustration purpose only.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Action Messages&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;All action messages can be displayed by using following command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/me &amp;lt;my action&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;my&lt;/span&gt; &lt;span class="n"&gt;action&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here \&amp;lt;my action&gt; can be replaced with any action you're doing like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/me thinks that IRC is really good.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;me&lt;/span&gt; &lt;span class="n"&gt;thinks&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;IRC&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;really&lt;/span&gt; &lt;span class="n"&gt;good&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This would return the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* YourNick thinks that IRC is really good.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;YourNick&lt;/span&gt; &lt;span class="n"&gt;thinks&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;IRC&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;really&lt;/span&gt; &lt;span class="n"&gt;good&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

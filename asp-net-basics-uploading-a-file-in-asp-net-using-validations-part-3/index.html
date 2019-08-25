@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="asp.net, C#">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Asp.net Basics : Uploading a file in asp.net using validations (Part 3 of 5)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/">Asp.net Basics : Uploading a file in asp.net using validations (Part 3 of 5)</a></h1>
+    <h1><a href="//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/">Asp.net Basics : Uploading a file in asp.net using validations (Part 3 of 5)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -98,24 +101,24 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
 <p>File upload limit is one of the important controls for file upload control, if file upload control is not provided in uploading of file then there can be huge files uploaded which can kill the server cache. There is neither a javascript function which can provide access to client side and get the file size.</p>
 <p>This is basically an upgrade to our <a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/">v1.1 of our file upload system</a>. So now server can check for whether a file is uploaded and can also check the file size. There are 2 steps for limiting the file size, first we have to declare \&lt;httpRuntime> element in our web.config file and then creating a C# code.</p>
 <p>The attributes of httpRuntime element are</p>
-<div class="highlight"><pre><span></span>   executionTimeout = &quot;HH:MM:SS&quot; 
-   maxRequestLength = &quot;number&quot; 
-   requireRootedSaveAsPath = &quot;[True|False]&quot;
-   enable = &quot;[True|False]&quot; 
-   sendCacheControlHeader = &quot;[True|False]&quot; 
-   shutdownTimeout = &quot;HH:MM:SS&quot;
-   delayNotificationTimeout = &quot;HH:MM:SS&quot;
-   minFreeThreads = &quot;number&quot; 
-   minLocalRequestFreeThreads = &quot;number&quot; 
-   appRequestQueueLimit = &quot;number&quot;
-   enableKernelOutputCache = &quot;[True|False]&quot; 
-   enableVersionHeader = &quot;[True|False]&quot; 
-   apartmentThreading = &quot;[True|False]&quot;   
-   waitChangeNotification = &quot;number&quot; 
-   maxWaitChangeNotification = &quot;number&quot; 
-   enableHeaderChecking = &quot;[True|False]&quot; 
-   requestLengthDiskThreshold = &quot;number&quot; 
-   useFullyQualifiedRedirectUrl = &quot;[True|False]&quot;
+<div class="highlight"><pre><span></span>   <span class="n">executionTimeout</span> <span class="o">=</span> <span class="ss">&quot;HH:MM:SS&quot;</span> 
+   <span class="n">maxRequestLength</span> <span class="o">=</span> <span class="ss">&quot;number&quot;</span> 
+   <span class="n">requireRootedSaveAsPath</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span>
+   <span class="n">enable</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span> 
+   <span class="n">sendCacheControlHeader</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span> 
+   <span class="n">shutdownTimeout</span> <span class="o">=</span> <span class="ss">&quot;HH:MM:SS&quot;</span>
+   <span class="n">delayNotificationTimeout</span> <span class="o">=</span> <span class="ss">&quot;HH:MM:SS&quot;</span>
+   <span class="n">minFreeThreads</span> <span class="o">=</span> <span class="ss">&quot;number&quot;</span> 
+   <span class="n">minLocalRequestFreeThreads</span> <span class="o">=</span> <span class="ss">&quot;number&quot;</span> 
+   <span class="n">appRequestQueueLimit</span> <span class="o">=</span> <span class="ss">&quot;number&quot;</span>
+   <span class="n">enableKernelOutputCache</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span> 
+   <span class="n">enableVersionHeader</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span> 
+   <span class="n">apartmentThreading</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span>   
+   <span class="n">waitChangeNotification</span> <span class="o">=</span> <span class="ss">&quot;number&quot;</span> 
+   <span class="n">maxWaitChangeNotification</span> <span class="o">=</span> <span class="ss">&quot;number&quot;</span> 
+   <span class="n">enableHeaderChecking</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span> 
+   <span class="n">requestLengthDiskThreshold</span> <span class="o">=</span> <span class="ss">&quot;number&quot;</span> 
+   <span class="n">useFullyQualifiedRedirectUrl</span> <span class="o">=</span> <span class="ss">&quot;[True|False]&quot;</span>
 </pre></div>
 
 
@@ -128,25 +131,25 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
 <h2>Step 2 : C# coding.</h2>
 <p>Since web.config is configured now we have to code the <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> file.<br>
 The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> code is :-</p>
-<div class="highlight"><pre><span></span> private int checkFileSize()
+<div class="highlight"><pre><span></span> <span class="nv">private</span> <span class="nv">int</span> <span class="nv">checkFileSize</span><span class="ss">()</span>
     {
-        Panel1.Visible = true;
-        int filesize = FileUpload1.PostedFile.ContentLength;
-        Label8.Text = (filesize)/1024 + &quot;Kb&quot;;
-        if (filesize &amp;lt; 1048576)
+        <span class="nv">Panel1</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
+        <span class="nv">int</span> <span class="nv">filesize</span> <span class="o">=</span> <span class="nv">FileUpload1</span>.<span class="nv">PostedFile</span>.<span class="nv">ContentLength</span><span class="c1">;</span>
+        <span class="nv">Label8</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">filesize</span><span class="ss">)</span><span class="o">/</span><span class="mi">1024</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s">Kb</span><span class="s2">&quot;</span><span class="c1">;</span>
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">filesize</span> <span class="o">&lt;</span> <span class="mi">1048576</span><span class="ss">)</span>
         {
-            File_Upload_Status.Text = &quot; Everything OK ! File uploaded &quot;;
-            Image1.ImageUrl = &quot;~//images//success.png&quot;;
-            File_Upload_Status.ForeColor = Color.Green;
-            // Provide upload code (discussed in part 1 of this tutorial)
-            return 1;
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s"> Everything OK ! File uploaded </span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Green</span><span class="c1">;</span>
+            <span class="o">//</span> <span class="nv">Provide</span> <span class="nv">upload</span> <span class="nv">code</span> <span class="ss">(</span><span class="nv">discussed</span> <span class="nv">in</span> <span class="nv">part</span> <span class="mi">1</span> <span class="nv">of</span> <span class="nv">this</span> <span class="nv">tutorial</span><span class="ss">)</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="c1">;</span>
          }
-        else
+        <span class="k">else</span>
         {
-            File_Upload_Status.Text = &quot; File size limit exceeded. File size should be less than 1 MB &quot;;
-            File_Upload_Status.ForeColor = Color.Red;
-            Image1.ImageUrl = &quot;~//images//not_success.png&quot;;
-            return 0;
+            <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s"> File size limit exceeded. File size should be less than 1 MB </span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">File_Upload_Status</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+            <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//not_success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
         }
 </pre></div>
 
@@ -163,24 +166,22 @@ The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 05 January 2014</p>
-    <p>Category: <a href="/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
+    <p>Category: <a href="//thegeekyway.com/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
  &ndash; Tags:
-      <a href="/tag/aspnet/">asp.net</a>,      <a href="/tag/c/">C#</a>    </p>
+      <a href="//thegeekyway.com/tag/aspnet/">asp.net</a>,      <a href="//thegeekyway.com/tag/c/">C#</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/";
-      this.page.identifier = "asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-3/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="asp.net, C#">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/uploading-a-file-in-asp-part-1/">Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)</a></h1>
+    <h1><a href="//thegeekyway.com/uploading-a-file-in-asp-part-1/">Asp.net Basics : Uploading a file in asp.net using validations (Part 1 of 5)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -105,11 +108,11 @@ Part 5 : <a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-asp-n
 </div>
 <p>Here a file upload control is used which is used to select the file and an upload button which will upload the file. The second row will display the characteristics of the file, whether the file is a ".pdf" or a ".doc" (and other extensions) file and display the image of file type. The second row is being hidden with a panel until the file isnt uploaded.</p>
 <p>Let us take a ".pdf" file which will be uploaded on the server under the "uploads" folder. The main code used for uploading a file onto server is :-</p>
-<div class="highlight"><pre><span></span>.
-.
-FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName));
-.
-.
+<div class="highlight"><pre><span></span><span class="p">.</span>
+<span class="p">.</span>
+<span class="n">FileUpload1</span><span class="p">.</span><span class="n">SaveAs</span><span class="p">(</span><span class="n">Server</span><span class="p">.</span><span class="n">MapPath</span><span class="p">(</span><span class="ss">&quot;~/uploads/&quot;</span> <span class="o">+</span> <span class="n">FileUpload1</span><span class="p">.</span><span class="n">FileName</span><span class="p">));</span>
+<span class="p">.</span>
+<span class="p">.</span>
 </pre></div>
 
 
@@ -124,59 +127,59 @@ FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName)
 <p><a href="//thegeekyway.com/uploads/images/2014/01/FileUpload2.png"><img alt="FileUpload2" src="//thegeekyway.com/uploads/images/2014/01/FileUpload2.png"></a></p>
 </div>
 <p>The complete cs code for v1.0 is (remember this doesn't use any validations, only retrieves the name and the file extension of the file) :-</p>
-<div class="highlight"><pre><span></span>protected void Page_Load(object sender, EventArgs e)
+<div class="highlight"><pre><span></span><span class="nv">protected</span> <span class="nv">void</span> <span class="nv">Page_Load</span><span class="ss">(</span><span class="nv">object</span> <span class="nv">sender</span>, <span class="nv">EventArgs</span> <span class="nv">e</span><span class="ss">)</span>
     {
-        // Hiding the panel in the page load 
-        Panel1.Visible = false;
+        <span class="o">//</span> <span class="nv">Hiding</span> <span class="nv">the</span> <span class="nv">panel</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">page</span> <span class="nv">load</span> 
+        <span class="nv">Panel1</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    <span class="nv">protected</span> <span class="nv">void</span> <span class="nv">Button1_Click</span><span class="ss">(</span><span class="nv">object</span> <span class="nv">sender</span>, <span class="nv">EventArgs</span> <span class="nv">e</span><span class="ss">)</span>
     {
-        //calling the valid_file method, if the return value is not 1 then file doesnot exist
-        int validate = validate_file();
-        if(validate == 1)
+        <span class="o">//</span><span class="nv">calling</span> <span class="nv">the</span> <span class="nv">valid_file</span> <span class="nv">method</span>, <span class="k">if</span> <span class="nv">the</span> <span class="k">return</span> <span class="nv">value</span> <span class="nv">is</span> <span class="nv">not</span> <span class="mi">1</span> <span class="k">then</span> <span class="nv">file</span> <span class="nv">doesnot</span> <span class="nv">exist</span>
+        <span class="nv">int</span> <span class="nv">validate</span> <span class="o">=</span> <span class="nv">validate_file</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="k">if</span><span class="ss">(</span><span class="nv">validate</span> <span class="o">==</span> <span class="mi">1</span><span class="ss">)</span>
         { 
-            // Getting all the file details
-            GetFileDetails();            
-            // If file exist then the file will be saved in the virtual directory
-            SaveFile();
+            <span class="o">//</span> <span class="nv">Getting</span> <span class="nv">all</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">details</span>
+            <span class="nv">GetFileDetails</span><span class="ss">()</span><span class="c1">;            </span>
+            <span class="o">//</span> <span class="k">If</span> <span class="nv">file</span> <span class="nv">exist</span> <span class="k">then</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">saved</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">virtual</span> <span class="nv">directory</span>
+            <span class="nv">SaveFile</span><span class="ss">()</span><span class="c1">;</span>
         }
     }
-    private int validate_file()
+    <span class="nv">private</span> <span class="nv">int</span> <span class="nv">validate_file</span><span class="ss">()</span>
     {
-        // Code to test if FileUpload1 has the file or not
-        if (FileUpload1.HasFile)
+        <span class="o">//</span> <span class="nv">Code</span> <span class="nv">to</span> <span class="nv">test</span> <span class="k">if</span> <span class="nv">FileUpload1</span> <span class="nv">has</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">or</span> <span class="nv">not</span>
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">FileUpload1</span>.<span class="nv">HasFile</span><span class="ss">)</span>
         {
-            Panel1.Visible = true;
-            return 1;
+            <span class="nv">Panel1</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
+            <span class="k">return</span> <span class="mi">1</span><span class="c1">;</span>
         }
-        else
+        <span class="k">else</span>
         {
-            Label2.Text = &quot;No File Uploaded&quot;;
-            // Color.Red will be called by namespace System.Drawing
-            Label2.ForeColor = Color.Red;
-            return 0;
+            <span class="nv">Label2</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">No File Uploaded</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="o">//</span> <span class="nv">Color</span>.<span class="nv">Red</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">called</span> <span class="nv">by</span> <span class="nv">namespace</span> <span class="nv">System</span>.<span class="nv">Drawing</span>
+            <span class="nv">Label2</span>.<span class="nv">ForeColor</span> <span class="o">=</span> <span class="nv">Color</span>.<span class="nv">Red</span><span class="c1">;</span>
+            <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
         }        
     }
-    private void SaveFile()
+    <span class="nv">private</span> <span class="nv">void</span> <span class="nv">SaveFile</span><span class="ss">()</span>
     {
-        File_Upload_Status.Text = &quot;Valid FIle&quot;;
-        Image1.ImageUrl = &quot;~//images//success.png&quot;;
-        //Invoking the saveas method which saves the file in the directory
-        FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName));
+        <span class="nv">File_Upload_Status</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">Valid FIle</span><span class="s2">&quot;</span><span class="c1">;</span>
+        <span class="nv">Image1</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//success.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+        <span class="o">//</span><span class="nv">Invoking</span> <span class="nv">the</span> <span class="nv">saveas</span> <span class="nv">method</span> <span class="nv">which</span> <span class="nv">saves</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">in</span> <span class="nv">the</span> <span class="nv">directory</span>
+        <span class="nv">FileUpload1</span>.<span class="nv">SaveAs</span><span class="ss">(</span><span class="nv">Server</span>.<span class="nv">MapPath</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">~/uploads/</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">FileUpload1</span>.<span class="nv">FileName</span><span class="ss">))</span><span class="c1">;</span>
     }
-    private void GetFileDetails()
+    <span class="nv">private</span> <span class="nv">void</span> <span class="nv">GetFileDetails</span><span class="ss">()</span>
     {
-        // Path will be called by using System.IO namespace
-        string FileExtension = Path.GetExtension(FileUpload1.FileName);
-        int FileSize = FileUpload1.PostedFile.ContentLength;
-        Label11.Text = FileUpload1.FileName;
-        Label12.Text = (FileSize/1024) + &quot;KB&quot;;
-        Label13.Text = FileExtension;
-        // Using only &quot;.pdf&quot; extension, but you can use all the file extensions using if-else statement.
-        if (FileExtension.ToLower() == &quot;.pdf&quot;)
+        <span class="o">//</span> <span class="nv">Path</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">called</span> <span class="nv">by</span> <span class="nv">using</span> <span class="nv">System</span>.<span class="nv">IO</span> <span class="nv">namespace</span>
+        <span class="nv">string</span> <span class="nv">FileExtension</span> <span class="o">=</span> <span class="nv">Path</span>.<span class="nv">GetExtension</span><span class="ss">(</span><span class="nv">FileUpload1</span>.<span class="nv">FileName</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">int</span> <span class="nv">FileSize</span> <span class="o">=</span> <span class="nv">FileUpload1</span>.<span class="nv">PostedFile</span>.<span class="nv">ContentLength</span><span class="c1">;</span>
+        <span class="nv">Label11</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="nv">FileUpload1</span>.<span class="nv">FileName</span><span class="c1">;</span>
+        <span class="nv">Label12</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">FileSize</span><span class="o">/</span><span class="mi">1024</span><span class="ss">)</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s">KB</span><span class="s2">&quot;</span><span class="c1">;</span>
+        <span class="nv">Label13</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="nv">FileExtension</span><span class="c1">;</span>
+        <span class="o">//</span> <span class="nv">Using</span> <span class="nv">only</span> <span class="s2">&quot;</span><span class="s">.pdf</span><span class="s2">&quot;</span> <span class="nv">extension</span>, <span class="nv">but</span> <span class="nv">you</span> <span class="nv">can</span> <span class="nv">use</span> <span class="nv">all</span> <span class="nv">the</span> <span class="nv">file</span> <span class="nv">extensions</span> <span class="nv">using</span> <span class="k">if</span><span class="o">-</span><span class="k">else</span> <span class="nv">statement</span>.
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">FileExtension</span>.<span class="k">ToLower</span><span class="ss">()</span> <span class="o">==</span> <span class="s2">&quot;</span><span class="s">.pdf</span><span class="s2">&quot;</span><span class="ss">)</span>
         {
-            Image3.ImageUrl = &quot;~//images//pdf.png&quot;;
-            Label14.Text = &quot;PDF file&quot;;
+            <span class="nv">Image3</span>.<span class="nv">ImageUrl</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">~//images//pdf.png</span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">Label14</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">PDF file</span><span class="s2">&quot;</span><span class="c1">;</span>
         }
     }
 </pre></div>
@@ -187,24 +190,22 @@ FileUpload1.SaveAs(Server.MapPath(&quot;~/uploads/&quot; + FileUpload1.FileName)
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 04 January 2014</p>
-    <p>Category: <a href="/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
+    <p>Category: <a href="//thegeekyway.com/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
  &ndash; Tags:
-      <a href="/tag/aspnet/">asp.net</a>,      <a href="/tag/c/">C#</a>    </p>
+      <a href="//thegeekyway.com/tag/aspnet/">asp.net</a>,      <a href="//thegeekyway.com/tag/c/">C#</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/uploading-a-file-in-asp-part-1/";
-      this.page.identifier = "uploading-a-file-in-asp-part-1/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "uploading-a-file-in-asp-part-1/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

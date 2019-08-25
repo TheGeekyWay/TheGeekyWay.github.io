@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="java">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Java Multithreading : Thread States and Thread Priority  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/java-multithreading-thread-states-explained/">Java Multithreading : Thread States and Thread Priority</a></h1>
+    <h1><a href="//thegeekyway.com/java-multithreading-thread-states-explained/">Java Multithreading : Thread States and Thread Priority</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/anoop/>Anoop</a></strong></p>
@@ -92,7 +95,7 @@
 </li>
 <li><a href="timedWait">TIMED_WAITING </a>: <em>Current thread is waits for another thread for specified time to perform the aciton.</em><ul>
 <li>Thread.sleep (long timeInMilliSecond) : <em>Makes current thread to cease the execution for specified time.</em></li>
-<li>Object.wait (long timeInMilliSecond) : <em> Causes current thread to wait for specified time until time elapsed or get notified by  <p style="font-family: 'courier new', courier;">notify()</p> or  <p style="font-family: 'courier new', courier;">notifyAll()</p>.</em></li>
+<li>Object.wait (long timeInMilliSecond) : * Causes current thread to wait for specified time until time elapsed or get notified by  <p style="font-family: 'courier new', courier;">notify()</p> or  <p style="font-family: 'courier new', courier;">notifyAll()</p>.*</li>
 <li>Thread.join (long millis) : <em>Current thread waits for specified time to die the thread.</em></li>
 <li>LockSupport.parkNanos (long nanoSeconds) : <em>Disables the current thread for thread scheduling purposes, for up to the specified waiting time, unless the permit is available.</em></li>
 <li>LockSupport.parkUntil ()</li>
@@ -102,152 +105,152 @@
 </ul>
 <p>Also, how to set <a href="#priority">Thread Priority</a></p>
 <p><strong>   <p #newRT></p>NEW, RUNNING and TERMINATED</strong></p>
-<div class="highlight"><pre><span></span><span class="kr">public</span> <span class="kr">class</span> <span class="nx">ThreadStates</span> <span class="p">{</span>
-  <span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span> <span class="p">[]</span><span class="nx">args</span><span class="p">)</span> <span class="kr">throws</span> <span class="nx">Exception</span><span class="p">{</span>
-    <span class="nx">MyThreads</span> <span class="nx">firstObj</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">MyThreads</span><span class="p">(</span> <span class="mi">0</span><span class="p">);</span>
-    <span class="nx">MyThreads</span> <span class="nx">secondObj</span> <span class="o">=</span>  <span class="k">new</span> <span class="nx">MyThreads</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-    <span class="nx">Thread</span> <span class="nx">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">firstObj</span><span class="p">,</span> <span class="s2">&quot;firstThread&quot;</span><span class="p">);</span>
-    <span class="nx">Thread</span> <span class="nx">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">secondObj</span><span class="p">,</span> <span class="s2">&quot;secondThread&quot;</span><span class="p">);</span>
-    <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t1</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span> <span class="nx">t1</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
-    <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t2</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span> <span class="nx">t2</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
-    <span class="nx">t1</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-    <span class="nx">t2</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-    <span class="nx">Thread</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-    <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t1</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span> <span class="nx">t1</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
-    <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t2</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span> <span class="nx">t2</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
+<div class="highlight"><pre><span></span><span class="nv">public</span> <span class="nv">class</span> <span class="nv">ThreadStates</span> {
+  <span class="nv">public</span> <span class="nv">static</span> <span class="nv">void</span> <span class="nv">main</span><span class="ss">(</span><span class="nv">String</span> []<span class="nv">args</span><span class="ss">)</span> <span class="nv">throws</span> <span class="nv">Exception</span>{
+    <span class="nv">MyThreads</span> <span class="nv">firstObj</span> <span class="o">=</span>  <span class="nv">new</span> <span class="nv">MyThreads</span><span class="ss">(</span> <span class="mi">0</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">MyThreads</span> <span class="nv">secondObj</span> <span class="o">=</span>  <span class="nv">new</span> <span class="nv">MyThreads</span><span class="ss">(</span><span class="mi">1000</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">Thread</span> <span class="nv">t1</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Thread</span><span class="ss">(</span><span class="nv">firstObj</span>, <span class="s2">&quot;</span><span class="s">firstThread</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">Thread</span> <span class="nv">t2</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Thread</span><span class="ss">(</span><span class="nv">secondObj</span>, <span class="s2">&quot;</span><span class="s">secondThread</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">t1</span>.<span class="nv">getName</span><span class="ss">()</span> <span class="o">+</span><span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="o">+</span> <span class="nv">t1</span>.<span class="nv">getState</span><span class="ss">())</span><span class="c1">;</span>
+    <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">t2</span>.<span class="nv">getName</span><span class="ss">()</span> <span class="o">+</span><span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="o">+</span> <span class="nv">t2</span>.<span class="nv">getState</span><span class="ss">())</span><span class="c1">;</span>
+    <span class="nv">t1</span>.<span class="nv">start</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="nv">t2</span>.<span class="nv">start</span><span class="ss">()</span><span class="c1">;</span>
+    <span class="nv">Thread</span>.<span class="nv">sleep</span><span class="ss">(</span><span class="mi">2000</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">t1</span>.<span class="nv">getName</span><span class="ss">()</span> <span class="o">+</span><span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="o">+</span> <span class="nv">t1</span>.<span class="nv">getState</span><span class="ss">())</span><span class="c1">;</span>
+    <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">t2</span>.<span class="nv">getName</span><span class="ss">()</span> <span class="o">+</span><span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="o">+</span> <span class="nv">t2</span>.<span class="nv">getState</span><span class="ss">())</span><span class="c1">;</span>
 
-  <span class="p">}</span>
+  }
 
-<span class="p">}</span>
-<span class="kr">class</span> <span class="nx">MyThreads</span> <span class="kr">implements</span> <span class="nx">Runnable</span> <span class="p">{</span>
+}
+<span class="nv">class</span> <span class="nv">MyThreads</span> <span class="nv">implements</span> <span class="nv">Runnable</span> {
 
-  <span class="kr">long</span> <span class="nx">sleeptime</span><span class="p">;</span>
-  <span class="nx">MyThreads</span><span class="p">(</span><span class="kr">long</span> <span class="nx">sleeptime</span><span class="p">){</span>
-    <span class="k">this</span><span class="p">.</span><span class="nx">sleeptime</span> <span class="o">=</span> <span class="nx">sleeptime</span><span class="p">;</span>
-  <span class="p">}</span>
-  <span class="kd">@Override</span>
-  <span class="kr">public</span> <span class="k">void</span> <span class="nx">run() {</span>
-    <span class="k">for</span><span class="p">(</span><span class="kr">int</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span><span class="o">&lt;=</span><span class="mi">5</span><span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-      <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">currentThread</span><span class="p">().</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="nx">i</span><span class="p">);</span>
-      <span class="k">try</span> <span class="p">{</span>
-        <span class="nx">Thread</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="nx">sleeptime</span><span class="p">);</span>
-      <span class="p">}</span>
-      <span class="k">catch</span> <span class="p">(</span><span class="nx">InterruptedException</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">e</span><span class="p">.</span><span class="nx">printStackTrace</span><span class="p">();</span>
-      <span class="p">}</span>
+  <span class="nv">long</span> <span class="nv">sleeptime</span><span class="c1">;</span>
+  <span class="nv">MyThreads</span><span class="ss">(</span><span class="nv">long</span> <span class="nv">sleeptime</span><span class="ss">)</span>{
+    <span class="nv">this</span>.<span class="nv">sleeptime</span> <span class="o">=</span> <span class="nv">sleeptime</span><span class="c1">;</span>
+  }
+  @<span class="nv">Override</span>
+  <span class="nv">public</span> <span class="nv">void</span> <span class="nv">run</span><span class="ss">()</span> {
+    <span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i&lt;=5; i++){</span>
+      <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">Thread</span>.<span class="nv">currentThread</span><span class="ss">()</span>.<span class="nv">getName</span><span class="ss">()</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span> <span class="o">+</span> <span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
+      <span class="nv">try</span> {
+        <span class="nv">Thread</span>.<span class="nv">sleep</span><span class="ss">(</span><span class="nv">sleeptime</span><span class="ss">)</span><span class="c1">;</span>
+      }
+      <span class="nv">catch</span> <span class="ss">(</span><span class="nv">InterruptedException</span> <span class="nv">e</span><span class="ss">)</span> {
+        <span class="nv">e</span>.<span class="nv">printStackTrace</span><span class="ss">()</span><span class="c1">;</span>
+      }
 
-    <span class="p">}</span>
-  <span class="p">}</span>
-<span class="p">}</span>
+    }
+  }
+}
 
-<span class="o">---</span> <span class="nx">Output</span><span class="o">--</span>
-<span class="nx">firstThread</span> <span class="nx">NEW</span>
-<span class="nx">secondThread</span> <span class="nx">NEW</span>
-<span class="nx">secondThread</span> <span class="mi">0</span>
-<span class="nx">firstThread</span> <span class="mi">0</span>
-<span class="nx">firstThread</span> <span class="mi">1</span>
-<span class="nx">firstThread</span> <span class="mi">2</span>
-<span class="nx">firstThread</span> <span class="mi">3</span>
-<span class="nx">firstThread</span> <span class="mi">4</span>
-<span class="nx">firstThread</span> <span class="mi">5</span>
-<span class="nx">secondThread</span> <span class="mi">1</span>
-<span class="nx">secondThread</span> <span class="mi">2</span>
-<span class="nx">firstThread</span> <span class="nx">TERMINATED</span>
-<span class="nx">secondThread</span> <span class="nx">TIMED_WAITING</span> <span class="p">(</span><span class="nx">due</span> <span class="nx">to</span> <span class="nx">Thread</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="nx">time</span><span class="p">)</span> <span class="nx">call</span><span class="p">)</span>
-<span class="nx">secondThread</span> <span class="mi">3</span>
-<span class="nx">secondThread</span> <span class="mi">4</span>
-<span class="nx">secondThread</span> <span class="mi">5</span>
+<span class="o">---</span> <span class="nv">Output</span><span class="o">--</span>
+<span class="nv">firstThread</span> <span class="nv">NEW</span>
+<span class="nv">secondThread</span> <span class="nv">NEW</span>
+<span class="nv">secondThread</span> <span class="mi">0</span>
+<span class="nv">firstThread</span> <span class="mi">0</span>
+<span class="nv">firstThread</span> <span class="mi">1</span>
+<span class="nv">firstThread</span> <span class="mi">2</span>
+<span class="nv">firstThread</span> <span class="mi">3</span>
+<span class="nv">firstThread</span> <span class="mi">4</span>
+<span class="nv">firstThread</span> <span class="mi">5</span>
+<span class="nv">secondThread</span> <span class="mi">1</span>
+<span class="nv">secondThread</span> <span class="mi">2</span>
+<span class="nv">firstThread</span> <span class="nv">TERMINATED</span>
+<span class="nv">secondThread</span> <span class="nv">TIMED_WAITING</span> <span class="ss">(</span><span class="nv">due</span> <span class="nv">to</span> <span class="nv">Thread</span>.<span class="nv">sleep</span><span class="ss">(</span><span class="nv">time</span><span class="ss">)</span> <span class="nv">call</span><span class="ss">)</span>
+<span class="nv">secondThread</span> <span class="mi">3</span>
+<span class="nv">secondThread</span> <span class="mi">4</span>
+<span class="nv">secondThread</span> <span class="mi">5</span>
 </pre></div>
 
 
 <p><strong>WAITING and  <p #timedWait></p>TIMED_WAITING due to<em> <p style="font-family: 'courier new', courier;"> wait()</p></em> and  <p style="font-family: 'courier new', courier;"><em>wait(timeGiven)</em> :</p></strong></p>
 <p>When <em>wait()</em> is called on a Thread, it will keep waiting until notified.</p>
 <p>While <em>wait(timeGiven)</em>, wait until the <em>timeGiven</em> expired or notified.</p>
-<div class="highlight"><pre><span></span><span class="kr">public</span> <span class="kr">class</span> <span class="nx">RunWait</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span> <span class="p">[]</span><span class="nx">args</span><span class="p">)</span> <span class="kr">throws</span> <span class="nx">InterruptedException</span> <span class="p">{</span>
-        <span class="nx">WaitDemo</span> <span class="nx">waitDemo</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">WaitDemo</span><span class="p">();</span>
-        <span class="nx">Thread</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">waitDemo</span><span class="p">,</span> <span class="s2">&quot;WaitThread&quot;</span><span class="p">);</span>
-        <span class="nx">t</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-        <span class="nx">Thread</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot; checking in main() &quot;</span><span class="o">+</span><span class="nx">t</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
-        <span class="nx">waitDemo</span><span class="p">.</span><span class="nx">setValue</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
-<span class="kr">class</span> <span class="nx">WaitDemo</span> <span class="kr">implements</span> <span class="nx">Runnable</span><span class="p">{</span>
-    <span class="kr">private</span> <span class="kr">boolean</span> <span class="nx">isValueSet</span> <span class="o">=</span> <span class="kc">false</span><span class="p">;</span>
+<div class="highlight"><pre><span></span><span class="nv">public</span> <span class="nv">class</span> <span class="nv">RunWait</span> {
+    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">void</span> <span class="nv">main</span><span class="ss">(</span><span class="nv">String</span> []<span class="nv">args</span><span class="ss">)</span> <span class="nv">throws</span> <span class="nv">InterruptedException</span> {
+        <span class="nv">WaitDemo</span> <span class="nv">waitDemo</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">WaitDemo</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">Thread</span> <span class="nv">t</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Thread</span><span class="ss">(</span><span class="nv">waitDemo</span>, <span class="s2">&quot;</span><span class="s">WaitThread</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">t</span>.<span class="nv">start</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">Thread</span>.<span class="nv">sleep</span><span class="ss">(</span><span class="mi">1000</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">t</span>.<span class="nv">getName</span><span class="ss">()</span><span class="o">+</span><span class="s2">&quot;</span><span class="s"> checking in main() </span><span class="s2">&quot;</span><span class="o">+</span><span class="nv">t</span>.<span class="nv">getState</span><span class="ss">())</span><span class="c1">;</span>
+        <span class="nv">waitDemo</span>.<span class="nv">setValue</span><span class="ss">()</span><span class="c1">;</span>
+    }
+}
+<span class="nv">class</span> <span class="nv">WaitDemo</span> <span class="nv">implements</span> <span class="nv">Runnable</span>{
+    <span class="nv">private</span> <span class="nv">boolean</span> <span class="nv">isValueSet</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
 
-    <span class="kd">@Override</span>
-    <span class="kr">public</span> <span class="k">void</span> <span class="nx">run() {</span>
-        <span class="kr">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">){</span>
-            <span class="k">while</span><span class="p">(</span><span class="o">!</span><span class="nx">isValueSet</span> <span class="p">){</span>
-                <span class="k">try</span> <span class="p">{</span>
-                    <span class="nx">wait</span><span class="p">();</span>  <span class="c1">// Check with wait(1000) for TIMED_WAITING</span>
-                <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">InterruptedException</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-                    <span class="nx">e</span><span class="p">.</span><span class="nx">printStackTrace</span><span class="p">();</span>
-                <span class="p">}</span>
-            <span class="p">}</span>
+    @<span class="nv">Override</span>
+    <span class="nv">public</span> <span class="nv">void</span> <span class="nv">run</span><span class="ss">()</span> {
+        <span class="nv">synchronized</span><span class="ss">(</span><span class="nv">this</span><span class="ss">)</span>{
+            <span class="k">while</span><span class="ss">(</span><span class="o">!</span><span class="nv">isValueSet</span> <span class="ss">)</span>{
+                <span class="nv">try</span> {
+                    <span class="k">wait</span><span class="ss">()</span><span class="c1">;  // Check with wait(1000) for TIMED_WAITING</span>
+                } <span class="nv">catch</span> <span class="ss">(</span><span class="nv">InterruptedException</span> <span class="nv">e</span><span class="ss">)</span> {
+                    <span class="nv">e</span>.<span class="nv">printStackTrace</span><span class="ss">()</span><span class="c1">;</span>
+                }
+            }
 
-        <span class="p">}</span>
+        }
 
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Got the Value: &quot;</span><span class="o">+</span><span class="nx">isValueSet</span><span class="p">);</span>
-    <span class="p">}</span>
+        <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Got the Value: </span><span class="s2">&quot;</span><span class="o">+</span><span class="nv">isValueSet</span><span class="ss">)</span><span class="c1">;</span>
+    }
 
-    <span class="kr">public</span> <span class="k">void</span> <span class="nx">setValue</span><span class="p">(){</span>
-        <span class="kr">synchronized</span><span class="p">(</span><span class="k">this</span><span class="p">){</span>
-            <span class="k">this</span><span class="p">.</span><span class="nx">isValueSet</span> <span class="o">=</span> <span class="kc">true</span><span class="p">;</span>
-            <span class="nx">notifyAll</span><span class="p">();</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    <span class="nv">public</span> <span class="nv">void</span> <span class="nv">setValue</span><span class="ss">()</span>{
+        <span class="nv">synchronized</span><span class="ss">(</span><span class="nv">this</span><span class="ss">)</span>{
+            <span class="nv">this</span>.<span class="nv">isValueSet</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
+            <span class="nv">notifyAll</span><span class="ss">()</span><span class="c1">;</span>
+        }
+    }
+}
 
 <span class="o">---</span>
-<span class="nx">Output</span>
-<span class="nx">WaitThread</span> <span class="nx">checking</span> <span class="k">in</span> <span class="nx">main</span><span class="p">()</span> <span class="nx">WAITING</span>
-<span class="nx">Got</span> <span class="nx">the</span> <span class="nx">Value</span>: <span class="kt">true</span>
+<span class="nv">Output</span>
+<span class="nv">WaitThread</span> <span class="nv">checking</span> <span class="nv">in</span> <span class="nv">main</span><span class="ss">()</span> <span class="nv">WAITING</span>
+<span class="nv">Got</span> <span class="nv">the</span> <span class="nv">Value</span>: <span class="nv">true</span>
 </pre></div>
 
 
 <p><strong> <p #blocked></p>BLOCKED</strong> : When thread is waiting to enter acquire monitor lock or to enter into synchronized method/block  or to enter into Critical Section</p>
-<div class="highlight"><pre><span></span><span class="kr">public</span> <span class="kr">class</span> <span class="nx">BlockedDemo</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span> <span class="p">[]</span><span class="nx">args</span><span class="p">){</span>
-        <span class="nx">BlockedThread</span> <span class="nx">blockedThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">BlockedThread</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="k">public</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">BlockedDemo</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="k">static</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">main</span><span class="p">(</span><span class="n">String</span><span class="w"> </span><span class="err">[]</span><span class="n">args</span><span class="p">)</span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">BlockedThread</span><span class="w"> </span><span class="n">blockedThread</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">BlockedThread</span><span class="p">(</span><span class="mi">5</span><span class="p">);</span><span class="w"></span>
 
-        <span class="nx">Thread</span> <span class="nx">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">blockedThread</span><span class="p">,</span> <span class="s2">&quot;t1&quot;</span><span class="p">);</span>
-        <span class="nx">Thread</span> <span class="nx">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">blockedThread</span><span class="p">,</span> <span class="s2">&quot;t2&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">t1</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">blockedThread</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;t1&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="n">Thread</span><span class="w"> </span><span class="n">t2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">Thread</span><span class="p">(</span><span class="n">blockedThread</span><span class="p">,</span><span class="w"> </span><span class="ss">&quot;t2&quot;</span><span class="p">);</span><span class="w"></span>
 
-        <span class="nx">t1</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-        <span class="nx">t2</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t1</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span> <span class="o">+</span><span class="nx">t1</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t2</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span> <span class="o">+</span><span class="nx">t2</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
-    <span class="p">}</span>
+<span class="w">        </span><span class="n">t1</span><span class="p">.</span><span class="k">start</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="n">t2</span><span class="p">.</span><span class="k">start</span><span class="p">();</span><span class="w"></span>
+<span class="w">        </span><span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">t1</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="ss">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">t1</span><span class="p">.</span><span class="n">getState</span><span class="p">());</span><span class="w"></span>
+<span class="w">        </span><span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">t2</span><span class="p">.</span><span class="n">getName</span><span class="p">()</span><span class="w"> </span><span class="o">+</span><span class="ss">&quot; &quot;</span><span class="w"> </span><span class="o">+</span><span class="n">t2</span><span class="p">.</span><span class="n">getState</span><span class="p">());</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
 
-<span class="p">}</span>
+<span class="err">}</span><span class="w"></span>
 
-<span class="kr">class</span> <span class="nx">BlockedThread</span> <span class="kr">implements</span> <span class="nx">Runnable</span> <span class="p">{</span>
-    <span class="kr">private</span> <span class="kr">int</span> <span class="nx">givenVar</span><span class="p">;</span>
-    <span class="nx">BlockedThread</span><span class="p">(</span><span class="kr">int</span> <span class="nx">givenVar</span><span class="p">){</span>
-         <span class="k">this</span><span class="p">.</span><span class="nx">givenVar</span> <span class="o">=</span> <span class="nx">givenVar</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="kd">@Override</span>
-    <span class="kr">public</span> <span class="k">void</span> <span class="nx">run() {</span>
-        <span class="kr">synchronized</span> <span class="p">(</span><span class="k">this</span><span class="p">){</span>
-            <span class="k">try</span> <span class="p">{</span>
-                <span class="nx">Thread</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-                <span class="nx">givenVar</span> <span class="o">+=</span>  <span class="nx">givenVar</span><span class="p">;</span>
-            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">InterruptedException</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">e</span><span class="p">.</span><span class="nx">printStackTrace</span><span class="p">();</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">currentThread</span><span class="p">().</span><span class="nx">getName</span><span class="p">()</span><span class="o">+</span><span class="s2">&quot; changed value &quot;</span><span class="o">+</span> <span class="nx">givenVar</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="k">class</span><span class="w"> </span><span class="n">BlockedThread</span><span class="w"> </span><span class="n">implements</span><span class="w"> </span><span class="n">Runnable</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">    </span><span class="n">private</span><span class="w"> </span><span class="nc">int</span><span class="w"> </span><span class="n">givenVar</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="n">BlockedThread</span><span class="p">(</span><span class="nc">int</span><span class="w"> </span><span class="n">givenVar</span><span class="p">)</span><span class="err">{</span><span class="w"></span>
+<span class="w">         </span><span class="n">this</span><span class="p">.</span><span class="n">givenVar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">givenVar</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="w">    </span><span class="nv">@Override</span><span class="w"></span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="n">run</span><span class="p">()</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">        </span><span class="n">synchronized</span><span class="w"> </span><span class="p">(</span><span class="n">this</span><span class="p">)</span><span class="err">{</span><span class="w"></span>
+<span class="w">            </span><span class="k">try</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">Thread</span><span class="p">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span><span class="w"></span>
+<span class="w">                </span><span class="n">givenVar</span><span class="w"> </span><span class="o">+=</span><span class="w">  </span><span class="n">givenVar</span><span class="p">;</span><span class="w"></span>
+<span class="w">            </span><span class="err">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InterruptedException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<span class="w">                </span><span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="err">}</span><span class="w"></span>
+<span class="w">        </span><span class="err">}</span><span class="w"></span>
+<span class="w">        </span><span class="k">System</span><span class="p">.</span><span class="k">out</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">Thread</span><span class="p">.</span><span class="n">currentThread</span><span class="p">().</span><span class="n">getName</span><span class="p">()</span><span class="o">+</span><span class="ss">&quot; changed value &quot;</span><span class="o">+</span><span class="w"> </span><span class="n">givenVar</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="err">}</span><span class="w"></span>
+<span class="err">}</span><span class="w"></span>
 
-<span class="o">--------------</span>
-<span class="nx">Output</span>
-<span class="nx">t1</span> <span class="nx">TIMED_WAITING</span>
-<span class="nx">t2</span> <span class="nx">BLOCKED</span>
-<span class="nx">t1</span> <span class="nx">changed</span> <span class="nx">value</span> <span class="mi">10</span>
-<span class="nx">t2</span> <span class="nx">changed</span> <span class="nx">value</span> <span class="mi">20</span>
+<span class="c1">--------------</span>
+<span class="k">Output</span><span class="w"></span>
+<span class="n">t1</span><span class="w"> </span><span class="n">TIMED_WAITING</span><span class="w"></span>
+<span class="n">t2</span><span class="w"> </span><span class="n">BLOCKED</span><span class="w"></span>
+<span class="n">t1</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="mi">10</span><span class="w"></span>
+<span class="n">t2</span><span class="w"> </span><span class="n">changed</span><span class="w"> </span><span class="k">value</span><span class="w"> </span><span class="mi">20</span><span class="w"></span>
 </pre></div>
 
 
@@ -256,108 +259,108 @@
 <p><strong>WAITING and TIMED_WAITING becuase of  <p style="font-family: 'courier new', courier;">Thread.join()</p> and  <p style="font-family: 'courier new', courier;">Thread.join(givenTime)</p></strong></p>
 <p>threadX.join() --  It makes calling thread to wait for threadXto finish.</p>
 <p>threadX.join(1000) -- Calling thread will be glued to thread threadX for 1000 miliSeconds and resume after this.</p>
-<div class="highlight"><pre><span></span><span class="kr">public</span> <span class="kr">class</span> <span class="nx">ThreadJoinDemo</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span> <span class="p">[]</span><span class="nx">args</span><span class="p">)</span> <span class="kr">throws</span> <span class="nx">InterruptedException</span> <span class="p">{</span>
-        <span class="nx">ThreadJoin</span> <span class="nx">threadJoin</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">ThreadJoin</span><span class="p">();</span>
-        <span class="nx">Thread</span> <span class="nx">t</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">threadJoin</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nv">public</span> <span class="nv">class</span> <span class="nv">ThreadJoinDemo</span> {
+    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">void</span> <span class="nv">main</span><span class="ss">(</span><span class="nv">String</span> []<span class="nv">args</span><span class="ss">)</span> <span class="nv">throws</span> <span class="nv">InterruptedException</span> {
+        <span class="nv">ThreadJoin</span> <span class="nv">threadJoin</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">ThreadJoin</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">Thread</span> <span class="nv">t</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Thread</span><span class="ss">(</span><span class="nv">threadJoin</span><span class="ss">)</span><span class="c1">;</span>
 
-        <span class="nx">t</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-        <span class="nx">t</span><span class="p">.</span><span class="nx">join</span><span class="p">();</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;in main() method&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+        <span class="nv">t</span>.<span class="nv">start</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">t</span>.<span class="nv">join</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">in main() method</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+    }
+}
 
-<span class="kr">class</span>  <span class="nx">ThreadJoin</span> <span class="kr">implements</span> <span class="nx">Runnable</span><span class="p">{</span>
+<span class="nv">class</span>  <span class="nv">ThreadJoin</span> <span class="nv">implements</span> <span class="nv">Runnable</span>{
 
-    <span class="kd">@Override</span>
-    <span class="kr">public</span> <span class="k">void</span> <span class="nx">run() {</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Entered run()&quot;</span><span class="p">);</span>
-        <span class="kr">int</span> <span class="nx">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
-        <span class="k">while</span><span class="p">(</span><span class="nx">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="p">){</span>
-            <span class="nx">i</span> <span class="o">+=</span> <span class="nx">i</span><span class="p">;</span>
+    @<span class="nv">Override</span>
+    <span class="nv">public</span> <span class="nv">void</span> <span class="nv">run</span><span class="ss">()</span> {
+        <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Entered run()</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">;</span>
+        <span class="k">while</span><span class="ss">(</span><span class="nv">i</span><span class="o">&lt;</span><span class="mi">5</span><span class="ss">)</span>{
+            <span class="nv">i</span> <span class="o">+=</span> <span class="nv">i</span><span class="c1">;</span>
 
-            <span class="k">try</span> <span class="p">{</span>
-                <span class="nx">Thread</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">2000</span><span class="p">);</span>
-            <span class="p">}</span> <span class="k">catch</span> <span class="p">(</span><span class="nx">InterruptedException</span> <span class="nx">e</span><span class="p">)</span> <span class="p">{</span>
-                <span class="nx">e</span><span class="p">.</span><span class="nx">printStackTrace</span><span class="p">();</span>
-            <span class="p">}</span>
-        <span class="p">}</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Finished run()&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+            <span class="nv">try</span> {
+                <span class="nv">Thread</span>.<span class="nv">sleep</span><span class="ss">(</span><span class="mi">2000</span><span class="ss">)</span><span class="c1">;</span>
+            } <span class="nv">catch</span> <span class="ss">(</span><span class="nv">InterruptedException</span> <span class="nv">e</span><span class="ss">)</span> {
+                <span class="nv">e</span>.<span class="nv">printStackTrace</span><span class="ss">()</span><span class="c1">;</span>
+            }
+        }
+        <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Finished run()</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+    }
+}
 </pre></div>
 
 
 <p><strong> WAITING due to[  <p style="font-family: 'courier new', courier;">LockSupport.park()</p> : <a href="http://docs.oracle.com/javase/1.5.0/docs/api/java/util/concurrent/locks/LockSupport.html">Javadoc</a>]{style="font-family: 'courier new', courier;"}</strong></p>
 <p>Methods park and unpark provide efficient means of blocking and unblocking threads and avoids the the Race condition between one thread is parking another is unparking.</p>
 <p>Following is simplest program I code to demonstrate this situation to <em>unpark</em> by other thread.</p>
-<div class="highlight"><pre><span></span><span class="kr">public</span> <span class="kr">class</span> <span class="nx">NewPark</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span> <span class="p">[]</span><span class="nx">args</span><span class="p">)</span> <span class="kr">throws</span> <span class="nx">InterruptedException</span> <span class="p">{</span>
-        <span class="nx">FIFOMutex</span> <span class="nx">fifoMutex</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">FIFOMutex</span><span class="p">();</span>
-        <span class="nx">Thread</span> <span class="nx">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">fifoMutex</span><span class="p">,</span><span class="s2">&quot;t1&quot;</span><span class="p">);</span>
-        <span class="nx">t1</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-        <span class="nx">Thread</span><span class="p">.</span><span class="nx">sleep</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">t1</span><span class="p">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span> <span class="nx">t1</span><span class="p">.</span><span class="nx">getState</span><span class="p">());</span>
-        <span class="nx">fifoMutex</span><span class="p">.</span><span class="nx">unlock</span><span class="p">(</span><span class="nx">t1</span><span class="p">);</span>  <span class="c1">//unPaking thread t1</span>
+<div class="highlight"><pre><span></span><span class="nt">public</span> <span class="nt">class</span> <span class="nt">NewPark</span> <span class="p">{</span>
+    <span class="err">public</span> <span class="err">static</span> <span class="err">void</span> <span class="err">main(String</span> <span class="cp">[]</span><span class="err">args)</span> <span class="err">throws</span> <span class="err">InterruptedException</span> <span class="err">{</span>
+        <span class="err">FIFOMutex</span> <span class="err">fifoMutex</span> <span class="err">=</span> <span class="err">new</span> <span class="err">FIFOMutex()</span><span class="p">;</span>
+        <span class="err">Thread</span> <span class="err">t1</span> <span class="err">=</span> <span class="err">new</span> <span class="err">Thread(fifoMutex,&quot;t1&quot;)</span><span class="p">;</span>
+        <span class="err">t1.start()</span><span class="p">;</span>
+        <span class="err">Thread.sleep(1000)</span><span class="p">;</span>
+        <span class="err">System.out.println(t1.getName()</span> <span class="err">+&quot;</span> <span class="err">&quot;+</span> <span class="err">t1.getState())</span><span class="p">;</span>
+        <span class="err">fifoMutex.unlock(t1)</span><span class="p">;</span>  <span class="err">//unPaking</span> <span class="err">thread</span> <span class="err">t1</span>
 
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="err">}</span>
 
-<span class="kr">class</span> <span class="nx">FIFOMutex</span> <span class="kr">implements</span> <span class="nx">Runnable</span><span class="p">{</span>
-     <span class="kr">public</span> <span class="k">void</span> <span class="nx">lock</span><span class="p">(){</span>
-         <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Parking Thread &quot;</span><span class="o">+</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">currentThread</span><span class="p">().</span><span class="nx">getName</span><span class="p">());</span>
-         <span class="nx">LockSupport</span><span class="p">.</span><span class="nx">park</span><span class="p">();</span>
-         <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;After unpark &quot;</span><span class="o">+</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">currentThread</span><span class="p">().</span><span class="nx">getName</span><span class="p">());</span>
+<span class="nt">class</span> <span class="nt">FIFOMutex</span> <span class="nt">implements</span> <span class="nt">Runnable</span><span class="p">{</span>
+     <span class="err">public</span> <span class="err">void</span> <span class="err">lock(){</span>
+         <span class="err">System.out.println(&quot;Parking</span> <span class="err">Thread</span> <span class="err">&quot;+Thread.currentThread().getName())</span><span class="p">;</span>
+         <span class="err">LockSupport.park()</span><span class="p">;</span>
+         <span class="err">System.out.println(&quot;After</span> <span class="err">unpark</span> <span class="err">&quot;+Thread.currentThread().getName())</span><span class="p">;</span>
      <span class="p">}</span>
 
-    <span class="kr">public</span> <span class="k">void</span> <span class="nx">unlock</span><span class="p">(</span><span class="nx">Thread</span> <span class="nx">thread</span><span class="p">)</span> <span class="p">{</span>
-        <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="s2">&quot;Unparking: &quot;</span><span class="o">+</span><span class="nx">thread</span><span class="p">.</span><span class="nx">getName</span><span class="p">());</span>
-        <span class="nx">LockSupport</span><span class="p">.</span><span class="nx">unpark</span><span class="p">(</span><span class="nx">thread</span><span class="p">);</span>
+    <span class="nt">public</span> <span class="nt">void</span> <span class="nt">unlock</span><span class="o">(</span><span class="nt">Thread</span> <span class="nt">thread</span><span class="o">)</span> <span class="p">{</span>
+        <span class="err">System.out.println(&quot;</span><span class="n">Unparking</span><span class="p">:</span> <span class="err">&quot;</span><span class="o">+</span><span class="n">thread</span><span class="o">.</span><span class="nf">getName</span><span class="p">());</span>
+        <span class="err">LockSupport.unpark(thread)</span><span class="p">;</span>
 
     <span class="p">}</span>
 
-    <span class="kr">public</span> <span class="k">void</span> <span class="nx">run</span><span class="p">(){</span>
-        <span class="nx">lock</span><span class="p">();</span>
+    <span class="nt">public</span> <span class="nt">void</span> <span class="nt">run</span><span class="o">()</span><span class="p">{</span>
+        <span class="err">lock()</span><span class="p">;</span>
     <span class="p">}</span>
-<span class="p">}</span>
+<span class="err">}</span>
 
-<span class="o">---</span>
-<span class="nx">Output</span>:
-<span class="kt">Parking</span> <span class="nx">Thread</span> <span class="nx">t1</span>
-<span class="nx">t1</span> <span class="nx">WAITING</span>
-<span class="nx">Unparking</span>: <span class="kt">t1</span>
-<span class="nx">After</span> <span class="nx">unpark</span> <span class="nx">t1</span>
+<span class="nt">---</span>
+<span class="nt">Output</span><span class="o">:</span>
+<span class="nt">Parking</span> <span class="nt">Thread</span> <span class="nt">t1</span>
+<span class="nt">t1</span> <span class="nt">WAITING</span>
+<span class="nt">Unparking</span><span class="o">:</span> <span class="nt">t1</span>
+<span class="nt">After</span> <span class="nt">unpark</span> <span class="nt">t1</span>
 </pre></div>
 
 
 <p><strong> <p #priority></p>Setting Thread Priority</strong></p>
 <p>You can set priority from 1 (lowest) to 10 (highest) by using thread.setPriority(number) or can use Thread.MAX_PRIORITY, Thread.MIN_PRIORITY. By default thread priority set to 5 that is Thread.NORM_PRIORITY.</p>
 <p>Setting priority doesn't guarantee to execute higher priority thread to run first. It just hint the scheduler that this thread has high priority but it's depends on scheduler how to queue the threads.</p>
-<div class="highlight"><pre><span></span><span class="kr">public</span> <span class="kr">class</span> <span class="nx">ThreadPriority</span> <span class="p">{</span>
-    <span class="kr">public</span> <span class="kr">static</span> <span class="k">void</span> <span class="nx">main</span><span class="p">(</span><span class="nb">String</span> <span class="p">[]</span><span class="nx">args</span><span class="p">)</span> <span class="kr">throws</span> <span class="nx">InterruptedException</span> <span class="p">{</span>
-        <span class="nx">PriorityThread</span> <span class="nx">priorityThread</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">PriorityThread</span><span class="p">();</span>
-        <span class="nx">Thread</span> <span class="nx">t1</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">priorityThread</span><span class="p">,</span> <span class="s2">&quot;Thread1&quot;</span><span class="p">);</span>
-        <span class="nx">Thread</span> <span class="nx">t2</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">priorityThread</span><span class="p">,</span> <span class="s2">&quot;Thread2&quot;</span><span class="p">);</span>
-        <span class="nx">Thread</span> <span class="nx">t3</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Thread</span><span class="p">(</span><span class="nx">priorityThread</span><span class="p">,</span> <span class="s2">&quot;Thread3&quot;</span><span class="p">);</span>
-        <span class="nx">t3</span><span class="p">.</span><span class="nx">setPriority</span><span class="p">(</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">MAX_PRIORITY</span><span class="p">);</span>
-        <span class="nx">t2</span><span class="p">.</span><span class="nx">setPriority</span><span class="p">(</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">MIN_PRIORITY</span><span class="p">);</span>
-        <span class="nx">t1</span><span class="p">.</span><span class="nx">setPriority</span><span class="p">(</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">NORM_PRIORITY</span><span class="p">);</span>
+<div class="highlight"><pre><span></span><span class="nv">public</span> <span class="nv">class</span> <span class="nv">ThreadPriority</span> {
+    <span class="nv">public</span> <span class="nv">static</span> <span class="nv">void</span> <span class="nv">main</span><span class="ss">(</span><span class="nv">String</span> []<span class="nv">args</span><span class="ss">)</span> <span class="nv">throws</span> <span class="nv">InterruptedException</span> {
+        <span class="nv">PriorityThread</span> <span class="nv">priorityThread</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">PriorityThread</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">Thread</span> <span class="nv">t1</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Thread</span><span class="ss">(</span><span class="nv">priorityThread</span>, <span class="s2">&quot;</span><span class="s">Thread1</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">Thread</span> <span class="nv">t2</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Thread</span><span class="ss">(</span><span class="nv">priorityThread</span>, <span class="s2">&quot;</span><span class="s">Thread2</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">Thread</span> <span class="nv">t3</span> <span class="o">=</span> <span class="nv">new</span> <span class="nv">Thread</span><span class="ss">(</span><span class="nv">priorityThread</span>, <span class="s2">&quot;</span><span class="s">Thread3</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">t3</span>.<span class="nv">setPriority</span><span class="ss">(</span><span class="nv">Thread</span>.<span class="nv">MAX_PRIORITY</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">t2</span>.<span class="nv">setPriority</span><span class="ss">(</span><span class="nv">Thread</span>.<span class="nv">MIN_PRIORITY</span><span class="ss">)</span><span class="c1">;</span>
+        <span class="nv">t1</span>.<span class="nv">setPriority</span><span class="ss">(</span><span class="nv">Thread</span>.<span class="nv">NORM_PRIORITY</span><span class="ss">)</span><span class="c1">;</span>
 
-        <span class="nx">t1</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-        <span class="nx">t2</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-        <span class="nx">t3</span><span class="p">.</span><span class="nx">start</span><span class="p">();</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+        <span class="nv">t1</span>.<span class="nv">start</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">t2</span>.<span class="nv">start</span><span class="ss">()</span><span class="c1">;</span>
+        <span class="nv">t3</span>.<span class="nv">start</span><span class="ss">()</span><span class="c1">;</span>
+    }
+}
 
-<span class="kr">class</span> <span class="nx">PriorityThread</span> <span class="kr">implements</span> <span class="nx">Runnable</span> <span class="p">{</span>
+<span class="nv">class</span> <span class="nv">PriorityThread</span> <span class="nv">implements</span> <span class="nv">Runnable</span> {
 
-    <span class="kd">@Override</span>
-    <span class="kr">public</span> <span class="k">void</span> <span class="nx">run() {</span>
-        <span class="k">for</span><span class="p">(</span><span class="kr">int</span> <span class="nx">i</span><span class="o">=</span><span class="mi">0</span><span class="p">;</span> <span class="nx">i</span> <span class="o">&lt;</span> <span class="mi">5</span> <span class="p">;</span> <span class="nx">i</span><span class="o">++</span><span class="p">){</span>
-            <span class="nx">System</span><span class="p">.</span><span class="nx">out</span><span class="p">.</span><span class="nx">println</span><span class="p">(</span><span class="nx">Thread</span><span class="p">.</span><span class="nx">currentThread</span><span class="p">().</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nx">i</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+    @<span class="nv">Override</span>
+    <span class="nv">public</span> <span class="nv">void</span> <span class="nv">run</span><span class="ss">()</span> {
+        <span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">; i &lt; 5 ; i++){</span>
+            <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">Thread</span>.<span class="nv">currentThread</span><span class="ss">()</span>.<span class="nv">getName</span><span class="ss">()</span> <span class="o">+</span><span class="s2">&quot;</span><span class="s"> </span><span class="s2">&quot;</span><span class="o">+</span><span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
+        }
+    }
+}
 </pre></div>
 
 
@@ -365,24 +368,22 @@
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 08 February 2014</p>
-    <p>Category: <a href="/category/java/">Java</a>
+    <p>Category: <a href="//thegeekyway.com/category/java/">Java</a>
  &ndash; Tags:
-      <a href="/tag/java/">java</a>    </p>
+      <a href="//thegeekyway.com/tag/java/">java</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/java-multithreading-thread-states-explained/";
-      this.page.identifier = "java-multithreading-thread-states-explained/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "java-multithreading-thread-states-explained/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

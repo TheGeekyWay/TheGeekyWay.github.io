@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="Bash, cli, Fish, linux, ohmyfish, Shell, terminal, zsh">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Get rid of your old terminal, Go Fish-ing  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/get-rid-of-your-old-terminal-go-fish-ing/">Get rid of your old terminal, Go Fish-ing</a></h1>
+    <h1><a href="//thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/">Get rid of your old terminal, Go Fish-ing</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/vipulgupta2048/>vipulgupta2048</a></strong></p>
@@ -86,20 +89,20 @@
 
 <h3>Simple Installation</h3>
 <p>Fish is easily available on Linux (All popular distros), Windows, and MacOS. Here are the steps for installing it on Debian.</p>
-<div class="highlight"><pre><span></span>sudo apt-add-repository ppa:fish-shell/release-2
-sudo apt-get update
-sudo apt-get install fish
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">add</span><span class="o">-</span><span class="n">repository</span> <span class="n">ppa</span><span class="p">:</span><span class="n">fish</span><span class="o">-</span><span class="n">shell</span><span class="o">/</span><span class="n">release</span><span class="o">-</span><span class="mi">2</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="k">update</span>
+<span class="n">sudo</span> <span class="n">apt</span><span class="o">-</span><span class="k">get</span> <span class="n">install</span> <span class="n">fish</span>
 </pre></div>
 
 
 <p>You can find similar installation steps, for other distros and operating systems <a href="https://fishshell.com/">here</a>. When fish gets installed, type the following in your terminal.</p>
-<div class="highlight"><pre><span></span>- $ fish
+<div class="highlight"><pre><span></span><span class="o">-</span> <span class="err">$</span> <span class="n">fish</span>
 </pre></div>
 
 
 <p>And you are ready to go.</p>
 <p>For Fish to remember and suggest properly, try running this command when you install new applications. This will start scanning the man pages of your distros and suggest new arguments as you type in the terminal. To accept a suggestion, press the right arrow key to complete the command and it as simple as that.</p>
-<div class="highlight"><pre><span></span>- $ fish_update_completions
+<div class="highlight"><pre><span></span><span class="o">-</span> <span class="err">$</span> <span class="n">fish_update_completions</span>
 </pre></div>
 
 
@@ -115,34 +118,34 @@ This works on its ability to predict arguments straight from man pages and from 
 <h4>Similarity to old 'Bash' (and some new scripting rules)</h4>
 <p>Commands you use in bash or to write shell scripts in Bash are mostly the same in Fish. There are some differences. But the alternatives are much easier to use. Check out the <a href="https://fishshell.com/docs/current/index.html">documentation</a> for more information.<br>
 Man pages are a smart way to get more information about commands. But reading and searching for them are a pain. Fish comes to the rescue by opening man pages in web browsers. Give it a try.</p>
-<div class="highlight"><pre><span></span>- $ help set
+<div class="highlight"><pre><span></span><span class="o">-</span> <span class="err">$</span> <span class="n">help</span> <span class="k">set</span>
 </pre></div>
 
 
 <h4>Magic happens when you press Tab</h4>
 <p>Terminals usually autocomplete your half-written commands when you press the Tab key. Fish does that and a ton of other stuff. Here are a few snippets</p>
-<div class="highlight"><pre><span></span>&gt; /geek @press{Tab} → /geekyway/
+<div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="o">/</span><span class="n">geek</span><span class="w"> </span><span class="nv">@press</span><span class="err">{</span><span class="n">Tab</span><span class="err">}</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="o">/</span><span class="n">geekyway</span><span class="o">/</span><span class="w"></span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&gt; ~/geekyway/v @press{Tab}
-~/stuff/vipul.sh  (Executable, 4.8kB)  ~/stuff/vipul/  (Directory)
+<div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="o">~/</span><span class="n">geekyway</span><span class="o">/</span><span class="n">v</span><span class="w"> </span><span class="nv">@press</span><span class="err">{</span><span class="n">Tab</span><span class="err">}</span><span class="w"></span>
+<span class="o">~/</span><span class="nf">stuff</span><span class="o">/</span><span class="n">vipul</span><span class="p">.</span><span class="n">sh</span><span class="w">  </span><span class="p">(</span><span class="n">Executable</span><span class="p">,</span><span class="w"> </span><span class="mf">4.8</span><span class="n">kB</span><span class="p">)</span><span class="w">  </span><span class="o">~/</span><span class="nf">stuff</span><span class="o">/</span><span class="n">vipul</span><span class="o">/</span><span class="w">  </span><span class="p">(</span><span class="n">Directory</span><span class="p">)</span><span class="w"></span>
 </pre></div>
 
 
-<div class="highlight"><pre><span></span>&gt; ~/vipulgupta2048/ @press{tab} 
-go/ 
-aeious/ 
-Android/ 
-AndroidStudioProjects/
-…and 44 more rows
+<div class="highlight"><pre><span></span><span class="o">&gt;</span><span class="w"> </span><span class="o">~/</span><span class="n">vipulgupta2048</span><span class="o">/</span><span class="w"> </span><span class="nv">@press</span><span class="err">{</span><span class="n">tab</span><span class="err">}</span><span class="w"> </span>
+<span class="k">go</span><span class="o">/</span><span class="w"> </span>
+<span class="n">aeious</span><span class="o">/</span><span class="w"> </span>
+<span class="n">Android</span><span class="o">/</span><span class="w"> </span>
+<span class="n">AndroidStudioProjects</span><span class="o">/</span><span class="w"></span>
+<span class="err">…</span><span class="ow">and</span><span class="w"> </span><span class="mi">44</span><span class="w"> </span><span class="n">more</span><span class="w"> </span><span class="k">rows</span><span class="w"></span>
 </pre></div>
 
 
 <p>Keep pressing tab, shift+tab, arrow keys and other combinations to fully explore all the amazing features of Fish. Comment down below to let us know what cool new features you found while exploring.</p>
 <h4>Want to customize? Fish has you covered</h4>
 <p>Programmers love to customize their own personal setups be it desktop environments, text editors, and even terminals. I am no different. Hence when I found that you can customize Fish using a web browser and not write code for it. I was blown away. Try it out by typing</p>
-<div class="highlight"><pre><span></span>&gt; fish_config
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">fish_config</span>
 </pre></div>
 
 
@@ -160,19 +163,19 @@ AndroidStudioProjects/
 </ul>
 <h4>Sold Already, Make it default</h4>
 <p>To find the shells installed in your system, run this command.</p>
-<div class="highlight"><pre><span></span>&gt; cat /etc/shells
-/bin/sh
-/bin/dash
-/bin/bash
-/bin/rbash
-/usr/bin/tmux
-/usr/bin/fish
-/usr/local/bin/fish
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">cat</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">shells</span>
+<span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">sh</span>
+<span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">dash</span>
+<span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">bash</span>
+<span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">rbash</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">tmux</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">fish</span>
+<span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">fish</span>
 </pre></div>
 
 
 <p>You need to select "/usr/local/bin/fish" and then enter the command to change your default shell.</p>
-<div class="highlight"><pre><span></span>&gt; chsh -s /usr/local/bin/fish
+<div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="n">chsh</span> <span class="o">-</span><span class="n">s</span> <span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="k">local</span><span class="o">/</span><span class="n">bin</span><span class="o">/</span><span class="n">fish</span>
 </pre></div>
 
 
@@ -183,24 +186,22 @@ Fork and star my dotfiles for more reference, and if you want the greeting messa
   </div>
   <div class="article_meta">
     <p>Posted on: Tue 03 April 2018</p>
-    <p>Category: <a href="/category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/bash/">Bash</a>,      <a href="/tag/cli/">cli</a>,      <a href="/tag/fish/">Fish</a>,      <a href="/tag/linux/">linux</a>,      <a href="/tag/ohmyfish/">ohmyfish</a>,      <a href="/tag/shell/">Shell</a>,      <a href="/tag/terminal/">terminal</a>,      <a href="/tag/zsh/">zsh</a>    </p>
+      <a href="//thegeekyway.com/tag/bash/">Bash</a>,      <a href="//thegeekyway.com/tag/cli/">cli</a>,      <a href="//thegeekyway.com/tag/fish/">Fish</a>,      <a href="//thegeekyway.com/tag/linux/">linux</a>,      <a href="//thegeekyway.com/tag/ohmyfish/">ohmyfish</a>,      <a href="//thegeekyway.com/tag/shell/">Shell</a>,      <a href="//thegeekyway.com/tag/terminal/">terminal</a>,      <a href="//thegeekyway.com/tag/zsh/">zsh</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/";
-      this.page.identifier = "get-rid-of-your-old-terminal-go-fish-ing/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "get-rid-of-your-old-terminal-go-fish-ing/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

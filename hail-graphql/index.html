@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="Python, GitHub">
+
+  <title>
+    The Geeky Way
+&ndash; Hail GraphQL  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/hail-graphql/">Hail GraphQL</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/storymode7/>storymode7</a></strong></p>
+  </div>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><img alt="GraphQL Logo" src="//thegeekyway.com/uploads/images/2019/08/graphql-logo.png"></p>
+</div>
+<p>We start with basics, but then we've to upgrade. But why? Because the latest solution to the old problem is more elegant and much faster! To me, it happened to be GraphQL. It's a query language that follows you. The mantra? The structure remains the same. Let's see how we can get started with GraphQL using GitHub's API as an example.</p>
+<!--more-->
+
+<h2>Background</h2>
+<p>I was working on <a href="https://github.com/CuriousLearner/CPython-Pull-Requests">CPython-Pull-Requests</a>, which queries GitHub to show files and a list of PRs opened against them. (Want to check it out? <a href="https://cpython-pulls.herokuapp.com/">Go here</a>)
+Previous work by <a href="https://github.com/csabella">Cheryl Sabella</a> was awesome. But it could do with a few touchups. Which <a href="https://github.com/CuriousLearner/">CuriousLearner</a> and <a href="https://github.com/storymode7/">me</a> and <a href="https://github.com/geekyshacklebolt">GeekyShacklebolt</a> did.
+The previous version had one big drawback. It took ~10 minutes to get all the relevant data from GitHub.
+That was because GitHub's REST API got much more data than what we required. Then we were advised to use GraphQL. 
+And guess what? The query takes ~27 Seconds now!</p>
+<h2>What is GraphQL</h2>
+<p><a href="https://graphql.org/">GraphQL</a> is a Query Language (The QL in GraphQL) and is used to fetch data from servers. But what makes it different is how you query the server. Your query has the same structure as that of your required response. And due to this you only get what you ask. Nothing extra.</p>
+<h2>GitHub terminologies</h2>
+<h3>Object</h3>
+<p>Object means resources that you can access. An object has related connections. The connections have multiple edges all reaching to a different node. Examples of objects are repositories, issues, gists, blames, etc.
+Complete list: <a href="https://developer.github.com/v4/object/">https://developer.github.com/v4/object/</a></p>
+<h3>Connection</h3>
+<p>Connection allows you to query for related objects. Like <a href="https://developer.github.com/v4/object/repository/">here</a> you can see a list of connections available under the repository object.</p>
+<h3>Edge</h3>
+<p>A link between nodes. You need to go through an edge to a node. But since an edge will always take you to a node so you don't need to specify edge in your query. Though providing edge isn't wrong. It clarifies the meaning. But since it's obvious, it's optional.
+Like</p>
+<div class="highlight"><pre><span></span><span class="nx">edge</span> <span class="p">{</span>
+  <span class="nx">node</span><span class="p">{</span>
+    <span class="nx">stuff</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Example: <a href="https://developer.github.com/v4/object/repositoryedge/">RepositoryEdge</a></p>
+<h3>Nodes</h3>
+<p>Objects, node, and fields are sometimes used interchangeably. But what helps me clarify node is that <code>node</code> is the final part of your query that returns some scalar(A value with the base data type. Like Int, String, Boolean). Each node should return a scalar. If it does not, you have to include subfields until they return scalars.
+In a node, you can specify what fields you require. Remember that the final field that is returned inside a node should be a scalar.</p>
+<p>NOTE: To find various fields, connections, nodes you can refer here <a href="https://developer.github.com/v4/query/">https://developer.github.com/v4/query/</a></p>
+<h2>Enough talk. Let's get started!</h2>
+<p>What better way to understand something new than to see it work, play with it. Let's take the one I used (GitHub).
+You can use <a href="https://developer.github.com/v4/explorer/">GitHub's explorer</a> to test queries straight away. But it asks a <em>LOT</em> of permissions to support every type of query.
+Another way is to make a smaller version yourself. With fewer permissions. Here's a short version that I wrote. For this, you just need an authentication token generated at https://github.com/settings/tokens with no scopes other than default scopes. i.e you don't need to select any option from the list of scopes provided in settings.</p>
+<p><a href="//thegeekyway.com/uploads/files/graphql-without-pagination.py">Minimal Explorer</a></p>
+<p>This is the minimal explorer that I wrote. But since we're not taking loads of permissions, we're a little limited. But for getting started, it's enough (Not only getting started, but for getting big too. CPython-Pull-Requests uses only default scopes, no additional scopes.)</p>
+<p>So here's our first query. </p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="nx">viewer</span><span class="p">{</span>
+    <span class="nx">login</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Output:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;viewer&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;login&quot;</span><span class="o">:</span> <span class="s2">&quot;storymode7&quot;</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>(See the similarity? The "data" provided in the response to our query has <em>exactly</em> the same structure.)
+Viewer is a <a href="https://developer.github.com/v4/object/user/">User object</a>. There is also a <code>user</code> field. The difference of <code>viewer</code> from <code>user</code> field is that viewer represents the currently authenticated user. Whereas <code>user</code> is used to lookup a user from their login. So, in this case, the response was the login of the currently authenticated user(storymode7).</p>
+<p>You can also prepend <code>query</code> before your query. It is useful if you need to pass some parameters to your query.</p>
+<div class="highlight"><pre><span></span><span class="nx">query</span> <span class="p">{</span>
+  <span class="nx">rateLimit</span> <span class="p">{</span>
+    <span class="nx">limit</span>
+    <span class="nx">remaining</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Output:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;rateLimit&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;limit&quot;</span><span class="o">:</span> <span class="mi">5000</span><span class="p">,</span>
+      <span class="s2">&quot;remaining&quot;</span><span class="o">:</span> <span class="mi">5000</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p><a href="https://developer.github.com/v4/object/ratelimit/">RateLimit object</a>. It contains fields related to the rate limit info of currently logged in client.</p>
+<h2>Using variables in your query</h2>
+<p>Like in a programming language, you can use variable to make query easy to modify. Like if you want to change the number of results returned by a query, you don't need to change your <code>query</code> every time. You can just change the relevant variable without touching the query at all.
+To use variables you need to define the variable type when you write your query.
+While using variables, keeping this in mind helps: You can use a <code>field</code> in an <code>object</code> as a parameter. You can also list these fields under nodes to display them.
+Variables are prefixed with a <code>$</code> sign wherever they are in a query. And enclosed in <code>""</code> within <code>variables</code>.
+Example:</p>
+<div class="highlight"><pre><span></span><span class="nx">query</span><span class="p">(</span><span class="nx">$user_name</span><span class="o">:</span><span class="nb">String</span><span class="o">!</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">user</span><span class="p">(</span><span class="nx">login</span><span class="o">:</span> <span class="nx">$user_name</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">repositories</span><span class="p">(</span><span class="nx">first</span><span class="o">:</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">nodes</span><span class="p">{</span>
+        <span class="nx">name</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="p">{</span>
+  <span class="s2">&quot;user_name&quot;</span><span class="o">:</span> <span class="s2">&quot;storymode7&quot;</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Executing this query in GitHub explorer: Paste the variables part (The last part with "user_name") under QUERY VARIABLES
+Executing this query in my minimal explorer: Paste the variables part (The last part with "user_name") under <code>variables</code>. So that it looks like:</p>
+<div class="highlight"><pre><span></span><span class="n">variables</span> <span class="o">=</span> <span class="s1">&#39;&#39;&#39;</span><span class="se">\</span>
+<span class="s1">{</span>
+<span class="s1">  &quot;user_name&quot;: &quot;storymode7&quot;</span>
+<span class="s1">}</span>
+<span class="s1">&#39;&#39;&#39;</span>
+</pre></div>
+
+
+<p>Output:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;user&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;repositories&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;nodes&quot;</span><span class="o">:</span> <span class="p">[</span>
+          <span class="p">{</span>
+            <span class="s2">&quot;name&quot;</span><span class="o">:</span> <span class="s2">&quot;django-init&quot;</span>
+          <span class="p">}</span>
+        <span class="p">]</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Look closely on this line:
+<code>query($user_name:String!) {</code>
+This is to make sure that nullability matches. I.E if the field requires a variable (If they are required, the type has a <code>!</code> in end). Then your variable definition should specify the variable as compulsory too! Lookup <code>login</code> field <a href="https://developer.github.com/v4/object/user/#fields">here</a>, and you'll notice it's defined as: <code>login (String!)</code></p>
+<h2>Pagination</h2>
+<p>A query can not list more than hundred resources in one request. For example:</p>
+<div class="highlight"><pre><span></span><span class="nx">query</span> <span class="p">{</span>
+  <span class="nx">repository</span><span class="p">(</span><span class="nx">owner</span><span class="o">:</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s2">&quot;cpython&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">pullRequests</span><span class="p">(</span><span class="nx">states</span><span class="o">:</span> <span class="nx">OPEN</span><span class="p">,</span> <span class="nx">first</span><span class="o">:</span> <span class="mi">101</span><span class="p">)</span> <span class="p">{</span>
+      <span class="nx">nodes</span> <span class="p">{</span>
+        <span class="nx">title</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Output:</p>
+<div class="highlight"><pre><span></span><span class="n">Requesting</span> <span class="mi">101</span> <span class="n">records</span> <span class="k">on</span> <span class="n">the</span> <span class="ss">`pullRequests`</span> <span class="n">connection</span> <span class="n">exceeds</span> <span class="n">the</span> <span class="ss">`first`</span> <span class="k">limit</span> <span class="n">of</span> <span class="mi">100</span> <span class="n">records</span><span class="p">.</span>
+</pre></div>
+
+
+<p>This is where we pagination comes. The use of variables, before &amp; after fields, cursors, python all comes in together!
+Under a connection, you can see there's a pageInfo field. Example: <a href="https://developer.github.com/v4/object/pullrequestconnection/">PullRequestConnection</a>. </p>
+<p>Since we're going to deal with paging forward, the fields of interest to us in <a href="https://developer.github.com/v4/object/pageinfo/">pageInfo</a> are: <code>endCursor</code> &amp; <code>hasNextPage</code>.
+So, to get all the info we need to keep turning the page until we're on the last page. We can check if we're on the last page yet, by checking the value of <code>hasNextPage</code> which is a <code>Boolean</code>. If we have a next page available, we copy the <code>endCursor</code> value and then we update the query for the next request with that <code>endCursor</code> specified in the <code>after</code> field. So now we only get details after those that were at the 'end' of the previous 'page'.
+In short, to paginate:
+* Check if <code>hasNextPage</code> (if not then quit)
+* Copy <code>endCursor</code>
+* Update the after field in query with <code>endCursor</code>'s value
+* Send the query
+* Repeat</p>
+<p>Let's see how these <code>endCursor</code>, <code>hasNextPage</code> etc look in the Response of a small query:</p>
+<p>Query:</p>
+<div class="highlight"><pre><span></span><span class="nx">query</span> <span class="p">{</span>
+  <span class="nx">repository</span><span class="p">(</span><span class="nx">owner</span><span class="o">:</span><span class="s2">&quot;python&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span><span class="s2">&quot;cpython&quot;</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">pullRequests</span><span class="p">(</span><span class="nx">states</span><span class="o">:</span> <span class="nx">OPEN</span><span class="p">,</span> <span class="nx">first</span><span class="o">:</span> <span class="mi">1</span><span class="p">)</span> <span class="p">{</span>
+        <span class="nx">pageInfo</span> <span class="p">{</span>
+          <span class="nx">endCursor</span>
+          <span class="nx">hasNextPage</span>
+        <span class="p">}</span>
+        <span class="nx">totalCount</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Output:</p>
+<div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;data&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;repository&quot;</span><span class="o">:</span> <span class="p">{</span>
+      <span class="s2">&quot;pullRequests&quot;</span><span class="o">:</span> <span class="p">{</span>
+        <span class="s2">&quot;pageInfo&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;endCursor&quot;</span><span class="o">:</span> <span class="s2">&quot;Y3Vyc29yOnYyOpHOBlW8Wg==&quot;</span><span class="p">,</span>
+          <span class="s2">&quot;hasNextPage&quot;</span><span class="o">:</span> <span class="kc">true</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;totalCount&quot;</span><span class="o">:</span> <span class="mi">1048</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>Now here's an <a href="//thegeekyway.com/uploads/files/graphql-with-pagination.py">example script</a> with pagination. That will fetch titles of all PRs for "cpython" repo with owner "python".
+Since we're getting a list of all the nodes(PR titles), I am capturing node of every request and appending it to the previous node. 
+I'm not attaching the final node created by the accumulation of all other nodes back to the response because I've achieved what I wanted.
+Titles of all PRs opened in the "CPython" repo. 
+Also, since the printing of such a large amount of information is useless, I'm sharing a small snippet of output:</p>
+<p>Output:</p>
+<div class="highlight"><pre><span></span><span class="nv">Page</span> <span class="mi">1</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">2</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">3</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">4</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">5</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">6</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">7</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">8</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">9</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">10</span> <span class="nv">fetched</span>
+<span class="nv">Page</span> <span class="mi">11</span> <span class="nv">fetched</span>
+[
+  {
+    <span class="s2">&quot;</span><span class="s">title</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">bpo-29553: Fixed ArgumentParses format_usage for mutually exclusive groups</span><span class="s2">&quot;</span>
+  },
+  {
+    <span class="s2">&quot;</span><span class="s">title</span><span class="s2">&quot;</span>: <span class="s2">&quot;</span><span class="s">Alternarive for bpo-29553 - Fixed ArgumentParses format_usage for mutually exclusive groups</span><span class="s2">&quot;</span>
+  },
+  {
+...
+</pre></div>
+
+
+<p>Note: I'm only displaying the node part here since that is the focus of this query.</p>
+<h2>Is this all?</h2>
+<p>No! GraphQL has a lot of features. This post includes a few that I came across while working on CPython-Pull-Requests. There are a lot of things. Like mutations, that you can use to modify data. This is the part that would require some permissions and this is the reason why GitHub's explorer is so permission heavy. It supports every type of GraphQL query that you can do on GitHub, including mutations.
+There are more features that you can find out on <a href="https://developer.github.com/v4/">GitHub's GraphQL API reference</a>.</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 12 August 2019</p>
+    <p>Category: <a href="//thegeekyway.com/category/graphql/">GraphQL</a>
+ &ndash; Tags:
+      <a href="//thegeekyway.com/tag/python/">Python</a>,      <a href="//thegeekyway.com/tag/github/">GitHub</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "hail-graphql/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

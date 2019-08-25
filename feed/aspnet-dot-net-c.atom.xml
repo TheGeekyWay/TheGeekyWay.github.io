@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Asp.net (Dot Net), C#</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/aspnet-dot-net-c.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-07-19T12:31:00+05:30</updated><entry><title>ASP.Net Basics : Populate checkboxlist from database using C#</title><link href="//thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/" rel="alternate"></link><published>2014-07-19T12:31:00+05:30</published><updated>2014-07-19T12:31:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-07-19:/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/</id><summary type="html">&lt;p&gt;In this tutorial we will be discussing how to populate data in checkboxlist or radiobutton list from the values taken from database and display them on the screen.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Asp.net (Dot Net), C#</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/aspnet-dot-net-c.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-07-19T12:31:00+05:30</updated><entry><title>ASP.Net Basics : Populate checkboxlist from database using C#</title><link href="//thegeekyway.com/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/" rel="alternate"></link><published>2014-07-19T12:31:00+05:30</published><updated>2014-07-19T12:31:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-07-19:/asp-net-basics-populate-checkboxlist-database-using-c-dotnet/</id><summary type="html">&lt;p&gt;In this tutorial we will be discussing how to populate data in checkboxlist or radiobutton list from the values taken from database and display them on the screen.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/03/asp-net11.jpg" title="Populate checkboxlist from database using C#"&gt;&lt;img alt="Populate checkboxlist from database using C#" src="//thegeekyway.com/uploads/images/2014/03/asp-net11.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -47,8 +47,8 @@ and the output should be&lt;/p&gt;
 &lt;hr&gt;
 &lt;h5&gt;&lt;p #h_4_2&gt;Step 2 :  &lt;p style="text-decoration: underline; color: black;"&gt;On the C# side coding create a SQL connection.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;Sql connection can be created using the following asp (C#) snippet&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using System.Data.SqlClient;
-SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings[&amp;quot;ConnectionString&amp;quot;].Conn
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;using&lt;/span&gt; &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;Data&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SqlClient&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;SqlConnection&lt;/span&gt; &lt;span class="n"&gt;con&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;newSqlConnection&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Web&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Configuration&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WebConfigurationManager&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ConnectionStrings&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;ConnectionString&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;Conn&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -64,7 +64,7 @@ SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationMana
 &lt;hr&gt;
 &lt;h5&gt;&lt;p #h_4_3&gt;Step 3 :  &lt;p style="text-decoration: underline; color: black;"&gt;Write your SQL Query.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;The next step after creating the connection is to open the connection we can use con.open() [here con is the object of SqlConnection class created in Step2]. The SQL query for this table will be :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;stringquery=&amp;quot;SELECT distinct[Clg_name] FROM [Complete_table]&amp;quot;;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;stringquery&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;SELECT distinct[Clg_name] FROM [Complete_table]&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -78,7 +78,7 @@ The following C\# snippet creates a SQL adapter
 &lt;/textarea&gt;
 &lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;SqlDataAdapter da=newSqlDataAdapter(query,con);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;SqlDataAdapter&lt;/span&gt; &lt;span class="n"&gt;da&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;newSqlDataAdapter&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;query&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;con&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -86,14 +86,14 @@ The following C\# snippet creates a SQL adapter
 &lt;h5&gt;&lt;p #h_4_5&gt;Step 5 :  &lt;p style="text-decoration: underline; color: black;"&gt;Create a Dataset.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;Dataset represents an in-memory cache of data, i.e. the data which is being retrieved from database and stored into checkboxlist is being stored in cache and data is retreived from cache using Dataset.&lt;/p&gt;
 &lt;p&gt;The C# snippet to create a Dataset is as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;DataSet ds=newDataSet();
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;DataSet&lt;/span&gt; &lt;span class="n"&gt;ds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;newDataSet&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;h5&gt;&lt;p #h_4_6&gt;Step 6 :  &lt;p style="text-decoration: underline; color: black;"&gt;Fill the dataset with the values from the SqlDataAdapter.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;Now we need to fill in the data from sql dataAdapter using dataset, the C# snippet for the same is :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;da.Fill(ds);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;da&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Fill&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;ds&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -101,11 +101,11 @@ The following C\# snippet creates a SQL adapter
 &lt;h5&gt;&lt;p #h_4_7&gt;Step 7 :  &lt;p style="text-decoration: underline; color: black;"&gt;Check if the resultant dataset produce rows or not.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;We can check if the dataset which populates checkboxlist from database produce rows or not, if it doesnt produce rows we can simply give an error message that no results available.&lt;br&gt;
 Here is the C# snippet for the same :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(ds.Tables[0].Rows.Count!=0)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ds&lt;/span&gt;.&lt;span class="nv"&gt;Tables&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;].&lt;span class="nv"&gt;Rows&lt;/span&gt;.&lt;span class="nv"&gt;Count&lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-    // more coding will be discussed in next steps
-}else{
-   // Give an error message that no results found
+    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;more&lt;/span&gt; &lt;span class="nv"&gt;coding&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;discussed&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="k"&gt;next&lt;/span&gt; &lt;span class="nv"&gt;steps&lt;/span&gt;
+}&lt;span class="k"&gt;else&lt;/span&gt;{
+   &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Give&lt;/span&gt; &lt;span class="nv"&gt;an&lt;/span&gt; &lt;span class="nv"&gt;error&lt;/span&gt; &lt;span class="nv"&gt;message&lt;/span&gt; &lt;span class="nv"&gt;that&lt;/span&gt; &lt;span class="nv"&gt;no&lt;/span&gt; &lt;span class="nv"&gt;results&lt;/span&gt; &lt;span class="nv"&gt;found&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -113,14 +113,14 @@ Here is the C# snippet for the same :-&lt;/p&gt;
 &lt;hr&gt;
 &lt;h5&gt;&lt;p #h_4_8&gt;Step 8 :  &lt;p style="text-decoration: underline; color: black;"&gt;Provide the dataSet to the Checkbox list.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;Next step is to point the checkBoxList towards the SQL database for that we will use the dataset to point to the database. Here is the following C# snippet.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckBoxList1.DataSource=ds;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;CheckBoxList1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataSource&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ds&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;hr&gt;
 &lt;h5&gt;&lt;p #h_4_9&gt;Step 9 :  &lt;p style="text-decoration: underline; color: black;"&gt;Bind the data of the checkboxlist.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;Now the next and the second last step is to bind the data. It can be done using following C# snippet&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckBoxList1.DataBind();
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;CheckBoxList1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataBind&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -131,8 +131,8 @@ Here is the C# snippet for the same :-&lt;/p&gt;
 &lt;hr&gt;
 &lt;h5&gt;&lt;p #h_4_10&gt;Step 10:  &lt;p style="text-decoration: underline; color: black;"&gt;The final step : Provide the DataTextField and DataValueField to the checkbox list.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;Here the DataTextField and DataValueField is the name of the column in our database, the C# snippet for the same is :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;CheckBoxList1.DataTextField=&amp;quot;Clg_Name&amp;quot;;
-CheckBoxList1.DataValueField=&amp;quot;Clg_Name&amp;quot;;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;CheckBoxList1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataTextField&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Clg_Name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;CheckBoxList1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;DataValueField&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Clg_Name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -140,36 +140,36 @@ CheckBoxList1.DataValueField=&amp;quot;Clg_Name&amp;quot;;
 &lt;hr&gt;
 &lt;h5&gt;&lt;p #h_4_11&gt;Step 11:  &lt;p style="text-decoration: underline; color: black;"&gt;The complete code.&lt;/p&gt;&lt;/p&gt;&lt;/h5&gt;
 &lt;p&gt;here is the complete code :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;protectedvoidPage_Load(objectsender,EventArgse)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;protectedvoidPage_Load&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;objectsender&lt;/span&gt;,&lt;span class="nv"&gt;EventArgse&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     {
-        SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationManager.ConnectionStrings[&amp;quot;ConnectionString&amp;quot;].ConnectionString);
-        stringquery;
-        try
+        &lt;span class="nv"&gt;SqlConnection&lt;/span&gt; &lt;span class="nv"&gt;con&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;newSqlConnection&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;Configuration&lt;/span&gt;.&lt;span class="nv"&gt;WebConfigurationManager&lt;/span&gt;.&lt;span class="nv"&gt;ConnectionStrings&lt;/span&gt;[&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;ConnectionString&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;].&lt;span class="nv"&gt;ConnectionString&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;stringquery&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;try&lt;/span&gt;
         {
-            query=&amp;quot;SELECT distinct[Clg_name] FROM [Complete_table]&amp;quot;;
-            con.Open();
-            SqlDataAdapter da=newSqlDataAdapter(query,con);
-            DataSet ds=newDataSet();
-            da.Fill(ds);
-            if(ds.Tables[0].Rows.Count!=0)
+            &lt;span class="nv"&gt;query&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;SELECT distinct[Clg_name] FROM [Complete_table]&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;con&lt;/span&gt;.&lt;span class="nv"&gt;Open&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;SqlDataAdapter&lt;/span&gt; &lt;span class="nv"&gt;da&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;newSqlDataAdapter&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;query&lt;/span&gt;,&lt;span class="nv"&gt;con&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;DataSet&lt;/span&gt; &lt;span class="nv"&gt;ds&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;newDataSet&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;da&lt;/span&gt;.&lt;span class="nv"&gt;Fill&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ds&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;ds&lt;/span&gt;.&lt;span class="nv"&gt;Tables&lt;/span&gt;[&lt;span class="mi"&gt;0&lt;/span&gt;].&lt;span class="nv"&gt;Rows&lt;/span&gt;.&lt;span class="nv"&gt;Count&lt;/span&gt;&lt;span class="o"&gt;!=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
             {
-                CheckBoxList1.DataSource=ds;
-                CheckBoxList1.DataTextField=&amp;quot;Clg_Name&amp;quot;;
-                CheckBoxList1.DataValueField=&amp;quot;Clg_Name&amp;quot;;
-                CheckBoxList1.DataBind();
+                &lt;span class="nv"&gt;CheckBoxList1&lt;/span&gt;.&lt;span class="nv"&gt;DataSource&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;ds&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;CheckBoxList1&lt;/span&gt;.&lt;span class="nv"&gt;DataTextField&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Clg_Name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;CheckBoxList1&lt;/span&gt;.&lt;span class="nv"&gt;DataValueField&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Clg_Name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;CheckBoxList1&lt;/span&gt;.&lt;span class="nv"&gt;DataBind&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
-            else
+            &lt;span class="k"&gt;else&lt;/span&gt;
             {
-                Response.Write(&amp;quot;No Results found&amp;quot;);
+                &lt;span class="nv"&gt;Response&lt;/span&gt;.&lt;span class="nv"&gt;Write&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;No Results found&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
         }
-        catch(Exception ex)
+        &lt;span class="nv"&gt;catch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Exception&lt;/span&gt; &lt;span class="nv"&gt;ex&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            Response.Write(&amp;quot;&amp;lt;br&amp;gt;&amp;quot;+ex);
+            &lt;span class="nv"&gt;Response&lt;/span&gt;.&lt;span class="nv"&gt;Write&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;&amp;lt;br&amp;gt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;ex&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
-        finally
+        &lt;span class="nv"&gt;finally&lt;/span&gt;
         {
-            con.Close();
+            &lt;span class="nv"&gt;con&lt;/span&gt;.&lt;span class="nv"&gt;Close&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 }

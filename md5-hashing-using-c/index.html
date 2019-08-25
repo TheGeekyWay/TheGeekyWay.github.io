@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="C#, programming">
+
+  <title>
+    The Geeky Way
+&ndash; MD5 Hashing using C#  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/md5-hashing-using-c/">MD5 Hashing using C#</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
+  </div>
+  <div class="article_text">
+    <p>Its common now a days that all the passwords are being encrypted in order to prevent data theft. So the passwords are being encrypted, the most common and most secure encryption method is MD5 hashing.<br>
+<strong>MD5</strong> hashing stands for Message Digest algorithm 5. The idea of MD5 algorithm is to convert all the string/char/integer into a fixed “32″ bit hexadecimal code. The input can be of any size, but the output will always be fixed, here is an example of MD5 hashing algorithm.</p>
+<p><img alt="MD5 hashing algorithm" src="http://thegeekyway.com/uploads/images/2014/03/MD5-hashing-algorithm.png"></p>
+<p>The main point is that whatever the length of the input is, the output will always be of “32″ bit. The namespace used is <strong>System.Security.Cryptography</strong> and the assembly used is <strong>mscorlib (in mscorlib.dll)</strong>.<br>
+The first step in creating a MD5 encryption using C# is :-  </p>
+<h2>Step 1 : Include the required namespace.</h2>
+<div class="highlight"><pre><span></span><span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Security</span>.<span class="nv">Cryptography</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Text</span><span class="c1">;// for stringbuilder class</span>
+</pre></div>
+
+
+<h2>Step 2 : Create an object of MD5 class.</h2>
+<div class="highlight"><pre><span></span><span class="n">MD5</span> <span class="n">md5H</span><span class="o">=</span><span class="n">MD5</span><span class="p">.</span><span class="k">Create</span><span class="p">();</span>
+</pre></div>
+
+
+<h2>Step 3 : Convert the string into byte array and compute its hash.</h2>
+<div class="highlight"><pre><span></span><span class="n">byte</span><span class="p">[]</span><span class="k">data</span><span class="o">=</span><span class="n">md5H</span><span class="p">.</span><span class="n">ComputeHash</span><span class="p">(</span><span class="k">Encoding</span><span class="p">.</span><span class="n">UTF8</span><span class="p">.</span><span class="n">GetBytes</span><span class="p">(</span><span class="nb">text</span><span class="p">));</span>
+</pre></div>
+
+
+<h2>Step 4 : Loop through each byte of hashed data and format each one as a hexadecimal string</h2>
+<div class="highlight"><pre><span></span><span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">;i&lt;data.Length;i++){</span>
+<span class="nv">sBuilder</span>.<span class="nv">Append</span><span class="ss">(</span><span class="nv">data</span>[<span class="nv">i</span>].<span class="nv">ToString</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">x2</span><span class="s2">&quot;</span><span class="ss">))</span><span class="c1">;</span>
+</pre></div>
+
+
+<p>The whole combined C# coding is</p>
+<div class="highlight"><pre><span></span><span class="nv">using</span> <span class="nv">System</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Collections</span>.<span class="nv">Generic</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Linq</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span>.<span class="nv">WebControls</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Security</span>.<span class="nv">Cryptography</span><span class="c1">;</span>
+<span class="nv">using</span> <span class="nv">System</span>.<span class="nv">Text</span><span class="c1">;</span>
+ <span class="nv">public</span> <span class="nv">partial</span> <span class="nv">class</span> <span class="nv">MD5Hashing</span>:<span class="nv">System</span>.<span class="nv">Web</span>.<span class="nv">UI</span>.<span class="nv">Page</span>
+ {
+      <span class="nv">public</span> <span class="nv">string</span> <span class="nv">MD5Hash</span><span class="ss">(</span><span class="nv">string</span> <span class="nv">text</span><span class="ss">)</span>
+     {
+         <span class="nv">MD5</span> <span class="nv">md5H</span><span class="o">=</span><span class="nv">MD5</span>.<span class="nv">Create</span><span class="ss">()</span><span class="c1">;</span>
+         <span class="o">//</span><span class="nv">convert</span> <span class="nv">the</span> <span class="nv">input</span> <span class="nv">string</span> <span class="nv">to</span> <span class="nv">a</span> <span class="nv">byte</span> <span class="nv">array</span> <span class="nv">and</span> <span class="nv">compute</span> <span class="nv">its</span> <span class="nv">hash</span>
+         <span class="nv">byte</span>[]<span class="nv">data</span><span class="o">=</span><span class="nv">md5H</span>.<span class="nv">ComputeHash</span><span class="ss">(</span><span class="nv">Encoding</span>.<span class="nv">UTF8</span>.<span class="nv">GetBytes</span><span class="ss">(</span><span class="nv">text</span><span class="ss">))</span><span class="c1">;</span>
+         <span class="o">//</span> <span class="nv">create</span> <span class="nv">a</span> <span class="nv">new</span> <span class="nv">stringbuilder</span> <span class="nv">to</span> <span class="nv">collect</span> <span class="nv">the</span> <span class="nv">bytes</span> <span class="nv">and</span> <span class="nv">create</span> <span class="nv">a</span> <span class="nv">string</span>
+         <span class="nv">StringBuilder</span> <span class="nv">sB</span><span class="o">=</span><span class="nv">new</span> <span class="nv">StringBuilder</span><span class="ss">()</span><span class="c1">;</span>
+         <span class="o">//</span><span class="k">loop</span> <span class="nv">through</span> <span class="nv">each</span> <span class="nv">byte</span> <span class="nv">of</span> <span class="nv">hashed</span> <span class="nv">data</span> <span class="nv">and</span> <span class="nv">format</span> <span class="nv">each</span> <span class="nv">one</span> <span class="nv">as</span> <span class="nv">a</span> <span class="nv">hexadecimal</span> <span class="nv">string</span>
+         <span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span><span class="o">=</span><span class="mi">0</span><span class="c1">;i&lt;data.Length;i++){</span>
+             <span class="nv">sB</span>.<span class="nv">Append</span><span class="ss">(</span><span class="nv">data</span>[<span class="nv">i</span>].<span class="nv">ToString</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">x2</span><span class="s2">&quot;</span><span class="ss">))</span><span class="c1">;</span>
+         }
+         <span class="o">//</span><span class="k">return</span> <span class="nv">hexadecimal</span> <span class="nv">string</span>
+         <span class="k">return</span> <span class="nv">sB</span>.<span class="nv">ToString</span><span class="ss">()</span><span class="c1">;</span>
+     }
+ }
+</pre></div>
+
+
+<p><img alt="MD5 hashing output" src="http://thegeekyway.com/uploads/images/2014/03/MD5-hashing-output.png"></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 24 August 2019</p>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C#</a>
+ &ndash; Tags:
+      <a href="//thegeekyway.com/tag/c/">C#</a>,      <a href="//thegeekyway.com/tag/programming/">programming</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "md5-hashing-using-c/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

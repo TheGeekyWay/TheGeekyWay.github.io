@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="1 dimensional, array">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Learning About 1 Dimensional Arrays (1 D Arrays)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/learning-1-dimensional-arrays/">Learning About 1 Dimensional Arrays (1 D Arrays)</a></h1>
+    <h1><a href="//thegeekyway.com/learning-1-dimensional-arrays/">Learning About 1 Dimensional Arrays (1 D Arrays)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -82,27 +85,27 @@
     <p>You may have heard of arrays or "tuples" before, if you've learnt any programming language. If not, then don't worry, you'll learn everything about them in this tutorial and how are they used in C to handle <strong>large amounts of data of same data type</strong> effectively and easily. So, let's know about them. In this tutorial we'll learn about 1 Dimensional Arrays and in later tutorials we'll look at 2 Dimensional Arrays and Multidimensional arrays.</p>
 <h2 id="what-is-an-array" style="text-align: center;"><strong>What is an array?</strong></h2>
 <p><em>An array can be defined as a way to store list of large no. of items of same data type in contiguous memory location</em>. Whenever we need to store some information about the same data type, we use arrays. For instance, consider a case when you need to store roll numbers of all students in the class. One way to do this is, I can define separately variables for all roll numbers like:</p>
-<div class="highlight"><pre><span></span>...
+<div class="highlight"><pre><span></span><span class="p">...</span>
 
-int rollno1 = 1;
-int rollno2 = 2;
-int rollno3 = 3;
-int rollno4 = 4;
-.
-.
-.
-.
-.
-.
-.
-.
-.
-int rollnon = n; //Here n is the last roll number
+<span class="nb">int</span> <span class="n">rollno1</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">rollno2</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">rollno3</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">rollno4</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="nb">int</span> <span class="n">rollnon</span> <span class="o">=</span> <span class="n">n</span><span class="p">;</span> <span class="o">//</span><span class="n">Here</span> <span class="n">n</span> <span class="k">is</span> <span class="n">the</span> <span class="k">last</span> <span class="n">roll</span> <span class="nb">number</span>
 </pre></div>
 
 
 <p>Surely, this would be an inefficient approach, and thus, a better way to do this is would be through arrays like this:</p>
-<div class="highlight"><pre><span></span>int rollno[n]; //Here n is the total number of students for which roll numbers are to be stored.
+<div class="highlight"><pre><span></span><span class="nv">int</span> <span class="nv">rollno</span>[<span class="nv">n</span>]<span class="c1">; //Here n is the total number of students for which roll numbers are to be stored.</span>
 </pre></div>
 
 
@@ -113,19 +116,19 @@ int rollnon = n; //Here n is the last roll number
 </div>
 <h2 id="how-to-declare-a-1-dimensional-array" style="text-align: center;">How to declare a 1 Dimensional array?</h2>
 <p>Now let us see how you can declare an array :</p>
-<div class="highlight"><pre><span></span>&lt;data type&gt; &lt;array name&gt;[&lt;size of array&gt;];
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">data</span> <span class="k">type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nb">array</span> <span class="n">name</span><span class="o">&gt;</span><span class="p">[</span><span class="o">&lt;</span><span class="k">size</span> <span class="k">of</span> <span class="nb">array</span><span class="o">&gt;</span><span class="p">];</span>
 </pre></div>
 
 
 <p>Here data type is the actually the type of data of the elements you would store in your array, array name is simply the name you give to your array (similar to the name of a variable, in order to access it later), which would follow the general rules of naming a variable which we have discussed previously. After the name of the array, we would have a set of square brackets in which we would mention the size of the array.</p>
 <p>Now, let's again quickly take a look at our rollno array :</p>
-<div class="highlight"><pre><span></span>int rollno[n];
+<div class="highlight"><pre><span></span><span class="nc">int</span><span class="w"> </span><span class="n">rollno</span><span class="o">[</span><span class="n">n</span><span class="o">]</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 
 
 <p>Technically, before declaring this statement, you should first define the value of variable n, or else you'll face an error.</p>
 <p>Here, n is just use to make you first comfortable with basic declaration of array. More sophisticatedly, you can simply use a definite value of n to define an array as follows:</p>
-<div class="highlight"><pre><span></span>int rollno[60]; //Enough space to store roll no of 60 students
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">rollno</span><span class="p">[</span><span class="mi">60</span><span class="p">];</span> <span class="o">//</span><span class="n">Enough</span> <span class="k">space</span> <span class="k">to</span> <span class="n">store</span> <span class="n">roll</span> <span class="k">no</span> <span class="k">of</span> <span class="mi">60</span> <span class="n">students</span>
 </pre></div>
 
 
@@ -141,10 +144,10 @@ int rollnon = n; //Here n is the last roll number
 <p>Now let's see how to fill up the array:</p>
 <h2 id="putting-values-in-array" style="text-align: center;">Putting values in array</h2>
 <p>Filling up an array is very simple using for loop, as we would see here :</p>
-<div class="highlight"><pre><span></span>int rollno[60]; //Declaring array with 60 elements storage space
-for(int i = 0;i &lt; 60; i++)
+<div class="highlight"><pre><span></span><span class="nv">int</span> <span class="nv">rollno</span>[<span class="mi">60</span>]<span class="c1">; //Declaring array with 60 elements storage space</span>
+<span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span><span class="c1">;i &lt; 60; i++)</span>
 {
-  scanf(&quot;%d&quot;,rollno[i]);  //Here value of i increments, and allow to store next input to the very next space till value of i = 60 where for loop terminates.
+  <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="nv">rollno</span>[<span class="nv">i</span>]<span class="ss">)</span><span class="c1">;  //Here value of i increments, and allow to store next input to the very next space till value of i = 60 where for loop terminates.</span>
 }
 </pre></div>
 
@@ -154,17 +157,17 @@ for(int i = 0;i &lt; 60; i++)
 <p><strong>NOTE</strong> : Newbies mistake, assuming array to be start from 1. Remember, it would be started from 0.</p>
 <h2 id="printing-out-elements-of-array" style="text-align: center;">Printing out elements of Array</h2>
 <p>Now, after filling up the array, let's see how we can access one particular element. For instance, let's say I need to look for roll no. of 11th student, so I know it would be stored as 10th element in memory (not 11th) as indices start from 0. So, let's print the value of 11th student.</p>
-<div class="highlight"><pre><span></span>...
-printf(&quot;%d&quot;,rollno[10]);
-...
+<div class="highlight"><pre><span></span><span class="p">...</span>
+<span class="n">printf</span><span class="p">(</span><span class="ss">&quot;%d&quot;</span><span class="p">,</span><span class="n">rollno</span><span class="p">[</span><span class="mi">10</span><span class="p">]);</span>
+<span class="p">...</span>
 </pre></div>
 
 
 <p>In case you want to print all values stored in the array, we simply apply a loop to loop through the all the values in the array from indices 0 to indices 59 (a total of 60 values in this case).</p>
 <div class="highlight"><pre><span></span>...
-for (int i = 0,i &lt;= 59, i++)
+<span class="k">for</span> <span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">0</span>,<span class="nv">i</span> <span class="o">&lt;=</span> <span class="mi">59</span>, <span class="nv">i</span><span class="o">++</span><span class="ss">)</span>
 {
-  printf(&quot;%d&quot;,rollno[i]);
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="nv">rollno</span>[<span class="nv">i</span>]<span class="ss">)</span><span class="c1">;</span>
 }
 ...
 </pre></div>
@@ -175,24 +178,22 @@ for (int i = 0,i &lt;= 59, i++)
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 12 July 2014</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/1-dimensional/">1 dimensional</a>,      <a href="/tag/array/">array</a>    </p>
+      <a href="//thegeekyway.com/tag/1-dimensional/">1 dimensional</a>,      <a href="//thegeekyway.com/tag/array/">array</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/learning-1-dimensional-arrays/";
-      this.page.identifier = "learning-1-dimensional-arrays/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "learning-1-dimensional-arrays/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

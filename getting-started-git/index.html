@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="Git, starting with Git, Understanding Git, VCS, version control systems">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Getting Started With Git  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/getting-started-git/">Getting Started With Git</a></h1>
+    <h1><a href="//thegeekyway.com/getting-started-git/">Getting Started With Git</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
@@ -83,7 +86,7 @@
 <p>So, before starting anything we need to understand what Git is and what it does. Git is a version control system, which records changes in your code/files over a period of time. You can recall older version and manage changes. The working of Git is a little different than other VCSs. Most of the VCSs store the information about the data as the changes that have been made in different files. If you have 3 files in a project and you change any one of them, the VCSs will keep record of the change. That’s where Git differs, it keeps record of the changes along with the new changed file. Moreover, other VCSs generally operate online, storing all the data at the remote servers, while Git stores all the data on the local system as well as the remote server, which makes it easy for the user to make changes even when she is offline and commit the changes when she gets the network connection. In other benefits of Git, you don’t need to go to remote server to check for your project history, it’s all there on your local machine.</p>
 <p>Before getting started, I would like to discuss one more feature of Git and that is repositories. There are two kind of repositories in Git, namely, local repositories and remote repositories. And believe me, they are the exact same thing! So, what exactly is a repository? It’s the place where you store all of your working data, your project files etc. Local repository is the one that is set up on your system and the remote is the one that is hosted on a server, probably on another continent! And here is the beauty of a distributed version control system, you can work with both of them just as they are the same thing! You can make changes to your local repository, add/delete files etc. and push them to remote repository.</p>
 <p>Enough of concepts, let’s get started! The very basic thing to do with Git is to create a local repository, of-course, first you have to install it on your system! Type this in your RHEL based system to install git (make appropriate changes for Debian based systems):</p>
-<div class="highlight"><pre><span></span>sudo yum install git
+<div class="highlight"><pre><span></span><span class="n">sudo</span> <span class="n">yum</span> <span class="n">install</span> <span class="n">git</span>
 </pre></div>
 
 
@@ -119,18 +122,18 @@ origin https://github.com/Pensu/test.git <span class="o">(</span>push<span class
 
 
 <p>Here fetch and push are the repositories where your local repository gets the data from and where it sends the changes respectively. As I just cloned a remote repository, I can fetch and push from this repository. Now, we are going to add a file and pushing it to the remote repository.</p>
-<div class="highlight"><pre><span></span>$ touch newfile.txt
-$ <span class="nb">echo</span> <span class="s2">&quot;Getting Started With Git&quot;</span> &gt; newfile.txt 
-$ git status
-<span class="c1"># On branch master</span>
-<span class="c1">#</span>
-<span class="c1"># Initial commit</span>
-<span class="c1">#</span>
-<span class="c1"># Untracked files:</span>
-<span class="c1">#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
-<span class="c1">#</span>
-<span class="c1"># newfile.txt</span>
-nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+<div class="highlight"><pre><span></span>$ <span class="nv">touch</span> <span class="nv">newfile</span>.<span class="nv">txt</span>
+$ <span class="nv">echo</span> <span class="s2">&quot;</span><span class="s">Getting Started With Git</span><span class="s2">&quot;</span> <span class="o">&gt;</span> <span class="nv">newfile</span>.<span class="nv">txt</span> 
+$ <span class="nv">git</span> <span class="nv">status</span>
+# <span class="nv">On</span> <span class="nv">branch</span> <span class="nv">master</span>
+#
+# <span class="nv">Initial</span> <span class="nv">commit</span>
+#
+# <span class="nv">Untracked</span> <span class="nv">files</span>:
+#   <span class="ss">(</span><span class="nv">use</span> <span class="s2">&quot;</span><span class="s">git add &lt;file&gt;...</span><span class="s2">&quot;</span> <span class="nv">to</span> <span class="k">include</span> <span class="nv">in</span> <span class="nv">what</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">committed</span><span class="ss">)</span>
+#
+# <span class="nv">newfile</span>.<span class="nv">txt</span>
+<span class="nv">nothing</span> <span class="nv">added</span> <span class="nv">to</span> <span class="nv">commit</span> <span class="nv">but</span> <span class="nv">untracked</span> <span class="nv">files</span> <span class="nv">present</span> <span class="ss">(</span><span class="nv">use</span> <span class="s2">&quot;</span><span class="s">git add</span><span class="s2">&quot;</span> <span class="nv">to</span> <span class="nv">track</span><span class="ss">)</span>
 </pre></div>
 
 
@@ -199,24 +202,22 @@ Date:   Tue Apr <span class="m">1</span> <span class="m">16</span>:37:59 <span
   </div>
   <div class="article_meta">
     <p>Posted on: Wed 02 April 2014</p>
-    <p>Category: <a href="/category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="/tag/git/">Git</a>,      <a href="/tag/starting-with-git/">starting with Git</a>,      <a href="/tag/understanding-git/">Understanding Git</a>,      <a href="/tag/vcs/">VCS</a>,      <a href="/tag/version-control-systems/">version control systems</a>    </p>
+      <a href="//thegeekyway.com/tag/git/">Git</a>,      <a href="//thegeekyway.com/tag/starting-with-git/">starting with Git</a>,      <a href="//thegeekyway.com/tag/understanding-git/">Understanding Git</a>,      <a href="//thegeekyway.com/tag/vcs/">VCS</a>,      <a href="//thegeekyway.com/tag/version-control-systems/">version control systems</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/getting-started-git/";
-      this.page.identifier = "getting-started-git/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "getting-started-git/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

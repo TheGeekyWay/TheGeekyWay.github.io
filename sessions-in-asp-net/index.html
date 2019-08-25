@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="asp.net, C#">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Maintaining Sessions in Asp.net  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/sessions-in-asp-net/">Maintaining Sessions in Asp.net</a></h1>
+    <h1><a href="//thegeekyway.com/sessions-in-asp-net/">Maintaining Sessions in Asp.net</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/deep_singh/>Deep_Singh</a></strong></p>
@@ -99,12 +102,12 @@
 </div>
 <p>The main coding is done on the "Login" button where we will fetch the values from text boxes and store the values in sessions.<br>
 The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> code for the login button is given as follows</p>
-<div class="highlight"><pre><span></span>    protected void Login_Button(object sender, EventArgs e)
-    {
-        Session[&quot;User_name&quot;] = TextBox1.Text;
-        Session[&quot;Password&quot;] = TextBox2.Text;
-        Response.Redirect(&quot;~/Landing_Page.aspx&quot;);
-    }
+<div class="highlight"><pre><span></span>    <span class="n">protected</span> <span class="n">void</span> <span class="n">Login_Button</span><span class="p">(</span><span class="k">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="err">{</span>
+        <span class="k">Session</span><span class="p">[</span><span class="ss">&quot;User_name&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TextBox1</span><span class="p">.</span><span class="nb">Text</span><span class="p">;</span>
+        <span class="k">Session</span><span class="p">[</span><span class="ss">&quot;Password&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">TextBox2</span><span class="p">.</span><span class="nb">Text</span><span class="p">;</span>
+        <span class="n">Response</span><span class="p">.</span><span class="n">Redirect</span><span class="p">(</span><span class="ss">&quot;~/Landing_Page.aspx&quot;</span><span class="p">);</span>
+    <span class="err">}</span>
 </pre></div>
 
 
@@ -114,21 +117,21 @@ The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">
 <p><a href="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)"><img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)" src="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png"></a></p>
 </div>
 <p>Here is the code for the Landing_Page.aspx</p>
-<div class="highlight"><pre><span></span>protected void Page_Load(object sender, EventArgs e)
-    {
-            Session_Username.Text = Session[&quot;User_Name&quot;].ToString();
-            Session_Passowrd.Text = Session[&quot;Password&quot;].ToString();
-    }
+<div class="highlight"><pre><span></span><span class="n">protected</span> <span class="n">void</span> <span class="n">Page_Load</span><span class="p">(</span><span class="k">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">EventArgs</span> <span class="n">e</span><span class="p">)</span>
+    <span class="err">{</span>
+            <span class="n">Session_Username</span><span class="p">.</span><span class="nb">Text</span> <span class="o">=</span> <span class="k">Session</span><span class="p">[</span><span class="ss">&quot;User_Name&quot;</span><span class="p">].</span><span class="n">ToString</span><span class="p">();</span>
+            <span class="n">Session_Passowrd</span><span class="p">.</span><span class="nb">Text</span> <span class="o">=</span> <span class="k">Session</span><span class="p">[</span><span class="ss">&quot;Password&quot;</span><span class="p">].</span><span class="n">ToString</span><span class="p">();</span>
+    <span class="err">}</span>
 </pre></div>
 
 
 <p>Now since Label7.Text expects a string but there is now way in asp.net that it automatically identifies it as a string so we have to explicitly store the value as a string, now there are 2 ways, the first way is using <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">C#</a> , the code is</p>
-<div class="highlight"><pre><span></span> Label7.Text = (String)Session[&quot;User_Name&quot;];
+<div class="highlight"><pre><span></span> <span class="n">Label7</span><span class="p">.</span><span class="nb">Text</span> <span class="o">=</span> <span class="p">(</span><span class="n">String</span><span class="p">)</span><span class="k">Session</span><span class="p">[</span><span class="ss">&quot;User_Name&quot;</span><span class="p">];</span>
 </pre></div>
 
 
 <p>and the second way is to append .ToString() function to the session variable, the code is given below</p>
-<div class="highlight"><pre><span></span> Session_Username.Text = Session[&quot;User_Name&quot;].ToString();
+<div class="highlight"><pre><span></span> <span class="n">Session_Username</span><span class="p">.</span><span class="nb">Text</span> <span class="o">=</span> <span class="k">Session</span><span class="p">[</span><span class="ss">&quot;User_Name&quot;</span><span class="p">].</span><span class="n">ToString</span><span class="p">();</span>
 </pre></div>
 
 
@@ -137,20 +140,20 @@ The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">
 <strong>A:</strong> The answer is <strong>NO</strong> once the browser is closed the cookies are destroyed and so as the session.</p>
 <p><strong>Q:</strong> So what happens if we directly open the Landing_Page.aspx page ?<br>
 <strong>A:</strong> Since we directly opened the Landing_Page.aspx page, no session was created for username and password so it will display blank values for username and password. But its not recommended to either redirect or display an error message. For example consider the following code segment</p>
-<div class="highlight"><pre><span></span>protected void Page_Load(object sender, EventArgs e)
+<div class="highlight"><pre><span></span><span class="nv">protected</span> <span class="nv">void</span> <span class="nv">Page_Load</span><span class="ss">(</span><span class="nv">object</span> <span class="nv">sender</span>, <span class="nv">EventArgs</span> <span class="nv">e</span><span class="ss">)</span>
     {
-        if (Session[&quot;User_Name&quot;] == null || Session[&quot;Password&quot;] == null)
-        {   //Your redirection code here.
-            Top_Header_Text.Visible = false;
-            Session_Username.Text = &quot; No session created, you will be soon redirected to Session_Page.aspx. &quot;;
-            Session_Password.Visible = false;
-            Username.Visible = false;
-            Password.Visible = false;
+        <span class="k">if</span> <span class="ss">(</span><span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">User_Name</span><span class="s2">&quot;</span>] <span class="o">==</span> <span class="nv">null</span> <span class="o">||</span> <span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">Password</span><span class="s2">&quot;</span>] <span class="o">==</span> <span class="nv">null</span><span class="ss">)</span>
+        {   <span class="o">//</span><span class="nv">Your</span> <span class="nv">redirection</span> <span class="nv">code</span> <span class="nv">here</span>.
+            <span class="nv">Top_Header_Text</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
+            <span class="nv">Session_Username</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s"> No session created, you will be soon redirected to Session_Page.aspx. </span><span class="s2">&quot;</span><span class="c1">;</span>
+            <span class="nv">Session_Password</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
+            <span class="nv">Username</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
+            <span class="nv">Password</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
         }
-        else
+        <span class="k">else</span>
         {
-           Session_Username.Text = (String)Session[&quot;User_Name&quot;];
-            Session_Password.Text = Session[&quot;Password&quot;].ToString();
+           <span class="nv">Session_Username</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">String</span><span class="ss">)</span><span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">User_Name</span><span class="s2">&quot;</span>]<span class="c1">;</span>
+            <span class="nv">Session_Password</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">Password</span><span class="s2">&quot;</span>].<span class="nv">ToString</span><span class="ss">()</span><span class="c1">;</span>
         }
     }
 </pre></div>
@@ -164,24 +167,22 @@ The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">
   </div>
   <div class="article_meta">
     <p>Posted on: Sat 14 December 2013</p>
-    <p>Category: <a href="/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
+    <p>Category: <a href="//thegeekyway.com/category/aspnet-dot-net/">Asp.net (Dot Net)</a>
  &ndash; Tags:
-      <a href="/tag/aspnet/">asp.net</a>,      <a href="/tag/c/">C#</a>    </p>
+      <a href="//thegeekyway.com/tag/aspnet/">asp.net</a>,      <a href="//thegeekyway.com/tag/c/">C#</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/sessions-in-asp-net/";
-      this.page.identifier = "sessions-in-asp-net/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "sessions-in-asp-net/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

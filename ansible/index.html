@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="">
+
+  <title>
+    The Geeky Way
+&ndash; Ansible?  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/ansible/">Ansible?</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/storymode7/>storymode7</a></strong></p>
+  </div>
+  <div class="article_text">
+    <div style="text-align:center">
+<p><img alt="Ansible Logo" src="//thegeekyway.com/uploads/images/2019/08/ansible_logo.png"></p>
+</div>
+<p>Hearing about Ansible lately? Everyone's using it! But what's the buzz about, what is ansible actually? And why should you use it? Lot's of questions and lot's of answers. Let's dive!</p>
+<!--more-->
+
+<h2>What is it?</h2>
+<p>Well Ansible is a tool to automate the setup of an EC2 instance, a vagrant box, and almost anything that you can ssh into.</p>
+<h2>What's the usecase?</h2>
+<p>Imagine you've to setup an instance and use it as a server using nginx. Simple, right? Just ssh into it, do the nginx conf and leave it running. But wait, you did the setup on say an Ubuntu instance, but for some reasons, you have to change your server OS, to something like a Fedora may be? Or an Amazon linux? Now, you need to repeat all the steps you just did for ubuntu setup to perform the exactly same task. Another usecase is to setup multiple instances automatically, all you need to define is the tasks, roles etc. for Ansible. We'll be getting to it shortly.</p>
+<h2>Installing Ansible</h2>
+<p><code>sudo apt-get install ansible</code> should do just fine. Or <code>dnf</code> in place of <code>apt-get</code> for RHEL. Interestingly, you don't need to install ansible on the target machine! You just install it on your local machine once. And just exploit it using the tasks you define. This is because Ansible basically just SSH into your remote machine, and executes task if required.</p>
+<h2>Getting started</h2>
+<p>We'll start with doing everything in a get it done way. And then move to the way of how it should be done. Firstly you define the target(s) to act upon. This is called the inventory. You can name this file anything, inventory, hosts, instances, etc. it's upto you. In this file, type in the IPs of the instances you wish to control in format:</p>
+<div class="highlight"><pre><span></span><span class="k">[name]</span>
+<span class="na">0.0.0.1 ansible_user</span><span class="o">=</span><span class="s">&#39;ubuntu&#39; ansible_ssh_private_key_file=&#39;path/to/privateKey/for/server&#39;</span>
+<span class="na">0.0.1.2 ansible_user</span><span class="o">=</span><span class="s">&#39;userName_to_login_as&#39; ansible_ssh_private_key_file=&#39;path/to/private/key&#39;</span>
+</pre></div>
+
+
+<p>You can access these IPs using the *name* you provided. If you want to test this on vagrant, write an inventory file in the format:</p>
+<div class="highlight"><pre><span></span><span class="k">[vag]</span>
+<span class="na">127.0.0.1 ansible_port</span><span class="o">=</span><span class="s">2222 ansible_user=&#39;vagrant&#39; ansible_ssh_private_key_file=&#39;/path/toVagrantfile/.vagrant/machines/default/virtualbox/private_key&#39;</span>
+</pre></div>
+
+
+<p>If you wish, you can follow along by performing the commands on your machine instead of a server too.
+Using localhost:</p>
+<div class="highlight"><pre><span></span><span class="k">[me]</span>
+<span class="na">localhost ansible_connection</span><span class="o">=</span><span class="s">local</span>
+</pre></div>
+
+
+<p>Now, if you wish to use localhost, just use <code>me</code> in place of <code>vag</code>/<code>groupName</code>.<br>
+If the inventory is ready we can begin executing the commands!</p>
+<p><strong>Note</strong>: Though most of the commands used in this blog are non destructive and would not change anything in your PC to cause problems. Caution should be excercised when hacking through the different commands on your own. Especially if the target machine hosts important data, or you are performing all the commands on your localhost</p>
+<p><strong>Note</strong>: If you get an error/warning related to usage of python2 interpreter, you can create a file <code>ansible.cfg</code> and specify python3 interpreter by writing this in the file:</p>
+<div class="highlight"><pre><span></span><span class="k">[defaults]</span>
+<span class="na">interpreter_python</span> <span class="o">=</span> <span class="s">/usr/bin/python3</span>
+</pre></div>
+
+
+<h2>Executing some commands</h2>
+<p>Ansible can work only when the target machine is ready to ssh, and the credentials provided in the inventory file are correct. Now that ansible knows how to authenticate itself to the machines, it'll have no problems executing any commands.</p>
+<p>A little idea about Modules and arguments, and we are ready to go.</p>
+<p>Modules are small pieces of python code, that ansible uses to handle resources on the target machine. And some modules require arguments to act upon. Let's see first an example that doesn't require an argument.</p>
+<p>Ping module. Since we have already provided the inventory file, we don't need to provide ansible with the IPs of the instances to ping.</p>
+<p>We can simply do:</p>
+<div class="highlight"><pre><span></span><span class="n">ansible</span> <span class="o">-</span><span class="n">i</span> <span class="n">inventory_file</span> <span class="n">groupName</span> <span class="o">-</span><span class="n">m</span> <span class="n">ping</span>
+</pre></div>
+
+
+<p>groupName, like we provided <code>vag</code> in the inventory file example above. It's just a collection of IPs or domains along with their options under one name.</p>
+<p><code>-m</code>: states that we're going to use a module Whose name in this case is ping</p>
+<p>If you've provided inventory file and group name correctly you should get an output like:<br>
+<code>default | SUCCESS =&gt; {     "changed": false,     "ping": "pong" }</code><br>
+Congratulations, you just executed your first command using ansible.</p>
+<p>Now let's try one example which takes an argument. How about a Hello World sample? For this we're going to use <code>shell</code> module.</p>
+<div class="highlight"><pre><span></span><span class="n">ansible</span> <span class="o">-</span><span class="n">i</span> <span class="n">inventory</span> <span class="n">groupName</span> <span class="o">-</span><span class="n">m</span> <span class="ss">&quot;shell&quot;</span> <span class="o">-</span><span class="n">a</span> <span class="ss">&quot;echo Hello World!&quot;</span>
+</pre></div>
+
+
+<p>Output comes out to be:<br>
+<code>default | SUCCESS | rc=0 &gt;&gt; Hello World!</code><br>
+Let's try one last thing, installing a package. We'll be using apt module.</p>
+<div class="highlight"><pre><span></span><span class="n">ansible</span> <span class="o">-</span><span class="n">i</span> <span class="n">inventory</span> <span class="n">groupName</span> <span class="o">-</span><span class="n">m</span> <span class="n">apt</span> <span class="o">-</span><span class="n">a</span> <span class="ss">&quot;name=nginx state=present update_cache=true&quot;</span>
+</pre></div>
+
+
+<p>The argument here is self explanatory. apt module, takes arguments name, state mainly. Name states which package to act upon, and state tells what action is needed to be performed if any. This makes sure idempotence is there. Means, the same action performed repeatedly should not alter the state of the resource. state can be absent, present, latest, etc.</p>
+<p>Update_cache is suggested because most of the images used to setup an instance would require you to update repository cache before you install anything.</p>
+<p>This command should give you an error<br>
+<code>default | FAILED! =&gt; {     "changed": false,     "msg": "Failed to lock apt for exclusive operation" }</code><br>
+And that is because the default user doesn't have enough privileges. For privilege escalation, we need to supply another flag. <code>-b</code> .</p>
+<div class="highlight"><pre><span></span><span class="n">ansible</span> <span class="o">-</span><span class="n">i</span> <span class="n">inventory</span> <span class="n">groupName</span> <span class="o">-</span><span class="n">b</span> <span class="o">-</span><span class="n">m</span> <span class="n">apt</span> <span class="o">-</span><span class="n">a</span> <span class="ss">&quot;name=nginx state=present update_cache=true&quot;</span>
+</pre></div>
+
+
+<p><code>-b</code> or <code>--become</code> tells ansible whether to activate or deactivate privilege escalation. Default for privilege escalation is root, and hence the command will be executed as root. But you can also specify another user, as whom you'd like to execute the command. This can be done using <code>--become-user userName</code> . Note that, if you the target system has requires a password, you need to pass <code>-K</code> flag to ask for become pass.</p>
+<p>Now the terminal will take time depending on the internet connection available to the target machine and will generate output like:  </p>
+<div class="highlight"><pre><span></span><span class="k">default</span> <span class="o">|</span> <span class="n">SUCCESS</span> <span class="o">=&gt;</span> <span class="err">{</span>
+     <span class="ss">&quot;cache_update_time&quot;</span><span class="p">:</span> <span class="mi">1526681063</span><span class="p">,</span>
+     <span class="ss">&quot;cache_updated&quot;</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+     <span class="ss">&quot;changed&quot;</span><span class="p">:</span> <span class="k">true</span><span class="p">,</span>
+     <span class="ss">&quot;stderr&quot;</span><span class="p">:</span> <span class="ss">&quot;&quot;</span><span class="p">,</span>
+     <span class="ss">&quot;stderr_lines&quot;</span><span class="p">:</span> <span class="p">[],</span>
+     <span class="p">...</span>
+<span class="err">}</span>
+</pre></div>
+
+
+<p>In every output the value for</p>
+<div class="highlight"><pre><span></span><span class="ss">&quot;changed&quot;</span>
+</pre></div>
+
+
+<p>variable is the gist of success or failure. This and the color of the output are enough to denote unchanged, changed, failure.</p>
+<p>But ansible can do a lot more. This method is easy if you need to run one single module. But this is often not the case. You'd almost always require a collection of modules to setup a target machine. To see how many modules ansible provides head on to <a href="http://docs.ansible.com/ansible/latest/modules/modules_by_category.html">this</a> page. In that case giving arguments to ansible command wont be the best choice. Now enters ansible playbook.</p>
+<h2>Ansible playbook</h2>
+<p>Playbook is like a collection of ansible commands put together in a single YAML file. We performed 3 tasks all unrelated, but in case of a setup used to install and configure a single package inside the target machine, like setting up nginx, would require more tasks. And it'd be more logical to group all of them in a single playbook. Let's create a simple playbook, to say hello world, and then we'll move to installing nginx using playbook.</p>
+<h3>A bit of YAML</h3>
+<p>Before typing out your first YAML, let's just get a basic idea of it's syntax. These syntax basics have nothing specific with ansible. These basics will be same in every YAML file, so if you are already familiar with it's syntax, feel free to skip to the playbook part.</p>
+<p>A YAML file can optionally begin with <code>---</code> (triple dash) and end with <code>...</code> (triple dot)<br>
+<code>#</code> before any line comments it.<br>
+A list is represented by lines starting with a <code>-</code> at same indentation level. For example:</p>
+<div class="highlight"><pre><span></span><span class="c1">---</span>
+<span class="n">numbers</span><span class="p">:</span>
+    <span class="o">-</span> <span class="n">one</span>
+    <span class="o">-</span> <span class="n">two</span>
+    <span class="o">-</span> <span class="n">three</span>
+    <span class="o">-</span> <span class="n">four</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<p>And a dictionary is represented like:</p>
+<div class="highlight"><pre><span></span><span class="c1">---</span>
+<span class="n">name_of_dictionary</span><span class="p">:</span>
+    <span class="n">key1</span><span class="p">:</span> <span class="n">value1</span>
+    <span class="n">key2</span><span class="p">:</span> <span class="n">value2</span> 
+<span class="p">...</span>
+</pre></div>
+
+
+<p>Now there can be combinations of keys, dictionaries. Let's do one example of list of dictionary that is used in playbooks.</p>
+<div class="highlight"><pre><span></span><span class="c1">---</span>
+<span class="o">-</span> <span class="n">dictionary1</span><span class="p">:</span>
+     <span class="n">key1</span><span class="p">:</span> <span class="n">value1</span>
+     <span class="n">key2</span><span class="p">:</span> <span class="n">value2</span>
+     <span class="n">key3</span><span class="p">:</span>
+        <span class="o">-</span> <span class="n">one</span>
+        <span class="o">-</span> <span class="n">two</span>
+<span class="o">-</span> <span class="n">dictionary2</span><span class="p">:</span>
+     <span class="n">key4</span><span class="p">:</span> <span class="n">value4</span>
+     <span class="n">key5</span><span class="p">:</span> <span class="n">value5</span>
+     <span class="n">key6</span><span class="p">:</span> 
+        <span class="o">-</span> <span class="n">foo</span>
+        <span class="o">-</span> <span class="n">bar</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<p>Here we have a list of dictionaries, dictionary1 and dictionary2. In these dictionaries, some of the values are themselves a list. Like key3 in dictionary1 and key6 in dictionary2.</p>
+<p>If you're a pythonista, there's another format that'd be more familiar to you:</p>
+<div class="highlight"><pre><span></span><span class="c1">---</span>
+<span class="n">dictionary1</span><span class="p">:</span> <span class="err">{</span><span class="n">key1</span><span class="p">:</span> <span class="n">value1</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span> <span class="n">value2</span><span class="err">}</span>
+<span class="n">list1</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;one&#39;</span><span class="p">,</span> <span class="s1">&#39;two&#39;</span><span class="p">,</span> <span class="s1">&#39;three&#39;</span><span class="p">]</span>
+<span class="p">...</span>
+</pre></div>
+
+
+<p>There's whole lot of other details that you might like to have a glance. They are available with the <a href="http://docs.ansible.com/ansible/latest/reference_appendices/YAMLSyntax.html">ansible documentation</a>.</p>
+<h3>Back to the playbooks</h3>
+<p>Let's create the playbook 'nginx.yml' now, and then we'll see that in detail:</p>
+<div class="highlight"><pre><span></span><span class="c1">---</span>
+<span class="o">-</span> <span class="n">hosts</span><span class="p">:</span> <span class="n">vag</span>
+  <span class="n">become</span><span class="p">:</span> <span class="n">yes</span>
+  <span class="n">tasks</span><span class="p">:</span> 
+    <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Install</span> <span class="n">Nginx</span>
+      <span class="n">apt</span><span class="p">:</span>
+        <span class="n">name</span><span class="p">:</span> <span class="n">nginx</span>
+        <span class="k">state</span><span class="p">:</span> <span class="n">present</span>
+        <span class="n">update_cache</span><span class="p">:</span> <span class="k">true</span>
+</pre></div>
+
+
+<p>This is just the playbook version of the bash command we performed earlier using ansible to install nginx.</p>
+<p>First let's see what each key means and then we'll run this playbook.</p>
+<p>We can perform a lot of tasks for different hosts defined in the inventory, inside a single playbook. We can have a list of dictionaries, and depending upon the hosts specified, the tasks will be executed for that specific host. If you want to perform the tasks for all the hosts defined in the inventory file, you can also give the value <code>all</code> for hosts key. Here we are considering the host <code>vag</code> we defined previously in the inventory.</p>
+<p><code>become</code> is required to use apt. Otherwise, we'd come across an error (as we did while executing directly using bash). Note that, <code>yes</code> is just one of the ways to provide a boolean value. You can specify <code>True</code>, <code>TRUE</code>, <code>yes</code> and so on...</p>
+<p><code>tasks</code> is again a list of dictionaries defining the tasks we want to perform against the target machine.<br>
+Inside tasks, the first key is <code>name</code> , we can name it anything, this will be shown when we run the playbook, so keep the name quite descriptive.<br>
+Secondly we specify the module to use for this first task. Here <code>apt</code> is used.<br>
+Now we are supplying arguments to <code>apt</code> using YAML syntax, values are same as we did while executing from terminal. The arguments are just key value pair, where the module name acts as dictionary name.</p>
+<p>You can also specify <code>latest</code> as a value to <code>state</code> key. This will update the package too, if an update comes. Whereas <code>present</code> would just ensure that the package is installed on the target machine.</p>
+<p>Run the playbook using:</p>
+<div class="highlight"><pre><span></span><span class="n">ansible</span><span class="o">-</span><span class="n">playbook</span> <span class="n">nginx</span><span class="p">.</span><span class="n">yml</span> <span class="o">-</span><span class="n">i</span> <span class="n">inventory</span>
+</pre></div>
+
+
+<p>This is same as the single line command we performed earlier, just that we have a named task here. Output here will be similar to this:
+(If you are trying this on your local machine, you might need to pass a : <code>--ask-become-pass</code> or <code>-K</code> as a flag to <code>ansible-playbook</code> command.)</p>
+<pre>PLAY [me] **********...
+
+TASK [Gathering Facts] **********...
+<font color="#4E9A06">ok: [vag]</font>
+
+TASK [Install Nginx] **********...
+<font color="#C4A000">changed: [vag]</font>
+
+PLAY RECAP **********...
+<font color="#C4A000">vag</font>                  : <font color="#4E9A06">ok=2   </font> <font color="#C4A000">changed=1   </font> unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
+</pre>
+
+<p>Now you got a playbook running, you can add more tasks, find more modules and hack through.
+Bigger projects even have a playbook spread over folders, where, tasks, defaults, vars, etc. all have a separate folder and a main.yml in each of them. </p>
+<p>Hope this will get you started on ansible.</p>
+<p>Thanks a lot for reading!</p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sat 24 August 2019</p>
+    <p>Category: <a href="//thegeekyway.com/category/devops/">DevOps</a>
+    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "ansible/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

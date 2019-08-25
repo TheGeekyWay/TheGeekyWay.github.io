@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="initd, linux, runlevel">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Runlevels and rc.d scripts  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/runlevels-and-rc-d-scripts/">Runlevels and rc.d scripts</a></h1>
+    <h1><a href="//thegeekyway.com/runlevels-and-rc-d-scripts/">Runlevels and rc.d scripts</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/storymode7/>storymode7</a></strong></p>
@@ -93,25 +96,25 @@
 <p>Runlevel 5: Full GUI based Multi-user mode</p>
 <p>Runlevel 6: Reboot</p>
 <p>These are the basic definitions what each runlevel is responsible for. For example, if an operating system is required to shut down, then it'd go to runlevel 0. You can even switch between these runlevels using the init command. Just type init \&lt;runlevel> and it'd change the current runlevel to the one specified. For example:</p>
-<div class="highlight"><pre><span></span>init 0
+<div class="highlight"><pre><span></span><span class="n">init</span> <span class="mi">0</span>
 </pre></div>
 
 
 <p>will shut down the system.</p>
 <p>Each system has a default runlevel to which it boots. Like Fedora has runlevel as default. To see which runlevel you are in type:</p>
-<div class="highlight"><pre><span></span>runlevel
+<div class="highlight"><pre><span></span><span class="n">runlevel</span>
 </pre></div>
 
 
 <p>To check the default runlevel of your system, type:</p>
-<div class="highlight"><pre><span></span>systemctl get-default
+<div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="k">get</span><span class="o">-</span><span class="k">default</span>
 </pre></div>
 
 
 <p>You can even change the default, keeping in mind what runlevel provided, like you want it to be multiuser or the graphical one. Using it you can set the default like:</p>
-<div class="highlight"><pre><span></span>systemctl set-default multi-user.target 
-rm &#39;/etc/systemd/system/default.target  # To remove current default
-ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/system/default.target&#39;
+<div class="highlight"><pre><span></span><span class="n">systemctl</span> <span class="k">set</span><span class="o">-</span><span class="k">default</span> <span class="n">multi</span><span class="o">-</span><span class="k">user</span><span class="p">.</span><span class="n">target</span> 
+<span class="n">rm</span> <span class="s1">&#39;/etc/systemd/system/default.target  # To remove current default</span>
+<span class="s1">ln -s &#39;</span><span class="o">/</span><span class="n">usr</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="k">system</span><span class="o">/</span><span class="n">multi</span><span class="o">-</span><span class="k">user</span><span class="p">.</span><span class="n">target</span><span class="s1">&#39; &#39;</span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">systemd</span><span class="o">/</span><span class="k">system</span><span class="o">/</span><span class="k">default</span><span class="p">.</span><span class="n">target</span><span class="err">&#39;</span>
 </pre></div>
 
 
@@ -127,7 +130,7 @@ ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/syst
 <h2>rc Scripts</h2>
 <p>When a computer has entered into a specific runlevel, it runs scripts according to the runlevel it's in. The rc here comes from use in the older computers which had rc files to contain commands that run at startup. These files were called runcom files. Where runcom files meant files used to RunCommand.</p>
 <p>Your script must contain the line before any command executes:</p>
-<div class="highlight"><pre><span></span>. /etc/init.d/functions
+<div class="highlight"><pre><span></span><span class="p">.</span> <span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span><span class="o">/</span><span class="n">functions</span>
 </pre></div>
 
 
@@ -160,26 +163,26 @@ ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/syst
 <h2>The chkconfig</h2>
 <p>the chkconfig command here deserves the 'The' in the heading for how easy it makes to manage these scripts and runlevels! Yes, this command just needs your source script file and manages creation deletion, the setting of S or D and also the priority level!</p>
 <p>chkconfig has an amazing man page and here are the basic commands that will get you going.</p>
-<div class="highlight"><pre><span></span>chkconfig --list
+<div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="c1">--list</span>
 </pre></div>
 
 
 <p>This prints the System V services, and that will do for us.</p>
-<div class="highlight"><pre><span></span>chkconfig --add
+<div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="c1">--add</span>
 </pre></div>
 
 
 <p>Is used to add your file for management by chkconfig. BUT wait. This command won't run unless you have some things set with your script.</p>
 <p>First and foremost, your script should exist in the home of all scripts, and that is:</p>
-<div class="highlight"><pre><span></span>/etc/init.d
+<div class="highlight"><pre><span></span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">init</span><span class="p">.</span><span class="n">d</span>
 </pre></div>
 
 
 <p>Paste your script here.</p>
 <p>Secondly, your file must have certain comment lines so that it can be managed by chkconfig.</p>
 <p>It must have these comment lines, though the description is not absolutely necessary and the script would work without it, it's recommended. So that anyone who intends to clean up the unnecessary services knows if this script is essential or not:</p>
-<div class="highlight"><pre><span></span># chkconfig: 235 29 88
-# description: The description of the script like what it does
+<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">chkconfig</span><span class="p">:</span> <span class="mi">235</span> <span class="mi">29</span> <span class="mi">88</span>
+<span class="o">#</span> <span class="n">description</span><span class="p">:</span> <span class="n">The</span> <span class="n">description</span> <span class="k">of</span> <span class="n">the</span> <span class="n">script</span> <span class="k">like</span> <span class="n">what</span> <span class="n">it</span> <span class="n">does</span>
 </pre></div>
 
 
@@ -189,13 +192,13 @@ ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/syst
 <p>you can use backslash for a multiline comment though you still require a <code>#</code>, in the beginning, to identify it as a comment.</p>
 <p>This is how it creates the symlinks with required priorities.</p>
 <p>Another way you can do this is enter LSB(Linux Standard Base) style init stanzas instead of these two comments. For it you can do it like:</p>
-<div class="highlight"><pre><span></span> ### BEGIN INIT INFO
- # Provides: scriptA
- # Required-Start: scriptB
- # Default-Start: 2 3 5
- # Default-Stop: 0 1 6
- # Description: Description of what the script does
- ### END INIT INFO
+<div class="highlight"><pre><span></span> ### <span class="nv">BEGIN</span> <span class="nv">INIT</span> <span class="nv">INFO</span>
+ # <span class="nv">Provides</span>: <span class="nv">scriptA</span>
+ # <span class="nv">Required</span><span class="o">-</span><span class="nv">Start</span>: <span class="nv">scriptB</span>
+ # <span class="nv">Default</span><span class="o">-</span><span class="nv">Start</span>: <span class="mi">2</span> <span class="mi">3</span> <span class="mi">5</span>
+ # <span class="nv">Default</span><span class="o">-</span><span class="nv">Stop</span>: <span class="mi">0</span> <span class="mi">1</span> <span class="mi">6</span>
+ # <span class="nv">Description</span>: <span class="nv">Description</span> <span class="nv">of</span> <span class="nv">what</span> <span class="nv">the</span> <span class="nv">script</span> <span class="nv">does</span>
+ ### <span class="k">END</span> <span class="nv">INIT</span> <span class="nv">INFO</span>
 </pre></div>
 
 
@@ -203,28 +206,28 @@ ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/syst
 <p>In this, <code>Required-Start</code> is the script that is required to start this script. That is, it should be running before the current script gets up. <code>Provides</code>: It tells about the boot facilities that this script provides so that those will be counted as already present when another script requires it. Hence priorities will be set accordingly to what is required to be already present and what it'll provide. <code>Default-Start</code> or <code>Stop</code> tells which runlevel should this start on and stopped(if running) respectively.</p>
 <p>And don't forget a shebang at the beginning of the file.</p>
 <p>Now we are all set to go with these things done. Let's execute this command to add it to the management of chkconfig:</p>
-<div class="highlight"><pre><span></span>chkconfig --add filename
+<div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="c1">--add filename</span>
 </pre></div>
 
 
 <p>like for a file named bootpref in <code>init.d</code> it would be:</p>
-<div class="highlight"><pre><span></span>chkconfig --add bootpref
+<div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="c1">--add bootpref</span>
 </pre></div>
 
 
 <p>Now most probably your file will be visible with a status of on under the respective runlevels when you run</p>
-<div class="highlight"><pre><span></span>chkconfig --list
+<div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="c1">--list</span>
 </pre></div>
 
 
 <p>And if it's not or you want to change runlevels you can go like:</p>
-<div class="highlight"><pre><span></span>chkconfig bootpref --level 0 on
+<div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="n">bootpref</span> <span class="c1">--level 0 on</span>
 </pre></div>
 
 
 <p>Will make it run on runlevel 0 that is at shutdown.</p>
 <p>Similarly off argument will kill it if present in that level. If no level is specified then these act on level 2,3,4 and 5. You can also specify multiple levels like <code>--level 26</code> for level 2 and 6.</p>
-<div class="highlight"><pre><span></span>chkconfig --del bootpref
+<div class="highlight"><pre><span></span><span class="n">chkconfig</span> <span class="c1">--del bootpref</span>
 </pre></div>
 
 
@@ -234,24 +237,22 @@ ln -s &#39;/usr/lib/systemd/system/multi-user.target&#39; &#39;/etc/systemd/syst
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 16 March 2018</p>
-    <p>Category: <a href="/category/how-to-diy-linux/">How To DIY, Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/how-to-diy-linux/">How To DIY, Linux</a>
  &ndash; Tags:
-      <a href="/tag/initd/">initd</a>,      <a href="/tag/linux/">linux</a>,      <a href="/tag/runlevel/">runlevel</a>    </p>
+      <a href="//thegeekyway.com/tag/initd/">initd</a>,      <a href="//thegeekyway.com/tag/linux/">linux</a>,      <a href="//thegeekyway.com/tag/runlevel/">runlevel</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/runlevels-and-rc-d-scripts/";
-      this.page.identifier = "runlevels-and-rc-d-scripts/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "runlevels-and-rc-d-scripts/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

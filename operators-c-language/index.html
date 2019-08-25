@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="C language, Operators">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Operators in the C language  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/operators-c-language/">Operators in the C language</a></h1>
+    <h1><a href="//thegeekyway.com/operators-c-language/">Operators in the C language</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -94,8 +97,8 @@
 <li>Miscellaneous Operators</li>
 </ul>
 <p>Now we’ll discuss about each category one by one, let us assume that we have declared two variables num1 and num2 and initialized them as shown below.</p>
-<div class="highlight"><pre><span></span>int num1 = 3;
-int num2 = 6;
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">num1</span> <span class="o">=</span> <span class="mi">3</span><span class="p">;</span>
+<span class="nb">int</span> <span class="n">num2</span> <span class="o">=</span> <span class="mi">6</span><span class="p">;</span>
 </pre></div>
 
 
@@ -107,31 +110,31 @@ int num2 = 6;
 <p><strong>Arithmetic Operators</strong></p>
 <p>They are binary operators used to do arithmetic operations like addition , subtraction , multiplication , division etc.</p>
 <p><em><u>+ used for addition</u></em> like</p>
-<div class="highlight"><pre><span></span>res = num1 + num2;
+<div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span><span class="p">;</span>
 </pre></div>
 
 
 <p>This would add the two values ie 5 and 6 and store the result to variable res which is 9 in this case.</p>
 <p><em><u>- used for subtraction</u></em> like</p>
-<div class="highlight"><pre><span></span>res = num2 - num1;
+<div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">num2</span> <span class="o">-</span> <span class="n">num1</span><span class="p">;</span>
 </pre></div>
 
 
 <p>This would subtract num1 from num2 and then store the result in variable res which is 3 in this case.</p>
 <p><em><u>* used for multiplication</u></em> like</p>
-<div class="highlight"><pre><span></span>res = num1 * num2;
+<div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span><span class="p">;</span>
 </pre></div>
 
 
 <p>This would multiply num1 and num2 and store the result in variable res which is 18 in this case.</p>
 <p><em><u> / used for division</u></em> like</p>
-<div class="highlight"><pre><span></span>res = num2 / num1;
+<div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">num2</span> <span class="o">/</span> <span class="n">num1</span><span class="p">;</span>
 </pre></div>
 
 
 <p>This would divide the two values ie num2 by num1 and then store the result in variable res which is 2 in this case.</p>
 <p><em><u>% (modulus operator )</u></em> like</p>
-<div class="highlight"><pre><span></span>res = num2 % num1;
+<div class="highlight"><pre><span></span><span class="n">res</span> <span class="o">=</span> <span class="n">num2</span> <span class="o">%</span> <span class="n">num1</span><span class="p">;</span>
 </pre></div>
 
 
@@ -154,7 +157,7 @@ int num2 = 6;
 <p>Again, they would be better understood when we'll discuss about Conditional Statements and Loops, so we'll discuss them in the upcoming tutorials, just remember the types of operators for now.</p>
 <p><strong>Assignment Operator:</strong></p>
 <p>They are used to assign values to a variables, we are already using this operator since we studied about assigning a value to our variables, so consider the following :</p>
-<div class="highlight"><pre><span></span>int num = 5;
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
 </pre></div>
 
 
@@ -162,11 +165,11 @@ int num2 = 6;
 <p><strong>Miscellaneous Operators</strong>:</p>
 <p>There are other operators too, but we have covered the most important operators here.</p>
 <p>Unary + and Unary - are some of the operators you would see often. As the name suggests they operate on only one operand. To understand what they do, consider the following code snippet :</p>
-<div class="highlight"><pre><span></span>int num = 5;
-num = (+num);
-printf(&quot;Value of num after Unary + is %d n&quot;,&amp;num);
-num = -num;
-printf(&quot;Value of num after Unary - is %d&quot;,&amp;num);
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">num</span> <span class="o">=</span> <span class="mi">5</span><span class="p">;</span>
+<span class="n">num</span> <span class="o">=</span> <span class="p">(</span><span class="o">+</span><span class="n">num</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="ss">&quot;Value of num after Unary + is %d n&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>
+<span class="n">num</span> <span class="o">=</span> <span class="o">-</span><span class="n">num</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="ss">&quot;Value of num after Unary - is %d&quot;</span><span class="p">,</span><span class="o">&amp;</span><span class="n">num</span><span class="p">);</span>
 </pre></div>
 
 
@@ -178,24 +181,22 @@ printf(&quot;Value of num after Unary - is %d&quot;,&amp;num);
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 09 January 2014</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/c-language/">C language</a>,      <a href="/tag/operators/">Operators</a>    </p>
+      <a href="//thegeekyway.com/tag/c-language/">C language</a>,      <a href="//thegeekyway.com/tag/operators/">Operators</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/operators-c-language/";
-      this.page.identifier = "operators-c-language/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "operators-c-language/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

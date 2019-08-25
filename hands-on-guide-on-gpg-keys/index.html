@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="encryption, GPG, security">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Hands-on Guide on GPG Keys  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/hands-on-guide-on-gpg-keys/">Hands-on Guide on GPG Keys</a></h1>
+    <h1><a href="//thegeekyway.com/hands-on-guide-on-gpg-keys/">Hands-on Guide on GPG Keys</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
@@ -91,7 +94,7 @@
 gpg <span class="o">(</span>GnuPG<span class="o">)</span> <span class="m">2</span>.1.11
 libgcrypt <span class="m">1</span>.6.5
 Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2016</span> Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version <span class="m">3</span> or later <span class="p">&amp;</span>lt<span class="p">;</span>http://gnu.org/licenses/gpl.html<span class="p">&amp;</span>gt<span class="p">;</span>
+License GPLv3+: GNU GPL version <span class="m">3</span> or later &lt;http://gnu.org/licenses/gpl.html&gt;
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
 
@@ -136,46 +139,46 @@ $ sudo apt-get install gnupg2
    Enter a strong passphrase twice and proceed ahead.</li>
 </ul>
 <p>At this point, <strong>GPG</strong> will generate the keys using entropy. <em>Entropy</em> describes the amount of unpredictability and nondeterminism that exists in a system. This entropy is needed to generate a secure set of keys. This process may take some time depending on how active your system is, and the key size you selected. The terminal may look like this.</p>
-<div class="highlight"><pre><span></span>$ <span class="n">gpg2</span> --<span class="n">full-gen-key</span> 
-<span class="n">gpg</span> (<span class="n">GnuPG</span>) <span class="mf">2.1.11</span>; <span class="n">Copyright</span> (<span class="n">C</span>) <span class="mi">2016</span> <span class="n">Free</span> <span class="n">Software</span> <span class="n">Foundation</span>, <span class="n">Inc</span>.
-<span class="n">This</span> <span class="k">is</span> <span class="n">free</span> <span class="n">software:</span> <span class="n">you</span> <span class="n">are</span> <span class="n">free</span> <span class="nb">to</span> <span class="n">change</span> <span class="o">and</span> <span class="n">redistribute</span> <span class="n">it</span>.
-<span class="n">There</span> <span class="k">is</span> <span class="n">NO</span> <span class="n">WARRANTY</span>, <span class="nb">to</span> <span class="n">the</span> <span class="n">extent</span> <span class="n">permitted</span> <span class="nb">by</span> <span class="n">law</span>.
+<div class="highlight"><pre><span></span>$ <span class="nv">gpg2</span> <span class="o">--</span><span class="nv">full</span><span class="o">-</span><span class="nv">gen</span><span class="o">-</span><span class="nv">key</span> 
+<span class="nv">gpg</span> <span class="ss">(</span><span class="nv">GnuPG</span><span class="ss">)</span> <span class="mi">2</span>.<span class="mi">1</span>.<span class="mi">11</span><span class="c1">; Copyright (C) 2016 Free Software Foundation, Inc.</span>
+<span class="nv">This</span> <span class="nv">is</span> <span class="nv">free</span> <span class="nv">software</span>: <span class="nv">you</span> <span class="nv">are</span> <span class="nv">free</span> <span class="nv">to</span> <span class="nv">change</span> <span class="nv">and</span> <span class="nv">redistribute</span> <span class="nv">it</span>.
+<span class="nv">There</span> <span class="nv">is</span> <span class="nv">NO</span> <span class="nv">WARRANTY</span>, <span class="nv">to</span> <span class="nv">the</span> <span class="nv">extent</span> <span class="nv">permitted</span> <span class="nv">by</span> <span class="nv">law</span>.
 
-<span class="n">Please</span> <span class="n">select</span> <span class="n">what</span> <span class="n">kind</span> <span class="k">of</span> <span class="nb">key</span> <span class="n">you</span> <span class="n">want:</span>
-(<span class="mi">1</span>) <span class="n">RSA</span> <span class="o">and</span> <span class="n">RSA</span> (<span class="k">default</span>)
-(<span class="mi">2</span>) <span class="n">DSA</span> <span class="o">and</span> <span class="n">Elgamal</span>
-(<span class="mi">3</span>) <span class="n">DSA</span> (<span class="nb">sign</span> <span class="k">only</span>)
-(<span class="mi">4</span>) <span class="n">RSA</span> (<span class="nb">sign</span> <span class="k">only</span>)
-<span class="n">Your</span> <span class="n">selection</span>? <span class="mi">1</span>
+<span class="nv">Please</span> <span class="nv">select</span> <span class="nv">what</span> <span class="nv">kind</span> <span class="nv">of</span> <span class="nv">key</span> <span class="nv">you</span> <span class="nv">want</span>:
+<span class="ss">(</span><span class="mi">1</span><span class="ss">)</span> <span class="nv">RSA</span> <span class="nv">and</span> <span class="nv">RSA</span> <span class="ss">(</span><span class="nv">default</span><span class="ss">)</span>
+<span class="ss">(</span><span class="mi">2</span><span class="ss">)</span> <span class="nv">DSA</span> <span class="nv">and</span> <span class="nv">Elgamal</span>
+<span class="ss">(</span><span class="mi">3</span><span class="ss">)</span> <span class="nv">DSA</span> <span class="ss">(</span><span class="nv">sign</span> <span class="nv">only</span><span class="ss">)</span>
+<span class="ss">(</span><span class="mi">4</span><span class="ss">)</span> <span class="nv">RSA</span> <span class="ss">(</span><span class="nv">sign</span> <span class="nv">only</span><span class="ss">)</span>
+<span class="nv">Your</span> <span class="nv">selection</span>? <span class="mi">1</span>
 
-<span class="n">RSA</span> <span class="nb">keys</span> <span class="n">may</span> <span class="n">be</span> <span class="n">between</span> <span class="mi">1024</span> <span class="o">and</span> <span class="mi">4096</span> <span class="n">bits</span> <span class="n">long</span>.
-<span class="n">What</span> <span class="n">keysize</span> <span class="k">do</span> <span class="n">you</span> <span class="nb">want</span>? (<span class="mi">2048</span>) <span class="mi">4096</span>
+<span class="nv">RSA</span> <span class="nv">keys</span> <span class="nv">may</span> <span class="nv">be</span> <span class="nv">between</span> <span class="mi">1024</span> <span class="nv">and</span> <span class="mi">4096</span> <span class="nv">bits</span> <span class="nv">long</span>.
+<span class="nv">What</span> <span class="nv">keysize</span> <span class="k">do</span> <span class="nv">you</span> <span class="nv">want</span>? <span class="ss">(</span><span class="mi">2048</span><span class="ss">)</span> <span class="mi">4096</span>
 
-<span class="n">Requested</span> <span class="n">keysize</span> <span class="k">is</span> <span class="mi">4096</span> <span class="n">bits</span>
-<span class="n">Please</span> <span class="n">specify</span> <span class="n">how</span> <span class="n">long</span> <span class="n">the</span> <span class="nb">key</span> <span class="n">should</span> <span class="n">be</span> <span class="n">valid</span>.
-<span class="mi">0</span> = <span class="nb">key</span> <span class="nb">does</span> <span class="nb">not</span> <span class="n">expire</span>
-<span class="nv">&amp;lt</span>;<span class="n">n</span><span class="nv">&amp;gt</span>; = <span class="nb">key</span> <span class="n">expires</span> <span class="n">in</span> <span class="n">n</span> <span class="n">days</span>
-<span class="nv">&amp;lt</span>;<span class="n">n</span><span class="nv">&amp;gt</span>;<span class="n">w</span> = <span class="nb">key</span> <span class="n">expires</span> <span class="n">in</span> <span class="n">n</span> <span class="n">weeks</span>
-<span class="nv">&amp;lt</span>;<span class="n">n</span><span class="nv">&amp;gt</span>;<span class="sr">m = key expires in n months</span>
-<span class="sr">&amp;lt;n&amp;gt;y =</span> <span class="nb">key</span> <span class="n">expires</span> <span class="n">in</span> <span class="n">n</span> <span class="n">years</span>
+<span class="nv">Requested</span> <span class="nv">keysize</span> <span class="nv">is</span> <span class="mi">4096</span> <span class="nv">bits</span>
+<span class="nv">Please</span> <span class="nv">specify</span> <span class="nv">how</span> <span class="nv">long</span> <span class="nv">the</span> <span class="nv">key</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">valid</span>.
+<span class="mi">0</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">does</span> <span class="nv">not</span> <span class="nv">expire</span>
+<span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">days</span>
+<span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span><span class="nv">w</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">weeks</span>
+<span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span><span class="nv">m</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">months</span>
+<span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span><span class="nv">y</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">years</span>
 
-<span class="n">Key</span> <span class="k">is</span> <span class="n">valid</span> <span class="k">for</span>? (<span class="mi">0</span>) <span class="mi">2</span><span class="n">y</span>
-<span class="n">Key</span> <span class="n">expires</span> <span class="n">at</span> <span class="n">Tuesday</span> <span class="mo">03</span> <span class="n">March</span> <span class="mi">2020</span> <span class="mo">02</span>:<span class="mi">08</span>:<span class="mi">15</span> <span class="n">PM</span> <span class="n">IST</span>
-<span class="n">Is</span> <span class="n">this</span> <span class="n">correct</span>? (<span class="n">y</span><span class="o">/</span><span class="n">N</span>) <span class="n">y</span>
+<span class="nv">Key</span> <span class="nv">is</span> <span class="nv">valid</span> <span class="k">for</span>? <span class="ss">(</span><span class="mi">0</span><span class="ss">)</span> <span class="mi">2</span><span class="nv">y</span>
+<span class="nv">Key</span> <span class="nv">expires</span> <span class="nv">at</span> <span class="nv">Tuesday</span> <span class="mi">03</span> <span class="nv">March</span> <span class="mi">2020</span> <span class="mi">02</span>:<span class="mi">08</span>:<span class="mi">15</span> <span class="nv">PM</span> <span class="nv">IST</span>
+<span class="nv">Is</span> <span class="nv">this</span> <span class="nv">correct</span>? <span class="ss">(</span><span class="nv">y</span><span class="o">/</span><span class="nv">N</span><span class="ss">)</span> <span class="nv">y</span>
 
-<span class="n">GnuPG</span> <span class="n">needs</span> <span class="nb">to</span> <span class="n">construct</span> <span class="n">a</span> <span class="n">user</span> <span class="n">ID</span> <span class="nb">to</span> <span class="n">identify</span> <span class="n">your</span> <span class="nb">key</span>.
+<span class="nv">GnuPG</span> <span class="nv">needs</span> <span class="nv">to</span> <span class="nv">construct</span> <span class="nv">a</span> <span class="nv">user</span> <span class="nv">ID</span> <span class="nv">to</span> <span class="nv">identify</span> <span class="nv">your</span> <span class="nv">key</span>.
 
-<span class="n">Real</span> <span class="n">name:</span> <span class="n">Your</span> <span class="n">Name</span>
-<span class="n">Email</span> <span class="n">address:</span> <span class="n">your</span>.<span class="n">email</span><span class="nv">@example</span>.<span class="n">com</span>
-<span class="n">Comment:</span> 
-<span class="n">You</span> <span class="n">selected</span> <span class="n">this</span> <span class="n">USER-ID:</span>
-<span class="s">&quot;Your Name &amp;lt;your.email@example.com&amp;gt;&quot;</span>
+<span class="nv">Real</span> <span class="nv">name</span>: <span class="nv">Your</span> <span class="nv">Name</span>
+<span class="nv">Email</span> <span class="nv">address</span>: <span class="nv">your</span>.<span class="nv">email</span>@<span class="nv">example</span>.<span class="nv">com</span>
+<span class="nv">Comment</span>: 
+<span class="nv">You</span> <span class="nv">selected</span> <span class="nv">this</span> <span class="nv">USER</span><span class="o">-</span><span class="nv">ID</span>:
+<span class="s2">&quot;</span><span class="s">Your Name &lt;your.email@example.com&gt;</span><span class="s2">&quot;</span>
 
-<span class="n">Change</span> (<span class="n">N</span>)<span class="n">ame</span>, (<span class="n">C</span>)<span class="n">omment</span>, (<span class="n">E</span>)<span class="n">mail</span> <span class="o">or</span> (<span class="n">O</span>)<span class="n">kay</span>/(<span class="s">Q)uit? O</span>
-<span class="s">We need to generate a lot of random bytes. It is a good idea to perform</span>
-<span class="s">some other action (type on the keyboard, move the mouse, utilize the</span>
-<span class="s">disks)</span> <span class="n">during</span> <span class="n">the</span> <span class="n">prime</span> <span class="n">generation</span>; <span class="n">this</span> <span class="n">gives</span> <span class="n">the</span> <span class="n">random</span> <span class="n">number</span>
-<span class="n">generator</span> <span class="n">a</span> <span class="n">better</span> <span class="n">chance</span> <span class="nb">to</span> <span class="n">gain</span> <span class="n">enough</span> <span class="n">entropy</span>.
+<span class="nv">Change</span> <span class="ss">(</span><span class="nv">N</span><span class="ss">)</span><span class="nv">ame</span>, <span class="ss">(</span><span class="nv">C</span><span class="ss">)</span><span class="nv">omment</span>, <span class="ss">(</span><span class="nv">E</span><span class="ss">)</span><span class="nv">mail</span> <span class="nv">or</span> <span class="ss">(</span><span class="nv">O</span><span class="ss">)</span><span class="nv">kay</span><span class="o">/</span><span class="ss">(</span><span class="nv">Q</span><span class="ss">)</span><span class="nv">uit</span>? <span class="nv">O</span>
+<span class="nv">We</span> <span class="nv">need</span> <span class="nv">to</span> <span class="nv">generate</span> <span class="nv">a</span> <span class="nv">lot</span> <span class="nv">of</span> <span class="k">random</span> <span class="nv">bytes</span>. <span class="nv">It</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">good</span> <span class="nv">idea</span> <span class="nv">to</span> <span class="nv">perform</span>
+<span class="nv">some</span> <span class="nv">other</span> <span class="nv">action</span> <span class="ss">(</span><span class="nv">type</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">keyboard</span>, <span class="nv">move</span> <span class="nv">the</span> <span class="nv">mouse</span>, <span class="nv">utilize</span> <span class="nv">the</span>
+<span class="nv">disks</span><span class="ss">)</span> <span class="nv">during</span> <span class="nv">the</span> <span class="nv">prime</span> <span class="nv">generation</span><span class="c1">; this gives the random number</span>
+<span class="nv">generator</span> <span class="nv">a</span> <span class="nv">better</span> <span class="nv">chance</span> <span class="nv">to</span> <span class="nv">gain</span> <span class="nv">enough</span> <span class="nv">entropy</span>.
 </pre></div>
 
 
@@ -196,98 +199,98 @@ $ sudo apt-get install gnupg2
 <li>Enter Passphrase twice.</li>
 </ul>
 <p>After some time your authentication subkey would be generated. Output of the process is shown below.</p>
-<div class="highlight"><pre><span></span>$ gpg2 --expert --edit-key 123EE456
-gpg <span class="o">(</span>GnuPG<span class="o">)</span> <span class="m">2</span>.1.11<span class="p">;</span> Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2016</span> Free Software Foundation, Inc.
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
+<div class="highlight"><pre><span></span>$ <span class="nv">gpg2</span> <span class="o">--</span><span class="nv">expert</span> <span class="o">--</span><span class="nv">edit</span><span class="o">-</span><span class="nv">key</span> <span class="mi">123</span><span class="nv">EE456</span>
+<span class="nv">gpg</span> <span class="ss">(</span><span class="nv">GnuPG</span><span class="ss">)</span> <span class="mi">2</span>.<span class="mi">1</span>.<span class="mi">11</span><span class="c1">; Copyright (C) 2016 Free Software Foundation, Inc.</span>
+<span class="nv">This</span> <span class="nv">is</span> <span class="nv">free</span> <span class="nv">software</span>: <span class="nv">you</span> <span class="nv">are</span> <span class="nv">free</span> <span class="nv">to</span> <span class="nv">change</span> <span class="nv">and</span> <span class="nv">redistribute</span> <span class="nv">it</span>.
+<span class="nv">There</span> <span class="nv">is</span> <span class="nv">NO</span> <span class="nv">WARRANTY</span>, <span class="nv">to</span> <span class="nv">the</span> <span class="nv">extent</span> <span class="nv">permitted</span> <span class="nv">by</span> <span class="nv">law</span>.
 
-Secret key is available.
+<span class="nv">Secret</span> <span class="nv">key</span> <span class="nv">is</span> <span class="nv">available</span>.
 
-sec rsa4096/123EE456
- created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: SC 
- trust: ultimate     validity: ultimate
-ssb rsa4096/7891EEFF
- created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: E 
-<span class="o">[</span>ultimate<span class="o">]</span> <span class="o">(</span><span class="m">1</span><span class="o">)</span>. Real Name your.email@gmail.com
+<span class="nv">sec</span> <span class="nv">rsa4096</span><span class="o">/</span><span class="mi">123</span><span class="nv">EE456</span>
+ <span class="nv">created</span>: <span class="mi">2017</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">03</span> <span class="nv">expires</span>: <span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">02</span> <span class="nv">usage</span>: <span class="nv">SC</span> 
+ <span class="nv">trust</span>: <span class="nv">ultimate</span>     <span class="nv">validity</span>: <span class="nv">ultimate</span>
+<span class="nv">ssb</span> <span class="nv">rsa4096</span><span class="o">/</span><span class="mi">7891</span><span class="nv">EEFF</span>
+ <span class="nv">created</span>: <span class="mi">2017</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">03</span> <span class="nv">expires</span>: <span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">02</span> <span class="nv">usage</span>: <span class="nv">E</span> 
+[<span class="nv">ultimate</span>] <span class="ss">(</span><span class="mi">1</span><span class="ss">)</span>. <span class="nv">Real</span> <span class="nv">Name</span> <span class="nv">your</span>.<span class="nv">email</span>@<span class="nv">gmail</span>.<span class="nv">com</span>
 
-gpg<span class="p">&amp;</span>gt<span class="p">;</span> addkey
-Please <span class="k">select</span> what kind of key you want:
- <span class="o">(</span><span class="m">3</span><span class="o">)</span> DSA <span class="o">(</span>sign only<span class="o">)</span>
- <span class="o">(</span><span class="m">4</span><span class="o">)</span> RSA <span class="o">(</span>sign only<span class="o">)</span>
- <span class="o">(</span><span class="m">5</span><span class="o">)</span> Elgamal <span class="o">(</span>encrypt only<span class="o">)</span>
- <span class="o">(</span><span class="m">6</span><span class="o">)</span> RSA <span class="o">(</span>encrypt only<span class="o">)</span>
- <span class="o">(</span><span class="m">7</span><span class="o">)</span> DSA <span class="o">(</span><span class="nb">set</span> your own capabilities<span class="o">)</span>
- <span class="o">(</span><span class="m">8</span><span class="o">)</span> RSA <span class="o">(</span><span class="nb">set</span> your own capabilities<span class="o">)</span>
- <span class="o">(</span><span class="m">10</span><span class="o">)</span> ECC <span class="o">(</span>sign only<span class="o">)</span>
- <span class="o">(</span><span class="m">11</span><span class="o">)</span> ECC <span class="o">(</span><span class="nb">set</span> your own capabilities<span class="o">)</span>
- <span class="o">(</span><span class="m">12</span><span class="o">)</span> ECC <span class="o">(</span>encrypt only<span class="o">)</span>
- <span class="o">(</span><span class="m">13</span><span class="o">)</span> Existing key
-Your selection? <span class="m">8</span>
+<span class="nv">gpg</span><span class="o">&gt;</span> <span class="nv">addkey</span>
+<span class="nv">Please</span> <span class="nv">select</span> <span class="nv">what</span> <span class="nv">kind</span> <span class="nv">of</span> <span class="nv">key</span> <span class="nv">you</span> <span class="nv">want</span>:
+ <span class="ss">(</span><span class="mi">3</span><span class="ss">)</span> <span class="nv">DSA</span> <span class="ss">(</span><span class="nv">sign</span> <span class="nv">only</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">4</span><span class="ss">)</span> <span class="nv">RSA</span> <span class="ss">(</span><span class="nv">sign</span> <span class="nv">only</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">5</span><span class="ss">)</span> <span class="nv">Elgamal</span> <span class="ss">(</span><span class="nv">encrypt</span> <span class="nv">only</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">6</span><span class="ss">)</span> <span class="nv">RSA</span> <span class="ss">(</span><span class="nv">encrypt</span> <span class="nv">only</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">7</span><span class="ss">)</span> <span class="nv">DSA</span> <span class="ss">(</span><span class="nv">set</span> <span class="nv">your</span> <span class="nv">own</span> <span class="nv">capabilities</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">8</span><span class="ss">)</span> <span class="nv">RSA</span> <span class="ss">(</span><span class="nv">set</span> <span class="nv">your</span> <span class="nv">own</span> <span class="nv">capabilities</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">10</span><span class="ss">)</span> <span class="nv">ECC</span> <span class="ss">(</span><span class="nv">sign</span> <span class="nv">only</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">11</span><span class="ss">)</span> <span class="nv">ECC</span> <span class="ss">(</span><span class="nv">set</span> <span class="nv">your</span> <span class="nv">own</span> <span class="nv">capabilities</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">12</span><span class="ss">)</span> <span class="nv">ECC</span> <span class="ss">(</span><span class="nv">encrypt</span> <span class="nv">only</span><span class="ss">)</span>
+ <span class="ss">(</span><span class="mi">13</span><span class="ss">)</span> <span class="nv">Existing</span> <span class="nv">key</span>
+<span class="nv">Your</span> <span class="nv">selection</span>? <span class="mi">8</span>
 
-Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
-Current allowed actions: Sign Encrypt
+<span class="nv">Possible</span> <span class="nv">actions</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">RSA</span> <span class="nv">key</span>: <span class="nv">Sign</span> <span class="nv">Encrypt</span> <span class="nv">Authenticate</span> 
+<span class="nv">Current</span> <span class="nv">allowed</span> <span class="nv">actions</span>: <span class="nv">Sign</span> <span class="nv">Encrypt</span>
 
- <span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
- <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
- <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
- <span class="o">(</span>Q<span class="o">)</span> Finished
+ <span class="ss">(</span><span class="nv">S</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">sign</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">E</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">encrypt</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">A</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">authenticate</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">Q</span><span class="ss">)</span> <span class="nv">Finished</span>
 
-Your selection? S
+<span class="nv">Your</span> <span class="nv">selection</span>? <span class="nv">S</span>
 
-Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
-Current allowed actions: Encrypt
+<span class="nv">Possible</span> <span class="nv">actions</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">RSA</span> <span class="nv">key</span>: <span class="nv">Sign</span> <span class="nv">Encrypt</span> <span class="nv">Authenticate</span> 
+<span class="nv">Current</span> <span class="nv">allowed</span> <span class="nv">actions</span>: <span class="nv">Encrypt</span>
 
-<span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
- <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
- <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
- <span class="o">(</span>Q<span class="o">)</span> Finished
+<span class="ss">(</span><span class="nv">S</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">sign</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">E</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">encrypt</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">A</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">authenticate</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">Q</span><span class="ss">)</span> <span class="nv">Finished</span>
 
-Your selection? E
+<span class="nv">Your</span> <span class="nv">selection</span>? <span class="nv">E</span>
 
-Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
-Current allowed actions:
+<span class="nv">Possible</span> <span class="nv">actions</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">RSA</span> <span class="nv">key</span>: <span class="nv">Sign</span> <span class="nv">Encrypt</span> <span class="nv">Authenticate</span> 
+<span class="nv">Current</span> <span class="nv">allowed</span> <span class="nv">actions</span>:
 
-<span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
- <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
- <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
- <span class="o">(</span>Q<span class="o">)</span> Finished
+<span class="ss">(</span><span class="nv">S</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">sign</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">E</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">encrypt</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">A</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">authenticate</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">Q</span><span class="ss">)</span> <span class="nv">Finished</span>
 
-Your selection? A
+<span class="nv">Your</span> <span class="nv">selection</span>? <span class="nv">A</span>
 
-Possible actions <span class="k">for</span> a RSA key: Sign Encrypt Authenticate 
-Current allowed actions: Authenticate
+<span class="nv">Possible</span> <span class="nv">actions</span> <span class="k">for</span> <span class="nv">a</span> <span class="nv">RSA</span> <span class="nv">key</span>: <span class="nv">Sign</span> <span class="nv">Encrypt</span> <span class="nv">Authenticate</span> 
+<span class="nv">Current</span> <span class="nv">allowed</span> <span class="nv">actions</span>: <span class="nv">Authenticate</span>
 
-<span class="o">(</span>S<span class="o">)</span> Toggle the sign capability
- <span class="o">(</span>E<span class="o">)</span> Toggle the encrypt capability
- <span class="o">(</span>A<span class="o">)</span> Toggle the authenticate capability
- <span class="o">(</span>Q<span class="o">)</span> Finished
+<span class="ss">(</span><span class="nv">S</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">sign</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">E</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">encrypt</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">A</span><span class="ss">)</span> <span class="nv">Toggle</span> <span class="nv">the</span> <span class="nv">authenticate</span> <span class="nv">capability</span>
+ <span class="ss">(</span><span class="nv">Q</span><span class="ss">)</span> <span class="nv">Finished</span>
 
-Your selection? Q
-RSA keys may be between <span class="m">1024</span> and <span class="m">4096</span> bits long.
-What keysize <span class="k">do</span> you want? <span class="o">(</span><span class="m">2048</span><span class="o">)</span> <span class="m">4096</span>
-Requested keysize is <span class="m">4096</span> bits
-Please specify how long the key should be valid.
- <span class="nv">0</span> <span class="o">=</span> key does not expire
- <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span> <span class="o">=</span> key expires in n days
- <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span><span class="nv">w</span> <span class="o">=</span> key expires in n weeks
- <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span><span class="nv">m</span> <span class="o">=</span> key expires in n months
- <span class="p">&amp;</span>lt<span class="p">;</span>n<span class="p">&amp;</span>gt<span class="p">;</span><span class="nv">y</span> <span class="o">=</span> key expires in n years
-Key is valid <span class="k">for</span>? <span class="o">(</span><span class="m">0</span><span class="o">)</span> 2y
-Key expires at Thursday <span class="m">05</span> March <span class="m">2020</span> <span class="m">02</span>:30:01 AM IST
-Is this correct? <span class="o">(</span>y/N<span class="o">)</span> y
-Really create? <span class="o">(</span>y/N<span class="o">)</span> y
-We need to generate a lot of random bytes. It is a good idea to perform
-some other action <span class="o">(</span><span class="nb">type</span> on the keyboard, move the mouse, utilize the
-disks<span class="o">)</span> during the prime generation<span class="p">;</span> this gives the random number
-generator a better chance to gain enough entropy.
+<span class="nv">Your</span> <span class="nv">selection</span>? <span class="nv">Q</span>
+<span class="nv">RSA</span> <span class="nv">keys</span> <span class="nv">may</span> <span class="nv">be</span> <span class="nv">between</span> <span class="mi">1024</span> <span class="nv">and</span> <span class="mi">4096</span> <span class="nv">bits</span> <span class="nv">long</span>.
+<span class="nv">What</span> <span class="nv">keysize</span> <span class="k">do</span> <span class="nv">you</span> <span class="nv">want</span>? <span class="ss">(</span><span class="mi">2048</span><span class="ss">)</span> <span class="mi">4096</span>
+<span class="nv">Requested</span> <span class="nv">keysize</span> <span class="nv">is</span> <span class="mi">4096</span> <span class="nv">bits</span>
+<span class="nv">Please</span> <span class="nv">specify</span> <span class="nv">how</span> <span class="nv">long</span> <span class="nv">the</span> <span class="nv">key</span> <span class="nv">should</span> <span class="nv">be</span> <span class="nv">valid</span>.
+ <span class="mi">0</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">does</span> <span class="nv">not</span> <span class="nv">expire</span>
+ <span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">days</span>
+ <span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span><span class="nv">w</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">weeks</span>
+ <span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span><span class="nv">m</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">months</span>
+ <span class="o">&lt;</span><span class="nv">n</span><span class="o">&gt;</span><span class="nv">y</span> <span class="o">=</span> <span class="nv">key</span> <span class="nv">expires</span> <span class="nv">in</span> <span class="nv">n</span> <span class="nv">years</span>
+<span class="nv">Key</span> <span class="nv">is</span> <span class="nv">valid</span> <span class="k">for</span>? <span class="ss">(</span><span class="mi">0</span><span class="ss">)</span> <span class="mi">2</span><span class="nv">y</span>
+<span class="nv">Key</span> <span class="nv">expires</span> <span class="nv">at</span> <span class="nv">Thursday</span> <span class="mi">05</span> <span class="nv">March</span> <span class="mi">2020</span> <span class="mi">02</span>:<span class="mi">30</span>:<span class="mi">01</span> <span class="nv">AM</span> <span class="nv">IST</span>
+<span class="nv">Is</span> <span class="nv">this</span> <span class="nv">correct</span>? <span class="ss">(</span><span class="nv">y</span><span class="o">/</span><span class="nv">N</span><span class="ss">)</span> <span class="nv">y</span>
+<span class="nv">Really</span> <span class="nv">create</span>? <span class="ss">(</span><span class="nv">y</span><span class="o">/</span><span class="nv">N</span><span class="ss">)</span> <span class="nv">y</span>
+<span class="nv">We</span> <span class="nv">need</span> <span class="nv">to</span> <span class="nv">generate</span> <span class="nv">a</span> <span class="nv">lot</span> <span class="nv">of</span> <span class="k">random</span> <span class="nv">bytes</span>. <span class="nv">It</span> <span class="nv">is</span> <span class="nv">a</span> <span class="nv">good</span> <span class="nv">idea</span> <span class="nv">to</span> <span class="nv">perform</span>
+<span class="nv">some</span> <span class="nv">other</span> <span class="nv">action</span> <span class="ss">(</span><span class="nv">type</span> <span class="nv">on</span> <span class="nv">the</span> <span class="nv">keyboard</span>, <span class="nv">move</span> <span class="nv">the</span> <span class="nv">mouse</span>, <span class="nv">utilize</span> <span class="nv">the</span>
+<span class="nv">disks</span><span class="ss">)</span> <span class="nv">during</span> <span class="nv">the</span> <span class="nv">prime</span> <span class="nv">generation</span><span class="c1">; this gives the random number</span>
+<span class="nv">generator</span> <span class="nv">a</span> <span class="nv">better</span> <span class="nv">chance</span> <span class="nv">to</span> <span class="nv">gain</span> <span class="nv">enough</span> <span class="nv">entropy</span>.
 
-sec rsa4096/123EE456
- created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: SC 
- trust: ultimate validity: ultimate
-ssb rsa4096/7891EEFF
- created: <span class="m">2017</span>-04-03 expires: <span class="m">2019</span>-02-02 usage: E 
-ssb rsa4096/6A127E44
- created: <span class="m">2018</span>-03-05 expires: <span class="m">2020</span>-03-04 usage: A
+<span class="nv">sec</span> <span class="nv">rsa4096</span><span class="o">/</span><span class="mi">123</span><span class="nv">EE456</span>
+ <span class="nv">created</span>: <span class="mi">2017</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">03</span> <span class="nv">expires</span>: <span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">02</span> <span class="nv">usage</span>: <span class="nv">SC</span> 
+ <span class="nv">trust</span>: <span class="nv">ultimate</span> <span class="nv">validity</span>: <span class="nv">ultimate</span>
+<span class="nv">ssb</span> <span class="nv">rsa4096</span><span class="o">/</span><span class="mi">7891</span><span class="nv">EEFF</span>
+ <span class="nv">created</span>: <span class="mi">2017</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">03</span> <span class="nv">expires</span>: <span class="mi">2019</span><span class="o">-</span><span class="mi">02</span><span class="o">-</span><span class="mi">02</span> <span class="nv">usage</span>: <span class="nv">E</span> 
+<span class="nv">ssb</span> <span class="nv">rsa4096</span><span class="o">/</span><span class="mi">6</span><span class="nv">A127E44</span>
+ <span class="nv">created</span>: <span class="mi">2018</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">05</span> <span class="nv">expires</span>: <span class="mi">2020</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">04</span> <span class="nv">usage</span>: <span class="nv">A</span>
 </pre></div>
 
 
@@ -348,33 +351,33 @@ ssb rsa4096/6A127E44
 <p>Now when you have seen and understand your GPG keys. It's time to generate a revocation certificate.</p>
 <h2>Generating a Revocation Certificate</h2>
 <p>It is vital to have revocation certificate to declare your keys invalid in case your private key has been compromised or lost. It should be generated as soon as you generate your key pair, not when you need it. So, let's generate it with the following command.</p>
-<div class="highlight"><pre><span></span>$ gpg2 --output ~/revocation.crt --gen-revoke your.email@example.com
-Please <span class="k">select</span> the reason <span class="k">for</span> the revocation: 
- <span class="nv">0</span> <span class="o">=</span> No reason specified
- <span class="nv">1</span> <span class="o">=</span> Key has been compromised
- <span class="nv">2</span> <span class="o">=</span> Key is superseded
- <span class="nv">3</span> <span class="o">=</span> Key is no longer used
- <span class="nv">Q</span> <span class="o">=</span> Cancel 
-<span class="o">(</span>Probably you want to <span class="k">select</span> <span class="m">1</span> here<span class="o">)</span> 
-Your decision? <span class="m">0</span>
+<div class="highlight"><pre><span></span>$ <span class="nv">gpg2</span> <span class="o">--</span><span class="nv">output</span> <span class="o">~/</span><span class="nv">revocation</span>.<span class="nv">crt</span> <span class="o">--</span><span class="nv">gen</span><span class="o">-</span><span class="nv">revoke</span> <span class="nv">your</span>.<span class="nv">email</span>@<span class="nv">example</span>.<span class="nv">com</span>
+<span class="nv">Please</span> <span class="nv">select</span> <span class="nv">the</span> <span class="nv">reason</span> <span class="k">for</span> <span class="nv">the</span> <span class="nv">revocation</span>: 
+ <span class="mi">0</span> <span class="o">=</span> <span class="nv">No</span> <span class="nv">reason</span> <span class="nv">specified</span>
+ <span class="mi">1</span> <span class="o">=</span> <span class="nv">Key</span> <span class="nv">has</span> <span class="nv">been</span> <span class="nv">compromised</span>
+ <span class="mi">2</span> <span class="o">=</span> <span class="nv">Key</span> <span class="nv">is</span> <span class="nv">superseded</span>
+ <span class="mi">3</span> <span class="o">=</span> <span class="nv">Key</span> <span class="nv">is</span> <span class="nv">no</span> <span class="nv">longer</span> <span class="nv">used</span>
+ <span class="nv">Q</span> <span class="o">=</span> <span class="nv">Cancel</span> 
+<span class="ss">(</span><span class="nv">Probably</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">select</span> <span class="mi">1</span> <span class="nv">here</span><span class="ss">)</span> 
+<span class="nv">Your</span> <span class="nv">decision</span>? <span class="mi">0</span>
 </pre></div>
 
 
 <p>It would ask for your confirmation for generating the certificate and the reason for which you are creating this. It is also suggested that you should have revocation certificates for every possibility listed there for maximum flexibility, but for now, you may go for <strong>"0: No reason specified"</strong>.</p>
 <p>Now give a comment (I left it empty) and your passphrase. Soon, your certificate is generated. You should keep this as secure and hidden as you keep your private keys. Here is the output.</p>
-<div class="highlight"><pre><span></span>Enter an optional description; end it with an empty line:
-&amp;gt; 
-Reason for revocation: No reason specified
-(No description given)
-Is this okay? (y/N) y
-ASCII armored output forced.
-Revocation certificate created.
+<div class="highlight"><pre><span></span><span class="nv">Enter</span> <span class="nv">an</span> <span class="nv">optional</span> <span class="nv">description</span><span class="c1">; end it with an empty line:</span>
+<span class="o">&gt;</span> 
+<span class="nv">Reason</span> <span class="k">for</span> <span class="nv">revocation</span>: <span class="nv">No</span> <span class="nv">reason</span> <span class="nv">specified</span>
+<span class="ss">(</span><span class="nv">No</span> <span class="nv">description</span> <span class="nv">given</span><span class="ss">)</span>
+<span class="nv">Is</span> <span class="nv">this</span> <span class="nv">okay</span>? <span class="ss">(</span><span class="nv">y</span><span class="o">/</span><span class="nv">N</span><span class="ss">)</span> <span class="nv">y</span>
+<span class="nv">ASCII</span> <span class="nv">armored</span> <span class="nv">output</span> <span class="nv">forced</span>.
+<span class="nv">Revocation</span> <span class="nv">certificate</span> <span class="nv">created</span>.
 
-Please move it to a medium which you can hide away; if Mallory gets
-access to this certificate he can use it to make your key unusable.
-It is smart to print this certificate and store it away, just in case
-your media become unreadable. But have some caution: The print system of
-your machine might store the data and make it available to others!
+<span class="nv">Please</span> <span class="nv">move</span> <span class="nv">it</span> <span class="nv">to</span> <span class="nv">a</span> <span class="nv">medium</span> <span class="nv">which</span> <span class="nv">you</span> <span class="nv">can</span> <span class="nv">hide</span> <span class="nv">away</span><span class="c1">; if Mallory gets</span>
+<span class="nv">access</span> <span class="nv">to</span> <span class="nv">this</span> <span class="nv">certificate</span> <span class="nv">he</span> <span class="nv">can</span> <span class="nv">use</span> <span class="nv">it</span> <span class="nv">to</span> <span class="nv">make</span> <span class="nv">your</span> <span class="nv">key</span> <span class="nv">unusable</span>.
+<span class="nv">It</span> <span class="nv">is</span> <span class="nv">smart</span> <span class="nv">to</span> <span class="nv">print</span> <span class="nv">this</span> <span class="nv">certificate</span> <span class="nv">and</span> <span class="nv">store</span> <span class="nv">it</span> <span class="nv">away</span>, <span class="nv">just</span> <span class="nv">in</span> <span class="nv">case</span>
+<span class="nv">your</span> <span class="nv">media</span> <span class="nv">become</span> <span class="nv">unreadable</span>. <span class="nv">But</span> <span class="nv">have</span> <span class="nv">some</span> <span class="nv">caution</span>: <span class="nv">The</span> <span class="nv">print</span> <span class="nv">system</span> <span class="nv">of</span>
+<span class="nv">your</span> <span class="nv">machine</span> <span class="nv">might</span> <span class="nv">store</span> <span class="nv">the</span> <span class="nv">data</span> <span class="nv">and</span> <span class="nv">make</span> <span class="nv">it</span> <span class="nv">available</span> <span class="nv">to</span> <span class="nv">others</span><span class="o">!</span>
 </pre></div>
 
 
@@ -393,7 +396,7 @@ Because with GPG you can sign messages or other people can encrypt messages to y
 Absolutely yes, as I have already mentioned before that GPG works on <a href="https://en.wikipedia.org/wiki/Public-key_cryptography">asymmetric cryptography</a>, therefore having your public key to someone doesn't make a threat to your security. Because it is practically impossible to generate a private key from a public key.</p>
 <p>There are multiple keyservers available to hold public keys like, <strong><em><a href="https://keys.fedoraproject.org/">keys.fedoraproject.org</a>, <a href="http://keyserver.ubuntu.com/">keyserver.ubuntu.com, etc</a>.</em></strong><strong> </strong>and they regularly synchronize among themselves. So if you send your key on <em>keyserver.ubuntu.com, then</em> after some time, it would also be available at <em>keys.fedoraproject.org.</em></p>
 <p>To send your key to the keyserver use the following command.</p>
-<div class="highlight"><pre><span></span>$ gpg2 --send-keys --keyserver keyserver_url key_id
+<div class="highlight"><pre><span></span>$ <span class="nv">gpg2</span> <span class="o">--</span><span class="k">send</span><span class="o">-</span><span class="nv">keys</span> <span class="o">--</span><span class="nv">keyserver</span> <span class="nv">keyserver_url</span> <span class="nv">key_id</span>
 </pre></div>
 
 
@@ -444,8 +447,8 @@ $ gpg2 --output ~/signed.key --sign-key person.email@example.com
 
 
 <p><strong>Method 2:</strong></p>
-<div class="highlight"><pre><span></span>$ gpg2 --sign-key person.email@example.com
-$ gpg2 --keyserver key_server --send-key person_keyid
+<div class="highlight"><pre><span></span>$ <span class="nv">gpg2</span> <span class="o">--</span><span class="nv">sign</span><span class="o">-</span><span class="nv">key</span> <span class="nv">person</span>.<span class="nv">email</span>@<span class="nv">example</span>.<span class="nv">com</span>
+$ <span class="nv">gpg2</span> <span class="o">--</span><span class="nv">keyserver</span> <span class="nv">key_server</span> <span class="o">--</span><span class="k">send</span><span class="o">-</span><span class="nv">key</span> <span class="nv">person_keyid</span>
 </pre></div>
 
 
@@ -482,17 +485,17 @@ gpg: Q
 
 
 <p>To modify <strong>trust</strong> of the key, enter "<strong>trust"</strong> instead of <strong>"Q"</strong> (in the last line of output). And you'll get a prompt like this.</p>
-<div class="highlight"><pre><span></span>Please decide how far you trust this user to correctly verify other users&#39; keys
-(by looking at passports, checking fingerprints from different sources, etc.)
+<div class="highlight"><pre><span></span><span class="nv">Please</span> <span class="nv">decide</span> <span class="nv">how</span> <span class="nv">far</span> <span class="nv">you</span> <span class="nv">trust</span> <span class="nv">this</span> <span class="nv">user</span> <span class="nv">to</span> <span class="nv">correctly</span> <span class="nv">verify</span> <span class="nv">other</span> <span class="nv">users</span><span class="s1">&#39;</span><span class="s"> keys</span>
+<span class="ss">(</span><span class="nv">by</span> <span class="nv">looking</span> <span class="nv">at</span> <span class="nv">passports</span>, <span class="nv">checking</span> <span class="nv">fingerprints</span> <span class="nv">from</span> <span class="nv">different</span> <span class="nv">sources</span>, <span class="nv">etc</span>.<span class="ss">)</span>
 
- 1 = I don&#39;t know or won&#39;t say
- 2 = I do NOT trust
- 3 = I trust marginally
- 4 = I trust fully
- 5 = I trust ultimately
- m = back to the main menu
+ <span class="mi">1</span> <span class="o">=</span> <span class="nv">I</span> <span class="nv">don</span><span class="s1">&#39;</span><span class="s">t know or won</span><span class="s1">&#39;</span><span class="nv">t</span> <span class="nv">say</span>
+ <span class="mi">2</span> <span class="o">=</span> <span class="nv">I</span> <span class="k">do</span> <span class="nv">NOT</span> <span class="nv">trust</span>
+ <span class="mi">3</span> <span class="o">=</span> <span class="nv">I</span> <span class="nv">trust</span> <span class="nv">marginally</span>
+ <span class="mi">4</span> <span class="o">=</span> <span class="nv">I</span> <span class="nv">trust</span> <span class="nv">fully</span>
+ <span class="mi">5</span> <span class="o">=</span> <span class="nv">I</span> <span class="nv">trust</span> <span class="nv">ultimately</span>
+ <span class="nv">m</span> <span class="o">=</span> <span class="nv">back</span> <span class="nv">to</span> <span class="nv">the</span> <span class="nv">main</span> <span class="nv">menu</span>
 
-Your decision? m
+<span class="nv">Your</span> <span class="nv">decision</span>? <span class="nv">m</span>
 </pre></div>
 
 
@@ -538,7 +541,7 @@ Your decision? m
 <h2>Signed messages</h2>
 <h4><strong>Clearsign:</strong></h4>
 <p>Using GPG you may send signed files without encryption. Create a file say "<strong>newfile</strong>", add some message to it and sign it.</p>
-<div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Hello World&quot;</span> <span class="p">&amp;</span>gt<span class="p">;&amp;</span>gt<span class="p">;</span> newfile
+<div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="s2">&quot;Hello World&quot;</span> &gt;&gt; newfile
 $ gpg2 --clearsign newfile
 </pre></div>
 
@@ -618,24 +621,22 @@ $ gpg2 --clearsign newfile
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 05 March 2018</p>
-    <p>Category: <a href="/category/devops-linux/">DevOps, Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/devops-linux/">DevOps, Linux</a>
  &ndash; Tags:
-      <a href="/tag/encryption/">encryption</a>,      <a href="/tag/gpg/">GPG</a>,      <a href="/tag/security/">security</a>    </p>
+      <a href="//thegeekyway.com/tag/encryption/">encryption</a>,      <a href="//thegeekyway.com/tag/gpg/">GPG</a>,      <a href="//thegeekyway.com/tag/security/">security</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/hands-on-guide-on-gpg-keys/";
-      this.page.identifier = "hands-on-guide-on-gpg-keys/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "hands-on-guide-on-gpg-keys/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

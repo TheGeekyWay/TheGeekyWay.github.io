@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - C</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/c.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-08-05T00:17:00+05:30</updated><entry><title>Structures And User Defined Data Types (Part - I)</title><link href="//thegeekyway.com/structures-c-programming-language-user-defined-data-types/" rel="alternate"></link><published>2014-08-05T00:17:00+05:30</published><updated>2014-08-05T00:17:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2014-08-05:/structures-c-programming-language-user-defined-data-types/</id><summary type="html">&lt;p&gt;Howdy folks, hope you're doing well. We've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D Arrays and their memory organization&lt;/a&gt; and further about &lt;a href="http://www.thegeekyway.com/learning-2d-multidimensional-arrays/" title="Learning About 2D And Multidimensional Arrays"&gt;2D arrays and multidimensional arrays&lt;/a&gt;. In case you missed it, read them first. Coming to this tutorial, we'll be discussing the way to develop our own data types in the C …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Howdy folks, hope you're doing well. We've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D Arrays and their memory organization&lt;/a&gt; and further about &lt;a href="http://www.thegeekyway.com/learning-2d-multidimensional-arrays/" title="Learning About 2D And Multidimensional Arrays"&gt;2D arrays and multidimensional arrays&lt;/a&gt;. In case you missed it, read them first. Coming to this tutorial, we'll be discussing the way to develop our own data types in the C programming language. It is done through something known as structures, and that's what we'll explore about here.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - C#</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/c.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T00:46:59+05:30</updated><entry><title>MD5 Hashing using C#</title><link href="//thegeekyway.com/md5-hashing-using-c/" rel="alternate"></link><published>2019-08-24T00:46:59+05:30</published><updated>2019-08-24T00:46:59+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2019-08-24:/md5-hashing-using-c/</id><summary type="html">&lt;p&gt;Its common now a days that all the passwords are being encrypted in order to prevent data theft. So the passwords are being encrypted, the most common and most secure encryption method is MD5 hashing.&lt;br&gt;
+&lt;strong&gt;MD5&lt;/strong&gt; hashing stands for Message Digest algorithm 5. The idea of MD5 algorithm is to …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Its common now a days that all the passwords are being encrypted in order to prevent data theft. So the passwords are being encrypted, the most common and most secure encryption method is MD5 hashing.&lt;br&gt;
+&lt;strong&gt;MD5&lt;/strong&gt; hashing stands for Message Digest algorithm 5. The idea of MD5 algorithm is to convert all the string/char/integer into a fixed “32″ bit hexadecimal code. The input can be of any size, but the output will always be fixed, here is an example of MD5 hashing algorithm.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="MD5 hashing algorithm" src="http://thegeekyway.com/uploads/images/2014/03/MD5-hashing-algorithm.png"&gt;&lt;/p&gt;
+&lt;p&gt;The main point is that whatever the length of the input is, the output will always be of “32″ bit. The namespace used is &lt;strong&gt;System.Security.Cryptography&lt;/strong&gt; and the assembly used is &lt;strong&gt;mscorlib (in mscorlib.dll)&lt;/strong&gt;.&lt;br&gt;
+The first step in creating a MD5 encryption using C# is :-  &lt;/p&gt;
+&lt;h2&gt;Step 1 : Include the required namespace.&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Security&lt;/span&gt;.&lt;span class="nv"&gt;Cryptography&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt;&lt;span class="c1"&gt;;// for stringbuilder class&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Step 2 : Create an object of MD5 class.&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;MD5&lt;/span&gt; &lt;span class="n"&gt;md5H&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;MD5&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="k"&gt;Create&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Step 3 : Convert the string into byte array and compute its hash.&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;byte&lt;/span&gt;&lt;span class="p"&gt;[]&lt;/span&gt;&lt;span class="k"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;md5H&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ComputeHash&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;Encoding&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;UTF8&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;GetBytes&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nb"&gt;text&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Step 4 : Loop through each byte of hashed data and format each one as a hexadecimal string&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;i&amp;lt;data.Length;i++){&lt;/span&gt;
+&lt;span class="nv"&gt;sBuilder&lt;/span&gt;.&lt;span class="nv"&gt;Append&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;].&lt;span class="nv"&gt;ToString&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;x2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;The whole combined C# coding is&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Collections&lt;/span&gt;.&lt;span class="nv"&gt;Generic&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Linq&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;.&lt;span class="nv"&gt;WebControls&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Security&lt;/span&gt;.&lt;span class="nv"&gt;Cryptography&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+ &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;partial&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;MD5Hashing&lt;/span&gt;:&lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;.&lt;span class="nv"&gt;Page&lt;/span&gt;
+ {
+      &lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;string&lt;/span&gt; &lt;span class="nv"&gt;MD5Hash&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;string&lt;/span&gt; &lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+     {
+         &lt;span class="nv"&gt;MD5&lt;/span&gt; &lt;span class="nv"&gt;md5H&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;MD5&lt;/span&gt;.&lt;span class="nv"&gt;Create&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+         &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;convert&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="nv"&gt;string&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;byte&lt;/span&gt; &lt;span class="nv"&gt;array&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;compute&lt;/span&gt; &lt;span class="nv"&gt;its&lt;/span&gt; &lt;span class="nv"&gt;hash&lt;/span&gt;
+         &lt;span class="nv"&gt;byte&lt;/span&gt;[]&lt;span class="nv"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;md5H&lt;/span&gt;.&lt;span class="nv"&gt;ComputeHash&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Encoding&lt;/span&gt;.&lt;span class="nv"&gt;UTF8&lt;/span&gt;.&lt;span class="nv"&gt;GetBytes&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;text&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+         &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;create&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;stringbuilder&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;collect&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;bytes&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;create&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;string&lt;/span&gt;
+         &lt;span class="nv"&gt;StringBuilder&lt;/span&gt; &lt;span class="nv"&gt;sB&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="nv"&gt;new&lt;/span&gt; &lt;span class="nv"&gt;StringBuilder&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+         &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;loop&lt;/span&gt; &lt;span class="nv"&gt;through&lt;/span&gt; &lt;span class="nv"&gt;each&lt;/span&gt; &lt;span class="nv"&gt;byte&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;hashed&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;format&lt;/span&gt; &lt;span class="nv"&gt;each&lt;/span&gt; &lt;span class="nv"&gt;one&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt; &lt;span class="nv"&gt;a&lt;/span&gt; &lt;span class="nv"&gt;hexadecimal&lt;/span&gt; &lt;span class="nv"&gt;string&lt;/span&gt;
+         &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;i&amp;lt;data.Length;i++){&lt;/span&gt;
+             &lt;span class="nv"&gt;sB&lt;/span&gt;.&lt;span class="nv"&gt;Append&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;data&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;].&lt;span class="nv"&gt;ToString&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;x2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+         }
+         &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;hexadecimal&lt;/span&gt; &lt;span class="nv"&gt;string&lt;/span&gt;
+         &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;sB&lt;/span&gt;.&lt;span class="nv"&gt;ToString&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     }
+ }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;img alt="MD5 hashing output" src="http://thegeekyway.com/uploads/images/2014/03/MD5-hashing-output.png"&gt;&lt;/p&gt;</content><category term="C#"></category><category term="programming"></category></entry><entry><title>Structures And User Defined Data Types (Part - I)</title><link href="//thegeekyway.com/structures-c-programming-language-user-defined-data-types/" rel="alternate"></link><published>2014-08-05T00:17:00+05:30</published><updated>2014-08-05T00:17:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2014-08-05:/structures-c-programming-language-user-defined-data-types/</id><summary type="html">&lt;p&gt;Howdy folks, hope you're doing well. We've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D Arrays and their memory organization&lt;/a&gt; and further about &lt;a href="http://www.thegeekyway.com/learning-2d-multidimensional-arrays/" title="Learning About 2D And Multidimensional Arrays"&gt;2D arrays and multidimensional arrays&lt;/a&gt;. In case you missed it, read them first. Coming to this tutorial, we'll be discussing the way to develop our own data types in the C …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Howdy folks, hope you're doing well. We've already discussed about &lt;a href="http://www.thegeekyway.com/learning-1-dimensional-arrays/" title="Learning About 1 Dimensional Arrays (1 D Arrays)"&gt;1D Arrays and their memory organization&lt;/a&gt; and further about &lt;a href="http://www.thegeekyway.com/learning-2d-multidimensional-arrays/" title="Learning About 2D And Multidimensional Arrays"&gt;2D arrays and multidimensional arrays&lt;/a&gt;. In case you missed it, read them first. Coming to this tutorial, we'll be discussing the way to develop our own data types in the C programming language. It is done through something known as structures, and that's what we'll explore about here.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/08/structures-and-user-defined-data-types-I.png" title="Structure and User Defined Data Types in C Programming"&gt;&lt;img alt="Structure and User Defined Data Types in C Programming" src="//thegeekyway.com/uploads/images/2014/08/structures-and-user-defined-data-types-I.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -10,67 +67,67 @@
 &lt;p&gt;Structures can be used to track information which is common to large group of entities.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;How to declare a structure?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Let us first see the basic semantics of declaring a structure. It is much like defining ordinary variable like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;data_type&amp;gt; &amp;lt;variable_name&amp;gt; // For variable
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;data_type&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;variable_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;variable&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now for structure, it is done through keyword struct like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct &amp;lt;struct_name&amp;gt;
-{
-  ...
-};
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;struct&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;struct_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Let us take an example to track record of students in a high school. Each student would have certain set of properties/attributes which would differentiate them from one another. We'll consider a student has a roll number of type integer , name of type string and  marks of type float for the time being. Now, let's define our structure named student with these properties.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct student
-{
-  int rollno;
-  char name[20];  // Taking an array of character (string)
-  float marks;
-  // You are free to declare as many members as you want, but we&amp;#39;re restricting our example to 3 data members (properties)
-  // Size of the structure should be known to the compiler
-};
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;student&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollno&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nb"&gt;char&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Taking&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="nb"&gt;array&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;character&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="nb"&gt;float&lt;/span&gt; &lt;span class="n"&gt;marks&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="k"&gt;are&lt;/span&gt; &lt;span class="k"&gt;free&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="k"&gt;declare&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="n"&gt;members&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;but&lt;/span&gt; &lt;span class="n"&gt;we&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;re&lt;/span&gt; &lt;span class="n"&gt;restricting&lt;/span&gt; &lt;span class="n"&gt;our&lt;/span&gt; &lt;span class="n"&gt;example&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="n"&gt;members&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;properties&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;Size&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;structure&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;known&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;compiler&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now that we have our basic structure with it's data members ready, we can declare instances of it like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct student George;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;student&lt;/span&gt; &lt;span class="n"&gt;George&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now, all members of the structure can be accessed via our instance named George using membership access or dot operator like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;George.rollno = 91;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;George&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rollno&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;91&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-George.marks = 78.6;
+&lt;span class="n"&gt;George&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;marks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;78&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;and so on...&lt;/p&gt;
 &lt;p&gt;It's essential to remember here that the members we declare in a structure would take the memory only when instances are declared. You're free to name your instance anything. It's just like declaring a variable whose data type would be now your own defined data type, which is struct student here.&lt;/p&gt;
 &lt;p&gt;Notice above how we've defined the instances of a structure, another way of declaring them can be like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct &amp;lt;struct-name&amp;gt;
-{
-  // Data Members
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;struct&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;struct&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;Data&lt;/span&gt; &lt;span class="n"&gt;Members&lt;/span&gt;
 
-} &amp;lt;name-of-first-structure-variable&amp;gt; ... ;
+&lt;span class="err"&gt;}&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;of&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;first&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;structure&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;variable&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;...&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So, for the above example, it can be done as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;struct student
-{
-  int rollno;
-  char name[20];  // Taking an array of character (string)
-  float marks;
-}George,Henry,Steve; // Declare as many as you want.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;struct&lt;/span&gt; &lt;span class="n"&gt;student&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollno&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="nb"&gt;char&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;20&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;  &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Taking&lt;/span&gt; &lt;span class="n"&gt;an&lt;/span&gt; &lt;span class="nb"&gt;array&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;character&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+  &lt;span class="nb"&gt;float&lt;/span&gt; &lt;span class="n"&gt;marks&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="n"&gt;George&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Henry&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;Steve&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;Declare&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;many&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;want&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Next, you can access each of the properties for a particular structure variable like :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;George.rollno = 50;
-George.marks = 98.6;
-strycpy(George.name, &amp;quot;George&amp;quot;);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;George&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rollno&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;50&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;George&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;marks&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;98&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;strycpy&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;George&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;George&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -107,7 +164,7 @@ strycpy(George.name, &amp;quot;George&amp;quot;);
 &lt;p&gt;With this basic memory organization picture in mind, let's now see how we declare a 2D Array.&lt;/p&gt;
 &lt;p&gt;&lt;p #2d_declare&gt;&lt;/p&gt;&lt;strong&gt;Declaration of 2D Array:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Let's take an example that you want to create a 3 x 3 Matrix named mat of integer data type, so we would declare as:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int mat[3][3];
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;mat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -116,7 +173,7 @@ strycpy(George.name, &amp;quot;George&amp;quot;);
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/07/mat_4x6.png" title="Matrix memory representation 4 X 6"&gt;&lt;img alt="Matrix memory representation 4 X 6" src="//thegeekyway.com/uploads/images/2014/07/mat_4x6.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Now, it would be declared as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;float mat[4][6];
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt; &lt;span class="n"&gt;mat&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -125,11 +182,11 @@ strycpy(George.name, &amp;quot;George&amp;quot;);
 &lt;p&gt;Since we need to refer a location by both the row number and the column number, we need to fill in each block of memory by traversing through each row first and then each column in that row, then come to next row, traverse each column and so on...&lt;/p&gt;
 &lt;p&gt;Here we would need two loops, one for updating the row number and the next to update the column number. Since we are moving from left to right for each row, remember that we will update the row value less frequently than the column value.&lt;/p&gt;
 &lt;p&gt;So, basic syntax would be something like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for(int i = 0; i &amp;lt;= row; i++ )
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt;= row; i++ )&lt;/span&gt;
 {
-  for(int j = 0; j &amp;lt;= col; j++)
+  &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; j &amp;lt;= col; j++)&lt;/span&gt;
   {
-     scanf(&amp;quot;%d&amp;quot;,&amp;amp;matrix[i][j]);
+     &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;matrix&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;][&lt;span class="nv"&gt;j&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
 }
 &lt;/pre&gt;&lt;/div&gt;
@@ -137,15 +194,15 @@ strycpy(George.name, &amp;quot;George&amp;quot;);
 
 &lt;p&gt;Here row and col would correspond to the total number of rows and columns in the matrix. Inside the loop, we're just taking input from the user such that the value of &lt;strong&gt;j&lt;/strong&gt; i.e. our column would update more frequently from left to right than the value of &lt;strong&gt;i&lt;/strong&gt; i.e. our row.&lt;/p&gt;
 &lt;p&gt;Now, let's start accepting values from user for our for our matrix named mat which is a 3 x 3 matrix.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int mat[3][3]; //Declaring 3 x 3 , 2D matrix
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;mat&lt;/span&gt;[&lt;span class="mi"&gt;3&lt;/span&gt;][&lt;span class="mi"&gt;3&lt;/span&gt;]&lt;span class="c1"&gt;; //Declaring 3 x 3 , 2D matrix&lt;/span&gt;
 
-int i,j; //Declaring variables to be used in loop
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt;,&lt;span class="nv"&gt;j&lt;/span&gt;&lt;span class="c1"&gt;; //Declaring variables to be used in loop&lt;/span&gt;
 
-for( i = 0; i &amp;lt; 3; i++ )  // loop for updating row number
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; 3; i++ )  // loop for updating row number&lt;/span&gt;
 {
-  for( j = 0; j &amp;lt; 3; j++)  // loop for updating col number
+  &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; j &amp;lt; 3; j++)  // loop for updating col number&lt;/span&gt;
   {
-     scanf(&amp;quot;%d&amp;quot;,&amp;amp;mat[i][j]);
+     &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;mat&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;][&lt;span class="nv"&gt;j&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
 }
 &lt;/pre&gt;&lt;/div&gt;
@@ -154,16 +211,16 @@ for( i = 0; i &amp;lt; 3; i++ )  // loop for updating row number
 &lt;p&gt;&lt;p #2d_output&gt;&lt;/p&gt;&lt;strong&gt;Traversing and Printing 2D Array:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Next, we need to traverse this array, it would be done as:&lt;/p&gt;
 &lt;p&gt;Traversing means just processing through each element of the array and apply an operation.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// We have assumed to initialized the array by taking input from user as
-// shown in code snippet above.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;We&lt;/span&gt; &lt;span class="nv"&gt;have&lt;/span&gt; &lt;span class="nv"&gt;assumed&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;initialized&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;array&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;taking&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;as&lt;/span&gt;
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;shown&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="nv"&gt;snippet&lt;/span&gt; &lt;span class="nv"&gt;above&lt;/span&gt;.
 
-// Traversing
-for ( i = 0; i &amp;lt; 3; i++)
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Traversing&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; 3; i++)&lt;/span&gt;
 {
-  for( j = 0; j &amp;lt; 3; j++)
+  &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; j &amp;lt; 3; j++)&lt;/span&gt;
   {
-    //Traversing here and applying the printing on console operation
-    printf(&amp;quot;%d&amp;quot;,mat[i][j]);
+    &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Traversing&lt;/span&gt; &lt;span class="nv"&gt;here&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;applying&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;printing&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;console&lt;/span&gt; &lt;span class="nv"&gt;operation&lt;/span&gt;
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;mat&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;][&lt;span class="nv"&gt;j&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
 }
 &lt;/pre&gt;&lt;/div&gt;
@@ -173,13 +230,13 @@ for ( i = 0; i &amp;lt; 3; i++)
 &lt;p&gt;Extending what we've learned about 1D and 2D arrays, there can be 3D, 4D, 5D and even 100D arrays, though the complexity would multiply at each level, so we don't use beyond 2D arrays generally. In some complex application, we may use 3D arrays, but beyond that, because of the increase in the complexity, they are hardly used.&lt;/p&gt;
 &lt;p&gt;&lt;p #multidimensional_declare&gt;&lt;/p&gt;&lt;strong&gt;Declaration of Multidimensional Arrays:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;So, for declaring a 3 D array, you just have to define one more dimension as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int matrix [3][3][3]; //Declaring 3D Array which is 3 x 3 x 3
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;matrix&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;Declaring&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;D&lt;/span&gt; &lt;span class="nb"&gt;Array&lt;/span&gt; &lt;span class="n"&gt;which&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Similarly, for a 4 D array,  declaration would be :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int matrix [3][4][5][6]; // Declaring Matrix named matrix of type int and
-                         // size 3 x 4 x 5 x 6
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;matrix&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;][&lt;/span&gt;&lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Declaring&lt;/span&gt; &lt;span class="n"&gt;Matrix&lt;/span&gt; &lt;span class="n"&gt;named&lt;/span&gt; &lt;span class="n"&gt;matrix&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="k"&gt;and&lt;/span&gt;
+                         &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;size&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -187,19 +244,19 @@ for ( i = 0; i &amp;lt; 3; i++)
 &lt;p&gt;&lt;p #multidimensional_input&gt;&lt;/p&gt;&lt;strong&gt;Putting in data to Multidimensional Array:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Very similar to filling up a 2 D array,  a 3D array can be filled up by using 3 loops (one for iterating through each dimension). Remember, the inner loop will always has a fast frequency to iterate than the loop enclosing it and so on...&lt;/p&gt;
 &lt;p&gt;Let's fill up a 3D array of type float here as an example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;float mat[3][4][5]; // Declaring array mat of type float with dimensions
-                    // 3 x 4 x 5
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;float&lt;/span&gt; &lt;span class="nv"&gt;mat&lt;/span&gt;[&lt;span class="mi"&gt;3&lt;/span&gt;][&lt;span class="mi"&gt;4&lt;/span&gt;][&lt;span class="mi"&gt;5&lt;/span&gt;]&lt;span class="c1"&gt;; // Declaring array mat of type float with dimensions&lt;/span&gt;
+                    &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="nv"&gt;x&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
 
-// Filling up data in array by taking values from user
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Filling&lt;/span&gt; &lt;span class="nv"&gt;up&lt;/span&gt; &lt;span class="nv"&gt;data&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;array&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;taking&lt;/span&gt; &lt;span class="nv"&gt;values&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt;
 
-for( i = 0; i &amp;lt; 3; i++)
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; 3; i++)&lt;/span&gt;
 {
-  for( j = 0; j &amp;lt; 4; j++)
+  &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; j &amp;lt; 4; j++)&lt;/span&gt;
   {
-    for( k = 0; k &amp;lt; 5; k++)
+    &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;k&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; k &amp;lt; 5; k++)&lt;/span&gt;
     {
-      //Taking input from user here corresponding to each dimension
-      scanf(&amp;quot;%f&amp;quot;,&amp;amp;mat[i][j][k]);
+      &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Taking&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;here&lt;/span&gt; &lt;span class="nv"&gt;corresponding&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;each&lt;/span&gt; &lt;span class="nv"&gt;dimension&lt;/span&gt;
+      &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;mat&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;][&lt;span class="nv"&gt;j&lt;/span&gt;][&lt;span class="nv"&gt;k&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
   }
 }
@@ -209,18 +266,18 @@ for( i = 0; i &amp;lt; 3; i++)
 &lt;p&gt;Similarly, just increase the number of loops depending on the dimensions. Thus, if you have created an N dimension array, it would take N loops to fill it.&lt;/p&gt;
 &lt;p&gt;&lt;p #multidimensional_output&gt;&lt;/p&gt;&lt;strong&gt;Traversing and Output of a  Multidimensional Array:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;In the same way as explained above, you can print a multidimensional array by iterating through it using the same no. of loops as the dimension of the array as:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;// This snippet assumes that we&amp;#39;ve declared and filled up the array as shown // above.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;snippet&lt;/span&gt; &lt;span class="nv"&gt;assumes&lt;/span&gt; &lt;span class="nv"&gt;that&lt;/span&gt; &lt;span class="nv"&gt;we&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;ve declared and filled up the array as shown // above.&lt;/span&gt;
 
-// Traversing and output
+&lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Traversing&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;output&lt;/span&gt;
 
-for( i = 0; i &amp;lt; 3; i++)
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; i &amp;lt; 3; i++)&lt;/span&gt;
 {
-  for( j = 0; j &amp;lt; 4; j++)
+  &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;j&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; j &amp;lt; 4; j++)&lt;/span&gt;
   {
-    for( k = 0; k &amp;lt; 5; k++)
+    &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;k&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;; k &amp;lt; 5; k++)&lt;/span&gt;
     {
-      //Taking input from user here corresponding to each dimension
-      printf(&amp;quot;%f&amp;quot;,mat[i][j][k]);
+      &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Taking&lt;/span&gt; &lt;span class="nv"&gt;input&lt;/span&gt; &lt;span class="nv"&gt;from&lt;/span&gt; &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="nv"&gt;here&lt;/span&gt; &lt;span class="nv"&gt;corresponding&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;each&lt;/span&gt; &lt;span class="nv"&gt;dimension&lt;/span&gt;
+      &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;mat&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;][&lt;span class="nv"&gt;j&lt;/span&gt;][&lt;span class="nv"&gt;k&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
   }
 }
@@ -231,27 +288,27 @@ for( i = 0; i &amp;lt; 3; i++)
 &lt;p&gt;Have any doubts? Just leave a comment below or give me a shout on twitter \@ErSanyamKhurana&lt;/p&gt;</content><category term="2D"></category><category term="arrays"></category><category term="multidimensional"></category></entry><entry><title>Learning About 1 Dimensional Arrays (1 D Arrays)</title><link href="//thegeekyway.com/learning-1-dimensional-arrays/" rel="alternate"></link><published>2014-07-12T02:55:00+05:30</published><updated>2014-07-12T02:55:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2014-07-12:/learning-1-dimensional-arrays/</id><summary type="html">&lt;p&gt;You may have heard of arrays or "tuples" before, if you've learnt any programming language. If not, then don't worry, you'll learn everything about them in this tutorial and how are they used in C to handle &lt;strong&gt;large amounts of data of same data type&lt;/strong&gt; effectively and easily. So, let's …&lt;/p&gt;</summary><content type="html">&lt;p&gt;You may have heard of arrays or "tuples" before, if you've learnt any programming language. If not, then don't worry, you'll learn everything about them in this tutorial and how are they used in C to handle &lt;strong&gt;large amounts of data of same data type&lt;/strong&gt; effectively and easily. So, let's know about them. In this tutorial we'll learn about 1 Dimensional Arrays and in later tutorials we'll look at 2 Dimensional Arrays and Multidimensional arrays.&lt;/p&gt;
 &lt;h2 id="what-is-an-array" style="text-align: center;"&gt;&lt;strong&gt;What is an array?&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;An array can be defined as a way to store list of large no. of items of same data type in contiguous memory location&lt;/em&gt;. Whenever we need to store some information about the same data type, we use arrays. For instance, consider a case when you need to store roll numbers of all students in the class. One way to do this is, I can define separately variables for all roll numbers like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;...
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
 
-int rollno1 = 1;
-int rollno2 = 2;
-int rollno3 = 3;
-int rollno4 = 4;
-.
-.
-.
-.
-.
-.
-.
-.
-.
-int rollnon = n; //Here n is the last roll number
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollno1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollno2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollno3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollno4&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollnon&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;Here&lt;/span&gt; &lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;last&lt;/span&gt; &lt;span class="n"&gt;roll&lt;/span&gt; &lt;span class="nb"&gt;number&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Surely, this would be an inefficient approach, and thus, a better way to do this is would be through arrays like this:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[n]; //Here n is the total number of students for which roll numbers are to be stored.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;rollno&lt;/span&gt;[&lt;span class="nv"&gt;n&lt;/span&gt;]&lt;span class="c1"&gt;; //Here n is the total number of students for which roll numbers are to be stored.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -262,19 +319,19 @@ int rollnon = n; //Here n is the last roll number
 &lt;/div&gt;
 &lt;h2 id="how-to-declare-a-1-dimensional-array" style="text-align: center;"&gt;How to declare a 1 Dimensional array?&lt;/h2&gt;
 &lt;p&gt;Now let us see how you can declare an array :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&amp;lt;data type&amp;gt; &amp;lt;array name&amp;gt;[&amp;lt;size of array&amp;gt;];
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;data&lt;/span&gt; &lt;span class="k"&gt;type&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nb"&gt;array&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;size&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="nb"&gt;array&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here data type is the actually the type of data of the elements you would store in your array, array name is simply the name you give to your array (similar to the name of a variable, in order to access it later), which would follow the general rules of naming a variable which we have discussed previously. After the name of the array, we would have a set of square brackets in which we would mention the size of the array.&lt;/p&gt;
 &lt;p&gt;Now, let's again quickly take a look at our rollno array :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[n];
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nc"&gt;int&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rollno&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Technically, before declaring this statement, you should first define the value of variable n, or else you'll face an error.&lt;/p&gt;
 &lt;p&gt;Here, n is just use to make you first comfortable with basic declaration of array. More sophisticatedly, you can simply use a definite value of n to define an array as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[60]; //Enough space to store roll no of 60 students
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;rollno&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;60&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;Enough&lt;/span&gt; &lt;span class="k"&gt;space&lt;/span&gt; &lt;span class="k"&gt;to&lt;/span&gt; &lt;span class="n"&gt;store&lt;/span&gt; &lt;span class="n"&gt;roll&lt;/span&gt; &lt;span class="k"&gt;no&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="mi"&gt;60&lt;/span&gt; &lt;span class="n"&gt;students&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -290,10 +347,10 @@ int rollnon = n; //Here n is the last roll number
 &lt;p&gt;Now let's see how to fill up the array:&lt;/p&gt;
 &lt;h2 id="putting-values-in-array" style="text-align: center;"&gt;Putting values in array&lt;/h2&gt;
 &lt;p&gt;Filling up an array is very simple using for loop, as we would see here :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int rollno[60]; //Declaring array with 60 elements storage space
-for(int i = 0;i &amp;lt; 60; i++)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;rollno&lt;/span&gt;[&lt;span class="mi"&gt;60&lt;/span&gt;]&lt;span class="c1"&gt;; //Declaring array with 60 elements storage space&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;i &amp;lt; 60; i++)&lt;/span&gt;
 {
-  scanf(&amp;quot;%d&amp;quot;,rollno[i]);  //Here value of i increments, and allow to store next input to the very next space till value of i = 60 where for loop terminates.
+  &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;rollno&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;  //Here value of i increments, and allow to store next input to the very next space till value of i = 60 where for loop terminates.&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -303,17 +360,17 @@ for(int i = 0;i &amp;lt; 60; i++)
 &lt;p&gt;&lt;strong&gt;NOTE&lt;/strong&gt; : Newbies mistake, assuming array to be start from 1. Remember, it would be started from 0.&lt;/p&gt;
 &lt;h2 id="printing-out-elements-of-array" style="text-align: center;"&gt;Printing out elements of Array&lt;/h2&gt;
 &lt;p&gt;Now, after filling up the array, let's see how we can access one particular element. For instance, let's say I need to look for roll no. of 11th student, so I know it would be stored as 10th element in memory (not 11th) as indices start from 0. So, let's print the value of 11th student.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;...
-printf(&amp;quot;%d&amp;quot;,rollno[10]);
-...
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;%d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="n"&gt;rollno&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;]);&lt;/span&gt;
+&lt;span class="p"&gt;...&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In case you want to print all values stored in the array, we simply apply a loop to loop through the all the values in the array from indices 0 to indices 59 (a total of 60 values in this case).&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;...
-for (int i = 0,i &amp;lt;= 59, i++)
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;,&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;59&lt;/span&gt;, &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-  printf(&amp;quot;%d&amp;quot;,rollno[i]);
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;rollno&lt;/span&gt;[&lt;span class="nv"&gt;i&lt;/span&gt;]&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 ...
 &lt;/pre&gt;&lt;/div&gt;
@@ -346,16 +403,16 @@ for (int i = 0,i &amp;lt;= 59, i++)
 &lt;/ul&gt;
 &lt;p&gt;Now, let's look at the syntax of each of these and how they can be used, in detail. To understand all these in a better way, let's consider a common and simple example to print numbers from 1 to let's say 500.&lt;/p&gt;
 &lt;p&gt;The most basic approach to carry out this task is to keep printing each line having different numbers from 1 to 500 which would look something like this :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-void main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  printf(&amp;quot;1 n&amp;quot;);
-  printf(&amp;quot;2 n&amp;quot;);
-  printf(&amp;quot;3 n&amp;quot;);
-  printf(&amp;quot;4 n&amp;quot;);
-  printf(&amp;quot;5 n&amp;quot;);
-  printf(&amp;quot;6 n&amp;quot;);
-  printf(&amp;quot;7 n&amp;quot;);
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;1 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;2 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;3 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;4 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;5 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;6 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;7 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   . 
   .
   .
@@ -363,26 +420,26 @@ void main()
   .
   .
   .
-  printf(&amp;quot;499 n&amp;quot;);
-  printf(&amp;quot;500 n&amp;quot;);
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;499 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;500 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now, let's try to improve upon this a little bit.&lt;br&gt;
 We can take a counter variable and after each step just update it's value, then it would be something like this :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-void main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  int counter = 1;
-  printf(&amp;quot;%d n&amp;quot;,counter);
-  counter++;
-  printf(&amp;quot;%d n&amp;quot;,counter);
-  counter++;
-  printf(&amp;quot;%d n&amp;quot;,counter);
-  counter++;
-  printf(&amp;quot;%d n&amp;quot;,counter);
-  counter++;
+  &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;counter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   .
   .
   .
@@ -390,8 +447,8 @@ void main()
   .
   .
   .
-  printf(&amp;quot;%d n&amp;quot;,counter);    /* Carry on this 
-  counter++;                      500 times   */
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;    /* Carry on this &lt;/span&gt;
+  &lt;span class="nv"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="c1"&gt;;                      500 times   */&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -412,7 +469,7 @@ void main()
 &lt;p&gt;&lt;p #for-loop&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;h3&gt;&lt;u&gt;&lt;strong&gt;Understanding and using for loop&lt;/strong&gt;&lt;/u&gt;&lt;/h3&gt;
 &lt;p&gt;* &lt;strong&gt;Syntax&lt;/strong&gt; :*&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for ( initialization ; test condition ; updation )
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;initialization&lt;/span&gt; &lt;span class="c1"&gt;; test condition ; updation )&lt;/span&gt;
 {
   .
   .
@@ -423,17 +480,17 @@ void main()
 
 &lt;p&gt;Now let's carry out the given task to print numbers from 1 to 500.&lt;/p&gt;
 &lt;p&gt;The for loop for this would be something like this, here we have a counter variable named i which would be incremented from 1 to 500.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for( i = 1 ; i&amp;lt;=500 ; i++ )
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="c1"&gt;; i&amp;lt;=500 ; i++ )&lt;/span&gt;
 {
-  printf(&amp;quot;%d n&amp;quot;, i );
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;We can also define the counter variable inside the loop, and then it would have&lt;a href="http://www.thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" title="What is scope and lifetime of a variable in C language"&gt;scope of the loop as explained in tutorial on Scope and lifetime of variables.&lt;/a&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;for(int i = 1 ; i&amp;lt;=500 ; i++ )
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="c1"&gt;; i&amp;lt;=500 ; i++ )&lt;/span&gt;
 {
-  printf(&amp;quot;%d n&amp;quot;, i );
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;, &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -445,22 +502,22 @@ void main()
 &lt;h3&gt;&lt;p #while-loop&gt;&lt;/p&gt;&lt;/h3&gt;
 &lt;h3&gt;&lt;u&gt;&lt;strong&gt;Understanding and Using while loop&lt;/strong&gt;&lt;/u&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;initialization
-while(test_condition)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;initialization&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;test_condition&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
- //all code
-  updation 
+ &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;all&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt;
+  &lt;span class="nv"&gt;updation&lt;/span&gt; 
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In while loop, initialization is done even before control enters the loop, as shown. Updation is done as the last statement of the loop and test condition is given as shown.&lt;/p&gt;
 &lt;p&gt;Now let us print the numbers from 1 to 500 using while loop.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int i = 1;
-while( i &amp;lt;= 500)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-  printf(&amp;quot;%d n&amp;quot;,i);
-  i++ ;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt; &lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -472,21 +529,21 @@ while( i &amp;lt;= 500)
 &lt;h3&gt;&lt;p #do-while-loop&gt;&lt;/p&gt;&lt;/h3&gt;
 &lt;h3&gt;&lt;u&gt;&lt;strong&gt;Understanding and Using do - while loop&lt;/strong&gt;&lt;/u&gt;&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;Syntax:&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;initialization
-do {
-  //executing statements
-  updation
-} while(test condition);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;initialization&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt; {
+  &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;executing&lt;/span&gt; &lt;span class="nv"&gt;statements&lt;/span&gt;
+  &lt;span class="nv"&gt;updation&lt;/span&gt;
+} &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;test&lt;/span&gt; &lt;span class="nv"&gt;condition&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;&lt;u&gt;Notice that in do while loop, we have a semi-colon at the end of while statement.&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;Let's now print the numbers from 1 to 500 using do while loop.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int i = 1;
-do {
-     printf(&amp;quot;%d n&amp;quot;,i);
-     i++;
-} while(i &amp;lt;= 500);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;do&lt;/span&gt; {
+     &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="nv"&gt;i&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+} &lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -515,10 +572,10 @@ do {
 &lt;p&gt;The default storage class of any variable is Automatic . It is created as soon as the declaration statement is encountered and is destroyed as soon as the program control leaves the block which contains your variable.&lt;/p&gt;
 &lt;p&gt;&lt;p style="font-family: comic sans ms,sans-serif;"&gt;&lt;em&gt;&lt;u&gt;Keyword used - auto&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;For example, here we define two variables, first, count, which is a local variable and second,  counter inside a block (local variable using auto class).&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
-  int count;
-  auto int counter;
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="k"&gt;count&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;auto&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -528,28 +585,28 @@ do {
 &lt;p&gt;&lt;p style="text-decoration: underline;"&gt; &lt;p style="font-family: comic sans ms,sans-serif;"&gt;Keyword used - extern&lt;/p&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;For example, let's have two files, first which would have our main function (main.c) and second one having a function named extern_storage (extern.c)&lt;/p&gt;
 &lt;p&gt;First file : main.c&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int counter = 1 ; // Global Variable
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;counter&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;Global&lt;/span&gt; &lt;span class="k"&gt;Variable&lt;/span&gt;
 
-void main()
-{
-  extern_storage();
-  counter++;
-  extern_storage();
-  counter--;
-  extern_storage();
-}
+&lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;extern_storage&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+  &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="o"&gt;++&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+  &lt;span class="n"&gt;extern_storage&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+  &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="c1"&gt;--;&lt;/span&gt;
+  &lt;span class="n"&gt;extern_storage&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Second file : extern.c&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void extern_storage(void);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;extern_storage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 
-extern int counter;
+&lt;span class="n"&gt;extern&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-void extern_storage(void)
-{
-   printf(&amp;quot;Current value of extern counter is %d n&amp;quot;, &amp;amp;counter);
-}
+&lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;extern_storage&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+   &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Current value of extern counter is %d n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;counter&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -566,9 +623,9 @@ void extern_storage(void)
 &lt;p&gt;&lt;u&gt;&lt;em&gt;&lt;strong&gt;NOTE:&lt;/strong&gt; register keyword doesn't guarantee that CPU Registers would be used every time, it depends on hardware and other restrictions that may be there.&lt;/em&gt;&lt;/u&gt;&lt;/p&gt;
 &lt;p&gt;The use of these registers facilitates faster accessing and helps in running programs faster. Thus variables that need quick access  like variables for storing counter values should be declared by using register keyword.&lt;/p&gt;
 &lt;p&gt;For example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;{
-  register int count;
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;register&lt;/span&gt; &lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="k"&gt;count&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -591,19 +648,19 @@ void extern_storage(void)
 &lt;/ul&gt;
 &lt;p&gt;Let's understand this with help of an example :&lt;/p&gt;
 &lt;p&gt;Consider this snippet of program :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int global = 100;          // global variable declared
-void main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;global&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="c1"&gt;;          // global variable declared&lt;/span&gt;
+&lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-   int local = 10;         // local variable declared
-   printf(&amp;quot;Global variable is %d&amp;quot;,global);
-   printf(&amp;quot;Local variable is %d&amp;quot;,local);
-   func1();
+   &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;local&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="c1"&gt;;         // local variable declared&lt;/span&gt;
+   &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Global variable is %d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;global&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Local variable is %d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;local&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;func1&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
 }
-void func1()
+&lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;func1&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-   printf(&amp;quot;Global inside func1 is %d&amp;quot;,global);  // Would print the global variable successfully.
+   &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Global inside func1 is %d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="nv"&gt;global&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;  // Would print the global variable successfully.&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -614,13 +671,13 @@ void func1()
 &lt;p&gt;&lt;p style="font-family: arial,helvetica,sans-serif;"&gt;Local variable is 10&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;&lt;p style="font-family: arial,helvetica,sans-serif;"&gt;Global inside func1 is 100&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;Let us consider the same program again but this time, let us change the definition of our function func1() as:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;void func1() 
-{ 
-   printf(&amp;quot;Global inside func1 is %d&amp;quot;,global); // Would print the global variable successfully. 
-   printf(&amp;quot;Local inside func1 is %d&amp;quot;, local); /* It would produce an error, because local
-                                                  is a local variable and can be accessed 
-                                                  only inside main function. */
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;func1&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+&lt;span class="err"&gt;{&lt;/span&gt; 
+   &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Global inside func1 is %d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="k"&gt;global&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="n"&gt;Would&lt;/span&gt; &lt;span class="n"&gt;print&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;global&lt;/span&gt; &lt;span class="k"&gt;variable&lt;/span&gt; &lt;span class="n"&gt;successfully&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; 
+   &lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Local inside func1 is %d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="cm"&gt;/* It would produce an error, because local&lt;/span&gt;
+&lt;span class="cm"&gt;                                                  is a local variable and can be accessed &lt;/span&gt;
+&lt;span class="cm"&gt;                                                  only inside main function. */&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -632,81 +689,81 @@ void func1()
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"&gt;&lt;img alt="Conditional Statements : Switch Case C language" src="//thegeekyway.com/uploads/images/2014/02/SwitchCase1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The basic semantics of a switch block statement is as follows :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;switch(variable-name)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;switch&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;variable&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;name&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-    case 1:
+    &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;:
     .
-    break;
-    case 2:
+    &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;:
     .
-    break;
-    case 3:
+    &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;:
     .
-    break;
-    .
-    .
+    &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     .
     .
-    default:
     .
-    break;
+    .
+    &lt;span class="nv"&gt;default&lt;/span&gt;:
+    .
+    &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here variable-name corresponds to the variable you want to compare with a set of values and inside the curly braces we have defined cases such that if value of variable is 1 then the statement 1 and statement 2 would execute, for variable having value 2, statement 3 and 4 would execute and so on. If none of the cases are true, then statement n corresponding to default would execute.&lt;/p&gt;
 &lt;p&gt;Let us take an example and understand how it's done. Let us consider we need to just print what number it is if the number is less than or equal to 5 else print number is not 1, 2, 3, 4 or 5. We'll consider that user has input a number which is stored in variable named num. This can be done through if - else statements as we studied earlier like this :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(num == 1)
-   cout&amp;lt;&amp;lt;&amp;quot;Number is 1 n&amp;quot;;
-else if(num == 2)
-   cout&amp;lt;&amp;lt;&amp;quot;Number is 2 n&amp;quot;;
-else if(num == 3)
-   cout&amp;lt;&amp;lt;&amp;quot;Number is 3 n&amp;quot;;
-else if(num == 4)
-   cout&amp;lt;&amp;lt;&amp;quot;Number is 4 n&amp;quot;;
-else if(num == 5)
-   cout&amp;lt;&amp;lt;&amp;quot;Number is 5 n&amp;quot;;
-else
-   cout&amp;lt;&amp;lt;&amp;quot;Number is not 1, 2, 3, 4 or 5 n&amp;quot;;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+   &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 1 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+   &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 2 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+   &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 3 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+   &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 4 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+   &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 5 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;
+   &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is not 1, 2, 3, 4 or 5 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now in the above case, since we need to compare just one variable with a set of values, this can be done easily through switch case as follows:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;switch ( num )
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;switch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;
 {
-   case 1 : cout&amp;lt;&amp;lt;&amp;quot;Number is 1 n&amp;quot;;
-   break;
-   case 2 : cout&amp;lt;&amp;lt;&amp;quot;Number is 2 n&amp;quot;;
-   break;
-   case 3 : cout&amp;lt;&amp;lt;&amp;quot;Number is 3 n&amp;quot;;
-   break;
-   case 4 : cout&amp;lt;&amp;lt;&amp;quot;Number is 4 n&amp;quot;;
-   break;
-   case 5 : cout&amp;lt;&amp;lt;&amp;quot;Number is 5 n&amp;quot;;
-   break;
-   default : cout&amp;lt;&amp;lt;&amp;quot;Number is not 1, 2, 3, 4 or 5 n&amp;quot;;
-   break;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 1 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 2 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 3 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 4 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 5 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;default&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is not 1, 2, 3, 4 or 5 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Notice here that I have mentioned break statement after each case , this is to terminate the the case above it if it's executed. Let's see if we didn't include break what would happen, so consider this code snippet.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  int num;
-  cout&amp;lt;&amp;lt;&amp;quot;Enter a number &amp;quot;;
-  cin&amp;gt;&amp;gt;num;
-  switch ( num )
+  &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Enter a number &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;cin&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;gt;&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;switch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;
   {
-     case 1 : cout&amp;lt;&amp;lt;&amp;quot;Number is 1 n&amp;quot;;
-     case 2 : cout&amp;lt;&amp;lt;&amp;quot;Number is 2 n&amp;quot;;
-     case 3 : cout&amp;lt;&amp;lt;&amp;quot;Number is 3 n&amp;quot;;
-     case 4 : cout&amp;lt;&amp;lt;&amp;quot;Number is 4 n&amp;quot;;
-     case 5 : cout&amp;lt;&amp;lt;&amp;quot;Number is 5 n&amp;quot;;
-     default : cout&amp;lt;&amp;lt;&amp;quot;Number is not 1, 2, 3, 4 or 5 n&amp;quot;;
+     &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 1 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 2 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 3 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 4 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is 5 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="nv"&gt;default&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number is not 1, 2, 3, 4 or 5 n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-return 0;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -718,16 +775,16 @@ return 0;
 &lt;p&gt;See, we not only got Number is 2 statement printed, but got all statements printed after that case, in a sequential manner, this is because in a switch condition we need to have conditional flow of statement using break statement.&lt;/p&gt;
 &lt;p&gt;Now, if you include break after each case but doesn't do it with default case, it would run fine too, this is because if the default case is true, then after executing set of statements with that case, the control would automatically be out of the switch block, so technically we do not need break after default case.&lt;/p&gt;
 &lt;p&gt;Now let's see how to match a character type variable. Consider a character (char) type variable named character_variable , and if we need to use switch, it can be done in this way:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;switch ( character_variable )
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;switch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt; &lt;span class="nv"&gt;character_variable&lt;/span&gt; &lt;span class="ss"&gt;)&lt;/span&gt;
 {
-   case &amp;#39;a&amp;#39; : cout&amp;lt;&amp;lt;&amp;quot;Case a executed n&amp;quot;;
-     break;
-   case &amp;#39;b&amp;#39; : cout&amp;lt;&amp;lt;&amp;quot;Case b executed n&amp;quot;;
-     break;
-   case &amp;#39;c&amp;#39; : cout&amp;lt;&amp;lt;&amp;quot;Case c executed n&amp;quot;;
-     break;
-   default : cout&amp;lt;&amp;lt;&amp;quot;This is default case n&amp;quot;;
-     break;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;a&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Case a executed n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;b&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Case b executed n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;case&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;c&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Case c executed n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+   &lt;span class="nv"&gt;default&lt;/span&gt; : &lt;span class="nv"&gt;cout&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;This is default case n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+     &lt;span class="k"&gt;break&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -743,100 +800,100 @@ return 0;
 &lt;/div&gt;
 &lt;p&gt;To make the control of the program use conditional flow we need to use conditional statements, as the name suggests, this type of flow of control depends upon a particular condition ie either if it is true or it is false etc.&lt;/p&gt;
 &lt;p&gt;We'll first look at an if statement by considering this example :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  int num;
-  printf(&amp;quot;Enter a number n&amp;quot;);
-  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
-  if(num == 5)
+  &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Enter a number n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
   {
-     printf(&amp;quot;Number entered is 5&amp;quot;);
+     &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is 5&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-  return 0;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The above program would simply accept a value from user, and if the value entered is equal to 5 ie of course 5, then we would get a message printed on console "Number entered is 5" , if value entered is not 5, nothing would happen.&lt;/p&gt;
 &lt;p&gt;Note: whenever you write an if statement, you should have an opening and closing parenthesis as shown (in case you need to have multiple statements to be executed for an if statement) else, the program with just single statement in if block should not necessarily consist a block, so the above program would work if&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(num == 5)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 {
-   printf(&amp;quot;Number entered is 5&amp;quot;);
+   &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is 5&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;is written as&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if(num == 5)
-  printf(&amp;quot;Number entered is 5&amp;quot;);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is 5&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So, we just instructed the computer to print a message, if a given condition happens to be true (which is entered value is 5 in this case).&lt;/p&gt;
 &lt;p&gt;Now, consider, we wanted program to print a message if the value entered is not 5, ie, if value entered is 5, it would print the message "Number entered is 5" otherwise, it would print "Number entered is not 5" . Let's see how this can be done with the help of if-else&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  int num;
-  printf(&amp;quot;Enter a number n&amp;quot;);
-  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
-  if(num == 5)
+  &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Enter a number n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
   {
-    printf(&amp;quot;Number entered is 5&amp;quot;);
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is 5&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-  else
+  &lt;span class="k"&gt;else&lt;/span&gt;
   {
-    printf(&amp;quot;Number entered is not 5&amp;quot;);
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is not 5&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-  return 0;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Let's say if we need to print message for if a number is 2, it should print "Number entered is 2" , if it's 5, it should print "Number entered is 5" otherwise, it should print "Number is neither 2 nor 5. Let's see how it can be done with if-else statements&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  int num;
-  printf(&amp;quot;Enter a number n&amp;quot;);
-  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
-  if(num == 5)
+  &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Enter a number n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
   {
-    printf(&amp;quot;Number entered is 5&amp;quot;);
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is 5&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-  else if(num == 2)
+  &lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
   {
-    printf(&amp;quot;Number entered is 2&amp;quot;);
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is 2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-  else
+  &lt;span class="k"&gt;else&lt;/span&gt;
   {
-    printf(&amp;quot;Number entered is not 5&amp;quot;);
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is not 5&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-  return 0;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The above program could include any no of if - else if - else statements (which means no. of else if statements in between if and else can be increased )&lt;/p&gt;
 &lt;p&gt;To understand nested if-else let's see the following program:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  int num;
-  printf(&amp;quot;Enter a number n&amp;quot;);
-  scanf(&amp;quot;%d&amp;quot;,&amp;amp;num);
-  if(num % 2 == 0)
+  &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Enter a number n&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;%d&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;,&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
   {
-    printf(&amp;quot;Number entered is even&amp;quot;);
-    if(num == 2)
-      printf(&amp;quot;Number entered is 2&amp;quot;);
-    else
-      printf(&amp;quot;Number entered is not 2&amp;quot;);
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is even&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;num&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+      &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is 2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;else&lt;/span&gt;
+      &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is not 2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
   }
-  else
-    printf(&amp;quot;Number entered is not even&amp;quot;);
-  return 0;
+  &lt;span class="k"&gt;else&lt;/span&gt;
+    &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Number entered is not even&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -858,8 +915,8 @@ int main()
 &lt;li&gt;Miscellaneous Operators&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Now we’ll discuss about each category one by one, let us assume that we have declared two variables num1 and num2 and initialized them as shown below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int num1 = 3;
-int num2 = 6;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -871,31 +928,31 @@ int num2 = 6;
 &lt;p&gt;&lt;strong&gt;Arithmetic Operators&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;They are binary operators used to do arithmetic operations like addition , subtraction , multiplication , division etc.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt;+ used for addition&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num1 + num2;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This would add the two values ie 5 and 6 and store the result to variable res which is 9 in this case.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt;- used for subtraction&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num2 - num1;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This would subtract num1 from num2 and then store the result in variable res which is 3 in this case.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt;* used for multiplication&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num1 * num2;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt; &lt;span class="o"&gt;*&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This would multiply num1 and num2 and store the result in variable res which is 18 in this case.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt; / used for division&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num2 / num1;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This would divide the two values ie num2 by num1 and then store the result in variable res which is 2 in this case.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt;% (modulus operator )&lt;/u&gt;&lt;/em&gt; like&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;res = num2 % num1;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;res&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;num2&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt; &lt;span class="n"&gt;num1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -918,7 +975,7 @@ int num2 = 6;
 &lt;p&gt;Again, they would be better understood when we'll discuss about Conditional Statements and Loops, so we'll discuss them in the upcoming tutorials, just remember the types of operators for now.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Assignment Operator:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;They are used to assign values to a variables, we are already using this operator since we studied about assigning a value to our variables, so consider the following :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int num = 5;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -926,11 +983,11 @@ int num2 = 6;
 &lt;p&gt;&lt;strong&gt;Miscellaneous Operators&lt;/strong&gt;:&lt;/p&gt;
 &lt;p&gt;There are other operators too, but we have covered the most important operators here.&lt;/p&gt;
 &lt;p&gt;Unary + and Unary - are some of the operators you would see often. As the name suggests they operate on only one operand. To understand what they do, consider the following code snippet :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int num = 5;
-num = (+num);
-printf(&amp;quot;Value of num after Unary + is %d n&amp;quot;,&amp;amp;num);
-num = -num;
-printf(&amp;quot;Value of num after Unary - is %d&amp;quot;,&amp;amp;num);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Value of num after Unary + is %d n&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;num&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Value of num after Unary - is %d&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;num&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -949,41 +1006,41 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;p&gt;Welcome to your next tutorial on the Learn C language, here we'll have a deeper look at the use of variables in C language. In previous &lt;a href="http://www.thegeekyway.com/variables-in-c/" title="Learning about Variables in C"&gt;tutorial about variables in C&lt;/a&gt;, we defined a variable sam of integer type and then initialized it with a value (10), this can be done in simpler manner in just one line. If you haven't read the previous tutorial, then please read it first, and you can read the &lt;a href="http://www.thegeekyway.com/category/programming/c/"&gt;Learn C tutorial Series&lt;/a&gt; .&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Declaration and Initialization together :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;So, we'll have a look at how to do this :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int sam = 10;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;In the above statement, I have declared my integer type variable named sam, and then initialised it with a value.&lt;/p&gt;
 &lt;p&gt;So, I had two options, one to do something like mentioned above, or have declaration in one line and initialization in other as :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int sam;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-sam = 10;
+&lt;span class="n"&gt;sam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now, we'll see how to take values from our user&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Accepting values from user :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;We can store values in our variables depending on choice of end user. This is done through a function know as scanf() and is defined under header file stdio.h (Standard Input/Output). We first define a variable named value.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int value;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now, we'll accept input form user as :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;scanf(“%d”, &amp;amp;value);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;scanf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Note : scanf() function is somewhat like printf function defined before, but with the function name it's necessary to have ampersand (&amp;amp;) before variable name. This operator is used for reference, in simple terms, this helps in passing the address of memory location that is reserved for our new variable. We'll discuss about these things in detail in later tutorial, till now, just see it's done in this way.&lt;/p&gt;
 &lt;p&gt;Note: scanf() function should always contain ampersand before your variable name.&lt;/p&gt;
 &lt;p&gt;Now, we'll write a program here which will accept an input from user and then print the same on the screen.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-  int value;
-  printf(“Enter value : “);
-  scanf(“%d” , &amp;amp;value);
-  printf(“Value entered is %d”,value);
-  return 0;
+  &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;“&lt;span class="nv"&gt;Enter&lt;/span&gt; &lt;span class="nv"&gt;value&lt;/span&gt; : “&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;scanf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;“&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt;” , &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;“&lt;span class="nv"&gt;Value&lt;/span&gt; &lt;span class="nv"&gt;entered&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt;”,&lt;span class="nv"&gt;value&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -997,16 +1054,16 @@ int main()
 &lt;p&gt;&lt;strong&gt;Accepting user Input and displaying output for variables of different data types :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Now, we'll see how you can accept and return different types of variables :&lt;/p&gt;
 &lt;p&gt;For character type variable , you can do as :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;char ch;
-scanf(“%c” , &amp;amp;ch);
-printf(“%c”, ch);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;char&lt;/span&gt; &lt;span class="n"&gt;ch&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;scanf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt; &lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;ch&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="k"&gt;c&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;ch&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;For float type variable, you can do as :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;float fvar;
-scanf(“%f”, &amp;amp;fvar);
-printf(“%f”, fvar);
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;float&lt;/span&gt; &lt;span class="n"&gt;fvar&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;scanf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&lt;/span&gt;&lt;span class="n"&gt;fvar&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="err"&gt;“&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="err"&gt;”&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;fvar&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1035,31 +1092,31 @@ printf(“%f”, fvar);
 &lt;p&gt;etc.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Defining a Variable&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;The following syntax should be used while defining variable in C :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;data_type variable_name;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;data_type&lt;/span&gt; &lt;span class="n"&gt;variable_name&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here, data_type is the type of data which variable shall hold, and variable_name is any legal name you may give to the variable to access the information stored in it.&lt;/p&gt;
 &lt;p&gt;Now, we'll define a variable of type integer.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int sam;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nb"&gt;int&lt;/span&gt; &lt;span class="n"&gt;sam&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Here, we have defined a variable named sam which is capable of holding any integer type value.&lt;br&gt;
 Now, we'll assign a value to this variable with assignment operator (=)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sam = 10;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now, our variable sam contains value 10.&lt;/p&gt;
 &lt;p&gt;Now, we'll see it in the entire program and output the value of variable.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-int sam;
-sam = 10;
-printf(“Value of sam is %d”, sam);
-return 0;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;sam&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;sam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;“&lt;span class="nv"&gt;Value&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;sam&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt;”, &lt;span class="nv"&gt;sam&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1077,13 +1134,13 @@ return 0;
 etc.&lt;/p&gt;
 &lt;p&gt;Observe, that in printf() function, we have used , and the variable name, and when this program is compiled and executed, we get the  output , such that it prints Value of sam is 10 , the %d is now replaced by the value stored in our variable sam. This is because, %d was an instruction for the compiler so that it knows what type of value is coming in, so wherever you place this %d, and output an integer value, it would be replaced by value of that variable.&lt;/p&gt;
 &lt;p&gt;For example, see the following code snippet :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
-int main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-int sam;
-sam = 10;
-printf(“ Value stored is %d in variable sam” , sam);
-return 0;
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;sam&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;sam&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;“ &lt;span class="nv"&gt;Value&lt;/span&gt; &lt;span class="nv"&gt;stored&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="nv"&gt;d&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;variable&lt;/span&gt; &lt;span class="nv"&gt;sam&lt;/span&gt;” , &lt;span class="nv"&gt;sam&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1109,14 +1166,14 @@ return 0;
 &lt;p&gt;&lt;strong&gt;Remember :&lt;/strong&gt; C# is a case sensitive language. So everything should be same while writing the below code, any syntactical changes will bring down an error in compiling.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;So here is the following C# code (don't worry the code will be explained in detail in next tutorial, for now we just focus on how to compile and run a c# code in command prompt)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;public class TheGeekyWay
-{
-      public static void Main()
-      {
-           System.Console.WriteLine(&amp;quot;Welcome to TheGeekyWay.com&amp;quot;);
-           System.Console.ReadLine();
-      }
-}
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;class&lt;/span&gt; &lt;span class="n"&gt;TheGeekyWay&lt;/span&gt;
+&lt;span class="err"&gt;{&lt;/span&gt;
+      &lt;span class="k"&gt;public&lt;/span&gt; &lt;span class="k"&gt;static&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+      &lt;span class="err"&gt;{&lt;/span&gt;
+           &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;WriteLine&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Welcome to TheGeekyWay.com&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+           &lt;span class="k"&gt;System&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Console&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;ReadLine&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+      &lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1126,12 +1183,12 @@ return 0;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/CTUT1.1.png" title="C# Tutorial : To run C# programme using Notepad (Image 1)"&gt;&lt;img alt="C# Tutorial : To run C# programme using Notepad Image 1" src="//thegeekyway.com/uploads/images/2013/12/CTUT1.1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;now next step is to go in the directory of your latest .NET version, for me its v4.0.30319, so we use the following command line to go in the latest .NET folder directory.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd v4.0.30319
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="n"&gt;v4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;30319&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;you can also visit the following code to view all the help related to C# compiler, remember to type the code in v4.0.30319 directory (or whatever your latest version of .NET compiler is).&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;csc help
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;csc&lt;/span&gt; &lt;span class="n"&gt;help&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -1182,11 +1239,11 @@ If you're on Linux you'll probably already have gcc compiler installed. To check
 &lt;/div&gt;
 &lt;p&gt;Much of theory, isn't it? Ok, let's get started with some code.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;First C Program&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 
-int main()
+&lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
 {
-printf(&amp;quot;Hello World&amp;quot;);
+&lt;span class="nv"&gt;printf&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Hello World&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -1195,19 +1252,19 @@ printf(&amp;quot;Hello World&amp;quot;);
 &lt;p&gt;If you need help in compilation and execution, wait for one more tutorial.&lt;/p&gt;
 &lt;p&gt;Now, we'll just break down each and every part of the program and analyse it.&lt;br&gt;
 ``&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#include&amp;lt;stdio.h&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;#&lt;span class="k"&gt;include&lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;stdio&lt;/span&gt;.&lt;span class="nv"&gt;h&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;``In this command, we ask the compiler to include a file (known as header file) which contains some pre defined fuctions which are needed to run the program.&lt;br&gt;
 We, request to add file stdio which is Standard Input/Output console file, as we need to display the print on the output console.&lt;br&gt;
 "#" (hash/pound) symbol here represents the pre-processor directive ie command started with a # sign goes to the pre-processor, means these statements are carried out first, before the program goes for compilation.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;main()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This is a function in programming language, they are just meant to divide the program into modules. The main function of any program is of uttermost importance, as the program execution starts from main function.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;printf()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;printf&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

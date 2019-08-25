@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - GraphQL</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/graphql.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-12T12:00:00+05:30</updated><entry><title>Hail GraphQL</title><link href="//thegeekyway.com/hail-graphql/" rel="alternate"></link><published>2019-08-12T12:00:00+05:30</published><updated>2019-08-12T12:00:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2019-08-12:/hail-graphql/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="GraphQL Logo" src="//thegeekyway.com/uploads/images/2019/08/graphql-logo.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We start with basics, but then we've to upgrade. But why? Because the latest solution to the old problem is more elegant and much faster! To me, it happened to be GraphQL. It's a query language that follows you. The mantra? The structure remains the same. Let's see how we …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="GraphQL Logo" src="//thegeekyway.com/uploads/images/2019/08/graphql-logo.png"&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;p&gt;We start with basics, but then we've to upgrade. But why? Because the latest solution to the old problem is more elegant and much faster! To me, it happened to be GraphQL. It's a query language that follows you. The mantra? The structure remains the same. Let's see how we can get started with GraphQL using GitHub's API as an example.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2&gt;Background&lt;/h2&gt;
+&lt;p&gt;I was working on &lt;a href="https://github.com/CuriousLearner/CPython-Pull-Requests"&gt;CPython-Pull-Requests&lt;/a&gt;, which queries GitHub to show files and a list of PRs opened against them. (Want to check it out? &lt;a href="https://cpython-pulls.herokuapp.com/"&gt;Go here&lt;/a&gt;)
+Previous work by &lt;a href="https://github.com/csabella"&gt;Cheryl Sabella&lt;/a&gt; was awesome. But it could do with a few touchups. Which &lt;a href="https://github.com/CuriousLearner/"&gt;CuriousLearner&lt;/a&gt; and &lt;a href="https://github.com/storymode7/"&gt;me&lt;/a&gt; and &lt;a href="https://github.com/geekyshacklebolt"&gt;GeekyShacklebolt&lt;/a&gt; did.
+The previous version had one big drawback. It took ~10 minutes to get all the relevant data from GitHub.
+That was because GitHub's REST API got much more data than what we required. Then we were advised to use GraphQL. 
+And guess what? The query takes ~27 Seconds now!&lt;/p&gt;
+&lt;h2&gt;What is GraphQL&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://graphql.org/"&gt;GraphQL&lt;/a&gt; is a Query Language (The QL in GraphQL) and is used to fetch data from servers. But what makes it different is how you query the server. Your query has the same structure as that of your required response. And due to this you only get what you ask. Nothing extra.&lt;/p&gt;
+&lt;h2&gt;GitHub terminologies&lt;/h2&gt;
+&lt;h3&gt;Object&lt;/h3&gt;
+&lt;p&gt;Object means resources that you can access. An object has related connections. The connections have multiple edges all reaching to a different node. Examples of objects are repositories, issues, gists, blames, etc.
+Complete list: &lt;a href="https://developer.github.com/v4/object/"&gt;https://developer.github.com/v4/object/&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Connection&lt;/h3&gt;
+&lt;p&gt;Connection allows you to query for related objects. Like &lt;a href="https://developer.github.com/v4/object/repository/"&gt;here&lt;/a&gt; you can see a list of connections available under the repository object.&lt;/p&gt;
+&lt;h3&gt;Edge&lt;/h3&gt;
+&lt;p&gt;A link between nodes. You need to go through an edge to a node. But since an edge will always take you to a node so you don't need to specify edge in your query. Though providing edge isn't wrong. It clarifies the meaning. But since it's obvious, it's optional.
+Like&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;edge&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;node&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;stuff&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Example: &lt;a href="https://developer.github.com/v4/object/repositoryedge/"&gt;RepositoryEdge&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Nodes&lt;/h3&gt;
+&lt;p&gt;Objects, node, and fields are sometimes used interchangeably. But what helps me clarify node is that &lt;code&gt;node&lt;/code&gt; is the final part of your query that returns some scalar(A value with the base data type. Like Int, String, Boolean). Each node should return a scalar. If it does not, you have to include subfields until they return scalars.
+In a node, you can specify what fields you require. Remember that the final field that is returned inside a node should be a scalar.&lt;/p&gt;
+&lt;p&gt;NOTE: To find various fields, connections, nodes you can refer here &lt;a href="https://developer.github.com/v4/query/"&gt;https://developer.github.com/v4/query/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;Enough talk. Let's get started!&lt;/h2&gt;
+&lt;p&gt;What better way to understand something new than to see it work, play with it. Let's take the one I used (GitHub).
+You can use &lt;a href="https://developer.github.com/v4/explorer/"&gt;GitHub's explorer&lt;/a&gt; to test queries straight away. But it asks a &lt;em&gt;LOT&lt;/em&gt; of permissions to support every type of query.
+Another way is to make a smaller version yourself. With fewer permissions. Here's a short version that I wrote. For this, you just need an authentication token generated at https://github.com/settings/tokens with no scopes other than default scopes. i.e you don't need to select any option from the list of scopes provided in settings.&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/files/graphql-without-pagination.py"&gt;Minimal Explorer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;This is the minimal explorer that I wrote. But since we're not taking loads of permissions, we're a little limited. But for getting started, it's enough (Not only getting started, but for getting big too. CPython-Pull-Requests uses only default scopes, no additional scopes.)&lt;/p&gt;
+&lt;p&gt;So here's our first query. &lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;viewer&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;login&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;viewer&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;login&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;storymode7&amp;quot;&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(See the similarity? The "data" provided in the response to our query has &lt;em&gt;exactly&lt;/em&gt; the same structure.)
+Viewer is a &lt;a href="https://developer.github.com/v4/object/user/"&gt;User object&lt;/a&gt;. There is also a &lt;code&gt;user&lt;/code&gt; field. The difference of &lt;code&gt;viewer&lt;/code&gt; from &lt;code&gt;user&lt;/code&gt; field is that viewer represents the currently authenticated user. Whereas &lt;code&gt;user&lt;/code&gt; is used to lookup a user from their login. So, in this case, the response was the login of the currently authenticated user(storymode7).&lt;/p&gt;
+&lt;p&gt;You can also prepend &lt;code&gt;query&lt;/code&gt; before your query. It is useful if you need to pass some parameters to your query.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;query&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;rateLimit&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;limit&lt;/span&gt;
+    &lt;span class="nx"&gt;remaining&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;rateLimit&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;limit&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5000&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;remaining&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;5000&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;&lt;a href="https://developer.github.com/v4/object/ratelimit/"&gt;RateLimit object&lt;/a&gt;. It contains fields related to the rate limit info of currently logged in client.&lt;/p&gt;
+&lt;h2&gt;Using variables in your query&lt;/h2&gt;
+&lt;p&gt;Like in a programming language, you can use variable to make query easy to modify. Like if you want to change the number of results returned by a query, you don't need to change your &lt;code&gt;query&lt;/code&gt; every time. You can just change the relevant variable without touching the query at all.
+To use variables you need to define the variable type when you write your query.
+While using variables, keeping this in mind helps: You can use a &lt;code&gt;field&lt;/code&gt; in an &lt;code&gt;object&lt;/code&gt; as a parameter. You can also list these fields under nodes to display them.
+Variables are prefixed with a &lt;code&gt;$&lt;/code&gt; sign wherever they are in a query. And enclosed in &lt;code&gt;""&lt;/code&gt; within &lt;code&gt;variables&lt;/code&gt;.
+Example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;query&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;$user_name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="nb"&gt;String&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;user&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;login&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;$user_name&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;repositories&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="nx"&gt;nodes&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;name&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;user_name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;storymode7&amp;quot;&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Executing this query in GitHub explorer: Paste the variables part (The last part with "user_name") under QUERY VARIABLES
+Executing this query in my minimal explorer: Paste the variables part (The last part with "user_name") under &lt;code&gt;variables&lt;/code&gt;. So that it looks like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;variables&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class="se"&gt;\&lt;/span&gt;
+&lt;span class="s1"&gt;{&lt;/span&gt;
+&lt;span class="s1"&gt;  &amp;quot;user_name&amp;quot;: &amp;quot;storymode7&amp;quot;&lt;/span&gt;
+&lt;span class="s1"&gt;}&lt;/span&gt;
+&lt;span class="s1"&gt;&amp;#39;&amp;#39;&amp;#39;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;user&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;repositories&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;nodes&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;
+          &lt;span class="p"&gt;{&lt;/span&gt;
+            &lt;span class="s2"&gt;&amp;quot;name&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;django-init&amp;quot;&lt;/span&gt;
+          &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="p"&gt;]&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Look closely on this line:
+&lt;code&gt;query($user_name:String!) {&lt;/code&gt;
+This is to make sure that nullability matches. I.E if the field requires a variable (If they are required, the type has a &lt;code&gt;!&lt;/code&gt; in end). Then your variable definition should specify the variable as compulsory too! Lookup &lt;code&gt;login&lt;/code&gt; field &lt;a href="https://developer.github.com/v4/object/user/#fields"&gt;here&lt;/a&gt;, and you'll notice it's defined as: &lt;code&gt;login (String!)&lt;/code&gt;&lt;/p&gt;
+&lt;h2&gt;Pagination&lt;/h2&gt;
+&lt;p&gt;A query can not list more than hundred resources in one request. For example:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;query&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;repository&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;owner&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;python&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cpython&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;pullRequests&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;states&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;OPEN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;101&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="nx"&gt;nodes&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;title&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;Requesting&lt;/span&gt; &lt;span class="mi"&gt;101&lt;/span&gt; &lt;span class="n"&gt;records&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="ss"&gt;`pullRequests`&lt;/span&gt; &lt;span class="n"&gt;connection&lt;/span&gt; &lt;span class="n"&gt;exceeds&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="ss"&gt;`first`&lt;/span&gt; &lt;span class="k"&gt;limit&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="mi"&gt;100&lt;/span&gt; &lt;span class="n"&gt;records&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;This is where we pagination comes. The use of variables, before &amp;amp; after fields, cursors, python all comes in together!
+Under a connection, you can see there's a pageInfo field. Example: &lt;a href="https://developer.github.com/v4/object/pullrequestconnection/"&gt;PullRequestConnection&lt;/a&gt;. &lt;/p&gt;
+&lt;p&gt;Since we're going to deal with paging forward, the fields of interest to us in &lt;a href="https://developer.github.com/v4/object/pageinfo/"&gt;pageInfo&lt;/a&gt; are: &lt;code&gt;endCursor&lt;/code&gt; &amp;amp; &lt;code&gt;hasNextPage&lt;/code&gt;.
+So, to get all the info we need to keep turning the page until we're on the last page. We can check if we're on the last page yet, by checking the value of &lt;code&gt;hasNextPage&lt;/code&gt; which is a &lt;code&gt;Boolean&lt;/code&gt;. If we have a next page available, we copy the &lt;code&gt;endCursor&lt;/code&gt; value and then we update the query for the next request with that &lt;code&gt;endCursor&lt;/code&gt; specified in the &lt;code&gt;after&lt;/code&gt; field. So now we only get details after those that were at the 'end' of the previous 'page'.
+In short, to paginate:
+* Check if &lt;code&gt;hasNextPage&lt;/code&gt; (if not then quit)
+* Copy &lt;code&gt;endCursor&lt;/code&gt;
+* Update the after field in query with &lt;code&gt;endCursor&lt;/code&gt;'s value
+* Send the query
+* Repeat&lt;/p&gt;
+&lt;p&gt;Let's see how these &lt;code&gt;endCursor&lt;/code&gt;, &lt;code&gt;hasNextPage&lt;/code&gt; etc look in the Response of a small query:&lt;/p&gt;
+&lt;p&gt;Query:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nx"&gt;query&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="nx"&gt;repository&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;owner&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;python&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;name&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;cpython&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="nx"&gt;pullRequests&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="nx"&gt;states&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="nx"&gt;OPEN&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="nx"&gt;first&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="nx"&gt;pageInfo&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="nx"&gt;endCursor&lt;/span&gt;
+          &lt;span class="nx"&gt;hasNextPage&lt;/span&gt;
+        &lt;span class="p"&gt;}&lt;/span&gt;
+        &lt;span class="nx"&gt;totalCount&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="s2"&gt;&amp;quot;data&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+    &lt;span class="s2"&gt;&amp;quot;repository&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+      &lt;span class="s2"&gt;&amp;quot;pullRequests&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;pageInfo&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+          &lt;span class="s2"&gt;&amp;quot;endCursor&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Y3Vyc29yOnYyOpHOBlW8Wg==&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
+          &lt;span class="s2"&gt;&amp;quot;hasNextPage&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="kc"&gt;true&lt;/span&gt;
+        &lt;span class="p"&gt;},&lt;/span&gt;
+        &lt;span class="s2"&gt;&amp;quot;totalCount&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;1048&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+  &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now here's an &lt;a href="//thegeekyway.com/uploads/files/graphql-with-pagination.py"&gt;example script&lt;/a&gt; with pagination. That will fetch titles of all PRs for "cpython" repo with owner "python".
+Since we're getting a list of all the nodes(PR titles), I am capturing node of every request and appending it to the previous node. 
+I'm not attaching the final node created by the accumulation of all other nodes back to the response because I've achieved what I wanted.
+Titles of all PRs opened in the "CPython" repo. 
+Also, since the printing of such a large amount of information is useless, I'm sharing a small snippet of output:&lt;/p&gt;
+&lt;p&gt;Output:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;4&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;7&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;8&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;9&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;10&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+&lt;span class="nv"&gt;Page&lt;/span&gt; &lt;span class="mi"&gt;11&lt;/span&gt; &lt;span class="nv"&gt;fetched&lt;/span&gt;
+[
+  {
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;title&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;bpo-29553: Fixed ArgumentParses format_usage for mutually exclusive groups&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  },
+  {
+    &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;title&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;: &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Alternarive for bpo-29553 - Fixed ArgumentParses format_usage for mutually exclusive groups&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+  },
+  {
+...
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Note: I'm only displaying the node part here since that is the focus of this query.&lt;/p&gt;
+&lt;h2&gt;Is this all?&lt;/h2&gt;
+&lt;p&gt;No! GraphQL has a lot of features. This post includes a few that I came across while working on CPython-Pull-Requests. There are a lot of things. Like mutations, that you can use to modify data. This is the part that would require some permissions and this is the reason why GitHub's explorer is so permission heavy. It supports every type of GraphQL query that you can do on GitHub, including mutations.
+There are more features that you can find out on &lt;a href="https://developer.github.com/v4/"&gt;GitHub's GraphQL API reference&lt;/a&gt;.&lt;/p&gt;</content><category term="Python"></category><category term="GitHub"></category></entry></feed>

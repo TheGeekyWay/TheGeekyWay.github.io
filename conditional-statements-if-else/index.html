@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="conditional, if-else, nested">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Understanding Conditional Statements: if else  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/conditional-statements-if-else/">Understanding Conditional Statements: if else</a></h1>
+    <h1><a href="//thegeekyway.com/conditional-statements-if-else/">Understanding Conditional Statements: if else</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -86,100 +89,100 @@
 </div>
 <p>To make the control of the program use conditional flow we need to use conditional statements, as the name suggests, this type of flow of control depends upon a particular condition ie either if it is true or it is false etc.</p>
 <p>We'll first look at an if statement by considering this example :-</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-int main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  int num;
-  printf(&quot;Enter a number n&quot;);
-  scanf(&quot;%d&quot;,&amp;num);
-  if(num == 5)
+  <span class="nv">int</span> <span class="nv">num</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Enter a number n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="o">&amp;</span><span class="nv">num</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">5</span><span class="ss">)</span>
   {
-     printf(&quot;Number entered is 5&quot;);
+     <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is 5</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   }
-  return 0;
+  <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>The above program would simply accept a value from user, and if the value entered is equal to 5 ie of course 5, then we would get a message printed on console "Number entered is 5" , if value entered is not 5, nothing would happen.</p>
 <p>Note: whenever you write an if statement, you should have an opening and closing parenthesis as shown (in case you need to have multiple statements to be executed for an if statement) else, the program with just single statement in if block should not necessarily consist a block, so the above program would work if</p>
-<div class="highlight"><pre><span></span>if(num == 5)
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">5</span><span class="ss">)</span>
 {
-   printf(&quot;Number entered is 5&quot;);
+   <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is 5</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>is written as</p>
-<div class="highlight"><pre><span></span>if(num == 5)
-  printf(&quot;Number entered is 5&quot;);
+<div class="highlight"><pre><span></span><span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">5</span><span class="ss">)</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is 5</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
 </pre></div>
 
 
 <p>So, we just instructed the computer to print a message, if a given condition happens to be true (which is entered value is 5 in this case).</p>
 <p>Now, consider, we wanted program to print a message if the value entered is not 5, ie, if value entered is 5, it would print the message "Number entered is 5" otherwise, it would print "Number entered is not 5" . Let's see how this can be done with the help of if-else</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-int main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  int num;
-  printf(&quot;Enter a number n&quot;);
-  scanf(&quot;%d&quot;,&amp;num);
-  if(num == 5)
+  <span class="nv">int</span> <span class="nv">num</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Enter a number n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="o">&amp;</span><span class="nv">num</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">5</span><span class="ss">)</span>
   {
-    printf(&quot;Number entered is 5&quot;);
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is 5</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   }
-  else
+  <span class="k">else</span>
   {
-    printf(&quot;Number entered is not 5&quot;);
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is not 5</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   }
-  return 0;
+  <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>Let's say if we need to print message for if a number is 2, it should print "Number entered is 2" , if it's 5, it should print "Number entered is 5" otherwise, it should print "Number is neither 2 nor 5. Let's see how it can be done with if-else statements</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-int main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  int num;
-  printf(&quot;Enter a number n&quot;);
-  scanf(&quot;%d&quot;,&amp;num);
-  if(num == 5)
+  <span class="nv">int</span> <span class="nv">num</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Enter a number n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="o">&amp;</span><span class="nv">num</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">5</span><span class="ss">)</span>
   {
-    printf(&quot;Number entered is 5&quot;);
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is 5</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   }
-  else if(num == 2)
+  <span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">2</span><span class="ss">)</span>
   {
-    printf(&quot;Number entered is 2&quot;);
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is 2</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   }
-  else
+  <span class="k">else</span>
   {
-    printf(&quot;Number entered is not 5&quot;);
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is not 5</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   }
-  return 0;
+  <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
 }
 </pre></div>
 
 
 <p>The above program could include any no of if - else if - else statements (which means no. of else if statements in between if and else can be increased )</p>
 <p>To understand nested if-else let's see the following program:</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-int main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  int num;
-  printf(&quot;Enter a number n&quot;);
-  scanf(&quot;%d&quot;,&amp;num);
-  if(num % 2 == 0)
+  <span class="nv">int</span> <span class="nv">num</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Enter a number n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">scanf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d</span><span class="s2">&quot;</span>,<span class="o">&amp;</span><span class="nv">num</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="ss">)</span>
   {
-    printf(&quot;Number entered is even&quot;);
-    if(num == 2)
-      printf(&quot;Number entered is 2&quot;);
-    else
-      printf(&quot;Number entered is not 2&quot;);
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is even</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">2</span><span class="ss">)</span>
+      <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is 2</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+    <span class="k">else</span>
+      <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is not 2</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
   }
-  else
-    printf(&quot;Number entered is not even&quot;);
-  return 0;
+  <span class="k">else</span>
+    <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">Number entered is not even</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
 }
 </pre></div>
 
@@ -190,24 +193,22 @@ int main()
   </div>
   <div class="article_meta">
     <p>Posted on: Sun 12 January 2014</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/conditional/">conditional</a>,      <a href="/tag/if-else/">if-else</a>,      <a href="/tag/nested/">nested</a>    </p>
+      <a href="//thegeekyway.com/tag/conditional/">conditional</a>,      <a href="//thegeekyway.com/tag/if-else/">if-else</a>,      <a href="//thegeekyway.com/tag/nested/">nested</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/conditional-statements-if-else/";
-      this.page.identifier = "conditional-statements-if-else/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "conditional-statements-if-else/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

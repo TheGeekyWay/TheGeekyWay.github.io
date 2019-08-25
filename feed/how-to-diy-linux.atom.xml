@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - How To DIY, Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/how-to-diy-linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-03-16T16:07:00+05:30</updated><entry><title>Runlevels and rc.d scripts</title><link href="//thegeekyway.com/runlevels-and-rc-d-scripts/" rel="alternate"></link><published>2018-03-16T16:07:00+05:30</published><updated>2018-03-16T16:07:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-03-16:/runlevels-and-rc-d-scripts/</id><summary type="html">&lt;div style="text-align:center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - How To DIY, Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/how-to-diy-linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-03-16T16:07:00+05:30</updated><entry><title>Runlevels and rc.d scripts</title><link href="//thegeekyway.com/runlevels-and-rc-d-scripts/" rel="alternate"></link><published>2018-03-16T16:07:00+05:30</published><updated>2018-03-16T16:07:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-03-16:/runlevels-and-rc-d-scripts/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
@@ -18,25 +18,25 @@
 &lt;p&gt;Runlevel 5: Full GUI based Multi-user mode&lt;/p&gt;
 &lt;p&gt;Runlevel 6: Reboot&lt;/p&gt;
 &lt;p&gt;These are the basic definitions what each runlevel is responsible for. For example, if an operating system is required to shut down, then it'd go to runlevel 0. You can even switch between these runlevels using the init command. Just type init \&amp;lt;runlevel&gt; and it'd change the current runlevel to the one specified. For example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;init 0
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;will shut down the system.&lt;/p&gt;
 &lt;p&gt;Each system has a default runlevel to which it boots. Like Fedora has runlevel as default. To see which runlevel you are in type:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;runlevel
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;runlevel&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;To check the default runlevel of your system, type:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl get-default
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;You can even change the default, keeping in mind what runlevel provided, like you want it to be multiuser or the graphical one. Using it you can set the default like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;systemctl set-default multi-user.target 
-rm &amp;#39;/etc/systemd/system/default.target  # To remove current default
-ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/systemd/system/default.target&amp;#39;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;systemctl&lt;/span&gt; &lt;span class="k"&gt;set&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;multi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt; 
+&lt;span class="n"&gt;rm&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;/etc/systemd/system/default.target  # To remove current default&lt;/span&gt;
+&lt;span class="s1"&gt;ln -s &amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;lib&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;systemd&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;system&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;multi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;systemd&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;system&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;default&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;target&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -52,7 +52,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;h2&gt;rc Scripts&lt;/h2&gt;
 &lt;p&gt;When a computer has entered into a specific runlevel, it runs scripts according to the runlevel it's in. The rc here comes from use in the older computers which had rc files to contain commands that run at startup. These files were called runcom files. Where runcom files meant files used to RunCommand.&lt;/p&gt;
 &lt;p&gt;Your script must contain the line before any command executes:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;. /etc/init.d/functions
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;functions&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -85,26 +85,26 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;h2&gt;The chkconfig&lt;/h2&gt;
 &lt;p&gt;the chkconfig command here deserves the 'The' in the heading for how easy it makes to manage these scripts and runlevels! Yes, this command just needs your source script file and manages creation deletion, the setting of S or D and also the priority level!&lt;/p&gt;
 &lt;p&gt;chkconfig has an amazing man page and here are the basic commands that will get you going.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --list
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chkconfig&lt;/span&gt; &lt;span class="c1"&gt;--list&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This prints the System V services, and that will do for us.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --add
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chkconfig&lt;/span&gt; &lt;span class="c1"&gt;--add&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Is used to add your file for management by chkconfig. BUT wait. This command won't run unless you have some things set with your script.&lt;/p&gt;
 &lt;p&gt;First and foremost, your script should exist in the home of all scripts, and that is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;/etc/init.d
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Paste your script here.&lt;/p&gt;
 &lt;p&gt;Secondly, your file must have certain comment lines so that it can be managed by chkconfig.&lt;/p&gt;
 &lt;p&gt;It must have these comment lines, though the description is not absolutely necessary and the script would work without it, it's recommended. So that anyone who intends to clean up the unnecessary services knows if this script is essential or not:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# chkconfig: 235 29 88
-# description: The description of the script like what it does
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;chkconfig&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="mi"&gt;235&lt;/span&gt; &lt;span class="mi"&gt;29&lt;/span&gt; &lt;span class="mi"&gt;88&lt;/span&gt;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;description&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt; &lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;description&lt;/span&gt; &lt;span class="k"&gt;of&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;script&lt;/span&gt; &lt;span class="k"&gt;like&lt;/span&gt; &lt;span class="n"&gt;what&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;does&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -114,13 +114,13 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;p&gt;you can use backslash for a multiline comment though you still require a &lt;code&gt;#&lt;/code&gt;, in the beginning, to identify it as a comment.&lt;/p&gt;
 &lt;p&gt;This is how it creates the symlinks with required priorities.&lt;/p&gt;
 &lt;p&gt;Another way you can do this is enter LSB(Linux Standard Base) style init stanzas instead of these two comments. For it you can do it like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; ### BEGIN INIT INFO
- # Provides: scriptA
- # Required-Start: scriptB
- # Default-Start: 2 3 5
- # Default-Stop: 0 1 6
- # Description: Description of what the script does
- ### END INIT INFO
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; ### &lt;span class="nv"&gt;BEGIN&lt;/span&gt; &lt;span class="nv"&gt;INIT&lt;/span&gt; &lt;span class="nv"&gt;INFO&lt;/span&gt;
+ # &lt;span class="nv"&gt;Provides&lt;/span&gt;: &lt;span class="nv"&gt;scriptA&lt;/span&gt;
+ # &lt;span class="nv"&gt;Required&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Start&lt;/span&gt;: &lt;span class="nv"&gt;scriptB&lt;/span&gt;
+ # &lt;span class="nv"&gt;Default&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Start&lt;/span&gt;: &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="mi"&gt;3&lt;/span&gt; &lt;span class="mi"&gt;5&lt;/span&gt;
+ # &lt;span class="nv"&gt;Default&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;Stop&lt;/span&gt;: &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="mi"&gt;6&lt;/span&gt;
+ # &lt;span class="nv"&gt;Description&lt;/span&gt;: &lt;span class="nv"&gt;Description&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;what&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;script&lt;/span&gt; &lt;span class="nv"&gt;does&lt;/span&gt;
+ ### &lt;span class="k"&gt;END&lt;/span&gt; &lt;span class="nv"&gt;INIT&lt;/span&gt; &lt;span class="nv"&gt;INFO&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -128,28 +128,28 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;p&gt;In this, &lt;code&gt;Required-Start&lt;/code&gt; is the script that is required to start this script. That is, it should be running before the current script gets up. &lt;code&gt;Provides&lt;/code&gt;: It tells about the boot facilities that this script provides so that those will be counted as already present when another script requires it. Hence priorities will be set accordingly to what is required to be already present and what it'll provide. &lt;code&gt;Default-Start&lt;/code&gt; or &lt;code&gt;Stop&lt;/code&gt; tells which runlevel should this start on and stopped(if running) respectively.&lt;/p&gt;
 &lt;p&gt;And don't forget a shebang at the beginning of the file.&lt;/p&gt;
 &lt;p&gt;Now we are all set to go with these things done. Let's execute this command to add it to the management of chkconfig:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --add filename
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chkconfig&lt;/span&gt; &lt;span class="c1"&gt;--add filename&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;like for a file named bootpref in &lt;code&gt;init.d&lt;/code&gt; it would be:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --add bootpref
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chkconfig&lt;/span&gt; &lt;span class="c1"&gt;--add bootpref&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now most probably your file will be visible with a status of on under the respective runlevels when you run&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --list
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chkconfig&lt;/span&gt; &lt;span class="c1"&gt;--list&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;And if it's not or you want to change runlevels you can go like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig bootpref --level 0 on
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chkconfig&lt;/span&gt; &lt;span class="n"&gt;bootpref&lt;/span&gt; &lt;span class="c1"&gt;--level 0 on&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Will make it run on runlevel 0 that is at shutdown.&lt;/p&gt;
 &lt;p&gt;Similarly off argument will kill it if present in that level. If no level is specified then these act on level 2,3,4 and 5. You can also specify multiple levels like &lt;code&gt;--level 26&lt;/code&gt; for level 2 and 6.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chkconfig --del bootpref
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;chkconfig&lt;/span&gt; &lt;span class="c1"&gt;--del bootpref&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -182,7 +182,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;/ul&gt;
 &lt;h2 id="changing-default-password" style="font-size: 1.3em;"&gt;&lt;p #changePass&gt;&lt;/p&gt;1. Changing Default Password&lt;/h2&gt;
 &lt;p&gt;Open terminal and run following command&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo raspi-config
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;raspi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -193,7 +193,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;p&gt;On selecting  &lt;p style="font-family: 'courier new', courier;"&gt;Change User Password&lt;/p&gt; , Hit  &lt;p style="font-family: 'courier new', courier;"&gt;Enter&lt;/p&gt; to give new password.&lt;/p&gt;
 &lt;h2 id="adding-new-user-to-pi" style="font-size: 1.3em;"&gt;&lt;p #AddUser&gt;&lt;/p&gt;2. Adding new user to Pi:&lt;/h2&gt;
 &lt;p&gt;To add new user just run following command&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo adduser
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;adduser&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -203,7 +203,7 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;/div&gt;
 &lt;h2 id="raspi-auto-login-to-gui-without-entering-usernamepassword" style="font-size: 1.3em;"&gt;&lt;p #autoLogin&gt;&lt;/p&gt;3. Raspi Auto Login to GUI without entering username/password&lt;/h2&gt;
 &lt;p&gt;Run again following command and select  &lt;p style="font-family: 'courier new', courier;"&gt;Enable boot to Desktop/S&lt;/p&gt; &lt;p style="font-family: 'courier new', courier;"&gt;cratch and select 2nd option&lt;/p&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo raspi-config
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;raspi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;config&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -211,40 +211,40 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;img alt="Auto-Login-GUI" src="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h5 id="auto-login-using-command-version" style="font-size: 1em;"&gt;Auto-Login using Command version&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo nano /etc/inittab
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="nv"&gt;nano&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;inittab&lt;/span&gt;
 
-/*Find following line*/
+&lt;span class="cm"&gt;/*Find following line*/&lt;/span&gt;
 
-1:2345:respawn:/sbin/getty 115200 tty1
+&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;getty&lt;/span&gt; &lt;span class="mi"&gt;115200&lt;/span&gt; &lt;span class="nv"&gt;tty1&lt;/span&gt;
 
-/*and comment it by adding # in front of it*/
+&lt;span class="cm"&gt;/*and comment it by adding # in front of it*/&lt;/span&gt;
 
-#1:2345:respawn:/sbin/getty 115200 tty1
+&lt;span class="sc"&gt;#1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;getty&lt;/span&gt; &lt;span class="mi"&gt;115200&lt;/span&gt; &lt;span class="nv"&gt;tty1&lt;/span&gt;
 
-/*After that add new line with following content*/
+&lt;span class="cm"&gt;/*After that add new line with following content*/&lt;/span&gt;
 
-1:2345:respawn:/bin/login -f pi tty1 /dev/tty1 2&amp;gt;&amp;amp;1
+&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;f&lt;/span&gt; &lt;span class="nv"&gt;pi&lt;/span&gt; &lt;span class="nv"&gt;tty1&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tty1&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
 
-/*Ctrl+X to exit, Y to save followed by enter twice*/
+&lt;span class="cm"&gt;/*Ctrl+X to exit, Y to save followed by enter twice*/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h5 id="auto-start-to-gui" style="font-size: 1em;"&gt;Auto Start to GUI&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*Edit rc.local using following line*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cm"&gt;/*Edit rc.local using following line*/&lt;/span&gt;
 
-sudo&lt;span class="w"&gt; &lt;/span&gt;nano&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;etc&lt;span class="o"&gt;/&lt;/span&gt;rc&lt;span class="o"&gt;.&lt;/span&gt;local&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="nv"&gt;nano&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;rc&lt;/span&gt;.&lt;span class="nv"&gt;local&lt;/span&gt;
 
-&lt;span class="cm"&gt;/*Scroll to the end and add the following above exit 0:*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="cm"&gt;/*Scroll to the end and add the following above exit 0:*/&lt;/span&gt;
 
-su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;span class="w"&gt; &lt;/span&gt;pi&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;startx&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nv"&gt;su&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;l&lt;/span&gt; &lt;span class="nv"&gt;pi&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;c&lt;/span&gt; &lt;span class="nv"&gt;startx&lt;/span&gt;
 
-&lt;span class="cm"&gt;/*Ctrl+X to exit, Y to save followed by enter twice*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="cm"&gt;/*Ctrl+X to exit, Y to save followed by enter twice*/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h2 id="raspi-setup-remote-desktop-from-windows-machine" style="font-size: 1.3em;"&gt;&lt;p #Remote&gt;&lt;/p&gt;4. Raspi Setup Remote Desktop from windows machine&lt;/h2&gt;
 &lt;p&gt;Step 1:  In Respi open  terminal and run following command&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo apt-get install xrdp
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt; &lt;span class="n"&gt;xrdp&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -304,7 +304,7 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;/div&gt;
 &lt;p&gt;After formatting just extract downloaded&lt;a href="http://www.raspberrypi.org/downloads"&gt;NOOB version&lt;/a&gt;and copy to your SD card.&lt;/p&gt;
 &lt;p&gt;Now plugin your RasPi to Tv/Monitor using HDMI or RCA Video cable. To connect VGA monitor you can use &lt;em&gt;&lt;a href="http://www.thegeekyway.com/connect-raspberry-pi-vga-monitortv/"&gt;converter given in this tutorial&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.thegeekyway.com/connect-raspberry-pi-vga-monitortv/"&gt;Power with &lt;em&gt;micro usb mobile charger &lt;/em&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.thegeekyway.com/connect-raspberry-pi-vga-monitortv/"&gt;Power with *micro usb mobile charger *&lt;/a&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;img alt="microUSB" src="//thegeekyway.com/uploads/images/2013/12/microUSB.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -339,7 +339,7 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;ul&gt;
 &lt;li&gt;Now move the extracted folder 'Sublime Text 2' to the proper location. Open Terminal/Konsole and type :&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo mv Sublime Text 2 /opt/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;mv&lt;/span&gt; &lt;span class="n"&gt;Sublime&lt;/span&gt; &lt;span class="nb"&gt;Text&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -350,14 +350,14 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;ul&gt;
 &lt;li&gt;Now, we have to add following command for symbolic link. Open terminal &amp;amp; type :&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo ln -s /opt/Sublime Text 2/sublime_text /usr/bin/sublime
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;ln&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;opt&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;Sublime&lt;/span&gt; &lt;span class="nb"&gt;Text&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sublime_text&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sublime&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;ul&gt;
 &lt;li&gt;Now, to add application icon in launcher. In terminal type :&lt;/li&gt;
 &lt;/ul&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo gedit /usr/share/applications/sublime.desktop
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;sudo&lt;/span&gt; &lt;span class="n"&gt;gedit&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;usr&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;share&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;applications&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;sublime&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;desktop&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -415,7 +415,7 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;p&gt;&lt;strong&gt;3) Configuring the source code :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Since you've downloaded the source code &amp;amp; extracted it in /home directory; Use &lt;strong&gt;cd&lt;/strong&gt; (change directory) command to enter the directory where the source code is available.&lt;/p&gt;
 &lt;p&gt;For Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd /home/user_name/extracted_sourcecode_folder
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;cd&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;user_name&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;extracted_sourcecode_folder&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -424,7 +424,7 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;p&gt;&lt;strong&gt;'Configure'&lt;/strong&gt; is the title given to the configuration script which is usually shipped in package alongwith the source code. The configuration script makes sure that all the required tools for the compilation is installed within the system or not. If the dependency is missing, the configuration script will give you error &amp;amp; you won't be able to compile the software unless all the missing dependencies are not met.&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;You can execute the configuration script using following command (Make sure you're in root) :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;./configure
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;configure&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -437,14 +437,14 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;p&gt;Now if all the dependencies are met, you can proceed the next step.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;5) Compiling the source code:&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Now open terminal &amp;amp; type&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This command will compile the software &amp;amp; all the binaries are generated. The duration taken by the system for compilation process depends on the size of the program &amp;amp; processing speed of your computer hardware. Now, we have to install the generated binaries created after compilation.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;6) Installing the binaries :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;If no error is invoked during the compilation of the software, open terminal/konsole &amp;amp; type :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make install
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -465,7 +465,7 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;p&gt;I resolved all the dependencies that were missing after checking the &lt;a href="https://github.com/satya164/elegance-colors/blob/master/README.md"&gt;&lt;strong&gt;documentation&lt;/strong&gt;&lt;/a&gt;. and proceeded to next step.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Step 5 :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Compiled the source code by typing&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -474,7 +474,7 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Step 6 :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Installed the compiled source code by typing&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;make install
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;install&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -497,10 +497,10 @@ P { margin-bottom: 0.08in; }&lt;br /&gt;
 &lt;p&gt;&lt;strong&gt;2) Editing Config.txt located in Raspberry Pi distro :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Make SDHC bootable by installing RPi distribution into it. After installing RPi distribution in SDHC, insert the SD in computer &amp;amp; open &lt;em&gt;config.txt&lt;/em&gt; which is located under /boot directory.There will be set of lines for the different functions. We have to edit config.txt file inorder to obtain picture on VGA monitor.&lt;/p&gt;
 &lt;p&gt;Uncomment following four lines in config.txt by removing '#' located at start of the line. (check Images below)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_force_hotplug=1
-hdmi_drive=2
-hdmi_group=1
-hdmi_mode=1
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;hdmi_force_hotplug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;hdmi_drive&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;hdmi_group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;hdmi_mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -516,7 +516,7 @@ hdmi_mode=1
 &lt;p&gt;&lt;strong&gt;hdmi_mode&lt;/strong&gt; specifies the resolution of monitor.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;For hdmi_group value selection :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;If you're using output as Computer monitor then replace value '1' with '2', so the new config will be like :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_group=2
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;hdmi_group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -524,15 +524,15 @@ hdmi_mode=1
 &lt;p&gt;&lt;strong&gt;For hdmi_mode value selection :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;Now open &lt;a href="http://elinux.org/RPiconfig#Video_mode_options"&gt;eLinux RPi config&lt;/a&gt; scroll down, there in hdmi_mode two tables are given, select the correct resolution as per your monitor. (Table1 if you're using TV &amp;amp; Table2 if you're using Monitor)&lt;br&gt;
 Since my monitor's resolution is 1366x768 px, hdmi_mode=39 fits me the best.So, the modified config.txt will be like.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_mode=39
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;hdmi_mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;39&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;So, overall my uncommented lines will look something like :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;hdmi_force_hotplug=1
-hdmi_drive=2
-hdmi_group=2
-hdmi_mode=39
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;hdmi_force_hotplug&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;hdmi_drive&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;hdmi_group&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;hdmi_mode&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;39&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

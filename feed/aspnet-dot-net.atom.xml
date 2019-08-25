@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Asp.net (Dot Net)</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/aspnet-dot-net.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-01-24T00:36:00+05:30</updated><entry><title>ASP. Net Basics : Deny access to a particular folder</title><link href="//thegeekyway.com/asp-net-basics-deny-access-to-file-or-folder/" rel="alternate"></link><published>2014-01-24T00:36:00+05:30</published><updated>2014-01-24T00:36:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-24:/asp-net-basics-deny-access-to-file-or-folder/</id><summary type="html">&lt;div style="text-align:center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Asp.net (Dot Net)</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/aspnet-dot-net.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-01-24T00:36:00+05:30</updated><entry><title>ASP. Net Basics : Deny access to a particular folder</title><link href="//thegeekyway.com/asp-net-basics-deny-access-to-file-or-folder/" rel="alternate"></link><published>2014-01-24T00:36:00+05:30</published><updated>2014-01-24T00:36:00+05:30</updated><author><name>Deep_Singh</name></author><id>tag:thegeekyway.com,2014-01-24:/asp-net-basics-deny-access-to-file-or-folder/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;img alt="ASP.NET.ARTICLE.Deny_Access_to_user_cover_page" src="//thegeekyway.com/uploads/images/2014/01/ASP.NET_.ARTICLE.Deny_Access_to_user_cover_page.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Setting authentication is most important part of asp.net web application project, there can a time where you don't want any user to access a particular folder. For example while creating a Gallery project we don't want any user to access the /pictures folder.&lt;/p&gt;
@@ -53,133 +53,133 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;h2&gt;&lt;strong&gt;&lt;em&gt;*File Upload in asp.net : v1.4final&lt;/em&gt;&lt;/strong&gt;*&lt;/h2&gt;
 &lt;p&gt;In last 4 tutorials we discussed how to upload the file on server and validate the file with various validations. This is the last part of tutorial where all the validations are used at once.&lt;/p&gt;
 &lt;p&gt;Here is the final C# code clubbed into all one&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;using System;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Web;
-using System.Web.Security;
-using System.Web.UI;
-using System.Web.UI.HtmlControls;
-using System.Web.UI.WebControls;
-using System.Web.UI.WebControls.WebParts;
-using System.Xml.Linq;
-using System.Drawing;
-using System.IO;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Configuration&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Data&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Linq&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;Security&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;.&lt;span class="nv"&gt;HtmlControls&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;.&lt;span class="nv"&gt;WebControls&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;.&lt;span class="nv"&gt;WebControls&lt;/span&gt;.&lt;span class="nv"&gt;WebParts&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Xml&lt;/span&gt;.&lt;span class="nv"&gt;Linq&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Drawing&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+&lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;IO&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-public partial class _Default : System.Web.UI.Page 
+&lt;span class="nv"&gt;public&lt;/span&gt; &lt;span class="nv"&gt;partial&lt;/span&gt; &lt;span class="nv"&gt;class&lt;/span&gt; &lt;span class="nv"&gt;_Default&lt;/span&gt; : &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Web&lt;/span&gt;.&lt;span class="nv"&gt;UI&lt;/span&gt;.&lt;span class="nv"&gt;Page&lt;/span&gt; 
 {    
-    protected void Page_Load(object sender, EventArgs e)
+    &lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;Page_Load&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;sender&lt;/span&gt;, &lt;span class="nv"&gt;EventArgs&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     {
-        Panel1.Visible = false;
+        &lt;span class="nv"&gt;Panel1&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    &lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;Button1_Click&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;sender&lt;/span&gt;, &lt;span class="nv"&gt;EventArgs&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     {
 
-        Panel1.Visible = true;
-        int flag1 = isFileEmpty();
-        int flag2 = GetFileExtension();
-        int flag3 = checkFileSize();
-        if (flag1 == 1 &amp;amp;amp;&amp;amp;amp; flag2 == 1 &amp;amp;amp;&amp;amp;amp; flag3 == 1)
+        &lt;span class="nv"&gt;Panel1&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;flag1&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;isFileEmpty&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;flag2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;flag3&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;checkFileSize&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;flag1&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;flag2&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;flag3&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            saveFile();
-            Image1.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-            File_Upload_Status.Text = &amp;quot;Success ! File uploaded successfully&amp;quot;;
-            File_Upload_Status.ForeColor = Color.GreenYellow;
+            &lt;span class="nv"&gt;saveFile&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Success ! File uploaded successfully&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;GreenYellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-            Image1.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-            File_Upload_Status.Text = &amp;quot;File Not uploaded &amp;amp;lt;br&amp;amp;gt; Please refer the notes below&amp;quot;;
-            File_Upload_Status.ForeColor = Color.Red;
-        }
-    }
-    private int isFileEmpty()
-    {
-        if (FileUpload1.HasFile)
-        {
-            // This part is just the internal coding no need for it to display it on main screen 
-            return 1; 
-        }
-        else
-        {
-            return 0;
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File Not uploaded &amp;lt;br&amp;gt; Please refer the notes below&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
-    private int GetFileExtension()
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;isFileEmpty&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        string GetFileExtension = Path.GetExtension(FileUpload1.FileName);
-        if (GetFileExtension != null &amp;amp;amp;&amp;amp;amp; GetFileExtension == &amp;quot;.pdf&amp;quot;)
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;HasFile&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            Image2.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-            File_Extension.Text = &amp;quot;File Extension&amp;quot;;
-            File_Extension.ForeColor = Color.GreenYellow;
-            File_Type.Text = &amp;quot;File Type&amp;quot;;
-            File_Type.ForeColor = Color.GreenYellow;
-            File_Type0.Text = GetFileExtension;
-            File_Type0.ForeColor = Color.GreenYellow;
-            return 1;  
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;This&lt;/span&gt; &lt;span class="nv"&gt;part&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;just&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;internal&lt;/span&gt; &lt;span class="nv"&gt;coding&lt;/span&gt; &lt;span class="nv"&gt;no&lt;/span&gt; &lt;span class="nv"&gt;need&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;display&lt;/span&gt; &lt;span class="nv"&gt;it&lt;/span&gt; &lt;span class="nv"&gt;on&lt;/span&gt; &lt;span class="nv"&gt;main&lt;/span&gt; &lt;span class="nv"&gt;screen&lt;/span&gt; 
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;; &lt;/span&gt;
         }
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-            if (GetFileExtension == &amp;quot;&amp;quot;)
-            {
-                File_Extension.Text = &amp;quot;Wrong file extension.&amp;quot;;
-                File_Extension.ForeColor = Color.Red;
-                Image2.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-                File_Type.Text = &amp;quot;No file type available&amp;quot;;
-                File_Type0.Text = &amp;quot;X&amp;quot;;
-                File_Type.ForeColor = Color.Red;
-                File_Type0.ForeColor = Color.Red;
-            }
-            else
-            {
-                File_Extension.Text = &amp;quot;Wrong file extension.&amp;quot;;
-                File_Extension.ForeColor = Color.Red;
-                Image2.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-                File_Type.Text = &amp;quot;File type&amp;quot;;
-                File_Type.ForeColor = Color.Red;
-                File_Type0.Text = GetFileExtension;
-                File_Type0.ForeColor = Color.Red;
-            }
-            return 0;       
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
-    private int checkFileSize()
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
+    {
+        &lt;span class="nv"&gt;string&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Path&lt;/span&gt;.&lt;span class="nv"&gt;GetExtension&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;FileName&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;GetFileExtension&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;.pdf&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        {
+            &lt;span class="nv"&gt;Image2&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File Extension&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;GreenYellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Type&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File Type&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Type&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;GreenYellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Type0&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Type0&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;GreenYellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;  &lt;/span&gt;
+        }
+        &lt;span class="k"&gt;else&lt;/span&gt;
+        {
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;GetFileExtension&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+            {
+                &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Wrong file extension.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;Image2&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;No file type available&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type0&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;X&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type0&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            }
+            &lt;span class="k"&gt;else&lt;/span&gt;
+            {
+                &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Wrong file extension.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;Image2&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File type&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type0&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Type0&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            }
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;       &lt;/span&gt;
+        }
+    }
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;checkFileSize&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
 
-        int filesize = (FileUpload1.PostedFile.ContentLength)/1024;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;filesize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;PostedFile&lt;/span&gt;.&lt;span class="nv"&gt;ContentLength&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
 
-            if (filesize != 0 &amp;amp;amp;&amp;amp;amp;filesize &amp;amp;lt; 2048)
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;filesize&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt;&lt;span class="nv"&gt;filesize&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;2048&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
             {
-                File_Size.Text = &amp;quot; File size &amp;quot;;
-                Image3.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-                File_Size.ForeColor = Color.GreenYellow;
-                return 1;
+                &lt;span class="nv"&gt;File_Size&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; File size &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;Image3&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Size&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;GreenYellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
 
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-            if (filesize == 0)
+            &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;filesize&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
             {
-                File_Size.Text = &amp;quot;No file posted&amp;quot;;
-                Image3.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-                File_Size.ForeColor = Color.Red;
-                return 1;
+                &lt;span class="nv"&gt;File_Size&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;No file posted&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;Image3&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Size&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
-            else
+            &lt;span class="k"&gt;else&lt;/span&gt;
             {
-                File_Size.Text = &amp;quot;File size limit exceeded &amp;amp;lt;br&amp;amp;gt;(greater than 2MB)&amp;quot;;
-                File_Size.ForeColor = Color.Red;
-                Image3.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-                return 0;
+                &lt;span class="nv"&gt;File_Size&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File size limit exceeded &amp;lt;br&amp;gt;(greater than 2MB)&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;File_Size&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="nv"&gt;Image3&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+                &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
             }
         }
 
     }
-    private void saveFile()
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;saveFile&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.FileName));
+        &lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;SaveAs&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Server&lt;/span&gt;.&lt;span class="nv"&gt;MapPath&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~/uploads/&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;FileName&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
 }
 &lt;/pre&gt;&lt;/div&gt;
@@ -232,21 +232,21 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;p&gt;where FileUpload1 is the fileupload control and FileName gets the current file which is being uploaded.&lt;/p&gt;
 &lt;p&gt;Using this method we can get the file extension and we can compare the values using if-else.&lt;/p&gt;
 &lt;p&gt;The complete &lt;a href="http://www.thegeekyway.com/tag/c-2/"&gt;C#&lt;/a&gt; code is&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    private void GetFileExtension()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        string GetFileExtension = Path.GetExtension(FileUpload1.FileName);
-        if (GetFileExtension == &amp;quot;.pdf&amp;quot;)
+        &lt;span class="nv"&gt;string&lt;/span&gt; &lt;span class="nv"&gt;GetFileExtension&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Path&lt;/span&gt;.&lt;span class="nv"&gt;GetExtension&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;FileName&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;GetFileExtension&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;.pdf&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            Image1.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-            File_Extension.Text = &amp;quot;File Extension OK ! File will be uploaded&amp;quot;;
-            File_Extension.ForeColor = Color.GreenYellow;
-            // Provide upload code (discussed in part 1 of this tutorial)
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File Extension OK ! File will be uploaded&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;GreenYellow&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Provide&lt;/span&gt; &lt;span class="nv"&gt;upload&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;discussed&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;part&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;tutorial&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         }
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-            File_Extension.Text = &amp;quot;File Extension detected : &amp;#39;&amp;quot; +GetFileExtension+ &amp;quot;&amp;#39;. Required file extension : &amp;#39;.pdf&amp;#39; &amp;quot;+&amp;quot;File Not uploaded&amp;quot; ;
-            File_Extension.ForeColor = Color.Red;
-            Image1.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
+            &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File Extension detected : &amp;#39;&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;GetFileExtension&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;. Required file extension : &amp;#39;.pdf&amp;#39; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;File Not uploaded&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Extension&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 &lt;/pre&gt;&lt;/div&gt;
@@ -281,24 +281,24 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;p&gt;File upload limit is one of the important controls for file upload control, if file upload control is not provided in uploading of file then there can be huge files uploaded which can kill the server cache. There is neither a javascript function which can provide access to client side and get the file size.&lt;/p&gt;
 &lt;p&gt;This is basically an upgrade to our &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-a-file-in-asp-net-using-validations-part-2/"&gt;v1.1 of our file upload system&lt;/a&gt;. So now server can check for whether a file is uploaded and can also check the file size. There are 2 steps for limiting the file size, first we have to declare \&amp;lt;httpRuntime&gt; element in our web.config file and then creating a C# code.&lt;/p&gt;
 &lt;p&gt;The attributes of httpRuntime element are&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   executionTimeout = &amp;quot;HH:MM:SS&amp;quot; 
-   maxRequestLength = &amp;quot;number&amp;quot; 
-   requireRootedSaveAsPath = &amp;quot;[True|False]&amp;quot;
-   enable = &amp;quot;[True|False]&amp;quot; 
-   sendCacheControlHeader = &amp;quot;[True|False]&amp;quot; 
-   shutdownTimeout = &amp;quot;HH:MM:SS&amp;quot;
-   delayNotificationTimeout = &amp;quot;HH:MM:SS&amp;quot;
-   minFreeThreads = &amp;quot;number&amp;quot; 
-   minLocalRequestFreeThreads = &amp;quot;number&amp;quot; 
-   appRequestQueueLimit = &amp;quot;number&amp;quot;
-   enableKernelOutputCache = &amp;quot;[True|False]&amp;quot; 
-   enableVersionHeader = &amp;quot;[True|False]&amp;quot; 
-   apartmentThreading = &amp;quot;[True|False]&amp;quot;   
-   waitChangeNotification = &amp;quot;number&amp;quot; 
-   maxWaitChangeNotification = &amp;quot;number&amp;quot; 
-   enableHeaderChecking = &amp;quot;[True|False]&amp;quot; 
-   requestLengthDiskThreshold = &amp;quot;number&amp;quot; 
-   useFullyQualifiedRedirectUrl = &amp;quot;[True|False]&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;   &lt;span class="n"&gt;executionTimeout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;HH:MM:SS&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;maxRequestLength&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;number&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;requireRootedSaveAsPath&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt;
+   &lt;span class="n"&gt;enable&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;sendCacheControlHeader&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;shutdownTimeout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;HH:MM:SS&amp;quot;&lt;/span&gt;
+   &lt;span class="n"&gt;delayNotificationTimeout&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;HH:MM:SS&amp;quot;&lt;/span&gt;
+   &lt;span class="n"&gt;minFreeThreads&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;number&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;minLocalRequestFreeThreads&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;number&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;appRequestQueueLimit&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;number&amp;quot;&lt;/span&gt;
+   &lt;span class="n"&gt;enableKernelOutputCache&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;enableVersionHeader&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;apartmentThreading&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt;   
+   &lt;span class="n"&gt;waitChangeNotification&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;number&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;maxWaitChangeNotification&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;number&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;enableHeaderChecking&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;requestLengthDiskThreshold&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;number&amp;quot;&lt;/span&gt; 
+   &lt;span class="n"&gt;useFullyQualifiedRedirectUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;[True|False]&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -311,25 +311,25 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;h2&gt;Step 2 : C# coding.&lt;/h2&gt;
 &lt;p&gt;Since web.config is configured now we have to code the &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/"&gt;C#&lt;/a&gt; file.&lt;br&gt;
 The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/"&gt;C#&lt;/a&gt; code is :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; private int checkFileSize()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;checkFileSize&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        Panel1.Visible = true;
-        int filesize = FileUpload1.PostedFile.ContentLength;
-        Label8.Text = (filesize)/1024 + &amp;quot;Kb&amp;quot;;
-        if (filesize &amp;amp;lt; 1048576)
+        &lt;span class="nv"&gt;Panel1&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;filesize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;PostedFile&lt;/span&gt;.&lt;span class="nv"&gt;ContentLength&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Label8&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;filesize&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Kb&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;filesize&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt; &lt;span class="mi"&gt;1048576&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            File_Upload_Status.Text = &amp;quot; Everything OK ! File uploaded &amp;quot;;
-            Image1.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-            File_Upload_Status.ForeColor = Color.Green;
-            // Provide upload code (discussed in part 1 of this tutorial)
-            return 1;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; Everything OK ! File uploaded &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Green&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Provide&lt;/span&gt; &lt;span class="nv"&gt;upload&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;discussed&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;part&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;tutorial&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
          }
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-            File_Upload_Status.Text = &amp;quot; File size limit exceeded. File size should be less than 1 MB &amp;quot;;
-            File_Upload_Status.ForeColor = Color.Red;
-            Image1.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-            return 0;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; File size limit exceeded. File size should be less than 1 MB &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -373,23 +373,23 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;h3&gt;1. Using try-catch mechanism&lt;/h3&gt;
 &lt;p&gt;Now since DirectoryNotFound Expression is thrown by the server then it can be caught by the try-catch mechanism.&lt;br&gt;
 The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/"&gt;C#&lt;/a&gt; code for method 1 (try-catch) is :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;private void isFileEmpty()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;isFileEmpty&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        Panel1.Visible = true;
-        try
+        &lt;span class="nv"&gt;Panel1&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;try&lt;/span&gt;
         {
-            Image1.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-            File_Upload_Status.Text = &amp;quot;Everything OK! File Uploaded&amp;quot;;
-            File_Upload_Status.ForeColor = Color.Green;
-           //Provide the C# code for uploading the file which was discussed in part 1 of this tutorial
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Everything OK! File Uploaded&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Green&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+           &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Provide&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;C&lt;/span&gt;# &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;uploading&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;which&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="nv"&gt;discussed&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;part&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;tutorial&lt;/span&gt;
         }
-        catch (DirectoryNotFoundException dnfe)
+        &lt;span class="nv"&gt;catch&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;DirectoryNotFoundException&lt;/span&gt; &lt;span class="nv"&gt;dnfe&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
 
-            string _substring = dnfe.ToString();
-            Image1.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-            File_Upload_Status.Text = _substring.Substring(0, 72) + &amp;quot;. Please upload a valid file.&amp;quot;;
-            File_Upload_Status.ForeColor = Color.Red;
+            &lt;span class="nv"&gt;string&lt;/span&gt; &lt;span class="nv"&gt;_substring&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;dnfe&lt;/span&gt;.&lt;span class="nv"&gt;ToString&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;_substring&lt;/span&gt;.&lt;span class="nv"&gt;Substring&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;, &lt;span class="mi"&gt;72&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;. Please upload a valid file.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -410,21 +410,21 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/
 &lt;h3&gt;2. Using Boolean property "HasFile"&lt;/h3&gt;
 &lt;p&gt;Another way of handling this exception is by using the Boolean property "HasFile" which will return the value as true or false. If the value returned is false then you can return the error message else it can continue with the uploading of file.&lt;br&gt;
 The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/"&gt;C#&lt;/a&gt; code for method 2 (Boolean method) is :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;private void isFileEmpty()
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;isFileEmpty&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        Panel1.Visible = true;
-        if(FileUpload1.HasFile)
+        &lt;span class="nv"&gt;Panel1&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;HasFile&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            Image1.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-            File_Upload_Status.Text = &amp;quot;Everything OK! File Uploaded&amp;quot;;
-            File_Upload_Status.ForeColor = Color.Green;
-            //Provide the C# code for uploading the file which was discussed in part 1 of this tutorial
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Everything OK! File Uploaded&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Green&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Provide&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;C&lt;/span&gt;# &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;uploading&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;which&lt;/span&gt; &lt;span class="nv"&gt;was&lt;/span&gt; &lt;span class="nv"&gt;discussed&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;part&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;this&lt;/span&gt; &lt;span class="nv"&gt;tutorial&lt;/span&gt;
         }
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-            Image1.ImageUrl = &amp;quot;~//images//not_success.png&amp;quot;;
-            File_Upload_Status.Text =&amp;quot;Please upload a valid file.&amp;quot;;
-            File_Upload_Status.ForeColor = Color.Red;
+            &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//not_success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Please upload a valid file.&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 &lt;/pre&gt;&lt;/div&gt;
@@ -469,11 +469,11 @@ Part 5 : &lt;a href="http://www.thegeekyway.com/asp-net-basics-uploading-file-as
 &lt;/div&gt;
 &lt;p&gt;Here a file upload control is used which is used to select the file and an upload button which will upload the file. The second row will display the characteristics of the file, whether the file is a ".pdf" or a ".doc" (and other extensions) file and display the image of file type. The second row is being hidden with a panel until the file isnt uploaded.&lt;/p&gt;
 &lt;p&gt;Let us take a ".pdf" file which will be uploaded on the server under the "uploads" folder. The main code used for uploading a file onto server is :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;.
-.
-FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.FileName));
-.
-.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;FileUpload1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SaveAs&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Server&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;MapPath&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;~/uploads/&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="n"&gt;FileUpload1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FileName&lt;/span&gt;&lt;span class="p"&gt;));&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -488,59 +488,59 @@ FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.F
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/FileUpload2.png"&gt;&lt;img alt="FileUpload2" src="//thegeekyway.com/uploads/images/2014/01/FileUpload2.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The complete cs code for v1.0 is (remember this doesn't use any validations, only retrieves the name and the file extension of the file) :-&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;protected void Page_Load(object sender, EventArgs e)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;Page_Load&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;sender&lt;/span&gt;, &lt;span class="nv"&gt;EventArgs&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     {
-        // Hiding the panel in the page load 
-        Panel1.Visible = false;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Hiding&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;panel&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;page&lt;/span&gt; &lt;span class="nv"&gt;load&lt;/span&gt; 
+        &lt;span class="nv"&gt;Panel1&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
-    protected void Button1_Click(object sender, EventArgs e)
+    &lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;Button1_Click&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;sender&lt;/span&gt;, &lt;span class="nv"&gt;EventArgs&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     {
-        //calling the valid_file method, if the return value is not 1 then file doesnot exist
-        int validate = validate_file();
-        if(validate == 1)
+        &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;calling&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;valid_file&lt;/span&gt; &lt;span class="nv"&gt;method&lt;/span&gt;, &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="nv"&gt;value&lt;/span&gt; &lt;span class="nv"&gt;is&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;doesnot&lt;/span&gt; &lt;span class="nv"&gt;exist&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;validate&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;validate_file&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;validate&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         { 
-            // Getting all the file details
-            GetFileDetails();            
-            // If file exist then the file will be saved in the virtual directory
-            SaveFile();
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Getting&lt;/span&gt; &lt;span class="nv"&gt;all&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;details&lt;/span&gt;
+            &lt;span class="nv"&gt;GetFileDetails&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;            &lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="k"&gt;If&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;exist&lt;/span&gt; &lt;span class="k"&gt;then&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;saved&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;virtual&lt;/span&gt; &lt;span class="nv"&gt;directory&lt;/span&gt;
+            &lt;span class="nv"&gt;SaveFile&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
-    private int validate_file()
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;validate_file&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        // Code to test if FileUpload1 has the file or not
-        if (FileUpload1.HasFile)
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Code&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;test&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;FileUpload1&lt;/span&gt; &lt;span class="nv"&gt;has&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;or&lt;/span&gt; &lt;span class="nv"&gt;not&lt;/span&gt;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;HasFile&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            Panel1.Visible = true;
-            return 1;
+            &lt;span class="nv"&gt;Panel1&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;true&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-            Label2.Text = &amp;quot;No File Uploaded&amp;quot;;
-            // Color.Red will be called by namespace System.Drawing
-            Label2.ForeColor = Color.Red;
-            return 0;
+            &lt;span class="nv"&gt;Label2&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;No File Uploaded&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;called&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;namespace&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;Drawing&lt;/span&gt;
+            &lt;span class="nv"&gt;Label2&lt;/span&gt;.&lt;span class="nv"&gt;ForeColor&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Color&lt;/span&gt;.&lt;span class="nv"&gt;Red&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }        
     }
-    private void SaveFile()
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;SaveFile&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        File_Upload_Status.Text = &amp;quot;Valid FIle&amp;quot;;
-        Image1.ImageUrl = &amp;quot;~//images//success.png&amp;quot;;
-        //Invoking the saveas method which saves the file in the directory
-        FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.FileName));
+        &lt;span class="nv"&gt;File_Upload_Status&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Valid FIle&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Image1&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//success.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Invoking&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;saveas&lt;/span&gt; &lt;span class="nv"&gt;method&lt;/span&gt; &lt;span class="nv"&gt;which&lt;/span&gt; &lt;span class="nv"&gt;saves&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;directory&lt;/span&gt;
+        &lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;SaveAs&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Server&lt;/span&gt;.&lt;span class="nv"&gt;MapPath&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~/uploads/&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;FileName&lt;/span&gt;&lt;span class="ss"&gt;))&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
     }
-    private void GetFileDetails()
+    &lt;span class="nv"&gt;private&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;GetFileDetails&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;
     {
-        // Path will be called by using System.IO namespace
-        string FileExtension = Path.GetExtension(FileUpload1.FileName);
-        int FileSize = FileUpload1.PostedFile.ContentLength;
-        Label11.Text = FileUpload1.FileName;
-        Label12.Text = (FileSize/1024) + &amp;quot;KB&amp;quot;;
-        Label13.Text = FileExtension;
-        // Using only &amp;quot;.pdf&amp;quot; extension, but you can use all the file extensions using if-else statement.
-        if (FileExtension.ToLower() == &amp;quot;.pdf&amp;quot;)
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Path&lt;/span&gt; &lt;span class="nv"&gt;will&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;called&lt;/span&gt; &lt;span class="nv"&gt;by&lt;/span&gt; &lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="nv"&gt;System&lt;/span&gt;.&lt;span class="nv"&gt;IO&lt;/span&gt; &lt;span class="nv"&gt;namespace&lt;/span&gt;
+        &lt;span class="nv"&gt;string&lt;/span&gt; &lt;span class="nv"&gt;FileExtension&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Path&lt;/span&gt;.&lt;span class="nv"&gt;GetExtension&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;FileName&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;int&lt;/span&gt; &lt;span class="nv"&gt;FileSize&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;PostedFile&lt;/span&gt;.&lt;span class="nv"&gt;ContentLength&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Label11&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;FileUpload1&lt;/span&gt;.&lt;span class="nv"&gt;FileName&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Label12&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileSize&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;1024&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt; &lt;span class="o"&gt;+&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;KB&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="nv"&gt;Label13&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;FileExtension&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+        &lt;span class="o"&gt;//&lt;/span&gt; &lt;span class="nv"&gt;Using&lt;/span&gt; &lt;span class="nv"&gt;only&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;.pdf&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="nv"&gt;extension&lt;/span&gt;, &lt;span class="nv"&gt;but&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;can&lt;/span&gt; &lt;span class="nv"&gt;use&lt;/span&gt; &lt;span class="nv"&gt;all&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;extensions&lt;/span&gt; &lt;span class="nv"&gt;using&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="nv"&gt;statement&lt;/span&gt;.
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;FileExtension&lt;/span&gt;.&lt;span class="k"&gt;ToLower&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;.pdf&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
         {
-            Image3.ImageUrl = &amp;quot;~//images//pdf.png&amp;quot;;
-            Label14.Text = &amp;quot;PDF file&amp;quot;;
+            &lt;span class="nv"&gt;Image3&lt;/span&gt;.&lt;span class="nv"&gt;ImageUrl&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;~//images//pdf.png&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Label14&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;PDF file&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 &lt;/pre&gt;&lt;/div&gt;
@@ -571,12 +571,12 @@ FileUpload1.SaveAs(Server.MapPath(&amp;quot;~/uploads/&amp;quot; + FileUpload1.F
 &lt;/div&gt;
 &lt;p&gt;The main coding is done on the "Login" button where we will fetch the values from text boxes and store the values in sessions.&lt;br&gt;
 The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/"&gt;C#&lt;/a&gt; code for the login button is given as follows&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    protected void Login_Button(object sender, EventArgs e)
-    {
-        Session[&amp;quot;User_name&amp;quot;] = TextBox1.Text;
-        Session[&amp;quot;Password&amp;quot;] = TextBox2.Text;
-        Response.Redirect(&amp;quot;~/Landing_Page.aspx&amp;quot;);
-    }
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;    &lt;span class="n"&gt;protected&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Login_Button&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;object&lt;/span&gt; &lt;span class="n"&gt;sender&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;EventArgs&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+        &lt;span class="k"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;User_name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TextBox1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Text&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="k"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;TextBox2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Text&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+        &lt;span class="n"&gt;Response&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Redirect&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;~/Landing_Page.aspx&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -586,21 +586,21 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png" title="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)"&gt;&lt;img alt="Asp.net tutorial : Maintaining sessions in asp.net (Image 3)" src="//thegeekyway.com/uploads/images/2013/12/ASP.net_Tut1.3.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Here is the code for the Landing_Page.aspx&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;protected void Page_Load(object sender, EventArgs e)
-    {
-            Session_Username.Text = Session[&amp;quot;User_Name&amp;quot;].ToString();
-            Session_Passowrd.Text = Session[&amp;quot;Password&amp;quot;].ToString();
-    }
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;protected&lt;/span&gt; &lt;span class="n"&gt;void&lt;/span&gt; &lt;span class="n"&gt;Page_Load&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="k"&gt;object&lt;/span&gt; &lt;span class="n"&gt;sender&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;EventArgs&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+    &lt;span class="err"&gt;{&lt;/span&gt;
+            &lt;span class="n"&gt;Session_Username&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;User_Name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+            &lt;span class="n"&gt;Session_Passowrd&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;Password&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+    &lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;Now since Label7.Text expects a string but there is now way in asp.net that it automatically identifies it as a string so we have to explicitly store the value as a string, now there are 2 ways, the first way is using &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2/"&gt;C#&lt;/a&gt; , the code is&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; Label7.Text = (String)Session[&amp;quot;User_Name&amp;quot;];
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="n"&gt;Label7&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;String&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="k"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;User_Name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;];&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;and the second way is to append .ToString() function to the session variable, the code is given below&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; Session_Username.Text = Session[&amp;quot;User_Name&amp;quot;].ToString();
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt; &lt;span class="n"&gt;Session_Username&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="nb"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;Session&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;User_Name&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;].&lt;/span&gt;&lt;span class="n"&gt;ToString&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -609,20 +609,20 @@ The &lt;a href="http://www.thegeekyway.com/category/programming/c-programming-2
 &lt;strong&gt;A:&lt;/strong&gt; The answer is &lt;strong&gt;NO&lt;/strong&gt; once the browser is closed the cookies are destroyed and so as the session.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Q:&lt;/strong&gt; So what happens if we directly open the Landing_Page.aspx page ?&lt;br&gt;
 &lt;strong&gt;A:&lt;/strong&gt; Since we directly opened the Landing_Page.aspx page, no session was created for username and password so it will display blank values for username and password. But its not recommended to either redirect or display an error message. For example consider the following code segment&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;protected void Page_Load(object sender, EventArgs e)
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="nv"&gt;protected&lt;/span&gt; &lt;span class="nv"&gt;void&lt;/span&gt; &lt;span class="nv"&gt;Page_Load&lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;object&lt;/span&gt; &lt;span class="nv"&gt;sender&lt;/span&gt;, &lt;span class="nv"&gt;EventArgs&lt;/span&gt; &lt;span class="nv"&gt;e&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
     {
-        if (Session[&amp;quot;User_Name&amp;quot;] == null || Session[&amp;quot;Password&amp;quot;] == null)
-        {   //Your redirection code here.
-            Top_Header_Text.Visible = false;
-            Session_Username.Text = &amp;quot; No session created, you will be soon redirected to Session_Page.aspx. &amp;quot;;
-            Session_Password.Visible = false;
-            Username.Visible = false;
-            Password.Visible = false;
+        &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;Session&lt;/span&gt;[&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;User_Name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt; &lt;span class="o"&gt;||&lt;/span&gt; &lt;span class="nv"&gt;Session&lt;/span&gt;[&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Password&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;] &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="nv"&gt;null&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+        {   &lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="nv"&gt;Your&lt;/span&gt; &lt;span class="nv"&gt;redirection&lt;/span&gt; &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="nv"&gt;here&lt;/span&gt;.
+            &lt;span class="nv"&gt;Top_Header_Text&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Session_Username&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt; No session created, you will be soon redirected to Session_Page.aspx. &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Session_Password&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Username&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Password&lt;/span&gt;.&lt;span class="nv"&gt;Visible&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;false&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
-        else
+        &lt;span class="k"&gt;else&lt;/span&gt;
         {
-           Session_Username.Text = (String)Session[&amp;quot;User_Name&amp;quot;];
-            Session_Password.Text = Session[&amp;quot;Password&amp;quot;].ToString();
+           &lt;span class="nv"&gt;Session_Username&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;String&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;&lt;span class="nv"&gt;Session&lt;/span&gt;[&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;User_Name&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;]&lt;span class="c1"&gt;;&lt;/span&gt;
+            &lt;span class="nv"&gt;Session_Password&lt;/span&gt;.&lt;span class="nv"&gt;Text&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="nv"&gt;Session&lt;/span&gt;[&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;Password&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;].&lt;span class="nv"&gt;ToString&lt;/span&gt;&lt;span class="ss"&gt;()&lt;/span&gt;&lt;span class="c1"&gt;;&lt;/span&gt;
         }
     }
 &lt;/pre&gt;&lt;/div&gt;

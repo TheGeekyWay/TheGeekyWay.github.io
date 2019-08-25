@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Techonology Inside Out - Uncategorized</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/uncategorized.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-01-26T18:04:00+05:30</updated><entry><title>What are dotfiles?</title><link href="//thegeekyway.com/what-are-dotfiles/" rel="alternate"></link><published>2018-01-26T18:04:00+05:30</published><updated>2018-01-26T18:04:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-01-26:/what-are-dotfiles/</id><summary type="html">&lt;p&gt;What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Uncategorized</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/uncategorized.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-01-26T18:04:00+05:30</updated><entry><title>What are dotfiles?</title><link href="//thegeekyway.com/what-are-dotfiles/" rel="alternate"></link><published>2018-01-26T18:04:00+05:30</published><updated>2018-01-26T18:04:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-01-26:/what-are-dotfiles/</id><summary type="html">&lt;p&gt;What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.&lt;/p&gt;
 &lt;p&gt;Configuring a dev machine according to your liking would've been a …&lt;/p&gt;</summary><content type="html">&lt;p&gt;What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.&lt;/p&gt;
 &lt;p&gt;Configuring a dev machine according to your liking would've been a really daunting task until and unless there were dotfiles.&lt;!--more--&gt;&lt;/p&gt;
 &lt;h3&gt;Introduction&lt;/h3&gt;
@@ -12,30 +12,30 @@ They can also be used to automate a series of package installations. Their usefu
 &lt;p&gt;There are different dotfiles for different purposes. For example, &lt;strong&gt;&lt;em&gt;.bashrc&lt;/em&gt;&lt;/strong&gt; to configure bash and similarly &lt;strong&gt;&lt;em&gt;.zshrc&lt;/em&gt;&lt;/strong&gt; to configure zsh. We can also create our own dotfiles for different purposes like &lt;strong&gt;&lt;em&gt;.aliases &lt;/em&gt;&lt;/strong&gt;to declare all modified commands and &lt;strong&gt;&lt;em&gt;.export&lt;/em&gt;&lt;/strong&gt; to set environment variables we need. In this tutorial, we'll see a couple of examples to show the working of these dotfiles. Let's go ahead!&lt;/p&gt;
 &lt;h4&gt;.bashrc&lt;/h4&gt;
 &lt;p&gt;This is the default file, that runs every time when we open our bash. Either we can directly write all the bash configurations in this file or we can use a distributive approach, like having &lt;strong&gt;functions&lt;/strong&gt; in one file and OS specific settings in different files, etc. Following is an example of a &lt;strong&gt;&lt;em&gt;.bashrc.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;[ -n &amp;quot;$PS1&amp;quot; ] &amp;amp;&amp;amp; source ~/.profile
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt; &lt;span class="ss"&gt;&amp;quot;$PS1&amp;quot;&lt;/span&gt; &lt;span class="p"&gt;]&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="k"&gt;source&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;profile&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;This means that, if &lt;strong&gt;"\$PS1"&lt;/strong&gt; will return a non-empty string, then load &lt;strong&gt;&lt;em&gt;.profile.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;h4&gt;.profile&lt;/h4&gt;
 &lt;p&gt;We may use this to load OS-specific settings, and all other dotfiles, like &lt;strong&gt;&lt;em&gt;.functions, .aliases, .exports,&lt;/em&gt;&lt;/strong&gt; etc. Let's take a look.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Load ~/.extra, ~/.exports, ~/.aliases and ~/.functions
-# ~/.extra can be used for settings you don’t want to commit
-for file in ~/.{exports,aliases,functions,extra}; do
-    [ -r &amp;quot;$file&amp;quot; ] &amp;amp;amp;&amp;amp;amp; source &amp;quot;$file&amp;quot;
-done
-unset file
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# &lt;span class="nv"&gt;Load&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;extra&lt;/span&gt;, &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;exports&lt;/span&gt;, &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;aliases&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;functions&lt;/span&gt;
+# &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;extra&lt;/span&gt; &lt;span class="nv"&gt;can&lt;/span&gt; &lt;span class="nv"&gt;be&lt;/span&gt; &lt;span class="nv"&gt;used&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;settings&lt;/span&gt; &lt;span class="nv"&gt;you&lt;/span&gt; &lt;span class="nv"&gt;don&lt;/span&gt;’&lt;span class="nv"&gt;t&lt;/span&gt; &lt;span class="nv"&gt;want&lt;/span&gt; &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;commit&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt; &lt;span class="nv"&gt;in&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.{&lt;span class="nv"&gt;exports&lt;/span&gt;,&lt;span class="nv"&gt;aliases&lt;/span&gt;,&lt;span class="nv"&gt;functions&lt;/span&gt;,&lt;span class="nv"&gt;extra&lt;/span&gt;}&lt;span class="c1"&gt;; do&lt;/span&gt;
+    [ &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;r&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;$file&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; ] &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="nv"&gt;source&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;$file&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;done&lt;/span&gt;
+&lt;span class="nv"&gt;unset&lt;/span&gt; &lt;span class="nv"&gt;file&lt;/span&gt;
 
-# Detect and load OS specific settigs
-platform=&amp;#39;unknown&amp;#39;
-unamestr=`uname`
-if [[ &amp;quot;$unamestr&amp;quot; == &amp;#39;Linux&amp;#39; ]]; then
-   source ~/.linux
-elif [[ &amp;quot;$unamestr&amp;quot; == &amp;#39;FreeBSD&amp;#39; ]]; then
-   source ~/.freebsd
-elif [[ &amp;quot;$unamestr&amp;quot; == &amp;#39;Darwin&amp;#39; ]]; then
-   source ~/.osx
-fi
+# &lt;span class="nv"&gt;Detect&lt;/span&gt; &lt;span class="nv"&gt;and&lt;/span&gt; &lt;span class="nv"&gt;load&lt;/span&gt; &lt;span class="nv"&gt;OS&lt;/span&gt; &lt;span class="nv"&gt;specific&lt;/span&gt; &lt;span class="nv"&gt;settigs&lt;/span&gt;
+&lt;span class="nv"&gt;platform&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;unknown&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
+&lt;span class="nv"&gt;unamestr&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;`&lt;span class="nv"&gt;uname&lt;/span&gt;`
+&lt;span class="k"&gt;if&lt;/span&gt; [[ &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;$unamestr&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Linux&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; ]]&lt;span class="c1"&gt;; then&lt;/span&gt;
+   &lt;span class="nv"&gt;source&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;linux&lt;/span&gt;
+&lt;span class="nv"&gt;elif&lt;/span&gt; [[ &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;$unamestr&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;FreeBSD&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; ]]&lt;span class="c1"&gt;; then&lt;/span&gt;
+   &lt;span class="nv"&gt;source&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;freebsd&lt;/span&gt;
+&lt;span class="nv"&gt;elif&lt;/span&gt; [[ &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;$unamestr&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;==&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;Darwin&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; ]]&lt;span class="c1"&gt;; then&lt;/span&gt;
+   &lt;span class="nv"&gt;source&lt;/span&gt; &lt;span class="o"&gt;~/&lt;/span&gt;.&lt;span class="nv"&gt;osx&lt;/span&gt;
+&lt;span class="nv"&gt;fi&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -53,43 +53,43 @@ fi
 &lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;localip&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;python -c &amp;quot;import socket; print(socket.gethostbyname(socket.gethostname()));&amp;quot;&amp;#39;&lt;/span&gt;
 
 &lt;span class="c1"&gt;# Copy my public key to my clipboard&lt;/span&gt;
-&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;pubkey&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;more ~/.ssh/id_rsa.pub | pbcopy | echo &amp;#39;=&amp;amp;gt; Public key copied to pasteboard.&amp;#39;&amp;quot;&lt;/span&gt;
+&lt;span class="n"&gt;alias&lt;/span&gt; &lt;span class="n"&gt;pubkey&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;more ~/.ssh/id_rsa.pub | pbcopy | echo &amp;#39;=&amp;gt; Public key copied to pasteboard.&amp;#39;&amp;quot;&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;The complete file is &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.aliases"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h4&gt;.exports&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;Export&lt;/strong&gt; is widely used to set environment variables. Also, we &lt;strong&gt;export&lt;/strong&gt; a variable, when we need it in other programs. That depends upon the shell as well. For bash, &lt;strong&gt;export&lt;/strong&gt; makes a variable usable, in the environment for child processes. For more about export, you may see &lt;a href="http://www.gnu.org/software/bash/manual/bash.html#index-export"&gt;GNU bash manual&lt;/a&gt;. Your &lt;strong&gt;&lt;em&gt;.export &lt;/em&gt;&lt;/strong&gt;file may look like &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.exports"&gt;this&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Make vim the default editor
-export EDITOR=&amp;quot;vim&amp;quot;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Make&lt;/span&gt; &lt;span class="n"&gt;vim&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="n"&gt;editor&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;EDITOR&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;vim&amp;quot;&lt;/span&gt;
 
-# Don’t clear the screen after quitting a manual page
-export MANPAGER=&amp;quot;less -X&amp;quot;
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Don&lt;/span&gt;&lt;span class="err"&gt;’&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;clear&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;screen&lt;/span&gt; &lt;span class="k"&gt;after&lt;/span&gt; &lt;span class="n"&gt;quitting&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;manual&lt;/span&gt; &lt;span class="n"&gt;page&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;MANPAGER&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="ss"&gt;&amp;quot;less -X&amp;quot;&lt;/span&gt;
 
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTSIZE=32768
-export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Larger&lt;/span&gt; &lt;span class="n"&gt;bash&lt;/span&gt; &lt;span class="n"&gt;history&lt;/span&gt; &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;allow&lt;/span&gt; &lt;span class="mi"&gt;32&lt;/span&gt;&lt;span class="err"&gt;³&lt;/span&gt; &lt;span class="n"&gt;entries&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;default&lt;/span&gt; &lt;span class="k"&gt;is&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;HISTSIZE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;32768&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;HISTFILESIZE&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;HISTSIZE&lt;/span&gt;
+&lt;span class="n"&gt;export&lt;/span&gt; &lt;span class="n"&gt;HISTCONTROL&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="n"&gt;ignoredups&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;.functions&lt;/h4&gt;
 &lt;p&gt;If we want to create an alias that not just perform a shorthand or a group of commands but, also which behaves conditionally and can work with variables, then we have a better approach of &lt;strong&gt;"functions". &lt;/strong&gt;A function is an independent block of script, which is more powerful than an alias because they can accept variables. We can create functions for various purposes like:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;copy&lt;/span&gt; &lt;span class="nx"&gt;the&lt;/span&gt; &lt;span class="nx"&gt;work&lt;/span&gt; &lt;span class="nx"&gt;directory&lt;/span&gt; &lt;span class="nx"&gt;to&lt;/span&gt; &lt;span class="nx"&gt;clipboard&lt;/span&gt;
-&lt;span class="kd"&gt;function&lt;/span&gt; &lt;span class="nx"&gt;pwdc() {&lt;/span&gt;
-  &lt;span class="nx"&gt;pwd&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nx"&gt;tr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;d&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;\r\n&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="nx"&gt;pbcopy&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;# copy the work directory to clipboard&lt;/span&gt;
+&lt;span class="n"&gt;function&lt;/span&gt; &lt;span class="nf"&gt;pwdc&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt;
+  &lt;span class="n"&gt;pwd&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;tr&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;&lt;/span&gt;&lt;span class="se"&gt;\r\n&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;|&lt;/span&gt; &lt;span class="n"&gt;pbcopy&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 
-&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="nx"&gt;touch&lt;/span&gt; &lt;span class="nx"&gt;a&lt;/span&gt; &lt;span class="nx"&gt;file&lt;/span&gt; &lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="nx"&gt;creating&lt;/span&gt; &lt;span class="nx"&gt;directories&lt;/span&gt;
-&lt;span class="nx"&gt;supertouch() {&lt;/span&gt; 
-         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="nx"&gt;$&lt;/span&gt;&lt;span class="err"&gt;#&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;lt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="nx"&gt;then&lt;/span&gt;
-                 &lt;span class="nx"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Missing argument&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="cp"&gt;# touch a file while creating directories&lt;/span&gt;
+&lt;span class="n"&gt;supertouch&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; &lt;span class="p"&gt;{&lt;/span&gt; 
+         &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt; &lt;span class="err"&gt;$#&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;lt&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt; &lt;span class="p"&gt;];&lt;/span&gt; &lt;span class="n"&gt;then&lt;/span&gt;
+                 &lt;span class="n"&gt;echo&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;Missing argument&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
                  &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-         &lt;span class="nx"&gt;fi&lt;/span&gt;
-         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="nx"&gt;f&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$@&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; 
-                 &lt;span class="nx"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nx"&gt;p&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$(dirname -- &amp;quot;&lt;/span&gt;&lt;span class="nx"&gt;$f&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;)&amp;quot;&lt;/span&gt;
-                 &lt;span class="nx"&gt;touch&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;$f&amp;quot;&lt;/span&gt; 
-         &lt;span class="nx"&gt;done&lt;/span&gt;  
+         &lt;span class="n"&gt;fi&lt;/span&gt;
+         &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;f&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$@&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt; 
+                 &lt;span class="n"&gt;mkdir&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$(dirname -- &amp;quot;&lt;/span&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;)&amp;quot;&lt;/span&gt;
+                 &lt;span class="n"&gt;touch&lt;/span&gt; &lt;span class="o"&gt;--&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;$f&amp;quot;&lt;/span&gt; 
+         &lt;span class="n"&gt;done&lt;/span&gt;  
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
@@ -97,26 +97,26 @@ export HISTCONTROL=ignoredups
 &lt;p&gt;More functions are available &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.functions"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;h4&gt;.vimrc&lt;/h4&gt;
 &lt;p&gt;This dotfile is specifically used for "&lt;strong&gt;vim&lt;/strong&gt;" configuration. All the necessary commands that we use very often, we can put them in this file. We can also set up different variables of vim, with the value we desire while working on it. For Unix and MacOS, this file is always used and is recommended at &lt;code&gt;~/.vimrc&lt;/code&gt;. To know more about .vimrc you may open the "&lt;strong&gt;vim&lt;/strong&gt;" and use the command &lt;code&gt;:help vimrc-intro&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;set nocompatible
-set et
-set ai
-set sw=4
-set ts=8
-set ruler
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;nocompatible&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;et&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;ai&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;sw&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;4&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;ts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;8&lt;/span&gt;
+&lt;span class="k"&gt;set&lt;/span&gt; &lt;span class="n"&gt;ruler&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;h4&gt;.gitignore&lt;/h4&gt;
 &lt;p&gt;This file is used in the case, we want to avoid or ignore some files or folders while &lt;strong&gt;git&lt;/strong&gt; makes a commit. These files may include &lt;em&gt;Thumbnail cache files, local virtual environment, etc.&lt;/em&gt; If we want a particular file say &lt;strong&gt;&lt;em&gt;Example.tmp&lt;/em&gt;&lt;/strong&gt; to be ignored. Just give its name in this dotfile. And if we want to ignore all &lt;strong&gt;&lt;em&gt;.tmp&lt;/em&gt;&lt;/strong&gt; files then put &lt;strong&gt;&lt;em&gt;*.tmp&lt;/em&gt;&lt;/strong&gt; in &lt;strong&gt;&lt;em&gt;.gitignore. &lt;/em&gt;&lt;/strong&gt;A gist of this file is shown below and a complete file is available &lt;a href="https://github.com/CuriousLearner/dotfiles/blob/master/.gitignore"&gt;here&lt;/a&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Files that might appear on external disks
-.Spotlight-V100
-.Trashesvenv
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Files&lt;/span&gt; &lt;span class="n"&gt;that&lt;/span&gt; &lt;span class="n"&gt;might&lt;/span&gt; &lt;span class="n"&gt;appear&lt;/span&gt; &lt;span class="k"&gt;on&lt;/span&gt; &lt;span class="k"&gt;external&lt;/span&gt; &lt;span class="n"&gt;disks&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Spotlight&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;V100&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Trashesvenv&lt;/span&gt;
 
-# Packages ignore
-node_modules
-.tmp
-.sass-cache
-app/bower_components
+&lt;span class="o"&gt;#&lt;/span&gt; &lt;span class="n"&gt;Packages&lt;/span&gt; &lt;span class="k"&gt;ignore&lt;/span&gt;
+&lt;span class="n"&gt;node_modules&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;tmp&lt;/span&gt;
+&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sass&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;cache&lt;/span&gt;
+&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bower_components&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 

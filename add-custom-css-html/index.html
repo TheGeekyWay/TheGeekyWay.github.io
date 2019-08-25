@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="CSS, HTML">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; How to add custom CSS in HTML  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/add-custom-css-html/">How to add custom CSS in HTML</a></h1>
+    <h1><a href="//thegeekyway.com/add-custom-css-html/">How to add custom CSS in HTML</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/anoop/>Anoop</a></strong></p>
@@ -88,7 +91,7 @@
 </ul>
 <h4>1. Using Style tag in HTML element:</h4>
 <p>You can simply use style tag like below to apply styling to your element.</p>
-<div class="highlight"><pre><span></span><span class="nv">&amp;lt</span>;<span class="n">strong</span> <span class="n">style</span>=<span class="s">&quot;color:White; background:black&quot;</span><span class="nv">&amp;gt</span>; <span class="n">Your</span> <span class="n">Text</span>  <span class="nv">&amp;lt</span>;/<span class="n">strong</span><span class="nv">&amp;gt</span>;
+<div class="highlight"><pre><span></span><span class="nt">&lt;strong</span> <span class="na">style=</span><span class="s">&quot;color:White; background:black&quot;</span><span class="nt">&gt;</span> Your Text  <span class="nt">&lt;/strong&gt;</span>
 </pre></div>
 
 
@@ -106,14 +109,14 @@
     }</p>
 <p>--></style>
 
-<div class="highlight"><pre><span></span> Your Text
+<div class="highlight"><pre><span></span> <span class="n">Your</span> <span class="nb">Text</span>
 </pre></div>
 
 
 <p>See the Pen <a href="http://codepen.io/ianoop/pen/IeBwH">IeBwH</a> by ianoop (<a href="http://codepen.io/ianoop">\@ianoop</a>) on <a href="http://codepen.io">CodePen</a></p>
 <h4>3.  Linking a external css file in page</h4>
 <p>Add a link to your css file and those classes will be applied to your elements. This is best approach to have clean code and managing your CSS.</p>
-<div class="highlight"><pre><span></span>        css&quot; href=&quot;customstylesheet.css&quot;&gt;
+<div class="highlight"><pre><span></span>        <span class="n">css</span><span class="ss">&quot; href=&quot;</span><span class="n">customstylesheet</span><span class="p">.</span><span class="n">css</span><span class="err">&quot;</span><span class="o">&gt;</span>
 </pre></div>
 
 
@@ -127,24 +130,22 @@
   </div>
   <div class="article_meta">
     <p>Posted on: Thu 12 December 2013</p>
-    <p>Category: <a href="/category/css/">CSS</a>
+    <p>Category: <a href="//thegeekyway.com/category/css/">CSS</a>
  &ndash; Tags:
-      <a href="/tag/css/">CSS</a>,      <a href="/tag/html/">HTML</a>    </p>
+      <a href="//thegeekyway.com/tag/css/">CSS</a>,      <a href="//thegeekyway.com/tag/html/">HTML</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/add-custom-css-html/";
-      this.page.identifier = "add-custom-css-html/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "add-custom-css-html/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

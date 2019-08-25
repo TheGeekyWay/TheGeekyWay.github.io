@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="c programming, structures, user defined data types">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Structures And User Defined Data Types (Part - I)  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/structures-c-programming-language-user-defined-data-types/">Structures And User Defined Data Types (Part - I)</a></h1>
+    <h1><a href="//thegeekyway.com/structures-c-programming-language-user-defined-data-types/">Structures And User Defined Data Types (Part - I)</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -90,67 +93,67 @@
 <p>Structures can be used to track information which is common to large group of entities.</p>
 <p><strong>How to declare a structure?</strong></p>
 <p>Let us first see the basic semantics of declaring a structure. It is much like defining ordinary variable like:</p>
-<div class="highlight"><pre><span></span>&lt;data_type&gt; &lt;variable_name&gt; // For variable
+<div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="nv">data_type</span><span class="o">&gt;</span> <span class="o">&lt;</span><span class="nv">variable_name</span><span class="o">&gt;</span> <span class="o">//</span> <span class="k">For</span> <span class="nv">variable</span>
 </pre></div>
 
 
 <p>Now for structure, it is done through keyword struct like this:</p>
-<div class="highlight"><pre><span></span>struct &lt;struct_name&gt;
-{
-  ...
-};
+<div class="highlight"><pre><span></span><span class="n">struct</span> <span class="o">&lt;</span><span class="n">struct_name</span><span class="o">&gt;</span>
+<span class="err">{</span>
+  <span class="p">...</span>
+<span class="err">}</span><span class="p">;</span>
 </pre></div>
 
 
 <p>Let us take an example to track record of students in a high school. Each student would have certain set of properties/attributes which would differentiate them from one another. We'll consider a student has a roll number of type integer , name of type string and  marks of type float for the time being. Now, let's define our structure named student with these properties.</p>
-<div class="highlight"><pre><span></span>struct student
-{
-  int rollno;
-  char name[20];  // Taking an array of character (string)
-  float marks;
-  // You are free to declare as many members as you want, but we&#39;re restricting our example to 3 data members (properties)
-  // Size of the structure should be known to the compiler
-};
+<div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">student</span>
+<span class="err">{</span>
+  <span class="nb">int</span> <span class="n">rollno</span><span class="p">;</span>
+  <span class="nb">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>  <span class="o">//</span> <span class="n">Taking</span> <span class="n">an</span> <span class="nb">array</span> <span class="k">of</span> <span class="nb">character</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="nb">float</span> <span class="n">marks</span><span class="p">;</span>
+  <span class="o">//</span> <span class="n">You</span> <span class="k">are</span> <span class="k">free</span> <span class="k">to</span> <span class="k">declare</span> <span class="k">as</span> <span class="n">many</span> <span class="n">members</span> <span class="k">as</span> <span class="n">you</span> <span class="n">want</span><span class="p">,</span> <span class="n">but</span> <span class="n">we</span><span class="err">&#39;</span><span class="n">re</span> <span class="n">restricting</span> <span class="n">our</span> <span class="n">example</span> <span class="k">to</span> <span class="mi">3</span> <span class="k">data</span> <span class="n">members</span> <span class="p">(</span><span class="n">properties</span><span class="p">)</span>
+  <span class="o">//</span> <span class="k">Size</span> <span class="k">of</span> <span class="n">the</span> <span class="k">structure</span> <span class="n">should</span> <span class="n">be</span> <span class="n">known</span> <span class="k">to</span> <span class="n">the</span> <span class="n">compiler</span>
+<span class="err">}</span><span class="p">;</span>
 </pre></div>
 
 
 <p>Now that we have our basic structure with it's data members ready, we can declare instances of it like:</p>
-<div class="highlight"><pre><span></span>struct student George;
+<div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">student</span> <span class="n">George</span><span class="p">;</span>
 </pre></div>
 
 
 <p>Now, all members of the structure can be accessed via our instance named George using membership access or dot operator like:</p>
-<div class="highlight"><pre><span></span>George.rollno = 91;
+<div class="highlight"><pre><span></span><span class="n">George</span><span class="p">.</span><span class="n">rollno</span> <span class="o">=</span> <span class="mi">91</span><span class="p">;</span>
 
-George.marks = 78.6;
+<span class="n">George</span><span class="p">.</span><span class="n">marks</span> <span class="o">=</span> <span class="mi">78</span><span class="p">.</span><span class="mi">6</span><span class="p">;</span>
 </pre></div>
 
 
 <p>and so on...</p>
 <p>It's essential to remember here that the members we declare in a structure would take the memory only when instances are declared. You're free to name your instance anything. It's just like declaring a variable whose data type would be now your own defined data type, which is struct student here.</p>
 <p>Notice above how we've defined the instances of a structure, another way of declaring them can be like this:</p>
-<div class="highlight"><pre><span></span>struct &lt;struct-name&gt;
-{
-  // Data Members
+<div class="highlight"><pre><span></span><span class="n">struct</span> <span class="o">&lt;</span><span class="n">struct</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="err">{</span>
+  <span class="o">//</span> <span class="k">Data</span> <span class="n">Members</span>
 
-} &lt;name-of-first-structure-variable&gt; ... ;
+<span class="err">}</span> <span class="o">&lt;</span><span class="n">name</span><span class="o">-</span><span class="k">of</span><span class="o">-</span><span class="k">first</span><span class="o">-</span><span class="k">structure</span><span class="o">-</span><span class="k">variable</span><span class="o">&gt;</span> <span class="p">...</span> <span class="p">;</span>
 </pre></div>
 
 
 <p>So, for the above example, it can be done as follows:</p>
-<div class="highlight"><pre><span></span>struct student
-{
-  int rollno;
-  char name[20];  // Taking an array of character (string)
-  float marks;
-}George,Henry,Steve; // Declare as many as you want.
+<div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">student</span>
+<span class="err">{</span>
+  <span class="nb">int</span> <span class="n">rollno</span><span class="p">;</span>
+  <span class="nb">char</span> <span class="n">name</span><span class="p">[</span><span class="mi">20</span><span class="p">];</span>  <span class="o">//</span> <span class="n">Taking</span> <span class="n">an</span> <span class="nb">array</span> <span class="k">of</span> <span class="nb">character</span> <span class="p">(</span><span class="n">string</span><span class="p">)</span>
+  <span class="nb">float</span> <span class="n">marks</span><span class="p">;</span>
+<span class="err">}</span><span class="n">George</span><span class="p">,</span><span class="n">Henry</span><span class="p">,</span><span class="n">Steve</span><span class="p">;</span> <span class="o">//</span> <span class="k">Declare</span> <span class="k">as</span> <span class="n">many</span> <span class="k">as</span> <span class="n">you</span> <span class="n">want</span><span class="p">.</span>
 </pre></div>
 
 
 <p>Next, you can access each of the properties for a particular structure variable like :</p>
-<div class="highlight"><pre><span></span>George.rollno = 50;
-George.marks = 98.6;
-strycpy(George.name, &quot;George&quot;);
+<div class="highlight"><pre><span></span><span class="n">George</span><span class="p">.</span><span class="n">rollno</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span>
+<span class="n">George</span><span class="p">.</span><span class="n">marks</span> <span class="o">=</span> <span class="mi">98</span><span class="p">.</span><span class="mi">6</span><span class="p">;</span>
+<span class="n">strycpy</span><span class="p">(</span><span class="n">George</span><span class="p">.</span><span class="n">name</span><span class="p">,</span> <span class="ss">&quot;George&quot;</span><span class="p">);</span>
 </pre></div>
 
 
@@ -159,24 +162,22 @@ strycpy(George.name, &quot;George&quot;);
   </div>
   <div class="article_meta">
     <p>Posted on: Tue 05 August 2014</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/c-programming/">c programming</a>,      <a href="/tag/structures/">structures</a>,      <a href="/tag/user-defined-data-types/">user defined data types</a>    </p>
+      <a href="//thegeekyway.com/tag/c-programming/">c programming</a>,      <a href="//thegeekyway.com/tag/structures/">structures</a>,      <a href="//thegeekyway.com/tag/user-defined-data-types/">user defined data types</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/structures-c-programming-language-user-defined-data-types/";
-      this.page.identifier = "structures-c-programming-language-user-defined-data-types/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "structures-c-programming-language-user-defined-data-types/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 

@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,10 +15,13 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
 <meta name="keywords" content="C language, Learn C, variables">
 
   <title>
-    The Geeky Way - Techonology Inside Out
+    The Geeky Way
 &ndash; Learn C - More about variables  </title>
 
 <script type="text/javascript">
@@ -37,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="/">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="/">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -65,7 +68,7 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="/">Index</a> &brvbar; <a href="/archives.html">Archives</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
       &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
       &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
@@ -73,7 +76,7 @@
 
 <article>
   <div class="article_title">
-    <h1><a href="/learn-c-variables/">Learn C - More about variables</a></h1>
+    <h1><a href="//thegeekyway.com/learn-c-variables/">Learn C - More about variables</a></h1>
   </div>
   <div class="article_author">
     <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
@@ -86,41 +89,41 @@ P { margin-bottom: 0.08in; }<br />
 <p>Welcome to your next tutorial on the Learn C language, here we'll have a deeper look at the use of variables in C language. In previous <a href="http://www.thegeekyway.com/variables-in-c/" title="Learning about Variables in C">tutorial about variables in C</a>, we defined a variable sam of integer type and then initialized it with a value (10), this can be done in simpler manner in just one line. If you haven't read the previous tutorial, then please read it first, and you can read the <a href="http://www.thegeekyway.com/category/programming/c/">Learn C tutorial Series</a> .</p>
 <p><strong>Declaration and Initialization together :</strong></p>
 <p>So, we'll have a look at how to do this :</p>
-<div class="highlight"><pre><span></span>int sam = 10;
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">sam</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </pre></div>
 
 
 <p>In the above statement, I have declared my integer type variable named sam, and then initialised it with a value.</p>
 <p>So, I had two options, one to do something like mentioned above, or have declaration in one line and initialization in other as :</p>
-<div class="highlight"><pre><span></span>int sam;
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">sam</span><span class="p">;</span>
 
-sam = 10;
+<span class="n">sam</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
 </pre></div>
 
 
 <p>Now, we'll see how to take values from our user</p>
 <p><strong>Accepting values from user :</strong></p>
 <p>We can store values in our variables depending on choice of end user. This is done through a function know as scanf() and is defined under header file stdio.h (Standard Input/Output). We first define a variable named value.</p>
-<div class="highlight"><pre><span></span>int value;
+<div class="highlight"><pre><span></span><span class="nb">int</span> <span class="n">value</span><span class="p">;</span>
 </pre></div>
 
 
 <p>Now, we'll accept input form user as :</p>
-<div class="highlight"><pre><span></span>scanf(“%d”, &amp;value);
+<div class="highlight"><pre><span></span><span class="n">scanf</span><span class="p">(</span><span class="err">“</span><span class="o">%</span><span class="n">d</span><span class="err">”</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">value</span><span class="p">);</span>
 </pre></div>
 
 
 <p>Note : scanf() function is somewhat like printf function defined before, but with the function name it's necessary to have ampersand (&amp;) before variable name. This operator is used for reference, in simple terms, this helps in passing the address of memory location that is reserved for our new variable. We'll discuss about these things in detail in later tutorial, till now, just see it's done in this way.</p>
 <p>Note: scanf() function should always contain ampersand before your variable name.</p>
 <p>Now, we'll write a program here which will accept an input from user and then print the same on the screen.</p>
-<div class="highlight"><pre><span></span>#include&lt;stdio.h&gt;
-int main()
+<div class="highlight"><pre><span></span>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
+<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
 {
-  int value;
-  printf(“Enter value : “);
-  scanf(“%d” , &amp;value);
-  printf(“Value entered is %d”,value);
-  return 0;
+  <span class="nv">int</span> <span class="nv">value</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span>“<span class="nv">Enter</span> <span class="nv">value</span> : “<span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">scanf</span><span class="ss">(</span>“<span class="o">%</span><span class="nv">d</span>” , <span class="o">&amp;</span><span class="nv">value</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="nv">printf</span><span class="ss">(</span>“<span class="nv">Value</span> <span class="nv">entered</span> <span class="nv">is</span> <span class="o">%</span><span class="nv">d</span>”,<span class="nv">value</span><span class="ss">)</span><span class="c1">;</span>
+  <span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
 }
 </pre></div>
 
@@ -134,16 +137,16 @@ int main()
 <p><strong>Accepting user Input and displaying output for variables of different data types :</strong></p>
 <p>Now, we'll see how you can accept and return different types of variables :</p>
 <p>For character type variable , you can do as :</p>
-<div class="highlight"><pre><span></span>char ch;
-scanf(“%c” , &amp;ch);
-printf(“%c”, ch);
+<div class="highlight"><pre><span></span><span class="nb">char</span> <span class="n">ch</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="err">“</span><span class="o">%</span><span class="k">c</span><span class="err">”</span> <span class="p">,</span> <span class="o">&amp;</span><span class="n">ch</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="err">“</span><span class="o">%</span><span class="k">c</span><span class="err">”</span><span class="p">,</span> <span class="n">ch</span><span class="p">);</span>
 </pre></div>
 
 
 <p>For float type variable, you can do as :</p>
-<div class="highlight"><pre><span></span>float fvar;
-scanf(“%f”, &amp;fvar);
-printf(“%f”, fvar);
+<div class="highlight"><pre><span></span><span class="nb">float</span> <span class="n">fvar</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="err">“</span><span class="o">%</span><span class="n">f</span><span class="err">”</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">fvar</span><span class="p">);</span>
+<span class="n">printf</span><span class="p">(</span><span class="err">“</span><span class="o">%</span><span class="n">f</span><span class="err">”</span><span class="p">,</span> <span class="n">fvar</span><span class="p">);</span>
 </pre></div>
 
 
@@ -153,24 +156,22 @@ printf(“%f”, fvar);
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 16 December 2013</p>
-    <p>Category: <a href="/category/c/">C</a>
+    <p>Category: <a href="//thegeekyway.com/category/c/">C</a>
  &ndash; Tags:
-      <a href="/tag/c-language/">C language</a>,      <a href="/tag/learn-c/">Learn C</a>,      <a href="/tag/variables/">variables</a>    </p>
+      <a href="//thegeekyway.com/tag/c-language/">C language</a>,      <a href="//thegeekyway.com/tag/learn-c/">Learn C</a>,      <a href="//thegeekyway.com/tag/variables/">variables</a>    </p>
   </div>
 
-  <div id="disqus_thread"></div>
-  <script>
-    var disqus_config = function () {
-      this.page.url = "//thegeekyway.com/learn-c-variables/";
-      this.page.identifier = "learn-c-variables/";
-    };
-    (function() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://thegeekyway.disqus.com/embed.js';
-    s.setAttribute('data-timestamp', +new Date());
-    (d.head || d.body).appendChild(s);
-    })();
-  </script>
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "learn-c-variables/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
 
 </article>
 
