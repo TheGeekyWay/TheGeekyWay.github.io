@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
-  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+  <link href="//www.thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//www.thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
 
 <meta name="keywords" content="Python, GitHub">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="//thegeekyway.com">
+      <a href="..">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="..">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -68,22 +68,22 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
-      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
+      &brvbar; <a href="//www.thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//www.thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="//thegeekyway.com/hail-graphql/">Hail GraphQL</a></h1>
+    <h1><a href="../hail-graphql/">Hail GraphQL</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=//thegeekyway.com/author/storymode7/>storymode7</a></strong></p>
+    <p><strong>By: <a href=../author/storymode7/>storymode7</a></strong></p>
   </div>
   <div class="article_text">
     <div style="text-align:center">
-<p><img alt="GraphQL Logo" src="//thegeekyway.com/uploads/images/2019/08/graphql-logo.png"></p>
+<p><img alt="GraphQL Logo" src="../uploads/images/2019/08/graphql-logo.png"></p>
 </div>
 <p>We start with basics, but then we've to upgrade. But why? Because the latest solution to the old problem is more elegant and much faster! To me, it happened to be GraphQL. It's a query language that follows you. The mantra? The structure remains the same. Let's see how we can get started with GraphQL using GitHub's API as an example.</p>
 <!--more-->
@@ -122,7 +122,7 @@ In a node, you can specify what fields you require. Remember that the final fiel
 <p>What better way to understand something new than to see it work, play with it. Let's take the one I used (GitHub).
 You can use <a href="https://developer.github.com/v4/explorer/">GitHub's explorer</a> to test queries straight away. But it asks a <em>LOT</em> of permissions to support every type of query.
 Another way is to make a smaller version yourself. With fewer permissions. Here's a short version that I wrote. For this, you just need an authentication token generated at https://github.com/settings/tokens with no scopes other than default scopes. i.e you don't need to select any option from the list of scopes provided in settings.</p>
-<p><a href="//thegeekyway.com/uploads/files/graphql-without-pagination.py">Minimal Explorer</a></p>
+<p><a href="../uploads/files/graphql-without-pagination.py">Minimal Explorer</a></p>
 <p>This is the minimal explorer that I wrote. But since we're not taking loads of permissions, we're a little limited. But for getting started, it's enough (Not only getting started, but for getting big too. CPython-Pull-Requests uses only default scopes, no additional scopes.)</p>
 <p>So here's our first query. </p>
 <div class="highlight"><pre><span></span><span class="p">{</span>
@@ -283,7 +283,7 @@ In short, to paginate:
 </pre></div>
 
 
-<p>Now here's an <a href="//thegeekyway.com/uploads/files/graphql-with-pagination.py">example script</a> with pagination. That will fetch titles of all PRs for "cpython" repo with owner "python".
+<p>Now here's an <a href="../uploads/files/graphql-with-pagination.py">example script</a> with pagination. That will fetch titles of all PRs for "cpython" repo with owner "python".
 Since we're getting a list of all the nodes(PR titles), I am capturing node of every request and appending it to the previous node. 
 I'm not attaching the final node created by the accumulation of all other nodes back to the response because I've achieved what I wanted.
 Titles of all PRs opened in the "CPython" repo. 
@@ -319,9 +319,9 @@ There are more features that you can find out on <a href="https://developer.gith
   </div>
   <div class="article_meta">
     <p>Posted on: Mon 12 August 2019</p>
-    <p>Category: <a href="//thegeekyway.com/category/graphql/">GraphQL</a>
+    <p>Category: <a href="../category/graphql/">GraphQL</a>
  &ndash; Tags:
-      <a href="//thegeekyway.com/tag/python/">Python</a>,      <a href="//thegeekyway.com/tag/github/">GitHub</a>    </p>
+      <a href="../tag/python/">Python</a>,      <a href="../tag/github/">GitHub</a>    </p>
   </div>
 
   <div id="article_comments">

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - GraphQL</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/graphql.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-12T12:00:00+05:30</updated><entry><title>Hail GraphQL</title><link href="//thegeekyway.com/hail-graphql/" rel="alternate"></link><published>2019-08-12T12:00:00+05:30</published><updated>2019-08-12T12:00:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2019-08-12:/hail-graphql/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="GraphQL Logo" src="//thegeekyway.com/uploads/images/2019/08/graphql-logo.png"&gt;&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - GraphQL</title><link href="//www.thegeekyway.com/" rel="alternate"></link><link href="//www.thegeekyway.com/feed/graphql.atom.xml" rel="self"></link><id>//www.thegeekyway.com/</id><updated>2019-08-12T12:00:00+05:30</updated><entry><title>Hail GraphQL</title><link href="//www.thegeekyway.com/hail-graphql/" rel="alternate"></link><published>2019-08-12T12:00:00+05:30</published><updated>2019-08-12T12:00:00+05:30</updated><author><name>storymode7</name></author><id>tag:www.thegeekyway.com,2019-08-12:/hail-graphql/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;img alt="GraphQL Logo" src="//www.thegeekyway.com/uploads/images/2019/08/graphql-logo.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;We start with basics, but then we've to upgrade. But why? Because the latest solution to the old problem is more elegant and much faster! To me, it happened to be GraphQL. It's a query language that follows you. The mantra? The structure remains the same. Let's see how we …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="GraphQL Logo" src="//thegeekyway.com/uploads/images/2019/08/graphql-logo.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GraphQL Logo" src="//www.thegeekyway.com/uploads/images/2019/08/graphql-logo.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;We start with basics, but then we've to upgrade. But why? Because the latest solution to the old problem is more elegant and much faster! To me, it happened to be GraphQL. It's a query language that follows you. The mantra? The structure remains the same. Let's see how we can get started with GraphQL using GitHub's API as an example.&lt;/p&gt;
 &lt;!--more--&gt;
@@ -42,7 +42,7 @@ In a node, you can specify what fields you require. Remember that the final fiel
 &lt;p&gt;What better way to understand something new than to see it work, play with it. Let's take the one I used (GitHub).
 You can use &lt;a href="https://developer.github.com/v4/explorer/"&gt;GitHub's explorer&lt;/a&gt; to test queries straight away. But it asks a &lt;em&gt;LOT&lt;/em&gt; of permissions to support every type of query.
 Another way is to make a smaller version yourself. With fewer permissions. Here's a short version that I wrote. For this, you just need an authentication token generated at https://github.com/settings/tokens with no scopes other than default scopes. i.e you don't need to select any option from the list of scopes provided in settings.&lt;/p&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/files/graphql-without-pagination.py"&gt;Minimal Explorer&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//www.thegeekyway.com/uploads/files/graphql-without-pagination.py"&gt;Minimal Explorer&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;This is the minimal explorer that I wrote. But since we're not taking loads of permissions, we're a little limited. But for getting started, it's enough (Not only getting started, but for getting big too. CPython-Pull-Requests uses only default scopes, no additional scopes.)&lt;/p&gt;
 &lt;p&gt;So here's our first query. &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;{&lt;/span&gt;
@@ -203,7 +203,7 @@ In short, to paginate:
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;Now here's an &lt;a href="//thegeekyway.com/uploads/files/graphql-with-pagination.py"&gt;example script&lt;/a&gt; with pagination. That will fetch titles of all PRs for "cpython" repo with owner "python".
+&lt;p&gt;Now here's an &lt;a href="//www.thegeekyway.com/uploads/files/graphql-with-pagination.py"&gt;example script&lt;/a&gt; with pagination. That will fetch titles of all PRs for "cpython" repo with owner "python".
 Since we're getting a list of all the nodes(PR titles), I am capturing node of every request and appending it to the previous node. 
 I'm not attaching the final node created by the accumulation of all other nodes back to the response because I've achieved what I wanted.
 Titles of all PRs opened in the "CPython" repo. 
