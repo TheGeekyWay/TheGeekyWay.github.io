@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="//www.thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
-  <link href="//www.thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
 
 <meta name="keywords" content="automation, Chef, chef-solo, Python, python with chef">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="..">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="..">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -68,23 +68,23 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
-      &brvbar; <a href="//www.thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="//www.thegeekyway.com/feed/">RSS</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="../running-python-script-using-chef/">Running A Python Script Using Chef</a></h1>
+    <h1><a href="//thegeekyway.com/running-python-script-using-chef/">Running A Python Script Using Chef</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=../author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
+    <p><strong>By: <a href=//thegeekyway.com/author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
   </div>
   <div class="article_text">
     <p>Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through <a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/">this</a> article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration of the designated server. Resource have their predefined task like to run a command, to copy a file, to use a template etc. In this article we are going to talk about script resource. This is going to run any script, it could be bash, python or perl. There are separate resources for these scripts.</p>
 <p>You put the resources in your recipe. Here is a simple bash script example:</p>
-<div class="highlight"><pre><span></span><span class="nv">bash</span> <span class="s2">&quot;</span><span class="s">install_something</span><span class="s2">&quot;</span> <span class="k">do</span>
+<div class="highlight"><pre><span></span><code><span class="nv">bash</span> <span class="s2">&quot;</span><span class="s">install_something</span><span class="s2">&quot;</span> <span class="k">do</span>
  <span class="nv">user</span> <span class="s2">&quot;</span><span class="s">root</span><span class="s2">&quot;</span>
  <span class="nv">cwd</span> <span class="s2">&quot;</span><span class="s">/home</span><span class="s2">&quot;</span>
  <span class="nv">code</span> <span class="o">&lt;&lt;-</span><span class="nv">EOH</span>
@@ -93,20 +93,18 @@
  <span class="nv">ls</span>
  <span class="nv">EOH</span>
 <span class="k">end</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>As you can see, the bash resource will run the script in the code section and will print “Hello World” to the terminal and the content of /home directory.</p>
 <p>So, when you are going to run a python script, the first choice to come to mind is “python” script resource. But there is a limitation to script resources. They only run in-line scripts. Meaning you will have to write the whole script in the code section and it will be executed one line at a time. But you can’t run an external script. Here comes the “execute” resource to rescue!</p>
 <p>To run an external script, the structure of the execute resource is:</p>
-<div class="highlight"><pre><span></span><span class="nv">filename</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">test.py</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">filename</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">test.py</span><span class="s2">&quot;</span>
 
 <span class="nv">execute</span> <span class="s1">&#39;</span><span class="s">execute_file</span><span class="s1">&#39;</span> <span class="k">do</span>
  <span class="nv">cwd</span> <span class="s1">&#39;</span><span class="s">/home/peeyush</span><span class="s1">&#39;</span>
  <span class="nv">command</span> <span class="s2">&quot;</span><span class="s">python #{static}</span><span class="s2">&quot;</span>
 <span class="k">end</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Here the filename contains the name of the script. Then in the execute block, we have cwd which represents the current working directory. This is the directory where the script is present. Then the “command” tells the shell to execute the script. Just put the above lines in your recipe, edit test.py according to the ouput you want and let chef run the script for you! Here is the sample test.py:</p>
 <div style="text-align:center">
@@ -121,11 +119,18 @@
 <p><strong><img alt="Screenshot from 2014-03-18 15:18:51.png" src="https://lh4.googleusercontent.com/FXzkjCooBE7AGaHapRX_7IwhwvrADtaJBSbYGiepY-0BXiPI0PVLKNhSDPhO6ZKhB9-6KZTaDE3ln0zmMDFB-WNJD9ELZ20XZeiuO1ryQuqB30yHK0BqmUAU0xvZTA"></strong></p>
 </div>
   </div>
+  <div class="article_author_info" >
+    <hr>
+    <p>Posted By: Sanyam Khurana</p>
+    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
+
+    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
+  </div>
   <div class="article_meta">
     <p>Posted on: Tue 18 March 2014</p>
-    <p>Category: <a href="../category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="../tag/automation/">automation</a>,      <a href="../tag/chef/">Chef</a>,      <a href="../tag/chef-solo/">chef-solo</a>,      <a href="../tag/python/">Python</a>,      <a href="../tag/python-with-chef/">python with chef</a>    </p>
+      <a href="//thegeekyway.com/tag/automation/">automation</a>,      <a href="//thegeekyway.com/tag/chef/">Chef</a>,      <a href="//thegeekyway.com/tag/chef-solo/">chef-solo</a>,      <a href="//thegeekyway.com/tag/python/">Python</a>,      <a href="//thegeekyway.com/tag/python-with-chef/">python with chef</a>    </p>
   </div>
 
   <div id="article_comments">

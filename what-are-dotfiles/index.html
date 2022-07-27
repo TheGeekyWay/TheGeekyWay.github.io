@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="//www.thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
-  <link href="//www.thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
 
 <meta name="keywords" content="">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="..">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="..">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -68,18 +68,18 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
-      &brvbar; <a href="//www.thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="//www.thegeekyway.com/feed/">RSS</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="../what-are-dotfiles/">What are dotfiles?</a></h1>
+    <h1><a href="//thegeekyway.com/what-are-dotfiles/">What are dotfiles?</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=../author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
+    <p><strong>By: <a href=//thegeekyway.com/author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
   </div>
   <div class="article_text">
     <p>What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.</p>
@@ -94,113 +94,106 @@ They can also be used to automate a series of package installations. Their usefu
 <p>There are different dotfiles for different purposes. For example, <strong><em>.bashrc</em></strong> to configure bash and similarly <strong><em>.zshrc</em></strong> to configure zsh. We can also create our own dotfiles for different purposes like <strong><em>.aliases </em></strong>to declare all modified commands and <strong><em>.export</em></strong> to set environment variables we need. In this tutorial, we'll see a couple of examples to show the working of these dotfiles. Let's go ahead!</p>
 <h4>.bashrc</h4>
 <p>This is the default file, that runs every time when we open our bash. Either we can directly write all the bash configurations in this file or we can use a distributive approach, like having <strong>functions</strong> in one file and OS specific settings in different files, etc. Following is an example of a <strong><em>.bashrc.</em></strong></p>
-<div class="highlight"><pre><span></span><span class="p">[</span> <span class="o">-</span><span class="n">n</span> <span class="ss">&quot;$PS1&quot;</span> <span class="p">]</span> <span class="o">&amp;&amp;</span> <span class="k">source</span> <span class="o">~/</span><span class="p">.</span><span class="n">profile</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>[ -n &quot;$PS1&quot; ] &amp;&amp; source ~/.profile
+</code></pre></div>
 
 <p>This means that, if <strong>"\$PS1"</strong> will return a non-empty string, then load <strong><em>.profile.</em></strong></p>
 <h4>.profile</h4>
 <p>We may use this to load OS-specific settings, and all other dotfiles, like <strong><em>.functions, .aliases, .exports,</em></strong> etc. Let's take a look.</p>
-<div class="highlight"><pre><span></span># <span class="nv">Load</span> <span class="o">~/</span>.<span class="nv">extra</span>, <span class="o">~/</span>.<span class="nv">exports</span>, <span class="o">~/</span>.<span class="nv">aliases</span> <span class="nv">and</span> <span class="o">~/</span>.<span class="nv">functions</span>
-# <span class="o">~/</span>.<span class="nv">extra</span> <span class="nv">can</span> <span class="nv">be</span> <span class="nv">used</span> <span class="k">for</span> <span class="nv">settings</span> <span class="nv">you</span> <span class="nv">don</span>’<span class="nv">t</span> <span class="nv">want</span> <span class="nv">to</span> <span class="nv">commit</span>
-<span class="k">for</span> <span class="nv">file</span> <span class="nv">in</span> <span class="o">~/</span>.{<span class="nv">exports</span>,<span class="nv">aliases</span>,<span class="nv">functions</span>,<span class="nv">extra</span>}<span class="c1">; do</span>
-    [ <span class="o">-</span><span class="nv">r</span> <span class="s2">&quot;</span><span class="s">$file</span><span class="s2">&quot;</span> ] <span class="o">&amp;&amp;</span> <span class="nv">source</span> <span class="s2">&quot;</span><span class="s">$file</span><span class="s2">&quot;</span>
-<span class="nv">done</span>
-<span class="nv">unset</span> <span class="nv">file</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Load ~/.extra, ~/.exports, ~/.aliases and ~/.functions</span><span class="w"></span>
+<span class="c1"># ~/.extra can be used for settings you don’t want to commit</span><span class="w"></span>
+<span class="k">for</span><span class="w"> </span><span class="n">file</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="o">~/.</span><span class="p">{</span><span class="n">exports</span><span class="p">,</span><span class="n">aliases</span><span class="p">,</span><span class="n">functions</span><span class="p">,</span><span class="n">extra</span><span class="p">};</span><span class="w"> </span><span class="n">do</span><span class="w"></span>
+<span class="w">    </span><span class="p">[</span><span class="w"> </span><span class="o">-</span><span class="n">r</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="w"> </span><span class="p">]</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="n">source</span><span class="w"> </span><span class="s2">&quot;$file&quot;</span><span class="w"></span>
+<span class="n">done</span><span class="w"></span>
+<span class="n">unset</span><span class="w"> </span><span class="n">file</span><span class="w"></span>
 
-# <span class="nv">Detect</span> <span class="nv">and</span> <span class="nv">load</span> <span class="nv">OS</span> <span class="nv">specific</span> <span class="nv">settigs</span>
-<span class="nv">platform</span><span class="o">=</span><span class="s1">&#39;</span><span class="s">unknown</span><span class="s1">&#39;</span>
-<span class="nv">unamestr</span><span class="o">=</span>`<span class="nv">uname</span>`
-<span class="k">if</span> [[ <span class="s2">&quot;</span><span class="s">$unamestr</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">Linux</span><span class="s1">&#39;</span> ]]<span class="c1">; then</span>
-   <span class="nv">source</span> <span class="o">~/</span>.<span class="nv">linux</span>
-<span class="nv">elif</span> [[ <span class="s2">&quot;</span><span class="s">$unamestr</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">FreeBSD</span><span class="s1">&#39;</span> ]]<span class="c1">; then</span>
-   <span class="nv">source</span> <span class="o">~/</span>.<span class="nv">freebsd</span>
-<span class="nv">elif</span> [[ <span class="s2">&quot;</span><span class="s">$unamestr</span><span class="s2">&quot;</span> <span class="o">==</span> <span class="s1">&#39;</span><span class="s">Darwin</span><span class="s1">&#39;</span> ]]<span class="c1">; then</span>
-   <span class="nv">source</span> <span class="o">~/</span>.<span class="nv">osx</span>
-<span class="nv">fi</span>
-</pre></div>
-
+<span class="c1"># Detect and load OS specific settigs</span><span class="w"></span>
+<span class="n">platform</span><span class="o">=</span><span class="s1">&#39;unknown&#39;</span><span class="w"></span>
+<span class="n">unamestr</span><span class="o">=</span><span class="err">`</span><span class="n">uname</span><span class="err">`</span><span class="w"></span>
+<span class="k">if</span><span class="w"> </span><span class="p">[[</span><span class="w"> </span><span class="s2">&quot;$unamestr&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Linux&#39;</span><span class="w"> </span><span class="p">]];</span><span class="w"> </span><span class="n">then</span><span class="w"></span>
+<span class="w">   </span><span class="n">source</span><span class="w"> </span><span class="o">~/.</span><span class="n">linux</span><span class="w"></span>
+<span class="k">elif</span><span class="w"> </span><span class="p">[[</span><span class="w"> </span><span class="s2">&quot;$unamestr&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;FreeBSD&#39;</span><span class="w"> </span><span class="p">]];</span><span class="w"> </span><span class="n">then</span><span class="w"></span>
+<span class="w">   </span><span class="n">source</span><span class="w"> </span><span class="o">~/.</span><span class="n">freebsd</span><span class="w"></span>
+<span class="k">elif</span><span class="w"> </span><span class="p">[[</span><span class="w"> </span><span class="s2">&quot;$unamestr&quot;</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s1">&#39;Darwin&#39;</span><span class="w"> </span><span class="p">]];</span><span class="w"> </span><span class="n">then</span><span class="w"></span>
+<span class="w">   </span><span class="n">source</span><span class="w"> </span><span class="o">~/.</span><span class="n">osx</span><span class="w"></span>
+<span class="n">fi</span><span class="w"></span>
+</code></pre></div>
 
 <h4>.aliases</h4>
 <p>An alias can either be a modified command, or a shorthand for it that we may define ourselves. Suppose, for git commit, we always write <em><code>git commit -m "commit message"</code>.</em> In this case, we can create an alias by <em><code>alias gcm=git commit -m</code></em> with this, <strong><em>gcm </em></strong>is same as <strong><em>git commit -m.</em></strong> Following is a gist of a <strong><em>.aliases</em></strong> file.</p>
-<div class="highlight"><pre><span></span><span class="c1"># ------------------------------------------------------------------------------</span>
-<span class="c1"># | Network |</span>
-<span class="c1"># ------------------------------------------------------------------------------</span>
+<div class="highlight"><pre><span></span><code><span class="c"># </span><span class="nb">------------------------------------------------------------------------------</span><span class="c"></span>
+<span class="c"># | Network |</span>
+<span class="c"># </span><span class="nb">------------------------------------------------------------------------------</span><span class="c"></span>
 
-<span class="c1"># Enhanced WHOIS lookups</span>
-<span class="n">alias</span> <span class="n">whois</span><span class="o">=</span><span class="s2">&quot;whois -h whois-servers.net&quot;</span>
+<span class="c"># Enhanced WHOIS lookups</span>
+<span class="c">alias whois=&quot;whois </span><span class="nb">-</span><span class="c">h whois</span><span class="nb">-</span><span class="c">servers</span><span class="nt">.</span><span class="c">net&quot;</span>
 
-<span class="c1"># IP addresses</span>
-<span class="n">alias</span> <span class="n">ip</span><span class="o">=</span><span class="s2">&quot;curl ipinfo.io/ip&quot;</span>
-<span class="n">alias</span> <span class="n">localip</span><span class="o">=</span><span class="s1">&#39;python -c &quot;import socket; print(socket.gethostbyname(socket.gethostname()));&quot;&#39;</span>
+<span class="c"># IP addresses</span>
+<span class="c">alias ip=&quot;curl ipinfo</span><span class="nt">.</span><span class="c">io/ip&quot;</span>
+<span class="c">alias localip=&#39;python </span><span class="nb">-</span><span class="c">c &quot;import socket; print(socket</span><span class="nt">.</span><span class="c">gethostbyname(socket</span><span class="nt">.</span><span class="c">gethostname()));&quot;&#39;</span>
 
-<span class="c1"># Copy my public key to my clipboard</span>
-<span class="n">alias</span> <span class="n">pubkey</span><span class="o">=</span><span class="s2">&quot;more ~/.ssh/id_rsa.pub | pbcopy | echo &#39;=&gt; Public key copied to pasteboard.&#39;&quot;</span>
-</pre></div>
-
+<span class="c"># Copy my public key to my clipboard</span>
+<span class="c">alias pubkey=&quot;more ~/</span><span class="nt">.</span><span class="c">ssh/id_rsa</span><span class="nt">.</span><span class="c">pub | pbcopy | echo &#39;=</span><span class="nv">&gt;</span><span class="c"> Public key copied to pasteboard</span><span class="nt">.</span><span class="c">&#39;&quot;</span>
+</code></pre></div>
 
 <p>The complete file is <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.aliases">here</a>.</p>
 <h4>.exports</h4>
 <p><strong>Export</strong> is widely used to set environment variables. Also, we <strong>export</strong> a variable, when we need it in other programs. That depends upon the shell as well. For bash, <strong>export</strong> makes a variable usable, in the environment for child processes. For more about export, you may see <a href="http://www.gnu.org/software/bash/manual/bash.html#index-export">GNU bash manual</a>. Your <strong><em>.export </em></strong>file may look like <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.exports">this</a>.</p>
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">Make</span> <span class="n">vim</span> <span class="n">the</span> <span class="k">default</span> <span class="n">editor</span>
-<span class="n">export</span> <span class="n">EDITOR</span><span class="o">=</span><span class="ss">&quot;vim&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Make vim the default editor</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="n">EDITOR</span><span class="o">=</span><span class="s2">&quot;vim&quot;</span><span class="w"></span>
 
-<span class="o">#</span> <span class="n">Don</span><span class="err">’</span><span class="n">t</span> <span class="n">clear</span> <span class="n">the</span> <span class="n">screen</span> <span class="k">after</span> <span class="n">quitting</span> <span class="n">a</span> <span class="n">manual</span> <span class="n">page</span>
-<span class="n">export</span> <span class="n">MANPAGER</span><span class="o">=</span><span class="ss">&quot;less -X&quot;</span>
+<span class="c1"># Don’t clear the screen after quitting a manual page</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="n">MANPAGER</span><span class="o">=</span><span class="s2">&quot;less -X&quot;</span><span class="w"></span>
 
-<span class="o">#</span> <span class="n">Larger</span> <span class="n">bash</span> <span class="n">history</span> <span class="p">(</span><span class="n">allow</span> <span class="mi">32</span><span class="err">³</span> <span class="n">entries</span><span class="p">;</span> <span class="k">default</span> <span class="k">is</span> <span class="mi">500</span><span class="p">)</span>
-<span class="n">export</span> <span class="n">HISTSIZE</span><span class="o">=</span><span class="mi">32768</span>
-<span class="n">export</span> <span class="n">HISTFILESIZE</span><span class="o">=</span><span class="err">$</span><span class="n">HISTSIZE</span>
-<span class="n">export</span> <span class="n">HISTCONTROL</span><span class="o">=</span><span class="n">ignoredups</span>
-</pre></div>
-
+<span class="c1"># Larger bash history (allow 32³ entries; default is 500)</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="n">HISTSIZE</span><span class="o">=</span><span class="mi">32768</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="n">HISTFILESIZE</span><span class="o">=$</span><span class="n">HISTSIZE</span><span class="w"></span>
+<span class="k">export</span><span class="w"> </span><span class="n">HISTCONTROL</span><span class="o">=</span><span class="n">ignoredups</span><span class="w"></span>
+</code></pre></div>
 
 <h4>.functions</h4>
 <p>If we want to create an alias that not just perform a shorthand or a group of commands but, also which behaves conditionally and can work with variables, then we have a better approach of <strong>"functions". </strong>A function is an independent block of script, which is more powerful than an alias because they can accept variables. We can create functions for various purposes like:</p>
-<div class="highlight"><pre><span></span><span class="cp"># copy the work directory to clipboard</span>
-<span class="n">function</span> <span class="nf">pwdc</span><span class="p">()</span> <span class="p">{</span>
-  <span class="n">pwd</span> <span class="o">|</span> <span class="n">tr</span> <span class="o">-</span><span class="n">d</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span> <span class="o">|</span> <span class="n">pbcopy</span>
-<span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span class="cp"># copy the work directory to clipboard</span>
+<span class="n">function</span><span class="w"> </span><span class="nf">pwdc</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="n">pwd</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">tr</span><span class="w"> </span><span class="o">-</span><span class="n">d</span><span class="w"> </span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="w"> </span><span class="o">|</span><span class="w"> </span><span class="n">pbcopy</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 
 <span class="cp"># touch a file while creating directories</span>
-<span class="n">supertouch</span><span class="p">()</span> <span class="p">{</span> 
-         <span class="k">if</span> <span class="p">[</span> <span class="err">$#</span> <span class="o">-</span><span class="n">lt</span> <span class="mi">1</span> <span class="p">];</span> <span class="n">then</span>
-                 <span class="n">echo</span> <span class="s">&quot;Missing argument&quot;</span><span class="p">;</span>
-                 <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
-         <span class="n">fi</span>
-         <span class="k">for</span> <span class="n">f</span> <span class="k">in</span> <span class="s">&quot;$@&quot;</span><span class="p">;</span> <span class="k">do</span> 
-                 <span class="n">mkdir</span> <span class="o">-</span><span class="n">p</span> <span class="o">--</span> <span class="s">&quot;$(dirname -- &quot;</span><span class="err">$</span><span class="n">f</span><span class="s">&quot;)&quot;</span>
-                 <span class="n">touch</span> <span class="o">--</span> <span class="s">&quot;$f&quot;</span> 
-         <span class="n">done</span>  
-<span class="p">}</span>
-</pre></div>
-
+<span class="n">supertouch</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"> </span>
+<span class="w">         </span><span class="k">if</span><span class="w"> </span><span class="p">[</span><span class="w"> </span><span class="n">$</span><span class="err">#</span><span class="w"> </span><span class="o">-</span><span class="n">lt</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="p">];</span><span class="w"> </span><span class="n">then</span><span class="w"></span>
+<span class="w">                 </span><span class="n">echo</span><span class="w"> </span><span class="s">&quot;Missing argument&quot;</span><span class="p">;</span><span class="w"></span>
+<span class="w">                 </span><span class="k">return</span><span class="w"> </span><span class="mi">1</span><span class="p">;</span><span class="w"></span>
+<span class="w">         </span><span class="n">fi</span><span class="w"></span>
+<span class="w">         </span><span class="k">for</span><span class="w"> </span><span class="n">f</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s">&quot;$@&quot;</span><span class="p">;</span><span class="w"> </span><span class="k">do</span><span class="w"> </span>
+<span class="w">                 </span><span class="n">mkdir</span><span class="w"> </span><span class="o">-</span><span class="n">p</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="s">&quot;$(dirname -- &quot;</span><span class="n">$f</span><span class="s">&quot;)&quot;</span><span class="w"></span>
+<span class="w">                 </span><span class="n">touch</span><span class="w"> </span><span class="o">--</span><span class="w"> </span><span class="s">&quot;$f&quot;</span><span class="w"> </span>
+<span class="w">         </span><span class="n">done</span><span class="w">  </span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 <p>More functions are available <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.functions">here</a>.</p>
 <h4>.vimrc</h4>
 <p>This dotfile is specifically used for "<strong>vim</strong>" configuration. All the necessary commands that we use very often, we can put them in this file. We can also set up different variables of vim, with the value we desire while working on it. For Unix and MacOS, this file is always used and is recommended at <code>~/.vimrc</code>. To know more about .vimrc you may open the "<strong>vim</strong>" and use the command <code>:help vimrc-intro</code>.</p>
-<div class="highlight"><pre><span></span><span class="k">set</span> <span class="n">nocompatible</span>
-<span class="k">set</span> <span class="n">et</span>
-<span class="k">set</span> <span class="n">ai</span>
-<span class="k">set</span> <span class="n">sw</span><span class="o">=</span><span class="mi">4</span>
-<span class="k">set</span> <span class="n">ts</span><span class="o">=</span><span class="mi">8</span>
-<span class="k">set</span> <span class="n">ruler</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>set nocompatible
+set et
+set ai
+set sw=4
+set ts=8
+set ruler
+</code></pre></div>
 
 <h4>.gitignore</h4>
 <p>This file is used in the case, we want to avoid or ignore some files or folders while <strong>git</strong> makes a commit. These files may include <em>Thumbnail cache files, local virtual environment, etc.</em> If we want a particular file say <strong><em>Example.tmp</em></strong> to be ignored. Just give its name in this dotfile. And if we want to ignore all <strong><em>.tmp</em></strong> files then put <strong><em>*.tmp</em></strong> in <strong><em>.gitignore. </em></strong>A gist of this file is shown below and a complete file is available <a href="https://github.com/CuriousLearner/dotfiles/blob/master/.gitignore">here</a>.</p>
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">Files</span> <span class="n">that</span> <span class="n">might</span> <span class="n">appear</span> <span class="k">on</span> <span class="k">external</span> <span class="n">disks</span>
-<span class="p">.</span><span class="n">Spotlight</span><span class="o">-</span><span class="n">V100</span>
-<span class="p">.</span><span class="n">Trashesvenv</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># Files that might appear on external disks</span>
+<span class="na">.Spotlight-V100</span><span class="w"></span>
+<span class="na">.Trashesvenv</span><span class="w"></span>
 
-<span class="o">#</span> <span class="n">Packages</span> <span class="k">ignore</span>
-<span class="n">node_modules</span>
-<span class="p">.</span><span class="n">tmp</span>
-<span class="p">.</span><span class="n">sass</span><span class="o">-</span><span class="k">cache</span>
-<span class="n">app</span><span class="o">/</span><span class="n">bower_components</span>
-</pre></div>
-
+<span class="c1"># Packages ignore</span>
+<span class="nf">node_modules</span><span class="w"></span>
+<span class="na">.tmp</span><span class="w"></span>
+<span class="na">.sass-cache</span><span class="w"></span>
+<span class="nf">app</span><span class="err">/</span><span class="no">bower_components</span><span class="w"></span>
+</code></pre></div>
 
 <h3>Conclusion</h3>
 <p>We're keeping this post short, as the main motive was to explain how you can store the configuration of your machine. The whole purpose of dotfiles is to make our work as easy as possible. These hidden files give us a comfortable &amp; quality working experience.<br>
@@ -208,9 +201,16 @@ Dotfiles are specific to an individual because of different people like differ
 <p>You can have a look at one of the dotfiles repo here: <a href="https://github.com/CuriousLearner/dotfiles">https://github.com/CuriousLearner/dotfiles</a></p>
 <p>If you've any queries, please ask in comment section below.</p>
   </div>
+  <div class="article_author_info" >
+    <hr>
+    <p>Posted By: Sanyam Khurana</p>
+    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
+
+    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
+  </div>
   <div class="article_meta">
     <p>Posted on: Fri 26 January 2018</p>
-    <p>Category: <a href="../category/uncategorized/">Uncategorized</a>
+    <p>Category: <a href="//thegeekyway.com/category/uncategorized/">Uncategorized</a>
     </p>
   </div>
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Programming</title><link href="//www.thegeekyway.com/" rel="alternate"></link><link href="//www.thegeekyway.com/feed/programming.atom.xml" rel="self"></link><id>//www.thegeekyway.com/</id><updated>2019-08-24T01:10:55+05:30</updated><entry><title>Few terms in C++</title><link href="//www.thegeekyway.com/data-file-handling-in-c/" rel="alternate"></link><published>2019-08-24T01:10:55+05:30</published><updated>2019-08-24T01:10:55+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:www.thegeekyway.com,2019-08-24:/data-file-handling-in-c/</id><summary type="html">&lt;p&gt;Howdy Coders!  &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Programming</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/programming.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T01:10:55+05:30</updated><entry><title>Few terms in C++</title><link href="//thegeekyway.com/data-file-handling-in-c/" rel="alternate"></link><published>2019-08-24T01:10:55+05:30</published><updated>2019-08-24T01:10:55+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2019-08-24:/data-file-handling-in-c/</id><summary type="html">&lt;p&gt;Howdy Coders!  &lt;/p&gt;
 &lt;p&gt;Well, today we will learn about a few terms related to File Handling in C++.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Stream :-&lt;/strong&gt; A sequence of bytes  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;File:&lt;/strong&gt; A collection of data or information stored on some media with some specific name is called file.&lt;/p&gt;
@@ -8,26 +8,24 @@
 &lt;p&gt;&lt;strong&gt;Stream :-&lt;/strong&gt; A sequence of bytes  &lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;File:&lt;/strong&gt; A collection of data or information stored on some media with some specific name is called file.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Text File :-&lt;/strong&gt; The file which stores data or information in ASCII characters. In text file each line is terminated with a special character “n” or endl (end of line) character also known as delimiter character.&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Binary File :-&lt;/strong&gt; It is a file that contains information in the same format as it is stored in the memory. In binary file no delimiter character is used. The records are separated by record size.&lt;/p&gt;</content></entry><entry><title>What is Git Blame &amp; it's usecases</title><link href="//www.thegeekyway.com/what-is-git-blame-and-its-usecases/" rel="alternate"></link><published>2018-02-06T18:50:00+05:30</published><updated>2018-02-06T18:50:00+05:30</updated><author><name>storymode7</name></author><id>tag:www.thegeekyway.com,2018-02-06:/what-is-git-blame-and-its-usecases/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;h3&gt;&lt;img alt="Git Logo" src="//www.thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Binary File :-&lt;/strong&gt; It is a file that contains information in the same format as it is stored in the memory. In binary file no delimiter character is used. The records are separated by record size.&lt;/p&gt;</content><category term="Programming"></category></entry><entry><title>What is Git Blame &amp; it's usecases</title><link href="//thegeekyway.com/what-is-git-blame-and-its-usecases/" rel="alternate"></link><published>2018-02-06T18:50:00+05:30</published><updated>2018-02-06T18:50:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-02-06:/what-is-git-blame-and-its-usecases/</id><summary type="html">&lt;div style="text-align:center"&gt;
+&lt;h3&gt;&lt;img alt="Git Logo" src="//thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;h3&gt;Git Blame&lt;/h3&gt;
 &lt;p&gt;Have you ever wondered who touched a bunch of lines in this code last time? There have been lot of situations which can leave people baffled for a while to know who actually changed what. Blame labels each line in the code with the details of the last …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;h3&gt;&lt;img alt="Git Logo" src="//www.thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
+&lt;h3&gt;&lt;img alt="Git Logo" src="//thegeekyway.com/uploads/images/2018/02/Git-logo-2.png"&gt;&lt;/h3&gt;
 &lt;/div&gt;
 &lt;h3&gt;Git Blame&lt;/h3&gt;
 &lt;p&gt;Have you ever wondered who touched a bunch of lines in this code last time? There have been lot of situations which can leave people baffled for a while to know who actually changed what. Blame labels each line in the code with the details of the last revision that took place on that part of the file, including moving the line from one place to other.&lt;/p&gt;
 &lt;h3&gt;Ideology behind the concept&lt;/h3&gt;
 &lt;p&gt;When you study a code, a very large one. Like some parts of CPython repo. You will eventually find yourself at a stage where you do not understand what the code does there. Why is it there? Had it not been there would it affect the code in any manner? You need to guess it how it must have been used. But the author of that commit, the one who actually wrote it, must have known what he/she meant to do by introducing that tricky part. And that should be explained in the commit message that the person must have written. Here's when git blame plays it's card (also pickaxe, discussed later), and helps the user to identify who actually did the last revision on that commit. Also, it can easily help to seek an individual who is responsible for the current state of the code and hence can be blamed if the code breaks there.&lt;/p&gt;
 &lt;p&gt;To check it out, the simplest way is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;blame&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;filename&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git blame &amp;lt;filename&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This will give you result in the format&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Short&lt;/span&gt; &lt;span class="k"&gt;commit&lt;/span&gt; &lt;span class="n"&gt;hash&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Author&lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;name&lt;/span&gt;  &lt;span class="nb"&gt;Date&lt;/span&gt;  &lt;span class="n"&gt;Time&lt;/span&gt;  &lt;span class="n"&gt;UTC&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;Time&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;Offset&lt;/span&gt;  &lt;span class="n"&gt;Line&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nb"&gt;Number&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;(Short commit hash)  (Author&amp;#39;s name  Date  Time  UTC-Time-Offset  Line-Number)
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;The actual line goes in front of these.&lt;/p&gt;
 &lt;h3&gt;Refactoring Code&lt;/h3&gt;
@@ -38,15 +36,13 @@
 &lt;h3&gt;Pickaxe&lt;/h3&gt;
 &lt;p&gt;Pickaxe is not a new command. It's just git log with &lt;a href="https://git-scm.com/docs/git-log#git-log--Sltstringgt"&gt;-S&lt;/a&gt; argument. But it's not the syntax what's interesting. It's what pickaxe is capable of doing. It searches for a commit where a string was added or removed. And so you can easily reach to the actual author of the commit.&lt;/p&gt;
 &lt;p&gt;It's syntax is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;search&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git log -S &amp;lt;search-string&amp;gt; [path/file]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Another preferred way is to use -p option simultaneously which will also generate a patch or a diff of the commit. It's then easier to see what change took place in which commit.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt; &lt;span class="n"&gt;log&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;S&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="k"&gt;search&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;string&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt; &lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;path&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git log -p -S &amp;lt;search-string&amp;gt; [path/file]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;In this, you can also specify the filename in which to search this specific string, but it loses when the filename is changed in a commit. So at times, it's better not to specify the filename and search among the results that are displayed.&lt;/p&gt;
 &lt;p&gt;Git blame comes with GUI for Tcl/Tk based interface versions, where it does both pickaxe and blame together! It lists the original commits, (the ones which created the said line), and the latest commit on that line including moving and copying it from one place to another in the file. You can further explore more on this.&lt;/p&gt;
-&lt;p&gt;If you've any questions, please feel free to ask in the comments section below.&lt;/p&gt;</content><category term="GitHub"></category><category term="Understanding Git"></category></entry></feed>
+&lt;p&gt;If you've any questions, please feel free to ask in the comments section below.&lt;/p&gt;</content><category term="Programming"></category><category term="GitHub"></category><category term="Understanding Git"></category></entry></feed>

@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="../theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="../theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="../theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,8 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="//www.thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
-  <link href="//www.thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
 
 <meta name="keywords" content="Scripting, Shell">
 
@@ -40,10 +40,10 @@
 <body>
   <aside>
     <div id="user_meta">
-      <a href="..">
+      <a href="//thegeekyway.com">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="..">The Geeky Way</a></h2>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -68,26 +68,25 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="..">Index</a> &brvbar; <a href="../archives.html">Archives</a>
-      &brvbar; <a href="//www.thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="//www.thegeekyway.com/feed/">RSS</a>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="../introduction-to-shell-script/">Introduction to Shell Script</a></h1>
+    <h1><a href="//thegeekyway.com/introduction-to-shell-script/">Introduction to Shell Script</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=../author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
+    <p><strong>By: <a href=//thegeekyway.com/author/geekyshacklebolt/>GeekyShacklebolt</a></strong></p>
   </div>
   <div class="article_text">
     <div style="text-align:center">
-<p><img alt="" src="../uploads/images/2018/03/Shell_script.jpg"></p>
+<p><img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"></p>
 </div>
 <p>Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.</p>
 <!--more-->
-
 <h2>What is a shell?</h2>
 <p>The shell is a user program or it is an environment provided for user interaction. It is a command language interpreter, that executes commands read from the standard input device such as a keyboard or from a file.</p>
 <p>Several shells are available for Linux including:</p>
@@ -98,7 +97,7 @@
 <li><a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=TCSH&amp;action=edit&amp;redlink=1" title="TCSH (page does not exist)">TCSH</a> - It is an enhanced but completely compatible version of the Berkeley <a class="mw-redirect" href="https://bash.cyberciti.biz/guide/UNIX" title="UNIX">UNIX</a> <a href="https://bash.cyberciti.biz/guide/C_shell" title="C shell">C shell</a> (<a href="https://bash.cyberciti.biz/guide/CSH" title="CSH">CSH</a>).</li>
 </ul>
 <p>A shell is simply accessible using a terminal. If you are familiar with *nix, then you might have an experience of using it. Now, if you want to know what all shells are available in your system, then use the following command.</p>
-<div class="highlight"><pre><span></span>$ cat /etc/shells
+<div class="highlight"><pre><span></span><code>$ cat /etc/shells
 <span class="c1"># /etc/shells: valid login shells</span>
 /bin/sh
 /bin/dash
@@ -106,8 +105,7 @@
 /bin/rbash
 /bin/zsh
 /usr/bin/zsh
-</pre></div>
-
+</code></pre></div>
 
 <h2>What is a shell script?</h2>
 <p>It is a programming language of shells, where you may write a set of commands to execute for a particular shell. And similar to programming, shell scripts support that sequential, conditional and iteration flow along with functions that help to make your programs more modular.</p>
@@ -127,54 +125,47 @@
 <h2>Writing your first script</h2>
 <p>To create a shell program you need to go through the following steps:</p>
 <p><strong>1. Create a file for the shell program.</strong></p>
-<div class="highlight"><pre><span></span>$ touch newfile.sh
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ touch newfile.sh
+</code></pre></div>
 
 <p>Here, we have given the extension <strong>.sh </strong> or <strong>.bash</strong> (conventional for bash script), though it is not necessary, but quite useful to distinguish between scripts of different shells.</p>
 <p><strong>2. Put a shebang (#!) on the first line of the file<br>
 </strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-</pre></div>
-</td></tr></table>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+</code></pre></div></td></tr></table></div>
 
 <p><strong>Shebang(#!)</strong> is a special comment, that informs, which shell to be selected while executing this file. It is actually the path to the shell required to run this script.</p>
 <p><strong>3. Add some commands to the file</strong></p>
-<div class="highlight"><pre><span></span><span class="n">echo</span> <span class="ss">&quot;Script is working fine!&quot;</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>echo &quot;Script is working fine!&quot;
+</code></pre></div>
 
 <p><strong>4. Save the file.</strong></p>
 <p><strong>5. Make the file executable and run the program.</strong></p>
 <p>To run a script file, at least it must have the permission of <strong>"readability"</strong> so that we can explicitly execute it using a shell.</p>
-<div class="highlight"><pre><span></span>$ bash newfile.sh
+<div class="highlight"><pre><span></span><code>$ bash newfile.sh
 Script is working fine!
-</pre></div>
-
+</code></pre></div>
 
 <p>And if the script file is <strong>"executable"</strong>, then we may directly run the file as shown below.</p>
-<div class="highlight"><pre><span></span>$ chmod +x newfile.sh
+<div class="highlight"><pre><span></span><code>$ chmod +x newfile.sh
 $ ./newfile.sh 
 Script is working fine!
-</pre></div>
-
+</code></pre></div>
 
 <p>Hurray! You got your first shell script running. Let's go ahead and explore more programming elements of scripting.</p>
 <h2>Comments</h2>
 <p>Writing comments is really useful in any programming language. Because the code is read much more times than it is written. Also, comments make the code easy to comprehend, thus, it is advisable to use comments to explain complex parts of the code.</p>
 <p>In shell scripting, you may give comments with <strong>hash (#)</strong> symbol.</p>
-<div class="highlight"><pre><span></span><span class="o">#</span> <span class="n">File</span><span class="p">:</span> <span class="n">newfile</span><span class="p">.</span><span class="n">sh</span>
-<span class="o">#</span> <span class="n">Purpose</span><span class="p">:</span> <span class="k">To</span> <span class="n">learn</span> <span class="k">and</span> <span class="n">practice</span> <span class="n">shell</span> <span class="n">script</span>
-<span class="o">#</span> <span class="n">Author</span><span class="p">:</span> <span class="n">Your</span> <span class="n">name</span>
-<span class="o">#</span> <span class="n">These</span> <span class="k">are</span> <span class="n">comments</span> <span class="k">in</span> <span class="n">a</span> <span class="n">shell</span> <span class="n">script</span><span class="p">.</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code># File: newfile.sh
+# Purpose: To learn and practice shell script
+# Author: Your name
+# These are comments in a shell script.
+</code></pre></div>
 
 <h2>Shell Parameters</h2>
 <p>Values you pass to a shell program from a terminal while executing the script, are called program parameters. For example.</p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh Hello World
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh Hello World
+</code></pre></div>
 
 <p>Here, <strong><em>"Hello"</em></strong> and <strong><em>"World"</em></strong> are <strong>2</strong> parameters that are passed to <strong>newfile.sh</strong>. You may pass any number of parameters to a shell script. But, the question arises, how are we gonna use them in a program?</p>
 <h4><strong>\$0 to \$9</strong></h4>
@@ -184,23 +175,21 @@ Script is working fine!
 <li><strong>\$#:</strong> It holds the total number of shell parameters (i.e exclude \$0).</li>
 </ul>
 <p>To access these parameters we may use <strong>dollar (\$)</strong> symbol followed by the number of parameter. For example, if your file is.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">echo</span> <span class="s2">&quot;Running script </span><span class="nv">$0</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;First parameter is </span><span class="nv">$1</span><span class="s2">&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;Second parameter is </span><span class="nv">$2</span><span class="s2">&quot;</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p>Output:</p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh Hello World
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh Hello World
 Running script: ./newfile.sh
 First parameter is: Hello
 Second parameter is: World
-</pre></div>
-
+</code></pre></div>
 
 <p>Along with these you also have other predefined variables.</p>
 <h4>\$* and \$@</h4>
@@ -209,71 +198,65 @@ Second parameter is: World
 <li><strong>\$@:</strong> It has all the parameters passed but it holds each parameter as a separate word.</li>
 </ul>
 <p><strong>\$* and \$@</strong> seems confusing from the definition, therefore, let's take a look at the example below.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">echo</span> <span class="s2">&quot;With \$*&quot;</span>
 <span class="nb">echo</span> <span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
-<span class="k">for</span> i in <span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
 <span class="k">do</span>
    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p>The output is.</p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
 Total parameters: <span class="m">3</span>
 With <span class="nv">$*</span>
 <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>See, here total parameters are <strong>3</strong>, but you are actually getting <strong>1</strong> string that includes all parameters<strong>.<br>
 </strong></p>
 <p><strong>Note: While using \$*, if the parameter is "2 3", then it is treated as "2" and "3". This means the shell interprets the space symbol. But, this is not the case with \$@.</strong></p>
 <p>If you use <strong>"\$@"</strong> instead of <strong>"\$*"</strong> you'll get the following.</p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
 Total parameters: <span class="m">3</span>
 With <span class="nv">$@</span>
 <span class="m">1</span>
 <span class="m">2</span> <span class="m">3</span>
 <span class="m">4</span> <span class="m">5</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Here, <strong>3</strong> separate parameters can be easily seen.</p>
 <h4><strong>\$\$ and \$?</strong></h4>
 <ul>
 <li>
 <p><strong>\$\$:</strong> It shows the <strong>process ID</strong>. Following command shows the process ID of the current terminal.</p>
-<div class="highlight"><pre><span></span>$ <span class="nb">echo</span> <span class="nv">$$</span>
+<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="nv">$$</span>
 <span class="m">2123</span>
-</pre></div>
-
+</code></pre></div>
 
 </li>
 <li>
 <p><strong>\$?:</strong> It holds <strong>exit status</strong> of the last command. For example.</p>
-<div class="highlight"><pre><span></span>$ clear
+<div class="highlight"><pre><span></span><code>$ clear
 $ <span class="nb">echo</span> <span class="nv">$?</span>
 <span class="m">0</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Here, <strong>0</strong> indicates that last command (<strong>clear</strong>) was successful. In case of failure, <strong>\$?</strong> returns any non-zero value.<br>
    To return exit status <strong>0</strong> or <strong>1</strong> from your shell script, simply use the <strong>exit</strong> command.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">echo</span> <span class="s2">&quot;Successful&quot;</span>
 <span class="nb">exit</span> <span class="m">0</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 </li>
 </ul>
@@ -281,24 +264,23 @@ $ <span class="nb">echo</span> <span class="nv">$?</span>
 <p>You may easily go from <strong>\$1</strong> to <strong>\$9.</strong> But how would you use the 10th parameter?</p>
 <p>Accessing 10th parameter is not possible with <strong>"\$10"</strong> because the shell will interpret only the first digit, that is <strong>"1"</strong>, and output of this statement would be the first parameter followed by a <strong>"0"</strong>.</p>
 <p>To solve this issue we have <strong>shift command</strong>. This command shifts all the parameter to left by one. As a result, it also decreases the number of total parameters <strong>(\$#).</strong> For example.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="k">for</span> i in <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span>
 <span class="k">do</span>
    <span class="nb">echo</span> <span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
    <span class="nb">shift</span>
    <span class="nb">echo</span> <span class="s2">&quot;Parameters: </span><span class="nv">$*</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p>The output of this command.</p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh a b c d e f
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh a b c d e f
 Total parameters: <span class="m">6</span>
 Parameters: b c d e f
 Total parameters: <span class="m">5</span>
@@ -307,20 +289,18 @@ Total parameters: <span class="m">4</span>
 Parameters: d e f
 Total parameters: <span class="m">3</span>
 Parameters: e f
-</pre></div>
-
+</code></pre></div>
 
 <p>We can see, that parameters are shifting to left and getting reduced by one. So, if you want to access 10th parameter then you need to left shift once and access <strong>\$9.</strong> However, this command is not much recommended due to the side effect of losing earlier parameters.</p>
 <h2>Variables and Expressions</h2>
 <p>Expressions are valid combination of variables and operators.</p>
 <p><strong><em>Variables:</em></strong> These are <strong>shell parameters</strong> or any other initialized variable in a shell program like.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">var</span><span class="o">=</span><span class="m">10</span>  <span class="c1"># An integer variable</span>
 <span class="nv">str</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span>  <span class="c1"># A string variable</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p><strong>Note: No space around "=" (assignment) operator.</strong></p>
 <p><strong><em>Operators:</em></strong> These are special symbols to operate on variables. For example.</p>
@@ -361,7 +341,7 @@ Parameters: e f
 <h4><strong>If-else statement</strong></h4>
 <p><strong><em>Usage:</em></strong> To execute a set of commands, on the basis of evaluation of an expression.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><span class="k">if</span> <span class="nv">command1</span>    # <span class="k">if</span> <span class="nv">block</span> <span class="nv">started</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nv">command1</span>    # <span class="k">if</span> <span class="nv">block</span> <span class="nv">started</span>
 <span class="k">then</span>
      <span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
 <span class="nv">elif</span> <span class="nv">command2</span>  # <span class="nv">optional</span>
@@ -370,21 +350,20 @@ Parameters: e f
 <span class="k">else</span>           # <span class="nv">optional</span>: <span class="nv">to</span> <span class="nv">accept</span> <span class="nv">rest</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">conditions</span>.
      <span class="nv">command</span><span class="o">-</span><span class="nv">list3</span>
 <span class="nv">fi</span>             # <span class="k">end</span> <span class="nv">of</span> <span class="k">if</span><span class="o">-</span><span class="k">else</span> <span class="nv">block</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Here, <strong>elif</strong> and <strong>else</strong> parts are optional. This implies <strong>if command1</strong> returns success <strong>(0),</strong> then execute <strong>command-list1.</strong> Otherwise, <strong>if command2</strong> returns success <strong>(0),</strong> then execute <strong>command-list2,</strong> and if no condition turns out to be successful, then execute <strong>command-list3.</strong></p>
 <p><strong><em>Example:</em></strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="k">if</span> ls <span class="p">|</span> grep ^z &gt; /dev/null
 <span class="k">then</span>
    <span class="nb">echo</span> Firt <span class="k">case</span>.
@@ -394,43 +373,40 @@ Parameters: e f
 <span class="k">else</span>
    <span class="nb">echo</span> Third <span class="k">case</span>.
 <span class="k">fi</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
-<p>Here, "<strong>ls | grep \^z" </strong> searches files/folders in the current directory that starts with <strong>"z". </strong>And <strong>"> /dev/null" </strong>sends the output of the file in a <strong>null</strong> device (typically used for disposing of unwanted output streams of a process).</p>
+<p>Here, "<strong>ls | grep \^z" </strong> searches files/folders in the current directory that starts with <strong>"z". </strong>And <strong>"&gt; /dev/null" </strong>sends the output of the file in a <strong>null</strong> device (typically used for disposing of unwanted output streams of a process).</p>
 <p><strong><em>The output</em></strong> of the above program is shown below. (As I don't have any file that starts with <strong>"z"</strong>)</p>
-<div class="highlight"><pre><span></span><span class="k">Second</span> <span class="k">case</span><span class="p">.</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>Second case.
+</code></pre></div>
 
 <h4><strong>Test Condition</strong></h4>
 <p><strong><em>Usage:</em></strong> It is mostly used in association with if-else to evaluate expressions instead of commands.</p>
 <p><strong><em>Syntax:</em></strong> <code>test expression</code> or <code>[ expression ]</code></p>
 <p><strong><em>Example:</em></strong></p>
-<div class="highlight"><pre><span></span><span class="k">if</span> [ <span class="nv">expression</span> ]
+<div class="highlight"><pre><span></span><code><span class="k">if</span> [ <span class="nv">expression</span> ]
 <span class="k">then</span>
      <span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
 <span class="nv">fi</span>
-</pre></div>
-
+</code></pre></div>
 
 <p>Let's put all this in a short example.</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -gt <span class="m">1</span> <span class="o">]</span> <span class="c1"># if total number of parameters exceed 1</span>
 <span class="k">then</span>
    <span class="nb">echo</span> <span class="s2">&quot;Sorry, you entered too many parameters.&quot;</span>
@@ -446,11 +422,10 @@ Parameters: e f
 <span class="k">else</span>            <span class="c1"># if the total number of parameters is below 1</span>
    <span class="nb">echo</span> <span class="s2">&quot;Sorry, you entered fewer parameters.&quot;</span>
 <span class="k">fi</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh
 Sorry, you entered fewer parameters.
 $ ./newfile.sh <span class="m">1</span>
 Hi! Nice to meet you!
@@ -458,48 +433,45 @@ $ ./newfile.sh <span class="m">2</span>
 /home/thegeekyway
 $ ./newfile.sh <span class="m">3</span>
 Sorry, you entered the wrong parameter.
-</pre></div>
-
+</code></pre></div>
 
 <h4>Case statement</h4>
 <p><strong><em>Usage:</em></strong> Shell script also supports <strong>case conditional statement. </strong>It is used to evaluate a particular variable with some set of values.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><span class="k">case</span> <span class="n">value</span> <span class="k">in</span>
-     <span class="n">pattern1</span><span class="p">)</span>     <span class="n">command</span><span class="o">-</span><span class="n">list1</span><span class="p">;;</span>
-     <span class="n">pattern2</span><span class="p">)</span>     <span class="n">command</span><span class="o">-</span><span class="n">list2</span><span class="p">;;</span>
-     <span class="o">*</span><span class="p">)</span> <span class="n">command</span><span class="o">-</span><span class="n">list2</span><span class="p">;;</span>   <span class="o">#</span> <span class="n">this</span> <span class="k">is</span> <span class="n">optional</span><span class="p">:</span> <span class="k">to</span> <span class="n">accept</span> <span class="n">rest</span> <span class="k">of</span> <span class="n">the</span> <span class="n">conditions</span>
-<span class="n">esac</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>case value in
+     pattern1)     command-list1;;
+     pattern2)     command-list2;;
+     *) command-list2;;   # this is optional: to accept rest of the conditions
+esac
+</code></pre></div>
 
 <p><strong><em>Example:</em></strong> Let's make the above command using <strong>case statements.</strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="k">case</span> <span class="nv">$#</span> in
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="k">case</span> <span class="nv">$#</span> <span class="k">in</span>
      <span class="s2">&quot;0&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered fewer parameters.&quot;</span>
           exit<span class="p">;;</span>
      <span class="s2">&quot;2&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered too many parameters.&quot;</span>
           exit<span class="p">;;</span>
 <span class="k">esac</span>
 
-<span class="k">case</span> <span class="nv">$1</span> in
+<span class="k">case</span> <span class="nv">$1</span> <span class="k">in</span>
      <span class="s2">&quot;1&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;Hi, nice to meet you!&quot;</span><span class="p">;;</span>
      <span class="s2">&quot;2&quot;</span><span class="o">)</span> pwd<span class="p">;;</span>
      *<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered the wrong parameters.&quot;</span><span class="p">;;</span>
 <span class="k">esac</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p>The output is same as above.</p>
 <h2>Repeated action commands (Loops)</h2>
@@ -513,164 +485,152 @@ Sorry, you entered the wrong parameter.
 <p><strong><em>Usage:</em></strong> When iterating any variable over an iterator like "\$@", we use "for-loop".</p>
 <p>Iterators are objects, having multiple values within them like lists in python. Therefore, using a for-loop we may access their individual values one by one.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><span class="k">for</span> <span class="nv">var</span> <span class="nv">in</span> <span class="nv">iterator</span>
-<span class="k">do</span>
-    <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
-<span class="nv">done</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">iterator</span><span class="w"></span>
+<span class="n">do</span><span class="w"></span>
+<span class="w">    </span><span class="n">command</span><span class="o">-</span><span class="n">list</span><span class="w"></span>
+<span class="n">done</span><span class="w"></span>
+</code></pre></div>
 
 <p><strong><em>Example:</em></strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
-<span class="k">for</span> var in <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="k">for</span> var <span class="k">in</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
 <span class="k">do</span>
     <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh The Geeky Way
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh The Geeky Way
 The
 Geeky
 Way
-</pre></div>
-
+</code></pre></div>
 
 <h4>While Loop</h4>
 <p><strong><em>Usage:</em></strong> To repeat a set of commands, till an expression remains true.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><span class="k">while</span> [ <span class="nv">expression</span> ]
+<div class="highlight"><pre><span></span><code><span class="k">while</span> [ <span class="nv">expression</span> ]
 <span class="k">do</span>
      <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
 <span class="nv">done</span>
-</pre></div>
-
+</code></pre></div>
 
 <p><strong><em>Example:</em></strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">var</span><span class="o">=</span><span class="m">0</span>
 <span class="k">while</span> <span class="o">[</span> <span class="nv">$var</span> -le <span class="m">3</span> <span class="o">]</span>
 <span class="k">do</span>
       <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
      <span class="o">((</span>var++<span class="o">))</span>
 <span class="k">done</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh
 <span class="m">0</span>
 <span class="m">1</span>
 <span class="m">2</span>
 <span class="m">3</span>
-</pre></div>
-
+</code></pre></div>
 
 <h4>Until Loop</h4>
 <p><strong><em>Usage:</em></strong> It is reverse of <strong>while loop</strong>, it repeats a set of commands, untill an expression becomes true.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><span class="k">until</span> [ <span class="nv">expression</span> ]
+<div class="highlight"><pre><span></span><code><span class="k">until</span> [ <span class="nv">expression</span> ]
 <span class="k">do</span>
      <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
 <span class="nv">done</span>
-</pre></div>
-
+</code></pre></div>
 
 <p><strong><em>Example:</em></strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span>
+<span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">var</span><span class="o">=</span><span class="m">0</span>
 <span class="k">until</span> <span class="o">[</span> <span class="nv">$var</span> -eq <span class="m">3</span> <span class="o">]</span>
 <span class="k">do</span>
    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
    <span class="o">((</span>var++<span class="o">))</span>
 <span class="k">done</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh
 <span class="m">0</span>
 <span class="m">1</span>
 <span class="m">2</span>
-</pre></div>
-
+</code></pre></div>
 
 <h2>Read input at runtime</h2>
 <p><strong>Read Command:</strong> To read input from the user at runtime of shell script.</p>
 <p><strong><em>Syntax:</em></strong> <code>read var1 var2</code></p>
 <p>This command will hold (pause) the script to take input from the terminal. Once you give appropriate values, the shell script would run ahead.</p>
 <p><strong><em>Example:</em></strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
+<span class="normal">2</span>
+<span class="normal">3</span>
+<span class="normal">4</span>
+<span class="normal">5</span>
+<span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nb">read</span> var
-<span class="k">for</span> i in <span class="nv">$var</span>
+<span class="k">for</span> i <span class="k">in</span> <span class="nv">$var</span>
 <span class="k">do</span>
    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span>$ ./newfile.sh
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh
 The Geeky Way
 The
 Geeky
 Way
-</pre></div>
-
+</code></pre></div>
 
 <h2>Functions</h2>
 <p><strong><em>Usage:</em></strong> These are set of commands, which can be called any number of times in a script. Thus, it gives the feature of re-usability of code and makes the code modular.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><span class="nv">function_name</span><span class="ss">()</span>
-{
-<span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
-<span class="k">return</span> <span class="nv">value</span>    # <span class="nv">optional</span>
-}
-</pre></div>
-
+<div class="highlight"><pre><span></span><code><span class="n">function_name</span><span class="p">()</span><span class="w"></span>
+<span class="p">{</span><span class="w"></span>
+<span class="n">command</span><span class="o">-</span><span class="n">list</span><span class="w"></span>
+<span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="w">    </span>#<span class="w"> </span><span class="n">optional</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</code></pre></div>
 
 <p><strong><em>Example:</em></strong></p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="ch">#!/bin/bash</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"> 1</span>
+<span class="normal"> 2</span>
+<span class="normal"> 3</span>
+<span class="normal"> 4</span>
+<span class="normal"> 5</span>
+<span class="normal"> 6</span>
+<span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 confirm<span class="o">()</span>
 <span class="o">{</span>
 <span class="nb">echo</span> -e <span class="s2">&quot;Are you sure, that you want to continue (y)?: \c&quot;</span>
@@ -689,16 +649,14 @@ confirm<span class="o">()</span>
 <span class="k">else</span> 
     <span class="nb">echo</span> <span class="s2">&quot;Discontinue process!&quot;</span>
 <span class="k">fi</span>
-</pre></div>
-</td></tr></table>
+</code></pre></div></td></tr></table></div>
 
 <p><strong>Note that, no test expression in the last block of "if-else", because calling function is a command in itself. And we put expressions in the test, not commands.</strong></p>
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span>$ .<span class="o">/</span><span class="nv">newfile</span>.<span class="nv">sh</span>
-<span class="nv">Are</span> <span class="nv">you</span> <span class="nv">sure</span>, <span class="nv">that</span> <span class="nv">you</span> <span class="nv">want</span> <span class="nv">to</span> <span class="k">continue</span> <span class="ss">(</span><span class="nv">y</span><span class="ss">)</span>?: <span class="nv">y</span>
-<span class="k">Continue</span> <span class="nv">process</span><span class="o">!!</span>
-</pre></div>
-
+<div class="highlight"><pre><span></span><code>$ ./newfile.sh
+Are you sure, that you want to <span class="k">continue</span> <span class="o">(</span>y<span class="o">)</span>?: y
+Continue process!!
+</code></pre></div>
 
 <h2>Conclusion</h2>
 <p>Knowledge of shell scripting is a required norm, not only for Linux administrators but for a general Linux user as well.</p>
@@ -707,11 +665,18 @@ confirm<span class="o">()</span>
 <p>If you have any query or idea to improve this post, please feel free to write in the comments section below.</p>
 <p>Thanks for reading!</p>
   </div>
+  <div class="article_author_info" >
+    <hr>
+    <p>Posted By: Sanyam Khurana</p>
+    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
+
+    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
+  </div>
   <div class="article_meta">
     <p>Posted on: Tue 04 June 2019</p>
-    <p>Category: <a href="../category/linux/">Linux</a>
+    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="../tag/scripting/">Scripting</a>,      <a href="../tag/shell/">Shell</a>    </p>
+      <a href="//thegeekyway.com/tag/scripting/">Scripting</a>,      <a href="//thegeekyway.com/tag/shell/">Shell</a>    </p>
   </div>
 
   <div id="article_comments">

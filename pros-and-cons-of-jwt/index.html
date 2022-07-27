@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="auth, identity, security">
+
+  <title>
+    The Geeky Way
+&ndash; Pros And Cons Of Using JWT (JSON Web Tokens)  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/pros-and-cons-of-jwt/">Pros And Cons Of Using JWT (JSON Web Tokens)</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>Sanyam_Khurana</a></strong></p>
+  </div>
+  <div class="article_text">
+    <p>JWT (JSON Web tokens) is a great way to implement authentication in your applications, though often it is being treated as a silver bullet for almost every backend project. While JWT provides a lot of benefits while implementing auth, it does come with a price. Anyone who is thinking to integrate JWT, needs to understand both the pros and cons of using JWT &amp; carefully weigh them, before using them as their auth layer.</p>
+<div style="text-align:center">
+<p><img alt="Pros And Cons of JWT" src="//thegeekyway.com/uploads/images/2022/07/jwt-pros-cons.png"></p>
+</div>
+<h3>Pros of loving JWT:</h3>
+<ul>
+<li>You can create and verify the tokens on the fly without a need to store them ever in the database.</li>
+<li>Simple implementation and faster development time.</li>
+<li>Can be used across services and specifically be isolated in an authorization micro-service that can create these tokens. The rest of your microservices can just have the public key to verify the signature of the tokens.</li>
+<li>The tokens are based on JSON, which is defacto standard now-a-days for inter-message communication among web application &amp; services.</li>
+</ul>
+<h3>Taking a step back to understand the cons:</h3>
+<ul>
+<li>Steep learning curve, if you need to understand them correctly avoiding the pitfalls.</li>
+<li>No way to log out or invalidate sessions for users. Moreover, there is no way for a user to disable their sessions across multiple devices.</li>
+<li>Since the tokens are generated and verified on the fly, we can't have access to the different logged-in clients which can pose problems when you need to identify the devices.</li>
+<li>Data leakage is plausible through a single secret key used for signing the tokens. It is much harder to lose the entire database, for example, in cases of session management when compared to JWTs. Since JWTs are created on the fly, the only thing that is protecting the creation of forged tokens is the secret key used to sign the tokens.</li>
+<li>JWTs need care &amp; understanding for implementation. I'll give you a basic example of a simple coding mistake which is a pitfall for every developer starting with JWTs. If you use the <code>none</code> algorithm, it uses no signing key, which means creating a forged token is child's play (I'll explain this in a subsequent post on this blog). Once you have the forged token and you're using ids for users that are easier to guess (think of integer ids), or you're using frameworks such as Strapi that has user id 1 as the administrator, with a forged token, your entire account will be taken over in a matter of seconds.</li>
+<li>We should always take care of not blindly loading signing keys with the <code>kid</code> header in JWT. The key should always be first validated for correctness as compared with the algorithm specified in the header.</li>
+</ul>
+<h2>Conclusion:</h2>
+<p>While JWT is a great technology and provides very fast development times, it is time that we understand that it's not a silver bullet for the Auth (authentication/authorization) requirements of your application. If you need to maintain sessions, please by all means use session management. Take your time to learn JWTs before implementing them. While they look a lot simpler, a simple mistake such as using the <code>none</code> algorithm can be disastrous causing account takeovers, data loss, and much more. Having said that, JWTs can be super-useful if implemented correctly and when there is no requirement for session management.</p>
+  </div>
+  <div class="article_author_info" >
+    <hr>
+    <p>Posted By: Sanyam Khurana</p>
+    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
+
+    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 24 July 2022</p>
+    <p>Category: <a href="//thegeekyway.com/category/auth/">Auth</a>
+ &ndash; Tags:
+      <a href="//thegeekyway.com/tag/auth/">auth</a>,      <a href="//thegeekyway.com/tag/identity/">identity</a>,      <a href="//thegeekyway.com/tag/security/">security</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "pros-and-cons-of-jwt/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>
