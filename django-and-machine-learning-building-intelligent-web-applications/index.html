@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="Django, Machine Learning, Intelligent Web Applications">
+
+  <title>
+    The Geeky Way
+&ndash; Django and Machine Learning: Building Intelligent Web Applications  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/django-and-machine-learning-building-intelligent-web-applications/">Django and Machine Learning: Building Intelligent Web Applications</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
+  </div>
+  <div class="article_text">
+    <p>Machine learning and artificial intelligence (AI) are rapidly transforming the way we build and interact with web applications. By leveraging the power of machine learning algorithms, developers can build intelligent applications that can learn from user behavior, adapt to changing environments, and make data-driven decisions in real-time.</p>
+<p>Django is a powerful Python web framework that provides a solid foundation for building intelligent web applications. In this article, we'll explore how to combine Django and machine learning to build intelligent web applications.</p>
+<h2>Building Intelligent Applications with Django and Machine Learning</h2>
+<p>To build intelligent web applications with Django and machine learning, you'll need to follow a few key steps:</p>
+<h3>1. Data Collection and Preprocessing</h3>
+<p>The first step in building an intelligent web application is to collect and preprocess data. This typically involves gathering data from a variety of sources, cleaning and normalizing the data, and selecting the most relevant features to use in your machine learning model.</p>
+<p>With Django, you can use the Django ORM to interact with your application's database and extract the data you need. You can also use Django's form validation and cleaning features to preprocess user input data.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.shortcuts</span> <span class="kn">import</span> <span class="n">render</span>
+<span class="kn">from</span> <span class="nn">myapp.models</span> <span class="kn">import</span> <span class="n">MyModel</span>
+
+<span class="k">def</span> <span class="nf">my_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">MyModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">filter</span><span class="p">(</span><span class="n">status</span><span class="o">=</span><span class="s1">&#39;active&#39;</span><span class="p">)</span>
+    <span class="c1"># preprocess data</span>
+    <span class="k">return</span> <span class="n">render</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="s1">&#39;my_template.html&#39;</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">data</span><span class="p">})</span>
+</code></pre></div>
+
+<h3>2. Model Training and Evaluation</h3>
+<p>The next step is to train a machine learning model using the preprocessed data. This involves selecting an appropriate machine learning algorithm, defining a set of features and labels, and using a training set to train the model.</p>
+<p>Once the model is trained, you'll need to evaluate its performance using a validation set. This will help you determine whether the model is accurate enough to be used in your web application.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">clf</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">()</span>
+<span class="n">clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">accuracy</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">)</span>
+</code></pre></div>
+
+<h3>3. Integration with Django</h3>
+<p>The final step is to integrate the trained machine learning model with your Django web application. This typically involves creating a view or API endpoint that takes user input data, applies the machine learning model, and returns the predicted output.</p>
+<p>You can use Django's built-in views and serializers to create RESTful API endpoints that can be used to serve predictions to other applications. You can also use Django's templating system to render predictions directly within your web application.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">JsonResponse</span>
+<span class="kn">from</span> <span class="nn">django.views.decorators.csrf</span> <span class="kn">import</span> <span class="n">csrf_exempt</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="nd">@csrf_exempt</span>
+<span class="k">def</span> <span class="nf">predict_view</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">body</span><span class="p">)</span>
+        <span class="n">prediction</span> <span class="o">=</span> <span class="n">clf</span><span class="o">.</span><span class="n">predict</span><span class="p">([</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;feature_1&#39;</span><span class="p">],</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;feature_2&#39;</span><span class="p">]])</span>
+        <span class="k">return</span> <span class="n">JsonResponse</span><span class="p">({</span><span class="s1">&#39;prediction&#39;</span><span class="p">:</span> <span class="n">prediction</span><span class="p">})</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">JsonResponse</span><span class="p">({</span><span class="s1">&#39;error&#39;</span><span class="p">:</span> <span class="s1">&#39;POST request required&#39;</span><span class="p">})</span>
+</code></pre></div>
+
+<h2>Use Cases for Django and Machine Learning</h2>
+<p>There are a wide variety of use cases for building intelligent web applications with Django and machine learning. Here are just a few examples:</p>
+<h3>E-Commerce Recommendation Engines</h3>
+<p>E-commerce websites can use machine learning to make personalized product recommendations to users. By analyzing user behavior and purchase history, a machine learning model can predict which products a user is most likely to be interested in.</p>
+<p>With Django, you can build an e-commerce recommendation engine that integrates with your application's product database and user authentication system.</p>
+<h3>Sentiment Analysis for Social Media</h3>
+<p>Social media platforms can use machine learning to analyze user posts and determine the sentiment of each post. This can be used to identify and flag potentially harmful or offensive content.</p>
+<p>With Django, you can build a sentiment analysis application that integrates with popular social media platforms like Twitter and Facebook. Users can input a post or comment, and the machine learning model can predict whether the sentiment is positive, negative, or neutral.</p>
+<h3>Fraud Detection for Financial Applications</h3>
+<p>Financial applications can use machine learning to detect and prevent fraudulent activity. By analyzing transaction data and user behavior, a machine learning model can identify patterns and anomalies that may indicate fraudulent activity.</p>
+<p>With Django, you can build a fraud detection application that integrates with your application's transaction database and user authentication system. Users can report suspicious activity, and the machine learning model can flag potential fraudsters in real-time.
+post. This can be used to identify and flag potentially harmful or offensive content.</p>
+<h2>Conclusion</h2>
+<p>In this article, we explored how to combine Django and machine learning to build intelligent web applications. By following the key steps of data collection and preprocessing, model training and evaluation, and integration with Django, you can build a wide variety of intelligent applications that can learn from user behavior, adapt to changing environments, and make data-driven decisions in real-time.</p>
+<p>The use cases for Django and machine learning are endless, from e-commerce recommendation engines to sentiment analysis for social media to fraud detection for financial applications. By leveraging the power of machine learning algorithms, you can take your Django web application to the next level and provide your users with a more personalized and intelligent experience.</p>
+  </div>
+  <div class="article_author_info" >
+    <hr>
+    <p>Posted By: Sanyam Khurana</p>
+    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
+
+    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 19 September 2021</p>
+    <p>Category: <a href="//thegeekyway.com/category/django/">Django</a>
+ &ndash; Tags:
+      <a href="//thegeekyway.com/tag/django/">Django</a>,      <a href="//thegeekyway.com/tag/machine-learning/">Machine Learning</a>,      <a href="//thegeekyway.com/tag/intelligent-web-applications/">Intelligent Web Applications</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "django-and-machine-learning-building-intelligent-web-applications/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

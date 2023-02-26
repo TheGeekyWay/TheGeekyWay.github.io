@@ -97,7 +97,7 @@
 <li><a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=TCSH&amp;action=edit&amp;redlink=1" title="TCSH (page does not exist)">TCSH</a> - It is an enhanced but completely compatible version of the Berkeley <a class="mw-redirect" href="https://bash.cyberciti.biz/guide/UNIX" title="UNIX">UNIX</a> <a href="https://bash.cyberciti.biz/guide/C_shell" title="C shell">C shell</a> (<a href="https://bash.cyberciti.biz/guide/CSH" title="CSH">CSH</a>).</li>
 </ul>
 <p>A shell is simply accessible using a terminal. If you are familiar with *nix, then you might have an experience of using it. Now, if you want to know what all shells are available in your system, then use the following command.</p>
-<div class="highlight"><pre><span></span><code>$ cat /etc/shells
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>cat<span class="w"> </span>/etc/shells
 <span class="c1"># /etc/shells: valid login shells</span>
 /bin/sh
 /bin/dash
@@ -125,7 +125,7 @@
 <h2>Writing your first script</h2>
 <p>To create a shell program you need to go through the following steps:</p>
 <p><strong>1. Create a file for the shell program.</strong></p>
-<div class="highlight"><pre><span></span><code>$ touch newfile.sh
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>touch<span class="w"> </span>newfile.sh
 </code></pre></div>
 
 <p>Here, we have given the extension <strong>.sh </strong> or <strong>.bash</strong> (conventional for bash script), though it is not necessary, but quite useful to distinguish between scripts of different shells.</p>
@@ -142,14 +142,14 @@
 <p><strong>4. Save the file.</strong></p>
 <p><strong>5. Make the file executable and run the program.</strong></p>
 <p>To run a script file, at least it must have the permission of <strong>"readability"</strong> so that we can explicitly execute it using a shell.</p>
-<div class="highlight"><pre><span></span><code>$ bash newfile.sh
-Script is working fine!
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>bash<span class="w"> </span>newfile.sh
+Script<span class="w"> </span>is<span class="w"> </span>working<span class="w"> </span>fine!
 </code></pre></div>
 
 <p>And if the script file is <strong>"executable"</strong>, then we may directly run the file as shown below.</p>
-<div class="highlight"><pre><span></span><code>$ chmod +x newfile.sh
-$ ./newfile.sh 
-Script is working fine!
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>chmod<span class="w"> </span>+x<span class="w"> </span>newfile.sh
+$<span class="w"> </span>./newfile.sh<span class="w"> </span>
+Script<span class="w"> </span>is<span class="w"> </span>working<span class="w"> </span>fine!
 </code></pre></div>
 
 <p>Hurray! You got your first shell script running. Let's go ahead and explore more programming elements of scripting.</p>
@@ -164,7 +164,7 @@ Script is working fine!
 
 <h2>Shell Parameters</h2>
 <p>Values you pass to a shell program from a terminal while executing the script, are called program parameters. For example.</p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh Hello World
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh<span class="w"> </span>Hello<span class="w"> </span>World
 </code></pre></div>
 
 <p>Here, <strong><em>"Hello"</em></strong> and <strong><em>"World"</em></strong> are <strong>2</strong> parameters that are passed to <strong>newfile.sh</strong>. You may pass any number of parameters to a shell script. But, the question arises, how are we gonna use them in a program?</p>
@@ -179,16 +179,16 @@ Script is working fine!
 <span class="normal">2</span>
 <span class="normal">3</span>
 <span class="normal">4</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nb">echo</span> <span class="s2">&quot;Running script </span><span class="nv">$0</span><span class="s2">&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;First parameter is </span><span class="nv">$1</span><span class="s2">&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;Second parameter is </span><span class="nv">$2</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Running script </span><span class="nv">$0</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;First parameter is </span><span class="nv">$1</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Second parameter is </span><span class="nv">$2</span><span class="s2">&quot;</span>
 </code></pre></div></td></tr></table></div>
 
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh Hello World
-Running script: ./newfile.sh
-First parameter is: Hello
-Second parameter is: World
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh<span class="w"> </span>Hello<span class="w"> </span>World
+Running<span class="w"> </span>script:<span class="w"> </span>./newfile.sh
+First<span class="w"> </span>parameter<span class="w"> </span>is:<span class="w"> </span>Hello
+Second<span class="w"> </span>parameter<span class="w"> </span>is:<span class="w"> </span>World
 </code></pre></div>
 
 <p>Along with these you also have other predefined variables.</p>
@@ -205,31 +205,31 @@ Second parameter is: World
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nb">echo</span> <span class="s2">&quot;With \$*&quot;</span>
-<span class="nb">echo</span> <span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
-<span class="k">for</span> i <span class="k">in</span> <span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;With \$*&quot;</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$*</span><span class="s2">&quot;</span>
 <span class="k">do</span>
-   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </code></pre></div></td></tr></table></div>
 
 <p>The output is.</p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
-Total parameters: <span class="m">3</span>
-With <span class="nv">$*</span>
-<span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span> <span class="m">5</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">&quot;2 3&quot;</span><span class="w"> </span><span class="s2">&quot;4 5&quot;</span>
+Total<span class="w"> </span>parameters:<span class="w"> </span><span class="m">3</span>
+With<span class="w"> </span><span class="nv">$*</span>
+<span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span>
 </code></pre></div>
 
 <p>See, here total parameters are <strong>3</strong>, but you are actually getting <strong>1</strong> string that includes all parameters<strong>.<br>
 </strong></p>
 <p><strong>Note: While using \$*, if the parameter is "2 3", then it is treated as "2" and "3". This means the shell interprets the space symbol. But, this is not the case with \$@.</strong></p>
 <p>If you use <strong>"\$@"</strong> instead of <strong>"\$*"</strong> you'll get the following.</p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh <span class="m">1</span> <span class="s2">&quot;2 3&quot;</span> <span class="s2">&quot;4 5&quot;</span>
-Total parameters: <span class="m">3</span>
-With <span class="nv">$@</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="s2">&quot;2 3&quot;</span><span class="w"> </span><span class="s2">&quot;4 5&quot;</span>
+Total<span class="w"> </span>parameters:<span class="w"> </span><span class="m">3</span>
+With<span class="w"> </span><span class="nv">$@</span>
 <span class="m">1</span>
-<span class="m">2</span> <span class="m">3</span>
-<span class="m">4</span> <span class="m">5</span>
+<span class="m">2</span><span class="w"> </span><span class="m">3</span>
+<span class="m">4</span><span class="w"> </span><span class="m">5</span>
 </code></pre></div>
 
 <p>Here, <strong>3</strong> separate parameters can be easily seen.</p>
@@ -237,15 +237,15 @@ With <span class="nv">$@</span>
 <ul>
 <li>
 <p><strong>\$\$:</strong> It shows the <strong>process ID</strong>. Following command shows the process ID of the current terminal.</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">echo</span> <span class="nv">$$</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$$</span>
 <span class="m">2123</span>
 </code></pre></div>
 
 </li>
 <li>
 <p><strong>\$?:</strong> It holds <strong>exit status</strong> of the last command. For example.</p>
-<div class="highlight"><pre><span></span><code>$ clear
-$ <span class="nb">echo</span> <span class="nv">$?</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>clear
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="nv">$?</span>
 <span class="m">0</span>
 </code></pre></div>
 
@@ -254,8 +254,8 @@ $ <span class="nb">echo</span> <span class="nv">$?</span>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nb">echo</span> <span class="s2">&quot;Successful&quot;</span>
-<span class="nb">exit</span> <span class="m">0</span>
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Successful&quot;</span>
+<span class="nb">exit</span><span class="w"> </span><span class="m">0</span>
 </code></pre></div></td></tr></table></div>
 
 </li>
@@ -271,24 +271,24 @@ $ <span class="nb">echo</span> <span class="nv">$?</span>
 <span class="normal">5</span>
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="k">for</span> i <span class="k">in</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="m">4</span>
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span>
 <span class="k">do</span>
-   <span class="nb">echo</span> <span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
-   <span class="nb">shift</span>
-   <span class="nb">echo</span> <span class="s2">&quot;Parameters: </span><span class="nv">$*</span><span class="s2">&quot;</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Total parameters: </span><span class="nv">$#</span><span class="s2">&quot;</span>
+<span class="w">   </span><span class="nb">shift</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Parameters: </span><span class="nv">$*</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </code></pre></div></td></tr></table></div>
 
 <p>The output of this command.</p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh a b c d e f
-Total parameters: <span class="m">6</span>
-Parameters: b c d e f
-Total parameters: <span class="m">5</span>
-Parameters: c d e f
-Total parameters: <span class="m">4</span>
-Parameters: d e f
-Total parameters: <span class="m">3</span>
-Parameters: e f
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh<span class="w"> </span>a<span class="w"> </span>b<span class="w"> </span>c<span class="w"> </span>d<span class="w"> </span>e<span class="w"> </span>f
+Total<span class="w"> </span>parameters:<span class="w"> </span><span class="m">6</span>
+Parameters:<span class="w"> </span>b<span class="w"> </span>c<span class="w"> </span>d<span class="w"> </span>e<span class="w"> </span>f
+Total<span class="w"> </span>parameters:<span class="w"> </span><span class="m">5</span>
+Parameters:<span class="w"> </span>c<span class="w"> </span>d<span class="w"> </span>e<span class="w"> </span>f
+Total<span class="w"> </span>parameters:<span class="w"> </span><span class="m">4</span>
+Parameters:<span class="w"> </span>d<span class="w"> </span>e<span class="w"> </span>f
+Total<span class="w"> </span>parameters:<span class="w"> </span><span class="m">3</span>
+Parameters:<span class="w"> </span>e<span class="w"> </span>f
 </code></pre></div>
 
 <p>We can see, that parameters are shifting to left and getting reduced by one. So, if you want to access 10th parameter then you need to left shift once and access <strong>\$9.</strong> However, this command is not much recommended due to the side effect of losing earlier parameters.</p>
@@ -298,8 +298,8 @@ Parameters: e f
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal">1</span>
 <span class="normal">2</span>
 <span class="normal">3</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nv">var</span><span class="o">=</span><span class="m">10</span>  <span class="c1"># An integer variable</span>
-<span class="nv">str</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span>  <span class="c1"># A string variable</span>
+<span class="nv">var</span><span class="o">=</span><span class="m">10</span><span class="w">  </span><span class="c1"># An integer variable</span>
+<span class="nv">str</span><span class="o">=</span><span class="s1">&#39;Hello&#39;</span><span class="w">  </span><span class="c1"># A string variable</span>
 </code></pre></div></td></tr></table></div>
 
 <p><strong>Note: No space around "=" (assignment) operator.</strong></p>
@@ -341,15 +341,15 @@ Parameters: e f
 <h4><strong>If-else statement</strong></h4>
 <p><strong><em>Usage:</em></strong> To execute a set of commands, on the basis of evaluation of an expression.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="nv">command1</span>    # <span class="k">if</span> <span class="nv">block</span> <span class="nv">started</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="nv">command1</span><span class="w">    </span>#<span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="nv">block</span><span class="w"> </span><span class="nv">started</span>
 <span class="k">then</span>
-     <span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
-<span class="nv">elif</span> <span class="nv">command2</span>  # <span class="nv">optional</span>
+<span class="w">     </span><span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
+<span class="nv">elif</span><span class="w"> </span><span class="nv">command2</span><span class="w">  </span>#<span class="w"> </span><span class="nv">optional</span>
 <span class="k">then</span>
-     <span class="nv">command</span><span class="o">-</span><span class="nv">list2</span>
-<span class="k">else</span>           # <span class="nv">optional</span>: <span class="nv">to</span> <span class="nv">accept</span> <span class="nv">rest</span> <span class="nv">of</span> <span class="nv">the</span> <span class="nv">conditions</span>.
-     <span class="nv">command</span><span class="o">-</span><span class="nv">list3</span>
-<span class="nv">fi</span>             # <span class="k">end</span> <span class="nv">of</span> <span class="k">if</span><span class="o">-</span><span class="k">else</span> <span class="nv">block</span>
+<span class="w">     </span><span class="nv">command</span><span class="o">-</span><span class="nv">list2</span>
+<span class="k">else</span><span class="w">           </span>#<span class="w"> </span><span class="nv">optional</span>:<span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">accept</span><span class="w"> </span><span class="nv">rest</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">conditions</span>.
+<span class="w">     </span><span class="nv">command</span><span class="o">-</span><span class="nv">list3</span>
+<span class="nv">fi</span><span class="w">             </span>#<span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="k">if</span><span class="o">-</span><span class="k">else</span><span class="w"> </span><span class="nv">block</span>
 </code></pre></div>
 
 <p>Here, <strong>elif</strong> and <strong>else</strong> parts are optional. This implies <strong>if command1</strong> returns success <strong>(0),</strong> then execute <strong>command-list1.</strong> Otherwise, <strong>if command2</strong> returns success <strong>(0),</strong> then execute <strong>command-list2,</strong> and if no condition turns out to be successful, then execute <strong>command-list3.</strong></p>
@@ -364,14 +364,14 @@ Parameters: e f
 <span class="normal"> 8</span>
 <span class="normal"> 9</span>
 <span class="normal">10</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="k">if</span> ls <span class="p">|</span> grep ^z &gt; /dev/null
+<span class="k">if</span><span class="w"> </span>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>^z<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
 <span class="k">then</span>
-   <span class="nb">echo</span> Firt <span class="k">case</span>.
-<span class="k">elif</span> ls <span class="p">|</span> grep ^a &gt; /dev/null
-<span class="k">then</span> 
-   <span class="nb">echo</span> Second <span class="k">case</span>.
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span>Firt<span class="w"> </span><span class="k">case</span>.
+<span class="k">elif</span><span class="w"> </span>ls<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>^a<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+<span class="k">then</span><span class="w"> </span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span>Second<span class="w"> </span><span class="k">case</span>.
 <span class="k">else</span>
-   <span class="nb">echo</span> Third <span class="k">case</span>.
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span>Third<span class="w"> </span><span class="k">case</span>.
 <span class="k">fi</span>
 </code></pre></div></td></tr></table></div>
 
@@ -384,9 +384,9 @@ Parameters: e f
 <p><strong><em>Usage:</em></strong> It is mostly used in association with if-else to evaluate expressions instead of commands.</p>
 <p><strong><em>Syntax:</em></strong> <code>test expression</code> or <code>[ expression ]</code></p>
 <p><strong><em>Example:</em></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> [ <span class="nv">expression</span> ]
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span>[<span class="w"> </span><span class="nv">expression</span><span class="w"> </span>]
 <span class="k">then</span>
-     <span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
+<span class="w">     </span><span class="nv">command</span><span class="o">-</span><span class="nv">list1</span>
 <span class="nv">fi</span>
 </code></pre></div>
 
@@ -407,32 +407,32 @@ Parameters: e f
 <span class="normal">14</span>
 <span class="normal">15</span>
 <span class="normal">16</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="k">if</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -gt <span class="m">1</span> <span class="o">]</span> <span class="c1"># if total number of parameters exceed 1</span>
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-gt<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="c1"># if total number of parameters exceed 1</span>
 <span class="k">then</span>
-   <span class="nb">echo</span> <span class="s2">&quot;Sorry, you entered too many parameters.&quot;</span>
-<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -eq <span class="m">1</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;1&quot;</span> <span class="o">]</span> <span class="c1"># if only one parameter is 1</span>
-<span class="k">then</span> 
-   <span class="nb">echo</span> <span class="s2">&quot;Hi! Nice to meet you!&quot;</span>
-<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -eq <span class="m">1</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="o">=</span> <span class="s2">&quot;2&quot;</span> <span class="o">]</span>  <span class="c1"># if only one parameter is 2</span>
-<span class="k">then</span> 
-    <span class="nb">pwd</span>
-<span class="k">elif</span> <span class="o">[</span> <span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span> -eq <span class="m">1</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;1&quot;</span> -a <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> !<span class="o">=</span> <span class="s2">&quot;2&quot;</span> <span class="o">]</span> <span class="c1"># if only one is parameter is neither 1 nor 2</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Sorry, you entered too many parameters.&quot;</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="c1"># if only one parameter is 1</span>
+<span class="k">then</span><span class="w"> </span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hi! Nice to meet you!&quot;</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="w"> </span><span class="o">]</span><span class="w">  </span><span class="c1"># if only one parameter is 2</span>
+<span class="k">then</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">pwd</span>
+<span class="k">elif</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$#</span><span class="s2">&quot;</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">1</span><span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="w"> </span>-a<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span>!<span class="o">=</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="c1"># if only one is parameter is neither 1 nor 2</span>
 <span class="k">then</span>
-   <span class="nb">echo</span> <span class="s2">&quot;You entered the wrong parameter.&quot;</span>
-<span class="k">else</span>            <span class="c1"># if the total number of parameters is below 1</span>
-   <span class="nb">echo</span> <span class="s2">&quot;Sorry, you entered fewer parameters.&quot;</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You entered the wrong parameter.&quot;</span>
+<span class="k">else</span><span class="w">            </span><span class="c1"># if the total number of parameters is below 1</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Sorry, you entered fewer parameters.&quot;</span>
 <span class="k">fi</span>
 </code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh
-Sorry, you entered fewer parameters.
-$ ./newfile.sh <span class="m">1</span>
-Hi! Nice to meet you!
-$ ./newfile.sh <span class="m">2</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh
+Sorry,<span class="w"> </span>you<span class="w"> </span>entered<span class="w"> </span>fewer<span class="w"> </span>parameters.
+$<span class="w"> </span>./newfile.sh<span class="w"> </span><span class="m">1</span>
+Hi!<span class="w"> </span>Nice<span class="w"> </span>to<span class="w"> </span>meet<span class="w"> </span>you!
+$<span class="w"> </span>./newfile.sh<span class="w"> </span><span class="m">2</span>
 /home/thegeekyway
-$ ./newfile.sh <span class="m">3</span>
-Sorry, you entered the wrong parameter.
+$<span class="w"> </span>./newfile.sh<span class="w"> </span><span class="m">3</span>
+Sorry,<span class="w"> </span>you<span class="w"> </span>entered<span class="w"> </span>the<span class="w"> </span>wrong<span class="w"> </span>parameter.
 </code></pre></div>
 
 <h4>Case statement</h4>
@@ -459,17 +459,17 @@ esac
 <span class="normal">11</span>
 <span class="normal">12</span>
 <span class="normal">13</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="k">case</span> <span class="nv">$#</span> <span class="k">in</span>
-     <span class="s2">&quot;0&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered fewer parameters.&quot;</span>
-          exit<span class="p">;;</span>
-     <span class="s2">&quot;2&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered too many parameters.&quot;</span>
-          exit<span class="p">;;</span>
+<span class="k">case</span><span class="w"> </span><span class="nv">$#</span><span class="w"> </span><span class="k">in</span>
+<span class="w">     </span><span class="s2">&quot;0&quot;</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You entered fewer parameters.&quot;</span>
+<span class="w">          </span>exit<span class="p">;;</span>
+<span class="w">     </span><span class="s2">&quot;2&quot;</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You entered too many parameters.&quot;</span>
+<span class="w">          </span>exit<span class="p">;;</span>
 <span class="k">esac</span>
 
-<span class="k">case</span> <span class="nv">$1</span> <span class="k">in</span>
-     <span class="s2">&quot;1&quot;</span><span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;Hi, nice to meet you!&quot;</span><span class="p">;;</span>
-     <span class="s2">&quot;2&quot;</span><span class="o">)</span> pwd<span class="p">;;</span>
-     *<span class="o">)</span> <span class="nb">echo</span> <span class="s2">&quot;You entered the wrong parameters.&quot;</span><span class="p">;;</span>
+<span class="k">case</span><span class="w"> </span><span class="nv">$1</span><span class="w"> </span><span class="k">in</span>
+<span class="w">     </span><span class="s2">&quot;1&quot;</span><span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Hi, nice to meet you!&quot;</span><span class="p">;;</span>
+<span class="w">     </span><span class="s2">&quot;2&quot;</span><span class="o">)</span><span class="w"> </span>pwd<span class="p">;;</span>
+<span class="w">     </span>*<span class="o">)</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;You entered the wrong parameters.&quot;</span><span class="p">;;</span>
 <span class="k">esac</span>
 </code></pre></div></td></tr></table></div>
 
@@ -485,10 +485,10 @@ esac
 <p><strong><em>Usage:</em></strong> When iterating any variable over an iterator like "\$@", we use "for-loop".</p>
 <p>Iterators are objects, having multiple values within them like lists in python. Therefore, using a for-loop we may access their individual values one by one.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">iterator</span><span class="w"></span>
-<span class="n">do</span><span class="w"></span>
-<span class="w">    </span><span class="n">command</span><span class="o">-</span><span class="n">list</span><span class="w"></span>
-<span class="n">done</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="k">var</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">iterator</span>
+<span class="n">do</span>
+<span class="w">    </span><span class="n">command</span><span class="o">-</span><span class="n">list</span>
+<span class="n">done</span>
 </code></pre></div>
 
 <p><strong><em>Example:</em></strong></p>
@@ -497,14 +497,14 @@ esac
 <span class="normal">3</span>
 <span class="normal">4</span>
 <span class="normal">5</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="k">for</span> var <span class="k">in</span> <span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
+<span class="k">for</span><span class="w"> </span>var<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$@</span><span class="s2">&quot;</span>
 <span class="k">do</span>
-    <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh The Geeky Way
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh<span class="w"> </span>The<span class="w"> </span>Geeky<span class="w"> </span>Way
 The
 Geeky
 Way
@@ -513,9 +513,9 @@ Way
 <h4>While Loop</h4>
 <p><strong><em>Usage:</em></strong> To repeat a set of commands, till an expression remains true.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">while</span> [ <span class="nv">expression</span> ]
+<div class="highlight"><pre><span></span><code><span class="k">while</span><span class="w"> </span>[<span class="w"> </span><span class="nv">expression</span><span class="w"> </span>]
 <span class="k">do</span>
-     <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
+<span class="w">     </span><span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
 <span class="nv">done</span>
 </code></pre></div>
 
@@ -528,15 +528,15 @@ Way
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">var</span><span class="o">=</span><span class="m">0</span>
-<span class="k">while</span> <span class="o">[</span> <span class="nv">$var</span> -le <span class="m">3</span> <span class="o">]</span>
+<span class="k">while</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>-le<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">]</span>
 <span class="k">do</span>
-      <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
-     <span class="o">((</span>var++<span class="o">))</span>
+<span class="w">      </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
+<span class="w">     </span><span class="o">((</span>var++<span class="o">))</span>
 <span class="k">done</span>
 </code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh
 <span class="m">0</span>
 <span class="m">1</span>
 <span class="m">2</span>
@@ -546,9 +546,9 @@ Way
 <h4>Until Loop</h4>
 <p><strong><em>Usage:</em></strong> It is reverse of <strong>while loop</strong>, it repeats a set of commands, untill an expression becomes true.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><code><span class="k">until</span> [ <span class="nv">expression</span> ]
+<div class="highlight"><pre><span></span><code><span class="k">until</span><span class="w"> </span>[<span class="w"> </span><span class="nv">expression</span><span class="w"> </span>]
 <span class="k">do</span>
-     <span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
+<span class="w">     </span><span class="nv">command</span><span class="o">-</span><span class="nv">list</span>
 <span class="nv">done</span>
 </code></pre></div>
 
@@ -561,15 +561,15 @@ Way
 <span class="normal">6</span>
 <span class="normal">7</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 <span class="nv">var</span><span class="o">=</span><span class="m">0</span>
-<span class="k">until</span> <span class="o">[</span> <span class="nv">$var</span> -eq <span class="m">3</span> <span class="o">]</span>
+<span class="k">until</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span>-eq<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="o">]</span>
 <span class="k">do</span>
-   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
-   <span class="o">((</span>var++<span class="o">))</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$var</span><span class="s2">&quot;</span>
+<span class="w">   </span><span class="o">((</span>var++<span class="o">))</span>
 <span class="k">done</span>
 </code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh
 <span class="m">0</span>
 <span class="m">1</span>
 <span class="m">2</span>
@@ -586,16 +586,16 @@ Way
 <span class="normal">4</span>
 <span class="normal">5</span>
 <span class="normal">6</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
-<span class="nb">read</span> var
-<span class="k">for</span> i <span class="k">in</span> <span class="nv">$var</span>
+<span class="nb">read</span><span class="w"> </span>var
+<span class="k">for</span><span class="w"> </span>i<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="nv">$var</span>
 <span class="k">do</span>
-   <span class="nb">echo</span> <span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
+<span class="w">   </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$i</span><span class="s2">&quot;</span>
 <span class="k">done</span>
 </code></pre></div></td></tr></table></div>
 
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh
-The Geeky Way
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh
+The<span class="w"> </span>Geeky<span class="w"> </span>Way
 The
 Geeky
 Way
@@ -604,11 +604,11 @@ Way
 <h2>Functions</h2>
 <p><strong><em>Usage:</em></strong> These are set of commands, which can be called any number of times in a script. Thus, it gives the feature of re-usability of code and makes the code modular.</p>
 <p><strong><em>Syntax:</em></strong></p>
-<div class="highlight"><pre><span></span><code><span class="n">function_name</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="n">command</span><span class="o">-</span><span class="n">list</span><span class="w"></span>
-<span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="w">    </span>#<span class="w"> </span><span class="n">optional</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">function_name</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="n">command</span><span class="o">-</span><span class="n">list</span>
+<span class="k">return</span><span class="w"> </span><span class="n">value</span><span class="w">    </span>#<span class="w"> </span><span class="n">optional</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p><strong><em>Example:</em></strong></p>
@@ -633,29 +633,29 @@ Way
 <span class="normal">19</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="ch">#!/bin/bash</span>
 confirm<span class="o">()</span>
 <span class="o">{</span>
-<span class="nb">echo</span> -e <span class="s2">&quot;Are you sure, that you want to continue (y)?: \c&quot;</span>
-<span class="nb">read</span> var
-<span class="k">if</span> <span class="o">[</span> <span class="nv">$var</span> <span class="o">=</span> <span class="s1">&#39;y&#39;</span> <span class="o">]</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;Are you sure, that you want to continue (y)?: \c&quot;</span>
+<span class="nb">read</span><span class="w"> </span>var
+<span class="k">if</span><span class="w"> </span><span class="o">[</span><span class="w"> </span><span class="nv">$var</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;y&#39;</span><span class="w"> </span><span class="o">]</span>
 <span class="k">then</span>
-   <span class="k">return</span> <span class="m">0</span>
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="m">0</span>
 <span class="k">else</span>
-   <span class="k">return</span> <span class="m">1</span> 
-<span class="k">fi</span> 
+<span class="w">   </span><span class="k">return</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>
+<span class="k">fi</span><span class="w"> </span>
 <span class="o">}</span>
 
-<span class="k">if</span> confirm -eq <span class="m">0</span>
+<span class="k">if</span><span class="w"> </span>confirm<span class="w"> </span>-eq<span class="w"> </span><span class="m">0</span>
 <span class="k">then</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Continue process!&quot;</span>
-<span class="k">else</span> 
-    <span class="nb">echo</span> <span class="s2">&quot;Discontinue process!&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Continue process!&quot;</span>
+<span class="k">else</span><span class="w"> </span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Discontinue process!&quot;</span>
 <span class="k">fi</span>
 </code></pre></div></td></tr></table></div>
 
 <p><strong>Note that, no test expression in the last block of "if-else", because calling function is a command in itself. And we put expressions in the test, not commands.</strong></p>
 <p><strong><em>Output:</em></strong></p>
-<div class="highlight"><pre><span></span><code>$ ./newfile.sh
-Are you sure, that you want to <span class="k">continue</span> <span class="o">(</span>y<span class="o">)</span>?: y
-Continue process!!
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>./newfile.sh
+Are<span class="w"> </span>you<span class="w"> </span>sure,<span class="w"> </span>that<span class="w"> </span>you<span class="w"> </span>want<span class="w"> </span>to<span class="w"> </span><span class="k">continue</span><span class="w"> </span><span class="o">(</span>y<span class="o">)</span>?:<span class="w"> </span>y
+Continue<span class="w"> </span>process!!
 </code></pre></div>
 
 <h2>Conclusion</h2>

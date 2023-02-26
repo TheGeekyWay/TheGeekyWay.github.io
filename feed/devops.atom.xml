@@ -20,28 +20,28 @@
 &lt;p&gt;&lt;code&gt;sudo apt-get install ansible&lt;/code&gt; should do just fine. Or &lt;code&gt;dnf&lt;/code&gt; in place of &lt;code&gt;apt-get&lt;/code&gt; for RHEL. Interestingly, you don't need to install ansible on the target machine! You just install it on your local machine once. And just exploit it using the tasks you define. This is because Ansible basically just SSH into your remote machine, and executes task if required.&lt;/p&gt;
 &lt;h2&gt;Getting started&lt;/h2&gt;
 &lt;p&gt;We'll start with doing everything in a get it done way. And then move to the way of how it should be done. Firstly you define the target(s) to act upon. This is called the inventory. You can name this file anything, inventory, hosts, instances, etc. it's upto you. In this file, type in the IPs of the instances you wish to control in format:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[name]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;0.0.0.1 ansible_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ubuntu&amp;#39; ansible_ssh_private_key_file=&amp;#39;path/to/privateKey/for/server&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;0.0.1.2 ansible_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;userName_to_login_as&amp;#39; ansible_ssh_private_key_file=&amp;#39;path/to/private/key&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[name]&lt;/span&gt;
+&lt;span class="na"&gt;0.0.0.1 ansible_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;ubuntu&amp;#39; ansible_ssh_private_key_file=&amp;#39;path/to/privateKey/for/server&amp;#39;&lt;/span&gt;
+&lt;span class="na"&gt;0.0.1.2 ansible_user&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;&amp;#39;userName_to_login_as&amp;#39; ansible_ssh_private_key_file=&amp;#39;path/to/private/key&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You can access these IPs using the *name* you provided. If you want to test this on vagrant, write an inventory file in the format:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[vag]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;127.0.0.1 ansible_port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2222 ansible_user=&amp;#39;vagrant&amp;#39; ansible_ssh_private_key_file=&amp;#39;/path/toVagrantfile/.vagrant/machines/default/virtualbox/private_key&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[vag]&lt;/span&gt;
+&lt;span class="na"&gt;127.0.0.1 ansible_port&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2222 ansible_user=&amp;#39;vagrant&amp;#39; ansible_ssh_private_key_file=&amp;#39;/path/toVagrantfile/.vagrant/machines/default/virtualbox/private_key&amp;#39;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;If you wish, you can follow along by performing the commands on your machine instead of a server too.
 Using localhost:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[me]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;localhost ansible_connection&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;local&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[me]&lt;/span&gt;
+&lt;span class="na"&gt;localhost ansible_connection&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;local&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, if you wish to use localhost, just use &lt;code&gt;me&lt;/code&gt; in place of &lt;code&gt;vag&lt;/code&gt;/&lt;code&gt;groupName&lt;/code&gt;.&lt;br&gt;
 If the inventory is ready we can begin executing the commands!&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Though most of the commands used in this blog are non destructive and would not change anything in your PC to cause problems. Caution should be excercised when hacking through the different commands on your own. Especially if the target machine hosts important data, or you are performing all the commands on your localhost&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: If you get an error/warning related to usage of python2 interpreter, you can create a file &lt;code&gt;ansible.cfg&lt;/code&gt; and specify python3 interpreter by writing this in the file:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[defaults]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;interpreter_python&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/usr/bin/python3&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[defaults]&lt;/span&gt;
+&lt;span class="na"&gt;interpreter_python&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;/usr/bin/python3&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;Executing some commands&lt;/h2&gt;

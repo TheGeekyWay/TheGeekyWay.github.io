@@ -87,78 +87,78 @@
 <p><a href="//thegeekyway.com/uploads/images/2014/02/SwitchCase1.png" title="Conditional Statements : Switch Case C language"><img alt="Conditional Statements : Switch Case C language" src="//thegeekyway.com/uploads/images/2014/02/SwitchCase1.png"></a></p>
 </div>
 <p>The basic semantics of a switch block statement is as follows :</p>
-<div class="highlight"><pre><span></span><code><span class="n">switch</span><span class="p">(</span><span class="n">variable</span><span class="o">-</span><span class="n">name</span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="n">default</span><span class="p">:</span><span class="w"></span>
-<span class="w">    </span><span class="o">.</span><span class="w"></span>
-<span class="w">    </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">switch</span><span class="p">(</span><span class="n">variable</span><span class="o">-</span><span class="n">name</span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="mi">1</span><span class="p">:</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="mi">2</span><span class="p">:</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="n">case</span><span class="w"> </span><span class="mi">3</span><span class="p">:</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="n">default</span><span class="p">:</span>
+<span class="w">    </span><span class="o">.</span>
+<span class="w">    </span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Here variable-name corresponds to the variable you want to compare with a set of values and inside the curly braces we have defined cases such that if value of variable is 1 then the statement 1 and statement 2 would execute, for variable having value 2, statement 3 and 4 would execute and so on. If none of the cases are true, then statement n corresponding to default would execute.</p>
 <p>Let us take an example and understand how it's done. Let us consider we need to just print what number it is if the number is less than or equal to 5 else print number is not 1, 2, 3, 4 or 5. We'll consider that user has input a number which is stored in variable named num. This can be done through if - else statements as we studied earlier like this :</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">1</span><span class="ss">)</span>
-   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 1 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">2</span><span class="ss">)</span>
-   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 2 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">3</span><span class="ss">)</span>
-   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 3 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">4</span><span class="ss">)</span>
-   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 4 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-<span class="k">else</span> <span class="k">if</span><span class="ss">(</span><span class="nv">num</span> <span class="o">==</span> <span class="mi">5</span><span class="ss">)</span>
-   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="ss">(</span><span class="nv">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">1</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 1 n&quot;</span><span class="c1">;</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="ss">(</span><span class="nv">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">2</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 2 n&quot;</span><span class="c1">;</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="ss">(</span><span class="nv">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">3</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 3 n&quot;</span><span class="c1">;</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="ss">(</span><span class="nv">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">4</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 4 n&quot;</span><span class="c1">;</span>
+<span class="k">else</span><span class="w"> </span><span class="k">if</span><span class="ss">(</span><span class="nv">num</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">5</span><span class="ss">)</span>
+<span class="w">   </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 5 n&quot;</span><span class="c1">;</span>
 <span class="k">else</span>
-   <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is not 1, 2, 3, 4 or 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
+<span class="w">   </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is not 1, 2, 3, 4 or 5 n&quot;</span><span class="c1">;</span>
 </code></pre></div>
 
 <p>Now in the above case, since we need to compare just one variable with a set of values, this can be done easily through switch case as follows:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">switch</span> <span class="ss">(</span> <span class="nv">num</span> <span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">switch</span><span class="w"> </span><span class="ss">(</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="ss">)</span>
 {
-   <span class="nv">case</span> <span class="mi">1</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 1 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-   <span class="k">break</span><span class="c1">;</span>
-   <span class="nv">case</span> <span class="mi">2</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 2 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-   <span class="k">break</span><span class="c1">;</span>
-   <span class="nv">case</span> <span class="mi">3</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 3 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-   <span class="k">break</span><span class="c1">;</span>
-   <span class="nv">case</span> <span class="mi">4</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 4 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-   <span class="k">break</span><span class="c1">;</span>
-   <span class="nv">case</span> <span class="mi">5</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-   <span class="k">break</span><span class="c1">;</span>
-   <span class="nv">default</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is not 1, 2, 3, 4 or 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-   <span class="k">break</span><span class="c1">;</span>
+<span class="w">   </span><span class="nv">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 1 n&quot;</span><span class="c1">;</span>
+<span class="w">   </span><span class="k">break</span><span class="c1">;</span>
+<span class="w">   </span><span class="nv">case</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 2 n&quot;</span><span class="c1">;</span>
+<span class="w">   </span><span class="k">break</span><span class="c1">;</span>
+<span class="w">   </span><span class="nv">case</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 3 n&quot;</span><span class="c1">;</span>
+<span class="w">   </span><span class="k">break</span><span class="c1">;</span>
+<span class="w">   </span><span class="nv">case</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 4 n&quot;</span><span class="c1">;</span>
+<span class="w">   </span><span class="k">break</span><span class="c1">;</span>
+<span class="w">   </span><span class="nv">case</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 5 n&quot;</span><span class="c1">;</span>
+<span class="w">   </span><span class="k">break</span><span class="c1">;</span>
+<span class="w">   </span><span class="nv">default</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is not 1, 2, 3, 4 or 5 n&quot;</span><span class="c1">;</span>
+<span class="w">   </span><span class="k">break</span><span class="c1">;</span>
 }
 </code></pre></div>
 
 <p>Notice here that I have mentioned break statement after each case , this is to terminate the the case above it if it's executed. Let's see if we didn't include break what would happen, so consider this code snippet.</p>
 <div class="highlight"><pre><span></span><code>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
-<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
+<span class="nv">int</span><span class="w"> </span><span class="nv">main</span><span class="ss">()</span>
 {
-  <span class="nv">int</span> <span class="nv">num</span><span class="c1">;</span>
-  <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Enter a number </span><span class="s2">&quot;</span><span class="c1">;</span>
-  <span class="nv">cin</span><span class="o">&gt;&gt;</span><span class="nv">num</span><span class="c1">;</span>
-  <span class="nv">switch</span> <span class="ss">(</span> <span class="nv">num</span> <span class="ss">)</span>
-  {
-     <span class="nv">case</span> <span class="mi">1</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 1 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-     <span class="nv">case</span> <span class="mi">2</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 2 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-     <span class="nv">case</span> <span class="mi">3</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 3 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-     <span class="nv">case</span> <span class="mi">4</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 4 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-     <span class="nv">case</span> <span class="mi">5</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-     <span class="nv">default</span> : <span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;</span><span class="s">Number is not 1, 2, 3, 4 or 5 n</span><span class="s2">&quot;</span><span class="c1">;</span>
-  }
-<span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">int</span><span class="w"> </span><span class="nv">num</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Enter a number &quot;</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">cin</span><span class="o">&gt;&gt;</span><span class="nv">num</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">switch</span><span class="w"> </span><span class="ss">(</span><span class="w"> </span><span class="nv">num</span><span class="w"> </span><span class="ss">)</span>
+<span class="w">  </span>{
+<span class="w">     </span><span class="nv">case</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 1 n&quot;</span><span class="c1">;</span>
+<span class="w">     </span><span class="nv">case</span><span class="w"> </span><span class="mi">2</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 2 n&quot;</span><span class="c1">;</span>
+<span class="w">     </span><span class="nv">case</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 3 n&quot;</span><span class="c1">;</span>
+<span class="w">     </span><span class="nv">case</span><span class="w"> </span><span class="mi">4</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 4 n&quot;</span><span class="c1">;</span>
+<span class="w">     </span><span class="nv">case</span><span class="w"> </span><span class="mi">5</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is 5 n&quot;</span><span class="c1">;</span>
+<span class="w">     </span><span class="nv">default</span><span class="w"> </span>:<span class="w"> </span><span class="nv">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Number is not 1, 2, 3, 4 or 5 n&quot;</span><span class="c1">;</span>
+<span class="w">  </span>}
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="c1">;</span>
 }
 </code></pre></div>
 
@@ -169,17 +169,17 @@
 <p>See, we not only got Number is 2 statement printed, but got all statements printed after that case, in a sequential manner, this is because in a switch condition we need to have conditional flow of statement using break statement.</p>
 <p>Now, if you include break after each case but doesn't do it with default case, it would run fine too, this is because if the default case is true, then after executing set of statements with that case, the control would automatically be out of the switch block, so technically we do not need break after default case.</p>
 <p>Now let's see how to match a character type variable. Consider a character (char) type variable named character_variable , and if we need to use switch, it can be done in this way:</p>
-<div class="highlight"><pre><span></span><code><span class="n">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">character_variable</span><span class="w"> </span><span class="p">)</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">   </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Case a executed n&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Case b executed n&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Case c executed n&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="w">   </span><span class="n">default</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;This is default case n&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">     </span><span class="k">break</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">switch</span><span class="w"> </span><span class="p">(</span><span class="w"> </span><span class="n">character_variable</span><span class="w"> </span><span class="p">)</span>
+<span class="p">{</span>
+<span class="w">   </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;a&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Case a executed n&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="k">break</span><span class="p">;</span>
+<span class="w">   </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;b&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Case b executed n&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="k">break</span><span class="p">;</span>
+<span class="w">   </span><span class="n">case</span><span class="w"> </span><span class="s1">&#39;c&#39;</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;Case c executed n&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="k">break</span><span class="p">;</span>
+<span class="w">   </span><span class="n">default</span><span class="w"> </span><span class="p">:</span><span class="w"> </span><span class="n">cout</span><span class="o">&lt;&lt;</span><span class="s2">&quot;This is default case n&quot;</span><span class="p">;</span>
+<span class="w">     </span><span class="k">break</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Here, notice that we have enclosed the character value between single quotes ( '   ' ).</p>

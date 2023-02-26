@@ -93,7 +93,7 @@
 <p>Structures can be used to track information which is common to large group of entities.</p>
 <p><strong>How to declare a structure?</strong></p>
 <p>Let us first see the basic semantics of declaring a structure. It is much like defining ordinary variable like:</p>
-<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">data_type</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">variable_name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">For</span><span class="w"> </span><span class="n">variable</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;</span><span class="n">data_type</span><span class="o">&gt;</span><span class="w"> </span><span class="o">&lt;</span><span class="n">variable_name</span><span class="o">&gt;</span><span class="w"> </span><span class="o">//</span><span class="w"> </span><span class="n">For</span><span class="w"> </span><span class="n">variable</span>
 </code></pre></div>
 
 <p>Now for structure, it is done through keyword struct like this:</p>
@@ -127,11 +127,11 @@ George.marks = 78.6;
 <p>and so on...</p>
 <p>It's essential to remember here that the members we declare in a structure would take the memory only when instances are declared. You're free to name your instance anything. It's just like declaring a variable whose data type would be now your own defined data type, which is struct student here.</p>
 <p>Notice above how we've defined the instances of a structure, another way of declaring them can be like this:</p>
-<div class="highlight"><pre><span></span><code><span class="n">struct</span><span class="w"> </span><span class="o">&lt;</span><span class="n">struct</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">Members</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">struct</span><span class="w"> </span><span class="o">&lt;</span><span class="n">struct</span><span class="o">-</span><span class="n">name</span><span class="o">&gt;</span>
+<span class="p">{</span>
+<span class="w">  </span><span class="o">//</span><span class="w"> </span><span class="n">Data</span><span class="w"> </span><span class="n">Members</span>
 
-<span class="p">}</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">structure</span><span class="o">-</span><span class="n">variable</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"> </span><span class="o">&lt;</span><span class="n">name</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">first</span><span class="o">-</span><span class="n">structure</span><span class="o">-</span><span class="n">variable</span><span class="o">&gt;</span><span class="w"> </span><span class="o">...</span><span class="w"> </span><span class="p">;</span>
 </code></pre></div>
 
 <p>So, for the above example, it can be done as follows:</p>

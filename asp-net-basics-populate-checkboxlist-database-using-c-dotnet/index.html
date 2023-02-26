@@ -109,7 +109,7 @@
 <hr>
 <h5><p #h_4_1>Step 1 :  <p style="text-decoration: underline; color: black;">Select the checkBoxList control from the toolbox.</p></p></h5>
 <p>You can get to the toolbox by pressing ctrl W,X and typing checkBoxList you can drag drop the checkBoxList control on the aspx page. You will get the following code :-</p>
-<div class="highlight"><pre><span></span><code><span class="nt">&lt;asp:CheckBoxList</span> <span class="na">ID=</span><span class="s">&quot;CheckBoxList1&quot;</span><span class="na">runat=</span><span class="s">&quot;server&quot;</span><span class="nt">&gt;&lt;/asp:CheckBoxList&gt;</span>
+<div class="highlight"><pre><span></span><code><span class="nt">&lt;asp:CheckBoxList</span><span class="w"> </span><span class="na">ID=</span><span class="s">&quot;CheckBoxList1&quot;</span><span class="na">runat=</span><span class="s">&quot;server&quot;</span><span class="nt">&gt;&lt;/asp:CheckBoxList&gt;</span>
 </code></pre></div>
 
 <p><strong>ID = “CheckBoxList1″</strong> means that the CheckBoxList has been allotted a specific ID so that we can work on the C# page using that reference.<br>
@@ -123,16 +123,16 @@ SqlConnection con=newSqlConnection(System.Web.Configuration.WebConfigurationMana
 
 <p>and in web.config add the following lines under configurations tab</p>
 <div class="highlight"><pre><span></span><code><span class="nt">&lt;connectionStrings&gt;</span>
-    <span class="nt">&lt;add</span> <span class="na">name=</span><span class="s">&quot;ConnectionString&quot;</span><span class="na">connectionString=</span><span class="s">&quot;Data Source=(LocalDB)v11.0;AttachDbFilename=|DataDirectory|(your database name);Integrated Security=True&quot;</span>
-      <span class="na">providerName=</span><span class="s">&quot;System.Data.SqlClient&quot;</span><span class="nt">/&gt;</span>
-  <span class="nt">&lt;/connectionStrings&gt;</span>
+<span class="w">    </span><span class="nt">&lt;add</span><span class="w"> </span><span class="na">name=</span><span class="s">&quot;ConnectionString&quot;</span><span class="na">connectionString=</span><span class="s">&quot;Data Source=(LocalDB)v11.0;AttachDbFilename=|DataDirectory|(your database name);Integrated Security=True&quot;</span>
+<span class="w">      </span><span class="na">providerName=</span><span class="s">&quot;System.Data.SqlClient&quot;</span><span class="nt">/&gt;</span>
+<span class="w">  </span><span class="nt">&lt;/connectionStrings&gt;</span>
 </code></pre></div>
 
 <p>you need to include the System.Data.SqlClient class inorder to work with sql.</p>
 <hr>
 <h5><p #h_4_3>Step 3 :  <p style="text-decoration: underline; color: black;">Write your SQL Query.</p></p></h5>
 <p>The next step after creating the connection is to open the connection we can use con.open() [here con is the object of SqlConnection class created in Step2]. The SQL query for this table will be :-</p>
-<div class="highlight"><pre><span></span><code><span class="n">stringquery</span><span class="o">=</span><span class="ss">&quot;SELECT distinct[Clg_name] FROM [Complete_table]&quot;</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">stringquery</span><span class="o">=</span><span class="ss">&quot;SELECT distinct[Clg_name] FROM [Complete_table]&quot;</span><span class="p">;</span>
 </code></pre></div>
 
 <hr>
@@ -167,9 +167,9 @@ The following C\# snippet creates a SQL adapter
 Here is the C# snippet for the same :-</p>
 <div class="highlight"><pre><span></span><code><span class="k">if</span><span class="ss">(</span><span class="nv">ds</span>.<span class="nv">Tables</span>[<span class="mi">0</span>].<span class="nv">Rows</span>.<span class="nv">Count</span><span class="o">!=</span><span class="mi">0</span><span class="ss">)</span>
 {
-    <span class="o">//</span> <span class="nv">more</span> <span class="nv">coding</span> <span class="nv">will</span> <span class="nv">be</span> <span class="nv">discussed</span> <span class="nv">in</span> <span class="k">next</span> <span class="nv">steps</span>
+<span class="w">    </span><span class="o">//</span><span class="w"> </span><span class="nv">more</span><span class="w"> </span><span class="nv">coding</span><span class="w"> </span><span class="nv">will</span><span class="w"> </span><span class="nv">be</span><span class="w"> </span><span class="nv">discussed</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="k">next</span><span class="w"> </span><span class="nv">steps</span>
 }<span class="k">else</span>{
-   <span class="o">//</span> <span class="nv">Give</span> <span class="nv">an</span> <span class="nv">error</span> <span class="nv">message</span> <span class="nv">that</span> <span class="nv">no</span> <span class="nv">results</span> <span class="nv">found</span>
+<span class="w">   </span><span class="o">//</span><span class="w"> </span><span class="nv">Give</span><span class="w"> </span><span class="nv">an</span><span class="w"> </span><span class="nv">error</span><span class="w"> </span><span class="nv">message</span><span class="w"> </span><span class="nv">that</span><span class="w"> </span><span class="nv">no</span><span class="w"> </span><span class="nv">results</span><span class="w"> </span><span class="nv">found</span>
 }
 </code></pre></div>
 
@@ -200,39 +200,39 @@ CheckBoxList1.DataValueField=&quot;Clg_Name&quot;;
 <hr>
 <h5><p #h_4_11>Step 11:  <p style="text-decoration: underline; color: black;">The complete code.</p></p></h5>
 <p>here is the complete code :-</p>
-<div class="highlight"><pre><span></span><code><span class="n">protectedvoidPage_Load</span><span class="p">(</span><span class="n">objectsender</span><span class="p">,</span><span class="n">EventArgse</span><span class="p">)</span><span class="w"></span>
-<span class="w">    </span><span class="err">{</span><span class="w"></span>
-<span class="w">        </span><span class="n">SqlConnection</span><span class="w"> </span><span class="n">con</span><span class="o">=</span><span class="n">newSqlConnection</span><span class="p">(</span><span class="k">System</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Configuration</span><span class="p">.</span><span class="n">WebConfigurationManager</span><span class="p">.</span><span class="n">ConnectionStrings</span><span class="o">[</span><span class="n">&quot;ConnectionString&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">ConnectionString</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="n">stringquery</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="k">try</span><span class="w"></span>
-<span class="w">        </span><span class="err">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="ss">&quot;SELECT distinct[Clg_name] FROM [Complete_table]&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="n">con</span><span class="p">.</span><span class="k">Open</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="n">SqlDataAdapter</span><span class="w"> </span><span class="n">da</span><span class="o">=</span><span class="n">newSqlDataAdapter</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">con</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="n">DataSet</span><span class="w"> </span><span class="n">ds</span><span class="o">=</span><span class="n">newDataSet</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="n">da</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span><span class="n">ds</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">ds</span><span class="p">.</span><span class="n">Tables</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">.</span><span class="k">Rows</span><span class="p">.</span><span class="nf">Count</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
-<span class="w">            </span><span class="err">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataSource</span><span class="o">=</span><span class="n">ds</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataTextField</span><span class="o">=</span><span class="ss">&quot;Clg_Name&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataValueField</span><span class="o">=</span><span class="ss">&quot;Clg_Name&quot;</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataBind</span><span class="p">();</span><span class="w"></span>
-<span class="w">            </span><span class="err">}</span><span class="w"></span>
-<span class="w">            </span><span class="k">else</span><span class="w"></span>
-<span class="w">            </span><span class="err">{</span><span class="w"></span>
-<span class="w">                </span><span class="n">Response</span><span class="p">.</span><span class="k">Write</span><span class="p">(</span><span class="ss">&quot;No Results found&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">            </span><span class="err">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"></span>
-<span class="w">        </span><span class="k">catch</span><span class="p">(</span><span class="k">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span><span class="w"></span>
-<span class="w">        </span><span class="err">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">Response</span><span class="p">.</span><span class="k">Write</span><span class="p">(</span><span class="ss">&quot;&lt;br&gt;&quot;</span><span class="o">+</span><span class="n">ex</span><span class="p">);</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"></span>
-<span class="w">        </span><span class="n">finally</span><span class="w"></span>
-<span class="w">        </span><span class="err">{</span><span class="w"></span>
-<span class="w">            </span><span class="n">con</span><span class="p">.</span><span class="k">Close</span><span class="p">();</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"></span>
-<span class="w">    </span><span class="err">}</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">protectedvoidPage_Load</span><span class="p">(</span><span class="n">objectsender</span><span class="p">,</span><span class="n">EventArgse</span><span class="p">)</span>
+<span class="w">    </span><span class="err">{</span>
+<span class="w">        </span><span class="n">SqlConnection</span><span class="w"> </span><span class="n">con</span><span class="o">=</span><span class="n">newSqlConnection</span><span class="p">(</span><span class="k">System</span><span class="p">.</span><span class="n">Web</span><span class="p">.</span><span class="n">Configuration</span><span class="p">.</span><span class="n">WebConfigurationManager</span><span class="p">.</span><span class="n">ConnectionStrings</span><span class="o">[</span><span class="n">&quot;ConnectionString&quot;</span><span class="o">]</span><span class="p">.</span><span class="n">ConnectionString</span><span class="p">);</span>
+<span class="w">        </span><span class="n">stringquery</span><span class="p">;</span>
+<span class="w">        </span><span class="k">try</span>
+<span class="w">        </span><span class="err">{</span>
+<span class="w">            </span><span class="n">query</span><span class="o">=</span><span class="ss">&quot;SELECT distinct[Clg_name] FROM [Complete_table]&quot;</span><span class="p">;</span>
+<span class="w">            </span><span class="n">con</span><span class="p">.</span><span class="k">Open</span><span class="p">();</span>
+<span class="w">            </span><span class="n">SqlDataAdapter</span><span class="w"> </span><span class="n">da</span><span class="o">=</span><span class="n">newSqlDataAdapter</span><span class="p">(</span><span class="n">query</span><span class="p">,</span><span class="n">con</span><span class="p">);</span>
+<span class="w">            </span><span class="n">DataSet</span><span class="w"> </span><span class="n">ds</span><span class="o">=</span><span class="n">newDataSet</span><span class="p">();</span>
+<span class="w">            </span><span class="n">da</span><span class="p">.</span><span class="n">Fill</span><span class="p">(</span><span class="n">ds</span><span class="p">);</span>
+<span class="w">            </span><span class="k">if</span><span class="p">(</span><span class="n">ds</span><span class="p">.</span><span class="n">Tables</span><span class="o">[</span><span class="n">0</span><span class="o">]</span><span class="p">.</span><span class="k">Rows</span><span class="p">.</span><span class="nf">Count</span><span class="o">!=</span><span class="mi">0</span><span class="p">)</span>
+<span class="w">            </span><span class="err">{</span>
+<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataSource</span><span class="o">=</span><span class="n">ds</span><span class="p">;</span>
+<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataTextField</span><span class="o">=</span><span class="ss">&quot;Clg_Name&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataValueField</span><span class="o">=</span><span class="ss">&quot;Clg_Name&quot;</span><span class="p">;</span>
+<span class="w">                </span><span class="n">CheckBoxList1</span><span class="p">.</span><span class="n">DataBind</span><span class="p">();</span>
+<span class="w">            </span><span class="err">}</span>
+<span class="w">            </span><span class="k">else</span>
+<span class="w">            </span><span class="err">{</span>
+<span class="w">                </span><span class="n">Response</span><span class="p">.</span><span class="k">Write</span><span class="p">(</span><span class="ss">&quot;No Results found&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="err">}</span>
+<span class="w">        </span><span class="err">}</span>
+<span class="w">        </span><span class="k">catch</span><span class="p">(</span><span class="k">Exception</span><span class="w"> </span><span class="n">ex</span><span class="p">)</span>
+<span class="w">        </span><span class="err">{</span>
+<span class="w">            </span><span class="n">Response</span><span class="p">.</span><span class="k">Write</span><span class="p">(</span><span class="ss">&quot;&lt;br&gt;&quot;</span><span class="o">+</span><span class="n">ex</span><span class="p">);</span>
+<span class="w">        </span><span class="err">}</span>
+<span class="w">        </span><span class="n">finally</span>
+<span class="w">        </span><span class="err">{</span>
+<span class="w">            </span><span class="n">con</span><span class="p">.</span><span class="k">Close</span><span class="p">();</span>
+<span class="w">        </span><span class="err">}</span>
+<span class="w">    </span><span class="err">}</span>
+<span class="err">}</span>
 </code></pre></div>
 
 <p>Have any doubt or stuck at any step? Feel free to ask in the comments section below.</p>

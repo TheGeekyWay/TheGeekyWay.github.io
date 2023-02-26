@@ -136,22 +136,22 @@ The <a href="http://www.thegeekyway.com/category/programming/c-programming-2/">
 <strong>A:</strong> The answer is <strong>NO</strong> once the browser is closed the cookies are destroyed and so as the session.</p>
 <p><strong>Q:</strong> So what happens if we directly open the Landing_Page.aspx page ?<br>
 <strong>A:</strong> Since we directly opened the Landing_Page.aspx page, no session was created for username and password so it will display blank values for username and password. But its not recommended to either redirect or display an error message. For example consider the following code segment</p>
-<div class="highlight"><pre><span></span><code><span class="nv">protected</span> <span class="nv">void</span> <span class="nv">Page_Load</span><span class="ss">(</span><span class="nv">object</span> <span class="nv">sender</span>, <span class="nv">EventArgs</span> <span class="nv">e</span><span class="ss">)</span>
-    {
-        <span class="k">if</span> <span class="ss">(</span><span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">User_Name</span><span class="s2">&quot;</span>] <span class="o">==</span> <span class="nv">null</span> <span class="o">||</span> <span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">Password</span><span class="s2">&quot;</span>] <span class="o">==</span> <span class="nv">null</span><span class="ss">)</span>
-        {   <span class="o">//</span><span class="nv">Your</span> <span class="nv">redirection</span> <span class="nv">code</span> <span class="nv">here</span>.
-            <span class="nv">Top_Header_Text</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
-            <span class="nv">Session_Username</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s"> No session created, you will be soon redirected to Session_Page.aspx. </span><span class="s2">&quot;</span><span class="c1">;</span>
-            <span class="nv">Session_Password</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
-            <span class="nv">Username</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
-            <span class="nv">Password</span>.<span class="nv">Visible</span> <span class="o">=</span> <span class="nv">false</span><span class="c1">;</span>
-        }
-        <span class="k">else</span>
-        {
-           <span class="nv">Session_Username</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="ss">(</span><span class="nv">String</span><span class="ss">)</span><span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">User_Name</span><span class="s2">&quot;</span>]<span class="c1">;</span>
-            <span class="nv">Session_Password</span>.<span class="nv">Text</span> <span class="o">=</span> <span class="nv">Session</span>[<span class="s2">&quot;</span><span class="s">Password</span><span class="s2">&quot;</span>].<span class="nv">ToString</span><span class="ss">()</span><span class="c1">;</span>
-        }
-    }
+<div class="highlight"><pre><span></span><code><span class="nv">protected</span><span class="w"> </span><span class="nv">void</span><span class="w"> </span><span class="nv">Page_Load</span><span class="ss">(</span><span class="nv">object</span><span class="w"> </span><span class="nv">sender</span>,<span class="w"> </span><span class="nv">EventArgs</span><span class="w"> </span><span class="nv">e</span><span class="ss">)</span>
+<span class="w">    </span>{
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">Session</span>[<span class="s2">&quot;User_Name&quot;</span>]<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">null</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nv">Session</span>[<span class="s2">&quot;Password&quot;</span>]<span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nv">null</span><span class="ss">)</span>
+<span class="w">        </span>{<span class="w">   </span><span class="o">//</span><span class="nv">Your</span><span class="w"> </span><span class="nv">redirection</span><span class="w"> </span><span class="nv">code</span><span class="w"> </span><span class="nv">here</span>.
+<span class="w">            </span><span class="nv">Top_Header_Text</span>.<span class="nv">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">false</span><span class="c1">;</span>
+<span class="w">            </span><span class="nv">Session_Username</span>.<span class="nv">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot; No session created, you will be soon redirected to Session_Page.aspx. &quot;</span><span class="c1">;</span>
+<span class="w">            </span><span class="nv">Session_Password</span>.<span class="nv">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">false</span><span class="c1">;</span>
+<span class="w">            </span><span class="nv">Username</span>.<span class="nv">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">false</span><span class="c1">;</span>
+<span class="w">            </span><span class="nv">Password</span>.<span class="nv">Visible</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">false</span><span class="c1">;</span>
+<span class="w">        </span>}
+<span class="w">        </span><span class="k">else</span>
+<span class="w">        </span>{
+<span class="w">           </span><span class="nv">Session_Username</span>.<span class="nv">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="ss">(</span><span class="nv">String</span><span class="ss">)</span><span class="nv">Session</span>[<span class="s2">&quot;User_Name&quot;</span>]<span class="c1">;</span>
+<span class="w">            </span><span class="nv">Session_Password</span>.<span class="nv">Text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">Session</span>[<span class="s2">&quot;Password&quot;</span>].<span class="nv">ToString</span><span class="ss">()</span><span class="c1">;</span>
+<span class="w">        </span>}
+<span class="w">    </span>}
 </code></pre></div>
 
 <p>Then the output will be</p>

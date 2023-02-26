@@ -19,7 +19,7 @@
 &lt;li&gt;&lt;a class="new" href="https://bash.cyberciti.biz/wiki/index.php?title=TCSH&amp;amp;action=edit&amp;amp;redlink=1" title="TCSH (page does not exist)"&gt;TCSH&lt;/a&gt; - It is an enhanced but completely compatible version of the Berkeley &lt;a class="mw-redirect" href="https://bash.cyberciti.biz/guide/UNIX" title="UNIX"&gt;UNIX&lt;/a&gt; &lt;a href="https://bash.cyberciti.biz/guide/C_shell" title="C shell"&gt;C shell&lt;/a&gt; (&lt;a href="https://bash.cyberciti.biz/guide/CSH" title="CSH"&gt;CSH&lt;/a&gt;).&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;A shell is simply accessible using a terminal. If you are familiar with *nix, then you might have an experience of using it. Now, if you want to know what all shells are available in your system, then use the following command.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ cat /etc/shells
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;cat&lt;span class="w"&gt; &lt;/span&gt;/etc/shells
 &lt;span class="c1"&gt;# /etc/shells: valid login shells&lt;/span&gt;
 /bin/sh
 /bin/dash
@@ -47,7 +47,7 @@
 &lt;h2&gt;Writing your first script&lt;/h2&gt;
 &lt;p&gt;To create a shell program you need to go through the following steps:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;1. Create a file for the shell program.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ touch newfile.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;touch&lt;span class="w"&gt; &lt;/span&gt;newfile.sh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here, we have given the extension &lt;strong&gt;.sh &lt;/strong&gt; or &lt;strong&gt;.bash&lt;/strong&gt; (conventional for bash script), though it is not necessary, but quite useful to distinguish between scripts of different shells.&lt;/p&gt;
@@ -64,14 +64,14 @@
 &lt;p&gt;&lt;strong&gt;4. Save the file.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;5. Make the file executable and run the program.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;To run a script file, at least it must have the permission of &lt;strong&gt;"readability"&lt;/strong&gt; so that we can explicitly execute it using a shell.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ bash newfile.sh
-Script is working fine!
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;bash&lt;span class="w"&gt; &lt;/span&gt;newfile.sh
+Script&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;working&lt;span class="w"&gt; &lt;/span&gt;fine!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And if the script file is &lt;strong&gt;"executable"&lt;/strong&gt;, then we may directly run the file as shown below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ chmod +x newfile.sh
-$ ./newfile.sh 
-Script is working fine!
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;chmod&lt;span class="w"&gt; &lt;/span&gt;+x&lt;span class="w"&gt; &lt;/span&gt;newfile.sh
+$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;
+Script&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;working&lt;span class="w"&gt; &lt;/span&gt;fine!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Hurray! You got your first shell script running. Let's go ahead and explore more programming elements of scripting.&lt;/p&gt;
@@ -86,7 +86,7 @@ Script is working fine!
 
 &lt;h2&gt;Shell Parameters&lt;/h2&gt;
 &lt;p&gt;Values you pass to a shell program from a terminal while executing the script, are called program parameters. For example.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh Hello World
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;Hello&lt;span class="w"&gt; &lt;/span&gt;World
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here, &lt;strong&gt;&lt;em&gt;"Hello"&lt;/em&gt;&lt;/strong&gt; and &lt;strong&gt;&lt;em&gt;"World"&lt;/em&gt;&lt;/strong&gt; are &lt;strong&gt;2&lt;/strong&gt; parameters that are passed to &lt;strong&gt;newfile.sh&lt;/strong&gt;. You may pass any number of parameters to a shell script. But, the question arises, how are we gonna use them in a program?&lt;/p&gt;
@@ -101,16 +101,16 @@ Script is working fine!
 &lt;span class="normal"&gt;2&lt;/span&gt;
 &lt;span class="normal"&gt;3&lt;/span&gt;
 &lt;span class="normal"&gt;4&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Running script &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;First parameter is &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Second parameter is &lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Running script &lt;/span&gt;&lt;span class="nv"&gt;$0&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;First parameter is &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Second parameter is &lt;/span&gt;&lt;span class="nv"&gt;$2&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;Output:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh Hello World
-Running script: ./newfile.sh
-First parameter is: Hello
-Second parameter is: World
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;Hello&lt;span class="w"&gt; &lt;/span&gt;World
+Running&lt;span class="w"&gt; &lt;/span&gt;script:&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh
+First&lt;span class="w"&gt; &lt;/span&gt;parameter&lt;span class="w"&gt; &lt;/span&gt;is:&lt;span class="w"&gt; &lt;/span&gt;Hello
+Second&lt;span class="w"&gt; &lt;/span&gt;parameter&lt;span class="w"&gt; &lt;/span&gt;is:&lt;span class="w"&gt; &lt;/span&gt;World
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Along with these you also have other predefined variables.&lt;/p&gt;
@@ -127,31 +127,31 @@ Second parameter is: World
 &lt;span class="normal"&gt;5&lt;/span&gt;
 &lt;span class="normal"&gt;6&lt;/span&gt;
 &lt;span class="normal"&gt;7&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;With \$*&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Total parameters: &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; i &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$*&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;With \$*&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Total parameters: &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$*&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The output is.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2 3&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4 5&amp;quot;&lt;/span&gt;
-Total parameters: &lt;span class="m"&gt;3&lt;/span&gt;
-With &lt;span class="nv"&gt;$*&lt;/span&gt;
-&lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2 3&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;4 5&amp;quot;&lt;/span&gt;
+Total&lt;span class="w"&gt; &lt;/span&gt;parameters:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;
+With&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$*&lt;/span&gt;
+&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;See, here total parameters are &lt;strong&gt;3&lt;/strong&gt;, but you are actually getting &lt;strong&gt;1&lt;/strong&gt; string that includes all parameters&lt;strong&gt;.&lt;br&gt;
 &lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note: While using \$*, if the parameter is "2 3", then it is treated as "2" and "3". This means the shell interprets the space symbol. But, this is not the case with \$@.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;If you use &lt;strong&gt;"\$@"&lt;/strong&gt; instead of &lt;strong&gt;"\$*"&lt;/strong&gt; you'll get the following.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2 3&amp;quot;&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;4 5&amp;quot;&lt;/span&gt;
-Total parameters: &lt;span class="m"&gt;3&lt;/span&gt;
-With &lt;span class="nv"&gt;$@&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2 3&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;4 5&amp;quot;&lt;/span&gt;
+Total&lt;span class="w"&gt; &lt;/span&gt;parameters:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;
+With&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;
 &lt;span class="m"&gt;1&lt;/span&gt;
-&lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt;
-&lt;span class="m"&gt;4&lt;/span&gt; &lt;span class="m"&gt;5&lt;/span&gt;
+&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;
+&lt;span class="m"&gt;4&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here, &lt;strong&gt;3&lt;/strong&gt; separate parameters can be easily seen.&lt;/p&gt;
@@ -159,15 +159,15 @@ With &lt;span class="nv"&gt;$@&lt;/span&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;\$\$:&lt;/strong&gt; It shows the &lt;strong&gt;process ID&lt;/strong&gt;. Following command shows the process ID of the current terminal.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$$&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$$&lt;/span&gt;
 &lt;span class="m"&gt;2123&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;\$?:&lt;/strong&gt; It holds &lt;strong&gt;exit status&lt;/strong&gt; of the last command. For example.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ clear
-$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$?&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;clear
+$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$?&lt;/span&gt;
 &lt;span class="m"&gt;0&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -176,8 +176,8 @@ $ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$?&lt;/span&gt
 &lt;div class="highlight"&gt;&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;span class="normal"&gt;1&lt;/span&gt;
 &lt;span class="normal"&gt;2&lt;/span&gt;
 &lt;span class="normal"&gt;3&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Successful&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;exit&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Successful&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;/li&gt;
@@ -193,24 +193,24 @@ $ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="nv"&gt;$?&lt;/span&gt
 &lt;span class="normal"&gt;5&lt;/span&gt;
 &lt;span class="normal"&gt;6&lt;/span&gt;
 &lt;span class="normal"&gt;7&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; i &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;2&lt;/span&gt; &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="m"&gt;4&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Total parameters: &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-   &lt;span class="nb"&gt;shift&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Parameters: &lt;/span&gt;&lt;span class="nv"&gt;$*&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Total parameters: &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;shift&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Parameters: &lt;/span&gt;&lt;span class="nv"&gt;$*&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;The output of this command.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh a b c d e f
-Total parameters: &lt;span class="m"&gt;6&lt;/span&gt;
-Parameters: b c d e f
-Total parameters: &lt;span class="m"&gt;5&lt;/span&gt;
-Parameters: c d e f
-Total parameters: &lt;span class="m"&gt;4&lt;/span&gt;
-Parameters: d e f
-Total parameters: &lt;span class="m"&gt;3&lt;/span&gt;
-Parameters: e f
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;b&lt;span class="w"&gt; &lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;e&lt;span class="w"&gt; &lt;/span&gt;f
+Total&lt;span class="w"&gt; &lt;/span&gt;parameters:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;6&lt;/span&gt;
+Parameters:&lt;span class="w"&gt; &lt;/span&gt;b&lt;span class="w"&gt; &lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;e&lt;span class="w"&gt; &lt;/span&gt;f
+Total&lt;span class="w"&gt; &lt;/span&gt;parameters:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;5&lt;/span&gt;
+Parameters:&lt;span class="w"&gt; &lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;e&lt;span class="w"&gt; &lt;/span&gt;f
+Total&lt;span class="w"&gt; &lt;/span&gt;parameters:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;4&lt;/span&gt;
+Parameters:&lt;span class="w"&gt; &lt;/span&gt;d&lt;span class="w"&gt; &lt;/span&gt;e&lt;span class="w"&gt; &lt;/span&gt;f
+Total&lt;span class="w"&gt; &lt;/span&gt;parameters:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;
+Parameters:&lt;span class="w"&gt; &lt;/span&gt;e&lt;span class="w"&gt; &lt;/span&gt;f
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;We can see, that parameters are shifting to left and getting reduced by one. So, if you want to access 10th parameter then you need to left shift once and access &lt;strong&gt;\$9.&lt;/strong&gt; However, this command is not much recommended due to the side effect of losing earlier parameters.&lt;/p&gt;
@@ -220,8 +220,8 @@ Parameters: e f
 &lt;div class="highlight"&gt;&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;&lt;span class="normal"&gt;1&lt;/span&gt;
 &lt;span class="normal"&gt;2&lt;/span&gt;
 &lt;span class="normal"&gt;3&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;  &lt;span class="c1"&gt;# An integer variable&lt;/span&gt;
-&lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;  &lt;span class="c1"&gt;# A string variable&lt;/span&gt;
+&lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;10&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# An integer variable&lt;/span&gt;
+&lt;span class="nv"&gt;str&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Hello&amp;#39;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# A string variable&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Note: No space around "=" (assignment) operator.&lt;/strong&gt;&lt;/p&gt;
@@ -263,15 +263,15 @@ Parameters: e f
 &lt;h4&gt;&lt;strong&gt;If-else statement&lt;/strong&gt;&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; To execute a set of commands, on the basis of evaluation of an expression.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;command1&lt;/span&gt;    # &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="nv"&gt;block&lt;/span&gt; &lt;span class="nv"&gt;started&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;command1&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;block&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;started&lt;/span&gt;
 &lt;span class="k"&gt;then&lt;/span&gt;
-     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list1&lt;/span&gt;
-&lt;span class="nv"&gt;elif&lt;/span&gt; &lt;span class="nv"&gt;command2&lt;/span&gt;  # &lt;span class="nv"&gt;optional&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list1&lt;/span&gt;
+&lt;span class="nv"&gt;elif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;command2&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;optional&lt;/span&gt;
 &lt;span class="k"&gt;then&lt;/span&gt;
-     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list2&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;           # &lt;span class="nv"&gt;optional&lt;/span&gt;: &lt;span class="nv"&gt;to&lt;/span&gt; &lt;span class="nv"&gt;accept&lt;/span&gt; &lt;span class="nv"&gt;rest&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="nv"&gt;the&lt;/span&gt; &lt;span class="nv"&gt;conditions&lt;/span&gt;.
-     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list3&lt;/span&gt;
-&lt;span class="nv"&gt;fi&lt;/span&gt;             # &lt;span class="k"&gt;end&lt;/span&gt; &lt;span class="nv"&gt;of&lt;/span&gt; &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt; &lt;span class="nv"&gt;block&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list2&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;optional&lt;/span&gt;:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;accept&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;rest&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;conditions&lt;/span&gt;.
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list3&lt;/span&gt;
+&lt;span class="nv"&gt;fi&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;of&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;block&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here, &lt;strong&gt;elif&lt;/strong&gt; and &lt;strong&gt;else&lt;/strong&gt; parts are optional. This implies &lt;strong&gt;if command1&lt;/strong&gt; returns success &lt;strong&gt;(0),&lt;/strong&gt; then execute &lt;strong&gt;command-list1.&lt;/strong&gt; Otherwise, &lt;strong&gt;if command2&lt;/strong&gt; returns success &lt;strong&gt;(0),&lt;/strong&gt; then execute &lt;strong&gt;command-list2,&lt;/strong&gt; and if no condition turns out to be successful, then execute &lt;strong&gt;command-list3.&lt;/strong&gt;&lt;/p&gt;
@@ -286,14 +286,14 @@ Parameters: e f
 &lt;span class="normal"&gt; 8&lt;/span&gt;
 &lt;span class="normal"&gt; 9&lt;/span&gt;
 &lt;span class="normal"&gt;10&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^z &amp;gt; /dev/null
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;^z&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null
 &lt;span class="k"&gt;then&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; Firt &lt;span class="k"&gt;case&lt;/span&gt;.
-&lt;span class="k"&gt;elif&lt;/span&gt; ls &lt;span class="p"&gt;|&lt;/span&gt; grep ^a &amp;gt; /dev/null
-&lt;span class="k"&gt;then&lt;/span&gt; 
-   &lt;span class="nb"&gt;echo&lt;/span&gt; Second &lt;span class="k"&gt;case&lt;/span&gt;.
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Firt&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;.
+&lt;span class="k"&gt;elif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;ls&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;|&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;grep&lt;span class="w"&gt; &lt;/span&gt;^a&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;/dev/null
+&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Second&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;.
 &lt;span class="k"&gt;else&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; Third &lt;span class="k"&gt;case&lt;/span&gt;.
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Third&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;case&lt;/span&gt;.
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
@@ -306,9 +306,9 @@ Parameters: e f
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; It is mostly used in association with if-else to evaluate expressions instead of commands.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt; &lt;code&gt;test expression&lt;/code&gt; or &lt;code&gt;[ expression ]&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt; [ &lt;span class="nv"&gt;expression&lt;/span&gt; ]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;[&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;expression&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;]
 &lt;span class="k"&gt;then&lt;/span&gt;
-     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list1&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list1&lt;/span&gt;
 &lt;span class="nv"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -329,32 +329,32 @@ Parameters: e f
 &lt;span class="normal"&gt;14&lt;/span&gt;
 &lt;span class="normal"&gt;15&lt;/span&gt;
 &lt;span class="normal"&gt;16&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -gt &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# if total number of parameters exceed 1&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-gt&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# if total number of parameters exceed 1&lt;/span&gt;
 &lt;span class="k"&gt;then&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sorry, you entered too many parameters.&amp;quot;&lt;/span&gt;
-&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;1&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# if only one parameter is 1&lt;/span&gt;
-&lt;span class="k"&gt;then&lt;/span&gt; 
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hi! Nice to meet you!&amp;quot;&lt;/span&gt;
-&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;1&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;  &lt;span class="c1"&gt;# if only one parameter is 2&lt;/span&gt;
-&lt;span class="k"&gt;then&lt;/span&gt; 
-    &lt;span class="nb"&gt;pwd&lt;/span&gt;
-&lt;span class="k"&gt;elif&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; -eq &lt;span class="m"&gt;1&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; !&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt; -a &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; !&lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt; &lt;span class="c1"&gt;# if only one is parameter is neither 1 nor 2&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Sorry, you entered too many parameters.&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-eq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# if only one parameter is 1&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Hi! Nice to meet you!&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-eq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# if only one parameter is 2&lt;/span&gt;
+&lt;span class="k"&gt;then&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;pwd&lt;/span&gt;
+&lt;span class="k"&gt;elif&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-eq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;!&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-a&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;!&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;# if only one is parameter is neither 1 nor 2&lt;/span&gt;
 &lt;span class="k"&gt;then&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered the wrong parameter.&amp;quot;&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt;            &lt;span class="c1"&gt;# if the total number of parameters is below 1&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Sorry, you entered fewer parameters.&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;You entered the wrong parameter.&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="c1"&gt;# if the total number of parameters is below 1&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Sorry, you entered fewer parameters.&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh
-Sorry, you entered fewer parameters.
-$ ./newfile.sh &lt;span class="m"&gt;1&lt;/span&gt;
-Hi! Nice to meet you!
-$ ./newfile.sh &lt;span class="m"&gt;2&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh
+Sorry,&lt;span class="w"&gt; &lt;/span&gt;you&lt;span class="w"&gt; &lt;/span&gt;entered&lt;span class="w"&gt; &lt;/span&gt;fewer&lt;span class="w"&gt; &lt;/span&gt;parameters.
+$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;
+Hi!&lt;span class="w"&gt; &lt;/span&gt;Nice&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;meet&lt;span class="w"&gt; &lt;/span&gt;you!
+$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2&lt;/span&gt;
 /home/thegeekyway
-$ ./newfile.sh &lt;span class="m"&gt;3&lt;/span&gt;
-Sorry, you entered the wrong parameter.
+$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;
+Sorry,&lt;span class="w"&gt; &lt;/span&gt;you&lt;span class="w"&gt; &lt;/span&gt;entered&lt;span class="w"&gt; &lt;/span&gt;the&lt;span class="w"&gt; &lt;/span&gt;wrong&lt;span class="w"&gt; &lt;/span&gt;parameter.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4&gt;Case statement&lt;/h4&gt;
@@ -381,17 +381,17 @@ esac
 &lt;span class="normal"&gt;11&lt;/span&gt;
 &lt;span class="normal"&gt;12&lt;/span&gt;
 &lt;span class="normal"&gt;13&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$#&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt;
-     &lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered fewer parameters.&amp;quot;&lt;/span&gt;
-          exit&lt;span class="p"&gt;;;&lt;/span&gt;
-     &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered too many parameters.&amp;quot;&lt;/span&gt;
-          exit&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;0&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;You entered fewer parameters.&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;exit&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;You entered too many parameters.&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;          &lt;/span&gt;exit&lt;span class="p"&gt;;;&lt;/span&gt;
 &lt;span class="k"&gt;esac&lt;/span&gt;
 
-&lt;span class="k"&gt;case&lt;/span&gt; &lt;span class="nv"&gt;$1&lt;/span&gt; &lt;span class="k"&gt;in&lt;/span&gt;
-     &lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Hi, nice to meet you!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
-     &lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; pwd&lt;span class="p"&gt;;;&lt;/span&gt;
-     *&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;You entered the wrong parameters.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="k"&gt;case&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;1&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Hi, nice to meet you!&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;2&amp;quot;&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;pwd&lt;span class="p"&gt;;;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;*&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;You entered the wrong parameters.&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;;&lt;/span&gt;
 &lt;span class="k"&gt;esac&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
@@ -407,10 +407,10 @@ esac
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; When iterating any variable over an iterator like "\$@", we use "for-loop".&lt;/p&gt;
 &lt;p&gt;Iterators are objects, having multiple values within them like lists in python. Therefore, using a for-loop we may access their individual values one by one.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;iterator&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;do&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;iterator&lt;/span&gt;
+&lt;span class="n"&gt;do&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;
+&lt;span class="n"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -419,14 +419,14 @@ esac
 &lt;span class="normal"&gt;3&lt;/span&gt;
 &lt;span class="normal"&gt;4&lt;/span&gt;
 &lt;span class="normal"&gt;5&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="k"&gt;for&lt;/span&gt; var &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;var&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$@&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh The Geeky Way
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh&lt;span class="w"&gt; &lt;/span&gt;The&lt;span class="w"&gt; &lt;/span&gt;Geeky&lt;span class="w"&gt; &lt;/span&gt;Way
 The
 Geeky
 Way
@@ -435,9 +435,9 @@ Way
 &lt;h4&gt;While Loop&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; To repeat a set of commands, till an expression remains true.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;while&lt;/span&gt; [ &lt;span class="nv"&gt;expression&lt;/span&gt; ]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;[&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;expression&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;]
 &lt;span class="k"&gt;do&lt;/span&gt;
-     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
 &lt;span class="nv"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -450,15 +450,15 @@ Way
 &lt;span class="normal"&gt;6&lt;/span&gt;
 &lt;span class="normal"&gt;7&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
-&lt;span class="k"&gt;while&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$var&lt;/span&gt; -le &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;while&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-le&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-      &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-     &lt;span class="o"&gt;((&lt;/span&gt;var++&lt;span class="o"&gt;))&lt;/span&gt;
+&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="o"&gt;((&lt;/span&gt;var++&lt;span class="o"&gt;))&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh
 &lt;span class="m"&gt;0&lt;/span&gt;
 &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;span class="m"&gt;2&lt;/span&gt;
@@ -468,9 +468,9 @@ Way
 &lt;h4&gt;Until Loop&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; It is reverse of &lt;strong&gt;while loop&lt;/strong&gt;, it repeats a set of commands, untill an expression becomes true.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;until&lt;/span&gt; [ &lt;span class="nv"&gt;expression&lt;/span&gt; ]
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;until&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;[&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;expression&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;]
 &lt;span class="k"&gt;do&lt;/span&gt;
-     &lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
+&lt;span class="w"&gt;     &lt;/span&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;list&lt;/span&gt;
 &lt;span class="nv"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -483,15 +483,15 @@ Way
 &lt;span class="normal"&gt;6&lt;/span&gt;
 &lt;span class="normal"&gt;7&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 &lt;span class="nv"&gt;var&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
-&lt;span class="k"&gt;until&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$var&lt;/span&gt; -eq &lt;span class="m"&gt;3&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="k"&gt;until&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-eq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
-   &lt;span class="o"&gt;((&lt;/span&gt;var++&lt;span class="o"&gt;))&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="o"&gt;((&lt;/span&gt;var++&lt;span class="o"&gt;))&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh
 &lt;span class="m"&gt;0&lt;/span&gt;
 &lt;span class="m"&gt;1&lt;/span&gt;
 &lt;span class="m"&gt;2&lt;/span&gt;
@@ -508,16 +508,16 @@ Way
 &lt;span class="normal"&gt;4&lt;/span&gt;
 &lt;span class="normal"&gt;5&lt;/span&gt;
 &lt;span class="normal"&gt;6&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
-&lt;span class="nb"&gt;read&lt;/span&gt; var
-&lt;span class="k"&gt;for&lt;/span&gt; i &lt;span class="k"&gt;in&lt;/span&gt; &lt;span class="nv"&gt;$var&lt;/span&gt;
+&lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;var
+&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;i&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;
 &lt;span class="k"&gt;do&lt;/span&gt;
-   &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="nv"&gt;$i&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;done&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh
-The Geeky Way
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh
+The&lt;span class="w"&gt; &lt;/span&gt;Geeky&lt;span class="w"&gt; &lt;/span&gt;Way
 The
 Geeky
 Way
@@ -526,11 +526,11 @@ Way
 &lt;h2&gt;Functions&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Usage:&lt;/em&gt;&lt;/strong&gt; These are set of commands, which can be called any number of times in a script. Thus, it gives the feature of re-usability of code and makes the code modular.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Syntax:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function_name&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;optional&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;function_name&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt;
+&lt;span class="p"&gt;{&lt;/span&gt;
+&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;list&lt;/span&gt;
+&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;value&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;optional&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Example:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
@@ -555,29 +555,29 @@ Way
 &lt;span class="normal"&gt;19&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="ch"&gt;#!/bin/bash&lt;/span&gt;
 confirm&lt;span class="o"&gt;()&lt;/span&gt;
 &lt;span class="o"&gt;{&lt;/span&gt;
-&lt;span class="nb"&gt;echo&lt;/span&gt; -e &lt;span class="s2"&gt;&amp;quot;Are you sure, that you want to continue (y)?: \c&amp;quot;&lt;/span&gt;
-&lt;span class="nb"&gt;read&lt;/span&gt; var
-&lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="o"&gt;[&lt;/span&gt; &lt;span class="nv"&gt;$var&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;y&amp;#39;&lt;/span&gt; &lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;-e&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Are you sure, that you want to continue (y)?: \c&amp;quot;&lt;/span&gt;
+&lt;span class="nb"&gt;read&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;var
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;$var&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;y&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
 &lt;span class="k"&gt;then&lt;/span&gt;
-   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
 &lt;span class="k"&gt;else&lt;/span&gt;
-   &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="m"&gt;1&lt;/span&gt; 
-&lt;span class="k"&gt;fi&lt;/span&gt; 
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="k"&gt;return&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="k"&gt;fi&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 &lt;span class="o"&gt;}&lt;/span&gt;
 
-&lt;span class="k"&gt;if&lt;/span&gt; confirm -eq &lt;span class="m"&gt;0&lt;/span&gt;
+&lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;confirm&lt;span class="w"&gt; &lt;/span&gt;-eq&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;0&lt;/span&gt;
 &lt;span class="k"&gt;then&lt;/span&gt;
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Continue process!&amp;quot;&lt;/span&gt;
-&lt;span class="k"&gt;else&lt;/span&gt; 
-    &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Discontinue process!&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Continue process!&amp;quot;&lt;/span&gt;
+&lt;span class="k"&gt;else&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Discontinue process!&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;fi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Note that, no test expression in the last block of "if-else", because calling function is a command in itself. And we put expressions in the test, not commands.&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;&lt;em&gt;Output:&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ ./newfile.sh
-Are you sure, that you want to &lt;span class="k"&gt;continue&lt;/span&gt; &lt;span class="o"&gt;(&lt;/span&gt;y&lt;span class="o"&gt;)&lt;/span&gt;?: y
-Continue process!!
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;./newfile.sh
+Are&lt;span class="w"&gt; &lt;/span&gt;you&lt;span class="w"&gt; &lt;/span&gt;sure,&lt;span class="w"&gt; &lt;/span&gt;that&lt;span class="w"&gt; &lt;/span&gt;you&lt;span class="w"&gt; &lt;/span&gt;want&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;continue&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;y&lt;span class="o"&gt;)&lt;/span&gt;?:&lt;span class="w"&gt; &lt;/span&gt;y
+Continue&lt;span class="w"&gt; &lt;/span&gt;process!!
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;Conclusion&lt;/h2&gt;
@@ -664,19 +664,19 @@ Man pages are a smart way to get more information about commands. But reading an
 
 &lt;h4&gt;Magic happens when you press Tab&lt;/h4&gt;
 &lt;p&gt;Terminals usually autocomplete your half-written commands when you press the Tab key. Fish does that and a ton of other stuff. Here are a few snippets&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;geek&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;→&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;geekyway&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;geek&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;→&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;geekyway&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;geekyway&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="nf"&gt;stuff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vipul&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Executable&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;4.8&lt;/span&gt;&lt;span class="n"&gt;kB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="nf"&gt;stuff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vipul&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Directory&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;geekyway&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;Tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
+&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="nf"&gt;stuff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vipul&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;sh&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Executable&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;4.8&lt;/span&gt;&lt;span class="n"&gt;kB&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="nf"&gt;stuff&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;vipul&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Directory&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;vipulgupta2048&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;@press&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="n"&gt;tab&lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 &lt;span class="k"&gt;go&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 &lt;span class="n"&gt;aeious&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 &lt;span class="n"&gt;Android&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
-&lt;span class="n"&gt;AndroidStudioProjects&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;more&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;rows&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;AndroidStudioProjects&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="err"&gt;…&lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;44&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;more&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;rows&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Keep pressing tab, shift+tab, arrow keys and other combinations to fully explore all the amazing features of Fish. Comment down below to let us know what cool new features you found while exploring.&lt;/p&gt;
@@ -728,91 +728,91 @@ Fork and star my dotfiles for more reference, and if you want the greeting messa
 &lt;p&gt;&lt;strong&gt;scp&lt;/strong&gt; uses Secure Socket Shell (&lt;strong&gt;SSH&lt;/strong&gt;) for data transfer and uses the same mechanisms for authentication, thereby ensuring the authenticity and confidentiality of the data. Therefore, for using , you first need to have an  &lt;strong&gt;&lt;a href="https://www.ssh.com/ssh/server"&gt;SSH&lt;/a&gt;&lt;a href="https://www.ssh.com/ssh/server"&gt;server&lt;/a&gt;&lt;/strong&gt;.  &lt;/p&gt;
 &lt;h4&gt;Syntax:&lt;/h4&gt;
 &lt;p&gt;Normal &lt;strong&gt;"cp"&lt;/strong&gt; (copy) command has the following syntax on *nix platforms. Here, data is copied to a different location in the same system.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;-T&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;SOURCE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;DEST&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;cp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;-T&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;SOURCE&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;DEST&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Similarly, &lt;strong&gt;"scp"&lt;/strong&gt; follows the same format. But, in this case, data is transferred between 2 different systems. Thus, its syntax is as follows.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user1&lt;/span&gt;&lt;span class="nv"&gt;@hostname&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user2&lt;/span&gt;&lt;span class="nv"&gt;@hostname&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTION&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user1&lt;/span&gt;&lt;span class="nv"&gt;@hostname&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;user2&lt;/span&gt;&lt;span class="nv"&gt;@hostname&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h4&gt;SCP with use cases&lt;/h4&gt;
 &lt;h4&gt;Transferring files on password-based-authentication&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;1. From localhost to a remote server.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;2. From a remote server to localhost.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;3. From one remote server to another, through localhost.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;-3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@19.111.19.111&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;-3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@19.111.19.111&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;"-3" (option) &lt;/strong&gt;copies between two remote hosts, transferred through the localhost. Note that, this option disables the progress meter. Without this option, the data is copied directly between two remote hosts, for which, they should be accessible to each other.&lt;/p&gt;
 &lt;h4&gt;Transferring files on key based authentication&lt;/h4&gt;
 &lt;p&gt;&lt;strong&gt;1. From localhost to a remote server.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;"-i" (option)&lt;/strong&gt; is used to include the identity file (our private key). Necessary for key based authentication.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;2. From a remote server to localhost.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;3. From one remote server to another, through localhost.&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;-3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@19.111.19.111&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;-3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key2&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@18.222.18.222&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@19.111.19.111&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;SCP with different parameters&lt;/h2&gt;
 &lt;p&gt;Parameters either change the behavior or extends the functionality of a command. Let's see some of the alterations of SCP.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Identity file:   -i&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;As I have already mentioned this option includes identity file (private key).&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Recursive:   -r&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;folder&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This option recursively copies files from the source folder.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Verbose:   -v&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This option gives you background information while transferring files as shown below.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;channel&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Requesting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;more&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sessions&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Entering&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;interactive&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pledge&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;client_input_global_request&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rtype&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hostkeys&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;want_reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;environment&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;LANG&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;en_IN&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;modes&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;C0664&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;file_on_client&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Sink&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;C0664&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;file_on_client&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;channel&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Requesting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;no&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;more&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;sessions&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Entering&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;interactive&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pledge&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;network&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;client_input_global_request&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rtype&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hostkeys&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="err"&gt;@&lt;/span&gt;&lt;span class="n"&gt;openssh&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;com&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;want_reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;environment&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;env&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;LANG&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;en_IN&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;command&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;v&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;
+&lt;span class="n"&gt;Sending&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;file&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;modes&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;C0664&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;file_on_client&lt;/span&gt;
+&lt;span class="n"&gt;Sink&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;C0664&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;file_on_client&lt;/span&gt;
 &lt;span class="n"&gt;file_on_client&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;0.0&lt;/span&gt;&lt;span class="n"&gt;KB&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;00&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;client_input_channel_req&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;channel&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rtype&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;channel&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;free&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nchannels&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;clearing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;clearing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Transferred&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3556&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;received&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2600&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;bytes&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;seconds&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Bytes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;per&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1231.7&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;received&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;900.6&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;client_input_channel_req&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;channel&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rtype&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;exit&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reply&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;channel&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;free&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;client&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;session&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nchannels&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;clearing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;clearing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;O_NONBLOCK&lt;/span&gt;
+&lt;span class="n"&gt;Transferred&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3556&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;received&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2600&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;bytes&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;2.9&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;seconds&lt;/span&gt;
+&lt;span class="n"&gt;Bytes&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;per&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;second&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sent&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;1231.7&lt;/span&gt;&lt;span class="o"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;received&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mf"&gt;900.6&lt;/span&gt;
+&lt;span class="n"&gt;debug1&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;status&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;Compressed: -C&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu2&lt;/span&gt;&lt;span class="mf"&gt;@321.21.321&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;C&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;private2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;key&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu1&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu2&lt;/span&gt;&lt;span class="mf"&gt;@321.21.321&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="n"&gt;destination&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This option compresses transferring files only in the network, such that when they are received by the destination host, they would return to their original size. Thereby, transfer speed increases while large files are being transferred.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Preserves: -p&lt;/strong&gt;&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;scp&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;~/&lt;/span&gt;&lt;span class="n"&gt;newfile&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ubuntu&lt;/span&gt;&lt;span class="mf"&gt;@123.12.123&lt;/span&gt;&lt;span class="o"&gt;:~/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;This option preserves modification times, access times, and modes from the original file.&lt;/p&gt;
 &lt;p&gt;If you want to explore more such parameters? Please refer SCP manual page with command.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ man scp
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;man&lt;span class="w"&gt; &lt;/span&gt;scp
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h2&gt;Conclusion&lt;/h2&gt;
@@ -858,9 +858,9 @@ Fork and star my dotfiles for more reference, and if you want the greeting messa
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;And the next step is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git init
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;init
 
-Initialized empty Git repository &lt;span class="k"&gt;in&lt;/span&gt; /home/peeyush/git_test/.git/
+Initialized&lt;span class="w"&gt; &lt;/span&gt;empty&lt;span class="w"&gt; &lt;/span&gt;Git&lt;span class="w"&gt; &lt;/span&gt;repository&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;/home/peeyush/git_test/.git/
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p style="line-height: 1.5em;"&gt;And that’s it, there is your local repository. You can add files, make changes to them, commit the changes etc. (How? We will see shortly!). Now, generally after this people keep going on about working with local repository, but as I am getting you started, I am going to take a little different but practical approach. We are going to start with a remote repository! Now, where do you get a remote repository? Well, GitHub, of-course! Go to &lt;/p&gt;
@@ -874,24 +874,24 @@ Initialized empty Git repository &lt;span class="k"&gt;in&lt;/span&gt; /home/pee
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;strong&gt;&lt;img alt="Screenshot from 2014-04-01 16:21:57.png" src="https://lh3.googleusercontent.com/k2Lo1r1Z3uaUXlu9rf-h9cAphKIemCUq9dBQSO3KOSDJaDzX6j25um04Iyi5L0HmLk7PFo-L7Wci6p0Nu77vuslWDB9PtPX0ZPeyux2UcV9xe6XP2VqHn3V2G1cUZw"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git clone https://github.com/Pensu/test.git
-Cloning into &lt;span class="s1"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;...
-warning: You appear to have cloned an empty repository.
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/Pensu/test.git
+Cloning&lt;span class="w"&gt; &lt;/span&gt;into&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;test&amp;#39;&lt;/span&gt;...
+warning:&lt;span class="w"&gt; &lt;/span&gt;You&lt;span class="w"&gt; &lt;/span&gt;appear&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;have&lt;span class="w"&gt; &lt;/span&gt;cloned&lt;span class="w"&gt; &lt;/span&gt;an&lt;span class="w"&gt; &lt;/span&gt;empty&lt;span class="w"&gt; &lt;/span&gt;repository.
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;So, there appears to be a warning, but we already know that as we haven’t added anything to the repository! Now you will see a directory by the name of remote repository in your current directory. That is your local repository. To verify try this on your system:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;cd&lt;/span&gt; test/
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;test/
 
-$ git remote -v
+$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;remote&lt;span class="w"&gt; &lt;/span&gt;-v
 
-origin https://github.com/Pensu/test.git &lt;span class="o"&gt;(&lt;/span&gt;fetch&lt;span class="o"&gt;)&lt;/span&gt;
-origin https://github.com/Pensu/test.git &lt;span class="o"&gt;(&lt;/span&gt;push&lt;span class="o"&gt;)&lt;/span&gt;
+origin&lt;span class="w"&gt; &lt;/span&gt;https://github.com/Pensu/test.git&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;fetch&lt;span class="o"&gt;)&lt;/span&gt;
+origin&lt;span class="w"&gt; &lt;/span&gt;https://github.com/Pensu/test.git&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;push&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Here fetch and push are the repositories where your local repository gets the data from and where it sends the changes respectively. As I just cloned a remote repository, I can fetch and push from this repository. Now, we are going to add a file and pushing it to the remote repository.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ touch newfile.txt
-$ &lt;span class="nb"&gt;echo&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;Getting Started With Git&amp;quot;&lt;/span&gt; &amp;gt; newfile.txt 
-$ git status
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;touch&lt;span class="w"&gt; &lt;/span&gt;newfile.txt
+$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Getting Started With Git&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;newfile.txt&lt;span class="w"&gt; &lt;/span&gt;
+$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;status
 &lt;span class="c1"&gt;# On branch master&lt;/span&gt;
 &lt;span class="c1"&gt;#&lt;/span&gt;
 &lt;span class="c1"&gt;# Initial commit&lt;/span&gt;
@@ -900,13 +900,13 @@ $ git status
 &lt;span class="c1"&gt;#   (use &amp;quot;git add &amp;lt;file&amp;gt;...&amp;quot; to include in what will be committed)&lt;/span&gt;
 &lt;span class="c1"&gt;#&lt;/span&gt;
 &lt;span class="c1"&gt;# newfile.txt&lt;/span&gt;
-nothing added to commit but untracked files present &lt;span class="o"&gt;(&lt;/span&gt;use &lt;span class="s2"&gt;&amp;quot;git add&amp;quot;&lt;/span&gt; to track&lt;span class="o"&gt;)&lt;/span&gt;
+nothing&lt;span class="w"&gt; &lt;/span&gt;added&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;but&lt;span class="w"&gt; &lt;/span&gt;untracked&lt;span class="w"&gt; &lt;/span&gt;files&lt;span class="w"&gt; &lt;/span&gt;present&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;use&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;git add&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;track&lt;span class="o"&gt;)&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p style="line-height: 1.5em;"&gt;I created a new file, echoed some content and I checked the status of my repository. Git can track what new files have been added and what files have changed using checksum. So, it shows me that my “newfile.txt” is untracked. Before committing any changes to the repositories, we need to add the files/changes to Git.&lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git add newfile.txt
-$ git status
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;newfile.txt
+$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;status
 &lt;span class="c1"&gt;# On branch master&lt;/span&gt;
 &lt;span class="c1"&gt;#&lt;/span&gt;
 &lt;span class="c1"&gt;# Initial commit&lt;/span&gt;
@@ -920,38 +920,38 @@ $ git status
 
 &lt;p style="line-height: 1.5em;"&gt;As you can see the file is ready to be committed now. Let’s do it:&lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git commit -m &lt;span class="s2"&gt;&amp;quot;Added new file&amp;quot;&lt;/span&gt; 
-&lt;span class="o"&gt;[&lt;/span&gt;master &lt;span class="o"&gt;(&lt;/span&gt;root-commit&lt;span class="o"&gt;)&lt;/span&gt; 0c53cdc&lt;span class="o"&gt;]&lt;/span&gt; Added new file
-&lt;span class="m"&gt;1&lt;/span&gt; file changed, &lt;span class="m"&gt;1&lt;/span&gt; insertion&lt;span class="o"&gt;(&lt;/span&gt;+&lt;span class="o"&gt;)&lt;/span&gt;
-create mode &lt;span class="m"&gt;100644&lt;/span&gt; newfile.txt
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;Added new file&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
+&lt;span class="o"&gt;[&lt;/span&gt;master&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;root-commit&lt;span class="o"&gt;)&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;0c53cdc&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Added&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file
+&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;file&lt;span class="w"&gt; &lt;/span&gt;changed,&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;insertion&lt;span class="o"&gt;(&lt;/span&gt;+&lt;span class="o"&gt;)&lt;/span&gt;
+create&lt;span class="w"&gt; &lt;/span&gt;mode&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;100644&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;newfile.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p style="line-height: 1.5em;"&gt;Here -m denotes the message which you will need to remember the changes you made in this commit. I am adding newfile.txt here, so the message says that a new file has been added. You local repository is fully updated now, with all the changes. If you want to check, what all changes you have made to the local repository before pushing it to remote repository, just run “git log”.&lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git log
-commit 0c53cdc27eda90c67219ba15ff8457f337c4aa14
-Author: Peeyush Gupta &amp;lt;peeyushgupta91@gmail.com&amp;gt;
-Date:   Tue Apr &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;16&lt;/span&gt;:37:59 &lt;span class="m"&gt;2014&lt;/span&gt; +0530
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;log
+commit&lt;span class="w"&gt; &lt;/span&gt;0c53cdc27eda90c67219ba15ff8457f337c4aa14
+Author:&lt;span class="w"&gt; &lt;/span&gt;Peeyush&lt;span class="w"&gt; &lt;/span&gt;Gupta&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;peeyushgupta91@gmail.com&amp;gt;
+Date:&lt;span class="w"&gt;   &lt;/span&gt;Tue&lt;span class="w"&gt; &lt;/span&gt;Apr&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;16&lt;/span&gt;:37:59&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;2014&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;+0530
 
-   Added new file
+&lt;span class="w"&gt;   &lt;/span&gt;Added&lt;span class="w"&gt; &lt;/span&gt;new&lt;span class="w"&gt; &lt;/span&gt;file
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p style="line-height: 1.5em;"&gt;It will show you the commit checksum, author name/email, date and time of the commit and the message you provided at the time of commit. Well, it seems alright, so now we are gonna push the changes to remote repository.&lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;origin&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;git&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;push&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;origin&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;
 &lt;span class="n"&gt;Username&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com&amp;#39;: Pensu&lt;/span&gt;
 &lt;span class="n"&gt;Password&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//Pensu@github.com&amp;#39;: &lt;/span&gt;
-&lt;span class="n"&gt;Counting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Writing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;249&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Total&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;delta&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reused&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;delta&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Counting&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Writing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;objects&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="o"&gt;%&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;249&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;bytes&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;done&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;
+&lt;span class="n"&gt;Total&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;delta&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;),&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reused&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;delta&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;span class="n"&gt;To&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="c1"&gt;//github.com/Pensu/test.git&lt;/span&gt;
-&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;*&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;[&lt;/span&gt;&lt;span class="n"&gt;new&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;branch&lt;/span&gt;&lt;span class="p"&gt;]&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;master&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p style="line-height: 1.5em;"&gt;So, what’s origin and master? Here master is the branch where I am working on my local repository and origin is the branch where master is going to be merged at the remote repository. Wait, what is a branch? Branch is basically the context that you are working in. You can have many branches in the same project and merge them in the remote repository branches. For our purpose we only need one branch and that is the master one. You can verify it using:&lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ git branch
-* master
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;branch
+*&lt;span class="w"&gt; &lt;/span&gt;master
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p style="line-height: 1.5em;"&gt;Now, as it’s all done and dusted, time to check the remote repository if the changes were successfully committed. Open up your browser and go to your repository, you should see a newfile.txt there.  &lt;/p&gt;
@@ -967,25 +967,25 @@ Date:   Tue Apr &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;16&
 &lt;/div&gt;
 &lt;p&gt;Git is a very huge topic, but this article should get you started to clone remote repositories and push the changes. Happy sharing!&lt;/p&gt;</content><category term="Linux"></category><category term="Git"></category><category term="starting with Git"></category><category term="Understanding Git"></category><category term="VCS"></category><category term="version control systems"></category></entry><entry><title>Running A Python Script Using Chef</title><link href="//thegeekyway.com/running-python-script-using-chef/" rel="alternate"></link><published>2014-03-18T15:39:00+05:30</published><updated>2014-03-18T15:39:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:thegeekyway.com,2014-03-18:/running-python-script-using-chef/</id><summary type="html">&lt;p&gt;Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through &lt;a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/"&gt;this&lt;/a&gt; article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through &lt;a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/"&gt;this&lt;/a&gt; article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration of the designated server. Resource have their predefined task like to run a command, to copy a file, to use a template etc. In this article we are going to talk about script resource. This is going to run any script, it could be bash, python or perl. There are separate resources for these scripts.&lt;/p&gt;
 &lt;p&gt;You put the resources in your recipe. Here is a simple bash script example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;bash&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;install_something&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
- &lt;span class="nv"&gt;user&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;root&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
- &lt;span class="nv"&gt;cwd&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;/home&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
- &lt;span class="nv"&gt;code&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&amp;lt;-&lt;/span&gt;&lt;span class="nv"&gt;EOH&lt;/span&gt;
- &lt;span class="nv"&gt;echo&lt;/span&gt; “&lt;span class="nv"&gt;Hello&lt;/span&gt; &lt;span class="nv"&gt;World&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;”
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;bash&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;install_something&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;user&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;root&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;cwd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;/home&amp;quot;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;code&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&amp;lt;-&lt;/span&gt;&lt;span class="nv"&gt;EOH&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;echo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;“&lt;span class="nv"&gt;Hello&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;World&lt;/span&gt;&lt;span class="o"&gt;!&lt;/span&gt;”
 
- &lt;span class="nv"&gt;ls&lt;/span&gt;
- &lt;span class="nv"&gt;EOH&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;ls&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;EOH&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;As you can see, the bash resource will run the script in the code section and will print “Hello World” to the terminal and the content of /home directory.&lt;/p&gt;
 &lt;p&gt;So, when you are going to run a python script, the first choice to come to mind is “python” script resource. But there is a limitation to script resources. They only run in-line scripts. Meaning you will have to write the whole script in the code section and it will be executed one line at a time. But you can’t run an external script. Here comes the “execute” resource to rescue!&lt;/p&gt;
 &lt;p&gt;To run an external script, the structure of the execute resource is:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;filename&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;test.py&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;filename&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;test.py&amp;quot;&lt;/span&gt;
 
-&lt;span class="nv"&gt;execute&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;execute_file&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt; &lt;span class="k"&gt;do&lt;/span&gt;
- &lt;span class="nv"&gt;cwd&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;&lt;span class="s"&gt;/home/peeyush&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;&lt;/span&gt;
- &lt;span class="nv"&gt;command&lt;/span&gt; &lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;&lt;span class="s"&gt;python #{static}&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;&lt;/span&gt;
+&lt;span class="nv"&gt;execute&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;execute_file&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;do&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;cwd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/peeyush&amp;#39;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;command&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;python #{static}&amp;quot;&lt;/span&gt;
 &lt;span class="k"&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1022,11 +1022,11 @@ Date:   Tue Apr &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;16&
 &lt;p&gt;&lt;strong&gt;21) Checking The Package Details Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;This command will give you details of any package available in the repository, alongwith maintainer's name, description details, size, dependency, architecture,etc.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="nv"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cache&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cache&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;show&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="nv"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="nv"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cache&lt;/span&gt; &lt;span class="k"&gt;show&lt;/span&gt; &lt;span class="nv"&gt;minitube&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;cache&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;show&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;minitube&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;22) Searching The Package Using APT-CACHE :&lt;/strong&gt;&lt;/p&gt;
@@ -1197,21 +1197,21 @@ Date:   Tue Apr &lt;span class="m"&gt;1&lt;/span&gt; &lt;span class="m"&gt;16&
 &lt;p&gt;&lt;strong&gt;8) Download Only Source Code Of The Desired Package Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can download source code of the desired package from the repository using following syntax.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;only&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;only&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;only&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;synapse&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;only&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;source&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;synapse&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;9) Downloading The .deb Package Without Installing It Using APT-GET&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;You can download the .deb package of the desired application using following command. The downloaded .deb package is usually stored in /var/cache/apt/archive directory.&lt;/p&gt;
 &lt;p&gt;Command Syntax :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;&amp;lt;&lt;/span&gt;&lt;span class="n"&gt;package_name&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;synaptic&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;download&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;synaptic&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;&lt;strong&gt;10) Download The Source Code, Decompress It &amp;amp; Then Compile It Using APT-GET&lt;/strong&gt;&lt;/p&gt;
@@ -1300,7 +1300,7 @@ echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
 &lt;p&gt;So, whenever you are using these all together, remember there is a hypervisor, an accelerating agent and a management library.&lt;/p&gt;</content><category term="Linux"></category><category term="kvm"></category><category term="libvirt"></category><category term="qemu"></category><category term="virtualization"></category></entry><entry><title>Understanding Permissions With umask</title><link href="//thegeekyway.com/understanding-permissions-umask/" rel="alternate"></link><published>2014-02-07T22:42:00+05:30</published><updated>2014-02-07T22:42:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:thegeekyway.com,2014-02-07:/understanding-permissions-umask/</id><summary type="html">&lt;p&gt;Linux was developed as a multi-user system. One big problem with multi-user systems is securing information of a particular user from other users. To do that, a concept of permissions was introduced. When you create a file, you have the right to read and write it. In this article we …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Linux was developed as a multi-user system. One big problem with multi-user systems is securing information of a particular user from other users. To do that, a concept of permissions was introduced. When you create a file, you have the right to read and write it. In this article we are going to understand how these permissions are handled.&lt;/p&gt;
 &lt;p&gt;A user can read from a file, write into it or execute it (if it’s executable). These actions are represented by r for read, w for write and x for executable. Now, there are three type of actors in play in the system, first is user, second is the group the user belongs to and the third is everyone else. Hence, the permissions are in the form of three digits. The default permissions for a file are 666 (i.e. -rw-rw-rw-) and for directory they are 777 ( i.e. drwxrwxrwx). Here the x for directory means search permissions and d in the start indicated it’s a directory.&lt;/p&gt;
 &lt;p&gt;Now, this is place where umask comes in picture. When you create a file or directory, the default permissions will be given, but may be you don’t want your file to be readable/writable by everyone, for that we use umask. Fire up your console and type umask. You will find 0002 on most of the systems.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;umask&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;umask&lt;/span&gt;
 
 &lt;span class="m"&gt;0002&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
@@ -1314,7 +1314,7 @@ echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
 &lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;You can revert back to your original umask  by typing&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ &lt;span class="nb"&gt;umask&lt;/span&gt; &lt;span class="m"&gt;002&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;umask&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;002&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</content><category term="Linux"></category><category term="file permissions"></category><category term="linux"></category><category term="Linux Filesystem"></category><category term="umask"></category></entry><entry><title>Getting Started With Chef-solo</title><link href="//thegeekyway.com/learning-basics-chef-solo-example/" rel="alternate"></link><published>2014-01-30T12:59:00+05:30</published><updated>2014-01-30T12:59:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:thegeekyway.com,2014-01-30:/learning-basics-chef-solo-example/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo.png"&gt;&lt;img alt="Chef-Logo" src="//thegeekyway.com/uploads/images/2014/01/6521.OC_Chef_Logo-300x236.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
@@ -1329,9 +1329,9 @@ echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
 &lt;p&gt;&lt;strong&gt;Chef-server&lt;/strong&gt;: This is the server that provides cookbooks/recipes to chef-client.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Chef-solo&lt;/strong&gt;: An independent chef configuration tool that doesn’t need chef-server to work.&lt;/p&gt;
 &lt;p&gt;Chef-solo is the easiest way to learn how chef works. In this article we will see the working of chef-solo with an example. The first step is to install chef. Chef is installed as a rubygem. So, install rubygem and chef using following commands. (I am using Fedora. Use sudo apt-get for debain based systems.)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ sudo yum install ruby rubygems ruby-devel
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;sudo&lt;span class="w"&gt; &lt;/span&gt;yum&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;ruby&lt;span class="w"&gt; &lt;/span&gt;rubygems&lt;span class="w"&gt; &lt;/span&gt;ruby-devel
 
-$ gem install chef
+$&lt;span class="w"&gt; &lt;/span&gt;gem&lt;span class="w"&gt; &lt;/span&gt;install&lt;span class="w"&gt; &lt;/span&gt;chef
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You can check if your installation was successful or not by running ‘chef-solo’ command as sudo/root. It will most probably give an error “No cookbook found”. That’s alright, if you are getting any other error, then you need to check the installation again. So, now we are going to write a recipe to print “Hello chef” on the command prompt.&lt;/p&gt;
@@ -1425,7 +1425,7 @@ $ gem install chef
 &lt;p&gt;[For me, if you have noticed, the icons within the browser is not showing up properly, maybe some files are conflicting, for which i will take care later on]&lt;/p&gt;
 &lt;p&gt;To install 'Web' in Raspberry pi :&lt;/p&gt;
 &lt;p&gt;Open &lt;strong&gt;/etc/apt/source.list&lt;/strong&gt; with &lt;strong&gt;'root'&lt;/strong&gt; &amp;amp; add the following line:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;deb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;http://raspberrypi.collabora.com&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kp"&gt;wheezy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kp"&gt;web&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;deb&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;http://raspberrypi.collabora.com&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kp"&gt;wheezy&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="kp"&gt;web&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Now, update the repository &amp;amp; upgrade the system by entering following commands in terminal :&lt;/p&gt;
@@ -1456,14 +1456,14 @@ $ gem install chef
 &lt;h2 id="installing-omx-player" style="font-size: 1.2em;"&gt;Installing OMX Player&lt;/h2&gt;
 &lt;p&gt;Download and install player from source&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;Stable&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Build&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Already&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;added&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Raspbian&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;also&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;in&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ArcLinux&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
-&lt;span class="n"&gt;wget&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;downloads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;torarin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer_0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;3.3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20131216&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;b34143c_armhf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;wget&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;downloads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;torarin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer_0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;3.3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20131216&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;b34143c_armhf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
 
-&lt;span class="n"&gt;Experimental&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Android&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;prefers&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;experimental&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Experimental&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Build&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Android&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;app&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;prefers&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;experimental&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;build&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 
-&lt;span class="n"&gt;wget&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;downloads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;torarin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer_3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;experimental&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20121208&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;ebfa6fc6_armhf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;wget&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;https&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;github&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;downloads&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;torarin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;omxplayer_3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;experimental&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20121208&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;ebfa6fc6_armhf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
 
-&lt;span class="n"&gt;Install&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dpkg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mxplayer_0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;3.3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20131216&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;b34143c_armhf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;Install&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dpkg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mxplayer_0&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="mf"&gt;3.3&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;git20131216&lt;/span&gt;&lt;span class="o"&gt;~&lt;/span&gt;&lt;span class="n"&gt;b34143c_armhf&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;*Note: OMXPlayer will not play MPEG-2 files, you need purchase licence to play. *&lt;/p&gt;
@@ -1497,38 +1497,38 @@ $ gem install chef
 &lt;p&gt;&lt;em&gt;(In host name or ip address, I already given &lt;/em&gt;&lt;em&gt; &lt;p style="color: #ff0000;"&gt; &lt;p style="font-family: 'courier new', courier;"&gt;\&amp;lt;userName&amp;gt;@\&amp;lt;ip&amp;gt; &lt;/p&gt;&lt;/p&gt;&lt;/em&gt;&lt;em&gt;, So I don't have to give username again. it will only asks for password in next step.)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Provide your password in next step, and you will land on home of pi in command prompt version. Here you can run any command which will be executed on Raspi directly.&lt;/p&gt;
 &lt;p&gt;Now just browse to your media file and run&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;omxplayer&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt; 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;omxplayer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;s&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;
 
-&lt;span class="k"&gt;For&lt;/span&gt; &lt;span class="nv"&gt;HDMI&lt;/span&gt; &lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;video&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;audio&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="k"&gt;For&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;HDMI&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;video&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="nv"&gt;audio&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
 
-&lt;span class="nv"&gt;omxplayer&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;o&lt;/span&gt; &lt;span class="nv"&gt;hdmi&lt;/span&gt;
+&lt;span class="nv"&gt;omxplayer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;o&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;hdmi&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"&gt;&lt;img alt="omxPlayer-command" src="//thegeekyway.com/uploads/images/2013/12/omxPlayer-command.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Here are some more OMXPlayer commands&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;lukasz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;skalski&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;projekty&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;inne&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;raspberry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;control&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;control&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;raspberry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nf"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;android&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nl"&gt;http&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;//&lt;/span&gt;&lt;span class="n"&gt;lukasz&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;skalski&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;php&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;projekty&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;inne&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;raspberry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;control&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;control&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;raspberry&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nf"&gt;pi&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;your&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;android&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;html&lt;/span&gt;
 
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dpkg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;omxplayer_0&lt;/span&gt;&lt;span class="mf"&gt;.0.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="err"&gt;####&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;....&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fails&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;missing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dependencies&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="err"&gt;###&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fetches&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;missing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dependencies&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;configures&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;links&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;omxplayer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="k"&gt;Usage&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;omxplayer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTIONS&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;FILE&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="n"&gt;Options&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="w"&gt;                    &lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;alang&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;language&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;language&lt;/span&gt;&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ger&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;aidx&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;adev&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hdmi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="w"&gt;                    &lt;/span&gt;&lt;span class="k"&gt;dump&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;format&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;exit&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;stats&lt;/span&gt;&lt;span class="w"&gt;                   &lt;/span&gt;&lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;buffer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stats&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;passthrough&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;passthrough&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;deinterlace&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;deinterlacing&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;hw&lt;/span&gt;&lt;span class="w"&gt;                      &lt;/span&gt;&lt;span class="n"&gt;hw&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;decoding&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="w"&gt;                      &lt;/span&gt;&lt;span class="n"&gt;switch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;into&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;hdmiclocksync&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="n"&gt;adjust&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;refresh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rate&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;video&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;sid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="w"&gt;               &lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;subtitle&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dpkg&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;omxplayer_0&lt;/span&gt;&lt;span class="mf"&gt;.0.1&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;arm&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;deb&lt;/span&gt;
+&lt;span class="err"&gt;####&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="p"&gt;....&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fails&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;missing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dependencies&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="p"&gt;...&lt;/span&gt;
+&lt;span class="err"&gt;#&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;apt&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="k"&gt;get&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;f&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;install&lt;/span&gt;
+&lt;span class="err"&gt;###&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;fetches&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;missing&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;dependencies&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;configures&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;sym&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;links&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;
+&lt;span class="err"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;omxplayer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;
+&lt;span class="k"&gt;Usage&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;omxplayer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;OPTIONS&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;FILE&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="n"&gt;Options&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;h&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;&lt;span class="w"&gt;                    &lt;/span&gt;&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;this&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;help&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;alang&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;language&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;language&lt;/span&gt;&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;ger&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;aidx&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;adev&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;out&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;device&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;g&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;hdmi&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;local&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;info&lt;/span&gt;&lt;span class="w"&gt;                    &lt;/span&gt;&lt;span class="k"&gt;dump&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stream&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nf"&gt;format&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;exit&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;stats&lt;/span&gt;&lt;span class="w"&gt;                   &lt;/span&gt;&lt;span class="n"&gt;pts&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ow"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;buffer&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;stats&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;p&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;passthrough&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;passthrough&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;deinterlace&lt;/span&gt;&lt;span class="w"&gt;             &lt;/span&gt;&lt;span class="n"&gt;deinterlacing&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;w&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;hw&lt;/span&gt;&lt;span class="w"&gt;                      &lt;/span&gt;&lt;span class="n"&gt;hw&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;audio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;decoding&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="w"&gt;                      &lt;/span&gt;&lt;span class="n"&gt;switch&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;tv&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;into&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;3&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;mode&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;hdmiclocksync&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;&lt;span class="n"&gt;adjust&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;display&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;refresh&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rate&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;match&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;video&lt;/span&gt;
+&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;--&lt;/span&gt;&lt;span class="n"&gt;sid&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;&lt;span class="w"&gt;               &lt;/span&gt;&lt;span class="n"&gt;show&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;subtitle&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;with&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;index&lt;/span&gt;
 &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;r&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="c1"&gt;--refresh                 adjust framerate/resolution to video&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
@@ -1536,16 +1536,16 @@ $ gem install chef
 &lt;p&gt;Vagrant gives you portable work environments which can be controlled by a pre-defined workflow. The idea is when you are working on a project and there are a lot of dependencies, configuration settings, scripts involved, you can combine them all up with vagrant and pass it around to be used by everyone. Let’s start with getting a VM up and running.&lt;/p&gt;
 &lt;p&gt;Though Vagrant comes with default support for VirtualBox, it can be used with other providers too like VMware, AWS etc. Here I am using VirtualBox on Fedora 19 as provider. You can download and install VirtualBox from &lt;a href="https://www.virtualbox.org/wiki/Downloads"&gt;here&lt;/a&gt;. Next step is to install Vagrant, which you can get from &lt;a href="http://www.vagrantup.com/"&gt;here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Now, after installing VirtualBox and Vagrant, you can add the box and run the machine. We will learn more about boxes, first run these two commands:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ vagrant init precise32 http://files.vagrantup.com/precise32.box
-$ vagrant up
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;vagrant&lt;span class="w"&gt; &lt;/span&gt;init&lt;span class="w"&gt; &lt;/span&gt;precise32&lt;span class="w"&gt; &lt;/span&gt;http://files.vagrantup.com/precise32.box
+$&lt;span class="w"&gt; &lt;/span&gt;vagrant&lt;span class="w"&gt; &lt;/span&gt;up
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;It will take some time to set everything up and running the virtual machine. Now you can simply do:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ vagrant ssh
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;vagrant&lt;span class="w"&gt; &lt;/span&gt;ssh
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;and you will be able to login in your virtual machine. Coming back to boxes, they are nothing but the base images, which are used to clone a virtual machine. This makes the process faster instead of running a machine from scratch.  You can also add new boxes to the vagrant environment.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$ vagrant box add precise32 http://files.vagrantup.com/precise32.box
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;vagrant&lt;span class="w"&gt; &lt;/span&gt;box&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;precise32&lt;span class="w"&gt; &lt;/span&gt;http://files.vagrantup.com/precise32.box
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;So, how do you control the whole environment? Well, that’s why we have a Vagrantfile! The primary objective of a Vagrantfile is to describe the type, attributes etc. of the virtual machine. There is one Vagrantfile per project and it takes care of all the installation, script execution etc. When you do “vagrant init” in a directory, a Vagrantfile is placed there. Now, you can use this Vagrantfile to launch virtual machines from this directory. If you want to do it from another directory, you will first have to do “vagrant init” there or you would have to copy Vagrantfile in that directory.&lt;/p&gt;
@@ -1554,7 +1554,7 @@ $ vagrant up
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"&gt;&lt;img alt="Screenshot from 2013-12-23 15:23:11" src="//thegeekyway.com/uploads/images/2013/12/Screenshot-from-2013-12-23-152311.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;As you can see here, the name of the box and machine is fedora1 and I have given the provisioner as shell and the script that is going to run (after the virtual machine is booted) is bootstrap.sh. Here bootstrap.sh is present in the same directory, you can also give the absolute./relative path to you shell script. You can modify the Vagrant file and use&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vagrant&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reload&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;$&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;vagrant&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reload&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;to reflect the changes in already running virtual machine.You only need to learn how to assign values to different variables to make new Vagrantfiles. This should be enough to get you started. To check out their documentation, please visit the official website &lt;a href="http://www.vagrantup.com"&gt;here&lt;/a&gt;.&lt;/p&gt;</content><category term="Linux"></category><category term="Vagrant"></category><category term="VagrantFile"></category><category term="virtual machines"></category></entry><entry><title>OpenStack - Understanding The Architecture</title><link href="//thegeekyway.com/openstack-understanding-architecture/" rel="alternate"></link><published>2013-12-18T15:04:00+05:30</published><updated>2013-12-18T15:04:00+05:30</updated><author><name>Peeyush_Gupta</name></author><id>tag:thegeekyway.com,2013-12-18:/openstack-understanding-architecture/</id><summary type="html">&lt;p&gt;OpenStack is a cloud computing project to provide an Infrastructure as a Service(IaaS), jointly launched by RackSpace and NASA. A collection of open-source technologies combined together make it a massively scalable cloud operating system. One big quality of OpenStack is it’s simplicity, anyone can easily tie-up different hosts …&lt;/p&gt;</summary><content type="html">&lt;p&gt;OpenStack is a cloud computing project to provide an Infrastructure as a Service(IaaS), jointly launched by RackSpace and NASA. A collection of open-source technologies combined together make it a massively scalable cloud operating system. One big quality of OpenStack is it’s simplicity, anyone can easily tie-up different hosts and provide cloud storage. Openstack has become a big phenomenon in past three years since its launch in 2010. It has its reach to almost every tech giant with more than 10,000 developers working on it.&lt;/p&gt;
@@ -1588,7 +1588,7 @@ $ vagrant up
 
 &lt;p&gt;Where \&amp;lt;script&amp;gt;  stands for the name of the script located under /etc/init.d which you wanna control, and \&amp;lt;option&amp;gt; can be replaced by the control commands like : start,stop,reload,restart,force-reload.&lt;/p&gt;
 &lt;p&gt;Example :&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pulseaudio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reload&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;init&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;pulseaudio&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;reload&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;I hope this helps to understand /etc/init.d directory. This was basic understanding of init.d directory, there's more into it which will be covered soon.&lt;/p&gt;</content><category term="Linux"></category><category term="Linux Filesystem"></category></entry></feed>

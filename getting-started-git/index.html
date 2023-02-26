@@ -90,9 +90,9 @@
 </code></pre></div>
 
 <p>And the next step is:</p>
-<div class="highlight"><pre><span></span><code>$ git init
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>init
 
-Initialized empty Git repository <span class="k">in</span> /home/peeyush/git_test/.git/
+Initialized<span class="w"> </span>empty<span class="w"> </span>Git<span class="w"> </span>repository<span class="w"> </span><span class="k">in</span><span class="w"> </span>/home/peeyush/git_test/.git/
 </code></pre></div>
 
 <p style="line-height: 1.5em;">And that’s it, there is your local repository. You can add files, make changes to them, commit the changes etc. (How? We will see shortly!). Now, generally after this people keep going on about working with local repository, but as I am getting you started, I am going to take a little different but practical approach. We are going to start with a remote repository! Now, where do you get a remote repository? Well, GitHub, of-course! Go to </p>
@@ -106,24 +106,24 @@ Initialized empty Git repository <span class="k">in</span> /home/peeyush/git_tes
 <div style="text-align:center">
 <p><strong><img alt="Screenshot from 2014-04-01 16:21:57.png" src="https://lh3.googleusercontent.com/k2Lo1r1Z3uaUXlu9rf-h9cAphKIemCUq9dBQSO3KOSDJaDzX6j25um04Iyi5L0HmLk7PFo-L7Wci6p0Nu77vuslWDB9PtPX0ZPeyux2UcV9xe6XP2VqHn3V2G1cUZw"></strong></p>
 </div>
-<div class="highlight"><pre><span></span><code>$ git clone https://github.com/Pensu/test.git
-Cloning into <span class="s1">&#39;test&#39;</span>...
-warning: You appear to have cloned an empty repository.
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/Pensu/test.git
+Cloning<span class="w"> </span>into<span class="w"> </span><span class="s1">&#39;test&#39;</span>...
+warning:<span class="w"> </span>You<span class="w"> </span>appear<span class="w"> </span>to<span class="w"> </span>have<span class="w"> </span>cloned<span class="w"> </span>an<span class="w"> </span>empty<span class="w"> </span>repository.
 </code></pre></div>
 
 <p>So, there appears to be a warning, but we already know that as we haven’t added anything to the repository! Now you will see a directory by the name of remote repository in your current directory. That is your local repository. To verify try this on your system:</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">cd</span> test/
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>test/
 
-$ git remote -v
+$<span class="w"> </span>git<span class="w"> </span>remote<span class="w"> </span>-v
 
-origin https://github.com/Pensu/test.git <span class="o">(</span>fetch<span class="o">)</span>
-origin https://github.com/Pensu/test.git <span class="o">(</span>push<span class="o">)</span>
+origin<span class="w"> </span>https://github.com/Pensu/test.git<span class="w"> </span><span class="o">(</span>fetch<span class="o">)</span>
+origin<span class="w"> </span>https://github.com/Pensu/test.git<span class="w"> </span><span class="o">(</span>push<span class="o">)</span>
 </code></pre></div>
 
 <p>Here fetch and push are the repositories where your local repository gets the data from and where it sends the changes respectively. As I just cloned a remote repository, I can fetch and push from this repository. Now, we are going to add a file and pushing it to the remote repository.</p>
-<div class="highlight"><pre><span></span><code>$ touch newfile.txt
-$ <span class="nb">echo</span> <span class="s2">&quot;Getting Started With Git&quot;</span> &gt; newfile.txt 
-$ git status
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>touch<span class="w"> </span>newfile.txt
+$<span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Getting Started With Git&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>newfile.txt<span class="w"> </span>
+$<span class="w"> </span>git<span class="w"> </span>status
 <span class="c1"># On branch master</span>
 <span class="c1">#</span>
 <span class="c1"># Initial commit</span>
@@ -132,13 +132,13 @@ $ git status
 <span class="c1">#   (use &quot;git add &lt;file&gt;...&quot; to include in what will be committed)</span>
 <span class="c1">#</span>
 <span class="c1"># newfile.txt</span>
-nothing added to commit but untracked files present <span class="o">(</span>use <span class="s2">&quot;git add&quot;</span> to track<span class="o">)</span>
+nothing<span class="w"> </span>added<span class="w"> </span>to<span class="w"> </span>commit<span class="w"> </span>but<span class="w"> </span>untracked<span class="w"> </span>files<span class="w"> </span>present<span class="w"> </span><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add&quot;</span><span class="w"> </span>to<span class="w"> </span>track<span class="o">)</span>
 </code></pre></div>
 
 <p style="line-height: 1.5em;">I created a new file, echoed some content and I checked the status of my repository. Git can track what new files have been added and what files have changed using checksum. So, it shows me that my “newfile.txt” is untracked. Before committing any changes to the repositories, we need to add the files/changes to Git.</p>
 
-<div class="highlight"><pre><span></span><code>$ git add newfile.txt
-$ git status
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>newfile.txt
+$<span class="w"> </span>git<span class="w"> </span>status
 <span class="c1"># On branch master</span>
 <span class="c1">#</span>
 <span class="c1"># Initial commit</span>
@@ -152,38 +152,38 @@ $ git status
 
 <p style="line-height: 1.5em;">As you can see the file is ready to be committed now. Let’s do it:</p>
 
-<div class="highlight"><pre><span></span><code>$ git commit -m <span class="s2">&quot;Added new file&quot;</span> 
-<span class="o">[</span>master <span class="o">(</span>root-commit<span class="o">)</span> 0c53cdc<span class="o">]</span> Added new file
-<span class="m">1</span> file changed, <span class="m">1</span> insertion<span class="o">(</span>+<span class="o">)</span>
-create mode <span class="m">100644</span> newfile.txt
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Added new file&quot;</span><span class="w"> </span>
+<span class="o">[</span>master<span class="w"> </span><span class="o">(</span>root-commit<span class="o">)</span><span class="w"> </span>0c53cdc<span class="o">]</span><span class="w"> </span>Added<span class="w"> </span>new<span class="w"> </span>file
+<span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>insertion<span class="o">(</span>+<span class="o">)</span>
+create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>newfile.txt
 </code></pre></div>
 
 <p style="line-height: 1.5em;">Here -m denotes the message which you will need to remember the changes you made in this commit. I am adding newfile.txt here, so the message says that a new file has been added. You local repository is fully updated now, with all the changes. If you want to check, what all changes you have made to the local repository before pushing it to remote repository, just run “git log”.</p>
 
-<div class="highlight"><pre><span></span><code>$ git log
-commit 0c53cdc27eda90c67219ba15ff8457f337c4aa14
-Author: Peeyush Gupta &lt;peeyushgupta91@gmail.com&gt;
-Date:   Tue Apr <span class="m">1</span> <span class="m">16</span>:37:59 <span class="m">2014</span> +0530
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>log
+commit<span class="w"> </span>0c53cdc27eda90c67219ba15ff8457f337c4aa14
+Author:<span class="w"> </span>Peeyush<span class="w"> </span>Gupta<span class="w"> </span>&lt;peeyushgupta91@gmail.com&gt;
+Date:<span class="w">   </span>Tue<span class="w"> </span>Apr<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">16</span>:37:59<span class="w"> </span><span class="m">2014</span><span class="w"> </span>+0530
 
-   Added new file
+<span class="w">   </span>Added<span class="w"> </span>new<span class="w"> </span>file
 </code></pre></div>
 
 <p style="line-height: 1.5em;">It will show you the commit checksum, author name/email, date and time of the commit and the message you provided at the time of commit. Well, it seems alright, so now we are gonna push the changes to remote repository.</p>
 
-<div class="highlight"><pre><span></span><code><span class="n">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">$</span><span class="w"> </span><span class="n">git</span><span class="w"> </span><span class="n">push</span><span class="w"> </span><span class="n">origin</span><span class="w"> </span><span class="n">master</span>
 <span class="n">Username</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="err">&#39;</span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com&#39;: Pensu</span>
 <span class="n">Password</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="err">&#39;</span><span class="n">https</span><span class="o">:</span><span class="c1">//Pensu@github.com&#39;: </span>
-<span class="n">Counting</span><span class="w"> </span><span class="n">objects</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">.</span><span class="w"></span>
-<span class="n">Writing</span><span class="w"> </span><span class="n">objects</span><span class="o">:</span><span class="w"> </span><span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="mi">249</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">.</span><span class="w"></span>
-<span class="n">Total</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">reused</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="n">Counting</span><span class="w"> </span><span class="n">objects</span><span class="o">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">.</span>
+<span class="n">Writing</span><span class="w"> </span><span class="n">objects</span><span class="o">:</span><span class="w"> </span><span class="mi">100</span><span class="o">%</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="o">/</span><span class="mi">3</span><span class="p">),</span><span class="w"> </span><span class="mi">249</span><span class="w"> </span><span class="n">bytes</span><span class="p">,</span><span class="w"> </span><span class="n">done</span><span class="p">.</span>
+<span class="n">Total</span><span class="w"> </span><span class="mi">3</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="mi">0</span><span class="p">),</span><span class="w"> </span><span class="n">reused</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">(</span><span class="n">delta</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span>
 <span class="n">To</span><span class="w"> </span><span class="n">https</span><span class="o">:</span><span class="c1">//github.com/Pensu/test.git</span>
-<span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="n">new</span><span class="w"> </span><span class="n">branch</span><span class="p">]</span><span class="w">      </span><span class="n">master</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">master</span><span class="w"></span>
+<span class="o">*</span><span class="w"> </span><span class="p">[</span><span class="n">new</span><span class="w"> </span><span class="n">branch</span><span class="p">]</span><span class="w">      </span><span class="n">master</span><span class="w"> </span><span class="o">-&gt;</span><span class="w"> </span><span class="n">master</span>
 </code></pre></div>
 
 <p style="line-height: 1.5em;">So, what’s origin and master? Here master is the branch where I am working on my local repository and origin is the branch where master is going to be merged at the remote repository. Wait, what is a branch? Branch is basically the context that you are working in. You can have many branches in the same project and merge them in the remote repository branches. For our purpose we only need one branch and that is the master one. You can verify it using:</p>
 
-<div class="highlight"><pre><span></span><code>$ git branch
-* master
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>branch
+*<span class="w"> </span>master
 </code></pre></div>
 
 <p style="line-height: 1.5em;">Now, as it’s all done and dusted, time to check the remote repository if the changes were successfully committed. Open up your browser and go to your repository, you should see a newfile.txt there.  </p>

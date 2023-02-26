@@ -96,22 +96,22 @@
 </ul>
 <p #methodList></p>
 <h2 id="getting-list-of-method-objects" style="font-size: 1.2em;">Getting List of Method Objects</h2>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="n">Getting</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">reflect</span><span class="o">.</span><span class="n">Method</span><span class="w"> </span><span class="n">itself</span><span class="o">.</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">loading</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">time</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="n">Getting</span><span class="w"> </span><span class="n">all</span><span class="w"> </span><span class="n">methods</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">java</span><span class="o">.</span><span class="n">lang</span><span class="o">.</span><span class="n">reflect</span><span class="o">.</span><span class="n">Method</span><span class="w"> </span><span class="n">itself</span><span class="o">.</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">loading</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">class</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">run</span><span class="w"> </span><span class="n">time</span>
 
-<span class="n">Method</span><span class="p">[]</span><span class="w"> </span><span class="n">methodList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Class</span><span class="o">.</span><span class="n">forName</span><span class="p">(</span><span class="s2">&quot;java.lang.reflect.Method&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getDeclaredMethods</span><span class="p">();</span><span class="w"></span>
+<span class="n">Method</span><span class="p">[]</span><span class="w"> </span><span class="n">methodList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Class</span><span class="o">.</span><span class="n">forName</span><span class="p">(</span><span class="s2">&quot;java.lang.reflect.Method&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getDeclaredMethods</span><span class="p">();</span>
 
-<span class="o">//</span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">case</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">class</span><span class="w"></span>
-<span class="n">Method</span><span class="p">[]</span><span class="w"> </span><span class="n">methodList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myClass</span><span class="o">.</span><span class="n">getDeclaredMethods</span><span class="p">();</span><span class="w"></span>
+<span class="o">//</span><span class="n">you</span><span class="w"> </span><span class="n">can</span><span class="w"> </span><span class="n">also</span><span class="w"> </span><span class="n">use</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="k">class</span><span class="p">,</span><span class="w"> </span><span class="n">but</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">case</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="n">need</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">create</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">object</span><span class="w"> </span><span class="n">of</span><span class="w"> </span><span class="k">class</span>
+<span class="n">Method</span><span class="p">[]</span><span class="w"> </span><span class="n">methodList</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">myClass</span><span class="o">.</span><span class="n">getDeclaredMethods</span><span class="p">();</span>
 </code></pre></div>
 
 <h2 id="getting-informationmetadata-about-methods" style="font-size: 1.2em;">Getting information/metadata about methods</h2>
 <p>Expand following code snippet.</p>
 <p>Following code  will print whole method signature. Alternatively you can use specific method to get <strong>parameters, returnType</strong> and <strong>exceptions</strong>.</p>
-<div class="highlight"><pre><span></span><code> <span class="k">for</span> <span class="ss">(</span><span class="nv">Method</span> <span class="nv">method</span> : <span class="nv">methodList</span><span class="ss">)</span>{
-            <span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">method</span>.<span class="nv">toString</span><span class="ss">)</span><span class="c1">; </span>
-      }
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="ss">(</span><span class="nv">Method</span><span class="w"> </span><span class="nv">method</span><span class="w"> </span>:<span class="w"> </span><span class="nv">methodList</span><span class="ss">)</span>{
+<span class="w">            </span><span class="nv">System</span>.<span class="nv">out</span>.<span class="nv">println</span><span class="ss">(</span><span class="nv">method</span>.<span class="nv">toString</span><span class="ss">)</span><span class="c1">; </span>
+<span class="w">      </span>}
 
-<span class="nv">Following</span> <span class="nv">methods</span> <span class="nv">are</span> <span class="nv">availble</span> <span class="nv">in</span> <span class="nv">class</span> <span class="nv">java</span>.<span class="nv">lang</span>.<span class="nv">reflect</span>.<span class="nv">Method</span>
+<span class="nv">Following</span><span class="w"> </span><span class="nv">methods</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">availble</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">class</span><span class="w"> </span><span class="nv">java</span>.<span class="nv">lang</span>.<span class="nv">reflect</span>.<span class="nv">Method</span>
 <span class="cm">/*</span>
 <span class="cm">invoke</span>
 <span class="cm">equals</span>
@@ -156,12 +156,12 @@
 
 <p #methodobject></p>
 <h2 id="getting-a-method-object" style="font-size: 1.2em;">getting a Method object</h2>
-<div class="highlight"><pre><span></span><code><span class="o">//</span><span class="nv">Load</span> <span class="nv">a</span> <span class="nv">class</span> <span class="nv">and</span> <span class="nv">get</span> <span class="nv">method</span> <span class="nv">object</span>
+<div class="highlight"><pre><span></span><code><span class="c1">//Load a class and get method object</span>
 
-<span class="nv">Class</span> <span class="nv">clazz</span> <span class="o">=</span> <span class="nv">Class</span>.<span class="nv">forName</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">theGeekyWay.myClass</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-<span class="nv">Method</span> <span class="nv">method</span> <span class="o">=</span> <span class="nv">clazz</span>.<span class="nv">getMethod</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">myPublicMethod</span><span class="s2">&quot;</span>, <span class="nv">String</span>.<span class="nv">class</span><span class="ss">)</span><span class="c1">;</span>
+<span class="n">Class</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="n">forName</span><span class="p">(</span><span class="s">&quot;theGeekyWay.myClass&quot;</span><span class="p">);</span>
+<span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="n">getMethod</span><span class="p">(</span><span class="s">&quot;myPublicMethod&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="n">class</span><span class="p">);</span>
 
-<span class="o">//</span><span class="nv">Note</span>: <span class="nv">getMethod</span> <span class="nv">throws</span> <span class="nv">NoSuchMethodException</span> <span class="ss">(</span><span class="k">if</span> <span class="nv">method</span> <span class="nv">not</span> <span class="nv">available</span><span class="ss">)</span> , <span class="nv">SecurityException</span> <span class="ss">(</span><span class="k">if</span> <span class="nv">method</span> <span class="nv">not</span> <span class="nv">accessible</span><span class="ss">)</span>
+<span class="c1">//Note: getMethod throws NoSuchMethodException (if method not available) , SecurityException (if method not accessible)</span>
 </code></pre></div>
 
 <p #invokemethod></p>
@@ -187,24 +187,24 @@ method1.invoke(null);
 
 <p #ways></p>
 <h2 id="ways-of-loading-class-at-run-time-and-invoking-method-at-run-time" style="font-size: 1.2em;">Ways of loading class at run time and invoking method at run time</h2>
-<div class="highlight"><pre><span></span><code>//invoking a method using 100% Reflection
-        try {
-            Class clazz = Class.forName(&quot;theGeekyWay.MyClass&quot;);
-            Method method = clazz.getMethod(&quot;myPublicMethod&quot;, String.class);
+<div class="highlight"><pre><span></span><code><span class="c1">//invoking a method using 100% Reflection</span>
+<span class="w">        </span><span class="k">try</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">Class</span><span class="w"> </span><span class="n">clazz</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">Class</span><span class="p">.</span><span class="n">forName</span><span class="p">(</span><span class="s">&quot;theGeekyWay.MyClass&quot;</span><span class="p">);</span>
+<span class="w">            </span><span class="n">Method</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="n">clazz</span><span class="p">.</span><span class="n">getMethod</span><span class="p">(</span><span class="s">&quot;myPublicMethod&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">String</span><span class="p">.</span><span class="n">class</span><span class="p">);</span>
 
-            method.invoke((theGeekyWay.MyClass)clazz.newInstance(), &quot;invoked a method through reflection&quot;);
+<span class="w">            </span><span class="n">method</span><span class="p">.</span><span class="n">invoke</span><span class="p">((</span><span class="n">theGeekyWay</span><span class="p">.</span><span class="n">MyClass</span><span class="p">)</span><span class="n">clazz</span><span class="p">.</span><span class="n">newInstance</span><span class="p">(),</span><span class="w"> </span><span class="s">&quot;invoked a method through reflection&quot;</span><span class="p">);</span>
 
-        } catch (NoSuchMethodException e) {
-            e.printStackTrace();
-        } catch (InvocationTargetException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
-            e.printStackTrace();  
-        }
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">NoSuchMethodException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InvocationTargetException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">IllegalAccessException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">ClassNotFoundException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="k">catch</span><span class="w"> </span><span class="p">(</span><span class="n">InstantiationException</span><span class="w"> </span><span class="n">e</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="n">e</span><span class="p">.</span><span class="n">printStackTrace</span><span class="p">();</span><span class="w">  </span>
+<span class="w">        </span><span class="p">}</span>
 </code></pre></div>
 
 <p>Another way to load class at run time and call method</p>

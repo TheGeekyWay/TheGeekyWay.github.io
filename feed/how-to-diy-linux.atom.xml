@@ -196,33 +196,33 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;img alt="Auto-Login-GUI" src="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h5 id="auto-login-using-command-version" style="font-size: 1em;"&gt;Auto-Login using Command version&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt; &lt;span class="nv"&gt;nano&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;inittab&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;nano&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;inittab&lt;/span&gt;
 
 &lt;span class="cm"&gt;/*Find following line*/&lt;/span&gt;
 
-&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;getty&lt;/span&gt; &lt;span class="mi"&gt;115200&lt;/span&gt; &lt;span class="nv"&gt;tty1&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;getty&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;115200&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;tty1&lt;/span&gt;
 
 &lt;span class="cm"&gt;/*and comment it by adding # in front of it*/&lt;/span&gt;
 
-&lt;span class="sc"&gt;#1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;getty&lt;/span&gt; &lt;span class="mi"&gt;115200&lt;/span&gt; &lt;span class="nv"&gt;tty1&lt;/span&gt;
+&lt;span class="sc"&gt;#1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;sbin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;getty&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;115200&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;tty1&lt;/span&gt;
 
 &lt;span class="cm"&gt;/*After that add new line with following content*/&lt;/span&gt;
 
-&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;login&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;f&lt;/span&gt; &lt;span class="nv"&gt;pi&lt;/span&gt; &lt;span class="nv"&gt;tty1&lt;/span&gt; &lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tty1&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
+&lt;span class="mi"&gt;1&lt;/span&gt;:&lt;span class="mi"&gt;2345&lt;/span&gt;:&lt;span class="nv"&gt;respawn&lt;/span&gt;:&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;bin&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;login&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;f&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;pi&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;tty1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;dev&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="nv"&gt;tty1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;2&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&amp;amp;&lt;/span&gt;&lt;span class="mi"&gt;1&lt;/span&gt;
 
 &lt;span class="cm"&gt;/*Ctrl+X to exit, Y to save followed by enter twice*/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;h5 id="auto-start-to-gui" style="font-size: 1em;"&gt;Auto Start to GUI&lt;/h5&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cm"&gt;/*Edit rc.local using following line*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/*&lt;/span&gt;&lt;span class="n"&gt;Edit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;using&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;following&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;line&lt;/span&gt;&lt;span class="o"&gt;*/&lt;/span&gt;
 
-sudo&lt;span class="w"&gt; &lt;/span&gt;nano&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;etc&lt;span class="o"&gt;/&lt;/span&gt;rc&lt;span class="o"&gt;.&lt;/span&gt;local&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;sudo&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;nano&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;etc&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;rc&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;local&lt;/span&gt;
 
-&lt;span class="cm"&gt;/*Scroll to the end and add the following above exit 0:*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;/*&lt;/span&gt;&lt;span class="n"&gt;Scroll&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;end&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;and&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;add&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;the&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;following&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;above&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="o"&gt;*/&lt;/span&gt;
 
-su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;span class="w"&gt; &lt;/span&gt;pi&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;c&lt;span class="w"&gt; &lt;/span&gt;startx&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="n"&gt;su&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;l&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;pi&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;c&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;startx&lt;/span&gt;
 
-&lt;span class="cm"&gt;/*Ctrl+X to exit, Y to save followed by enter twice*/&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="o"&gt;/*&lt;/span&gt;&lt;span class="n"&gt;Ctrl&lt;/span&gt;&lt;span class="o"&gt;+&lt;/span&gt;&lt;span class="n"&gt;X&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;exit&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;Y&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;to&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;save&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;followed&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;by&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;enter&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;twice&lt;/span&gt;&lt;span class="o"&gt;*/&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p #Remote&gt;&lt;/p&gt;
@@ -342,24 +342,24 @@ su&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;l&lt;s
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;(Replace gedit by any other editor like kate, vim or even sublime) and copy the following lines into it &amp;amp; hit on 'Save' button.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[Desktop Entry]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2.0&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Sublime Text 2&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="c1"&gt;# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="c1"&gt;# From Ubuntu&amp;#39;s language-pack-kde-XX-base packages, version 9.04-20090413.&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;GenericName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Text Editor&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[Desktop Entry]&lt;/span&gt;
+&lt;span class="na"&gt;Version&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;2.0&lt;/span&gt;
+&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Sublime Text 2&lt;/span&gt;
+&lt;span class="c1"&gt;# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.&lt;/span&gt;
+&lt;span class="c1"&gt;# From Ubuntu&amp;#39;s language-pack-kde-XX-base packages, version 9.04-20090413.&lt;/span&gt;
+&lt;span class="na"&gt;GenericName&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Text Editor&lt;/span&gt;
 
-&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;sublime&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Terminal&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Icon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/opt/Sublime Text 2/Icon/48x48/sublime_text.png&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Application&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Categories&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;TextEditor;IDE;Development&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;X-Ayatana-Desktop-Shortcuts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;NewWindow&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;sublime&lt;/span&gt;
+&lt;span class="na"&gt;Terminal&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;false&lt;/span&gt;
+&lt;span class="na"&gt;Icon&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;/opt/Sublime Text 2/Icon/48x48/sublime_text.png&lt;/span&gt;
+&lt;span class="na"&gt;Type&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Application&lt;/span&gt;
+&lt;span class="na"&gt;Categories&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;TextEditor&lt;/span&gt;&lt;span class="c1"&gt;;IDE;Development&lt;/span&gt;
+&lt;span class="na"&gt;X-Ayatana-Desktop-Shortcuts&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;NewWindow&lt;/span&gt;
 
-&lt;span class="k"&gt;[NewWindow Shortcut Group]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;New Window&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;sublime -n&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="na"&gt;TargetEnvironment&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Unity&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="k"&gt;[NewWindow Shortcut Group]&lt;/span&gt;
+&lt;span class="na"&gt;Name&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;New Window&lt;/span&gt;
+&lt;span class="na"&gt;Exec&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;sublime -n&lt;/span&gt;
+&lt;span class="na"&gt;TargetEnvironment&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="s"&gt;Unity&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Login &amp;amp; out &amp;amp; you'll notice launcher icon of sublime text in Menu.&lt;/p&gt;

@@ -105,7 +105,7 @@
 <p>etc.</p>
 <p><strong>Defining a Variable</strong></p>
 <p>The following syntax should be used while defining variable in C :</p>
-<div class="highlight"><pre><span></span><code><span class="n">data_type</span><span class="w"> </span><span class="n">variable_name</span><span class="p">;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">data_type</span><span class="w"> </span><span class="n">variable_name</span><span class="p">;</span>
 </code></pre></div>
 
 <p>Here, data_type is the type of data which variable shall hold, and variable_name is any legal name you may give to the variable to access the information stored in it.</p>
@@ -121,12 +121,12 @@ Now, we'll assign a value to this variable with assignment operator (=)</p>
 <p>Now, our variable sam contains value 10.</p>
 <p>Now, we'll see it in the entire program and output the value of variable.</p>
 <div class="highlight"><pre><span></span><code>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
-<span class="nv">int</span> <span class="nv">main</span><span class="ss">()</span>
+<span class="nv">int</span><span class="w"> </span><span class="nv">main</span><span class="ss">()</span>
 {
-<span class="nv">int</span> <span class="nv">sam</span><span class="c1">;</span>
-<span class="nv">sam</span> <span class="o">=</span> <span class="mi">10</span><span class="c1">;</span>
-<span class="nv">printf</span><span class="ss">(</span>“<span class="nv">Value</span> <span class="nv">of</span> <span class="nv">sam</span> <span class="nv">is</span> <span class="o">%</span><span class="nv">d</span>”, <span class="nv">sam</span><span class="ss">)</span><span class="c1">;</span>
-<span class="k">return</span> <span class="mi">0</span><span class="c1">;</span>
+<span class="nv">int</span><span class="w"> </span><span class="nv">sam</span><span class="c1">;</span>
+<span class="nv">sam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="c1">;</span>
+<span class="nv">printf</span><span class="ss">(</span>“<span class="nv">Value</span><span class="w"> </span><span class="nv">of</span><span class="w"> </span><span class="nv">sam</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="o">%</span><span class="nv">d</span>”,<span class="w"> </span><span class="nv">sam</span><span class="ss">)</span><span class="c1">;</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="c1">;</span>
 }
 </code></pre></div>
 
@@ -143,14 +143,14 @@ Now, we'll assign a value to this variable with assignment operator (=)</p>
 etc.</p>
 <p>Observe, that in printf() function, we have used , and the variable name, and when this program is compiled and executed, we get the  output , such that it prints Value of sam is 10 , the %d is now replaced by the value stored in our variable sam. This is because, %d was an instruction for the compiler so that it knows what type of value is coming in, so wherever you place this %d, and output an integer value, it would be replaced by value of that variable.</p>
 <p>For example, see the following code snippet :</p>
-<div class="highlight"><pre><span></span><code><span class="c1">#include&lt;stdio.h&gt;</span><span class="w"></span>
-<span class="nb nb-Type">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"></span>
-<span class="p">{</span><span class="w"></span>
-<span class="nb nb-Type">int</span><span class="w"> </span><span class="n">sam</span><span class="p">;</span><span class="w"></span>
-<span class="n">sam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w"></span>
-<span class="n">printf</span><span class="p">(</span><span class="err">“</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">sam</span><span class="err">”</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">sam</span><span class="p">);</span><span class="w"></span>
-<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="c1">#include&lt;stdio.h&gt;</span>
+<span class="nb nb-Type">int</span><span class="w"> </span><span class="n">main</span><span class="p">()</span>
+<span class="p">{</span>
+<span class="nb nb-Type">int</span><span class="w"> </span><span class="n">sam</span><span class="p">;</span>
+<span class="n">sam</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="n">printf</span><span class="p">(</span><span class="err">“</span><span class="w"> </span><span class="n">Value</span><span class="w"> </span><span class="n">stored</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="o">%</span><span class="n">d</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">variable</span><span class="w"> </span><span class="n">sam</span><span class="err">”</span><span class="w"> </span><span class="p">,</span><span class="w"> </span><span class="n">sam</span><span class="p">);</span>
+<span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>Here is the output for the above mentioned code snippet</p>

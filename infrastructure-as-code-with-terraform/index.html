@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="Terraform, Infrastructure as a Code">
+
+  <title>
+    The Geeky Way
+&ndash; Infrastructure as Code with Terraform  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/infrastructure-as-code-with-terraform/">Infrastructure as Code with Terraform</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
+  </div>
+  <div class="article_text">
+    <p>Infrastructure as Code (IaC) is an approach to managing IT infrastructure in which infrastructure resources are managed as code rather than through manual processes. Terraform is a popular open-source tool for implementing IaC. In this article, we'll explore how to use Terraform to manage infrastructure as code and how it can help you maintain consistency and manage changes in your infrastructure.</p>
+<h2>Benefits of Infrastructure as Code</h2>
+<p>There are several benefits of implementing IaC using Terraform, including:</p>
+<ul>
+<li>
+<p>Consistency: When you manage your infrastructure as code, you can ensure that all of your resources are created and configured in the same way every time. This reduces the risk of errors and inconsistencies that can arise when you manage infrastructure manually.</p>
+</li>
+<li>
+<p>Automation: IaC with Terraform allows you to automate the provisioning and configuration of your infrastructure. This can save time and reduce the likelihood of human error.</p>
+</li>
+<li>
+<p>Version control: By managing your infrastructure as code, you can use version control tools to track changes and roll back changes if necessary.</p>
+</li>
+</ul>
+<h2>Getting Started with Terraform</h2>
+<p>To get started with Terraform, you'll need to follow a few key steps:</p>
+<h3>1. Install Terraform</h3>
+<p>The first step is to install Terraform on your local machine. You can download the latest version of Terraform from the official website.</p>
+<h3>2. Create a Terraform Configuration</h3>
+<p>Once you've installed Terraform, you can start creating your infrastructure configuration. The Terraform configuration is written in a language called HashiCorp Configuration Language (HCL). Here's an example configuration that creates an AWS EC2 instance:</p>
+<div class="highlight"><pre><span></span><code><span class="n">provider</span><span class="w"> </span><span class="s">&quot;aws&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">access_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ACCESS_KEY&quot;</span>
+<span class="w">  </span><span class="n">secret_key</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;SECRET_KEY&quot;</span>
+<span class="w">  </span><span class="n">region</span><span class="w">     </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-west-2&quot;</span>
+<span class="p">}</span>
+
+<span class="n">resource</span><span class="w"> </span><span class="s">&quot;aws_instance&quot;</span><span class="w"> </span><span class="s">&quot;example&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">ami</span><span class="w">           </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;ami-0c55b159cbfafe1f0&quot;</span>
+<span class="w">  </span><span class="n">instance_type</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;t2.micro&quot;</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>In this example, we're using the aws_instance resource to create an EC2 instance. We're also specifying the AWS region and our access and secret keys in the provider block.</p>
+<h3>3. Initialize and Apply the Configuration</h3>
+<p>Once you've created your Terraform configuration, you can initialize it by running the following command in your terminal:</p>
+<div class="highlight"><pre><span></span><code><span class="n">terraform</span><span class="w"> </span><span class="n">init</span>
+</code></pre></div>
+
+<p>This will download the necessary providers and modules that are required for your configuration. Once initialization is complete, you can apply the configuration by running the following command:</p>
+<div class="highlight"><pre><span></span><code>terraform apply
+</code></pre></div>
+
+<p>This will create the resources specified in your Terraform configuration.</p>
+<h3>4. Updating and Destroying Resources</h3>
+<p>If you need to make changes to your infrastructure, you can simply update your Terraform configuration and apply the changes using the <code>terraform apply</code> command. If you need to destroy your resources, you can use the <code>terraform destroy</code> command.</p>
+<h3>Conclusion</h3>
+<p>Infrastructure as Code with Terraform is a powerful approach to managing your infrastructure. By managing your resources as code, you can ensure consistency, automate infrastructure provisioning and configuration, and use version control tools to track changes. Getting started with Terraform is easy, and with a little practice, you can use it to manage even the most complex infrastructure.</p>
+<p>In summary, Terraform provides a powerful and flexible way to manage infrastructure as code. It offers many benefits over manual infrastructure management, including consistency, automation, and version control. By following the steps outlined in this article, you can get started with Terraform and start reaping the benefits of Infrastructure as Code.</p>
+  </div>
+  <div class="article_author_info" >
+    <hr>
+    <p>Posted By: Sanyam Khurana</p>
+    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
+
+    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Sun 11 December 2022</p>
+    <p>Category: <a href="//thegeekyway.com/category/terraform/">Terraform</a>
+ &ndash; Tags:
+      <a href="//thegeekyway.com/tag/terraform/">Terraform</a>,      <a href="//thegeekyway.com/tag/infrastructure-as-a-code/">Infrastructure as a Code</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "infrastructure-as-code-with-terraform/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

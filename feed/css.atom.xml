@@ -6,14 +6,14 @@
 &lt;/div&gt;
 &lt;p style="line-height: 1.5em;"&gt;Above code fore border radius is equivalent to&lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;border-top-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nt"&gt;border-top-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nt"&gt;border-bottom-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nt"&gt;border-bottom-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;border-top-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-top-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 
-&lt;span class="nt"&gt;or&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nt"&gt;or&lt;/span&gt;
 
-&lt;span class="nt"&gt;border-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nt"&gt;border-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You can specify rounded …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Border radius is used to create rounded corners  see the following.&lt;/p&gt;
@@ -23,14 +23,14 @@
 &lt;/div&gt;
 &lt;p style="line-height: 1.5em;"&gt;Above code fore border radius is equivalent to&lt;/p&gt;
 
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;border-top-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nt"&gt;border-top-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nt"&gt;border-bottom-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="nt"&gt;border-bottom-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;border-top-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-top-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-left-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+&lt;span class="nt"&gt;border-bottom-right-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 
-&lt;span class="nt"&gt;or&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nt"&gt;or&lt;/span&gt;
 
-&lt;span class="nt"&gt;border-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="nt"&gt;border-radius&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;20px&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;You can specify rounded corners with different set of values.&lt;/p&gt;
@@ -91,9 +91,9 @@ border-radius: 20px 10px 15px 30px;&lt;/p&gt;
 &lt;h4&gt;Applying CSS with Pseudo-class :not&lt;/h4&gt;
 &lt;p&gt;This quite interesting using :not selector to filter out on element properties. Using not selector you can distinguish them from other elements. In this selector also you can use regular expressions to find your elements.&lt;/p&gt;
 &lt;p&gt;For example:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;DISABLED&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
-&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;input&lt;/span&gt;&lt;span class="err"&gt;:&lt;/span&gt;&lt;span class="ow"&gt;not&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;DISABLED&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="err"&gt;{&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="n"&gt;background&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nl"&gt;color&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="n"&gt;yellow&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="err"&gt;}&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;iframe width="100%" height="250px" src="http://codepen.io/ianoop/embed/AcBfl" scrollbar="none"&gt;&lt;/iframe&gt;</content><category term="CSS"></category><category term="CSS"></category></entry><entry><title>CSS3 Animations: Getting started</title><link href="//thegeekyway.com/css3-animations-getting-started/" rel="alternate"></link><published>2013-12-21T00:34:00+05:30</published><updated>2013-12-21T00:34:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2013-12-21:/css3-animations-getting-started/</id><summary type="html">&lt;p&gt;CSS animations is a great tool design website in very cool fashion without any gif images and reduced page size.&lt;br&gt;
@@ -131,7 +131,7 @@ There are two basic keyword used to generate animations using  &lt;p style="font
 &lt;/ul&gt;
 &lt;h4&gt;1. Using Style tag in HTML element:&lt;/h4&gt;
 &lt;p&gt;You can simply use style tag like below to apply styling to your element.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;strong&lt;/span&gt; &lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color:White; background:black&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt; Your Text  &lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;strong&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;style=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;color:White; background:black&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;Your&lt;span class="w"&gt; &lt;/span&gt;Text&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/strong&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;See the Pen &lt;a href="http://codepen.io/ianoop/pen/olJkD"&gt;olJkD&lt;/a&gt; by ianoop (&lt;a href="http://codepen.io/ianoop"&gt;\@ianoop&lt;/a&gt;) on &lt;a href="http://codepen.io"&gt;CodePen&lt;/a&gt;&lt;/p&gt;
@@ -157,7 +157,7 @@ There are two basic keyword used to generate animations using  &lt;p style="font
 
 &lt;h4&gt;4. Import a CSS file inside another CSS file&lt;/h4&gt;
 &lt;p&gt;Use following format to import a CSS file. Remember following import tag should first line in your file.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;@import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mynewstylesheet.css&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="cp"&gt;@import&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;mynewstylesheet.css&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 
 &lt;p&gt;Note: For point 3 and 4 location of your css file is relative to current file. If you are using direct name.css that means CSS file and HTML/CSS file both are in same directory.&lt;/p&gt;</content><category term="CSS"></category><category term="CSS"></category><category term="HTML"></category></entry><entry><title>CSS - Introduction and How it works</title><link href="//thegeekyway.com/css-introduction-and-different-ways-of-using-css/" rel="alternate"></link><published>2013-12-11T22:57:00+05:30</published><updated>2013-12-11T22:57:00+05:30</updated><author><name>Anoop</name></author><id>tag:thegeekyway.com,2013-12-11:/css-introduction-and-different-ways-of-using-css/</id><summary type="html">&lt;p&gt;CSS stands for &lt;strong&gt;&lt;em&gt;Cascading Style Sheet&lt;/em&gt;&lt;/strong&gt; which is used to style HTML elements.&lt;br&gt;

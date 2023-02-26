@@ -153,31 +153,31 @@ Here are some of the options :-&lt;/p&gt;
 &lt;p&gt;In order to write our first javascript code, we need to include a script tag in the head section of html coding (later in the articles Ill show why we should never use script tag in javasctipt inside html) but for now, since the code is small, so we can use this method.&lt;/p&gt;
 &lt;p&gt;Analyze the following code&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nt"&gt;&amp;lt;html&amp;gt;&lt;/span&gt;
-&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;  
-  &lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt; TheGeekyWay.com &lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-        function replace() {
-            var myValue = document.getElementById(&amp;#39;textBox1&amp;#39;).value;
-            var getTitle = document.getElementById(&amp;#39;title&amp;#39;);
-            if (myValue.length == 0) {
-                getTitle.innerHTML = &amp;quot;Nothing entered, enter a valid character&amp;quot;;
-                return;
-            }
-            else {
-                getTitle.innerHTML = myValue;
-            }                
-        }
+&lt;span class="nt"&gt;&amp;lt;head&amp;gt;&lt;/span&gt;&lt;span class="w"&gt;  &lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;title&amp;gt;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;TheGeekyWay.com&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/title&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;script&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;function&lt;span class="w"&gt; &lt;/span&gt;replace()&lt;span class="w"&gt; &lt;/span&gt;{
+&lt;span class="w"&gt;            &lt;/span&gt;var&lt;span class="w"&gt; &lt;/span&gt;myValue&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;document.getElementById(&amp;#39;textBox1&amp;#39;).value;
+&lt;span class="w"&gt;            &lt;/span&gt;var&lt;span class="w"&gt; &lt;/span&gt;getTitle&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;document.getElementById(&amp;#39;title&amp;#39;);
+&lt;span class="w"&gt;            &lt;/span&gt;if&lt;span class="w"&gt; &lt;/span&gt;(myValue.length&lt;span class="w"&gt; &lt;/span&gt;==&lt;span class="w"&gt; &lt;/span&gt;0)&lt;span class="w"&gt; &lt;/span&gt;{
+&lt;span class="w"&gt;                &lt;/span&gt;getTitle.innerHTML&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;&amp;quot;Nothing&lt;span class="w"&gt; &lt;/span&gt;entered,&lt;span class="w"&gt; &lt;/span&gt;enter&lt;span class="w"&gt; &lt;/span&gt;a&lt;span class="w"&gt; &lt;/span&gt;valid&lt;span class="w"&gt; &lt;/span&gt;character&amp;quot;;
+&lt;span class="w"&gt;                &lt;/span&gt;return;
+&lt;span class="w"&gt;            &lt;/span&gt;}
+&lt;span class="w"&gt;            &lt;/span&gt;else&lt;span class="w"&gt; &lt;/span&gt;{
+&lt;span class="w"&gt;                &lt;/span&gt;getTitle.innerHTML&lt;span class="w"&gt; &lt;/span&gt;=&lt;span class="w"&gt; &lt;/span&gt;myValue;
+&lt;span class="w"&gt;            &lt;/span&gt;}&lt;span class="w"&gt;                &lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;}
 
-    &lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
-   &lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/script&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;   &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/head&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;body&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;form&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form1&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;runat=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;h1&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Welcome to TheGeekyWay.com&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;textBox1&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
-        &lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt; &lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;button&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Submit&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;myButton&amp;quot;&lt;/span&gt; &lt;span class="na"&gt;onclick=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;replace()&amp;quot;&lt;/span&gt; &lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
-    &lt;span class="nt"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;form&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;form1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;runat=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;server&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;div&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;h1&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;title&amp;quot;&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;Welcome&lt;span class="w"&gt; &lt;/span&gt;to&lt;span class="w"&gt; &lt;/span&gt;TheGeekyWay.com&lt;span class="nt"&gt;&amp;lt;/h1&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;text&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;textBox1&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;        &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;input&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;type=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;button&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;value=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;Submit&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;id=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;myButton&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="na"&gt;onclick=&lt;/span&gt;&lt;span class="s"&gt;&amp;quot;replace()&amp;quot;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nt"&gt;/&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/div&amp;gt;&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="nt"&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/body&amp;gt;&lt;/span&gt;
 &lt;span class="nt"&gt;&amp;lt;/html&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;

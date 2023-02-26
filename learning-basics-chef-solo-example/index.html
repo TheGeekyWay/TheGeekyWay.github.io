@@ -92,9 +92,9 @@
 <p><strong>Chef-server</strong>: This is the server that provides cookbooks/recipes to chef-client.</p>
 <p><strong>Chef-solo</strong>: An independent chef configuration tool that doesn’t need chef-server to work.</p>
 <p>Chef-solo is the easiest way to learn how chef works. In this article we will see the working of chef-solo with an example. The first step is to install chef. Chef is installed as a rubygem. So, install rubygem and chef using following commands. (I am using Fedora. Use sudo apt-get for debain based systems.)</p>
-<div class="highlight"><pre><span></span><code>$ sudo yum install ruby rubygems ruby-devel
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>ruby<span class="w"> </span>rubygems<span class="w"> </span>ruby-devel
 
-$ gem install chef
+$<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </span>chef
 </code></pre></div>
 
 <p>You can check if your installation was successful or not by running ‘chef-solo’ command as sudo/root. It will most probably give an error “No cookbook found”. That’s alright, if you are getting any other error, then you need to check the installation again. So, now we are going to write a recipe to print “Hello chef” on the command prompt.</p>

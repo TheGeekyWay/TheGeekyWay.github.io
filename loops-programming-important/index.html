@@ -110,50 +110,50 @@
 <p>Now, let's look at the syntax of each of these and how they can be used, in detail. To understand all these in a better way, let's consider a common and simple example to print numbers from 1 to let's say 500.</p>
 <p>The most basic approach to carry out this task is to keep printing each line having different numbers from 1 to 500 which would look something like this :</p>
 <div class="highlight"><pre><span></span><code>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
-<span class="nv">void</span> <span class="nv">main</span><span class="ss">()</span>
+<span class="nv">void</span><span class="w"> </span><span class="nv">main</span><span class="ss">()</span>
 {
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">1 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">2 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">3 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">4 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">5 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">6 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">7 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  . 
-  .
-  .
-  .
-  .
-  .
-  .
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">499 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">500 n</span><span class="s2">&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;1 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;2 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;3 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;4 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;5 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;6 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;7 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span>.<span class="w"> </span>
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;499 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;500 n&quot;</span><span class="ss">)</span><span class="c1">;</span>
 }
 </code></pre></div>
 
 <p>Now, let's try to improve upon this a little bit.<br>
 We can take a counter variable and after each step just update it's value, then it would be something like this :</p>
 <div class="highlight"><pre><span></span><code>#<span class="k">include</span><span class="o">&lt;</span><span class="nv">stdio</span>.<span class="nv">h</span><span class="o">&gt;</span>
-<span class="nv">void</span> <span class="nv">main</span><span class="ss">()</span>
+<span class="nv">void</span><span class="w"> </span><span class="nv">main</span><span class="ss">()</span>
 {
-  <span class="nv">int</span> <span class="nv">counter</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
-  .
-  .
-  .
-  .
-  .
-  .
-  .
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;    /* Carry on this </span>
-  <span class="nv">counter</span><span class="o">++</span><span class="c1">;                      500 times   */</span>
+<span class="w">  </span><span class="nv">int</span><span class="w"> </span><span class="nv">counter</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">counter</span><span class="o">++</span><span class="c1">;</span>
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="nv">counter</span><span class="ss">)</span><span class="c1">;    /* Carry on this </span>
+<span class="w">  </span><span class="nv">counter</span><span class="o">++</span><span class="c1">;                      500 times   */</span>
 }
 </code></pre></div>
 
@@ -176,26 +176,26 @@ We can take a counter variable and after each step just update it's value, then 
 
 <h3><u><strong>Understanding and using for loop</strong></u></h3>
 <p>* <strong>Syntax</strong> :*</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span> <span class="ss">(</span> <span class="nv">initialization</span> <span class="c1">; test condition ; updation )</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="w"> </span><span class="ss">(</span><span class="w"> </span><span class="nv">initialization</span><span class="w"> </span><span class="c1">; test condition ; updation )</span>
 {
-  .
-  .
-  .
+<span class="w">  </span>.
+<span class="w">  </span>.
+<span class="w">  </span>.
 }
 </code></pre></div>
 
 <p>Now let's carry out the given task to print numbers from 1 to 500.</p>
 <p>The for loop for this would be something like this, here we have a counter variable named i which would be incremented from 1 to 500.</p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="ss">(</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">; i&lt;=500 ; i++ )</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="ss">(</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">; i&lt;=500 ; i++ )</span>
 {
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>, <span class="nv">i</span> <span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="ss">)</span><span class="c1">;</span>
 }
 </code></pre></div>
 
 <p>We can also define the counter variable inside the loop, and then it would have<a href="http://www.thegeekyway.com/what-is-scope-and-lifetime-of-a-variable-in-c-language/" title="What is scope and lifetime of a variable in C language">scope of the loop as explained in tutorial on Scope and lifetime of variables.</a></p>
-<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="ss">(</span><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="c1">; i&lt;=500 ; i++ )</span>
+<div class="highlight"><pre><span></span><code><span class="k">for</span><span class="ss">(</span><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="w"> </span><span class="c1">; i&lt;=500 ; i++ )</span>
 {
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>, <span class="nv">i</span> <span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="ss">)</span><span class="c1">;</span>
 }
 </code></pre></div>
 
@@ -209,18 +209,18 @@ We can take a counter variable and after each step just update it's value, then 
 <div class="highlight"><pre><span></span><code><span class="nv">initialization</span>
 <span class="k">while</span><span class="ss">(</span><span class="nv">test_condition</span><span class="ss">)</span>
 {
- <span class="o">//</span><span class="nv">all</span> <span class="nv">code</span>
-  <span class="nv">updation</span> 
+<span class="w"> </span><span class="o">//</span><span class="nv">all</span><span class="w"> </span><span class="nv">code</span>
+<span class="w">  </span><span class="nv">updation</span><span class="w"> </span>
 }
 </code></pre></div>
 
 <p>In while loop, initialization is done even before control enters the loop, as shown. Updation is done as the last statement of the loop and test condition is given as shown.</p>
 <p>Now let us print the numbers from 1 to 500 using while loop.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">;</span>
-<span class="k">while</span><span class="ss">(</span> <span class="nv">i</span> <span class="o">&lt;=</span> <span class="mi">500</span><span class="ss">)</span>
+<div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="c1">;</span>
+<span class="k">while</span><span class="ss">(</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">500</span><span class="ss">)</span>
 {
-  <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
-  <span class="nv">i</span><span class="o">++</span> <span class="c1">;</span>
+<span class="w">  </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">  </span><span class="nv">i</span><span class="o">++</span><span class="w"> </span><span class="c1">;</span>
 }
 </code></pre></div>
 
@@ -232,19 +232,19 @@ We can take a counter variable and after each step just update it's value, then 
 <h3><u><strong>Understanding and Using do - while loop</strong></u></h3>
 <p><strong>Syntax:</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nv">initialization</span>
-<span class="k">do</span> {
-  <span class="o">//</span><span class="nv">executing</span> <span class="nv">statements</span>
-  <span class="nv">updation</span>
-} <span class="k">while</span><span class="ss">(</span><span class="nv">test</span> <span class="nv">condition</span><span class="ss">)</span><span class="c1">;</span>
+<span class="k">do</span><span class="w"> </span>{
+<span class="w">  </span><span class="o">//</span><span class="nv">executing</span><span class="w"> </span><span class="nv">statements</span>
+<span class="w">  </span><span class="nv">updation</span>
+}<span class="w"> </span><span class="k">while</span><span class="ss">(</span><span class="nv">test</span><span class="w"> </span><span class="nv">condition</span><span class="ss">)</span><span class="c1">;</span>
 </code></pre></div>
 
 <p><u>Notice that in do while loop, we have a semi-colon at the end of while statement.</u></p>
 <p>Let's now print the numbers from 1 to 500 using do while loop.</p>
-<div class="highlight"><pre><span></span><code><span class="nv">int</span> <span class="nv">i</span> <span class="o">=</span> <span class="mi">1</span><span class="c1">;</span>
-<span class="k">do</span> {
-     <span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;</span><span class="s">%d n</span><span class="s2">&quot;</span>,<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
-     <span class="nv">i</span><span class="o">++</span><span class="c1">;</span>
-} <span class="k">while</span><span class="ss">(</span><span class="nv">i</span> <span class="o">&lt;=</span> <span class="mi">500</span><span class="ss">)</span><span class="c1">;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">int</span><span class="w"> </span><span class="nv">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="c1">;</span>
+<span class="k">do</span><span class="w"> </span>{
+<span class="w">     </span><span class="nv">printf</span><span class="ss">(</span><span class="s2">&quot;%d n&quot;</span>,<span class="nv">i</span><span class="ss">)</span><span class="c1">;</span>
+<span class="w">     </span><span class="nv">i</span><span class="o">++</span><span class="c1">;</span>
+}<span class="w"> </span><span class="k">while</span><span class="ss">(</span><span class="nv">i</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">500</span><span class="ss">)</span><span class="c1">;</span>
 </code></pre></div>
 
 <p><strong>Understanding flow of do while loop</strong></p>

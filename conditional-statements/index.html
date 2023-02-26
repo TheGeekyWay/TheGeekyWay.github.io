@@ -93,17 +93,17 @@
 </ul>
 <p><strong>If</strong> condition</p>
 <p>The general syntax for using if statement is</p>
-<div class="highlight"><pre><span></span><code><span class="k">if</span> <span class="ss">(</span><span class="nv">Boolean</span> <span class="nv">expression</span><span class="ss">)</span> :
-   <span class="nv">code</span>  #<span class="nv">indentation</span> <span class="nv">is</span> <span class="nv">required</span>
+<div class="highlight"><pre><span></span><code><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">Boolean</span><span class="w"> </span><span class="nv">expression</span><span class="ss">)</span><span class="w"> </span>:
+<span class="w">   </span><span class="nv">code</span><span class="w">  </span>#<span class="nv">indentation</span><span class="w"> </span><span class="nv">is</span><span class="w"> </span><span class="nv">required</span>
 </code></pre></div>
 
 <p><strong>if</strong> is a keyword used for if statements ,it is a followed by a boolean expression which is evaluated  . Now question arises is why space is given in front when we have written code statement . This is because as no brackets are used to hold the computations after the if statement as this is a case in c++,java which uses curly brackets {}. The symbol : signifies that from here if block starts .</p>
 <p>In Python indentation is given rather than using brackets . If we not give the indentation compiler will give an error in case when no line is there in the if block .</p>
 <div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="o">=</span><span class="mi">2</span><span class="c1">;</span>
 <span class="k">if</span><span class="ss">(</span><span class="nv">a</span><span class="o">==</span><span class="mi">2</span><span class="ss">)</span>:
-<span class="nv">print</span> <span class="nv">a</span>
+<span class="nv">print</span><span class="w"> </span><span class="nv">a</span>
 <span class="k">else</span>
-<span class="nv">print</span> <span class="s2">&quot;</span><span class="s">NO</span><span class="s2">&quot;</span>
+<span class="nv">print</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span>
 </code></pre></div>
 
 <div style="text-align:center">
@@ -112,17 +112,17 @@
 <p>If statement can be used with else statements and can be used alone . If the condition evaluates to true then code inside if block is executed otherwise it is skip to the next line.</p>
 <p><strong>else</strong> condition</p>
 <p>The syntax of the else statement is</p>
-<div class="highlight"><pre><span></span><code><span class="k">else</span><span class="w"> </span><span class="o">:</span><span class="w"></span>
-<span class="w">  </span><span class="n">code</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">else</span><span class="w"> </span><span class="o">:</span>
+<span class="w">  </span><span class="n">code</span>
 </code></pre></div>
 
 <p>Here else is a keyword used and there are no brackets used as in if statement ,else is also followed by the code segment and indentation is required. Else statement are followed by if statement and cant be used alone . Compiler checks the if block first if Boolean expression doesn't come out to be true ,code inside else statement gets executed.</p>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="o">=</span><span class="mi">2</span>
 <span class="k">if</span><span class="ss">(</span><span class="nv">a</span><span class="o">==</span><span class="mi">2</span><span class="ss">)</span>:
- <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">YES</span><span class="s2">&quot;</span>
-<span class="k">else</span> :
- <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">NO</span><span class="s2">&quot;</span>
+<span class="w"> </span><span class="nv">print</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span>
+<span class="k">else</span><span class="w"> </span>:
+<span class="w"> </span><span class="nv">print</span><span class="w"> </span><span class="s2">&quot;NO&quot;</span>
 </code></pre></div>
 
 <p>In this example a has been assigned a value 2 , after that value of a is checked by using if statement . The statement (a==2) means a is compared to the value 2 if it comes to be true if statement will execute otherwise else statement will execute. The output for this case will be "YES".</p>
@@ -130,11 +130,11 @@
 <p>To avoid multiple if else statements we use else if .It is just like a else followed by a if .elif is a keyword used for else-if statemnts . This example will tell the use of elif keyword.</p>
 <div class="highlight"><pre><span></span><code><span class="nv">a</span><span class="o">=</span><span class="mi">9</span>
 <span class="k">if</span><span class="ss">(</span><span class="nv">a</span><span class="o">%</span><span class="mi">2</span><span class="o">==</span><span class="mi">0</span><span class="ss">)</span>:
- <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">YES</span><span class="s2">&quot;</span>
-<span class="nv">elif</span> <span class="ss">(</span><span class="nv">a</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="ss">)</span>:
- <span class="nv">print</span> <span class="s2">&quot;</span><span class="s">YES</span><span class="s2">&quot;</span>
+<span class="w"> </span><span class="nv">print</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span>
+<span class="nv">elif</span><span class="w"> </span><span class="ss">(</span><span class="nv">a</span><span class="o">%</span><span class="mi">3</span><span class="o">==</span><span class="mi">0</span><span class="ss">)</span>:
+<span class="w"> </span><span class="nv">print</span><span class="w"> </span><span class="s2">&quot;YES&quot;</span>
 <span class="k">else</span>
- <span class="s2">&quot;</span><span class="s">NO</span><span class="s2">&quot;</span>
+<span class="w"> </span><span class="s2">&quot;NO&quot;</span>
 </code></pre></div>
 
 <p>Here first if condition is checked ,if it comes out to be false it goes to elseif block and if that also comes to be false ,it finally goes to else block.</p>

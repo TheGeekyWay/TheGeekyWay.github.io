@@ -121,33 +121,33 @@
 <p><a href="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"><img alt="Auto-Login-GUI" src="//thegeekyway.com/uploads/images/2013/12/Auto-Login-GUI.png"></a></p>
 </div>
 <h5 id="auto-login-using-command-version" style="font-size: 1em;">Auto-Login using Command version</h5>
-<div class="highlight"><pre><span></span><code><span class="nv">sudo</span> <span class="nv">nano</span> <span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">inittab</span>
+<div class="highlight"><pre><span></span><code><span class="nv">sudo</span><span class="w"> </span><span class="nv">nano</span><span class="w"> </span><span class="o">/</span><span class="nv">etc</span><span class="o">/</span><span class="nv">inittab</span>
 
 <span class="cm">/*Find following line*/</span>
 
-<span class="mi">1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">getty</span> <span class="mi">115200</span> <span class="nv">tty1</span>
+<span class="mi">1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">getty</span><span class="w"> </span><span class="mi">115200</span><span class="w"> </span><span class="nv">tty1</span>
 
 <span class="cm">/*and comment it by adding # in front of it*/</span>
 
-<span class="sc">#1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">getty</span> <span class="mi">115200</span> <span class="nv">tty1</span>
+<span class="sc">#1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">sbin</span><span class="o">/</span><span class="nv">getty</span><span class="w"> </span><span class="mi">115200</span><span class="w"> </span><span class="nv">tty1</span>
 
 <span class="cm">/*After that add new line with following content*/</span>
 
-<span class="mi">1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">login</span> <span class="o">-</span><span class="nv">f</span> <span class="nv">pi</span> <span class="nv">tty1</span> <span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">tty1</span> <span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
+<span class="mi">1</span>:<span class="mi">2345</span>:<span class="nv">respawn</span>:<span class="o">/</span><span class="nv">bin</span><span class="o">/</span><span class="nv">login</span><span class="w"> </span><span class="o">-</span><span class="nv">f</span><span class="w"> </span><span class="nv">pi</span><span class="w"> </span><span class="nv">tty1</span><span class="w"> </span><span class="o">/</span><span class="nv">dev</span><span class="o">/</span><span class="nv">tty1</span><span class="w"> </span><span class="mi">2</span><span class="o">&gt;&amp;</span><span class="mi">1</span>
 
 <span class="cm">/*Ctrl+X to exit, Y to save followed by enter twice*/</span>
 </code></pre></div>
 
 <h5 id="auto-start-to-gui" style="font-size: 1em;">Auto Start to GUI</h5>
-<div class="highlight"><pre><span></span><code><span class="cm">/*Edit rc.local using following line*/</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="o">/*</span><span class="n">Edit</span><span class="w"> </span><span class="n">rc</span><span class="p">.</span><span class="n">local</span><span class="w"> </span><span class="n">using</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">line</span><span class="o">*/</span>
 
-sudo<span class="w"> </span>nano<span class="w"> </span><span class="o">/</span>etc<span class="o">/</span>rc<span class="o">.</span>local<span class="w"></span>
+<span class="n">sudo</span><span class="w"> </span><span class="n">nano</span><span class="w"> </span><span class="o">/</span><span class="n">etc</span><span class="o">/</span><span class="n">rc</span><span class="p">.</span><span class="n">local</span>
 
-<span class="cm">/*Scroll to the end and add the following above exit 0:*/</span><span class="w"></span>
+<span class="o">/*</span><span class="n">Scroll</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">end</span><span class="w"> </span><span class="nb">and</span><span class="w"> </span><span class="n">add</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">following</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="nb">exit</span><span class="w"> </span><span class="mi">0</span><span class="p">:</span><span class="o">*/</span>
 
-su<span class="w"> </span><span class="o">-</span>l<span class="w"> </span>pi<span class="w"> </span><span class="o">-</span>c<span class="w"> </span>startx<span class="w"></span>
+<span class="n">su</span><span class="w"> </span><span class="o">-</span><span class="n">l</span><span class="w"> </span><span class="n">pi</span><span class="w"> </span><span class="o">-</span><span class="n">c</span><span class="w"> </span><span class="n">startx</span>
 
-<span class="cm">/*Ctrl+X to exit, Y to save followed by enter twice*/</span><span class="w"></span>
+<span class="o">/*</span><span class="n">Ctrl</span><span class="o">+</span><span class="n">X</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nb">exit</span><span class="p">,</span><span class="w"> </span><span class="n">Y</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="nb">save</span><span class="w"> </span><span class="n">followed</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">enter</span><span class="w"> </span><span class="n">twice</span><span class="o">*/</span>
 </code></pre></div>
 
 <p #Remote></p>

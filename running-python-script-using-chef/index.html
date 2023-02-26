@@ -84,25 +84,25 @@
   <div class="article_text">
     <p>Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through <a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/">this</a> article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration of the designated server. Resource have their predefined task like to run a command, to copy a file, to use a template etc. In this article we are going to talk about script resource. This is going to run any script, it could be bash, python or perl. There are separate resources for these scripts.</p>
 <p>You put the resources in your recipe. Here is a simple bash script example:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">bash</span> <span class="s2">&quot;</span><span class="s">install_something</span><span class="s2">&quot;</span> <span class="k">do</span>
- <span class="nv">user</span> <span class="s2">&quot;</span><span class="s">root</span><span class="s2">&quot;</span>
- <span class="nv">cwd</span> <span class="s2">&quot;</span><span class="s">/home</span><span class="s2">&quot;</span>
- <span class="nv">code</span> <span class="o">&lt;&lt;-</span><span class="nv">EOH</span>
- <span class="nv">echo</span> “<span class="nv">Hello</span> <span class="nv">World</span><span class="o">!</span>”
+<div class="highlight"><pre><span></span><code><span class="nv">bash</span><span class="w"> </span><span class="s2">&quot;install_something&quot;</span><span class="w"> </span><span class="k">do</span>
+<span class="w"> </span><span class="nv">user</span><span class="w"> </span><span class="s2">&quot;root&quot;</span>
+<span class="w"> </span><span class="nv">cwd</span><span class="w"> </span><span class="s2">&quot;/home&quot;</span>
+<span class="w"> </span><span class="nv">code</span><span class="w"> </span><span class="o">&lt;&lt;-</span><span class="nv">EOH</span>
+<span class="w"> </span><span class="nv">echo</span><span class="w"> </span>“<span class="nv">Hello</span><span class="w"> </span><span class="nv">World</span><span class="o">!</span>”
 
- <span class="nv">ls</span>
- <span class="nv">EOH</span>
+<span class="w"> </span><span class="nv">ls</span>
+<span class="w"> </span><span class="nv">EOH</span>
 <span class="k">end</span>
 </code></pre></div>
 
 <p>As you can see, the bash resource will run the script in the code section and will print “Hello World” to the terminal and the content of /home directory.</p>
 <p>So, when you are going to run a python script, the first choice to come to mind is “python” script resource. But there is a limitation to script resources. They only run in-line scripts. Meaning you will have to write the whole script in the code section and it will be executed one line at a time. But you can’t run an external script. Here comes the “execute” resource to rescue!</p>
 <p>To run an external script, the structure of the execute resource is:</p>
-<div class="highlight"><pre><span></span><code><span class="nv">filename</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="s">test.py</span><span class="s2">&quot;</span>
+<div class="highlight"><pre><span></span><code><span class="nv">filename</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;test.py&quot;</span>
 
-<span class="nv">execute</span> <span class="s1">&#39;</span><span class="s">execute_file</span><span class="s1">&#39;</span> <span class="k">do</span>
- <span class="nv">cwd</span> <span class="s1">&#39;</span><span class="s">/home/peeyush</span><span class="s1">&#39;</span>
- <span class="nv">command</span> <span class="s2">&quot;</span><span class="s">python #{static}</span><span class="s2">&quot;</span>
+<span class="nv">execute</span><span class="w"> </span><span class="s1">&#39;execute_file&#39;</span><span class="w"> </span><span class="k">do</span>
+<span class="w"> </span><span class="nv">cwd</span><span class="w"> </span><span class="s1">&#39;/home/peeyush&#39;</span>
+<span class="w"> </span><span class="nv">command</span><span class="w"> </span><span class="s2">&quot;python #{static}&quot;</span>
 <span class="k">end</span>
 </code></pre></div>
 

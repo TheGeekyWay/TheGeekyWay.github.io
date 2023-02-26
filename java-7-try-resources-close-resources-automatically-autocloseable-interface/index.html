@@ -86,98 +86,98 @@
 <p>Now from Java 7, there are two interfaces included  <p style="font-family: courier new,courier;">Closeable</p> and  <p style="font-family: courier new,courier;">AutoCloseable</p> with single abstract method  <p style="font-family: courier new,courier;">close(),</p>  which enables implementing class to close resources aromatically after try block.</p>
 <p>Lets see how it works.</p>
 <p>Conventional way of using FileInputStream</p>
-<div class="highlight"><pre><span></span><code><span class="nt">File</span><span class="w"> </span><span class="nt">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">new</span><span class="w"> </span><span class="nt">File</span><span class="o">(</span><span class="s2">&quot;C:\Document1.txt&quot;</span><span class="o">);</span><span class="w"></span>
-<span class="w">        </span><span class="nt">InputStream</span><span class="w"> </span><span class="nt">fis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">null</span><span class="o">;</span><span class="w"></span>
-<span class="w">        </span><span class="nt">try</span><span class="w"></span>
-<span class="w">        </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">fis</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">FileInputStream(file)</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="err">System.out.println(file.getAbsolutePath())</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="err">int</span><span class="w"> </span><span class="err">readLocation</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="err">while</span><span class="w"> </span><span class="err">((readLocation</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">fis.read())</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">-1)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">System.out.print((char)</span><span class="w"> </span><span class="err">readLocation)</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"> </span><span class="nt">catch</span><span class="w"> </span><span class="o">(</span><span class="nt">IOException</span><span class="w"> </span><span class="nt">e</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">e.printStackTrace()</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="nt">finally</span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">if</span><span class="w"> </span><span class="err">(fis</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">null)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">try</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">                    </span><span class="err">fis.close()</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="nt">catch</span><span class="w"> </span><span class="o">(</span><span class="nt">IOException</span><span class="w"> </span><span class="nt">e</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">                    </span><span class="err">e.printStackTrace()</span><span class="p">;</span><span class="w"></span>
-<span class="w">                </span><span class="p">}</span><span class="w"></span>
-<span class="w">            </span><span class="err">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">File</span><span class="w"> </span><span class="nt">file</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">new</span><span class="w"> </span><span class="nt">File</span><span class="o">(</span><span class="s2">&quot;C:\Document1.txt&quot;</span><span class="o">);</span>
+<span class="w">        </span><span class="nt">InputStream</span><span class="w"> </span><span class="nt">fis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">null</span><span class="o">;</span>
+<span class="w">        </span><span class="nt">try</span>
+<span class="w">        </span><span class="p">{</span>
+<span class="w">            </span><span class="err">fis</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">new</span><span class="w"> </span><span class="err">FileInputStream(file)</span><span class="p">;</span>
+<span class="w">            </span><span class="err">System.out.println(file.getAbsolutePath())</span><span class="p">;</span>
+<span class="w">            </span><span class="err">int</span><span class="w"> </span><span class="err">readLocation</span><span class="p">;</span>
+<span class="w">            </span><span class="err">while</span><span class="w"> </span><span class="err">((readLocation</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">fis.read())</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">-1)</span><span class="w"> </span><span class="err">{</span>
+<span class="w">                </span><span class="err">System.out.print((char)</span><span class="w"> </span><span class="err">readLocation)</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="err">}</span><span class="w"> </span><span class="nt">catch</span><span class="w"> </span><span class="o">(</span><span class="nt">IOException</span><span class="w"> </span><span class="nt">e</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="err">e.printStackTrace()</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span><span class="w"> </span><span class="nt">finally</span><span class="p">{</span>
+<span class="w">            </span><span class="err">if</span><span class="w"> </span><span class="err">(fis</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">null)</span><span class="w"> </span><span class="err">{</span>
+<span class="w">                </span><span class="err">try</span><span class="w"> </span><span class="err">{</span>
+<span class="w">                    </span><span class="err">fis.close()</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span><span class="w"> </span><span class="nt">catch</span><span class="w"> </span><span class="o">(</span><span class="nt">IOException</span><span class="w"> </span><span class="nt">e</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">                    </span><span class="err">e.printStackTrace()</span><span class="p">;</span>
+<span class="w">                </span><span class="p">}</span>
+<span class="w">            </span><span class="err">}</span>
+<span class="w">        </span><span class="err">}</span>
 </code></pre></div>
 
 <p>Now with using Try-with-Resource</p>
-<div class="highlight"><pre><span></span><code><span class="nt">try</span><span class="w"> </span><span class="o">(</span><span class="nt">InputStream</span><span class="w"> </span><span class="nt">fileInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">new</span><span class="w"> </span><span class="nt">FileInputStream</span><span class="o">(</span><span class="nt">new</span><span class="w"> </span><span class="nt">File</span><span class="o">(</span><span class="s2">&quot;C:\Document1.txt&quot;</span><span class="o">)))</span><span class="w">   </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">int</span><span class="w"> </span><span class="err">readLocation</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="err">while</span><span class="w"> </span><span class="err">((readLocation</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">fileInputStream.read())</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">-1)</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
-<span class="w">                </span><span class="err">System.out.print((char)</span><span class="w"> </span><span class="err">readLocation)</span><span class="p">;</span><span class="w"></span>
-<span class="w">            </span><span class="p">}</span><span class="w"></span>
-<span class="w">        </span><span class="err">}</span><span class="w"> </span><span class="nt">catch</span><span class="w"> </span><span class="o">(</span><span class="nt">IOException</span><span class="w"> </span><span class="nt">e</span><span class="o">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">            </span><span class="err">e.printStackTrace()</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="nt">try</span><span class="w"> </span><span class="o">(</span><span class="nt">InputStream</span><span class="w"> </span><span class="nt">fileInputStream</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nt">new</span><span class="w"> </span><span class="nt">FileInputStream</span><span class="o">(</span><span class="nt">new</span><span class="w"> </span><span class="nt">File</span><span class="o">(</span><span class="s2">&quot;C:\Document1.txt&quot;</span><span class="o">)))</span><span class="w">   </span><span class="p">{</span>
+<span class="w">            </span><span class="err">int</span><span class="w"> </span><span class="err">readLocation</span><span class="p">;</span>
+<span class="w">            </span><span class="err">while</span><span class="w"> </span><span class="err">((readLocation</span><span class="w"> </span><span class="err">=</span><span class="w"> </span><span class="err">fileInputStream.read())</span><span class="w"> </span><span class="err">!=</span><span class="w"> </span><span class="err">-1)</span><span class="w"> </span><span class="err">{</span>
+<span class="w">                </span><span class="err">System.out.print((char)</span><span class="w"> </span><span class="err">readLocation)</span><span class="p">;</span>
+<span class="w">            </span><span class="p">}</span>
+<span class="w">        </span><span class="err">}</span><span class="w"> </span><span class="nt">catch</span><span class="w"> </span><span class="o">(</span><span class="nt">IOException</span><span class="w"> </span><span class="nt">e</span><span class="o">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="err">e.printStackTrace()</span><span class="p">;</span>
+<span class="w">        </span><span class="p">}</span>
 </code></pre></div>
 
 <h4>How it works:</h4>
 <p>Compare the changes. Initialization, of resource which needs to be close, happening with try and there is no finally block to close. <a href="http://docs.oracle.com/javase/6/docs/api/java/io/FileInputStream.html" title="Java Doc">FileInputStream</a> implements <a href="http://docs.oracle.com/javase/6/docs/api/java/io/Closeable.html" title="interface in java.io">Closeable</a> which have following code in method  <p style="font-family: 'courier new', courier;">close()</p>.</p>
-<div class="highlight"><pre><span></span><code> <span class="nv">public</span> <span class="nv">void</span> <span class="nv">close</span><span class="ss">()</span> <span class="nv">throws</span> <span class="nv">IOException</span> {
-        <span class="nv">synchronized</span> <span class="ss">(</span><span class="nv">closeLock</span><span class="ss">)</span> {
-            <span class="k">if</span> <span class="ss">(</span><span class="nv">closed</span><span class="ss">)</span> {
-                <span class="k">return</span><span class="c1">;</span>
-            }
-            <span class="nv">closed</span> <span class="o">=</span> <span class="nv">true</span><span class="c1">;</span>
-        }
-        <span class="k">if</span> <span class="ss">(</span><span class="nv">channel</span> <span class="o">!=</span> <span class="nv">null</span><span class="ss">)</span> {
-            <span class="cm">/*</span>
+<div class="highlight"><pre><span></span><code><span class="w"> </span><span class="nv">public</span><span class="w"> </span><span class="nv">void</span><span class="w"> </span><span class="nv">close</span><span class="ss">()</span><span class="w"> </span><span class="nv">throws</span><span class="w"> </span><span class="nv">IOException</span><span class="w"> </span>{
+<span class="w">        </span><span class="nv">synchronized</span><span class="w"> </span><span class="ss">(</span><span class="nv">closeLock</span><span class="ss">)</span><span class="w"> </span>{
+<span class="w">            </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">closed</span><span class="ss">)</span><span class="w"> </span>{
+<span class="w">                </span><span class="k">return</span><span class="c1">;</span>
+<span class="w">            </span>}
+<span class="w">            </span><span class="nv">closed</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">true</span><span class="c1">;</span>
+<span class="w">        </span>}
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">(</span><span class="nv">channel</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nv">null</span><span class="ss">)</span><span class="w"> </span>{
+<span class="w">            </span><span class="cm">/*</span>
 <span class="cm">             * Decrement the FD use count associated with the channel</span>
 <span class="cm">             * The use count is incremented whenever a new channel</span>
 <span class="cm">             * is obtained from this stream.</span>
 <span class="cm">             */</span>
-           <span class="nv">fd</span>.<span class="nv">decrementAndGetUseCount</span><span class="ss">()</span><span class="c1">;</span>
-           <span class="nv">channel</span>.<span class="nv">close</span><span class="ss">()</span><span class="c1">;</span>
-        }
+<span class="w">           </span><span class="nv">fd</span>.<span class="nv">decrementAndGetUseCount</span><span class="ss">()</span><span class="c1">;</span>
+<span class="w">           </span><span class="nv">channel</span>.<span class="nv">close</span><span class="ss">()</span><span class="c1">;</span>
+<span class="w">        </span>}
 
-        <span class="cm">/*</span>
+<span class="w">        </span><span class="cm">/*</span>
 <span class="cm">         * Decrement the FD use count associated with this stream</span>
 <span class="cm">         */</span>
-        <span class="nv">int</span> <span class="nv">useCount</span> <span class="o">=</span> <span class="nv">fd</span>.<span class="nv">decrementAndGetUseCount</span><span class="ss">()</span><span class="c1">;</span>
+<span class="w">        </span><span class="nv">int</span><span class="w"> </span><span class="nv">useCount</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nv">fd</span>.<span class="nv">decrementAndGetUseCount</span><span class="ss">()</span><span class="c1">;</span>
 
-        <span class="cm">/*</span>
+<span class="w">        </span><span class="cm">/*</span>
 <span class="cm">         * If FileDescriptor is still in use by another stream, the finalizer</span>
 <span class="cm">         * will not close it.</span>
 <span class="cm">         */</span>
-        <span class="k">if</span> <span class="ss">((</span><span class="nv">useCount</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="ss">)</span> <span class="o">||</span> <span class="o">!</span><span class="nv">isRunningFinalize</span><span class="ss">())</span> {
-            <span class="nv">close0</span><span class="ss">()</span><span class="c1">;</span>
-        }
-    }
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="ss">((</span><span class="nv">useCount</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">0</span><span class="ss">)</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="o">!</span><span class="nv">isRunningFinalize</span><span class="ss">())</span><span class="w"> </span>{
+<span class="w">            </span><span class="nv">close0</span><span class="ss">()</span><span class="c1">;</span>
+<span class="w">        </span>}
+<span class="w">    </span>}
 </code></pre></div>
 
 <p>Note that you can still use  <p style="font-family: courier new,courier;">finally</p> block if you want.</p>
 <h4>Closeable vs AutoCloseable</h4>
 <p>Here is the code</p>
-<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">AutoCloseable</span><span class="w"> </span><span class="err">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">public</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">AutoCloseable</span><span class="w"> </span><span class="err">{</span>
 <span class="w"> </span><span class="cm">/**</span>
 <span class="cm">     * Closes this resource, relinquishing any underlying resources.</span>
 <span class="cm">     * This method is invoked automatically on objects managed by the</span>
 <span class="cm">     * {@code try}-with-resources statement.</span>
-<span class="cm">*/</span><span class="w"></span>
-<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="k">close</span><span class="p">()</span><span class="w"> </span><span class="n">throws</span><span class="w"> </span><span class="k">Exception</span><span class="p">;</span><span class="w"></span>
-<span class="err">}</span><span class="w"></span>
+<span class="cm">*/</span>
+<span class="w">    </span><span class="k">public</span><span class="w"> </span><span class="n">void</span><span class="w"> </span><span class="k">close</span><span class="p">()</span><span class="w"> </span><span class="n">throws</span><span class="w"> </span><span class="k">Exception</span><span class="p">;</span>
+<span class="err">}</span>
 </code></pre></div>
 
-<div class="highlight"><pre><span></span><code><span class="n">public</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">Closeable</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">AutoCloseable</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="n">public</span><span class="w"> </span><span class="n">interface</span><span class="w"> </span><span class="n">Closeable</span><span class="w"> </span><span class="k">extends</span><span class="w"> </span><span class="n">AutoCloseable</span><span class="w"> </span><span class="p">{</span>
 
-<span class="w">    </span><span class="o">/**</span><span class="w"></span>
-<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="n">Closes</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">releases</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">resources</span><span class="w"> </span><span class="n">associated</span><span class="w"></span>
-<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">closed</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">invoking</span><span class="w"> </span><span class="n">this</span><span class="w"></span>
-<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">effect</span><span class="o">.</span><span class="w"></span>
-<span class="w">     </span><span class="o">*</span><span class="w"></span>
-<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="err">@</span><span class="n">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurs</span><span class="w"></span>
-<span class="w">     </span><span class="o">*/</span><span class="w"></span>
+<span class="w">    </span><span class="o">/**</span>
+<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="n">Closes</span><span class="w"> </span><span class="n">this</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="ow">and</span><span class="w"> </span><span class="n">releases</span><span class="w"> </span><span class="n">any</span><span class="w"> </span><span class="n">system</span><span class="w"> </span><span class="n">resources</span><span class="w"> </span><span class="n">associated</span>
+<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="n">with</span><span class="w"> </span><span class="n">it</span><span class="o">.</span><span class="w"> </span><span class="n">If</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">stream</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">already</span><span class="w"> </span><span class="n">closed</span><span class="w"> </span><span class="n">then</span><span class="w"> </span><span class="n">invoking</span><span class="w"> </span><span class="n">this</span>
+<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="n">method</span><span class="w"> </span><span class="n">has</span><span class="w"> </span><span class="n">no</span><span class="w"> </span><span class="n">effect</span><span class="o">.</span>
+<span class="w">     </span><span class="o">*</span>
+<span class="w">     </span><span class="o">*</span><span class="w"> </span><span class="err">@</span><span class="n">throws</span><span class="w"> </span><span class="n">IOException</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">an</span><span class="w"> </span><span class="n">I</span><span class="o">/</span><span class="n">O</span><span class="w"> </span><span class="n">error</span><span class="w"> </span><span class="n">occurs</span>
+<span class="w">     </span><span class="o">*/</span>
 <span class="w">    </span><span class="n">public</span><span class="w"> </span><span class="nb nb-Type">void</span><span class="w"> </span><span class="n">close</span><span class="p">()</span><span class="w"> </span><span class="n">throws</span><span class="w"> </span><span class="n">IOException</span><span class="p">;</span><span class="w"> </span>
-<span class="p">}</span><span class="w"></span>
+<span class="p">}</span>
 </code></pre></div>
 
 <p>I hope it clears out when to use AutoCloseable and Closeable..</p>

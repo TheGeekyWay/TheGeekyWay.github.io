@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- ## for client-side less
+  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
+  -->
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="The Geeky Way">
+  <meta name="description" content="Posts and writings by The Geeky Way">
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
+
+<meta name="keywords" content="Continous Integration, Continous Deployment, GitHub Actions">
+
+  <title>
+    The Geeky Way
+&ndash; Setting up CI/CD Pipelines with GitHub Actions  </title>
+
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-46055942-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+</head>
+
+<body>
+  <aside>
+    <div id="user_meta">
+      <a href="//thegeekyway.com">
+        <img src="/uploads/images/tgw.png" alt="logo">
+      </a>
+      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <p></p>
+      <ul>
+        <li><a href="/categories.html" target="_blank">Categories</a></li>
+        <li><a href="/tags.html" target="_blank">Tags</a></li>
+        <li><a href="/archives.html" target="_blank">Archives</a></li>
+        <li><a href="/about-us/" target="_blank">About us</a></li>
+        <li><a href="/authors.html" target="_blank">Authors</a></li>
+        <hr>
+        <p><b>Social Media</b></p>
+        <a href="https://www.twitter.com/thegeekyway" target="_blank">
+          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
+        </a>
+        <a href="https://www.facebook.com/thegeekyway" target="_blank">
+          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
+        </a>
+      </ul>
+    </div>
+  </aside>
+
+  <main>
+    <header>
+      <p>
+      Technology Inside Out!
+      <br><br>
+      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
+      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      </p>
+    </header>
+
+<article>
+  <div class="article_title">
+    <h1><a href="//thegeekyway.com/setting-up-ci-cd-pipelines-with-github-actions/">Setting up CI/CD Pipelines with GitHub Actions</a></h1>
+  </div>
+  <div class="article_author">
+    <p><strong>By: <a href=//thegeekyway.com/author/sanyam_khurana/>sanyam_khurana</a></strong></p>
+  </div>
+  <div class="article_text">
+    <p>Continuous integration (CI) and continuous delivery (CD) are essential practices in modern software development. These practices allow teams to deliver software faster, with fewer bugs, and with more confidence. GitHub Actions is a powerful tool that can help you automate your CI/CD pipelines and integrate them seamlessly into your GitHub workflow.</p>
+<p>In this article, we will explore how to set up CI/CD pipelines with GitHub Actions. We will cover the basics of how GitHub Actions works, how to define workflows, and how to use Actions to automate tasks like building, testing, and deploying your code.</p>
+<h2>What is GitHub Actions?</h2>
+<p>GitHub Actions is a feature of GitHub that allows you to automate tasks in your software development workflow. With Actions, you can define custom workflows that run when specific events occur, like a code push or a pull request. Workflows are defined using YAML files, which makes them easy to read and maintain.</p>
+<p>GitHub Actions provides a wide range of pre-built Actions that you can use to automate common tasks, like building and testing your code. You can also create your own custom Actions and share them with the GitHub community.</p>
+<h2>Defining Workflows</h2>
+<p>To use GitHub Actions, you need to define one or more workflows. A workflow is a set of jobs that are run when a specific event occurs. Workflows are defined using YAML files that are stored in your repository under the <code>.github/workflows</code> directory.</p>
+<p>Here is an example workflow file that defines a simple CI pipeline:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">CI</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout code</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build code</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">          </span><span class="no">npm install</span>
+<span class="w">          </span><span class="no">npm run build</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Run tests</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">npm test</span>
+</code></pre></div>
+
+<p>This workflow is triggered when code is pushed or a pull request is opened against the <code>main</code> branch. It defines a single job called <code>build</code> that runs on an Ubuntu operating system. The job contains three steps:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Checking</span><span class="w"> </span><span class="k">out</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">code</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">GitHub</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n n-Quoted">`actions/checkout`</span><span class="w"> </span><span class="k">Action</span><span class="p">.</span>
+<span class="n">Building</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">code</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n n-Quoted">`npm`</span><span class="p">.</span>
+<span class="n">Running</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">tests</span><span class="w"> </span><span class="k">using</span><span class="w"> </span><span class="n n-Quoted">`npm`</span><span class="p">.</span>
+</code></pre></div>
+
+<h2>Using Actions</h2>
+<p>GitHub Actions provides a wide range of pre-built Actions that you can use to automate common tasks. For example, you can use the <code>actions/setup-node</code> Action to set up Node.js on your system, or the <code>actions/upload-artifact</code> Action to upload build artifacts to GitHub.</p>
+<p>You can also create your own custom Actions using Docker containers. Here is an example of a custom Action that uses a Docker container to deploy a Node.js application:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy</span>
+<span class="nt">on</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">deploy</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Checkout code</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v2</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Deploy application</span>
+<span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">docker://node:12</span>
+<span class="w">        </span><span class="nt">with</span><span class="p">:</span>
+<span class="w">          </span><span class="nt">args</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span class="w">            </span><span class="no">npm install</span>
+<span class="w">            </span><span class="no">npm run build</span>
+<span class="w">            </span><span class="no">npm start</span>
+</code></pre></div>
+
+<p>This workflow is triggered when code is pushed to the <code>main</code> branch. It defines a single job called <code>deploy</code> that runs on an Ubuntu operating system. The job contains two steps:</p>
+<div class="highlight"><pre><span></span><code>Checking out the code from GitHub using the `actions/checkout` Action.
+Running a Docker container based on the `node:12` image. The container runs three commands: `npm install`, `npm run build`, and `npm start`.
+</code></pre></div>
+
+<h2>Conclusion</h2>
+<p>In conclusion, setting up CI/CD pipelines with GitHub Actions can significantly streamline your software development process. With the ability to automate your tests, builds, and deployments, you can ensure that your code is always reliable and up-to-date. By leveraging the power of GitHub Actions, you can save time and resources, as well as reduce the likelihood of human error.</p>
+<p>In this article, we walked through the process of setting up a basic CI/CD pipeline using GitHub Actions. We covered how to define jobs, run tests, build Docker images, and push them to Docker Hub. While this example is relatively simple, it can serve as a starting point for more complex CI/CD pipelines.</p>
+<p>By incorporating additional tools and services such as Kubernetes or Terraform, you can extend your CI/CD pipeline to include deploying your application to a production environment. With continuous integration and continuous deployment, you can ensure that your application is always running smoothly and your customers are receiving the latest features and fixes.</p>
+<p>We hope this article has been useful in helping you get started with setting up CI/CD pipelines with GitHub Actions. Remember to always test your code thoroughly and follow best practices to ensure the reliability and security of your applications.</p>
+  </div>
+  <div class="article_author_info" >
+    <hr>
+    <p>Posted By: Sanyam Khurana</p>
+    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
+
+    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
+  </div>
+  <div class="article_meta">
+    <p>Posted on: Mon 15 August 2022</p>
+    <p>Category: <a href="//thegeekyway.com/category/github-actions/">GitHub Actions</a>
+ &ndash; Tags:
+      <a href="//thegeekyway.com/tag/continous-integration/">Continous Integration</a>,      <a href="//thegeekyway.com/tag/continous-deployment/">Continous Deployment</a>,      <a href="//thegeekyway.com/tag/github-actions/">GitHub Actions</a>    </p>
+  </div>
+
+  <div id="article_comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_identifier = "setting-up-ci-cd-pipelines-with-github-actions/";
+        (function() {
+             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+             dsq.src = '//thegeekyway.disqus.com/embed.js';
+             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+         })();
+    </script>
+  </div>
+
+</article>
+
+
+    <div id="ending_message">
+      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
+      <a href="/disclaimer/">Disclaimer</a> 
+      <a href="/privacy-policy/">Privacy policy</a>
+    </div>
+  </main>
+</body>
+</html>

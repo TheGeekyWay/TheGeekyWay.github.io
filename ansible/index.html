@@ -96,28 +96,28 @@
 <p><code>sudo apt-get install ansible</code> should do just fine. Or <code>dnf</code> in place of <code>apt-get</code> for RHEL. Interestingly, you don't need to install ansible on the target machine! You just install it on your local machine once. And just exploit it using the tasks you define. This is because Ansible basically just SSH into your remote machine, and executes task if required.</p>
 <h2>Getting started</h2>
 <p>We'll start with doing everything in a get it done way. And then move to the way of how it should be done. Firstly you define the target(s) to act upon. This is called the inventory. You can name this file anything, inventory, hosts, instances, etc. it's upto you. In this file, type in the IPs of the instances you wish to control in format:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[name]</span><span class="w"></span>
-<span class="na">0.0.0.1 ansible_user</span><span class="o">=</span><span class="s">&#39;ubuntu&#39; ansible_ssh_private_key_file=&#39;path/to/privateKey/for/server&#39;</span><span class="w"></span>
-<span class="na">0.0.1.2 ansible_user</span><span class="o">=</span><span class="s">&#39;userName_to_login_as&#39; ansible_ssh_private_key_file=&#39;path/to/private/key&#39;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[name]</span>
+<span class="na">0.0.0.1 ansible_user</span><span class="o">=</span><span class="s">&#39;ubuntu&#39; ansible_ssh_private_key_file=&#39;path/to/privateKey/for/server&#39;</span>
+<span class="na">0.0.1.2 ansible_user</span><span class="o">=</span><span class="s">&#39;userName_to_login_as&#39; ansible_ssh_private_key_file=&#39;path/to/private/key&#39;</span>
 </code></pre></div>
 
 <p>You can access these IPs using the *name* you provided. If you want to test this on vagrant, write an inventory file in the format:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[vag]</span><span class="w"></span>
-<span class="na">127.0.0.1 ansible_port</span><span class="o">=</span><span class="s">2222 ansible_user=&#39;vagrant&#39; ansible_ssh_private_key_file=&#39;/path/toVagrantfile/.vagrant/machines/default/virtualbox/private_key&#39;</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[vag]</span>
+<span class="na">127.0.0.1 ansible_port</span><span class="o">=</span><span class="s">2222 ansible_user=&#39;vagrant&#39; ansible_ssh_private_key_file=&#39;/path/toVagrantfile/.vagrant/machines/default/virtualbox/private_key&#39;</span>
 </code></pre></div>
 
 <p>If you wish, you can follow along by performing the commands on your machine instead of a server too.
 Using localhost:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[me]</span><span class="w"></span>
-<span class="na">localhost ansible_connection</span><span class="o">=</span><span class="s">local</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[me]</span>
+<span class="na">localhost ansible_connection</span><span class="o">=</span><span class="s">local</span>
 </code></pre></div>
 
 <p>Now, if you wish to use localhost, just use <code>me</code> in place of <code>vag</code>/<code>groupName</code>.<br>
 If the inventory is ready we can begin executing the commands!</p>
 <p><strong>Note</strong>: Though most of the commands used in this blog are non destructive and would not change anything in your PC to cause problems. Caution should be excercised when hacking through the different commands on your own. Especially if the target machine hosts important data, or you are performing all the commands on your localhost</p>
 <p><strong>Note</strong>: If you get an error/warning related to usage of python2 interpreter, you can create a file <code>ansible.cfg</code> and specify python3 interpreter by writing this in the file:</p>
-<div class="highlight"><pre><span></span><code><span class="k">[defaults]</span><span class="w"></span>
-<span class="na">interpreter_python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/usr/bin/python3</span><span class="w"></span>
+<div class="highlight"><pre><span></span><code><span class="k">[defaults]</span>
+<span class="na">interpreter_python</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/usr/bin/python3</span>
 </code></pre></div>
 
 <h2>Executing some commands</h2>

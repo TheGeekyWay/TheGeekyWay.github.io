@@ -85,7 +85,7 @@
     <p>Linux was developed as a multi-user system. One big problem with multi-user systems is securing information of a particular user from other users. To do that, a concept of permissions was introduced. When you create a file, you have the right to read and write it. In this article we are going to understand how these permissions are handled.</p>
 <p>A user can read from a file, write into it or execute it (if it’s executable). These actions are represented by r for read, w for write and x for executable. Now, there are three type of actors in play in the system, first is user, second is the group the user belongs to and the third is everyone else. Hence, the permissions are in the form of three digits. The default permissions for a file are 666 (i.e. -rw-rw-rw-) and for directory they are 777 ( i.e. drwxrwxrwx). Here the x for directory means search permissions and d in the start indicated it’s a directory.</p>
 <p>Now, this is place where umask comes in picture. When you create a file or directory, the default permissions will be given, but may be you don’t want your file to be readable/writable by everyone, for that we use umask. Fire up your console and type umask. You will find 0002 on most of the systems.</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">umask</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">umask</span>
 
 <span class="m">0002</span>
 </code></pre></div>
@@ -99,7 +99,7 @@
 <p><strong><img alt="" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"></strong></p>
 </div>
 <p>You can revert back to your original umask  by typing</p>
-<div class="highlight"><pre><span></span><code>$ <span class="nb">umask</span> <span class="m">002</span>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">umask</span><span class="w"> </span><span class="m">002</span>
 </code></pre></div>
   </div>
   <div class="article_author_info" >
