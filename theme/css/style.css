@@ -16,6 +16,14 @@ hr {
   height: 1px;
   border: none;
 }
+table {
+  border-collapse: collapse;
+}
+th, td {
+  padding: 4px;
+  border-width: thin;
+  border-style: solid;
+}
 img {
   max-width: 100%;
 }
@@ -111,10 +119,25 @@ main article div.article_text div.quoteblock > div.attribution {
   padding-top: 0.5em;
   text-align: right;
 }
+main article div.article_text div.imageblock {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #eeeeee;
+  padding: 2px;
+}
+main article div.article_text figure {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border: 1px solid #eeeeee;
+  padding: 2px;
+}
+main article div.article_text figcaption {
+  text-align: center;
+}
 main article div.gist {
   line-height: .875em;
 }
-main article div.article_meta {
+main article div.article_meta, main article div.article_readtime {
   font-size: .7rem;
   color: #999999;
 }
@@ -146,6 +169,14 @@ main div#ending_message {
   color: #999999;
   font-size: .6rem;
 }
+h1 a.headerlink { visibility: hidden; }
+h1:hover a.headerlink { visibility: visible; }
+h2 a.headerlink { visibility: hidden; }
+h2:hover a.headerlink { visibility: visible; }
+h3 a.headerlink { visibility: hidden; }
+h3:hover a.headerlink { visibility: visible; }
+h4 a.headerlink { visibility: hidden; }
+h4:hover a.headerlink { visibility: visible; }
 @media screen and (min-width: 1024px) {
   aside {
     width: 25%;

@@ -3,11 +3,11 @@
 
 <head>
   <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="//thegeekyway.com/theme/css/style.less">
+  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
   <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
   -->
-  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/css/pygments.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
 
   <meta charset="utf-8" />
@@ -15,8 +15,6 @@
   <meta name="author" content="The Geeky Way">
   <meta name="description" content="Posts and writings by The Geeky Way">
 
-  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom" />
-  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS" />
 
 <meta name="keywords" content="benchmarking, Openstack, openstack benchmarking, performance measure, rally, scaling">
 
@@ -24,22 +22,15 @@
     The Geeky Way
 &ndash; Benchmarking OpenStack With Rally  </title>
 
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-2EQ7YWRBVJ');
-</script>
 </head>
 
 <body>
   <aside>
     <div id="user_meta">
-      <a href="//thegeekyway.com">
+      <a href="">
         <img src="/uploads/images/tgw.png" alt="logo">
       </a>
-      <h2><a href="//thegeekyway.com">The Geeky Way</a></h2>
+      <h2><a href="">The Geeky Way</a></h2>
       <p></p>
       <ul>
         <li><a href="/categories.html" target="_blank">Categories</a></li>
@@ -64,18 +55,16 @@
       <p>
       Technology Inside Out!
       <br><br>
-      <a href="//thegeekyway.com">Index</a> &brvbar; <a href="//thegeekyway.com/archives.html">Archives</a>
-      &brvbar; <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
-      &brvbar; <a href="//thegeekyway.com/feed/">RSS</a>
+      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
       </p>
     </header>
 
 <article>
   <div class="article_title">
-    <h1><a href="//thegeekyway.com/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
+    <h1><a href="/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
   </div>
   <div class="article_author">
-    <p><strong>By: <a href=//thegeekyway.com/author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
+    <p><strong>By: <a href=/author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
   </div>
   <div class="article_text">
     <p>When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three steps:</p>
@@ -83,7 +72,7 @@
 <p><strong>2. Verification:</strong> Here Rally uses tempest to verify the OpenStack cloud deployment.</p>
 <p><strong>3. Benchmarking:</strong> This step is used to calculate load and performance of the particular cloud deployment.</p>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"><img alt="Openstack with Rally" src="//thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg"></a></p>
+<p><a href="/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"><img alt="Openstack with Rally" src="/uploads/images/2014/02/openstack-logo1.jpg"></a></p>
 </div>
 <p>Rally generally works a command line tool (GUI is work in progress) and helps in detecting scaling and performance issues, figuring out how the code change affects the system and finding out suitable architecture of deployment etc.</p>
 <p>The first step is to install rally in OpenStack environment. I am going to use rally as a plugin with devstack, though it is possible to install it manually in an already deployed environment. To start, clone the following repositories from github:</p>
@@ -151,22 +140,11 @@ echo &quot;enable_service rally&quot; &gt;&gt; localrc
   </div>
   <div class="article_meta">
     <p>Posted on: Fri 28 February 2014</p>
-    <p>Category: <a href="//thegeekyway.com/category/linux/">Linux</a>
+    <p>Category: <a href="/category/linux/">Linux</a>
  &ndash; Tags:
-      <a href="//thegeekyway.com/tag/benchmarking/">benchmarking</a>,      <a href="//thegeekyway.com/tag/openstack/">Openstack</a>,      <a href="//thegeekyway.com/tag/openstack-benchmarking/">openstack benchmarking</a>,      <a href="//thegeekyway.com/tag/performance-measure/">performance measure</a>,      <a href="//thegeekyway.com/tag/rally/">rally</a>,      <a href="//thegeekyway.com/tag/scaling/">scaling</a>    </p>
+      <a href="/tag/benchmarking/">benchmarking</a>,      <a href="/tag/openstack/">Openstack</a>,      <a href="/tag/openstack-benchmarking/">openstack benchmarking</a>,      <a href="/tag/performance-measure/">performance measure</a>,      <a href="/tag/rally/">rally</a>,      <a href="/tag/scaling/">scaling</a>    </p>
   </div>
 
-  <div id="article_comments">
-    <div id="disqus_thread"></div>
-    <script type="text/javascript">
-        var disqus_identifier = "benchmarking-openstack-rally/";
-        (function() {
-             var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-             dsq.src = '//thegeekyway.disqus.com/embed.js';
-             (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-         })();
-    </script>
-  </div>
 
 </article>
 
