@@ -1,0 +1,419 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="sanyam_khurana" />
+<meta name="description" content="Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let&#39;s understand how they work …" />
+<meta name="keywords" content="Git, Version Control">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Understanding Git Submodules"/>
+  <meta property="og:description" content="Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let&#39;s understand how they work …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/understanding-git-submodules/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-03-23 12:00:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/sanyam_khurana/">
+  <meta property="article:section" content="DevOps"/>
+  <meta property="article:tag" content="Git"/>
+  <meta property="article:tag" content="Version Control"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Understanding Git Submodules</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="understanding-git-submodules">Understanding Git Submodules</h1>
+    <p>
+      Posted on Mon 23 March 2026 by <a href="//thegeekyway.com/author/sanyam_khurana/">sanyam_khurana</a> in <a href="//thegeekyway.com/category/devops/">DevOps</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let's understand how they work and when to use them.</p>
+<!--more-->
+
+<h2>What is a Git Submodule?</h2>
+<p>A Git submodule is a reference to another Git repository at a specific commit, embedded inside a parent repository. Think of it as a pointer - your parent repo doesn't store the submodule's files directly in its own history. Instead, it records:</p>
+<ol>
+<li>The <strong>URL</strong> of the external repository</li>
+<li>The <strong>commit hash</strong> it should point to</li>
+<li>The <strong>path</strong> where it should be checked out</li>
+</ol>
+<p>This information is stored in a file called <code>.gitmodules</code> at the root of your repository.</p>
+<h2>When Should You Use Submodules?</h2>
+<p>Submodules are useful when:</p>
+<ul>
+<li>You want to include an <strong>external project</strong> (e.g., a theme, a library) inside your repo</li>
+<li>The external project has its <strong>own release cycle</strong> and version history</li>
+<li>You want to <strong>pin to a specific version</strong> of that external project</li>
+<li>Multiple projects need to <strong>share the same code</strong> without copy-pasting</li>
+</ul>
+<p>Common real-world examples:</p>
+<ul>
+<li>A blog using a theme maintained in a separate repo (like this very blog!)</li>
+<li>A project depending on a shared internal library</li>
+<li>A monorepo-like structure where components are independently versioned</li>
+</ul>
+<h2>Adding a Submodule</h2>
+<p>To add a submodule to your project:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>https://github.com/user/repo.git<span class="w"> </span>path/to/submodule
+</code></pre></div>
+
+<p>This does three things:</p>
+<ol>
+<li>Clones the repository into <code>path/to/submodule</code></li>
+<li>Creates (or updates) the <code>.gitmodules</code> file</li>
+<li>Stages both the <code>.gitmodules</code> file and the submodule path</li>
+</ol>
+<p>Your <code>.gitmodules</code> file will look something like this:</p>
+<div class="highlight"><pre><span></span><code><span class="k">[submodule &quot;path/to/submodule&quot;]</span>
+<span class="w">    </span><span class="na">path</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">path/to/submodule</span>
+<span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://github.com/user/repo.git</span>
+</code></pre></div>
+
+<p>After adding, commit the changes:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.gitmodules<span class="w"> </span>path/to/submodule
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add submodule for external dependency&quot;</span>
+</code></pre></div>
+
+<h2>Cloning a Repository with Submodules</h2>
+<p>When someone clones your repository, the submodule directories will be empty by default. They need to initialize and fetch the submodules:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/user/parent-repo.git
+<span class="nb">cd</span><span class="w"> </span>parent-repo
+git<span class="w"> </span>submodule<span class="w"> </span>init
+git<span class="w"> </span>submodule<span class="w"> </span>update
+</code></pre></div>
+
+<p>Or do it all in one step:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clone<span class="w"> </span>--recurse-submodules<span class="w"> </span>https://github.com/user/parent-repo.git
+</code></pre></div>
+
+<h2>Updating a Submodule</h2>
+<p>There are two common scenarios:</p>
+<h3>Pulling the Latest Changes from Upstream</h3>
+<p>If the external repository has new commits and you want to update:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>path/to/submodule
+git<span class="w"> </span>fetch
+git<span class="w"> </span>checkout<span class="w"> </span>main<span class="w">       </span><span class="c1"># or the branch you want</span>
+git<span class="w"> </span>pull
+<span class="nb">cd</span><span class="w"> </span>..
+git<span class="w"> </span>add<span class="w"> </span>path/to/submodule
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore: update submodule to latest&quot;</span>
+</code></pre></div>
+
+<p>Or use the shorthand:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--remote<span class="w"> </span>path/to/submodule
+</code></pre></div>
+
+<h3>Making Changes Inside the Submodule</h3>
+<p>If you've forked the external repo and want to make changes:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>path/to/submodule
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>my-feature
+<span class="c1"># make your changes</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: my changes&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>my-feature
+<span class="nb">cd</span><span class="w"> </span>..
+git<span class="w"> </span>add<span class="w"> </span>path/to/submodule
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore: update submodule to include my changes&quot;</span>
+</code></pre></div>
+
+<p>The parent repo now points to your new commit in the submodule.</p>
+<h2>How the Parent Repo Tracks Submodules</h2>
+<p>This is the key concept that confuses most people. The parent repository does <strong>not</strong> track the submodule's files. It only tracks a <strong>commit hash</strong> - a pointer to a specific snapshot of the submodule.</p>
+<p>When you run <code>git diff</code> in the parent repo after updating a submodule, you'll see something like:</p>
+<div class="highlight"><pre><span></span><code><span class="gd">-Subproject commit abc1234def5678...</span>
+<span class="gi">+Subproject commit 789abcd012345...</span>
+</code></pre></div>
+
+<p>That's it - just a pointer change. The actual file changes live in the submodule's own repository.</p>
+<h2>Using a Fork as a Submodule</h2>
+<p>A common pattern is to fork an external project, make your customizations, and point the submodule to your fork. This gives you:</p>
+<ul>
+<li>Your own customizations on a branch</li>
+<li>The ability to pull upstream updates via <code>git fetch upstream</code></li>
+<li>A clean separation between upstream code and your changes</li>
+</ul>
+<p>To set this up:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Fork the repo on GitHub first, then:</span>
+git<span class="w"> </span>submodule<span class="w"> </span>add<span class="w"> </span>git@github.com:your-user/forked-repo.git<span class="w"> </span>path/to/submodule
+<span class="nb">cd</span><span class="w"> </span>path/to/submodule
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>upstream<span class="w"> </span>https://github.com/original-user/repo.git
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>my-customizations
+<span class="c1"># make changes, commit, push</span>
+</code></pre></div>
+
+<p>To pull upstream updates later:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>path/to/submodule
+git<span class="w"> </span>fetch<span class="w"> </span>upstream
+git<span class="w"> </span>merge<span class="w"> </span>upstream/main
+<span class="c1"># resolve any conflicts with your customizations</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>my-customizations
+</code></pre></div>
+
+<h2>Specifying a Branch</h2>
+<p>You can configure a submodule to track a specific branch:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>-f<span class="w"> </span>.gitmodules<span class="w"> </span>submodule.path/to/submodule.branch<span class="w"> </span>my-branch
+</code></pre></div>
+
+<p>Then <code>git submodule update --remote</code> will pull from that branch.</p>
+<h2>Removing a Submodule</h2>
+<p>Removing a submodule requires a few steps:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Remove the submodule entry from .gitmodules</span>
+git<span class="w"> </span>config<span class="w"> </span>-f<span class="w"> </span>.gitmodules<span class="w"> </span>--remove-section<span class="w"> </span>submodule.path/to/submodule
+
+<span class="c1"># Remove the submodule entry from .git/config</span>
+git<span class="w"> </span>config<span class="w"> </span>--remove-section<span class="w"> </span>submodule.path/to/submodule
+
+<span class="c1"># Remove the submodule files</span>
+git<span class="w"> </span>rm<span class="w"> </span>--cached<span class="w"> </span>path/to/submodule
+rm<span class="w"> </span>-rf<span class="w"> </span>path/to/submodule
+rm<span class="w"> </span>-rf<span class="w"> </span>.git/modules/path/to/submodule
+
+<span class="c1"># Commit</span>
+git<span class="w"> </span>add<span class="w"> </span>.gitmodules
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;chore: remove submodule&quot;</span>
+</code></pre></div>
+
+<h2>Common Pitfalls</h2>
+<h3>1. Detached HEAD Inside Submodules</h3>
+<p>When you run <code>git submodule update</code>, the submodule is checked out in a <strong>detached HEAD</strong> state at the pinned commit. If you want to make changes, always create a branch first:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>path/to/submodule
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>my-branch<span class="w">  </span><span class="c1"># don&#39;t work in detached HEAD</span>
+</code></pre></div>
+
+<h3>2. Forgetting to Push Submodule Changes</h3>
+<p>If you commit changes in a submodule and update the parent repo's pointer, but forget to push the submodule - others won't be able to fetch that commit. Always push the submodule first, then the parent repo.</p>
+<h3>3. Stale Submodule References</h3>
+<p>After pulling changes in the parent repo, always run:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>submodule<span class="w"> </span>update<span class="w"> </span>--init<span class="w"> </span>--recursive
+</code></pre></div>
+
+<p>Otherwise, your submodule might be stuck at an older commit.</p>
+<h2>Submodules vs. Alternatives</h2>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Submodules</strong></td>
+<td>Pinning to a specific version of an external repo</td>
+</tr>
+<tr>
+<td><strong>Subtrees</strong></td>
+<td>Merging external code directly into your repo's history</td>
+</tr>
+<tr>
+<td><strong>Package managers</strong> (pip, npm)</td>
+<td>Published libraries with proper versioning</td>
+</tr>
+<tr>
+<td><strong>Monorepos</strong></td>
+<td>When all code should share one history</td>
+</tr>
+</tbody>
+</table>
+<p>Submodules work best when you need a clear boundary between repositories while maintaining a specific version dependency.</p>
+<h2>Summary</h2>
+<p>Git submodules are a powerful way to compose projects from multiple repositories. The key things to remember:</p>
+<ul>
+<li>A submodule is a <strong>pointer to a commit</strong> in another repo, not a copy of its files</li>
+<li>Use <code>--recurse-submodules</code> when cloning repos that contain submodules</li>
+<li>Always <strong>create a branch</strong> before making changes inside a submodule</li>
+<li><strong>Push the submodule first</strong>, then update and push the parent repo</li>
+<li>Consider <strong>forking</strong> external repos when you need customizations</li>
+</ul>
+<p>They have a learning curve, but once you understand the mental model - a repo inside a repo, each with its own history -they become a natural tool in your Git workflow.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/git/">Git</a>
+      <a href="//thegeekyway.com/tag/version-control/">Version Control</a>
+    </p>
+  </div>
+
+<div class="author-bio" style="margin-top: 2em; padding: 1.5em; border-top: 1px solid #eee; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 1.2em;">
+  <img src="/uploads/images/authors/sanyam.jpg" alt="Sanyam Khurana" style="width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0;">
+  <div>
+    <h4 style="margin: 0 0 0.4em 0;">
+      <a href="https://sanyamkhurana.com">Sanyam Khurana</a>
+    </h4>
+    <p style="margin: 0; font-size: 0.9em; color: #666;">Principal Engineer & Cloud Architect with 10+ years of experience. MSCS from Georgia Tech. Maintainer at DjangoProject.com, CPython bug triager. Goes by "CuriousLearner" across the web. Find him on <a href="https://github.com/CuriousLearner">GitHub</a>.</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>

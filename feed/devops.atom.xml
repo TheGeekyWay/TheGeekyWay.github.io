@@ -1,5 +1,203 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - DevOps</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T00:58:20+05:30</updated><subtitle>Technology Inside Out!</subtitle><entry><title>Ansible?</title><link href="//thegeekyway.com/ansible/" rel="alternate"></link><published>2019-08-24T00:58:20+05:30</published><updated>2019-08-24T00:58:20+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2019-08-24:/ansible/</id><summary type="html">&lt;div style="text-align:center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - DevOps</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2026-03-23T12:00:00+05:30</updated><subtitle>Technology Inside Out!</subtitle><entry><title>Understanding Git Submodules</title><link href="//thegeekyway.com/understanding-git-submodules/" rel="alternate"></link><published>2026-03-23T12:00:00+05:30</published><updated>2026-03-23T12:00:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2026-03-23:/understanding-git-submodules/</id><summary type="html">&lt;p&gt;Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let's understand how they work …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let's understand how they work and when to use them.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2&gt;What is a Git Submodule?&lt;/h2&gt;
+&lt;p&gt;A Git submodule is a reference to another Git repository at a specific commit, embedded inside a parent repository. Think of it as a pointer - your parent repo doesn't store the submodule's files directly in its own history. Instead, it records:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;The &lt;strong&gt;URL&lt;/strong&gt; of the external repository&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;commit hash&lt;/strong&gt; it should point to&lt;/li&gt;
+&lt;li&gt;The &lt;strong&gt;path&lt;/strong&gt; where it should be checked out&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This information is stored in a file called &lt;code&gt;.gitmodules&lt;/code&gt; at the root of your repository.&lt;/p&gt;
+&lt;h2&gt;When Should You Use Submodules?&lt;/h2&gt;
+&lt;p&gt;Submodules are useful when:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You want to include an &lt;strong&gt;external project&lt;/strong&gt; (e.g., a theme, a library) inside your repo&lt;/li&gt;
+&lt;li&gt;The external project has its &lt;strong&gt;own release cycle&lt;/strong&gt; and version history&lt;/li&gt;
+&lt;li&gt;You want to &lt;strong&gt;pin to a specific version&lt;/strong&gt; of that external project&lt;/li&gt;
+&lt;li&gt;Multiple projects need to &lt;strong&gt;share the same code&lt;/strong&gt; without copy-pasting&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Common real-world examples:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A blog using a theme maintained in a separate repo (like this very blog!)&lt;/li&gt;
+&lt;li&gt;A project depending on a shared internal library&lt;/li&gt;
+&lt;li&gt;A monorepo-like structure where components are independently versioned&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Adding a Submodule&lt;/h2&gt;
+&lt;p&gt;To add a submodule to your project:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;https://github.com/user/repo.git&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This does three things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Clones the repository into &lt;code&gt;path/to/submodule&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Creates (or updates) the &lt;code&gt;.gitmodules&lt;/code&gt; file&lt;/li&gt;
+&lt;li&gt;Stages both the &lt;code&gt;.gitmodules&lt;/code&gt; file and the submodule path&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Your &lt;code&gt;.gitmodules&lt;/code&gt; file will look something like this:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="k"&gt;[submodule &amp;quot;path/to/submodule&amp;quot;]&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;path&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;path/to/submodule&lt;/span&gt;
+&lt;span class="w"&gt;    &lt;/span&gt;&lt;span class="na"&gt;url&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s"&gt;https://github.com/user/repo.git&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;After adding, commit the changes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;.gitmodules&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;feat: add submodule for external dependency&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Cloning a Repository with Submodules&lt;/h2&gt;
+&lt;p&gt;When someone clones your repository, the submodule directories will be empty by default. They need to initialize and fetch the submodules:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;https://github.com/user/parent-repo.git
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;parent-repo
+git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;init
+git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;update
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or do it all in one step:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;clone&lt;span class="w"&gt; &lt;/span&gt;--recurse-submodules&lt;span class="w"&gt; &lt;/span&gt;https://github.com/user/parent-repo.git
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Updating a Submodule&lt;/h2&gt;
+&lt;p&gt;There are two common scenarios:&lt;/p&gt;
+&lt;h3&gt;Pulling the Latest Changes from Upstream&lt;/h3&gt;
+&lt;p&gt;If the external repository has new commits and you want to update:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;fetch
+git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;main&lt;span class="w"&gt;       &lt;/span&gt;&lt;span class="c1"&gt;# or the branch you want&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;pull
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;..
+git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;chore: update submodule to latest&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or use the shorthand:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;update&lt;span class="w"&gt; &lt;/span&gt;--remote&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Making Changes Inside the Submodule&lt;/h3&gt;
+&lt;p&gt;If you've forked the external repo and want to make changes:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;my-feature
+&lt;span class="c1"&gt;# make your changes&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;.
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;feat: my changes&amp;quot;&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;my-feature
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;..
+git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;chore: update submodule to include my changes&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The parent repo now points to your new commit in the submodule.&lt;/p&gt;
+&lt;h2&gt;How the Parent Repo Tracks Submodules&lt;/h2&gt;
+&lt;p&gt;This is the key concept that confuses most people. The parent repository does &lt;strong&gt;not&lt;/strong&gt; track the submodule's files. It only tracks a &lt;strong&gt;commit hash&lt;/strong&gt; - a pointer to a specific snapshot of the submodule.&lt;/p&gt;
+&lt;p&gt;When you run &lt;code&gt;git diff&lt;/code&gt; in the parent repo after updating a submodule, you'll see something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="gd"&gt;-Subproject commit abc1234def5678...&lt;/span&gt;
+&lt;span class="gi"&gt;+Subproject commit 789abcd012345...&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That's it - just a pointer change. The actual file changes live in the submodule's own repository.&lt;/p&gt;
+&lt;h2&gt;Using a Fork as a Submodule&lt;/h2&gt;
+&lt;p&gt;A common pattern is to fork an external project, make your customizations, and point the submodule to your fork. This gives you:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Your own customizations on a branch&lt;/li&gt;
+&lt;li&gt;The ability to pull upstream updates via &lt;code&gt;git fetch upstream&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;A clean separation between upstream code and your changes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;To set this up:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Fork the repo on GitHub first, then:&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;git@github.com:your-user/forked-repo.git&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;remote&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;upstream&lt;span class="w"&gt; &lt;/span&gt;https://github.com/original-user/repo.git
+git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;my-customizations
+&lt;span class="c1"&gt;# make changes, commit, push&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;To pull upstream updates later:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;fetch&lt;span class="w"&gt; &lt;/span&gt;upstream
+git&lt;span class="w"&gt; &lt;/span&gt;merge&lt;span class="w"&gt; &lt;/span&gt;upstream/main
+&lt;span class="c1"&gt;# resolve any conflicts with your customizations&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;my-customizations
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Specifying a Branch&lt;/h2&gt;
+&lt;p&gt;You can configure a submodule to track a specific branch:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;.gitmodules&lt;span class="w"&gt; &lt;/span&gt;submodule.path/to/submodule.branch&lt;span class="w"&gt; &lt;/span&gt;my-branch
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Then &lt;code&gt;git submodule update --remote&lt;/code&gt; will pull from that branch.&lt;/p&gt;
+&lt;h2&gt;Removing a Submodule&lt;/h2&gt;
+&lt;p&gt;Removing a submodule requires a few steps:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Remove the submodule entry from .gitmodules&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;-f&lt;span class="w"&gt; &lt;/span&gt;.gitmodules&lt;span class="w"&gt; &lt;/span&gt;--remove-section&lt;span class="w"&gt; &lt;/span&gt;submodule.path/to/submodule
+
+&lt;span class="c1"&gt;# Remove the submodule entry from .git/config&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;config&lt;span class="w"&gt; &lt;/span&gt;--remove-section&lt;span class="w"&gt; &lt;/span&gt;submodule.path/to/submodule
+
+&lt;span class="c1"&gt;# Remove the submodule files&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;rm&lt;span class="w"&gt; &lt;/span&gt;--cached&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+rm&lt;span class="w"&gt; &lt;/span&gt;-rf&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+rm&lt;span class="w"&gt; &lt;/span&gt;-rf&lt;span class="w"&gt; &lt;/span&gt;.git/modules/path/to/submodule
+
+&lt;span class="c1"&gt;# Commit&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;.gitmodules
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;chore: remove submodule&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Common Pitfalls&lt;/h2&gt;
+&lt;h3&gt;1. Detached HEAD Inside Submodules&lt;/h3&gt;
+&lt;p&gt;When you run &lt;code&gt;git submodule update&lt;/code&gt;, the submodule is checked out in a &lt;strong&gt;detached HEAD&lt;/strong&gt; state at the pinned commit. If you want to make changes, always create a branch first:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;path/to/submodule
+git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;my-branch&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="c1"&gt;# don&amp;#39;t work in detached HEAD&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;2. Forgetting to Push Submodule Changes&lt;/h3&gt;
+&lt;p&gt;If you commit changes in a submodule and update the parent repo's pointer, but forget to push the submodule - others won't be able to fetch that commit. Always push the submodule first, then the parent repo.&lt;/p&gt;
+&lt;h3&gt;3. Stale Submodule References&lt;/h3&gt;
+&lt;p&gt;After pulling changes in the parent repo, always run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;submodule&lt;span class="w"&gt; &lt;/span&gt;update&lt;span class="w"&gt; &lt;/span&gt;--init&lt;span class="w"&gt; &lt;/span&gt;--recursive
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Otherwise, your submodule might be stuck at an older commit.&lt;/p&gt;
+&lt;h2&gt;Submodules vs. Alternatives&lt;/h2&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Approach&lt;/th&gt;
+&lt;th&gt;Best For&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Submodules&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Pinning to a specific version of an external repo&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Subtrees&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Merging external code directly into your repo's history&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Package managers&lt;/strong&gt; (pip, npm)&lt;/td&gt;
+&lt;td&gt;Published libraries with proper versioning&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Monorepos&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;When all code should share one history&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Submodules work best when you need a clear boundary between repositories while maintaining a specific version dependency.&lt;/p&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;Git submodules are a powerful way to compose projects from multiple repositories. The key things to remember:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;A submodule is a &lt;strong&gt;pointer to a commit&lt;/strong&gt; in another repo, not a copy of its files&lt;/li&gt;
+&lt;li&gt;Use &lt;code&gt;--recurse-submodules&lt;/code&gt; when cloning repos that contain submodules&lt;/li&gt;
+&lt;li&gt;Always &lt;strong&gt;create a branch&lt;/strong&gt; before making changes inside a submodule&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Push the submodule first&lt;/strong&gt;, then update and push the parent repo&lt;/li&gt;
+&lt;li&gt;Consider &lt;strong&gt;forking&lt;/strong&gt; external repos when you need customizations&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;They have a learning curve, but once you understand the mental model - a repo inside a repo, each with its own history -they become a natural tool in your Git workflow.&lt;/p&gt;</content><category term="DevOps"></category><category term="Git"></category><category term="Version Control"></category></entry><entry><title>Ansible?</title><link href="//thegeekyway.com/ansible/" rel="alternate"></link><published>2019-08-24T00:58:20+05:30</published><updated>2019-08-24T00:58:20+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2019-08-24:/ansible/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;img alt="Ansible Logo" src="//thegeekyway.com/uploads/images/2019/08/ansible_logo.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Hearing about Ansible lately? Everyone's using it! But what's the buzz about, what is ansible actually? And why should you use it? Lot's of questions and lot's of answers. Let's dive!&lt;/p&gt;
