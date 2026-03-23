@@ -1,0 +1,362 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="sanyam_khurana" />
+<meta name="description" content="If you&#39;ve been using Git for a while, you&#39;ve probably been in this situation: you&#39;re deep into working on a feature branch, and suddenly you need to switch to another branch to fix a bug or review a PR. The usual approach is to either git stash your work or …" />
+<meta name="keywords" content="Git, Version Control">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Understanding Git Worktrees"/>
+  <meta property="og:description" content="If you&#39;ve been using Git for a while, you&#39;ve probably been in this situation: you&#39;re deep into working on a feature branch, and suddenly you need to switch to another branch to fix a bug or review a PR. The usual approach is to either git stash your work or …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/understanding-git-worktrees/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-03-23 14:00:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/sanyam_khurana/">
+  <meta property="article:section" content="DevOps"/>
+  <meta property="article:tag" content="Git"/>
+  <meta property="article:tag" content="Version Control"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Understanding Git Worktrees</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="understanding-git-worktrees">Understanding Git Worktrees</h1>
+    <p>
+      Posted on Mon 23 March 2026 by <a href="//thegeekyway.com/author/sanyam_khurana/">sanyam_khurana</a> in <a href="//thegeekyway.com/category/devops/">DevOps</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>If you've been using Git for a while, you've probably been in this situation: you're deep into working on a feature branch, and suddenly you need to switch to another branch to fix a bug or review a PR. The usual approach is to either <code>git stash</code> your work or commit half-done changes before switching. Both of these are annoying and error-prone. What if I told you there's a better way?</p>
+<p>Enter <code>git worktree</code> - one of the most underrated features of Git.</p>
+<!--more-->
+
+<h2>What is a Git Worktree?</h2>
+<p>A worktree lets you check out multiple branches of the same repository simultaneously, each in its own directory. Your main working directory stays untouched while you work on something else in a completely separate folder.</p>
+<p>Think of it this way: instead of one repository with one checked-out branch, you can have one repository with multiple checked-out branches, each living in its own directory on your filesystem.</p>
+<p>The key insight here is that all these worktrees share the same <code>.git</code> directory. So there's no duplication of your repository history. It's lightweight and fast.</p>
+<h2>Why Should You Care?</h2>
+<p>Here are some real situations where worktrees come in handy:</p>
+<ul>
+<li><strong>Urgent hotfix</strong>: You're in the middle of a feature and need to fix a production bug. No need to stash or commit incomplete work. Just create a worktree, fix the bug, push it, and go back to your feature.</li>
+<li><strong>Code reviews</strong>: You want to test a colleague's PR locally while keeping your own work intact.</li>
+<li><strong>Running tests on another branch</strong>: You want to run the test suite on <code>main</code> while continuing to code on your feature branch.</li>
+<li><strong>Comparing implementations</strong>: You want two different branches open side-by-side in separate editor windows.</li>
+</ul>
+<h2>Creating a Worktree</h2>
+<p>The basic syntax is straightforward:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>&lt;path&gt;<span class="w"> </span>&lt;branch&gt;
+</code></pre></div>
+
+<p>For example, if you want to check out the <code>main</code> branch into a directory called <code>../hotfix</code>:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>../hotfix<span class="w"> </span>main
+</code></pre></div>
+
+<p>This creates a new directory <code>../hotfix</code> with the <code>main</code> branch checked out. You can <code>cd</code> into it and work there as if it were a regular Git checkout.</p>
+<p>You can also create a new branch while creating a worktree:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>-b<span class="w"> </span>bugfix-123<span class="w"> </span>../bugfix-123
+</code></pre></div>
+
+<p>This creates a new branch <code>bugfix-123</code> and checks it out in the <code>../bugfix-123</code> directory.</p>
+<h2>Listing Worktrees</h2>
+<p>To see all your active worktrees:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>list
+</code></pre></div>
+
+<p>Output looks something like:</p>
+<div class="highlight"><pre><span></span><code><span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">project</span><span class="w">         </span><span class="n">abc1234</span><span class="w"> </span><span class="o">[</span><span class="n">feature-x</span><span class="o">]</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">hotfix</span><span class="w">          </span><span class="n">def5678</span><span class="w"> </span><span class="o">[</span><span class="n">main</span><span class="o">]</span>
+<span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="k">user</span><span class="o">/</span><span class="n">bugfix</span><span class="o">-</span><span class="mi">123</span><span class="w">      </span><span class="mi">789</span><span class="n">abcd</span><span class="w"> </span><span class="o">[</span><span class="n">bugfix-123</span><span class="o">]</span>
+</code></pre></div>
+
+<p>The first entry is always your main working directory.</p>
+<h2>Removing a Worktree</h2>
+<p>Once you're done with a worktree, clean it up:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># First, delete the directory</span>
+rm<span class="w"> </span>-rf<span class="w"> </span>../hotfix
+
+<span class="c1"># Then, prune the worktree metadata</span>
+git<span class="w"> </span>worktree<span class="w"> </span>prune
+</code></pre></div>
+
+<p>Or, if the worktree is clean (no uncommitted changes), you can do it in one step:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>remove<span class="w"> </span>../hotfix
+</code></pre></div>
+
+<h2>A Practical Workflow</h2>
+<p>Let me walk you through a real-world scenario. Say you're working on a feature branch and your team reports a critical bug in production.</p>
+<p><strong>Step 1</strong>: Create a worktree for the hotfix</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># You&#39;re currently on feature-x branch in /home/user/project</span>
+git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>../hotfix<span class="w"> </span>main
+</code></pre></div>
+
+<p><strong>Step 2</strong>: Fix the bug in the new worktree</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>../hotfix
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>hotfix/critical-bug
+<span class="c1"># make your fix</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;fix: resolve critical production bug&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>hotfix/critical-bug
+</code></pre></div>
+
+<p><strong>Step 3</strong>: Go back to your feature work</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>../project
+<span class="c1"># Your feature-x branch is exactly where you left it</span>
+<span class="c1"># No stashing, no half-baked commits</span>
+</code></pre></div>
+
+<p><strong>Step 4</strong>: Clean up after the hotfix is merged</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>worktree<span class="w"> </span>remove<span class="w"> </span>../hotfix
+</code></pre></div>
+
+<p>That's it. Your feature work was never interrupted. No stash conflicts, no "WIP" commits cluttering your history.</p>
+<h2>Things to Keep in Mind</h2>
+<h3>You Can't Check Out the Same Branch Twice</h3>
+<p>Git won't let you have the same branch checked out in two worktrees simultaneously. If <code>main</code> is already checked out in one worktree, you can't check it out in another. This is a safety measure to prevent conflicting changes.</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>../another-main<span class="w"> </span>main
+fatal:<span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span>is<span class="w"> </span>already<span class="w"> </span>checked<span class="w"> </span>out<span class="w"> </span>at<span class="w"> </span><span class="s1">&#39;/home/user/project&#39;</span>
+</code></pre></div>
+
+<h3>Worktrees Share the Same Refs</h3>
+<p>Since all worktrees share the same <code>.git</code> directory, operations like <code>git fetch</code> in one worktree will be visible in all others. Branches, tags, and remote tracking refs are shared.</p>
+<h3>Watch Out for Locks</h3>
+<p>If a worktree is on a removable drive or network mount that becomes unavailable, Git might think it's still in use. You can use <code>git worktree lock</code> and <code>git worktree unlock</code> to manage this.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Lock a worktree (prevents pruning)</span>
+git<span class="w"> </span>worktree<span class="w"> </span>lock<span class="w"> </span>../hotfix<span class="w"> </span>--reason<span class="w"> </span><span class="s2">&quot;On external drive&quot;</span>
+
+<span class="c1"># Unlock when it&#39;s back</span>
+git<span class="w"> </span>worktree<span class="w"> </span>unlock<span class="w"> </span>../hotfix
+</code></pre></div>
+
+<h3>Keep Your Worktrees Outside the Main Repo</h3>
+<p>It's a good practice to create worktrees as sibling directories rather than inside your main repository. This avoids confusion with nested Git directories and keeps things clean.</p>
+<div class="highlight"><pre><span></span><code><span class="nv">parent</span><span class="o">-</span><span class="nv">dir</span><span class="o">/</span>
+<span class="w">  </span><span class="nv">project</span><span class="o">/</span><span class="w">          </span>#<span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="nv">worktree</span><span class="w"> </span><span class="ss">(</span><span class="nv">feature</span><span class="o">-</span><span class="nv">x</span><span class="ss">)</span>
+<span class="w">  </span><span class="nv">hotfix</span><span class="o">/</span><span class="w">           </span>#<span class="w"> </span><span class="nv">worktree</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">hotfix</span><span class="w"> </span><span class="ss">(</span><span class="nv">main</span><span class="ss">)</span>
+<span class="w">  </span><span class="nv">bugfix</span><span class="o">-</span><span class="mi">123</span><span class="o">/</span><span class="w">       </span>#<span class="w"> </span><span class="nv">worktree</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">bug</span><span class="w"> </span><span class="nv">fix</span>
+</code></pre></div>
+
+<h2>Worktrees vs. Stash vs. Multiple Clones</h2>
+<p>You might wonder why not just use <code>git stash</code> or clone the repo again. Here's a quick comparison:</p>
+<table>
+<thead>
+<tr>
+<th>Approach</th>
+<th>Pros</th>
+<th>Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>git stash</strong></td>
+<td>Quick, no extra disk space</td>
+<td>Can lead to stash conflicts, easy to forget stashed changes</td>
+</tr>
+<tr>
+<td><strong>Multiple clones</strong></td>
+<td>Full isolation</td>
+<td>Duplicates entire repo, separate fetch/pull needed for each</td>
+</tr>
+<tr>
+<td><strong>git worktree</strong></td>
+<td>Lightweight, shared history, no stash headaches</td>
+<td>Branch can only be checked out in one worktree</td>
+</tr>
+</tbody>
+</table>
+<p>Worktrees hit the sweet spot between isolation and efficiency. You get separate working directories without the overhead of multiple clones.</p>
+<h2>Summary</h2>
+<p><code>git worktree</code> is one of those Git features that once you start using, you wonder how you lived without it. It solves the common pain of context-switching between branches without the mess of stashing or committing incomplete work.</p>
+<p>The next time you need to jump between branches, give <code>git worktree</code> a try. Your future self will thank you.</p>
+<p>If you've any questions about Git worktrees, please let us know in the comments section below.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/git/">Git</a>
+      <a href="//thegeekyway.com/tag/version-control/">Version Control</a>
+    </p>
+  </div>
+
+<div class="author-bio" style="margin-top: 2em; padding: 1.5em; border-top: 1px solid #eee; border-bottom: 1px solid #eee; display: flex; align-items: flex-start; gap: 1.2em;">
+  <img src="/uploads/images/authors/sanyam.jpg" alt="Sanyam Khurana" style="width: 80px; height: 80px; border-radius: 50%; flex-shrink: 0;">
+  <div>
+    <h4 style="margin: 0 0 0.4em 0;">
+      <a href="https://sanyamkhurana.com">Sanyam Khurana</a>
+    </h4>
+    <p style="margin: 0; font-size: 0.9em; color: #666;">Principal Engineer & Cloud Architect with 10+ years of experience. MSCS from Georgia Tech. Maintainer at DjangoProject.com, CPython bug triager. Goes by "CuriousLearner" across the web. Find him on <a href="https://github.com/CuriousLearner">GitHub</a>.</p>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>

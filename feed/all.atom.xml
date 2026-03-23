@@ -1,5 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/all.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2026-03-23T12:00:00+05:30</updated><subtitle>Technology Inside Out!</subtitle><entry><title>Understanding Git Submodules</title><link href="//thegeekyway.com/understanding-git-submodules/" rel="alternate"></link><published>2026-03-23T12:00:00+05:30</published><updated>2026-03-23T12:00:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2026-03-23:/understanding-git-submodules/</id><summary type="html">&lt;p&gt;Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let's understand how they work …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let's understand how they work and when to use them.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/all.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2026-03-23T14:00:00+05:30</updated><subtitle>Technology Inside Out!</subtitle><entry><title>Understanding Git Worktrees</title><link href="//thegeekyway.com/understanding-git-worktrees/" rel="alternate"></link><published>2026-03-23T14:00:00+05:30</published><updated>2026-03-23T14:00:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2026-03-23:/understanding-git-worktrees/</id><summary type="html">&lt;p&gt;If you've been using Git for a while, you've probably been in this situation: you're deep into working on a feature branch, and suddenly you need to switch to another branch to fix a bug or review a PR. The usual approach is to either &lt;code&gt;git stash&lt;/code&gt; your work or …&lt;/p&gt;</summary><content type="html">&lt;p&gt;If you've been using Git for a while, you've probably been in this situation: you're deep into working on a feature branch, and suddenly you need to switch to another branch to fix a bug or review a PR. The usual approach is to either &lt;code&gt;git stash&lt;/code&gt; your work or commit half-done changes before switching. Both of these are annoying and error-prone. What if I told you there's a better way?&lt;/p&gt;
+&lt;p&gt;Enter &lt;code&gt;git worktree&lt;/code&gt; - one of the most underrated features of Git.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;h2&gt;What is a Git Worktree?&lt;/h2&gt;
+&lt;p&gt;A worktree lets you check out multiple branches of the same repository simultaneously, each in its own directory. Your main working directory stays untouched while you work on something else in a completely separate folder.&lt;/p&gt;
+&lt;p&gt;Think of it this way: instead of one repository with one checked-out branch, you can have one repository with multiple checked-out branches, each living in its own directory on your filesystem.&lt;/p&gt;
+&lt;p&gt;The key insight here is that all these worktrees share the same &lt;code&gt;.git&lt;/code&gt; directory. So there's no duplication of your repository history. It's lightweight and fast.&lt;/p&gt;
+&lt;h2&gt;Why Should You Care?&lt;/h2&gt;
+&lt;p&gt;Here are some real situations where worktrees come in handy:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Urgent hotfix&lt;/strong&gt;: You're in the middle of a feature and need to fix a production bug. No need to stash or commit incomplete work. Just create a worktree, fix the bug, push it, and go back to your feature.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Code reviews&lt;/strong&gt;: You want to test a colleague's PR locally while keeping your own work intact.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Running tests on another branch&lt;/strong&gt;: You want to run the test suite on &lt;code&gt;main&lt;/code&gt; while continuing to code on your feature branch.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Comparing implementations&lt;/strong&gt;: You want two different branches open side-by-side in separate editor windows.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Creating a Worktree&lt;/h2&gt;
+&lt;p&gt;The basic syntax is straightforward:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;path&amp;gt;&lt;span class="w"&gt; &lt;/span&gt;&amp;lt;branch&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;For example, if you want to check out the &lt;code&gt;main&lt;/code&gt; branch into a directory called &lt;code&gt;../hotfix&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;../hotfix&lt;span class="w"&gt; &lt;/span&gt;main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This creates a new directory &lt;code&gt;../hotfix&lt;/code&gt; with the &lt;code&gt;main&lt;/code&gt; branch checked out. You can &lt;code&gt;cd&lt;/code&gt; into it and work there as if it were a regular Git checkout.&lt;/p&gt;
+&lt;p&gt;You can also create a new branch while creating a worktree:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;bugfix-123&lt;span class="w"&gt; &lt;/span&gt;../bugfix-123
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;This creates a new branch &lt;code&gt;bugfix-123&lt;/code&gt; and checks it out in the &lt;code&gt;../bugfix-123&lt;/code&gt; directory.&lt;/p&gt;
+&lt;h2&gt;Listing Worktrees&lt;/h2&gt;
+&lt;p&gt;To see all your active worktrees:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;list
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Output looks something like:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;project&lt;/span&gt;&lt;span class="w"&gt;         &lt;/span&gt;&lt;span class="n"&gt;abc1234&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;feature-x&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;hotfix&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;&lt;span class="n"&gt;def5678&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;main&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;home&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="k"&gt;user&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="n"&gt;bugfix&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="w"&gt;      &lt;/span&gt;&lt;span class="mi"&gt;789&lt;/span&gt;&lt;span class="n"&gt;abcd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;bugfix-123&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;The first entry is always your main working directory.&lt;/p&gt;
+&lt;h2&gt;Removing a Worktree&lt;/h2&gt;
+&lt;p&gt;Once you're done with a worktree, clean it up:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# First, delete the directory&lt;/span&gt;
+rm&lt;span class="w"&gt; &lt;/span&gt;-rf&lt;span class="w"&gt; &lt;/span&gt;../hotfix
+
+&lt;span class="c1"&gt;# Then, prune the worktree metadata&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;prune
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;Or, if the worktree is clean (no uncommitted changes), you can do it in one step:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;remove&lt;span class="w"&gt; &lt;/span&gt;../hotfix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;A Practical Workflow&lt;/h2&gt;
+&lt;p&gt;Let me walk you through a real-world scenario. Say you're working on a feature branch and your team reports a critical bug in production.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Step 1&lt;/strong&gt;: Create a worktree for the hotfix&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# You&amp;#39;re currently on feature-x branch in /home/user/project&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;../hotfix&lt;span class="w"&gt; &lt;/span&gt;main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2&lt;/strong&gt;: Fix the bug in the new worktree&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;../hotfix
+git&lt;span class="w"&gt; &lt;/span&gt;checkout&lt;span class="w"&gt; &lt;/span&gt;-b&lt;span class="w"&gt; &lt;/span&gt;hotfix/critical-bug
+&lt;span class="c1"&gt;# make your fix&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;.
+git&lt;span class="w"&gt; &lt;/span&gt;commit&lt;span class="w"&gt; &lt;/span&gt;-m&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;fix: resolve critical production bug&amp;quot;&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;push&lt;span class="w"&gt; &lt;/span&gt;origin&lt;span class="w"&gt; &lt;/span&gt;hotfix/critical-bug
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 3&lt;/strong&gt;: Go back to your feature work&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nb"&gt;cd&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;../project
+&lt;span class="c1"&gt;# Your feature-x branch is exactly where you left it&lt;/span&gt;
+&lt;span class="c1"&gt;# No stashing, no half-baked commits&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 4&lt;/strong&gt;: Clean up after the hotfix is merged&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;remove&lt;span class="w"&gt; &lt;/span&gt;../hotfix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;p&gt;That's it. Your feature work was never interrupted. No stash conflicts, no "WIP" commits cluttering your history.&lt;/p&gt;
+&lt;h2&gt;Things to Keep in Mind&lt;/h2&gt;
+&lt;h3&gt;You Can't Check Out the Same Branch Twice&lt;/h3&gt;
+&lt;p&gt;Git won't let you have the same branch checked out in two worktrees simultaneously. If &lt;code&gt;main&lt;/code&gt; is already checked out in one worktree, you can't check it out in another. This is a safety measure to prevent conflicting changes.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;add&lt;span class="w"&gt; &lt;/span&gt;../another-main&lt;span class="w"&gt; &lt;/span&gt;main
+fatal:&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;main&amp;#39;&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;is&lt;span class="w"&gt; &lt;/span&gt;already&lt;span class="w"&gt; &lt;/span&gt;checked&lt;span class="w"&gt; &lt;/span&gt;out&lt;span class="w"&gt; &lt;/span&gt;at&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;/home/user/project&amp;#39;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Worktrees Share the Same Refs&lt;/h3&gt;
+&lt;p&gt;Since all worktrees share the same &lt;code&gt;.git&lt;/code&gt; directory, operations like &lt;code&gt;git fetch&lt;/code&gt; in one worktree will be visible in all others. Branches, tags, and remote tracking refs are shared.&lt;/p&gt;
+&lt;h3&gt;Watch Out for Locks&lt;/h3&gt;
+&lt;p&gt;If a worktree is on a removable drive or network mount that becomes unavailable, Git might think it's still in use. You can use &lt;code&gt;git worktree lock&lt;/code&gt; and &lt;code&gt;git worktree unlock&lt;/code&gt; to manage this.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="c1"&gt;# Lock a worktree (prevents pruning)&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;lock&lt;span class="w"&gt; &lt;/span&gt;../hotfix&lt;span class="w"&gt; &lt;/span&gt;--reason&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;On external drive&amp;quot;&lt;/span&gt;
+
+&lt;span class="c1"&gt;# Unlock when it&amp;#39;s back&lt;/span&gt;
+git&lt;span class="w"&gt; &lt;/span&gt;worktree&lt;span class="w"&gt; &lt;/span&gt;unlock&lt;span class="w"&gt; &lt;/span&gt;../hotfix
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h3&gt;Keep Your Worktrees Outside the Main Repo&lt;/h3&gt;
+&lt;p&gt;It's a good practice to create worktrees as sibling directories rather than inside your main repository. This avoids confusion with nested Git directories and keeps things clean.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;&lt;span class="nv"&gt;parent&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;dir&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;project&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;          &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;worktree&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;feature&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="nv"&gt;x&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;hotfix&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;           &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;worktree&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;hotfix&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="ss"&gt;(&lt;/span&gt;&lt;span class="nv"&gt;main&lt;/span&gt;&lt;span class="ss"&gt;)&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="nv"&gt;bugfix&lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="mi"&gt;123&lt;/span&gt;&lt;span class="o"&gt;/&lt;/span&gt;&lt;span class="w"&gt;       &lt;/span&gt;#&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;worktree&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;bug&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nv"&gt;fix&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+&lt;h2&gt;Worktrees vs. Stash vs. Multiple Clones&lt;/h2&gt;
+&lt;p&gt;You might wonder why not just use &lt;code&gt;git stash&lt;/code&gt; or clone the repo again. Here's a quick comparison:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Approach&lt;/th&gt;
+&lt;th&gt;Pros&lt;/th&gt;
+&lt;th&gt;Cons&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;git stash&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Quick, no extra disk space&lt;/td&gt;
+&lt;td&gt;Can lead to stash conflicts, easy to forget stashed changes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Multiple clones&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Full isolation&lt;/td&gt;
+&lt;td&gt;Duplicates entire repo, separate fetch/pull needed for each&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;git worktree&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Lightweight, shared history, no stash headaches&lt;/td&gt;
+&lt;td&gt;Branch can only be checked out in one worktree&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Worktrees hit the sweet spot between isolation and efficiency. You get separate working directories without the overhead of multiple clones.&lt;/p&gt;
+&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;git worktree&lt;/code&gt; is one of those Git features that once you start using, you wonder how you lived without it. It solves the common pain of context-switching between branches without the mess of stashing or committing incomplete work.&lt;/p&gt;
+&lt;p&gt;The next time you need to jump between branches, give &lt;code&gt;git worktree&lt;/code&gt; a try. Your future self will thank you.&lt;/p&gt;
+&lt;p&gt;If you've any questions about Git worktrees, please let us know in the comments section below.&lt;/p&gt;</content><category term="DevOps"></category><category term="Git"></category><category term="Version Control"></category></entry><entry><title>Understanding Git Submodules</title><link href="//thegeekyway.com/understanding-git-submodules/" rel="alternate"></link><published>2026-03-23T12:00:00+05:30</published><updated>2026-03-23T12:00:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2026-03-23:/understanding-git-submodules/</id><summary type="html">&lt;p&gt;Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let's understand how they work …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Have you ever needed to use another Git repository inside your own project? Maybe a shared library, a theme, or a set of configuration files maintained separately? Git submodules let you do exactly that - embed one Git repository inside another while keeping their histories independent. Let's understand how they work and when to use them.&lt;/p&gt;
 &lt;!--more--&gt;
 
 &lt;h2&gt;What is a Git Submodule?&lt;/h2&gt;
