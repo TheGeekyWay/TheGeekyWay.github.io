@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Electronics</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/electronics.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2013-12-23T10:23:00+05:30</updated><entry><title>Arduino Uno Pin Functions</title><link href="//thegeekyway.com/arduino-uno-pin-functions/" rel="alternate"></link><published>2013-12-23T10:23:00+05:30</published><updated>2013-12-23T10:23:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-23:/arduino-uno-pin-functions/</id><summary type="html">&lt;p&gt;Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp;amp; every pin is mentioned below the image.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Electronics</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/electronics.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2014-02-03T21:20:00+05:30</updated><subtitle>Technology Inside Out!</subtitle><entry><title>SR Flip-Flop: Description</title><link href="//thegeekyway.com/sr-flip-flop-2/" rel="alternate"></link><published>2014-02-03T21:20:00+05:30</published><updated>2014-02-03T21:20:00+05:30</updated><author><name>Jeffrey_Samuel</name></author><id>tag:thegeekyway.com,2014-02-03:/sr-flip-flop-2/</id><summary type="html">&lt;p&gt;In the &lt;a href="http://www.thegeekyway.com/race-around-effect/" title="Race around Effect"&gt;previous post&lt;/a&gt; we concentrated on the major advantage of Flip-Flop over Latches. In this Blog we will be concentrating more on the most basic type of Flip-Flops which is SR Flip-Flop. Do note that there are counterparts for every Flip-Flop in latch as well.&lt;/p&gt;
+&lt;p&gt;As we all know …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the &lt;a href="http://www.thegeekyway.com/race-around-effect/" title="Race around Effect"&gt;previous post&lt;/a&gt; we concentrated on the major advantage of Flip-Flop over Latches. In this Blog we will be concentrating more on the most basic type of Flip-Flops which is SR Flip-Flop. Do note that there are counterparts for every Flip-Flop in latch as well.&lt;/p&gt;
+&lt;p&gt;As we all know the major types of Flip-FLop include&lt;/p&gt;
+&lt;h2&gt;Types of Flip-Flop:&lt;/h2&gt;
+&lt;p&gt;The major types of Flip-Flop are&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;SR Flip-Flop&lt;/li&gt;
+&lt;li&gt;D- Flip-Flop&lt;/li&gt;
+&lt;li&gt;JK Flip-Flop&lt;/li&gt;
+&lt;li&gt;T Flip-Flop&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;strong&gt;SR Flip-Flop:&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;This is the most basic of all the types of Flip-Flop. It is also known as Set - Reset Flip Flop. It has two excitation states. One state is the set state and the other is Reset state. In the set state the output of the Flip-Flop is high. In reset state the output is Low.&lt;/p&gt;
+&lt;h3&gt;State Diagram:&lt;/h3&gt;
+&lt;p&gt;The state diagram of an SR Flip-Flop is just a toggle between two states.The common states can be explained in the following points&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;When the Set is high the output is High irrespective of the previous input&lt;/li&gt;
+&lt;li&gt;When Reset is high the output is Low irrespective of the previous input&lt;/li&gt;
+&lt;li&gt;If the SR Flip-Flop is off (i.e.,) S=0 and R=0 We have no change in the output of the SR Flip-flop.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div style="text-align:center"&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/SR-Flip-Flop-1.jpg" title="State diagram of SR Flip-Flop"&gt;&lt;img alt="State diagram of SR Flip-Flop" src="//thegeekyway.com/uploads/images/2014/02/SR-Flip-Flop-1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;h3&gt;&lt;/h3&gt;
+&lt;h3&gt;Truth table:&lt;/h3&gt;
+&lt;p&gt;Knowing the states we can draw the truth table as shown in the table below. The truth table gives us&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;&lt;strong&gt;S&lt;/strong&gt;   &lt;strong&gt;R&lt;/strong&gt;   &lt;strong&gt;Next State&lt;/strong&gt;
+     0       0           0
+     0       1           0
+     1       0           1
+     1       1           X&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3&gt;Excitation table:&lt;/h3&gt;
+&lt;p&gt;The excitation states can be clearly seen from the table below. The excitation state gives us the various output possible for an SR Flip-Flop When the past output and the current values of SR is known. When we know the excitation table of an SR Flip-Flop, we can use it to implement other flip flops like D, T and JK.&lt;/p&gt;
+&lt;p&gt;+:-----------:+:-----------:+:-----------:+:-----------:+-------------+
+| ### Present | ### S {#s s | ### R       | ### Next St | ### Comment |
+|  State      | tyle="text- |             | ate         |             |
+|             | align: cent |             |             |             |
+|             | er;"}       |             |             |             |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 0           | 0           | 0           | Flip Flop   |
+|             |             |             |             | is OFF      |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 0           | 1           | 0           | Reset mode  |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 1           | 0           | 1           | Set mode    |
++-------------+-------------+-------------+-------------+-------------+
+| 0           | 1           | 1           | X           | Undefined   |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 0           | 0           | 1           | Flip Flop   |
+|             |             |             |             | is OFF      |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 0           | 1           | 0           | Reset Mode  |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 1           | 0           | 1           | Set Mode    |
++-------------+-------------+-------------+-------------+-------------+
+| 1           | 1           | 1           | X           | Undefined   |
++-------------+-------------+-------------+-------------+-------------+&lt;/p&gt;
+&lt;h3&gt;&lt;strong&gt;LIMITATIONS OF SR Flip-Flop:&lt;/strong&gt;&lt;/h3&gt;
+&lt;p&gt;We find that SR flip flop has one undefined cycle in its operation. This is one of the disadvantages of SR flip flop. Mostly while designing itself this condition is avoided. This defect is rectified in the JK flip-flop.&lt;/p&gt;</content><category term="Electronics"></category><category term="Digital Electronics"></category><category term="Sr Flip-Flop"></category></entry><entry><title>Arduino Uno Pin Functions</title><link href="//thegeekyway.com/arduino-uno-pin-functions/" rel="alternate"></link><published>2013-12-23T10:23:00+05:30</published><updated>2013-12-23T10:23:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2013-12-23:/arduino-uno-pin-functions/</id><summary type="html">&lt;p&gt;Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp;amp; every pin is mentioned below the image.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;img alt="Arduino Pin Functions" src="//thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;

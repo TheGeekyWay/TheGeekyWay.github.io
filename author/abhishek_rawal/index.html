@@ -1,120 +1,242 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
-
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="The Geeky Way">
-  <meta name="description" content="Posts and writings by The Geeky Way">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
 
 
 
-  <title>
-    The Geeky Way
-&ndash; Posts by: Abhishek_Rawal  </title>
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+    <meta name="author" content="The Geeky Way" />
+    <meta name="description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more." />
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:title" content="The Geeky Way"/>
+  <meta property="og:description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more."/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Posts by Abhishek_Rawal:</title>
+
 
 </head>
+<body >
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="">
-        <img src="/uploads/images/tgw.png" alt="logo">
-      </a>
-      <h2><a href="">The Geeky Way</a></h2>
-      <p></p>
-      <ul>
-        <li><a href="/categories.html" target="_blank">Categories</a></li>
-        <li><a href="/tags.html" target="_blank">Tags</a></li>
-        <li><a href="/archives.html" target="_blank">Archives</a></li>
-        <li><a href="/about-us/" target="_blank">About us</a></li>
-        <li><a href="/authors.html" target="_blank">Authors</a></li>
-        <hr>
-        <p><b>Social Media</b></p>
-        <a href="https://www.twitter.com/thegeekyway" target="_blank">
-          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
-        </a>
-        <a href="https://www.facebook.com/thegeekyway" target="_blank">
-          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
-        </a>
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
       </ul>
-    </div>
-  </aside>
+    </nav>
 
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
-    <header>
-      <p>
-      Technology Inside Out!
-      <br><br>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-&gt; Author: Abhishek_Rawal
-      </p>
-    </header>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+
 
 <article>
-  <div class="article_title">
-    <h1><a href="/manage-package-apt-get-apt-cache-ubuntu-commands/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Ubuntu/Debian. Part-3</a></h1>
-  </div>
-  <div class="article_text">
-    <p>This is last &amp; final chapter of this tutorial. Before proceeding further, I would like to link first two parts here just incase you haven't checked it out.</p>
+  <header>
+    <h2><a href="//thegeekyway.com/manage-package-apt-get-apt-cache-ubuntu-commands/#manage-package-apt-get-apt-cache-ubuntu-commands">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Ubuntu/Debian. Part-3</a></h2>
+    <p>
+      Posted on Tue 11 March 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/apt/">APT</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>,              <a href="//thegeekyway.com/tag/ubuntu/">Ubuntu</a>
+    </p>
+  </header>
+  <div>
+      <div><p>This is last &amp; final chapter of this tutorial. Before proceeding further, I would like to link first two parts here just incase you haven't checked it out.</p>
 <p>(<a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-I">PART-1</a>  &amp;  <a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/" title="Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-2">PART-2</a>)</p>
 <p>Continuing from Part-2,</p>
 <p><strong>19) Checking The Stats Of Cache Using APT-CACHE :</strong></p>
-<p>This command will display all the statistics of the cache …</p>
+<p>This command will display all the statistics of the cache …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/manage-package-apt-get-apt-cache-ubuntu-commands/#manage-package-apt-get-apt-cache-ubuntu-commands">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/convert-gimp-photoshop-like-ui/">Convert GIMP Into Photoshop Like UI</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/convert-gimp-photoshop-like-ui/#convert-gimp-photoshop-like-ui">Convert GIMP Into Photoshop Like UI</a></h2>
+    <p>
+      Posted on Mon 10 March 2014 in <a href="//thegeekyway.com/category/how-to-diy-linux/">How To DIY, Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/gimp/">GIMP</a>,              <a href="//thegeekyway.com/tag/photoshop/">Photoshop</a>,              <a href="//thegeekyway.com/tag/tweaks/">Tweaks</a>
+    </p>
+  </header>
+  <div>
+      <div><p>An artist in Deviantart with profile name <a href="http://doctormo.deviantart.com/" title="Doctormo Profile">'doctormo'</a> published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/convert-gimp-photoshop-like-ui/#convert-gimp-photoshop-like-ui">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>An artist in Deviantart with profile name <a href="http://doctormo.deviantart.com/" title="Doctormo Profile">'doctormo'</a> published an awesome tweak which let's you to change the user-interface of the GIMP something similar to world popular image editing software Photoshop. This tweak currently works on GIMP 2.8 .It does works for GIMP 2.9 but some features might …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-2</a></h1>
-  </div>
-  <div class="article_text">
-    <p>This is second part of the tutorial.You would like to read the first part before you proceed further. Here is the <a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="First Part"><strong>LINK</strong></a>.</p>
+  <header>
+    <h2><a href="//thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/#learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-2</a></h2>
+    <p>
+      Posted on Mon 10 March 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/apt/">APT</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>,              <a href="//thegeekyway.com/tag/ubuntu/">Ubuntu</a>
+    </p>
+  </header>
+  <div>
+      <div><p>This is second part of the tutorial.You would like to read the first part before you proceed further. Here is the <a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="First Part"><strong>LINK</strong></a>.</p>
 <p>Continuing from the first part,</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/slide_apt-11.png" title="APT Ubuntu"><img alt="APT Ubuntu" src="/uploads/images/2014/03/slide_apt-11.png"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/slide_apt-11.png" title="APT Ubuntu"><img alt="APT Ubuntu" src="//thegeekyway.com/uploads/images/2014/03/slide_apt-11.png"></a></p>
 </div>
 <p><strong>11) Removing Packages From The System Using APT-GET :</strong></p>
-<p>This command will help you to remove the installed packages from the system. However …</p>
+<p>This command will help you to remove the installed packages from the system. However …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/#learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-I</a></h1>
-  </div>
-  <div class="article_text">
-    <p><strong>APT</strong> abbreviated as <strong>A</strong>dvanced <strong>P</strong>ackaging <strong>T</strong>ool, is the package management tool used in Debian based distributions to install new applications from repository, removing installed applications, upgrading the system, updating the repository and bunch full of other useful tasks, all that from terminal itself.</p>
-<div style="text-align:center">
-<p><a href="/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png" title="APT"><img alt="APT" src="/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png"></a></p>
-</div>
+  <header>
+    <h2><a href="//thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/#learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-I</a></h2>
+    <p>
+      Posted on Sun 09 March 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
 
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/apt/">APT</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>,              <a href="//thegeekyway.com/tag/ubuntu/">Ubuntu</a>
+    </p>
+  </header>
+  <div>
+      <div><p><strong>APT</strong> abbreviated as <strong>A</strong>dvanced <strong>P</strong>ackaging <strong>T</strong>ool, is the package management tool used in Debian based distributions to install new applications from repository, removing installed applications, upgrading the system, updating the repository and bunch full of other useful tasks, all that from terminal itself.</p>
+<div style="text-align:center">
+<p><a href="//thegeekyway.com/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png" title="APT"><img alt="APT" src="//thegeekyway.com/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png"></a></p>
+</div>
+<!--more-->
+<p><strong>1) Installing Application In …</strong></p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/#learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/customize-grub2-burg-screen-using-grub/">Customize GRUB2/BURG Screen Using Grub Customizer</a></h1>
-  </div>
-  <div class="article_text">
-    <p><strong>GRUB Customizer</strong> is the application with graphical interface to configure GRUB2/BURG settings, visuals &amp; menu-entries.</p>
+  <header>
+    <h2><a href="//thegeekyway.com/customize-grub2-burg-screen-using-grub/#customize-grub2-burg-screen-using-grub">Customize GRUB2/BURG Screen Using Grub Customizer</a></h2>
+    <p>
+      Posted on Sun 05 January 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/grub/">GRUB</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>
+    </p>
+  </header>
+  <div>
+      <div><p><strong>GRUB Customizer</strong> is the application with graphical interface to configure GRUB2/BURG settings, visuals &amp; menu-entries.</p>
 <blockquote>
 <p><strong>Features:</strong></p>
 <p>- supports GRUB2 &amp; BURG</p>
@@ -122,77 +244,159 @@
 <p>- Installation of bootloader to MBR</p>
 <p>- settings like default distro, Kernel params, BG image, text colors etc. to customize the look of GRUB2/BURG</p>
 </blockquote>
-<p>You can simple …</p>
+<p>You can simple …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/customize-grub2-burg-screen-using-grub/#customize-grub2-burg-screen-using-grub">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/install-html5-capable-browser-raspberry-pi/">Install HTML5 Capable Browser In Raspberry Pi</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/install-html5-capable-browser-raspberry-pi/#install-html5-capable-browser-raspberry-pi">Install HTML5 Capable Browser In Raspberry Pi</a></h2>
+    <p>
+      Posted on Sun 29 December 2013 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/html5/">HTML5</a>,              <a href="//thegeekyway.com/tag/raspberry-pi/">Raspberry Pi</a>
+    </p>
+  </header>
+  <div>
+      <div><p>'Web' is the epiphany port available for Raspberry Pi users, which is HTML5 capable browser &amp; it's predicted to be shipped in future Raspbian release. Well, if you're impatient for the official release of 'Web' &amp; wanna try out this awesome browser, here's few steps which will let you enjoy the beta …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/install-html5-capable-browser-raspberry-pi/#install-html5-capable-browser-raspberry-pi">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>'Web' is the epiphany port available for Raspberry Pi users, which is HTML5 capable browser &amp; it's predicted to be shipped in future Raspbian release. Well, if you're impatient for the official release of 'Web' &amp; wanna try out this awesome browser, here's few steps which will let you enjoy the beta …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/arduino-uno-pin-functions/">Arduino Uno Pin Functions</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp; every pin is mentioned below the image.</p>
+  <header>
+    <h2><a href="//thegeekyway.com/arduino-uno-pin-functions/#arduino-uno-pin-functions">Arduino Uno Pin Functions</a></h2>
+    <p>
+      Posted on Mon 23 December 2013 in <a href="//thegeekyway.com/category/electronics/">Electronics</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/arduino/">Arduino</a>,              <a href="//thegeekyway.com/tag/openhardware/">Openhardware</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Arduino Uno's Pin labelling is displayed in image below, and detailed function of each &amp; every pin is mentioned below the image.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"><img alt="Arduino Pin Functions" src="/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"><img alt="Arduino Pin Functions" src="//thegeekyway.com/uploads/images/2013/12/ArduinoUno_R3_Front.jpg"></a></p>
 </div>
 <p><u><strong>PIN FUNCTIONS</strong></u> <strong>:<br>
 </strong></p>
 <p><strong>USB To PC :</strong> It is used to communicate Arduino via Universal Serial Bus to PC for programming/sending data to Arduino serially.</p>
-<p><strong>7V to 12V DC Input …</strong></p>
+<p><strong>7V to 12V DC Input …</strong></p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/arduino-uno-pin-functions/#arduino-uno-pin-functions">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/install-alternative-arduino-ide/">Install Alternative To Arduino IDE</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/install-alternative-arduino-ide/#install-alternative-arduino-ide">Install Alternative To Arduino IDE</a></h2>
+    <p>
+      Posted on Wed 11 December 2013 in <a href="//thegeekyway.com/category/how-to-diy/">How To DIY</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/arduino/">Arduino</a>,              <a href="//thegeekyway.com/tag/ide/">IDE</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Arduino, the world famous opensource electronic prototyping platform is undoubtedly the best series of boards used by makers &amp; Engineers. However, the official Arduino IDE which is used to load the arduino sketch is bit clumsy. I never really liked Arduino IDE, so after searching a lot, I came to know …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/install-alternative-arduino-ide/#install-alternative-arduino-ide">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Arduino, the world famous opensource electronic prototyping platform is undoubtedly the best series of boards used by makers &amp; Engineers. However, the official Arduino IDE which is used to load the arduino sketch is bit clumsy. I never really liked Arduino IDE, so after searching a lot, I came to know …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/install-sublime-text-editor-gnulinux/">How To Install Sublime Text Editor In GNU/Linux ?</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/install-sublime-text-editor-gnulinux/#install-sublime-text-editor-gnulinux">How To Install Sublime Text Editor In GNU/Linux ?</a></h2>
+    <p>
+      Posted on Wed 11 December 2013 in <a href="//thegeekyway.com/category/how-to-diy-linux/">How To DIY, Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/linux/">Linux</a>,              <a href="//thegeekyway.com/tag/text-editor/">Text Editor</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp; even Arduino. Sublime Text Editor is not opensource &amp; not an free editor, but …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/install-sublime-text-editor-gnulinux/#install-sublime-text-editor-gnulinux">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Sublime Text Editor is one of the best cross-platform editor out there for editing source code. It is capable of syntax highlighting for wide range of file extensions like Python, C, C++, Java, HTML, JS, PHP, LaTeX &amp; even Arduino. Sublime Text Editor is not opensource &amp; not an free editor, but …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/install-application-source-code-2/">How To Install Any Application From Source Code ?</a></h1>
-  </div>
-  <div class="article_text">
-    <style type="text/css"><!--<br />
+  <header>
+    <h2><a href="//thegeekyway.com/install-application-source-code-2/#install-application-source-code-2">How To Install Any Application From Source Code ?</a></h2>
+    <p>
+      Posted on Tue 10 December 2013 in <a href="//thegeekyway.com/category/how-to-diy-linux/">How To DIY, Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/linux/">Linux</a>,              <a href="//thegeekyway.com/tag/open-source/">Open Source</a>,              <a href="//thegeekyway.com/tag/source-code/">Source Code</a>
+    </p>
+  </header>
+  <div>
+      <div><style type="text/css"><!--<br />
 P { margin-bottom: 0.08in; }<br />
 --></style>
-<p>Most of the applications are available in the official repository of your Linux distribution. However, there are times when some of the applications you're installing haven't been updated in the repository &amp; you want to get the latest version of that application.Learning how to …</p>
+<p>Most of the applications are available in the official repository of your Linux distribution. However, there are times when some of the applications you're installing haven't been updated in the repository &amp; you want to get the latest version of that application.Learning how to …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/install-application-source-code-2/#install-application-source-code-2">
+          Continue reading
+        </a>
   </div>
 </article>
 
+  <div class="pagination">
+    <a class="btn float-left" href="//thegeekyway.com/author/abhishek_rawal/index2.html">
+      <i class="fa fa-angle-left"></i> Older Posts
+    </a>
+  </div>
+
+
+
 <footer>
-<div id="paginator">
-<a href="/author/abhishek_rawal/2.html" class="button_accent">&larr; Older Posts</a>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
 
-</div>
-</footer>
-
-    <div id="ending_message">
-      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href="/disclaimer/">Disclaimer</a> 
-      <a href="/privacy-policy/">Privacy policy</a>
-    </div>
-  </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
 </body>
 </html>

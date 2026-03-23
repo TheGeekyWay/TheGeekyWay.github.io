@@ -1,87 +1,189 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
-
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="The Geeky Way">
-  <meta name="description" content="Posts and writings by The Geeky Way">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
 
 
 
-  <title>
-    The Geeky Way
-&ndash; Tag: file transfer  </title>
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+    <meta name="author" content="The Geeky Way" />
+    <meta name="description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more." />
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:title" content="The Geeky Way"/>
+  <meta property="og:description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more."/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Tag File Transfer</title>
+
 
 </head>
+<body >
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="">
-        <img src="/uploads/images/tgw.png" alt="logo">
-      </a>
-      <h2><a href="">The Geeky Way</a></h2>
-      <p></p>
-      <ul>
-        <li><a href="/categories.html" target="_blank">Categories</a></li>
-        <li><a href="/tags.html" target="_blank">Tags</a></li>
-        <li><a href="/archives.html" target="_blank">Archives</a></li>
-        <li><a href="/about-us/" target="_blank">About us</a></li>
-        <li><a href="/authors.html" target="_blank">Authors</a></li>
-        <hr>
-        <p><b>Social Media</b></p>
-        <a href="https://www.twitter.com/thegeekyway" target="_blank">
-          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
-        </a>
-        <a href="https://www.facebook.com/thegeekyway" target="_blank">
-          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
-        </a>
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
       </ul>
-    </div>
-  </aside>
+    </nav>
 
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
-    <header>
-      <p>
-      Technology Inside Out!
-      <br><br>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-&gt; Tag: file transfer
-      </p>
-    </header>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+
 
 <article>
-  <div class="article_title">
-    <h1><a href="/transfer-data-with-scp/">Transfer data with SCP</a></h1>
-  </div>
-  <div class="article_text">
-    <div style="text-align:center">
-<p><img alt="Secure Copy Protocol" src="/uploads/images/2018/03/Secure_copy_protocol.png"></p>
+  <header>
+    <h2><a href="//thegeekyway.com/transfer-data-with-scp/#transfer-data-with-scp">Transfer data with SCP</a></h2>
+    <p>
+      Posted on Wed 14 March 2018 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/encryption/">Encryption</a>,              <a href="//thegeekyway.com/tag/file-transfer/">File Transfer</a>,              <a href="//thegeekyway.com/tag/scp/">SCP</a>
+    </p>
+  </header>
+  <div>
+      <div><div style="text-align:center">
+<p><img alt="Secure Copy Protocol" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"></p>
 </div>
-<p>Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a <strong>network,</strong> to a machine that's out of your reach, like transferring data between an …</p>
+<p>Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a <strong>network,</strong> to a machine that's out of your reach, like transferring data between an …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/transfer-data-with-scp/#transfer-data-with-scp">
+          Continue reading
+        </a>
   </div>
 </article>
 
+  <div class="pagination">
+  </div>
+
+
+
 <footer>
-<div id="paginator">
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
 
-</div>
-</footer>
-
-    <div id="ending_message">
-      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href="/disclaimer/">Disclaimer</a> 
-      <a href="/privacy-policy/">Privacy policy</a>
-    </div>
-  </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
 </body>
 </html>

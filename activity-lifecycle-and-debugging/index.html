@@ -1,143 +1,259 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
-
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="The Geeky Way">
-  <meta name="description" content="Posts and writings by The Geeky Way">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
 
 
-<meta name="keywords" content="Android, debugging, life cycle">
 
-  <title>
-    The Geeky Way
-&ndash; Android Activity lifecycle (Code) & Debugging using LogCat (Android Part – 8)  </title>
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="gagan93" />
+<meta name="description" content="Hello Geeks, hope you have read the previous article and are clear with the theoretical concepts of an Android Activity and its Lifecycle. Now we will create a code for the same to see what all methods are called in which cases. This code is similar to what you might …" />
+<meta name="keywords" content="Android, Debugging, Lifecycle">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Android Activity lifecycle (Code) &amp; Debugging using LogCat (Android Part – 8)"/>
+  <meta property="og:description" content="Hello Geeks, hope you have read the previous article and are clear with the theoretical concepts of an Android Activity and its Lifecycle. Now we will create a code for the same to see what all methods are called in which cases. This code is similar to what you might …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/activity-lifecycle-and-debugging/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2014-07-17 12:37:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/gagan93/">
+  <meta property="article:section" content="J4A (Java for Android)"/>
+  <meta property="article:tag" content="Android"/>
+  <meta property="article:tag" content="Debugging"/>
+  <meta property="article:tag" content="Lifecycle"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Android Activity lifecycle (Code) &amp; Debugging using LogCat (Android Part – 8)</title>
+
 
 </head>
+<body >
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="">
-        <img src="/uploads/images/tgw.png" alt="logo">
-      </a>
-      <h2><a href="">The Geeky Way</a></h2>
-      <p></p>
-      <ul>
-        <li><a href="/categories.html" target="_blank">Categories</a></li>
-        <li><a href="/tags.html" target="_blank">Tags</a></li>
-        <li><a href="/archives.html" target="_blank">Archives</a></li>
-        <li><a href="/about-us/" target="_blank">About us</a></li>
-        <li><a href="/authors.html" target="_blank">Authors</a></li>
-        <hr>
-        <p><b>Social Media</b></p>
-        <a href="https://www.twitter.com/thegeekyway" target="_blank">
-          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
-        </a>
-        <a href="https://www.facebook.com/thegeekyway" target="_blank">
-          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
-        </a>
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
       </ul>
-    </div>
-  </aside>
+    </nav>
 
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
-    <header>
-      <p>
-      Technology Inside Out!
-      <br><br>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      </p>
-    </header>
 
-<article>
-  <div class="article_title">
-    <h1><a href="/activity-lifecycle-and-debugging/">Android Activity lifecycle (Code) & Debugging using LogCat (Android Part – 8)</a></h1>
-  </div>
-  <div class="article_author">
-    <p><strong>By: <a href=/author/gagan93/>gagan93</a></strong></p>
-  </div>
-  <div class="article_text">
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="activity-lifecycle-and-debugging">Android Activity lifecycle (Code) & Debugging using LogCat (Android Part – 8)</h1>
+    <p>
+      Posted on Thu 17 July 2014 in <a href="//thegeekyway.com/category/j4a-java-for-android/">J4A (Java for Android)</a>
+
+    </p>
+  </header>
+
+
+  <div>
     <p>Hello Geeks, hope you have read the <a href="http://www.thegeekyway.com/android-activity-lifecycle/">previous article</a> and are clear with the theoretical concepts of an <strong>Android Activity</strong> and its <strong>Lifecycle.</strong> Now we will create a code for the same to see what all methods are called in which cases. This code is similar to what you might have created to study lifecycle of an <strong>Applet in Java (</strong>for those who are from java background). Create a new Android Application in Eclipse IDE and paste <a class="external" href="http://pastebin.com/pN7bx4ii">this</a> code.</p>
 <div style="text-align:center">
-<p><img alt="Android Lifecycle and Debugging" src="/uploads/images/2014/03/command_line_android_debugging.jpg" title="Android Lifecycle and Debugging"></p>
+<p><img alt="Android Lifecycle and Debugging" src="//thegeekyway.com/uploads/images/2014/03/command_line_android_debugging.jpg" title="Android Lifecycle and Debugging"></p>
 </div>
 <p>As you can see in the code, that we have extended the <strong>Activity</strong> class and overwritten all the methods which we had discussed in previous tutorial. In each method, we first call the super class version of the method (using <strong>super</strong> keyword) and then we write our own statement. Here we use a special class from android.util package. This is the <strong>Log</strong> class which is used for debugging in android. We use Log.d method in this program which has the following signature.</p>
 <p><strong>static void d ( String tag, String message )</strong></p>
 <p>First parameter takes the tag (you will shortly get to know what it is) and second takes the message to be printed. Anything printed using <strong>Log.d</strong> method is shown on the LogCat. LogCat is generally visible at the bottom as shown below:</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/logcat.jpg"><img alt="logcat" src="/uploads/images/2014/03/logcat.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/logcat.jpg"><img alt="logcat" src="//thegeekyway.com/uploads/images/2014/03/logcat.jpg"></a></p>
 </div>
 <p>The above screenshot shows the LogCat under the text area where we code. We can use the position marked as “Extend” in above screenshot to extend the logcat upwards so that it more messages are visible without scrolling.</p>
 <p>Moreover, we also have a <strong>Debug perspective</strong> in which tabs like Console, Logcat, Variables and program breakpoints as shown here :</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/debug_perspective.jpg"><img alt="debug_perspective" src="/uploads/images/2014/03/debug_perspective-1024x545.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/debug_perspective.jpg"><img alt="debug_perspective" src="//thegeekyway.com/uploads/images/2014/03/debug_perspective-1024x545.jpg"></a></p>
 </div>
 <p>The default perspective is <strong>Java</strong> (extreme left). In the above screenshot, the <strong>Tag</strong> is nothing but the string visible inside “Tag” column (Lifecycle here) and <strong>Message</strong> is the string visible inside “Text” column (inside onCreate(), inside onStart() etc).</p>
 <p>For those who are from pure java background, we can also use System.out.println() for debugging, and it will be visible in <strong>Console</strong> tab, but it is not recommended by Android Developers. Moreover, it may or may not work for some versions.</p>
 <p>When we execute a typical android application in android virtual device, we get many messages from the system (or the virtual device). So sometimes it may become hard to locate our own messages in the LogCat. To overcome this problem, we can create custom LogCat filters so that our custom LogCat reads only specific tags or messages.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/11.jpg"><img alt="1" src="/uploads/images/2014/03/11.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/11.jpg"><img alt="1" src="//thegeekyway.com/uploads/images/2014/03/11.jpg"></a></p>
 </div>
 <p>In the above screenshot, we need to focus only on the tags marked above, but the LogCat shows all the tags which are coming from AVD. So we can create custom LogCat filter by clicking on this icon present on left side of LogCat filter.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/add_filter.jpg"><img alt="add_filter" src="/uploads/images/2014/03/add_filter.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/add_filter.jpg"><img alt="add_filter" src="//thegeekyway.com/uploads/images/2014/03/add_filter.jpg"></a></p>
 </div>
 <p>Then this dialog box appears</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/create_filter.jpg"><img alt="create_filter" src="/uploads/images/2014/03/create_filter.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/create_filter.jpg"><img alt="create_filter" src="//thegeekyway.com/uploads/images/2014/03/create_filter.jpg"></a></p>
 </div>
 <p>I have all tags with name “LifeCycle”, so I have named the tag “LifeCycle”. The message doesn’t matter so I keep it blank. Click OK to create the filter.Now we are clear with basics of debugging and will execute our application with our virtual device and notice the output in LogCat when the Lifecycle methods are called.Execute the application and select your custom filter.</p>
 <p>As per the <a href="http://www.thegeekyway.com/android-activity-lifecycle/">previous tutorial</a>, when the application starts, the methods shown below are called:</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/111.jpg"><img alt="11" src="/uploads/images/2014/03/111.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/111.jpg"><img alt="11" src="//thegeekyway.com/uploads/images/2014/03/111.jpg"></a></p>
 </div>
 <p>When we come back to home screen (using Home button on emulator), the GUI is updated and our activity is no more visible so these methods are called:</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/2.jpg"><img alt="2" src="/uploads/images/2014/03/2.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/2.jpg"><img alt="2" src="//thegeekyway.com/uploads/images/2014/03/2.jpg"></a></p>
 </div>
 <p>The application still remains in memory, so onDestroy() is not called yet !  Now we come back to our application using Menu and these methods are called in quick succession :</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/3.jpg"><img alt="3" src="/uploads/images/2014/03/3.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/3.jpg"><img alt="3" src="//thegeekyway.com/uploads/images/2014/03/3.jpg"></a></p>
 </div>
 <p>Now we use <strong>BACK</strong> button to exit the application and these methods are called :</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/03/4.jpg"><img alt="4" src="/uploads/images/2014/03/4.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/03/4.jpg"><img alt="4" src="//thegeekyway.com/uploads/images/2014/03/4.jpg"></a></p>
 </div>
 <p>So this completes the 7 basic methods in Android Lifecycle. Comment if you have any doubt !</p>
   </div>
-  <div class="article_author_info" >
-    <hr>
-    <p>Posted By: Sanyam Khurana</p>
-    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
-
-    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
-  </div>
-  <div class="article_meta">
-    <p>Posted on: Thu 17 July 2014</p>
-    <p>Category: <a href="/category/j4a-java-for-android/">J4A (Java for Android)</a>
- &ndash; Tags:
-      <a href="/tag/android/">Android</a>,      <a href="/tag/debugging/">debugging</a>,      <a href="/tag/life-cycle/">life cycle</a>    </p>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/android/">Android</a>
+      <a href="//thegeekyway.com/tag/debugging/">Debugging</a>
+      <a href="//thegeekyway.com/tag/lifecycle/">Lifecycle</a>
+    </p>
   </div>
 
 
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
 </article>
 
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
 
-    <div id="ending_message">
-      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href="/disclaimer/">Disclaimer</a> 
-      <a href="/privacy-policy/">Privacy policy</a>
-    </div>
-  </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
 </body>
 </html>

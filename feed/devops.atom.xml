@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - DevOps</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T00:58:20+05:30</updated><entry><title>Ansible?</title><link href="//thegeekyway.com/ansible/" rel="alternate"></link><published>2019-08-24T00:58:20+05:30</published><updated>2019-08-24T00:58:20+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2019-08-24:/ansible/</id><summary type="html">&lt;div style="text-align:center"&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - DevOps</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/devops.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-08-24T00:58:20+05:30</updated><subtitle>Technology Inside Out!</subtitle><entry><title>Ansible?</title><link href="//thegeekyway.com/ansible/" rel="alternate"></link><published>2019-08-24T00:58:20+05:30</published><updated>2019-08-24T00:58:20+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2019-08-24:/ansible/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;img alt="Ansible Logo" src="//thegeekyway.com/uploads/images/2019/08/ansible_logo.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Hearing about Ansible lately? Everyone's using it! But what's the buzz about, what is ansible actually? And why should you use it? Lot's of questions and lot's of answers. Let's dive!&lt;/p&gt;
@@ -237,4 +237,4 @@ For this technique, we need 2 identically configured hardware components or serv
 &lt;p&gt;1. Database dependent:&lt;br&gt;
 Implementing blue-green deployment become complex with the database, especially if, the database schema is changed in the new version.&lt;br&gt;
 2. Increasingly more difficult at scale&lt;/p&gt;
-&lt;p&gt;If you've any questions about Blue Green Deployment, please let us know in the comments section below.&lt;/p&gt;</content><category term="DevOps"></category><category term="deployment"></category></entry></feed>
+&lt;p&gt;If you've any questions about Blue Green Deployment, please let us know in the comments section below.&lt;/p&gt;</content><category term="DevOps"></category><category term="Deployment"></category></entry></feed>

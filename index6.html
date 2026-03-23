@@ -1,189 +1,395 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
-
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="The Geeky Way">
-  <meta name="description" content="Posts and writings by The Geeky Way">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
 
 
 
-  <title>
-    The Geeky Way
-  </title>
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+    <meta name="author" content="The Geeky Way" />
+    <meta name="description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more." />
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:title" content="The Geeky Way"/>
+  <meta property="og:description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more."/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way</title>
+
 
 </head>
+<body >
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="">
-        <img src="/uploads/images/tgw.png" alt="logo">
-      </a>
-      <h2><a href="">The Geeky Way</a></h2>
-      <p></p>
-      <ul>
-        <li><a href="/categories.html" target="_blank">Categories</a></li>
-        <li><a href="/tags.html" target="_blank">Tags</a></li>
-        <li><a href="/archives.html" target="_blank">Archives</a></li>
-        <li><a href="/about-us/" target="_blank">About us</a></li>
-        <li><a href="/authors.html" target="_blank">Authors</a></li>
-        <hr>
-        <p><b>Social Media</b></p>
-        <a href="https://www.twitter.com/thegeekyway" target="_blank">
-          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
-        </a>
-        <a href="https://www.facebook.com/thegeekyway" target="_blank">
-          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
-        </a>
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
       </ul>
-    </div>
-  </aside>
+    </nav>
 
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
-    <header>
-      <p>
-      Technology Inside Out!
-      <br><br>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      </p>
-    </header>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+
 
 <article>
-  <div class="article_title">
-    <h1><a href="/introduction-javascript/">Introduction to Javascript</a></h1>
-  </div>
-  <div class="article_text">
-    <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/IntroductionToJavascript.png" title="Introduction to Javascript"><img alt="Introduction to Javascript" src="/uploads/images/2014/02/IntroductionToJavascript.png"></a></p>
+  <header>
+    <h2><a href="//thegeekyway.com/introduction-javascript/#introduction-javascript">Introduction to Javascript</a></h2>
+    <p>
+      Posted on Sun 23 February 2014 in <a href="//thegeekyway.com/category/javascript/">JavaScript</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/introduction/">Introduction</a>,              <a href="//thegeekyway.com/tag/javascript/">JavaScript</a>
+    </p>
+  </header>
+  <div>
+      <div><div style="text-align:center">
+<p><a href="//thegeekyway.com/uploads/images/2014/02/IntroductionToJavascript.png" title="Introduction to Javascript"><img alt="Introduction to Javascript" src="//thegeekyway.com/uploads/images/2014/02/IntroductionToJavascript.png"></a></p>
 </div>
-<p>Hi everyone, welcome to this brief article discussing about javascript, we'll do this by discussing various fundamentals of javascript, javascript is a programming language that as a software developer you can't ignore. Javascript was first demonstrated and announced at conference at SanFrancisco in 1995, over the time web browsers emerged …</p>
+<p>Hi everyone, welcome to this brief article discussing about javascript, we'll do this by discussing various fundamentals of javascript, javascript is a programming language that as a software developer you can't ignore. Javascript was first demonstrated and announced at conference at SanFrancisco in 1995, over the time web browsers emerged …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/introduction-javascript/#introduction-javascript">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/creating-first-java-program/">Creating your first Java Program (J4A - 2)</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/creating-first-java-program/#creating-first-java-program">Creating your first Java Program (J4A - 2)</a></h2>
+    <p>
+      Posted on Sat 22 February 2014 in <a href="//thegeekyway.com/category/j4a-java-for-android-programming/">J4A (Java for Android), Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/android/">Android</a>,              <a href="//thegeekyway.com/tag/java/">Java</a>
+    </p>
+  </header>
+  <div>
+      <div><p><u>Beginning Java Programming</u></p>
+<p>Some institutes/tutorials start java directly using Netbeans or Eclipse IDE. But this is not the correct way. A better method is to use a basic text editor like Notepad2 or Notepad++ to begin Java. IDE’s provide shortcuts which experienced programmers use. If beginners opt for …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/creating-first-java-program/#creating-first-java-program">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p><u>Beginning Java Programming</u></p>
-<p>Some institutes/tutorials start java directly using Netbeans or Eclipse IDE. But this is not the correct way. A better method is to use a basic text editor like Notepad2 or Notepad++ to begin Java. IDE’s provide shortcuts which experienced programmers use. If beginners opt for …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/moving-c-java/">Moving from C++ to Java (J4A - 1)</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/moving-c-java/#moving-c-java">Moving from C++ to Java (J4A - 1)</a></h2>
+    <p>
+      Posted on Sat 22 February 2014 in <a href="//thegeekyway.com/category/j4a-java-for-android-programming/">J4A (Java for Android), Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/android/">Android</a>,              <a href="//thegeekyway.com/tag/java/">Java</a>
+    </p>
+  </header>
+  <div>
+      <div><p><u>C to C++ and C++ to Java:</u></p>
+<p>C was a powerful programming language but used structural approach. So when the length of code exceeded a particular no. of lines, the code became unmanageable. So this led to Object Oriented Programming techniques and birth of C++. But C++ compilers at that …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/moving-c-java/#moving-c-java">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p><u>C to C++ and C++ to Java:</u></p>
-<p>C was a powerful programming language but used structural approach. So when the length of code exceeded a particular no. of lines, the code became unmanageable. So this led to Object Oriented Programming techniques and birth of C++. But C++ compilers at that …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/java-for-android-introducion/">Introduction and Syllabus (J4A - 0)</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/java-for-android-introducion/#java-for-android-introducion">Introduction and Syllabus (J4A - 0)</a></h2>
+    <p>
+      Posted on Sat 22 February 2014 in <a href="//thegeekyway.com/category/j4a-java-for-android/">J4A (Java for Android)</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/android/">Android</a>,              <a href="//thegeekyway.com/tag/java/">Java</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Hello geeks, <strong>(J4A) Java for Android</strong> is a series of tutorials for those who have good knowledge of C++ and want to switch to android without going into details of Core Java. So here we'll discuss ONLY THOSE features of JAVA (keywords, classes, concepts) which are used in android also …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/java-for-android-introducion/#java-for-android-introducion">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Hello geeks, <strong>(J4A) Java for Android</strong> is a series of tutorials for those who have good knowledge of C++ and want to switch to android without going into details of Core Java. So here we'll discuss ONLY THOSE features of JAVA (keywords, classes, concepts) which are used in android also …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/secondapp3/">Second simple Android Application Part 3 (Android-Part 6)</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Welcome back geeks, so after pasting <a href="http://pastebin.com/zs00wWNd">this code</a>, you would be having the MainActivity.java file like this :</p>
+  <header>
+    <h2><a href="//thegeekyway.com/secondapp3/#secondapp3">Second simple Android Application Part 3 (Android-Part 6)</a></h2>
+    <p>
+      Posted on Fri 14 February 2014 in <a href="//thegeekyway.com/category/android/">Android</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/android/">Android</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Welcome back geeks, so after pasting <a href="http://pastebin.com/zs00wWNd">this code</a>, you would be having the MainActivity.java file like this :</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/131.jpg"><img alt="13" src="/uploads/images/2014/02/131.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/131.jpg"><img alt="13" src="//thegeekyway.com/uploads/images/2014/02/131.jpg"></a></p>
 </div>
-<p>In this screenshot, notice the highlighted part on the left. The Eclipse IDE is showing some errors at some specific lines (line no. 9 10,17,18 and so on). Now we …</p>
+<p>In this screenshot, notice the highlighted part on the left. The Eclipse IDE is showing some errors at some specific lines (line no. 9 10,17,18 and so on). Now we …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/secondapp3/#secondapp3">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/secondapp2/">Second simple Android Application Part 2 (Android-Part 5)</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Welcome back geeks, this tutorial is a continuation of <a href="http://www.thegeekyway.com/secondapp1/" title="previous">previous</a><a href="http://www.thegeekyway.com/secondapp1/" title="this"> </a>tutorial. So please read the previous one if you have not read it.</p>
+  <header>
+    <h2><a href="//thegeekyway.com/secondapp2/#secondapp2">Second simple Android Application Part 2 (Android-Part 5)</a></h2>
+    <p>
+      Posted on Fri 14 February 2014 in <a href="//thegeekyway.com/category/android/">Android</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/android/">Android</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Welcome back geeks, this tutorial is a continuation of <a href="http://www.thegeekyway.com/secondapp1/" title="previous">previous</a><a href="http://www.thegeekyway.com/secondapp1/" title="this"> </a>tutorial. So please read the previous one if you have not read it.</p>
 <p>So we had created a simple layout and it looked something like this :  </p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/7.jpg"><img alt="7" src="/uploads/images/2014/02/7.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/7.jpg"><img alt="7" src="//thegeekyway.com/uploads/images/2014/02/7.jpg"></a></p>
 </div>
-<p>Double click on the button to change the text of the button, now the …</p>
+<p>Double click on the button to change the text of the button, now the …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/secondapp2/#secondapp2">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/secondapp1/">Second simple Android Application Part 1 (Android-Part 4)</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/secondapp1/#secondapp1">Second simple Android Application Part 1 (Android-Part 4)</a></h2>
+    <p>
+      Posted on Fri 14 February 2014 in <a href="//thegeekyway.com/category/android/">Android</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/android/">Android</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Hey Geeks ! Hope you all have gone through previous tutorials and are clear with the basics of android. Here we’ll create our second simple android application which will consist of creating our own layout and a bit of java coding. As discussed previously, the <strong>layout of our android application …</strong></p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/secondapp1/#secondapp1">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Hey Geeks ! Hope you all have gone through previous tutorials and are clear with the basics of android. Here we’ll create our second simple android application which will consist of creating our own layout and a bit of java coding. As discussed previously, the <strong>layout of our android application …</strong></p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/kvm-vs-qemu-vs-libvirt/">KVM vs QEMU vs Libvirt</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Since the day I started to read about the virtualization concept, I have been troubled by QEMU and KVM. They both look like complementary, but what exactly they do? And then there is libvirt, what role does it play? Let’s try to understand that.</p>
+  <header>
+    <h2><a href="//thegeekyway.com/kvm-vs-qemu-vs-libvirt/#kvm-vs-qemu-vs-libvirt">KVM vs QEMU vs Libvirt</a></h2>
+    <p>
+      Posted on Fri 14 February 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/kvm/">kvm</a>,              <a href="//thegeekyway.com/tag/libvirt/">libvirt</a>,              <a href="//thegeekyway.com/tag/qemu/">qemu</a>,              <a href="//thegeekyway.com/tag/virtualization/">Virtualization</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Since the day I started to read about the virtualization concept, I have been troubled by QEMU and KVM. They both look like complementary, but what exactly they do? And then there is libvirt, what role does it play? Let’s try to understand that.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/download.jpg"><img alt="KVM" src="/uploads/images/2014/02/download-300x94.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/download.jpg"><img alt="KVM" src="//thegeekyway.com/uploads/images/2014/02/download-300x94.jpg"></a></p>
 </div>
-<p>When you dive deep into …</p>
+<p>When you dive deep into …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/kvm-vs-qemu-vs-libvirt/#kvm-vs-qemu-vs-libvirt">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/java-autoboxing-xxautoboxcachemax/">Java: Autoboxing and -XX:AutoBoxCacheMax</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/java-autoboxing-xxautoboxcachemax/#java-autoboxing-xxautoboxcachemax">Java: Autoboxing and -XX:AutoBoxCacheMax</a></h2>
+    <p>
+      Posted on Thu 13 February 2014 in <a href="//thegeekyway.com/category/java/">Java</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/java/">Java</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Autoboxing is the mechanism in Java to convert primitive type values to respective wrapper class object. Java programmer mostly use autoboxing while using collections, since collection only holds object and to put primitive type data into collection, it's need to use wrapper classes to convert into objects.</p>
+<p>So , here is …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/java-autoboxing-xxautoboxcachemax/#java-autoboxing-xxautoboxcachemax">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Autoboxing is the mechanism in Java to convert primitive type values to respective wrapper class object. Java programmer mostly use autoboxing while using collections, since collection only holds object and to put primitive type data into collection, it's need to use wrapper classes to convert into objects.</p>
-<p>So , here is …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/video-tut-xhtml-and-css-1-overview-downloading-text-editor/">XHTML and CSS - 1 - Overview and Downloading Text Editor</a></h1>
-  </div>
-  <div class="article_text">
-    <p>Welcome to first tutorial in the Video Tutorial Series of XHTML and CSS, you can find list of all tutorials on XHTML and CSS , and you can watch and<a href="http://www.youtube.com/user/TheGeekyWayDotCom/videos">subscribe the channel on YouTube.</a></p>
+  <header>
+    <h2><a href="//thegeekyway.com/video-tut-xhtml-and-css-1-overview-downloading-text-editor/#video-tut-xhtml-and-css-1-overview-downloading-text-editor">XHTML and CSS - 1 - Overview and Downloading Text Editor</a></h2>
+    <p>
+      Posted on Sun 09 February 2014 in <a href="//thegeekyway.com/category/web-development/">Web Development</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/css/">CSS</a>,              <a href="//thegeekyway.com/tag/free/">Free</a>,              <a href="//thegeekyway.com/tag/tutorial/">Tutorial</a>,              <a href="//thegeekyway.com/tag/video/">Video</a>,              <a href="//thegeekyway.com/tag/xhtml/">xhtml</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Welcome to first tutorial in the Video Tutorial Series of XHTML and CSS, you can find list of all tutorials on XHTML and CSS , and you can watch and<a href="http://www.youtube.com/user/TheGeekyWayDotCom/videos">subscribe the channel on YouTube.</a></p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/VideoTut1XHTMLandCSS.png" title="Video Tutorial on XHTML and CSS 1. Overview and Downloading Text Editor"><img alt="Video Tutorial on XHTML and CSS 1. Overview and Downloading Text Editor" src="/uploads/images/2014/02/VideoTut1XHTMLandCSS.png"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/VideoTut1XHTMLandCSS.png" title="Video Tutorial on XHTML and CSS 1. Overview and Downloading Text Editor"><img alt="Video Tutorial on XHTML and CSS 1. Overview and Downloading Text Editor" src="//thegeekyway.com/uploads/images/2014/02/VideoTut1XHTMLandCSS.png"></a></p>
 </div>
-<p>In this tutorial, we'll get started with Web Development by understanding how to develop webpages. The …</p>
+<p>In this tutorial, we'll get started with Web Development by understanding how to develop webpages. The …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/video-tut-xhtml-and-css-1-overview-downloading-text-editor/#video-tut-xhtml-and-css-1-overview-downloading-text-editor">
+          Continue reading
+        </a>
   </div>
 </article>
+
+  <div class="pagination">
+    <a class="btn float-left" href="//thegeekyway.com/index7.html">
+      <i class="fa fa-angle-left"></i> Older Posts
+    </a>
+    <a class="btn float-right" href="//thegeekyway.com/index5.html">
+      Newer Posts <i class="fa fa-angle-right"></i>
+    </a>
+  </div>
+
+
 
 <footer>
-<div id="paginator">
-<a href="/index7.html" class="button_accent">&larr; Older Posts</a>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
 
-<a href="/index5.html" class="button_accent">Newer Posts &rarr;</a>
-</div>
-</footer>
-
-    <div id="ending_message">
-      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href="/disclaimer/">Disclaimer</a> 
-      <a href="/privacy-policy/">Privacy policy</a>
-    </div>
-  </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
 </body>
 </html>

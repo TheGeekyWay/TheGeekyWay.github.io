@@ -1,188 +1,383 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
-
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="The Geeky Way">
-  <meta name="description" content="Posts and writings by The Geeky Way">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
 
 
 
-  <title>
-    The Geeky Way
-&ndash; Category: Linux  </title>
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+    <meta name="author" content="The Geeky Way" />
+    <meta name="description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more." />
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:title" content="The Geeky Way"/>
+  <meta property="og:description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more."/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Category Linux</title>
+
 
 </head>
+<body >
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="">
-        <img src="/uploads/images/tgw.png" alt="logo">
-      </a>
-      <h2><a href="">The Geeky Way</a></h2>
-      <p></p>
-      <ul>
-        <li><a href="/categories.html" target="_blank">Categories</a></li>
-        <li><a href="/tags.html" target="_blank">Tags</a></li>
-        <li><a href="/archives.html" target="_blank">Archives</a></li>
-        <li><a href="/about-us/" target="_blank">About us</a></li>
-        <li><a href="/authors.html" target="_blank">Authors</a></li>
-        <hr>
-        <p><b>Social Media</b></p>
-        <a href="https://www.twitter.com/thegeekyway" target="_blank">
-          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
-        </a>
-        <a href="https://www.facebook.com/thegeekyway" target="_blank">
-          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
-        </a>
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
       </ul>
-    </div>
-  </aside>
+    </nav>
 
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
-    <header>
-      <p>
-      Technology Inside Out!
-      <br><br>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-&gt; Category: Linux
-      </p>
-    </header>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+
 
 <article>
-  <div class="article_title">
-    <h1><a href="/introduction-to-shell-script/">Introduction to Shell Script</a></h1>
-  </div>
-  <div class="article_text">
-    <div style="text-align:center">
-<p><img alt="Introduction to Shell Scripting" src="/uploads/images/2018/03/Shell_script.jpg"></p>
+  <header>
+    <h2><a href="//thegeekyway.com/introduction-to-shell-script/#introduction-to-shell-script">Introduction to Shell Script</a></h2>
+    <p>
+      Posted on Tue 04 June 2019 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/scripting/">Scripting</a>,              <a href="//thegeekyway.com/tag/shell/">Shell</a>
+    </p>
+  </header>
+  <div>
+      <div><div style="text-align:center">
+<p><img alt="Introduction to Shell Scripting" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"></p>
 </div>
 <p>Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.</p>
+<!--more-->
+<h2>What is …</h2></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/introduction-to-shell-script/#introduction-to-shell-script">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/list-important-irc-commands/#list-important-irc-commands">[CHEAT-SHEET] List of Important IRC Commands</a></h2>
+    <p>
+      Posted on Thu 14 June 2018 in <a href="//thegeekyway.com/category/linux/">Linux</a>
 
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/irc/">IRC</a>
+    </p>
+  </header>
+  <div>
+      <div><p>While you start using IRC, it becomes very essential to do certain tasks. To ensure yours tasks are carried out smoothly, you must know the commands which may come handy. So, today we've compiled here a list of IRC Commands that would come handy doing different tasks in IRC.</p>
+<p><strong>Changing …</strong></p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/list-important-irc-commands/#list-important-irc-commands">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/symmetric-and-asymmetric-encryption/">Symmetric and Asymmetric Encryption</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/symmetric-and-asymmetric-encryption/#symmetric-and-asymmetric-encryption">Symmetric and Asymmetric Encryption</a></h2>
+    <p>
+      Posted on Mon 09 April 2018 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/encryption/">Encryption</a>,              <a href="//thegeekyway.com/tag/ssh/">SSH</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Secured communication is inevitably a required norm in the world. To achieve the same, different methods are being approached. You must have heard the word <strong>"cryptography"</strong>, which is really useful to safely transmit your signals by ensuring secrecy. Today, with advancements in this field, we have 2 of its widely …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/symmetric-and-asymmetric-encryption/#symmetric-and-asymmetric-encryption">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Secured communication is inevitably a required norm in the world. To achieve the same, different methods are being approached. You must have heard the word <strong>"cryptography"</strong>, which is really useful to safely transmit your signals by ensuring secrecy. Today, with advancements in this field, we have 2 of its widely …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/get-rid-of-your-old-terminal-go-fish-ing/">Get rid of your old terminal, Go Fish-ing</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/#get-rid-of-your-old-terminal-go-fish-ing">Get rid of your old terminal, Go Fish-ing</a></h2>
+    <p>
+      Posted on Tue 03 April 2018 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/bash/">Bash</a>,              <a href="//thegeekyway.com/tag/cli/">CLI</a>,              <a href="//thegeekyway.com/tag/fish/">Fish</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>,              <a href="//thegeekyway.com/tag/ohmyfish/">ohmyfish</a>,              <a href="//thegeekyway.com/tag/shell/">Shell</a>,              <a href="//thegeekyway.com/tag/terminal/">Terminal</a>,              <a href="//thegeekyway.com/tag/zsh/">zsh</a>
+    </p>
+  </header>
+  <div>
+      <div><div style="text-align:center">
+<p>Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more …</p></div></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/#get-rid-of-your-old-terminal-go-fish-ing">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <div style="text-align:center">
-<p>Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more …</p></div>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/transfer-data-with-scp/">Transfer data with SCP</a></h1>
-  </div>
-  <div class="article_text">
-    <div style="text-align:center">
-<p><img alt="Secure Copy Protocol" src="/uploads/images/2018/03/Secure_copy_protocol.png"></p>
+  <header>
+    <h2><a href="//thegeekyway.com/transfer-data-with-scp/#transfer-data-with-scp">Transfer data with SCP</a></h2>
+    <p>
+      Posted on Wed 14 March 2018 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/encryption/">Encryption</a>,              <a href="//thegeekyway.com/tag/file-transfer/">File Transfer</a>,              <a href="//thegeekyway.com/tag/scp/">SCP</a>
+    </p>
+  </header>
+  <div>
+      <div><div style="text-align:center">
+<p><img alt="Secure Copy Protocol" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"></p>
 </div>
-<p>Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a <strong>network,</strong> to a machine that's out of your reach, like transferring data between an …</p>
+<p>Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a <strong>network,</strong> to a machine that's out of your reach, like transferring data between an …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/transfer-data-with-scp/#transfer-data-with-scp">
+          Continue reading
+        </a>
   </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/understanding-complete-boot-process-linux/">Understanding Complete Boot Process In Linux</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/what-are-dotfiles/#what-are-dotfiles">What are dotfiles?</a></h2>
+    <p>
+      Posted on Fri 26 January 2018 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+
+    </p>
+  </header>
+  <div>
+      <div><p>What happens when your hard disk fries, or eventually you want to get a new machine? You tend up to loose all your dev configuration after years of hard work tweaking things here and there according to your liking.</p>
+<p>Configuring a dev machine according to your liking would've been a …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/what-are-dotfiles/#what-are-dotfiles">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Ever wondered, what happens behind the scenes to boot Linux? Knowing about what happens from the time you press the power button to the time when you get the login screen on Linux, i.e. boot process in Linux is very important. It can come very handy when you're debugging …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/getting-started-git/">Getting Started With Git</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/understanding-complete-boot-process-linux/#understanding-complete-boot-process-linux">Understanding Complete Boot Process In Linux</a></h2>
+    <p>
+      Posted on Thu 11 September 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/boot/">Boot</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Ever wondered, what happens behind the scenes to boot Linux? Knowing about what happens from the time you press the power button to the time when you get the login screen on Linux, i.e. boot process in Linux is very important. It can come very handy when you're debugging …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/understanding-complete-boot-process-linux/#understanding-complete-boot-process-linux">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Git is the most popular version control system now a days. The reason behind popularity is its simple yet tremendous functionality. Unlike other VCSs (Version Control Systems), Git has some unique ways to control and share your data. Because of its huge functionality it also tends to become a lot …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/running-python-script-using-chef/">Running A Python Script Using Chef</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/getting-started-git/#getting-started-git">Getting Started With Git</a></h2>
+    <p>
+      Posted on Wed 02 April 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/git/">Git</a>,              <a href="//thegeekyway.com/tag/version-control/">Version Control</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Git is the most popular version control system now a days. The reason behind popularity is its simple yet tremendous functionality. Unlike other VCSs (Version Control Systems), Git has some unique ways to control and share your data. Because of its huge functionality it also tends to become a lot …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/getting-started-git/#getting-started-git">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through <a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/">this</a> article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration …</p>
-  </div>
+  <hr />
 </article>
-<hr />
 <article>
-  <div class="article_title">
-    <h1><a href="/manage-package-apt-get-apt-cache-ubuntu-commands/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Ubuntu/Debian. Part-3</a></h1>
+  <header>
+    <h2><a href="//thegeekyway.com/running-python-script-using-chef/#running-python-script-using-chef">Running A Python Script Using Chef</a></h2>
+    <p>
+      Posted on Tue 18 March 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/automation/">Automation</a>,              <a href="//thegeekyway.com/tag/chef/">Chef</a>,              <a href="//thegeekyway.com/tag/chef-solo/">Chef Solo</a>,              <a href="//thegeekyway.com/tag/python/">Python</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Chef is an amazing configuration management tool, widely used in a lot of industries. If you are not familiar with how to run chef/chef-solo, please go through <a href="http://www.thegeekyway.com/learning-basics-chef-solo-example/">this</a> article first. One of the best feature of Chef is it’s collection of resources. Resources allows Chef to handle configuration …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/running-python-script-using-chef/#running-python-script-using-chef">
+          Continue reading
+        </a>
   </div>
-  <div class="article_text">
-    <p>This is last &amp; final chapter of this tutorial. Before proceeding further, I would like to link first two parts here just incase you haven't checked it out.</p>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/manage-package-apt-get-apt-cache-ubuntu-commands/#manage-package-apt-get-apt-cache-ubuntu-commands">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Ubuntu/Debian. Part-3</a></h2>
+    <p>
+      Posted on Tue 11 March 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/apt/">APT</a>,              <a href="//thegeekyway.com/tag/linux/">Linux</a>,              <a href="//thegeekyway.com/tag/ubuntu/">Ubuntu</a>
+    </p>
+  </header>
+  <div>
+      <div><p>This is last &amp; final chapter of this tutorial. Before proceeding further, I would like to link first two parts here just incase you haven't checked it out.</p>
 <p>(<a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-I">PART-1</a>  &amp;  <a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/" title="Learn To Manage Packages Using APT-GET &amp; APT-CACHE Commands In Debian/Ubuntu. Part-2">PART-2</a>)</p>
 <p>Continuing from Part-2,</p>
 <p><strong>19) Checking The Stats Of Cache Using APT-CACHE :</strong></p>
-<p>This command will display all the statistics of the cache …</p>
+<p>This command will display all the statistics of the cache …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/manage-package-apt-get-apt-cache-ubuntu-commands/#manage-package-apt-get-apt-cache-ubuntu-commands">
+          Continue reading
+        </a>
   </div>
 </article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu-part-2/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-2</a></h1>
-  </div>
-  <div class="article_text">
-    <p>This is second part of the tutorial.You would like to read the first part before you proceed further. Here is the <a href="http://www.thegeekyway.com/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/" title="First Part"><strong>LINK</strong></a>.</p>
-<p>Continuing from the first part,</p>
-<div style="text-align:center">
-<p><a href="/uploads/images/2014/03/slide_apt-11.png" title="APT Ubuntu"><img alt="APT Ubuntu" src="/uploads/images/2014/03/slide_apt-11.png"></a></p>
-</div>
-<p><strong>11) Removing Packages From The System Using APT-GET :</strong></p>
-<p>This command will help you to remove the installed packages from the system. However …</p>
-  </div>
-</article>
-<hr />
-<article>
-  <div class="article_title">
-    <h1><a href="/learn-manage-packages-using-apt-get-apt-cache-commands-debianubuntu/">Learn To Manage Packages Using APT-GET & APT-CACHE Commands In Debian/Ubuntu. Part-I</a></h1>
-  </div>
-  <div class="article_text">
-    <p><strong>APT</strong> abbreviated as <strong>A</strong>dvanced <strong>P</strong>ackaging <strong>T</strong>ool, is the package management tool used in Debian based distributions to install new applications from repository, removing installed applications, upgrading the system, updating the repository and bunch full of other useful tasks, all that from terminal itself.</p>
-<div style="text-align:center">
-<p><a href="/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png" title="APT"><img alt="APT" src="/uploads/images/2014/03/abhishek@abhishek-desktop-_0021.png"></a></p>
-</div>
 
+  <div class="pagination">
+    <a class="btn float-left" href="//thegeekyway.com/category/linux/index2.html">
+      <i class="fa fa-angle-left"></i> Older Posts
+    </a>
   </div>
-</article>
+
+
 
 <footer>
-<div id="paginator">
-<a href="/category/linux/2.html" class="button_accent">&larr; Older Posts</a>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
 
-</div>
-</footer>
-
-    <div id="ending_message">
-      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href="/disclaimer/">Disclaimer</a> 
-      <a href="/privacy-policy/">Privacy policy</a>
-    </div>
-  </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
 </body>
 </html>

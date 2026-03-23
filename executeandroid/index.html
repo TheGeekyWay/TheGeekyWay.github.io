@@ -1,72 +1,153 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
-
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="The Geeky Way">
-  <meta name="description" content="Posts and writings by The Geeky Way">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
 
 
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="gagan93" />
+<meta name="description" content="[Hello Geeks, hope you have gone through this postand have a good understanding of Android projects before proceeding further. To test / debug our Android Application, we can use any of available methods :]{style=&#34;font-size: 14px;line-height: 1.5em&#34;} 1. We can use the Android Virtual Device (we&#39;ll create one …" />
 <meta name="keywords" content="Android">
 
-  <title>
-    The Geeky Way
-&ndash; Executing your Android Application (AVD's) (Android-Part 3)  </title>
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Executing your Android Application (AVD&#39;s) (Android-Part 3)"/>
+  <meta property="og:description" content="[Hello Geeks, hope you have gone through this postand have a good understanding of Android projects before proceeding further. To test / debug our Android Application, we can use any of available methods :]{style=&#34;font-size: 14px;line-height: 1.5em&#34;} 1. We can use the Android Virtual Device (we&#39;ll create one …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/executeandroid/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2014-02-05 23:31:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/gagan93/">
+  <meta property="article:section" content="Android"/>
+  <meta property="article:tag" content="Android"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Executing your Android Application (AVD&#39;s) (Android-Part 3)</title>
+
 
 </head>
+<body >
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="">
-        <img src="/uploads/images/tgw.png" alt="logo">
-      </a>
-      <h2><a href="">The Geeky Way</a></h2>
-      <p></p>
-      <ul>
-        <li><a href="/categories.html" target="_blank">Categories</a></li>
-        <li><a href="/tags.html" target="_blank">Tags</a></li>
-        <li><a href="/archives.html" target="_blank">Archives</a></li>
-        <li><a href="/about-us/" target="_blank">About us</a></li>
-        <li><a href="/authors.html" target="_blank">Authors</a></li>
-        <hr>
-        <p><b>Social Media</b></p>
-        <a href="https://www.twitter.com/thegeekyway" target="_blank">
-          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
-        </a>
-        <a href="https://www.facebook.com/thegeekyway" target="_blank">
-          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
-        </a>
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
       </ul>
-    </div>
-  </aside>
+    </nav>
 
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
-    <header>
-      <p>
-      Technology Inside Out!
-      <br><br>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      </p>
-    </header>
 
-<article>
-  <div class="article_title">
-    <h1><a href="/executeandroid/">Executing your Android Application (AVD's) (Android-Part 3)</a></h1>
-  </div>
-  <div class="article_author">
-    <p><strong>By: <a href=/author/gagan93/>gagan93</a></strong></p>
-  </div>
-  <div class="article_text">
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="executeandroid">Executing your Android Application (AVD's) (Android-Part 3)</h1>
+    <p>
+      Posted on Wed 05 February 2014 in <a href="//thegeekyway.com/category/android/">Android</a>
+
+    </p>
+  </header>
+
+
+  <div>
     <p>[Hello Geeks, hope you have gone through <a href="http://www.thegeekyway.com/firstandroidapp/" title="prev post">this post</a>and have a good understanding of Android projects before proceeding further. To test / debug our Android Application, we can use any of available methods :]{style="font-size: 14px;line-height: 1.5em"}<br>
 1. We can use the Android Virtual Device (we'll create one shortly) to execute this application.<br>
 2. We can directly copy the APK to the phone to test the application.<br>
@@ -83,37 +164,68 @@
 <p>Now we will be able to use this device for executing the Android Applications we create. But we may also opt for Mobile Phone / Bluestacks method as they are very fast. The AVDs take a long time to start, approx 2 minutes on core i7 4th generation processor to over 5-7 minutes on old systems. If you still prefer executing application using AVDs then you must start AVD when you start the Eclipse IDE, so that the AVD loads while you code your application.</p>
 <p>To execute the first Android Project Goto "Run" from Menu Bar and select first option, or you could simply use Ctrl+ F11. Choose your AVD, which would be the one just created, or your phone(if attached) / bluestacks (if installed).Preview of this application (Executed on Bluestacks) is shows here  </p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/15.jpg"><img alt="1" src="/uploads/images/2014/02/15-1024x604.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/15.jpg"><img alt="1" src="//thegeekyway.com/uploads/images/2014/02/15-1024x604.jpg"></a></p>
 </div>
 <div style="text-align:center">
-<p>A similar application with two labels and buttons executed on Android 4.0 Virtual Device is as shown below : <a href="/uploads/images/2014/02/18.jpg"><img alt="1" src="/uploads/images/2014/02/18.jpg"></a></p>
+<p>A similar application with two labels and buttons executed on Android 4.0 Virtual Device is as shown below : <a href="//thegeekyway.com/uploads/images/2014/02/18.jpg"><img alt="1" src="//thegeekyway.com/uploads/images/2014/02/18.jpg"></a></p>
 </div>
 <p>This was a very short tutorial to setup AVD and execute your first android application.In the next Article, we will create simple application by creating its GUI in layout.xml file and obtaining IDs in the JAVA code. Till then stay tuned &amp; comment if you have any suggestions/doubts.</p>
 <p><a href="http://www.thegeekyway.com/secondapp1/" title="link"> <p style="font-size: xx-large">Link to next tutorial</p></a></p>
   </div>
-  <div class="article_author_info" >
-    <hr>
-    <p>Posted By: Sanyam Khurana</p>
-    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
-
-    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
-  </div>
-  <div class="article_meta">
-    <p>Posted on: Wed 05 February 2014</p>
-    <p>Category: <a href="/category/android/">Android</a>
- &ndash; Tags:
-      <a href="/tag/android/">Android</a>    </p>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/android/">Android</a>
+    </p>
   </div>
 
 
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
 </article>
 
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
 
-    <div id="ending_message">
-      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href="/disclaimer/">Disclaimer</a> 
-      <a href="/privacy-policy/">Privacy policy</a>
-    </div>
-  </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
 </body>
 </html>

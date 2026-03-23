@@ -1,78 +1,163 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- ## for client-side less
-  <link rel="stylesheet/less" type="text/css" href="/theme/css/style.less">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.3/less.min.js" type="text/javascript"></script>
-  -->
-  <link rel="stylesheet" type="text/css" href="/theme/css/style.css">
-  <link rel="stylesheet" type="text/css" href="/theme/css/pygments.css">
-  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=PT+Sans|PT+Serif|PT+Mono">
-
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="The Geeky Way">
-  <meta name="description" content="Posts and writings by The Geeky Way">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
 
 
-<meta name="keywords" content="benchmarking, Openstack, openstack benchmarking, performance measure, rally, scaling">
 
-  <title>
-    The Geeky Way
-&ndash; Benchmarking OpenStack With Rally  </title>
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Peeyush_Gupta" />
+<meta name="description" content="When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three …" />
+<meta name="keywords" content="Benchmarking, Openstack, Performance, Rally, Scaling">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Benchmarking OpenStack With Rally"/>
+  <meta property="og:description" content="When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/benchmarking-openstack-rally/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2014-02-28 11:48:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/peeyush_gupta/">
+  <meta property="article:section" content="Linux"/>
+  <meta property="article:tag" content="Benchmarking"/>
+  <meta property="article:tag" content="Openstack"/>
+  <meta property="article:tag" content="Performance"/>
+  <meta property="article:tag" content="Rally"/>
+  <meta property="article:tag" content="Scaling"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Benchmarking OpenStack With Rally</title>
+
 
 </head>
+<body >
 
-<body>
-  <aside>
-    <div id="user_meta">
-      <a href="">
-        <img src="/uploads/images/tgw.png" alt="logo">
-      </a>
-      <h2><a href="">The Geeky Way</a></h2>
-      <p></p>
-      <ul>
-        <li><a href="/categories.html" target="_blank">Categories</a></li>
-        <li><a href="/tags.html" target="_blank">Tags</a></li>
-        <li><a href="/archives.html" target="_blank">Archives</a></li>
-        <li><a href="/about-us/" target="_blank">About us</a></li>
-        <li><a href="/authors.html" target="_blank">Authors</a></li>
-        <hr>
-        <p><b>Social Media</b></p>
-        <a href="https://www.twitter.com/thegeekyway" target="_blank">
-          <img src="/icons/twitter.png" style="width:25px;height:25px;border:0;">
-        </a>
-        <a href="https://www.facebook.com/thegeekyway" target="_blank">
-          <img src="/icons/facebook.png" style="width:25px;height:25px;border:0;">
-        </a>
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
       </ul>
-    </div>
-  </aside>
+    </nav>
 
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
   <main>
-    <header>
-      <p>
-      Technology Inside Out!
-      <br><br>
-      <a href="">Index</a> &brvbar; <a href="/archives.html">Archives</a>
-      </p>
-    </header>
 
-<article>
-  <div class="article_title">
-    <h1><a href="/benchmarking-openstack-rally/">Benchmarking OpenStack With Rally</a></h1>
-  </div>
-  <div class="article_author">
-    <p><strong>By: <a href=/author/peeyush_gupta/>Peeyush_Gupta</a></strong></p>
-  </div>
-  <div class="article_text">
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="benchmarking-openstack-rally">Benchmarking OpenStack With Rally</h1>
+    <p>
+      Posted on Fri 28 February 2014 in <a href="//thegeekyway.com/category/linux/">Linux</a>
+
+    </p>
+  </header>
+
+
+  <div>
     <p>When you are trying to make changes in a code, there is a big chance of failure. And if the system is as huge as OpenStack, it becomes really hard to figure the error out. Here comes Rally. Rally makes benchmarking of OpenStack simple and automated. Rally works in three steps:</p>
 <p><strong>1. Deployment:</strong> Rally is not a deployment tool by itself, instead it works as a plugin with devstack, RDO etc.</p>
 <p><strong>2. Verification:</strong> Here Rally uses tempest to verify the OpenStack cloud deployment.</p>
 <p><strong>3. Benchmarking:</strong> This step is used to calculate load and performance of the particular cloud deployment.</p>
 <div style="text-align:center">
-<p><a href="/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"><img alt="Openstack with Rally" src="/uploads/images/2014/02/openstack-logo1.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg" title="Openstack with Rally"><img alt="Openstack with Rally" src="//thegeekyway.com/uploads/images/2014/02/openstack-logo1.jpg"></a></p>
 </div>
 <p>Rally generally works a command line tool (GUI is work in progress) and helps in detecting scaling and performance issues, figuring out how the code change affects the system and finding out suitable architecture of deployment etc.</p>
 <p>The first step is to install rally in OpenStack environment. I am going to use rally as a plugin with devstack, though it is possible to install it manually in an already deployed environment. To start, clone the following repositories from github:</p>
@@ -131,29 +216,64 @@ echo &quot;enable_service rally&quot; &gt;&gt; localrc
 </div>
 <p>There are other examples available in the doc/samples/ directory. You can learn more about test cases from these files. Happy benchmarking!</p>
   </div>
-  <div class="article_author_info" >
-    <hr>
-    <p>Posted By: Sanyam Khurana</p>
-    <img width="100em" height="100em" style="border-radius: 50%" src="/uploads/images/authors/sanyam.jpg">
-
-    <p>The Geeky Way is founded by Sanyam Khurana. He graduated from Georgia Tech, Atlanta, US with a Master's degree in Computer Science. He goes by 'CuriousLearner' all over the web & has spoken at many international conferences. He likes to contribute to FOSS. He is listed as an individual contributor of the Django project, bug-triager for CPython & has his name listed in the credits section of every browser ever released by Mozilla. In his free time, he likes to improve his guitar skills or binge-watch series.. You can find him on <a href="https://twitter.com/ErSanyamKhurana">Twitter</a></p>
-  </div>
-  <div class="article_meta">
-    <p>Posted on: Fri 28 February 2014</p>
-    <p>Category: <a href="/category/linux/">Linux</a>
- &ndash; Tags:
-      <a href="/tag/benchmarking/">benchmarking</a>,      <a href="/tag/openstack/">Openstack</a>,      <a href="/tag/openstack-benchmarking/">openstack benchmarking</a>,      <a href="/tag/performance-measure/">performance measure</a>,      <a href="/tag/rally/">rally</a>,      <a href="/tag/scaling/">scaling</a>    </p>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/benchmarking/">Benchmarking</a>
+      <a href="//thegeekyway.com/tag/openstack/">Openstack</a>
+      <a href="//thegeekyway.com/tag/performance/">Performance</a>
+      <a href="//thegeekyway.com/tag/rally/">Rally</a>
+      <a href="//thegeekyway.com/tag/scaling/">Scaling</a>
+    </p>
   </div>
 
 
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
 </article>
 
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
 
-    <div id="ending_message">
-      <p>&copy; The Geeky Way. Built using <a href="http://getpelican.com" target="_blank">Pelican</a>. Theme by Giulio Fidente on <a href="https://github.com/gfidente/pelican-svbhack" target="_blank">github</a>. </p>
-      <a href="/disclaimer/">Disclaimer</a> 
-      <a href="/privacy-policy/">Privacy policy</a>
-    </div>
-  </main>
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
 </body>
 </html>
