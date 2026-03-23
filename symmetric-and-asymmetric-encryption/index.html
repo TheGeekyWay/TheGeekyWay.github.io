@@ -24,16 +24,12 @@
     The Geeky Way
 &ndash; Symmetric and Asymmetric Encryption  </title>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-46055942-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2EQ7YWRBVJ');
 </script>
 </head>
 
@@ -93,20 +89,20 @@ It is the implementation of cryptography. This converts data to ciphertext.<br>
 <strong>Decryption:</strong><br>
 It is reverse of encryption. This converts ciphertext to readable data.</p>
 <div style="text-align:center">
-<p><img alt="" src="//thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"></p>
+<p><img alt="Encryption and Decryption process" src="//thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"></p>
 </div>
 <h2>Symmetric Encryption:-</h2>
 <p>It is also known as private key encryption or private key cryptography. Here, only one key (secret key) is used for both encryption and decryption, by all the parties involved in communication over a network. That's why it is faster than asymmetric encryption.</p>
 <p>The same key is kept for the entire session of communication. Therefore, this key is also known as <strong>"session key"</strong>. This session key is either developed by both the parties (client and server) or alone by the client. If it is developed by the client only, then it is required to transmit to the server. In this case, a special concern is provided while transmitting this session key over a network. Because, if the key would get into the wrong hands, s/he can see all your transmitting information with any possible intention.</p>
 <div style="text-align:center">
-<p><img alt="" src="//thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"></p>
+<p><img alt="Symmetric Encryption diagram" src="//thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"></p>
 </div>
 <p>Modern approaches of symmetric encryption are executed using algorithms such as DES, QUAD, Blowfish, AES, 3DES, RC4 etc.<br>
 This type of encryption is used, when we are interested in transmission speed such as in transferring large files.</p>
 <h2>Asymmetric Encryption:-</h2>
 <p>It is also known as public key encryption or public key cryptography. Here, a pair of keys is used for encryption and decryption. These are the public key and the private key. The public key is used for encryption and the private key is used for decryption. Here, the private key is kept a secret to the owner and the public key is kept with all the servers to whom this client wants to connect.</p>
 <div style="text-align:center">
-<p><img alt="" src="//thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"></p>
+<p><img alt="Asymmetric Encryption diagram" src="//thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"></p>
 </div>
 <p><em>Understanding asymmetric encryption with workflow.</em></p>
 <p>Suppose, a client wants to send a signal to a server. It will encrypt this signal using <strong>"server's public key"</strong> and will transmit over the network. When server will receive this signal, it will decrypt this, using <strong>"server's own private key"</strong>.</p>

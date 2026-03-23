@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - How To DIY, Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/how-to-diy-linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2018-03-16T16:07:00+05:30</updated><entry><title>Runlevels and rc.d scripts</title><link href="//thegeekyway.com/runlevels-and-rc-d-scripts/" rel="alternate"></link><published>2018-03-16T16:07:00+05:30</published><updated>2018-03-16T16:07:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-03-16:/runlevels-and-rc-d-scripts/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="Linux boot and shutdown scripts" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
 &lt;h2&gt;Runlevels&lt;/h2&gt;
 &lt;p&gt;Runlevels are …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="Linux boot and shutdown scripts" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
 &lt;h2&gt;Runlevels&lt;/h2&gt;

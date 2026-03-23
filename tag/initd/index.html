@@ -23,16 +23,12 @@
     The Geeky Way
 &ndash; Tag: initd  </title>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-46055942-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2EQ7YWRBVJ');
 </script>
 </head>
 
@@ -80,7 +76,7 @@
   </div>
   <div class="article_text">
     <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"><img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"><img alt="Linux boot and shutdown scripts" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"></a></p>
 </div>
 <p>Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post <a href="http://thegeekyway.com/understanding-complete-boot-process-linux/">how Linux boots</a> it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.</p>
 <h2>Runlevels</h2>

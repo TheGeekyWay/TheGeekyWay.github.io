@@ -24,16 +24,12 @@
     The Geeky Way
 &ndash; Getting Started With Chef-solo  </title>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-46055942-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2EQ7YWRBVJ');
 </script>
 </head>
 
@@ -104,19 +100,19 @@ $<span class="w"> </span>gem<span class="w"> </span>install<span class="w"> </sp
 
 <p>Now, we need to make the recipe. Let’s call the recipe hellochef. Here is how you can create it:</p>
 <div style="text-align:center">
-<p><img alt="" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"></p>
+<p><img alt="Creating the hellochef recipe directory structure" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"></p>
 </div>
 <p>Now write the line ‘puts “Hello Chef!” ‘ in the file default.rb and close it. It is a ruby file, so it’s better you make yourself familiar with ruby before moving ahead with chef. Now that we have our recipe, next step is to redirect chef-solo to our recipe. We need to tell chef-solo that which cookbook we want to run. To do that create a node.json inside chef/ directory and put the recipe info inside it.</p>
 <div style="text-align:center">
-<p><strong><img alt="" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"></strong></p>
+<p><strong><img alt="Creating node.json for chef-solo" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"></strong></p>
 </div>
 <p>Save and close the file. Now, you just need one more thing, that is chef-solo configuration file. Come back to your home directory and open a file named solo.rb and write the following info in the file:</p>
 <div style="text-align:center">
-<p><strong><img alt="" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"></strong></p>
+<p><strong><img alt="Creating solo.rb configuration file" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"></strong></p>
 </div>
 <p>Remember to change the locations of files relative to your system! Save and close the file. Now, we are ready to run chef-solo. Run 'chef-solo -c solo.rb' from command line and you should get an output like this:</p>
 <div style="text-align:center">
-<p><strong><img alt="" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"></strong></p>
+<p><strong><img alt="Chef-solo output showing Hello Chef" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"></strong></p>
 </div>
 <p>The -c option tells chef-solo about the location of the solo.rb configuration file. You can do a lot more with chef-solo than just printing Hello chef! This will get you started. Happy cooking!</p>
   </div>

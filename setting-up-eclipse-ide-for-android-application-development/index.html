@@ -24,16 +24,12 @@
     The Geeky Way
 &ndash; Setting Up Eclipse IDE for Android Application Development (Android-Part 1)  </title>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-46055942-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2EQ7YWRBVJ');
 </script>
 </head>
 
@@ -85,15 +81,15 @@
     <p>Here is a complete tutorial to setup Eclipse IDE. Hope you have seen the <a href="http://thegeekyway.com/beginandroid" title="Creating your first Android Application">first tutorial</a> and have installed the required tools (ADT + Eclipse &amp; JDK).After installing JDK, extract the Android SDK to a folder and you will get something like this.</p>
 <p>Few screenshots related to Eclipse may vary due to different version, but the overall meaning remains same.</p>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/1.jpg"><img alt="" src="//thegeekyway.com/uploads/images/2014/02/1.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/1.jpg"><img alt="Android SDK folder structure" src="//thegeekyway.com/uploads/images/2014/02/1.jpg"></a></p>
 </div>
 <p><strong>Please note that Eclipse is just an Integrated Development Environment</strong> which supports a wide variety of development ranging from C/C++/Java/Android to Electronics. Our Eclispe is a one, tailored for Android. The Eclipse and Android SDK should be kept in the same folder as shown above so that eclipse IDE is able to detect the SDK and use it for further development. If you attempt to change the location of Eclipse or SDK, or rename the SDK, you get the following error.</p>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/11.jpg"><img alt="" src="//thegeekyway.com/uploads/images/2014/02/11.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/11.jpg"><img alt="Eclipse SDK location error" src="//thegeekyway.com/uploads/images/2014/02/11.jpg"></a></p>
 </div>
 <p>So, now open eclipse folder and there you will find a file called <strong>eclipse.exe</strong>. Open that file, a window appears which shows option to select the <strong>Workspace.</strong> Workspace is a path where your entire project including source, APK and all other files are stored. After selecting preferences, something like this will appear.</p>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/2.jpg"><img alt="" src="//thegeekyway.com/uploads/images/2014/02/2.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/2.jpg"><img alt="Eclipse IDE workspace selection" src="//thegeekyway.com/uploads/images/2014/02/2.jpg"></a></p>
 </div>
 <p>To start creating a new project, either use the menubar (Flile -&gt; New) or use keyboard shortcut (Alt+Shift+N). From the drop down menu, select <strong>Android Application Project.</strong> A new Dialog box appears. Fill in the basic application details to continue.</p>
 <ul>
@@ -118,11 +114,11 @@
 <li><strong>Add project to working sets : </strong>This option is also related to linking multiple projects so should not be given much stress now.Click <strong>Next</strong> to continue. Now we get the following screen :  </li>
 </ul>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/23.jpg"><img alt="" src="//thegeekyway.com/uploads/images/2014/02/23.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/23.jpg"><img alt="Eclipse application icon configuration" src="//thegeekyway.com/uploads/images/2014/02/23.jpg"></a></p>
 </div>
 <p>You can configure the icon for you application in this window. Try changing different colors, text,clipart etc and it would be clear to you. Most of the things are self explanatory and are not discussed here. Click next to continue. You will get the following screen.  </p>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/12.jpg"><img alt="" src="//thegeekyway.com/uploads/images/2014/02/12.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/12.jpg"><img alt="Eclipse activity type selection" src="//thegeekyway.com/uploads/images/2014/02/12.jpg"></a></p>
 </div>
 <p>Now here we select the type of activity.</p>
 <ul>
@@ -132,7 +128,7 @@
 </ul>
 <p>Click Next to continue. We get the following screen  </p>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/1.png"><img alt="" src="//thegeekyway.com/uploads/images/2014/02/1.png"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/1.png"><img alt="Eclipse activity name and layout configuration" src="//thegeekyway.com/uploads/images/2014/02/1.png"></a></p>
 </div>
 <ul>
 <li><strong>Activity Name :</strong> This is the name of new blank activity which starts the application.</li>
@@ -142,7 +138,7 @@
 
 <p>Click Finish to start with the actual process.The following window opens in Eclipse.  </p>
 <div style="text-align:center">
-<p><a href="//thegeekyway.com/uploads/images/2014/02/13.jpg"><img alt="" src="//thegeekyway.com/uploads/images/2014/02/13-1024x608.jpg"></a></p>
+<p><a href="//thegeekyway.com/uploads/images/2014/02/13.jpg"><img alt="Eclipse IDE with Android project open" src="//thegeekyway.com/uploads/images/2014/02/13-1024x608.jpg"></a></p>
 </div>
 <p>So now we have started with a simple Android Application. On the left hand side we have a list of folders which contain libraries and files related to our application. On the right hand side, we have the currently opened file. By default it shoes the main JAVA file of your application. Before starting coding, setting layouts etc. we require  a complete understanding of all the folder on the left side. So in our next post tomorrow, we'll completely describe about each folder about what they mean and how to use them.</p>
 <p><a href="http://www.thegeekyway.com/firstandroidapp/" title="link"> <p style="font-size: xx-large">Link to next Tutorial</p></a></p>

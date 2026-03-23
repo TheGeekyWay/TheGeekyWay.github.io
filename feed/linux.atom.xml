@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>The Geeky Way - Linux</title><link href="//thegeekyway.com/" rel="alternate"></link><link href="//thegeekyway.com/feed/linux.atom.xml" rel="self"></link><id>//thegeekyway.com/</id><updated>2019-06-04T08:39:00+05:30</updated><entry><title>Introduction to Shell Script</title><link href="//thegeekyway.com/introduction-to-shell-script/" rel="alternate"></link><published>2019-06-04T08:39:00+05:30</published><updated>2019-06-04T08:39:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2019-06-04:/introduction-to-shell-script/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Introduction to Shell Scripting" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;/p&gt;
 &lt;!--more--&gt;
 &lt;h2&gt;What is …&lt;/h2&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Introduction to Shell Scripting" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;/p&gt;
 &lt;!--more--&gt;
@@ -596,20 +596,20 @@ It is the implementation of cryptography. This converts data to ciphertext.&lt;b
 &lt;strong&gt;Decryption:&lt;/strong&gt;&lt;br&gt;
 It is reverse of encryption. This converts ciphertext to readable data.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Encryption and Decryption process" src="//thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h2&gt;Symmetric Encryption:-&lt;/h2&gt;
 &lt;p&gt;It is also known as private key encryption or private key cryptography. Here, only one key (secret key) is used for both encryption and decryption, by all the parties involved in communication over a network. That's why it is faster than asymmetric encryption.&lt;/p&gt;
 &lt;p&gt;The same key is kept for the entire session of communication. Therefore, this key is also known as &lt;strong&gt;"session key"&lt;/strong&gt;. This session key is either developed by both the parties (client and server) or alone by the client. If it is developed by the client only, then it is required to transmit to the server. In this case, a special concern is provided while transmitting this session key over a network. Because, if the key would get into the wrong hands, s/he can see all your transmitting information with any possible intention.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Symmetric Encryption diagram" src="//thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Modern approaches of symmetric encryption are executed using algorithms such as DES, QUAD, Blowfish, AES, 3DES, RC4 etc.&lt;br&gt;
 This type of encryption is used, when we are interested in transmission speed such as in transferring large files.&lt;/p&gt;
 &lt;h2&gt;Asymmetric Encryption:-&lt;/h2&gt;
 &lt;p&gt;It is also known as public key encryption or public key cryptography. Here, a pair of keys is used for encryption and decryption. These are the public key and the private key. The public key is used for encryption and the private key is used for decryption. Here, the private key is kept a secret to the owner and the public key is kept with all the servers to whom this client wants to connect.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Asymmetric Encryption diagram" src="//thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;em&gt;Understanding asymmetric encryption with workflow.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Suppose, a client wants to send a signal to a server. It will encrypt this signal using &lt;strong&gt;"server's public key"&lt;/strong&gt; and will transmit over the network. When server will receive this signal, it will decrypt this, using &lt;strong&gt;"server's own private key"&lt;/strong&gt;.&lt;/p&gt;
@@ -627,7 +627,7 @@ This type of encryption is used, when we are interested in transmission speed su
 &lt;p&gt;With this, we have reached the end of this post. If you have any query regarding the topic, please let us know in the comments section below.&lt;/p&gt;
 &lt;p&gt;Have a good day!&lt;/p&gt;</content><category term="Linux"></category><category term="encryption"></category><category term="SSH"></category></entry><entry><title>Get rid of your old terminal, Go Fish-ing</title><link href="//thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/" rel="alternate"></link><published>2018-04-03T17:43:00+05:30</published><updated>2018-04-03T17:43:00+05:30</updated><author><name>vipulgupta2048</name></author><id>tag:thegeekyway.com,2018-04-03:/get-rid-of-your-old-terminal-go-fish-ing/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more. Read on for my take on Fish and how it can make you more productive in your day-to-day.&lt;a href="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more. Read on for my take on Fish and how it can make you more productive in your day-to-day.&lt;a href="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;img alt="Fish shell screenshot" src="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;!--more--&gt;
 
@@ -653,7 +653,7 @@ sudo apt-get install fish
 &lt;p&gt;Fish provides suggestions and completions to every command and their specific arguments that you would type in the shell, from the get-go. Start typing to see it for yourself.&lt;br&gt;
 This works on its ability to predict arguments straight from man pages and from the history it maintains, of the previous commands you entered. (Don't worry its smart enough not to record any sensitive information)&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/completions.png" title="A glimpse of what suggestions feel like in Fish"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/04/completions-e1522570951842.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/completions.png" title="A glimpse of what suggestions feel like in Fish"&gt;&lt;img alt="Fish shell auto-completions" src="//thegeekyway.com/uploads/images/2018/04/completions-e1522570951842.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;No need to remember arcane syntax, arguments or commands. Since it remembers what you type, it will keep suggesting you more recent commands to increase productivity and let you focus more on what you are going to type next.&lt;/p&gt;
 &lt;h4&gt;Similarity to old 'Bash' (and some new scripting rules)&lt;/h4&gt;
@@ -687,7 +687,7 @@ Man pages are a smart way to get more information about commands. But reading an
 
 &lt;p&gt;I can bet you haven't seen a smarter, more intuitive way to customize and change your terminal settings that include your prompt and its colors, change your functions, abbreviations and many other components.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png" title="Customise anything you want ..."&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png" title="Customise anything you want ..."&gt;&lt;img alt="Fish shell web-based customization" src="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h4&gt;Other Awesome Features&lt;/h4&gt;
 &lt;ul&gt;
@@ -717,10 +717,10 @@ Man pages are a smart way to get more information about commands. But reading an
 &lt;p&gt;Share this post with your co-workers, batchmates, friends who struggle with using Bash, want a change, or just want to try new things.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;More to come&lt;/strong&gt; (Part 2- &lt;strong&gt;Tips/tricks of Fish&lt;/strong&gt; and &lt;strong&gt;Writing Scripts for Fish&lt;/strong&gt;)&lt;br&gt;
 Fork and star my dotfiles for more reference, and if you want the greeting message that I have on my terminal. - &lt;a href="https://github.com/vipulgupta2048/dotvfiles/tree/master/fish"&gt;vipulgupta2048/dotvfiles/fish&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Bash"></category><category term="cli"></category><category term="Fish"></category><category term="linux"></category><category term="ohmyfish"></category><category term="Shell"></category><category term="terminal"></category><category term="zsh"></category></entry><entry><title>Transfer data with SCP</title><link href="//thegeekyway.com/transfer-data-with-scp/" rel="alternate"></link><published>2018-03-14T20:17:00+05:30</published><updated>2018-03-14T20:17:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-03-14:/transfer-data-with-scp/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Secure Copy Protocol" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a &lt;strong&gt;network,&lt;/strong&gt; to a machine that's out of your reach, like transferring data between an …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Secure Copy Protocol" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a &lt;strong&gt;network,&lt;/strong&gt; to a machine that's out of your reach, like transferring data between an EC2 instance and your local computer? If yes, then &lt;strong&gt;scp&lt;/strong&gt; is a simple tool to help you out there. Let's find out then, what is &lt;strong&gt;scp&lt;/strong&gt; and what are its use cases?&lt;!--more--&gt;&lt;/p&gt;
 &lt;h2&gt;What is Secure Copy Protocol (SCP)?&lt;/h2&gt;
@@ -1307,11 +1307,11 @@ echo &amp;quot;enable_service rally&amp;quot; &amp;gt;&amp;gt; localrc
 
 &lt;p&gt;Now, leave the leading zero and you are left with three digits i.e. 002. This value is subtracted from default values (666 for files and 777 for directories) and the resulting values are set as permissions.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Default file and directory permissions with umask" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;As you can see the permission for file is 664 (666-002) and for the directory it is 775 (777-002). You can also change the umask and set permissions according to your requirements.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Changing umask value" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;You can revert back to your original umask  by typing&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;umask&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;002&lt;/span&gt;
@@ -1341,19 +1341,19 @@ $&lt;span class="w"&gt; &lt;/span&gt;gem&lt;span class="w"&gt; &lt;/span&gt;inst
 
 &lt;p&gt;Now, we need to make the recipe. Let’s call the recipe hellochef. Here is how you can create it:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Creating the hellochef recipe directory structure" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Now write the line ‘puts “Hello Chef!” ‘ in the file default.rb and close it. It is a ruby file, so it’s better you make yourself familiar with ruby before moving ahead with chef. Now that we have our recipe, next step is to redirect chef-solo to our recipe. We need to tell chef-solo that which cookbook we want to run. To do that create a node.json inside chef/ directory and put the recipe info inside it.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Creating node.json for chef-solo" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Save and close the file. Now, you just need one more thing, that is chef-solo configuration file. Come back to your home directory and open a file named solo.rb and write the following info in the file:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Creating solo.rb configuration file" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Remember to change the locations of files relative to your system! Save and close the file. Now, we are ready to run chef-solo. Run 'chef-solo -c solo.rb' from command line and you should get an output like this:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Chef-solo output showing Hello Chef" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The -c option tells chef-solo about the location of the solo.rb configuration file. You can do a lot more with chef-solo than just printing Hello chef! This will get you started. Happy cooking!&lt;/p&gt;</content><category term="Linux"></category><category term="automation"></category><category term="Chef"></category><category term="chef-solo"></category></entry><entry><title>Customize GRUB2/BURG Screen Using Grub Customizer</title><link href="//thegeekyway.com/customize-grub2-burg-screen-using-grub/" rel="alternate"></link><published>2014-01-05T19:33:00+05:30</published><updated>2014-01-05T19:33:00+05:30</updated><author><name>Abhishek_Rawal</name></author><id>tag:thegeekyway.com,2014-01-05:/customize-grub2-burg-screen-using-grub/</id><summary type="html">&lt;p&gt;&lt;strong&gt;GRUB Customizer&lt;/strong&gt; is the application with graphical interface to configure GRUB2/BURG settings, visuals &amp;amp; menu-entries.&lt;/p&gt;
 &lt;blockquote&gt;

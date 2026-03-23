@@ -785,12 +785,12 @@ Also, since the printing of such a large amount of information is useless, I'm s
 &lt;h2&gt;Is this all?&lt;/h2&gt;
 &lt;p&gt;No! GraphQL has a lot of features. This post includes a few that I came across while working on CPython-Pull-Requests. There are a lot of things. Like mutations, that you can use to modify data. This is the part that would require some permissions and this is the reason why GitHub's explorer is so permission heavy. It supports every type of GraphQL query that you can do on GitHub, including mutations.
 There are more features that you can find out on &lt;a href="https://developer.github.com/v4/"&gt;GitHub's GraphQL API reference&lt;/a&gt;.&lt;/p&gt;</content><category term="GraphQL"></category><category term="Python"></category><category term="GitHub"></category></entry><entry><title>Introduction to Shell Script</title><link href="//thegeekyway.com/introduction-to-shell-script/" rel="alternate"></link><published>2019-06-04T08:39:00+05:30</published><updated>2019-06-04T08:39:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2019-06-04:/introduction-to-shell-script/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Introduction to Shell Scripting" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;/p&gt;
 &lt;!--more--&gt;
 &lt;h2&gt;What is …&lt;/h2&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Introduction to Shell Scripting" src="//thegeekyway.com/uploads/images/2018/03/Shell_script.jpg"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Ever wanted to automate a task on your *nix machine? Or are you fed up executing some set of commands again and again? If yes, then shell scripting can help you out there. In this tutorial, introduce yourself to shell scripting, along with some hands-on examples to practice.&lt;/p&gt;
 &lt;!--more--&gt;
@@ -1497,20 +1497,20 @@ It is the implementation of cryptography. This converts data to ciphertext.&lt;b
 &lt;strong&gt;Decryption:&lt;/strong&gt;&lt;br&gt;
 It is reverse of encryption. This converts ciphertext to readable data.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Encryption and Decryption process" src="//thegeekyway.com/uploads/images/2017/12/Encryption-decryption-blog.png" title="Encryption-Decryption"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h2&gt;Symmetric Encryption:-&lt;/h2&gt;
 &lt;p&gt;It is also known as private key encryption or private key cryptography. Here, only one key (secret key) is used for both encryption and decryption, by all the parties involved in communication over a network. That's why it is faster than asymmetric encryption.&lt;/p&gt;
 &lt;p&gt;The same key is kept for the entire session of communication. Therefore, this key is also known as &lt;strong&gt;"session key"&lt;/strong&gt;. This session key is either developed by both the parties (client and server) or alone by the client. If it is developed by the client only, then it is required to transmit to the server. In this case, a special concern is provided while transmitting this session key over a network. Because, if the key would get into the wrong hands, s/he can see all your transmitting information with any possible intention.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Symmetric Encryption diagram" src="//thegeekyway.com/uploads/images/2017/12/Symmetric-encryption-blog.png" title="Symmetric Encryption"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Modern approaches of symmetric encryption are executed using algorithms such as DES, QUAD, Blowfish, AES, 3DES, RC4 etc.&lt;br&gt;
 This type of encryption is used, when we are interested in transmission speed such as in transferring large files.&lt;/p&gt;
 &lt;h2&gt;Asymmetric Encryption:-&lt;/h2&gt;
 &lt;p&gt;It is also known as public key encryption or public key cryptography. Here, a pair of keys is used for encryption and decryption. These are the public key and the private key. The public key is used for encryption and the private key is used for decryption. Here, the private key is kept a secret to the owner and the public key is kept with all the servers to whom this client wants to connect.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Asymmetric Encryption diagram" src="//thegeekyway.com/uploads/images/2017/12/Asymmetric-encryption-blog.png" title="Asymmetric Encryption"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;em&gt;Understanding asymmetric encryption with workflow.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Suppose, a client wants to send a signal to a server. It will encrypt this signal using &lt;strong&gt;"server's public key"&lt;/strong&gt; and will transmit over the network. When server will receive this signal, it will decrypt this, using &lt;strong&gt;"server's own private key"&lt;/strong&gt;.&lt;/p&gt;
@@ -1528,7 +1528,7 @@ This type of encryption is used, when we are interested in transmission speed su
 &lt;p&gt;With this, we have reached the end of this post. If you have any query regarding the topic, please let us know in the comments section below.&lt;/p&gt;
 &lt;p&gt;Have a good day!&lt;/p&gt;</content><category term="Linux"></category><category term="encryption"></category><category term="SSH"></category></entry><entry><title>Get rid of your old terminal, Go Fish-ing</title><link href="//thegeekyway.com/get-rid-of-your-old-terminal-go-fish-ing/" rel="alternate"></link><published>2018-04-03T17:43:00+05:30</published><updated>2018-04-03T17:43:00+05:30</updated><author><name>vipulgupta2048</name></author><id>tag:thegeekyway.com,2018-04-03:/get-rid-of-your-old-terminal-go-fish-ing/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more …&lt;/p&gt;&lt;/div&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more. Read on for my take on Fish and how it can make you more productive in your day-to-day.&lt;a href="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Tired of using Bash terminal? Struggling with shell scripting. Want to try something better, easier to customize, configure. Fish is a simple, powerful yet user-friendly command-line shell giving you features that you have never heard of such as auto-suggestions, cleaner more organized scripts, web-based configuration/ customizations and a lot more. Read on for my take on Fish and how it can make you more productive in your day-to-day.&lt;a href="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;img alt="Fish shell screenshot" src="//thegeekyway.com/uploads/images/2018/04/fish_screenshot-e1523016144797.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;!--more--&gt;
 
@@ -1554,7 +1554,7 @@ sudo apt-get install fish
 &lt;p&gt;Fish provides suggestions and completions to every command and their specific arguments that you would type in the shell, from the get-go. Start typing to see it for yourself.&lt;br&gt;
 This works on its ability to predict arguments straight from man pages and from the history it maintains, of the previous commands you entered. (Don't worry its smart enough not to record any sensitive information)&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/completions.png" title="A glimpse of what suggestions feel like in Fish"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/04/completions-e1522570951842.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/completions.png" title="A glimpse of what suggestions feel like in Fish"&gt;&lt;img alt="Fish shell auto-completions" src="//thegeekyway.com/uploads/images/2018/04/completions-e1522570951842.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;No need to remember arcane syntax, arguments or commands. Since it remembers what you type, it will keep suggesting you more recent commands to increase productivity and let you focus more on what you are going to type next.&lt;/p&gt;
 &lt;h4&gt;Similarity to old 'Bash' (and some new scripting rules)&lt;/h4&gt;
@@ -1588,7 +1588,7 @@ Man pages are a smart way to get more information about commands. But reading an
 
 &lt;p&gt;I can bet you haven't seen a smarter, more intuitive way to customize and change your terminal settings that include your prompt and its colors, change your functions, abbreviations and many other components.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png" title="Customise anything you want ..."&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png" title="Customise anything you want ..."&gt;&lt;img alt="Fish shell web-based customization" src="//thegeekyway.com/uploads/images/2018/04/Screenshot_2018-04-01_09-44-47.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;h4&gt;Other Awesome Features&lt;/h4&gt;
 &lt;ul&gt;
@@ -1618,12 +1618,12 @@ Man pages are a smart way to get more information about commands. But reading an
 &lt;p&gt;Share this post with your co-workers, batchmates, friends who struggle with using Bash, want a change, or just want to try new things.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;More to come&lt;/strong&gt; (Part 2- &lt;strong&gt;Tips/tricks of Fish&lt;/strong&gt; and &lt;strong&gt;Writing Scripts for Fish&lt;/strong&gt;)&lt;br&gt;
 Fork and star my dotfiles for more reference, and if you want the greeting message that I have on my terminal. - &lt;a href="https://github.com/vipulgupta2048/dotvfiles/tree/master/fish"&gt;vipulgupta2048/dotvfiles/fish&lt;/a&gt;&lt;/p&gt;</content><category term="Linux"></category><category term="Bash"></category><category term="cli"></category><category term="Fish"></category><category term="linux"></category><category term="ohmyfish"></category><category term="Shell"></category><category term="terminal"></category><category term="zsh"></category></entry><entry><title>Runlevels and rc.d scripts</title><link href="//thegeekyway.com/runlevels-and-rc-d-scripts/" rel="alternate"></link><published>2018-03-16T16:07:00+05:30</published><updated>2018-03-16T16:07:00+05:30</updated><author><name>storymode7</name></author><id>tag:thegeekyway.com,2018-03-16:/runlevels-and-rc-d-scripts/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="Linux boot and shutdown scripts" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
 &lt;h2&gt;Runlevels&lt;/h2&gt;
 &lt;p&gt;Runlevels are …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;img alt="Linux boot and shutdown scripts" src="//thegeekyway.com/uploads/images/2018/01/linux-boot-and-shutdown-scripts1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Many operating systems use the concept of runlevels. This is particularly the case for System V Unix based systems. As you might have read in our earlier post &lt;a href="http://thegeekyway.com/understanding-complete-boot-process-linux/"&gt;how Linux boots&lt;/a&gt; it uses runlevels to determine what to do. Let's study runlevels and rc scripts in detail.&lt;/p&gt;
 &lt;h2&gt;Runlevels&lt;/h2&gt;
@@ -1759,10 +1759,10 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;p&gt;will delete its symlinks from all rc folders but not from the init.d folder. That is required to be done manually. Ad chkconfig generally doesn't modify the content of init.d but rc folders.&lt;/p&gt;
 &lt;p&gt;Hope this will help you play with your scripts in a better and safe manner.&lt;/p&gt;
 &lt;p&gt;Thank you for reading!&lt;/p&gt;</content><category term="How To DIY, Linux"></category><category term="initd"></category><category term="linux"></category><category term="runlevel"></category></entry><entry><title>Transfer data with SCP</title><link href="//thegeekyway.com/transfer-data-with-scp/" rel="alternate"></link><published>2018-03-14T20:17:00+05:30</published><updated>2018-03-14T20:17:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-03-14:/transfer-data-with-scp/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Secure Copy Protocol" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a &lt;strong&gt;network,&lt;/strong&gt; to a machine that's out of your reach, like transferring data between an …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Secure Copy Protocol" src="//thegeekyway.com/uploads/images/2018/03/Secure_copy_protocol.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Hello readers! Transferring data to your friends' machine is not a big deal when using storage devices such as pen drives, CDs, etc. But have you ever intended to migrate files between different systems over a &lt;strong&gt;network,&lt;/strong&gt; to a machine that's out of your reach, like transferring data between an EC2 instance and your local computer? If yes, then &lt;strong&gt;scp&lt;/strong&gt; is a simple tool to help you out there. Let's find out then, what is &lt;strong&gt;scp&lt;/strong&gt; and what are its use cases?&lt;!--more--&gt;&lt;/p&gt;
 &lt;h2&gt;What is Secure Copy Protocol (SCP)?&lt;/h2&gt;
@@ -1860,10 +1860,10 @@ ln -s &amp;#39;/usr/lib/systemd/system/multi-user.target&amp;#39; &amp;#39;/etc/
 &lt;h2&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;SCP is a remote file copy program, that's suit perfectly in cases when you have to transfer data in a single pass. However, FTP is more recommended to transfer multiple files/directories, due to its better session-based control over the connection.&lt;/p&gt;
 &lt;p&gt;Thanks for reading! And in case of a query, please feel free to write in the comments section below.&lt;/p&gt;</content><category term="Linux"></category><category term="encryption"></category><category term="file transfer"></category><category term="SCP"></category></entry><entry><title>Hands-on Guide on GPG Keys</title><link href="//thegeekyway.com/hands-on-guide-on-gpg-keys/" rel="alternate"></link><published>2018-03-05T22:35:00+05:30</published><updated>2018-03-05T22:35:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-03-05:/hands-on-guide-on-gpg-keys/</id><summary type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/GPG_guide.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GPG Keys Guide" src="//thegeekyway.com/uploads/images/2018/03/GPG_guide.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;GPG or GNU Privacy Guard is a complete and free implementation of the OpenPGP standard as defined by &lt;a href="https://www.ietf.org/rfc/rfc4880.txt"&gt;RFC4880&lt;/a&gt; (also known as PGP). It is a tool that provides encryption and signing services, using which, you can encrypt or sign your files, messages, emails and can even sign your github …&lt;/p&gt;</summary><content type="html">&lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/03/GPG_guide.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="GPG Keys Guide" src="//thegeekyway.com/uploads/images/2018/03/GPG_guide.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;GPG or GNU Privacy Guard is a complete and free implementation of the OpenPGP standard as defined by &lt;a href="https://www.ietf.org/rfc/rfc4880.txt"&gt;RFC4880&lt;/a&gt; (also known as PGP). It is a tool that provides encryption and signing services, using which, you can encrypt or sign your files, messages, emails and can even sign your github commits. In this guide, let's get a walk through GPG keys and its use cases.&lt;!--more--&gt;&lt;/p&gt;
 &lt;p&gt;GPG is basically an implementation of a cryptosystem that you can use to exchange encrypted or signed messages and it is based on &lt;a href="https://en.wikipedia.org/wiki/Public-key_cryptography"&gt;asymmetric cryptography&lt;/a&gt;. It fulfills the &lt;a href="http://whatis.techtarget.com/definition/Confidentiality-integrity-and-availability-CIA"&gt;CIA of security&lt;/a&gt; where &lt;strong&gt;"C"&lt;/strong&gt; stands for "Confidentiality", &lt;strong&gt;"I"&lt;/strong&gt; stands for "Integrity" and &lt;strong&gt;"A"&lt;/strong&gt; stands for "Availability".&lt;/p&gt;
@@ -2366,7 +2366,7 @@ $&lt;span class="w"&gt; &lt;/span&gt;gpg2&lt;span class="w"&gt; &lt;/span&gt;--c
 &lt;p&gt;GPG is a recommended tool if you don't want to compromise security in your communication with people over an unsecured network like our Internet.&lt;/p&gt;
 &lt;p&gt;Regardless whether you are sending a sensitive information or a friendly message, using GPG keys is extremely helpful to verify that the author of the message is genuine. Thanks for reading, and in case of a query or suggestions to improve this post, please feel free to write in the comments section below.&lt;/p&gt;</content><category term="DevOps, Linux"></category><category term="encryption"></category><category term="GPG"></category><category term="security"></category></entry><entry><title>Blue-Green Deployment</title><link href="//thegeekyway.com/blue-green-deployment/" rel="alternate"></link><published>2018-02-15T17:11:00+05:30</published><updated>2018-02-15T17:11:00+05:30</updated><author><name>GeekyShacklebolt</name></author><id>tag:thegeekyway.com,2018-02-15:/blue-green-deployment/</id><summary type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see …&lt;/p&gt;</summary><content type="html">&lt;p&gt;A few glimpse of past reminds us that application deployment on clouds was really a cumbersome task. Not only because the rollback was a pretty much complex operation to carry out, but also, because of huge outage or downtime, which inevitably used to disappoint users. But as we can see nowadays, there are some simpler and more efficient ways to perform the same. We are going to discuss one such technique, that is called "Blue-Green Deployment".&lt;!--more--&gt;&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Blue-Green Deployment" src="//thegeekyway.com/uploads/images/2018/02/Blue-green-deployment.png" title="Blue-Green Deployment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Before we jump on to understand Blue-Green Deployment, let's first discuss some relevant terms in brief.&lt;/p&gt;
 &lt;h3&gt;Deployment:&lt;/h3&gt;
@@ -2384,7 +2384,7 @@ For this technique, we need 2 identically configured hardware components or serv
 - another one is termed as &lt;strong&gt;"green"&lt;/strong&gt; that would be an &lt;strong&gt;idle&lt;/strong&gt; environment.&lt;/p&gt;
 &lt;p&gt;Initially, some applications &lt;strong&gt;(e.i app1 ver1, app2 ver1)&lt;/strong&gt; are running in our blue environment. As shown in the picture.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Active-blue-env.png" title="Active blue environment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Active blue environment" src="//thegeekyway.com/uploads/images/2018/02/Active-blue-env.png" title="Active blue environment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Suppose, now we come up with different versions of applications &lt;strong&gt;(i.e. app1 ver2, app2 ver2)&lt;/strong&gt;. We want them to deploy and then test these applications. If everything goes right, we'll use these versions in future, but if not, then we would go for the "rollback".&lt;/p&gt;
 &lt;p&gt;Let's accomplish this using blue-green deployment:&lt;/p&gt;
@@ -2392,12 +2392,12 @@ For this technique, we need 2 identically configured hardware components or serv
 2. Here a testing team may test the working of these new versions.&lt;br&gt;
 3. Gradually, using load balancer we start diverting the traffic to this green environment. As shown in the picture. With this live testing is also possible.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Active-blue-green-env.png" title="Diverting traffic from blue to green environment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Diverting traffic from blue to green environment" src="//thegeekyway.com/uploads/images/2018/02/Active-blue-green-env.png" title="Diverting traffic from blue to green environment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;4. If now, these versions fail or crash due to any possible reason. We can quickly roll back to the previous versions in the blue environment using the load balancer.&lt;br&gt;
 5. If new versions are found to be perfectly interacting with the user's traffic, then this &lt;strong&gt;"green"&lt;/strong&gt; environment is kept to be &lt;strong&gt;active&lt;/strong&gt; and &lt;strong&gt;"blue"&lt;/strong&gt; becomes &lt;strong&gt;idle&lt;/strong&gt;.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2018/02/Active-green-env.png" title="Active green environment"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Active green environment" src="//thegeekyway.com/uploads/images/2018/02/Active-green-env.png" title="Active green environment"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;After successful blue-green deployment, the idle environment is either used to deploy the next version of the application or is simply destroyed.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;&lt;u&gt;&lt;/em&gt;&lt;em&gt;Some points to ponder:&lt;/em&gt;&lt;em&gt;&lt;/u&gt;&lt;/em&gt;&lt;/p&gt;
@@ -2772,11 +2772,11 @@ ServerKeyBits 1024
 &lt;h2&gt;Overview of OG Tags&lt;/h2&gt;
 &lt;p&gt;The &lt;a href="http://ogp.me/"&gt;Open Graph Protocol&lt;/a&gt; is what works behind og-tags. It was introduced by Facebook in 2010 to better integrate a website with Facebook. It turns websites into intractable objects, and makes it easier to share. Like on a website when you choose to share via Facebook, it creates a summary of the URL you wish to share. Like the one below:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" class="aligncenter" src="https://i1.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-may-jay1.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Facebook OG tag preview example" class="aligncenter" src="https://i1.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-may-jay1.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;See how beautifully it creates the summary of the content! Similarly, it works on Twitter. The level up to which you can interact depends on the type of data shared like:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" class="aligncenter" src="https://i2.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-mayank-mayank_at_tgw-twitter.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Twitter card preview example" class="aligncenter" src="https://i2.wp.com/storymode7.files.wordpress.com/2017/11/screenshot-2017-11-27-mayank-mayank_at_tgw-twitter.png"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Here, twitter even allows playing videos in this twitter post itself.&lt;/p&gt;
 &lt;p&gt;Now, Let's see some of the details, how it works, basic syntax etc.&lt;/p&gt;
@@ -5287,11 +5287,11 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 
 &lt;p&gt;Now, leave the leading zero and you are left with three digits i.e. 002. This value is subtracted from default values (666 for files and 777 for directories) and the resulting values are set as permissions.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Default file and directory permissions with umask" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;As you can see the permission for file is 664 (666-002) and for the directory it is 775 (777-002). You can also change the umask and set permissions according to your requirements.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Changing umask value" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;You can revert back to your original umask  by typing&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;code&gt;$&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="nb"&gt;umask&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="m"&gt;002&lt;/span&gt;
@@ -5609,15 +5609,15 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;p&gt;Few screenshots related to Eclipse may vary due …&lt;/p&gt;</summary><content type="html">&lt;p&gt;Here is a complete tutorial to setup Eclipse IDE. Hope you have seen the &lt;a href="http://thegeekyway.com/beginandroid" title="Creating your first Android Application"&gt;first tutorial&lt;/a&gt; and have installed the required tools (ADT + Eclipse &amp;amp; JDK).After installing JDK, extract the Android SDK to a folder and you will get something like this.&lt;/p&gt;
 &lt;p&gt;Few screenshots related to Eclipse may vary due to different version, but the overall meaning remains same.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/1.jpg"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2014/02/1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/1.jpg"&gt;&lt;img alt="Android SDK folder structure" src="//thegeekyway.com/uploads/images/2014/02/1.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;&lt;strong&gt;Please note that Eclipse is just an Integrated Development Environment&lt;/strong&gt; which supports a wide variety of development ranging from C/C++/Java/Android to Electronics. Our Eclispe is a one, tailored for Android. The Eclipse and Android SDK should be kept in the same folder as shown above so that eclipse IDE is able to detect the SDK and use it for further development. If you attempt to change the location of Eclipse or SDK, or rename the SDK, you get the following error.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/11.jpg"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2014/02/11.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/11.jpg"&gt;&lt;img alt="Eclipse SDK location error" src="//thegeekyway.com/uploads/images/2014/02/11.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;So, now open eclipse folder and there you will find a file called &lt;strong&gt;eclipse.exe&lt;/strong&gt;. Open that file, a window appears which shows option to select the &lt;strong&gt;Workspace.&lt;/strong&gt; Workspace is a path where your entire project including source, APK and all other files are stored. After selecting preferences, something like this will appear.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/2.jpg"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2014/02/2.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/2.jpg"&gt;&lt;img alt="Eclipse IDE workspace selection" src="//thegeekyway.com/uploads/images/2014/02/2.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;To start creating a new project, either use the menubar (Flile -&amp;gt; New) or use keyboard shortcut (Alt+Shift+N). From the drop down menu, select &lt;strong&gt;Android Application Project.&lt;/strong&gt; A new Dialog box appears. Fill in the basic application details to continue.&lt;/p&gt;
 &lt;ul&gt;
@@ -5642,11 +5642,11 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;li&gt;&lt;strong&gt;Add project to working sets : &lt;/strong&gt;This option is also related to linking multiple projects so should not be given much stress now.Click &lt;strong&gt;Next&lt;/strong&gt; to continue. Now we get the following screen :  &lt;/li&gt;
 &lt;/ul&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/23.jpg"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2014/02/23.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/23.jpg"&gt;&lt;img alt="Eclipse application icon configuration" src="//thegeekyway.com/uploads/images/2014/02/23.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;You can configure the icon for you application in this window. Try changing different colors, text,clipart etc and it would be clear to you. Most of the things are self explanatory and are not discussed here. Click next to continue. You will get the following screen.  &lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/12.jpg"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2014/02/12.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/12.jpg"&gt;&lt;img alt="Eclipse activity type selection" src="//thegeekyway.com/uploads/images/2014/02/12.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Now here we select the type of activity.&lt;/p&gt;
 &lt;ul&gt;
@@ -5656,7 +5656,7 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 &lt;/ul&gt;
 &lt;p&gt;Click Next to continue. We get the following screen  &lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/1.png"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2014/02/1.png"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/1.png"&gt;&lt;img alt="Eclipse activity name and layout configuration" src="//thegeekyway.com/uploads/images/2014/02/1.png"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Activity Name :&lt;/strong&gt; This is the name of new blank activity which starts the application.&lt;/li&gt;
@@ -5666,7 +5666,7 @@ But, you as soon as JVM initialized, it allocate the memory for caching purpose.
 
 &lt;p&gt;Click Finish to start with the actual process.The following window opens in Eclipse.  &lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/13.jpg"&gt;&lt;img alt="" src="//thegeekyway.com/uploads/images/2014/02/13-1024x608.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/02/13.jpg"&gt;&lt;img alt="Eclipse IDE with Android project open" src="//thegeekyway.com/uploads/images/2014/02/13-1024x608.jpg"&gt;&lt;/a&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;So now we have started with a simple Android Application. On the left hand side we have a list of folders which contain libraries and files related to our application. On the right hand side, we have the currently opened file. By default it shoes the main JAVA file of your application. Before starting coding, setting layouts etc. we require  a complete understanding of all the folder on the left side. So in our next post tomorrow, we'll completely describe about each folder about what they mean and how to use them.&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.thegeekyway.com/firstandroidapp/" title="link"&gt; &lt;p style="font-size: xx-large"&gt;Link to next Tutorial&lt;/p&gt;&lt;/a&gt;&lt;/p&gt;</content><category term="Android"></category><category term="Android"></category><category term="development"></category><category term="Tutorial"></category></entry><entry><title>Conditional Statements : Switch Case</title><link href="//thegeekyway.com/conditional-statements-switch-case/" rel="alternate"></link><published>2014-02-01T21:02:00+05:30</published><updated>2014-02-01T21:02:00+05:30</updated><author><name>sanyam_khurana</name></author><id>tag:thegeekyway.com,2014-02-01:/conditional-statements-switch-case/</id><summary type="html">&lt;p&gt;In the previous tutorial, we've discussed about &lt;a href="http://www.thegeekyway.com/conditional-statements-if-else/" title="Understanding Conditional Statements: if else"&gt;if - else and nested if - else statements&lt;/a&gt; and how we can use them to test certain conditions and execute a block of code depending on whether the condition becomes true or false. In this tutorial, we'll be covering another Conditional Statement used in …&lt;/p&gt;</summary><content type="html">&lt;p&gt;In the previous tutorial, we've discussed about &lt;a href="http://www.thegeekyway.com/conditional-statements-if-else/" title="Understanding Conditional Statements: if else"&gt;if - else and nested if - else statements&lt;/a&gt; and how we can use them to test certain conditions and execute a block of code depending on whether the condition becomes true or false. In this tutorial, we'll be covering another Conditional Statement used in C known as Switch Case. The major difference between choosing to use if-else and switch is, when we have to compare a single variable to different set of values, then Switch is preferred, and if-else if preferred otherwise.&lt;/p&gt;
@@ -6837,19 +6837,19 @@ $&lt;span class="w"&gt; &lt;/span&gt;gem&lt;span class="w"&gt; &lt;/span&gt;inst
 
 &lt;p&gt;Now, we need to make the recipe. Let’s call the recipe hellochef. Here is how you can create it:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;img alt="" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="Creating the hellochef recipe directory structure" src="https://lh3.googleusercontent.com/JdMrZumIlNVIEI3ptyo02q4-gMyS7aK55eDpgLz0bffvFgYt85eUjNdYFW3OEApnqsMU8A_hXwirTrTeBh-N9VNvqREBQuKDUHhJ3yXfOyy9sKyExIFWegv5oA"&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Now write the line ‘puts “Hello Chef!” ‘ in the file default.rb and close it. It is a ruby file, so it’s better you make yourself familiar with ruby before moving ahead with chef. Now that we have our recipe, next step is to redirect chef-solo to our recipe. We need to tell chef-solo that which cookbook we want to run. To do that create a node.json inside chef/ directory and put the recipe info inside it.&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Creating node.json for chef-solo" src="https://lh6.googleusercontent.com/96TAdoropZDJ43-RziG1XATorRT5mJ9IZsLQWhCnWzo31PCPyJmZ61i_rRP9cBPcNbGfODxaokvtgNHAYthQi5Xu4eiCszll2xT7I0xAd8Rd_pTgvXOvhm57iw"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Save and close the file. Now, you just need one more thing, that is chef-solo configuration file. Come back to your home directory and open a file named solo.rb and write the following info in the file:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Creating solo.rb configuration file" src="https://lh3.googleusercontent.com/efLRvQ_ifxyy7BnJAc_tIMHYf6d-uD_86EE83otimqO6rkCLbzoPK6mKp8vs4OjYEAwyFEdWwTcczVZKXnf7-o5wwM2fMofdTlcz2tfWa6f9t_DkZ6xSGbkbLw"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;Remember to change the locations of files relative to your system! Save and close the file. Now, we are ready to run chef-solo. Run 'chef-solo -c solo.rb' from command line and you should get an output like this:&lt;/p&gt;
 &lt;div style="text-align:center"&gt;
-&lt;p&gt;&lt;strong&gt;&lt;img alt="" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;img alt="Chef-solo output showing Hello Chef" src="https://lh5.googleusercontent.com/oSvDyCeJjl1-7_sxTFgmEkTI66xcUh5Fh1IAAvftt7Cg_TvzYOLAdSJjA0dY6YgMEmbCsngCzKEHrldaw-bB7Py9sFLEhb2Z3u8FIs2F7tppJ6sVy-EgT-RcxQ"&gt;&lt;/strong&gt;&lt;/p&gt;
 &lt;/div&gt;
 &lt;p&gt;The -c option tells chef-solo about the location of the solo.rb configuration file. You can do a lot more with chef-solo than just printing Hello chef! This will get you started. Happy cooking!&lt;/p&gt;</content><category term="Linux"></category><category term="automation"></category><category term="Chef"></category><category term="chef-solo"></category></entry><entry><title>Beginning Android, for Java / C++ programmers (Android-Part 0)</title><link href="//thegeekyway.com/beginandroid/" rel="alternate"></link><published>2014-01-27T20:35:00+05:30</published><updated>2014-01-27T20:35:00+05:30</updated><author><name>gagan93</name></author><id>tag:thegeekyway.com,2014-01-27:/beginandroid/</id><summary type="html">&lt;div style="text-align:center"&gt;
 &lt;p&gt;&lt;a href="//thegeekyway.com/uploads/images/2014/01/01.jpg5a51b1a1-4063-466c-945d-6178840074d0Larger.jpg" title="Beginning Android"&gt;&lt;img alt="Beginning Android" src="//thegeekyway.com/uploads/images/2014/01/01.jpg5a51b1a1-4063-466c-945d-6178840074d0Larger-300x225.jpg" title="Beginning Android"&gt;&lt;/a&gt;&lt;/p&gt;

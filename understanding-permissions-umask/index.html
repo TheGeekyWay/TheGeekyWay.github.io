@@ -24,16 +24,12 @@
     The Geeky Way
 &ndash; Understanding Permissions With umask  </title>
 
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-46055942-1']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-2EQ7YWRBVJ');
 </script>
 </head>
 
@@ -92,11 +88,11 @@
 
 <p>Now, leave the leading zero and you are left with three digits i.e. 002. This value is subtracted from default values (666 for files and 777 for directories) and the resulting values are set as permissions.</p>
 <div style="text-align:center">
-<p><strong><img alt="" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"></strong></p>
+<p><strong><img alt="Default file and directory permissions with umask" src="https://lh5.googleusercontent.com/3qlpYN3OkS4o1Lctj8oD-ClQTmQp7LYK3Z79DaioR7uH11ftV0h9kAKxhDlSkS0nk3sCumPx-L5aybUd-vIpv2GFmBAI4QSJ6HHOhpkLqqR-g1xHnXpriIiuvw"></strong></p>
 </div>
 <p>As you can see the permission for file is 664 (666-002) and for the directory it is 775 (777-002). You can also change the umask and set permissions according to your requirements.</p>
 <div style="text-align:center">
-<p><strong><img alt="" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"></strong></p>
+<p><strong><img alt="Changing umask value" src="https://lh6.googleusercontent.com/b-vgaM38MX_gDCaLlNqjwFVW2ZKIucJXjwbYh2RH9CcHGmsjwdJpeFk1C30Dip6UUfbZrNPqwyAMODa4F3w4RQqzRExTLhHl4LT4Dg6QWblEpL34rwTF4agRSA"></strong></p>
 </div>
 <p>You can revert back to your original umask  by typing</p>
 <div class="highlight"><pre><span></span><code>$<span class="w"> </span><span class="nb">umask</span><span class="w"> </span><span class="m">002</span>
