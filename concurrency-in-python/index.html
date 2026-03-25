@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Sanyam Khurana" />
+<meta name="description" content="Python&#39;s concurrency story is... interesting. If you&#39;ve ever Googled &#34;Python multithreading&#34;, you&#39;ve probably run into the GIL debate and come away more confused than when you started. Can Python do concurrency? Yes. Is it straightforward? Not exactly. Python gives you three different concurrency models, each suited for different problems. Pick …" />
+<meta name="keywords" content="Python, Programming">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Concurrency in Python - Threads, Processes, and AsyncIO Explained"/>
+  <meta property="og:description" content="Python&#39;s concurrency story is... interesting. If you&#39;ve ever Googled &#34;Python multithreading&#34;, you&#39;ve probably run into the GIL debate and come away more confused than when you started. Can Python do concurrency? Yes. Is it straightforward? Not exactly. Python gives you three different concurrency models, each suited for different problems. Pick …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/concurrency-in-python/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-03-25 10:00:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/sanyam-khurana/">
+  <meta property="article:section" content="Python"/>
+  <meta property="article:tag" content="Python"/>
+  <meta property="article:tag" content="Programming"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Concurrency in Python - Threads, Processes, and AsyncIO Explained</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="concurrency-in-python">Concurrency in Python - Threads, Processes, and AsyncIO Explained</h1>
+    <p>
+      Posted on Wed 25 March 2026 by <a href="//thegeekyway.com/author/sanyam-khurana/">Sanyam Khurana</a> in <a href="//thegeekyway.com/category/python/">Python</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Python's concurrency story is... interesting. If you've ever Googled "Python multithreading", you've probably run into the GIL debate and come away more confused than when you started. Can Python do concurrency? Yes. Is it straightforward? Not exactly. Python gives you three different concurrency models, each suited for different problems. Pick the wrong one and you'll get no speedup at all. Pick the right one and your code can be dramatically faster.</p>
+<p>Let's cut through the confusion and understand what actually works, when, and why.</p>
+<!--more-->
+
+<h2>The GIL - The Elephant in the Room</h2>
+<p>Before anything else, we need to talk about the Global Interpreter Lock (GIL). CPython (the standard Python interpreter) has a mutex that protects access to Python objects. Only one thread can execute Python bytecode at a time, even on a multi-core machine.</p>
+<p>This sounds terrible, and for CPU-bound work, it kind of is. But here's the thing most people miss: the GIL is released during I/O operations. When your thread is waiting for a network response, reading a file, or waiting on a database query, other threads can run just fine.</p>
+<p>So the rule is simple:</p>
+<ul>
+<li><strong>I/O-bound work</strong>: threads work great (GIL doesn't matter)</li>
+<li><strong>CPU-bound work</strong>: threads won't help, use processes instead</li>
+</ul>
+<p>With that out of the way, let's look at the tools.</p>
+<h2>Threading - concurrent.futures.ThreadPoolExecutor</h2>
+<p>The <code>concurrent.futures</code> module is the modern way to do threading in Python. Forget about <code>threading.Thread</code> directly - <code>ThreadPoolExecutor</code> handles the pool management, lifecycle, and result collection for you.</p>
+<h3>Basic Usage</h3>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="k">def</span> <span class="nf">fetch_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">&quot;</span>
+
+<span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://httpbin.org/ip&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://httpbin.org/user-agent&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://httpbin.org/headers&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;https://httpbin.org/delay/1&quot;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">fetch_url</span><span class="p">,</span> <span class="n">urls</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+</code></pre></div>
+
+<p><code>executor.map</code> works like the built-in <code>map</code>, but runs the function in parallel across threads. Results come back in the same order as the inputs, regardless of which one finishes first.</p>
+<h3>submit() for More Control</h3>
+<p><code>map</code> is convenient but limited. For more control, use <code>submit()</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+
+<span class="k">def</span> <span class="nf">fetch_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">url</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span>
+
+<span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">,</span> <span class="s2">&quot;https://httpbin.org/delay/2&quot;</span><span class="p">,</span> <span class="s2">&quot;https://httpbin.org/ip&quot;</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="c1"># Submit all tasks</span>
+    <span class="n">future_to_url</span> <span class="o">=</span> <span class="p">{</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">fetch_url</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span> <span class="n">url</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">}</span>
+
+    <span class="c1"># Process results as they complete (not in order)</span>
+    <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">as_completed</span><span class="p">(</span><span class="n">future_to_url</span><span class="p">):</span>
+        <span class="n">url</span> <span class="o">=</span> <span class="n">future_to_url</span><span class="p">[</span><span class="n">future</span><span class="p">]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">result_url</span><span class="p">,</span> <span class="n">status</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">result_url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2"> generated an exception: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p><code>as_completed</code> yields futures in the order they finish, not the order they were submitted. This is perfect when you want to process results as soon as they're available, and you want to handle exceptions per-task.</p>
+<h3>Handling Timeouts</h3>
+<p>You can set timeouts on the result:</p>
+<div class="highlight"><pre><span></span><code><span class="n">future</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">slow_function</span><span class="p">,</span> <span class="n">arg</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>  <span class="c1"># Wait max 5 seconds</span>
+<span class="k">except</span> <span class="ne">TimeoutError</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Task took too long&quot;</span><span class="p">)</span>
+    <span class="n">future</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>  <span class="c1"># Try to cancel it</span>
+</code></pre></div>
+
+<p>Note that <code>cancel()</code> only works if the task hasn't started yet. Once a thread is running, Python can't forcefully stop it. If you need cancellable tasks, you'll need to use a flag or event that the worker checks periodically.</p>
+<h3>When to Use ThreadPoolExecutor</h3>
+<ul>
+<li>Making multiple HTTP requests in parallel</li>
+<li>Reading/writing multiple files simultaneously</li>
+<li>Database queries that are independent of each other</li>
+<li>Any I/O-bound work where you're waiting on external systems</li>
+</ul>
+<h3>How Many Workers?</h3>
+<p>For I/O-bound tasks, you can have more workers than CPU cores. A common rule of thumb:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># I/O-bound: more threads are fine</span>
+<span class="n">executor</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># Default (Python 3.8+): min(32, os.cpu_count() + 4)</span>
+<span class="n">executor</span> <span class="o">=</span> <span class="n">ThreadPoolExecutor</span><span class="p">()</span>
+</code></pre></div>
+
+<h2>ProcessPoolExecutor - True Parallelism</h2>
+<p>When your work is CPU-bound (crunching numbers, image processing, data transformation), threads won't help because of the GIL. You need separate processes, each with its own Python interpreter and its own GIL.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ProcessPoolExecutor</span>
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="k">def</span> <span class="nf">is_prime</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">n</span><span class="p">))</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">n</span> <span class="o">%</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">return</span> <span class="kc">True</span>
+
+<span class="n">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">112272535095293</span><span class="p">,</span> <span class="mi">112582705942171</span><span class="p">,</span> <span class="mi">112272535095293</span><span class="p">,</span>
+           <span class="mi">115280095190773</span><span class="p">,</span> <span class="mi">115797848077099</span><span class="p">,</span> <span class="mi">1099726899285419</span><span class="p">]</span>
+
+<span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">is_prime</span><span class="p">,</span> <span class="n">numbers</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">number</span><span class="p">,</span> <span class="n">prime</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">numbers</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="s1">&#39;prime&#39;</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">prime</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">&#39;not prime&#39;</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>The API is almost identical to <code>ThreadPoolExecutor</code>. Just swap the class name. But under the hood, it's completely different - each worker is a separate OS process.</p>
+<h3>The Catch with Processes</h3>
+<p>There are some gotchas:</p>
+<p><strong>1. Serialization overhead</strong>: Arguments and return values are pickled (serialized) and sent between processes. Large objects will be slow. Keep the data you pass small.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bad: passing a huge DataFrame to each worker</span>
+<span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">process_chunk</span><span class="p">,</span> <span class="p">[</span><span class="n">huge_dataframe</span><span class="p">]</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="c1"># Good: pass file paths or indices, let workers load their own data</span>
+<span class="k">with</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">process_file</span><span class="p">,</span> <span class="n">file_paths</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>2. Not everything is picklable</strong>: Lambdas, nested functions, and certain objects can't be pickled. Your worker function must be defined at the module level.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Bad: lambda can&#39;t be pickled</span>
+<span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># Good: use a regular function</span>
+<span class="k">def</span> <span class="nf">double</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">double</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</code></pre></div>
+
+<p><strong>3. Startup cost</strong>: Creating processes is expensive compared to threads. Don't use <code>ProcessPoolExecutor</code> for tiny tasks - the overhead will outweigh the parallelism benefit.</p>
+<h3>How Many Workers?</h3>
+<p>For CPU-bound work, more workers than CPU cores doesn't help:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># CPU-bound: match core count</span>
+<span class="n">executor</span> <span class="o">=</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">())</span>
+
+<span class="c1"># Default: os.cpu_count()</span>
+<span class="n">executor</span> <span class="o">=</span> <span class="n">ProcessPoolExecutor</span><span class="p">()</span>
+</code></pre></div>
+
+<h2>AsyncIO - The Third Way</h2>
+<p>AsyncIO is Python's answer to the callback-heavy async models in other languages. It's a single-threaded concurrency model based on coroutines. Instead of threads or processes, you have an event loop that switches between tasks when they're waiting for I/O.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">asyncio</span>
+<span class="kn">import</span> <span class="nn">aiohttp</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">fetch_url</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">url</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;https://httpbin.org/get&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://httpbin.org/ip&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://httpbin.org/user-agent&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;https://httpbin.org/headers&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_url</span><span class="p">(</span><span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">url</span><span class="p">,</span> <span class="n">status</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">status</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+
+<h3>How It Works</h3>
+<p>When a coroutine hits an <code>await</code>, it yields control back to the event loop. The event loop then runs another coroutine that's ready. When the awaited operation completes, the event loop resumes the original coroutine. All of this happens on a single thread.</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">slow_operation</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting slow operation&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># Yields control to event loop</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Slow operation done&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;result&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">fast_operation</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Starting fast operation&quot;</span><span class="p">)</span>
+    <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Fast operation done&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s2">&quot;fast result&quot;</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># Both run concurrently on a single thread</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">slow_operation</span><span class="p">(),</span> <span class="n">fast_operation</span><span class="p">())</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+
+<p>Output:</p>
+<div class="highlight"><pre><span></span><code>Starting slow operation
+Starting fast operation
+Fast operation done
+Slow operation done
+[&#39;result&#39;, &#39;fast result&#39;]
+</code></pre></div>
+
+<p>Both operations ran concurrently - the total time is about 2 seconds, not 2.5.</p>
+<h3>asyncio.gather vs asyncio.TaskGroup</h3>
+<p><code>asyncio.gather</code> is the classic way, but Python 3.11 introduced <code>TaskGroup</code> which handles errors better:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># asyncio.gather - if one task fails, others keep running</span>
+<span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="n">task1</span><span class="p">(),</span> <span class="n">task2</span><span class="p">(),</span> <span class="n">task3</span><span class="p">(),</span> <span class="n">return_exceptions</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># TaskGroup (Python 3.11+) - if one task fails, all are cancelled</span>
+<span class="k">async</span> <span class="k">with</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">TaskGroup</span><span class="p">()</span> <span class="k">as</span> <span class="n">tg</span><span class="p">:</span>
+    <span class="n">t1</span> <span class="o">=</span> <span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task1</span><span class="p">())</span>
+    <span class="n">t2</span> <span class="o">=</span> <span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task2</span><span class="p">())</span>
+    <span class="n">t3</span> <span class="o">=</span> <span class="n">tg</span><span class="o">.</span><span class="n">create_task</span><span class="p">(</span><span class="n">task3</span><span class="p">())</span>
+<span class="c1"># If any task raises, all others are cancelled and</span>
+<span class="c1"># an ExceptionGroup is raised</span>
+</code></pre></div>
+
+<p><code>TaskGroup</code> is the recommended approach for new code. It's similar to Go's <code>errgroup</code> - cancel everything when any task fails.</p>
+<h3>Semaphore for Rate Limiting</h3>
+<p>Just like the channel-based semaphore pattern in Go, asyncio has <code>Semaphore</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="k">async</span> <span class="k">def</span> <span class="nf">fetch_with_limit</span><span class="p">(</span><span class="n">sem</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">):</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">sem</span><span class="p">:</span>  <span class="c1"># Only N concurrent requests</span>
+        <span class="k">async</span> <span class="k">with</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span> <span class="k">as</span> <span class="n">response</span><span class="p">:</span>
+            <span class="k">return</span> <span class="k">await</span> <span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">()</span>
+
+<span class="k">async</span> <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">sem</span> <span class="o">=</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">Semaphore</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Max 10 concurrent</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">aiohttp</span><span class="o">.</span><span class="n">ClientSession</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+        <span class="n">tasks</span> <span class="o">=</span> <span class="p">[</span><span class="n">fetch_with_limit</span><span class="p">(</span><span class="n">sem</span><span class="p">,</span> <span class="n">session</span><span class="p">,</span> <span class="n">url</span><span class="p">)</span> <span class="k">for</span> <span class="n">url</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">]</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="k">await</span> <span class="n">asyncio</span><span class="o">.</span><span class="n">gather</span><span class="p">(</span><span class="o">*</span><span class="n">tasks</span><span class="p">)</span>
+</code></pre></div>
+
+<h3>When to Use AsyncIO</h3>
+<ul>
+<li>High-concurrency I/O scenarios (thousands of concurrent connections)</li>
+<li>Web servers and API clients</li>
+<li>WebSocket handling</li>
+<li>When you need to handle many connections with minimal resource usage</li>
+</ul>
+<p>The downside: asyncio is viral. Once you use <code>async def</code>, every function that calls it must also be <code>async</code>. And you need async-compatible libraries (<code>aiohttp</code> instead of <code>requests</code>, <code>asyncpg</code> instead of <code>psycopg2</code>).</p>
+<h2>Choosing the Right Tool</h2>
+<p>Here's the decision tree I use:</p>
+<div class="highlight"><pre><span></span><code>Is your task I/O-bound or CPU-bound?
+|
++-- I/O-bound
+|   |
+|   +-- How many concurrent operations?
+|       |
+|       +-- Dozens: ThreadPoolExecutor
+|       +-- Hundreds/Thousands: AsyncIO
+|
++-- CPU-bound
+    |
+    +-- ProcessPoolExecutor
+</code></pre></div>
+
+<p>And here's the comparison table:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>ThreadPoolExecutor</th>
+<th>ProcessPoolExecutor</th>
+<th>AsyncIO</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Best for</strong></td>
+<td>I/O-bound (network, files)</td>
+<td>CPU-bound (math, processing)</td>
+<td>High-concurrency I/O</td>
+</tr>
+<tr>
+<td><strong>GIL impact</strong></td>
+<td>Released during I/O</td>
+<td>Each process has its own GIL</td>
+<td>Single thread, no GIL issue</td>
+</tr>
+<tr>
+<td><strong>Memory</strong></td>
+<td>Shared memory, lightweight</td>
+<td>Separate memory per process</td>
+<td>Very lightweight</td>
+</tr>
+<tr>
+<td><strong>Data passing</strong></td>
+<td>Direct (shared memory)</td>
+<td>Pickle serialization</td>
+<td>Direct (single thread)</td>
+</tr>
+<tr>
+<td><strong>Max concurrency</strong></td>
+<td>~20-50 threads typical</td>
+<td>Number of CPU cores</td>
+<td>Thousands of tasks</td>
+</tr>
+<tr>
+<td><strong>Ecosystem</strong></td>
+<td>Works with everything</td>
+<td>Picklable functions only</td>
+<td>Needs async libraries</td>
+</tr>
+</tbody>
+</table>
+<h2>A Real-World Example: Parallel API Calls with Retry</h2>
+<p>Let me show you a practical example that combines several of these concepts:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">from</span> <span class="nn">requests.adapters</span> <span class="kn">import</span> <span class="n">HTTPAdapter</span>
+<span class="kn">from</span> <span class="nn">urllib3.util.retry</span> <span class="kn">import</span> <span class="n">Retry</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">create_session</span><span class="p">():</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span>
+    <span class="n">retry</span> <span class="o">=</span> <span class="n">Retry</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">backoff_factor</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+    <span class="n">adapter</span> <span class="o">=</span> <span class="n">HTTPAdapter</span><span class="p">(</span><span class="n">max_retries</span><span class="o">=</span><span class="n">retry</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;http://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+    <span class="n">session</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s2">&quot;https://&quot;</span><span class="p">,</span> <span class="n">adapter</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">session</span>
+
+<span class="k">def</span> <span class="nf">fetch_user</span><span class="p">(</span><span class="n">user_id</span><span class="p">):</span>
+    <span class="n">session</span> <span class="o">=</span> <span class="n">create_session</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">session</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="sa">f</span><span class="s2">&quot;https://jsonplaceholder.typicode.com/users/</span><span class="si">{</span><span class="n">user_id</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span>
+        <span class="n">timeout</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">fetch_all_users</span><span class="p">(</span><span class="n">user_ids</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">results</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="n">errors</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">future_to_id</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">fetch_user</span><span class="p">,</span> <span class="n">uid</span><span class="p">):</span> <span class="n">uid</span>
+            <span class="k">for</span> <span class="n">uid</span> <span class="ow">in</span> <span class="n">user_ids</span>
+        <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">as_completed</span><span class="p">(</span><span class="n">future_to_id</span><span class="p">):</span>
+            <span class="n">uid</span> <span class="o">=</span> <span class="n">future_to_id</span><span class="p">[</span><span class="n">future</span><span class="p">]</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">results</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">errors</span><span class="p">[</span><span class="n">uid</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">results</span><span class="p">,</span> <span class="n">errors</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">user_ids</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">results</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="n">fetch_all_users</span><span class="p">(</span><span class="n">user_ids</span><span class="p">)</span>
+    <span class="n">elapsed</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fetched </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span><span class="si">}</span><span class="s2"> users in </span><span class="si">{</span><span class="n">elapsed</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">s&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">uid</span><span class="p">,</span> <span class="n">user</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;  </span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">user</span><span class="p">[</span><span class="s1">&#39;email&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Errors: </span><span class="si">{</span><span class="n">errors</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</code></pre></div>
+
+<p>Without threading, 10 sequential API calls might take 5+ seconds. With a ThreadPoolExecutor, they all run concurrently and finish in under a second. That's the kind of practical speedup that makes concurrency worth learning.</p>
+<h2>Summary</h2>
+<p>Python gives you three concurrency models, each for a different job:</p>
+<ul>
+<li><strong>ThreadPoolExecutor</strong>: your go-to for I/O-bound parallelism. Simple API, works with any library, no serialization overhead.</li>
+<li><strong>ProcessPoolExecutor</strong>: true CPU parallelism that sidesteps the GIL. Same API as threads, but watch out for pickling and memory costs.</li>
+<li><strong>AsyncIO</strong>: for when you need massive I/O concurrency (thousands of connections). Powerful but requires an async-compatible ecosystem.</li>
+</ul>
+<p>The <code>concurrent.futures</code> module is where most people should start. Its <code>ThreadPoolExecutor</code> and <code>ProcessPoolExecutor</code> cover 90% of real-world concurrency needs with a clean, consistent API. AsyncIO is the right choice when you're building high-concurrency network services and <code>concurrent.futures</code> isn't cutting it.</p>
+<p>And remember - the GIL isn't a showstopper. It just means you need to pick the right tool for the job. Threads for I/O, processes for CPU, and asyncio for massive scale.</p>
+<p>If you've any questions about concurrency in Python, please let us know in the comments section below.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/python/">Python</a>
+      <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>

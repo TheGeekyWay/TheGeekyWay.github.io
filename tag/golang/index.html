@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+    <meta name="author" content="The Geeky Way" />
+    <meta name="description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more." />
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:type" content="blog"/>
+  <meta property="og:title" content="The Geeky Way"/>
+  <meta property="og:description" content="A tech blog covering Linux, DevOps, Web Development, Python, and more."/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Tag Golang</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+
+
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/locks-in-golang/#locks-in-golang">Locks in Go - Mutex, RWMutex, and When to Use What</a></h2>
+    <p>
+      Posted on Wed 25 March 2026 in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </header>
+  <div>
+      <div><p>In our <a href="/concurrency-in-golang/">concurrency post</a>, we briefly touched on mutexes. But there's more to locking in Go than just <code>sync.Mutex</code>. Go gives you several synchronization primitives, each designed for a specific access pattern. Use the wrong one and you'll either have a race condition, a deadlock, or unnecessary contention killing …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/locks-in-golang/#locks-in-golang">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/concurrency-in-golang/#concurrency-in-golang">Concurrency in Go - Goroutines, Channels, and Patterns That Actually Matter</a></h2>
+    <p>
+      Posted on Tue 24 March 2026 in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </header>
+  <div>
+      <div><p>"Don't communicate by sharing memory; share memory by communicating." That's the Go proverb that took me a while to truly understand. When I came from a Python/Django background, concurrency meant threads, locks, and race conditions giving me nightmares. Go changed that for me. Not because concurrency is easy (it's …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/concurrency-in-golang/#concurrency-in-golang">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/understanding-context-in-golang/#understanding-context-in-golang">Understanding Context in Go - The Right Way to Pass It Around</a></h2>
+    <p>
+      Posted on Mon 23 March 2026 in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </header>
+  <div>
+      <div><p>If you've been writing Go for any amount of time, you've seen <code>ctx context.Context</code> as the first parameter in almost every function. When I first started with Go, I treated it like a formality - just pass it along and don't think about it. That's fine until your HTTP handler …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/understanding-context-in-golang/#understanding-context-in-golang">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/writing-your-own-kubernetes-operator/#writing-your-own-kubernetes-operator">Writing Your Own Kubernetes Operator - A Practical Guide</a></h2>
+    <p>
+      Posted on Sun 22 March 2026 in <a href="//thegeekyway.com/category/devops/">DevOps</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/kubernetes/">Kubernetes</a>,              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/devops/">DevOps</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Kubernetes is great at managing stateless workloads out of the box. You define a Deployment, it creates Pods, handles rolling updates, and restarts them if they crash. But what about stateful applications like databases? What if you want Kubernetes to understand how to create a PostgreSQL replica, take a backup …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/writing-your-own-kubernetes-operator/#writing-your-own-kubernetes-operator">
+          Continue reading
+        </a>
+  </div>
+</article>
+
+  <div class="pagination">
+  </div>
+
+
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>

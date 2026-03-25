@@ -1,0 +1,475 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Sanyam Khurana" />
+<meta name="description" content="If you&#39;ve been writing Go for any amount of time, you&#39;ve seen ctx context.Context as the first parameter in almost every function. When I first started with Go, I treated it like a formality - just pass it along and don&#39;t think about it. That&#39;s fine until your HTTP handler …" />
+<meta name="keywords" content="Golang, Programming">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Understanding Context in Go - The Right Way to Pass It Around"/>
+  <meta property="og:description" content="If you&#39;ve been writing Go for any amount of time, you&#39;ve seen ctx context.Context as the first parameter in almost every function. When I first started with Go, I treated it like a formality - just pass it along and don&#39;t think about it. That&#39;s fine until your HTTP handler …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/understanding-context-in-golang/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-03-23 10:00:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/sanyam-khurana/">
+  <meta property="article:section" content="Programming"/>
+  <meta property="article:tag" content="Golang"/>
+  <meta property="article:tag" content="Programming"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Understanding Context in Go - The Right Way to Pass It Around</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="understanding-context-in-golang">Understanding Context in Go - The Right Way to Pass It Around</h1>
+    <p>
+      Posted on Mon 23 March 2026 by <a href="//thegeekyway.com/author/sanyam-khurana/">Sanyam Khurana</a> in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>If you've been writing Go for any amount of time, you've seen <code>ctx context.Context</code> as the first parameter in almost every function. When I first started with Go, I treated it like a formality - just pass it along and don't think about it. That's fine until your HTTP handler hangs for 30 seconds because a downstream API is unresponsive, or your goroutines keep running long after the user has closed their browser tab. That's when context starts to matter.</p>
+<p>Let's understand what context actually is, why Go chose this pattern, and how to use it properly.</p>
+<!--more-->
+
+<h2>What is Context?</h2>
+<p>At its core, <code>context.Context</code> is an interface that carries three things:</p>
+<ol>
+<li><strong>Deadlines and timeouts</strong> - "this operation must complete within 5 seconds"</li>
+<li><strong>Cancellation signals</strong> - "stop whatever you're doing, nobody needs the result anymore"</li>
+<li><strong>Request-scoped values</strong> - "here's the user ID and trace ID for this request"</li>
+</ol>
+<p>The interface itself is tiny:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">Context</span><span class="w"> </span><span class="kd">interface</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Deadline</span><span class="p">()</span><span class="w"> </span><span class="p">(</span><span class="nx">deadline</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Time</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">Done</span><span class="p">()</span><span class="w"> </span><span class="o">&lt;-</span><span class="kd">chan</span><span class="w"> </span><span class="kd">struct</span><span class="p">{}</span>
+<span class="w">    </span><span class="nx">Err</span><span class="p">()</span><span class="w"> </span><span class="kt">error</span>
+<span class="w">    </span><span class="nx">Value</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="kt">any</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>That's it. Four methods. But this small interface is the backbone of how Go handles request lifecycle, cancellation, and timeout propagation across your entire application.</p>
+<h2>Why Not Just Use Global Variables or Pass Values Directly?</h2>
+<p>You might wonder why we need context at all. Can't we just pass a timeout value or a cancel channel?</p>
+<p>You could, but context solves a deeper problem. In a real application, a single HTTP request might touch 10 different functions, make 3 database queries, call 2 external APIs, and spawn a couple of goroutines. All of these need to:</p>
+<ul>
+<li>Stop immediately if the client disconnects</li>
+<li>Respect the same overall timeout</li>
+<li>Have access to the same request metadata (trace ID, auth info)</li>
+</ul>
+<p>Passing individual cancel channels and timeout values to all these functions would be a nightmare. Context bundles all of this into a single, composable value that flows through your call chain.</p>
+<h2>Creating Contexts</h2>
+<p>You never create a context from scratch (except at the very top of a call chain). Instead, you derive new contexts from existing ones. This creates a tree structure where cancelling a parent automatically cancels all children.</p>
+<h3>The Root: context.Background() and context.TODO()</h3>
+<p>Every context tree starts with a root:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Use this at the top level: main(), init(), tests</span>
+<span class="nx">ctx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">()</span>
+
+<span class="c1">// Use this when you&#39;re not sure which context to use yet</span>
+<span class="c1">// It&#39;s a signal to other developers: &quot;this needs a proper context later&quot;</span>
+<span class="nx">ctx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">TODO</span><span class="p">()</span>
+</code></pre></div>
+
+<p>Both return an empty context with no deadline, no cancellation, and no values. The difference is purely semantic - <code>TODO()</code> is a placeholder that says "I haven't figured out the right context to use here yet."</p>
+<h3>Adding a Timeout: context.WithTimeout</h3>
+<p>This is probably the most common one. You want an operation to fail if it takes too long:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// This context will automatically cancel after 5 seconds</span>
+<span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">cancel</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithTimeout</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+<span class="k">defer</span><span class="w"> </span><span class="nx">cancel</span><span class="p">()</span><span class="w"> </span><span class="c1">// Always defer cancel to release resources</span>
+
+<span class="nx">result</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">callExternalAPI</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Err</span><span class="p">()</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">DeadlineExceeded</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;API call timed out&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>cancel</code> function is returned alongside the context, and you must always call it - even if the timeout hasn't expired yet. The <code>defer cancel()</code> pattern handles this. If you skip calling <code>cancel</code>, you'll leak resources.</p>
+<h3>Adding a Deadline: context.WithDeadline</h3>
+<p>Similar to timeout, but you specify an absolute time:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Must complete by a specific time</span>
+<span class="nx">deadline</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Now</span><span class="p">().</span><span class="nx">Add</span><span class="p">(</span><span class="mi">30</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+<span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">cancel</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithDeadline</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">(),</span><span class="w"> </span><span class="nx">deadline</span><span class="p">)</span>
+<span class="k">defer</span><span class="w"> </span><span class="nx">cancel</span><span class="p">()</span>
+</code></pre></div>
+
+<p><code>WithTimeout</code> is actually just syntactic sugar over <code>WithDeadline</code>. Under the hood, <code>context.WithTimeout(ctx, 5*time.Second)</code> is the same as <code>context.WithDeadline(ctx, time.Now().Add(5*time.Second))</code>.</p>
+<h3>Manual Cancellation: context.WithCancel</h3>
+<p>When you want to cancel things explicitly rather than by timeout:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">cancel</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithCancel</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">())</span>
+
+<span class="k">go</span><span class="w"> </span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Do some work...</span>
+<span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">doExpensiveComputation</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">result</span><span class="p">.</span><span class="nx">IsGoodEnough</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">cancel</span><span class="p">()</span><span class="w"> </span><span class="c1">// Signal all other goroutines to stop</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}()</span>
+</code></pre></div>
+
+<p>This is useful when you have multiple goroutines doing the same work and you want to cancel the rest once one of them finishes.</p>
+<h3>Carrying Values: context.WithValue</h3>
+<p>Context can carry request-scoped data:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">contextKey</span><span class="w"> </span><span class="kt">string</span>
+
+<span class="kd">const</span><span class="w"> </span><span class="nx">userIDKey</span><span class="w"> </span><span class="nx">contextKey</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;userID&quot;</span>
+
+<span class="c1">// Setting a value</span>
+<span class="nx">ctx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithValue</span><span class="p">(</span><span class="nx">parentCtx</span><span class="p">,</span><span class="w"> </span><span class="nx">userIDKey</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-123&quot;</span><span class="p">)</span>
+
+<span class="c1">// Getting a value</span>
+<span class="nx">userID</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Value</span><span class="p">(</span><span class="nx">userIDKey</span><span class="p">).(</span><span class="kt">string</span><span class="p">)</span>
+<span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;no user ID in context&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>A few important things about <code>WithValue</code>:</p>
+<ul>
+<li>Always use a custom unexported type for keys (not a bare <code>string</code>). This prevents key collisions between packages.</li>
+<li>Context values are immutable. <code>WithValue</code> returns a new context - it doesn't modify the parent.</li>
+<li>Don't use context for passing optional parameters or things that should be function arguments. Context values are for request-scoped metadata like trace IDs, auth tokens, and request IDs. If a function needs a database connection, pass it as a parameter, not through context.</li>
+</ul>
+<h2>How Context Flows Through Your Application</h2>
+<p>Here's a realistic example of context flowing through an HTTP handler:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nx">HandleFunc</span><span class="p">(</span><span class="s">&quot;/users&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">getUser</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">http</span><span class="p">.</span><span class="nx">ListenAndServe</span><span class="p">(</span><span class="s">&quot;:8080&quot;</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">getUser</span><span class="p">(</span><span class="nx">w</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">ResponseWriter</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">http</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// r.Context() gives us a context that cancels when the</span>
+<span class="w">    </span><span class="c1">// client disconnects. This is our starting point.</span>
+<span class="w">    </span><span class="nx">ctx</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Context</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Add a timeout for the entire handler</span>
+<span class="w">    </span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">cancel</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithTimeout</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">cancel</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// This context now carries:</span>
+<span class="w">    </span><span class="c1">// 1. Client disconnect cancellation (from r.Context())</span>
+<span class="w">    </span><span class="c1">// 2. 10 second timeout (from WithTimeout)</span>
+<span class="w">    </span><span class="c1">// Both will propagate to every function we pass ctx to.</span>
+
+<span class="w">    </span><span class="nx">user</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fetchUserFromDB</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;user-123&quot;</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">http</span><span class="p">.</span><span class="nx">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">Error</span><span class="p">(),</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusInternalServerError</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">profile</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fetchProfileFromAPI</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="p">.</span><span class="nx">ProfileURL</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">http</span><span class="p">.</span><span class="nx">Error</span><span class="p">(</span><span class="nx">w</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="p">.</span><span class="nx">Error</span><span class="p">(),</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">StatusInternalServerError</span><span class="p">)</span>
+<span class="w">        </span><span class="k">return</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">json</span><span class="p">.</span><span class="nx">NewEncoder</span><span class="p">(</span><span class="nx">w</span><span class="p">).</span><span class="nx">Encode</span><span class="p">(</span><span class="nx">profile</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">fetchUserFromDB</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">User</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// The database query will be cancelled if the context is done</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">db</span><span class="p">.</span><span class="nx">QueryRowContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;SELECT * FROM users WHERE id = $1&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="p">).</span><span class="nx">Scan</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">fetchProfileFromAPI</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="nx">Profile</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">req</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">NewRequestWithContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">url</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// This HTTP call will be cancelled if the context is done</span>
+<span class="w">    </span><span class="nx">resp</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">DefaultClient</span><span class="p">.</span><span class="nx">Do</span><span class="p">(</span><span class="nx">req</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Notice how the 10-second timeout applies to the entire handler - both the database query and the API call combined. If the database takes 7 seconds, the API call only has 3 seconds left. This is exactly the behavior you want.</p>
+<p>And if the user closes their browser tab? <code>r.Context()</code> is cancelled, which cascades down to cancel the database query and the API call. No wasted resources.</p>
+<h2>Listening for Cancellation in Your Own Code</h2>
+<p>When you write functions that do long-running work, you should check for context cancellation:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">processItems</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="p">[]</span><span class="nx">Item</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nx">_</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="k">range</span><span class="w"> </span><span class="nx">items</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// Check if context is cancelled before processing each item</span>
+<span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Done</span><span class="p">():</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Err</span><span class="p">()</span>
+<span class="w">        </span><span class="k">default</span><span class="p">:</span>
+<span class="w">        </span><span class="p">}</span>
+
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">process</span><span class="p">(</span><span class="nx">item</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>select</code> with <code>ctx.Done()</code> and a <code>default</code> case is the standard pattern. The <code>default</code> case makes it non-blocking - if the context isn't cancelled, we proceed immediately.</p>
+<p>For goroutines, you'll often use <code>ctx.Done()</code> in a select alongside your work channel:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">worker</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">jobs</span><span class="w"> </span><span class="o">&lt;-</span><span class="kd">chan</span><span class="w"> </span><span class="nx">Job</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">select</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Done</span><span class="p">():</span>
+<span class="w">            </span><span class="nx">log</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;worker shutting down:&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="p">.</span><span class="nx">Err</span><span class="p">())</span>
+<span class="w">            </span><span class="k">return</span>
+<span class="w">        </span><span class="k">case</span><span class="w"> </span><span class="nx">job</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&lt;-</span><span class="nx">jobs</span><span class="p">:</span>
+<span class="w">            </span><span class="nx">process</span><span class="p">(</span><span class="nx">job</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h2>Context Rules to Live By</h2>
+<p>The Go team has documented these conventions, and they're worth following:</p>
+<ol>
+<li><strong>Context is always the first parameter</strong>, named <code>ctx</code>. Not the last, not embedded in a struct.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">// Good</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">DoSomething</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span>
+
+<span class="c1">// Bad</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">DoSomething</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span>
+</code></pre></div>
+
+<ol>
+<li><strong>Never store context in a struct</strong>. Pass it explicitly through function calls. Storing context in a struct usually means you're holding onto a context longer than its intended lifecycle.</li>
+</ol>
+<div class="highlight"><pre><span></span><code><span class="c1">// Bad</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">Server</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span>
+<span class="p">}</span>
+
+<span class="c1">// Good - pass it per-request</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">Server</span><span class="p">)</span><span class="w"> </span><span class="nx">HandleRequest</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="w"> </span><span class="o">*</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span>
+</code></pre></div>
+
+<ol>
+<li>
+<p><strong>Don't pass nil context</strong>. If you're unsure, use <code>context.TODO()</code>. It's better than nil, which will cause a panic.</p>
+</li>
+<li>
+<p><strong>Always call cancel</strong>. When you get a cancel function from <code>WithTimeout</code>, <code>WithDeadline</code>, or <code>WithCancel</code>, always call it. <code>defer cancel()</code> right after creation.</p>
+</li>
+<li>
+<p><strong>Context values are for request-scoped data only</strong>. Don't use them for dependency injection or passing function arguments.</p>
+</li>
+</ol>
+<h2>Common Mistakes</h2>
+<h3>Ignoring the Parent's Deadline</h3>
+<p>If the parent context has a 5-second timeout and you create a child with a 10-second timeout, the effective timeout is still 5 seconds. The child can only be more restrictive, never less:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">parentCtx</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithTimeout</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+
+<span class="c1">// This child has an effective timeout of 5 seconds, not 10</span>
+<span class="nx">childCtx</span><span class="p">,</span><span class="w"> </span><span class="nx">_</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithTimeout</span><span class="p">(</span><span class="nx">parentCtx</span><span class="p">,</span><span class="w"> </span><span class="mi">10</span><span class="o">*</span><span class="nx">time</span><span class="p">.</span><span class="nx">Second</span><span class="p">)</span>
+</code></pre></div>
+
+<h3>Forgetting to Propagate Context</h3>
+<p>Using <code>context.Background()</code> in the middle of a call chain breaks the cancellation chain:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="nx">handler</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Bad: this ignores the parent&#39;s timeout and cancellation</span>
+<span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">doWork</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">Background</span><span class="p">())</span>
+
+<span class="w">    </span><span class="c1">// Good: propagate the incoming context</span>
+<span class="w">    </span><span class="nx">result</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">doWork</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<h3>Using Context for Dependency Injection</h3>
+<div class="highlight"><pre><span></span><code><span class="c1">// Bad - don&#39;t do this</span>
+<span class="nx">ctx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithValue</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;db&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">database</span><span class="p">)</span>
+<span class="nx">ctx</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">WithValue</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;logger&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">logger</span><span class="p">)</span>
+
+<span class="c1">// Good - pass dependencies explicitly</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewService</span><span class="p">(</span><span class="nx">db</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="p">,</span><span class="w"> </span><span class="nx">logger</span><span class="w"> </span><span class="o">*</span><span class="nx">log</span><span class="p">.</span><span class="nx">Logger</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">Service</span>
+</code></pre></div>
+
+<h2>Summary</h2>
+<p>Context in Go is simple by design but powerful in practice. The key ideas:</p>
+<ul>
+<li>It propagates <strong>cancellation</strong> and <strong>timeouts</strong> through your call chain automatically</li>
+<li>It forms a <strong>tree</strong> - cancelling a parent cancels all children</li>
+<li>Always pass it as the <strong>first function parameter</strong></li>
+<li>Always <strong>defer cancel()</strong> when you create a derived context</li>
+<li>Use <strong>WithValue sparingly</strong> - only for request-scoped metadata, not for function arguments</li>
+</ul>
+<p>Once you internalize the pattern, you'll find it hard to imagine writing Go without it. It's one of those things that looks like ceremony at first but saves you from entire categories of bugs - hung requests, leaked goroutines, and zombie processes.</p>
+<p>If you've any questions about context in Go, please let us know in the comments section below.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/golang/">Golang</a>
+      <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>

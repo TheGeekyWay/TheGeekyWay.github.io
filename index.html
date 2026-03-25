@@ -132,9 +132,137 @@
 
 <article>
   <header>
+    <h2><a href="//thegeekyway.com/locks-in-golang/#locks-in-golang">Locks in Go - Mutex, RWMutex, and When to Use What</a></h2>
+    <p>
+      Posted on Wed 25 March 2026 in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </header>
+  <div>
+      <div><p>In our <a href="/concurrency-in-golang/">concurrency post</a>, we briefly touched on mutexes. But there's more to locking in Go than just <code>sync.Mutex</code>. Go gives you several synchronization primitives, each designed for a specific access pattern. Use the wrong one and you'll either have a race condition, a deadlock, or unnecessary contention killing …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/locks-in-golang/#locks-in-golang">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/concurrency-in-python/#concurrency-in-python">Concurrency in Python - Threads, Processes, and AsyncIO Explained</a></h2>
+    <p>
+      Posted on Wed 25 March 2026 in <a href="//thegeekyway.com/category/python/">Python</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/python/">Python</a>,              <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Python's concurrency story is... interesting. If you've ever Googled "Python multithreading", you've probably run into the GIL debate and come away more confused than when you started. Can Python do concurrency? Yes. Is it straightforward? Not exactly. Python gives you three different concurrency models, each suited for different problems. Pick …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/concurrency-in-python/#concurrency-in-python">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/concurrency-in-golang/#concurrency-in-golang">Concurrency in Go - Goroutines, Channels, and Patterns That Actually Matter</a></h2>
+    <p>
+      Posted on Tue 24 March 2026 in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </header>
+  <div>
+      <div><p>"Don't communicate by sharing memory; share memory by communicating." That's the Go proverb that took me a while to truly understand. When I came from a Python/Django background, concurrency meant threads, locks, and race conditions giving me nightmares. Go changed that for me. Not because concurrency is easy (it's …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/concurrency-in-golang/#concurrency-in-golang">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/understanding-context-in-golang/#understanding-context-in-golang">Understanding Context in Go - The Right Way to Pass It Around</a></h2>
+    <p>
+      Posted on Mon 23 March 2026 in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </header>
+  <div>
+      <div><p>If you've been writing Go for any amount of time, you've seen <code>ctx context.Context</code> as the first parameter in almost every function. When I first started with Go, I treated it like a formality - just pass it along and don't think about it. That's fine until your HTTP handler …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/understanding-context-in-golang/#understanding-context-in-golang">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/writing-your-own-kubernetes-operator/#writing-your-own-kubernetes-operator">Writing Your Own Kubernetes Operator - A Practical Guide</a></h2>
+    <p>
+      Posted on Sun 22 March 2026 in <a href="//thegeekyway.com/category/devops/">DevOps</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/kubernetes/">Kubernetes</a>,              <a href="//thegeekyway.com/tag/golang/">Golang</a>,              <a href="//thegeekyway.com/tag/devops/">DevOps</a>
+    </p>
+  </header>
+  <div>
+      <div><p>Kubernetes is great at managing stateless workloads out of the box. You define a Deployment, it creates Pods, handles rolling updates, and restarts them if they crash. But what about stateful applications like databases? What if you want Kubernetes to understand how to create a PostgreSQL replica, take a backup …</p></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/writing-your-own-kubernetes-operator/#writing-your-own-kubernetes-operator">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
+    <h2><a href="//thegeekyway.com/terraform-state-locking-and-force-unlock/#terraform-state-locking-and-force-unlock">Terraform State Locking, Stuck Locks, and Force Unlock</a></h2>
+    <p>
+      Posted on Sat 21 March 2026 in <a href="//thegeekyway.com/category/terraform/">Terraform</a>
+
+          &#8226; Tagged with
+              <a href="//thegeekyway.com/tag/terraform/">Terraform</a>,              <a href="//thegeekyway.com/tag/infrastructure-as-a-code/">Infrastructure as a Code</a>,              <a href="//thegeekyway.com/tag/devops/">DevOps</a>
+    </p>
+  </header>
+  <div>
+      <div><p>If you've worked with Terraform in a team, you've almost certainly run into this error at some point:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Error</span><span class="o">:</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">acquiring</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">lock</span>
+
+<span class="n">Lock</span><span class="w"> </span><span class="n">Info</span><span class="o">:</span>
+<span class="w">  </span><span class="n">ID</span><span class="o">:</span><span class="w">        </span><span class="n">a1b2c3d4</span><span class="o">-</span><span class="n">e5f6</span><span class="o">-</span><span class="mi">7890</span><span class="o">-</span><span class="n">abcd</span><span class="o">-</span><span class="n">ef1234567890</span>
+<span class="w">  </span><span class="n">Path</span><span class="o">:</span><span class="w">      </span><span class="n">s3</span><span class="o">://</span><span class="n">my</span><span class="o">-</span><span class="n">terraform</span><span class="o">-</span><span class="n">state</span><span class="sr">/prod/</span><span class="n">terraform</span><span class="o">.</span><span class="na">tfstate</span>
+<span class="w">  </span><span class="n">Operation</span><span class="o">:</span><span class="w"> </span><span class="n">OperationTypeApply</span>
+<span class="w">  </span><span class="n">Who</span><span class="o">:</span><span class="w">       </span><span class="n">sanyam</span><span class="err">@</span><span class="n">sanyam</span><span class="o">-</span><span class="n">macbook</span>
+<span class="w">  </span><span class="n">Version</span><span class="o">:</span><span class="w">   </span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0 …</span></code></pre></div></div>
+        <br>
+        <a class="btn"
+           href="//thegeekyway.com/terraform-state-locking-and-force-unlock/#terraform-state-locking-and-force-unlock">
+          Continue reading
+        </a>
+  </div>
+  <hr />
+</article>
+<article>
+  <header>
     <h2><a href="//thegeekyway.com/understanding-git-worktrees/#understanding-git-worktrees">Understanding Git Worktrees</a></h2>
     <p>
-      Posted on Mon 23 March 2026 in <a href="//thegeekyway.com/category/devops/">DevOps</a>
+      Posted on Fri 20 March 2026 in <a href="//thegeekyway.com/category/devops/">DevOps</a>
 
           &#8226; Tagged with
               <a href="//thegeekyway.com/tag/git/">Git</a>,              <a href="//thegeekyway.com/tag/version-control/">Version Control</a>
@@ -154,7 +282,7 @@
   <header>
     <h2><a href="//thegeekyway.com/understanding-git-submodules/#understanding-git-submodules">Understanding Git Submodules</a></h2>
     <p>
-      Posted on Mon 23 March 2026 in <a href="//thegeekyway.com/category/devops/">DevOps</a>
+      Posted on Fri 20 March 2026 in <a href="//thegeekyway.com/category/devops/">DevOps</a>
 
           &#8226; Tagged with
               <a href="//thegeekyway.com/tag/git/">Git</a>,              <a href="//thegeekyway.com/tag/version-control/">Version Control</a>
@@ -205,130 +333,6 @@
         <br>
         <a class="btn"
            href="//thegeekyway.com/terraform-and-aws-lambda/#terraform-and-aws-lambda">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="//thegeekyway.com/setting-up-ci-cd-pipelines-with-github-actions/#setting-up-ci-cd-pipelines-with-github-actions">Setting up CI/CD Pipelines with GitHub Actions</a></h2>
-    <p>
-      Posted on Mon 15 August 2022 in <a href="//thegeekyway.com/category/github-actions/">GitHub Actions</a>
-
-          &#8226; Tagged with
-              <a href="//thegeekyway.com/tag/continuous-integration/">Continuous Integration</a>,              <a href="//thegeekyway.com/tag/continuous-deployment/">Continuous Deployment</a>,              <a href="//thegeekyway.com/tag/github-actions/">GitHub Actions</a>
-    </p>
-  </header>
-  <div>
-      <div><p>Continuous integration (CI) and continuous delivery (CD) are essential practices in modern software development. These practices allow teams to deliver software faster, with fewer bugs, and with more confidence. GitHub Actions is a powerful tool that can help you automate your CI/CD pipelines and integrate them seamlessly into your …</p></div>
-        <br>
-        <a class="btn"
-           href="//thegeekyway.com/setting-up-ci-cd-pipelines-with-github-actions/#setting-up-ci-cd-pipelines-with-github-actions">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="//thegeekyway.com/pros-and-cons-of-jwt/#pros-and-cons-of-jwt">Pros And Cons Of Using JWT (JSON Web Tokens)</a></h2>
-    <p>
-      Posted on Sun 24 July 2022 in <a href="//thegeekyway.com/category/auth/">Auth</a>
-
-          &#8226; Tagged with
-              <a href="//thegeekyway.com/tag/auth/">Auth</a>,              <a href="//thegeekyway.com/tag/identity/">identity</a>,              <a href="//thegeekyway.com/tag/security/">Security</a>
-    </p>
-  </header>
-  <div>
-      <div><p>JWT (JSON Web tokens) is a great way to implement authentication in your applications, though often it is being treated as a silver bullet for almost every backend project. While JWT provides a lot of benefits while implementing auth, it does come with a price. Anyone who is thinking to …</p></div>
-        <br>
-        <a class="btn"
-           href="//thegeekyway.com/pros-and-cons-of-jwt/#pros-and-cons-of-jwt">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="//thegeekyway.com/django-and-machine-learning-building-intelligent-web-applications/#django-and-machine-learning-building-intelligent-web-applications">Django and Machine Learning: Building Intelligent Web Applications</a></h2>
-    <p>
-      Posted on Sun 19 September 2021 in <a href="//thegeekyway.com/category/django/">Django</a>
-
-          &#8226; Tagged with
-              <a href="//thegeekyway.com/tag/django/">Django</a>,              <a href="//thegeekyway.com/tag/machine-learning/">Machine Learning</a>,              <a href="//thegeekyway.com/tag/intelligent-web-applications/">Intelligent Web Applications</a>
-    </p>
-  </header>
-  <div>
-      <div><p>Machine learning and artificial intelligence (AI) are rapidly transforming the way we build and interact with web applications. By leveraging the power of machine learning algorithms, developers can build intelligent applications that can learn from user behavior, adapt to changing environments, and make data-driven decisions in real-time.</p>
-<p>Django is a …</p></div>
-        <br>
-        <a class="btn"
-           href="//thegeekyway.com/django-and-machine-learning-building-intelligent-web-applications/#django-and-machine-learning-building-intelligent-web-applications">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="//thegeekyway.com/few-tags-now-supported-html5/#few-tags-now-supported-html5">List of few tags that are supported in HTML5</a></h2>
-    <p>
-      Posted on Sat 24 August 2019 in <a href="//thegeekyway.com/category/web-development/">Web Development</a>
-
-
-    </p>
-  </header>
-  <div>
-      <div><p>Hi everyone, some of you might be new to web development, so you must have thought that what is HTML5, how is it different from previous versions, what is new in HTML5.<br>
-In this article we will be discussing about the new tags which are now there in HTML5 but …</p></div>
-        <br>
-        <a class="btn"
-           href="//thegeekyway.com/few-tags-now-supported-html5/#few-tags-now-supported-html5">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="//thegeekyway.com/edt_java/#edt_java">Understanding Event Dispatching Thread in Java</a></h2>
-    <p>
-      Posted on Sat 24 August 2019 in <a href="//thegeekyway.com/category/java/">Java</a>
-
-          &#8226; Tagged with
-              <a href="//thegeekyway.com/tag/java/">Java</a>
-    </p>
-  </header>
-  <div>
-      <div><p>Swing provides a rich toolkit of GUI components which can be used to create powerful User Interface. Sometimes, we don’t get expected results when we are working on complex GUI &amp; try to update GUI of that running application. From <strong>running application</strong> we mean that we have a Swing application …</p></div>
-        <br>
-        <a class="btn"
-           href="//thegeekyway.com/edt_java/#edt_java">
-          Continue reading
-        </a>
-  </div>
-  <hr />
-</article>
-<article>
-  <header>
-    <h2><a href="//thegeekyway.com/data-file-handling-in-c/#data-file-handling-in-c">Few terms in C++</a></h2>
-    <p>
-      Posted on Sat 24 August 2019 in <a href="//thegeekyway.com/category/programming/">Programming</a>
-
-
-    </p>
-  </header>
-  <div>
-      <div><p>Howdy Coders!  </p>
-<p>Well, today we will learn about a few terms related to File Handling in C++.</p>
-<p><strong>Stream :-</strong> A sequence of bytes  </p>
-<p><strong>File:</strong> A collection of data or information stored on some media with some specific name is called file.</p>
-<p><strong>Text File :-</strong> The file which stores data or information in …</p></div>
-        <br>
-        <a class="btn"
-           href="//thegeekyway.com/data-file-handling-in-c/#data-file-handling-in-c">
           Continue reading
         </a>
   </div>

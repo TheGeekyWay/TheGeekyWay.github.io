@@ -1,0 +1,687 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Sanyam Khurana" />
+<meta name="description" content="In our concurrency post, we briefly touched on mutexes. But there&#39;s more to locking in Go than just sync.Mutex. Go gives you several synchronization primitives, each designed for a specific access pattern. Use the wrong one and you&#39;ll either have a race condition, a deadlock, or unnecessary contention killing …" />
+<meta name="keywords" content="Golang, Programming">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Locks in Go - Mutex, RWMutex, and When to Use What"/>
+  <meta property="og:description" content="In our concurrency post, we briefly touched on mutexes. But there&#39;s more to locking in Go than just sync.Mutex. Go gives you several synchronization primitives, each designed for a specific access pattern. Use the wrong one and you&#39;ll either have a race condition, a deadlock, or unnecessary contention killing …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/locks-in-golang/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-03-25 16:00:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/sanyam-khurana/">
+  <meta property="article:section" content="Programming"/>
+  <meta property="article:tag" content="Golang"/>
+  <meta property="article:tag" content="Programming"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Locks in Go - Mutex, RWMutex, and When to Use What</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="locks-in-golang">Locks in Go - Mutex, RWMutex, and When to Use What</h1>
+    <p>
+      Posted on Wed 25 March 2026 by <a href="//thegeekyway.com/author/sanyam-khurana/">Sanyam Khurana</a> in <a href="//thegeekyway.com/category/programming/">Programming</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>In our <a href="/concurrency-in-golang/">concurrency post</a>, we briefly touched on mutexes. But there's more to locking in Go than just <code>sync.Mutex</code>. Go gives you several synchronization primitives, each designed for a specific access pattern. Use the wrong one and you'll either have a race condition, a deadlock, or unnecessary contention killing your performance.</p>
+<p>Let's go through every locking mechanism Go offers, understand when each one shines, and see real-world examples of picking the right lock for the job.</p>
+<!--more-->
+
+<h2>sync.Mutex - The Basic Lock</h2>
+<p>This is the simplest lock. One goroutine holds it at a time. Everyone else waits.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">UserCache</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mu</span><span class="w">    </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="w">    </span><span class="nx">users</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">User</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">UserCache</span><span class="p">)</span><span class="w"> </span><span class="nx">Get</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">users</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">UserCache</span><span class="p">)</span><span class="w"> </span><span class="nx">Set</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">*</span><span class="nx">User</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">users</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">user</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Every call to <code>Get</code> or <code>Set</code> acquires the same lock. If 100 goroutines are reading the cache and 1 is writing, all 100 readers have to wait for each other, even though reads don't conflict with reads. That's wasteful.</p>
+<h3>Key Properties</h3>
+<ul>
+<li><strong>Exclusive</strong>: only one goroutine holds it at a time</li>
+<li><strong>Not reentrant</strong>: if you try to lock a mutex you already hold, you deadlock</li>
+<li><strong>Zero value is usable</strong>: you don't need to initialize it</li>
+</ul>
+<p>The non-reentrant part catches people coming from Java or Python. In those languages, you can lock the same lock twice from the same thread. In Go, this is a deadlock:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">UserCache</span><span class="p">)</span><span class="w"> </span><span class="nx">BadMethod</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// This will deadlock - we already hold c.mu</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span><span class="w"> </span><span class="c1">// Blocked forever waiting for ourselves</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>There's no <code>sync.ReentrantMutex</code> in Go, and that's intentional. The Go team considers reentrant locks a code smell - if you need to lock the same mutex twice, your function boundaries are wrong. Refactor instead.</p>
+<h2>sync.RWMutex - Read-Write Lock</h2>
+<p>This is the most commonly misunderstood lock in Go. <code>RWMutex</code> allows multiple concurrent readers OR a single writer, but not both.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">UserCache</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mu</span><span class="w">    </span><span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+<span class="w">    </span><span class="nx">users</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="o">*</span><span class="nx">User</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">UserCache</span><span class="p">)</span><span class="w"> </span><span class="nx">Get</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="nx">User</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RLock</span><span class="p">()</span><span class="w">      </span><span class="c1">// Multiple goroutines can RLock simultaneously</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RUnlock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">users</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">UserCache</span><span class="p">)</span><span class="w"> </span><span class="nx">Set</span><span class="p">(</span><span class="nx">id</span><span class="w"> </span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="nx">user</span><span class="w"> </span><span class="o">*</span><span class="nx">User</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span><span class="w">       </span><span class="c1">// Exclusive - blocks all readers and writers</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">users</span><span class="p">[</span><span class="nx">id</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">user</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Now those 100 readers from our earlier example can all read simultaneously. They only block when a writer shows up.</p>
+<h3>How RWMutex Works Internally</h3>
+<p>The rules are:</p>
+<ol>
+<li><strong>Multiple goroutines can hold <code>RLock</code> at the same time</strong> - reads are shared</li>
+<li><strong><code>Lock</code> (write lock) is exclusive</strong> - it waits for all readers to release, then blocks new readers and writers</li>
+<li><strong>When a writer is waiting, new readers also block</strong> - this prevents writer starvation</li>
+</ol>
+<p>That third point is important. Without it, a steady stream of readers could starve a writer indefinitely. Go's <code>RWMutex</code> is fair to writers - once a writer starts waiting, new readers queue up behind it.</p>
+<div class="highlight"><pre><span></span><code><span class="n">Timeline</span><span class="o">:</span>
+<span class="w">  </span><span class="n">R1</span><span class="w"> </span><span class="n">holds</span><span class="w"> </span><span class="n">RLock</span>
+<span class="w">  </span><span class="n">R2</span><span class="w"> </span><span class="n">holds</span><span class="w"> </span><span class="n">RLock</span>
+<span class="w">  </span><span class="n">W1</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">Lock</span><span class="o">()</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">waits</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">R1</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="n">R2</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">finish</span>
+<span class="w">  </span><span class="n">R3</span><span class="w"> </span><span class="n">calls</span><span class="w"> </span><span class="n">RLock</span><span class="o">()</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">waits</span><span class="w"> </span><span class="n">behind</span><span class="w"> </span><span class="n">W1</span><span class="w"> </span><span class="o">(</span><span class="n">not</span><span class="w"> </span><span class="n">allowed</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">skip</span><span class="w"> </span><span class="n">ahead</span><span class="o">)</span>
+<span class="w">  </span><span class="n">R1</span><span class="w"> </span><span class="n">releases</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">waiting</span><span class="w"> </span><span class="o">(</span><span class="n">R2</span><span class="w"> </span><span class="n">still</span><span class="w"> </span><span class="n">holds</span><span class="o">)</span>
+<span class="w">  </span><span class="n">R2</span><span class="w"> </span><span class="n">releases</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">W1</span><span class="w"> </span><span class="n">acquires</span><span class="w"> </span><span class="n">Lock</span>
+<span class="w">  </span><span class="n">W1</span><span class="w"> </span><span class="n">releases</span><span class="w"> </span><span class="err">→</span><span class="w"> </span><span class="n">R3</span><span class="w"> </span><span class="n">acquires</span><span class="w"> </span><span class="n">RLock</span>
+</code></pre></div>
+
+<h3>When RWMutex Helps (and When It Doesn't)</h3>
+<p>RWMutex is not always faster than Mutex. There's overhead in managing the reader count. The payoff depends on your read-to-write ratio:</p>
+<table>
+<thead>
+<tr>
+<th>Read:Write Ratio</th>
+<th>Better Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1:1</td>
+<td><code>sync.Mutex</code> (RWMutex overhead not worth it)</td>
+</tr>
+<tr>
+<td>10:1</td>
+<td><code>sync.RWMutex</code> (readers rarely block)</td>
+</tr>
+<tr>
+<td>100:1</td>
+<td><code>sync.RWMutex</code> (clear win)</td>
+</tr>
+<tr>
+<td>1000:1</td>
+<td>Consider <code>sync.Map</code> or atomic operations</td>
+</tr>
+</tbody>
+</table>
+<p>If writes are frequent, readers will constantly be blocked waiting for writers, and the read-write tracking overhead makes <code>RWMutex</code> slower than a plain <code>Mutex</code>. Benchmark your actual workload before assuming RWMutex is faster.</p>
+<h3>A Real Example: Configuration Store</h3>
+<p>A configuration store is a textbook case for <code>RWMutex</code> - configs are read thousands of times per second but updated rarely:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">ConfigStore</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mu</span><span class="w">     </span><span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+<span class="w">    </span><span class="nx">config</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewConfigStore</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">ConfigStore</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">ConfigStore</span><span class="p">{</span><span class="nx">config</span><span class="p">:</span><span class="w"> </span><span class="nb">make</span><span class="p">(</span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)}</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">ConfigStore</span><span class="p">)</span><span class="w"> </span><span class="nx">Get</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RLock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RUnlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">config</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">ConfigStore</span><span class="p">)</span><span class="w"> </span><span class="nx">Set</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">config</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">value</span>
+<span class="p">}</span>
+
+<span class="c1">// Bulk reload - happens infrequently</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">ConfigStore</span><span class="p">)</span><span class="w"> </span><span class="nx">Reload</span><span class="p">(</span><span class="nx">newConfig</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">config</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">newConfig</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Hundreds of goroutines can call <code>Get</code> simultaneously without blocking each other. Only <code>Set</code> and <code>Reload</code> cause contention.</p>
+<h2>sync.Once - Run Exactly Once</h2>
+<p>Not technically a lock, but it uses one internally. <code>sync.Once</code> guarantees a function is executed exactly once, regardless of how many goroutines call it:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">DBPool</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">once</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Once</span>
+<span class="w">    </span><span class="nx">pool</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">d</span><span class="w"> </span><span class="o">*</span><span class="nx">DBPool</span><span class="p">)</span><span class="w"> </span><span class="nx">GetConnection</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">sql</span><span class="p">.</span><span class="nx">DB</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">d</span><span class="p">.</span><span class="nx">once</span><span class="p">.</span><span class="nx">Do</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="kt">error</span>
+<span class="w">        </span><span class="nx">d</span><span class="p">.</span><span class="nx">pool</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">sql</span><span class="p">.</span><span class="nx">Open</span><span class="p">(</span><span class="s">&quot;postgres&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;connection-string&quot;</span><span class="p">)</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">log</span><span class="p">.</span><span class="nx">Fatal</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">})</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">d</span><span class="p">.</span><span class="nx">pool</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Even if 50 goroutines call <code>GetConnection</code> at the same time, the database connection is created exactly once. The other 49 goroutines block until the first one finishes, then they all get the same <code>pool</code> instance.</p>
+<p>This is the idiomatic way to implement lazy initialization and singletons in Go.</p>
+<h3>sync.Once Gotcha: It Doesn't Retry on Failure</h3>
+<p>If the function passed to <code>Do</code> panics, <code>Once</code> still considers it "done". It won't retry:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">once</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Once</span>
+
+<span class="nx">once</span><span class="p">.</span><span class="nx">Do</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nb">panic</span><span class="p">(</span><span class="s">&quot;oops&quot;</span><span class="p">)</span><span class="w"> </span><span class="c1">// This panics</span>
+<span class="p">})</span>
+
+<span class="nx">once</span><span class="p">.</span><span class="nx">Do</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Println</span><span class="p">(</span><span class="s">&quot;This will never run&quot;</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>If you need retry-on-failure behavior, Go 1.21 introduced <code>sync.OnceFunc</code>, <code>sync.OnceValue</code>, and <code>sync.OnceValues</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// sync.OnceFunc panics again on subsequent calls if the first call panicked</span>
+<span class="nx">initDB</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">OnceFunc</span><span class="p">(</span><span class="kd">func</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// initialization code</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<p>For retry behavior, you'll need to build your own using <code>sync.Mutex</code> and a boolean flag.</p>
+<h2>sync/atomic - Lock-Free Operations</h2>
+<p>For simple counters and flags, atomic operations are faster than mutexes because they use CPU-level instructions instead of OS-level locks:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="s">&quot;sync/atomic&quot;</span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">Metrics</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">requestCount</span><span class="w"> </span><span class="nx">atomic</span><span class="p">.</span><span class="nx">Int64</span>
+<span class="w">    </span><span class="nx">errorCount</span><span class="w">   </span><span class="nx">atomic</span><span class="p">.</span><span class="nx">Int64</span>
+<span class="w">    </span><span class="nx">isHealthy</span><span class="w">    </span><span class="nx">atomic</span><span class="p">.</span><span class="nx">Bool</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="o">*</span><span class="nx">Metrics</span><span class="p">)</span><span class="w"> </span><span class="nx">RecordRequest</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">m</span><span class="p">.</span><span class="nx">requestCount</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="o">*</span><span class="nx">Metrics</span><span class="p">)</span><span class="w"> </span><span class="nx">RecordError</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">m</span><span class="p">.</span><span class="nx">errorCount</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="o">*</span><span class="nx">Metrics</span><span class="p">)</span><span class="w"> </span><span class="nx">GetRequestCount</span><span class="p">()</span><span class="w"> </span><span class="kt">int64</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">m</span><span class="p">.</span><span class="nx">requestCount</span><span class="p">.</span><span class="nx">Load</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">m</span><span class="w"> </span><span class="o">*</span><span class="nx">Metrics</span><span class="p">)</span><span class="w"> </span><span class="nx">SetHealthy</span><span class="p">(</span><span class="nx">healthy</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">m</span><span class="p">.</span><span class="nx">isHealthy</span><span class="p">.</span><span class="nx">Store</span><span class="p">(</span><span class="nx">healthy</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Go 1.19 introduced the typed atomic types (<code>atomic.Int64</code>, <code>atomic.Bool</code>, <code>atomic.Pointer[T]</code>), which are much nicer than the old function-based API (<code>atomic.AddInt64(&amp;counter, 1)</code>).</p>
+<h3>When to Use Atomics vs. Mutex</h3>
+<ul>
+<li><strong>Atomics</strong>: single values (counters, flags, pointers). No complex invariants.</li>
+<li><strong>Mutex</strong>: when you need to update multiple related values atomically, or when the critical section involves non-trivial logic.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1">// Atomic is fine here - single counter</span>
+<span class="kd">var</span><span class="w"> </span><span class="nx">count</span><span class="w"> </span><span class="nx">atomic</span><span class="p">.</span><span class="nx">Int64</span>
+<span class="nx">count</span><span class="p">.</span><span class="nx">Add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1">// Mutex needed here - two values must be consistent</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">Stats</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mu</span><span class="w">    </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="w">    </span><span class="nx">total</span><span class="w"> </span><span class="kt">int</span>
+<span class="w">    </span><span class="nx">sum</span><span class="w">   </span><span class="kt">float64</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">Stats</span><span class="p">)</span><span class="w"> </span><span class="nx">Record</span><span class="p">(</span><span class="nx">value</span><span class="w"> </span><span class="kt">float64</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">total</span><span class="o">++</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">sum</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">value</span>
+<span class="w">    </span><span class="c1">// Average = s.sum / float64(s.total) must always be consistent</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>If you used two separate atomics for <code>total</code> and <code>sum</code>, a reader could see the new <code>total</code> but the old <code>sum</code>, giving a wrong average.</p>
+<h2>sync.Map - Concurrent Map</h2>
+<p>Go's built-in maps are not goroutine-safe. If you need a concurrent map, you have two options: a regular map with a mutex, or <code>sync.Map</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kd">var</span><span class="w"> </span><span class="nx">cache</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Map</span>
+
+<span class="c1">// Store</span>
+<span class="nx">cache</span><span class="p">.</span><span class="nx">Store</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;value&quot;</span><span class="p">)</span>
+
+<span class="c1">// Load</span>
+<span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cache</span><span class="p">.</span><span class="nx">Load</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">)</span>
+
+<span class="c1">// Load or store (atomic check-and-set)</span>
+<span class="nx">actual</span><span class="p">,</span><span class="w"> </span><span class="nx">loaded</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">cache</span><span class="p">.</span><span class="nx">LoadOrStore</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;default-value&quot;</span><span class="p">)</span>
+
+<span class="c1">// Delete</span>
+<span class="nx">cache</span><span class="p">.</span><span class="nx">Delete</span><span class="p">(</span><span class="s">&quot;key&quot;</span><span class="p">)</span>
+
+<span class="c1">// Range (iterate)</span>
+<span class="nx">cache</span><span class="p">.</span><span class="nx">Range</span><span class="p">(</span><span class="kd">func</span><span class="p">(</span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="w"> </span><span class="kt">any</span><span class="p">)</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Printf</span><span class="p">(</span><span class="s">&quot;%v: %v\n&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">key</span><span class="p">,</span><span class="w"> </span><span class="nx">value</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="kc">true</span><span class="w"> </span><span class="c1">// return false to stop iteration</span>
+<span class="p">})</span>
+</code></pre></div>
+
+<h3>sync.Map vs. Map + RWMutex</h3>
+<p><code>sync.Map</code> is not always better. It's optimized for two specific patterns:</p>
+<ol>
+<li><strong>Write-once, read-many</strong>: keys are set once and then read repeatedly (like a cache that's populated at startup)</li>
+<li><strong>Disjoint key sets</strong>: different goroutines access different keys (like per-connection state)</li>
+</ol>
+<p>For general-purpose concurrent maps where many goroutines read and write the same keys, a <code>map</code> with <code>RWMutex</code> is usually faster:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Use this for general-purpose concurrent maps</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">SafeMap</span><span class="p">[</span><span class="nx">K</span><span class="w"> </span><span class="kt">comparable</span><span class="p">,</span><span class="w"> </span><span class="nx">V</span><span class="w"> </span><span class="kt">any</span><span class="p">]</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mu</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">RWMutex</span>
+<span class="w">    </span><span class="nx">m</span><span class="w">  </span><span class="kd">map</span><span class="p">[</span><span class="nx">K</span><span class="p">]</span><span class="nx">V</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">SafeMap</span><span class="p">[</span><span class="nx">K</span><span class="p">,</span><span class="w"> </span><span class="nx">V</span><span class="p">])</span><span class="w"> </span><span class="nx">Get</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="nx">K</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">V</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RLock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RUnlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">m</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">s</span><span class="w"> </span><span class="o">*</span><span class="nx">SafeMap</span><span class="p">[</span><span class="nx">K</span><span class="p">,</span><span class="w"> </span><span class="nx">V</span><span class="p">])</span><span class="w"> </span><span class="nx">Set</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="nx">K</span><span class="p">,</span><span class="w"> </span><span class="nx">val</span><span class="w"> </span><span class="nx">V</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">s</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">s</span><span class="p">.</span><span class="nx">m</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">val</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The other downside of <code>sync.Map</code> is that it's not type-safe - keys and values are <code>any</code>, so you lose compile-time type checking.</p>
+<h2>sync.Cond - Condition Variables</h2>
+<p><code>sync.Cond</code> lets goroutines wait for a condition to be true. It's less commonly used than channels, but has its place:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">Queue</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mu</span><span class="w">    </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="w">    </span><span class="nx">cond</span><span class="w">  </span><span class="o">*</span><span class="nx">sync</span><span class="p">.</span><span class="nx">Cond</span>
+<span class="w">    </span><span class="nx">items</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">NewQueue</span><span class="p">()</span><span class="w"> </span><span class="o">*</span><span class="nx">Queue</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">q</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">Queue</span><span class="p">{}</span>
+<span class="w">    </span><span class="nx">q</span><span class="p">.</span><span class="nx">cond</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">sync</span><span class="p">.</span><span class="nx">NewCond</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">q</span><span class="p">.</span><span class="nx">mu</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">q</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Queue</span><span class="p">)</span><span class="w"> </span><span class="nx">Push</span><span class="p">(</span><span class="nx">item</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">q</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">q</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">q</span><span class="p">.</span><span class="nx">items</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nb">append</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">items</span><span class="p">,</span><span class="w"> </span><span class="nx">item</span><span class="p">)</span>
+<span class="w">    </span><span class="nx">q</span><span class="p">.</span><span class="nx">cond</span><span class="p">.</span><span class="nx">Signal</span><span class="p">()</span><span class="w"> </span><span class="c1">// Wake up one waiting goroutine</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">q</span><span class="w"> </span><span class="o">*</span><span class="nx">Queue</span><span class="p">)</span><span class="w"> </span><span class="nx">Pop</span><span class="p">()</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">q</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">q</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">for</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="nx">q</span><span class="p">.</span><span class="nx">items</span><span class="p">)</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="mi">0</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">q</span><span class="p">.</span><span class="nx">cond</span><span class="p">.</span><span class="nx">Wait</span><span class="p">()</span><span class="w"> </span><span class="c1">// Releases lock, waits, reacquires lock</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">item</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">q</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="w">    </span><span class="nx">q</span><span class="p">.</span><span class="nx">items</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">q</span><span class="p">.</span><span class="nx">items</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">item</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p><code>Wait()</code> atomically releases the mutex and suspends the goroutine. When <code>Signal()</code> or <code>Broadcast()</code> wakes it up, it reacquires the mutex before returning.</p>
+<ul>
+<li><strong>Signal()</strong>: wakes one waiting goroutine</li>
+<li><strong>Broadcast()</strong>: wakes all waiting goroutines</li>
+</ul>
+<p>In practice, you'll reach for channels more often than <code>sync.Cond</code>. But <code>Cond</code> is useful when you have a complex condition that multiple goroutines need to wait on, especially when using <code>Broadcast</code> to notify all waiters.</p>
+<h2>Common Patterns and Pitfalls</h2>
+<h3>Copy a Lock? Deadlock.</h3>
+<p>Mutexes must not be copied. If you copy a struct containing a mutex, the copy has a separate lock, which defeats the purpose:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">Counter</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">mu</span><span class="w">    </span><span class="nx">sync</span><span class="p">.</span><span class="nx">Mutex</span>
+<span class="w">    </span><span class="nx">count</span><span class="w"> </span><span class="kt">int</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c1</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">Counter</span><span class="p">{}</span>
+<span class="w">    </span><span class="nx">c2</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c1</span><span class="w"> </span><span class="c1">// Bug: c2 has a copy of the mutex</span>
+
+<span class="w">    </span><span class="c1">// c1 and c2 now have independent locks</span>
+<span class="w">    </span><span class="c1">// They don&#39;t protect each other</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Use <code>go vet</code> to catch this - it warns about copying sync types. Pass lock-containing structs by pointer, not by value.</p>
+<h3>Lock Ordering to Prevent Deadlocks</h3>
+<p>If you need to hold two locks at once, always acquire them in the same order everywhere:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Always lock accounts in order of ID to prevent deadlock</span>
+<span class="kd">func</span><span class="w"> </span><span class="nx">Transfer</span><span class="p">(</span><span class="nx">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span><span class="w"> </span><span class="o">*</span><span class="nx">Account</span><span class="p">,</span><span class="w"> </span><span class="nx">amount</span><span class="w"> </span><span class="kt">int</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Ensure consistent ordering</span>
+<span class="w">    </span><span class="nx">first</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">from</span><span class="p">,</span><span class="w"> </span><span class="nx">to</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">from</span><span class="p">.</span><span class="nx">ID</span><span class="w"> </span><span class="p">&gt;</span><span class="w"> </span><span class="nx">to</span><span class="p">.</span><span class="nx">ID</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">first</span><span class="p">,</span><span class="w"> </span><span class="nx">second</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">to</span><span class="p">,</span><span class="w"> </span><span class="nx">from</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">first</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">first</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">second</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">second</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+
+<span class="w">    </span><span class="nx">from</span><span class="p">.</span><span class="nx">Balance</span><span class="w"> </span><span class="o">-=</span><span class="w"> </span><span class="nx">amount</span>
+<span class="w">    </span><span class="nx">to</span><span class="p">.</span><span class="nx">Balance</span><span class="w"> </span><span class="o">+=</span><span class="w"> </span><span class="nx">amount</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Without consistent ordering, two concurrent transfers (A to B, and B to A) could each hold one lock and wait for the other forever.</p>
+<h3>Hold Locks for the Shortest Time Possible</h3>
+<p>Don't do I/O or expensive computation while holding a lock:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// Bad: holding the lock during a network call</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">Cache</span><span class="p">)</span><span class="w"> </span><span class="nx">GetOrFetch</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">defer</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="c1">// Other goroutines are blocked while we make an HTTP call!</span>
+<span class="w">    </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">http</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="s">&quot;https://api.example.com/&quot;</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nx">key</span><span class="p">)</span>
+<span class="w">    </span><span class="c1">// ...</span>
+<span class="p">}</span>
+
+<span class="c1">// Good: release the lock, do the fetch, reacquire</span>
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">c</span><span class="w"> </span><span class="o">*</span><span class="nx">Cache</span><span class="p">)</span><span class="w"> </span><span class="nx">GetOrFetch</span><span class="p">(</span><span class="nx">key</span><span class="w"> </span><span class="kt">string</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RLock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">c</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">];</span><span class="w"> </span><span class="nx">ok</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RUnlock</span><span class="p">()</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">RUnlock</span><span class="p">()</span>
+
+<span class="w">    </span><span class="c1">// Fetch without holding any lock</span>
+<span class="w">    </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">fetchFromAPI</span><span class="p">(</span><span class="nx">key</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Lock</span><span class="p">()</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">data</span><span class="p">[</span><span class="nx">key</span><span class="p">]</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">val</span>
+<span class="w">    </span><span class="nx">c</span><span class="p">.</span><span class="nx">mu</span><span class="p">.</span><span class="nx">Unlock</span><span class="p">()</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">val</span><span class="p">,</span><span class="w"> </span><span class="kc">nil</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Yes, two goroutines might both fetch the same key. That's usually fine - a duplicate fetch is better than blocking all readers on a network call.</p>
+<h2>Decision Guide</h2>
+<p>Here's how I decide which synchronization primitive to use:</p>
+<div class="highlight"><pre><span></span><code><span class="nv">What</span><span class="w"> </span><span class="nv">are</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">protecting</span>?
+<span class="o">|</span>
+<span class="o">+--</span><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="nv">single</span><span class="w"> </span><span class="nv">counter</span><span class="w"> </span><span class="nv">or</span><span class="w"> </span><span class="nv">flag</span>?
+<span class="o">|</span><span class="w">   </span>→<span class="w"> </span><span class="nv">sync</span><span class="o">/</span><span class="nv">atomic</span>
+<span class="o">|</span>
+<span class="o">+--</span><span class="w"> </span><span class="nv">A</span><span class="w"> </span><span class="nv">map</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">write</span><span class="o">-</span><span class="nv">once</span>,<span class="w"> </span><span class="nv">read</span><span class="o">-</span><span class="nv">many</span><span class="w"> </span><span class="nv">pattern</span>?
+<span class="o">|</span><span class="w">   </span>→<span class="w"> </span><span class="nv">sync</span>.<span class="nv">Map</span>
+<span class="o">|</span>
+<span class="o">+--</span><span class="w"> </span><span class="nv">One</span><span class="o">-</span><span class="nv">time</span><span class="w"> </span><span class="nv">initialization</span>?
+<span class="o">|</span><span class="w">   </span>→<span class="w"> </span><span class="nv">sync</span>.<span class="nv">Once</span>
+<span class="o">|</span>
+<span class="o">+--</span><span class="w"> </span><span class="nv">Shared</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">mostly</span><span class="w"> </span><span class="nv">reads</span>?
+<span class="o">|</span><span class="w">   </span>→<span class="w"> </span><span class="nv">sync</span>.<span class="nv">RWMutex</span>
+<span class="o">|</span>
+<span class="o">+--</span><span class="w"> </span><span class="nv">Shared</span><span class="w"> </span><span class="nv">state</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">balanced</span><span class="w"> </span><span class="nv">reads</span><span class="w"> </span><span class="nv">and</span><span class="w"> </span><span class="nv">writes</span>?
+<span class="o">|</span><span class="w">   </span>→<span class="w"> </span><span class="nv">sync</span>.<span class="nv">Mutex</span>
+<span class="o">|</span>
+<span class="o">+--</span><span class="w"> </span><span class="nv">Passing</span><span class="w"> </span><span class="nv">data</span><span class="w"> </span><span class="nv">between</span><span class="w"> </span><span class="nv">goroutines</span>?
+<span class="o">|</span><span class="w">   </span>→<span class="w"> </span><span class="nv">channels</span><span class="w"> </span><span class="ss">(</span><span class="nv">not</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">lock</span><span class="w"> </span><span class="nv">at</span><span class="w"> </span><span class="nv">all</span><span class="ss">)</span>
+<span class="o">|</span>
+<span class="o">+--</span><span class="w"> </span><span class="nv">Waiting</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">complex</span><span class="w"> </span><span class="nv">condition</span>?
+<span class="w">    </span>→<span class="w"> </span><span class="nv">sync</span>.<span class="nv">Cond</span><span class="w"> </span><span class="ss">(</span><span class="nv">or</span><span class="w"> </span><span class="nv">rethink</span><span class="w"> </span><span class="nv">with</span><span class="w"> </span><span class="nv">channels</span><span class="ss">)</span>
+</code></pre></div>
+
+<h2>Summary</h2>
+<p>Go gives you a focused set of synchronization primitives, each with a clear purpose:</p>
+<table>
+<thead>
+<tr>
+<th>Primitive</th>
+<th>Use Case</th>
+<th>Key Behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sync.Mutex</code></td>
+<td>General mutual exclusion</td>
+<td>One holder at a time</td>
+</tr>
+<tr>
+<td><code>sync.RWMutex</code></td>
+<td>Read-heavy workloads</td>
+<td>Multiple readers OR one writer</td>
+</tr>
+<tr>
+<td><code>sync.Once</code></td>
+<td>One-time initialization</td>
+<td>Runs function exactly once</td>
+</tr>
+<tr>
+<td><code>sync/atomic</code></td>
+<td>Simple counters and flags</td>
+<td>Lock-free CPU instructions</td>
+</tr>
+<tr>
+<td><code>sync.Map</code></td>
+<td>Write-once read-many maps</td>
+<td>Optimized for specific access patterns</td>
+</tr>
+<tr>
+<td><code>sync.Cond</code></td>
+<td>Waiting for conditions</td>
+<td>Signal/broadcast to waiters</td>
+</tr>
+</tbody>
+</table>
+<p>The most common choice in practice is <code>sync.RWMutex</code> for read-heavy caches and <code>sync.Mutex</code> for everything else. Reach for atomics when performance matters and the operation is simple. And always run <code>go test -race</code> to catch what you miss.</p>
+<p>If you've any questions about locks and synchronization in Go, please let us know in the comments section below.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/golang/">Golang</a>
+      <a href="//thegeekyway.com/tag/programming/">Programming</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Sanyam Khurana" />
+<meta name="description" content="If you&#39;ve worked with Terraform in a team, you&#39;ve almost certainly run into this error at some point: Error: Error acquiring the state lock Lock Info: ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890 Path: s3://my-terraform-state/prod/terraform.tfstate Operation: OperationTypeApply Who: sanyam@sanyam-macbook Version: 1.7.0 …" />
+<meta name="keywords" content="Terraform, Infrastructure as a Code, DevOps">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Terraform State Locking, Stuck Locks, and Force Unlock"/>
+  <meta property="og:description" content="If you&#39;ve worked with Terraform in a team, you&#39;ve almost certainly run into this error at some point: Error: Error acquiring the state lock Lock Info: ID: a1b2c3d4-e5f6-7890-abcd-ef1234567890 Path: s3://my-terraform-state/prod/terraform.tfstate Operation: OperationTypeApply Who: sanyam@sanyam-macbook Version: 1.7.0 …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/terraform-state-locking-and-force-unlock/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-03-21 10:00:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/sanyam-khurana/">
+  <meta property="article:section" content="Terraform"/>
+  <meta property="article:tag" content="Terraform"/>
+  <meta property="article:tag" content="Infrastructure as a Code"/>
+  <meta property="article:tag" content="DevOps"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Terraform State Locking, Stuck Locks, and Force Unlock</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="terraform-state-locking-and-force-unlock">Terraform State Locking, Stuck Locks, and Force Unlock</h1>
+    <p>
+      Posted on Sat 21 March 2026 by <a href="//thegeekyway.com/author/sanyam-khurana/">Sanyam Khurana</a> in <a href="//thegeekyway.com/category/terraform/">Terraform</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>If you've worked with Terraform in a team, you've almost certainly run into this error at some point:</p>
+<div class="highlight"><pre><span></span><code><span class="n">Error</span><span class="o">:</span><span class="w"> </span><span class="n">Error</span><span class="w"> </span><span class="n">acquiring</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">lock</span>
+
+<span class="n">Lock</span><span class="w"> </span><span class="n">Info</span><span class="o">:</span>
+<span class="w">  </span><span class="n">ID</span><span class="o">:</span><span class="w">        </span><span class="n">a1b2c3d4</span><span class="o">-</span><span class="n">e5f6</span><span class="o">-</span><span class="mi">7890</span><span class="o">-</span><span class="n">abcd</span><span class="o">-</span><span class="n">ef1234567890</span>
+<span class="w">  </span><span class="n">Path</span><span class="o">:</span><span class="w">      </span><span class="n">s3</span><span class="o">://</span><span class="n">my</span><span class="o">-</span><span class="n">terraform</span><span class="o">-</span><span class="n">state</span><span class="sr">/prod/</span><span class="n">terraform</span><span class="o">.</span><span class="na">tfstate</span>
+<span class="w">  </span><span class="n">Operation</span><span class="o">:</span><span class="w"> </span><span class="n">OperationTypeApply</span>
+<span class="w">  </span><span class="n">Who</span><span class="o">:</span><span class="w">       </span><span class="n">sanyam</span><span class="err">@</span><span class="n">sanyam</span><span class="o">-</span><span class="n">macbook</span>
+<span class="w">  </span><span class="n">Version</span><span class="o">:</span><span class="w">   </span><span class="mf">1.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="w">  </span><span class="n">Created</span><span class="o">:</span><span class="w">   </span><span class="mi">2026</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="w"> </span><span class="mi">14</span><span class="o">:</span><span class="mi">32</span><span class="o">:</span><span class="mf">01.123456</span><span class="w"> </span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">UTC</span>
+<span class="w">  </span><span class="n">Info</span><span class="o">:</span>
+
+<span class="n">Terraform</span><span class="w"> </span><span class="n">acquires</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">lock</span><span class="w"> </span><span class="n">to</span><span class="w"> </span><span class="n">protect</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">state</span><span class="w"> </span><span class="n">from</span><span class="w"> </span><span class="n">being</span>
+<span class="n">written</span><span class="w"> </span><span class="n">by</span><span class="w"> </span><span class="n">multiple</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="n">at</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">same</span><span class="w"> </span><span class="n">time</span><span class="o">.</span><span class="w"> </span><span class="n">Please</span><span class="w"> </span><span class="n">resolve</span><span class="w"> </span><span class="n">the</span>
+<span class="n">issue</span><span class="w"> </span><span class="n">above</span><span class="w"> </span><span class="n">and</span><span class="w"> </span><span class="k">try</span><span class="w"> </span><span class="n">again</span><span class="o">.</span>
+</code></pre></div>
+
+<p>The first time you see this, it can be confusing. Why is Terraform refusing to run? What is this lock? And more importantly, how do you get out of this situation?</p>
+<p>Let's break it all down.</p>
+<!--more-->
+
+<h2>Why Does Terraform Lock State?</h2>
+<p>Terraform state is the single source of truth for your infrastructure. It maps your configuration to the actual resources running in the cloud. When you run <code>terraform plan</code> or <code>terraform apply</code>, Terraform reads and writes to this state file.</p>
+<p>Now imagine two team members run <code>terraform apply</code> at the same time. Both read the state, both make changes, and both try to write back. The result? One person's changes overwrite the other's. Resources might get duplicated or orphaned. It's a mess.</p>
+<p>State locking prevents this. Before any operation that could write to the state, Terraform acquires a lock. If someone else already holds the lock, your operation will wait or fail. It's the same concept as a database lock - only one writer at a time.</p>
+<h2>Where is the Lock Stored?</h2>
+<p>The lock lives in your backend. Not all backends support locking, but the common ones do:</p>
+<table>
+<thead>
+<tr>
+<th>Backend</th>
+<th>Lock Mechanism</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>S3</strong></td>
+<td>DynamoDB table</td>
+</tr>
+<tr>
+<td><strong>GCS</strong></td>
+<td>Built-in object locking</td>
+</tr>
+<tr>
+<td><strong>Azure Blob</strong></td>
+<td>Blob lease</td>
+</tr>
+<tr>
+<td><strong>Consul</strong></td>
+<td>KV store lock</td>
+</tr>
+<tr>
+<td><strong>Terraform Cloud</strong></td>
+<td>Built-in</td>
+</tr>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td>Advisory locks</td>
+</tr>
+</tbody>
+</table>
+<p>For S3 (the most common setup), you need a DynamoDB table alongside your S3 bucket. Your backend config looks something like:</p>
+<div class="highlight"><pre><span></span><code><span class="n">terraform</span><span class="w"> </span><span class="p">{</span>
+<span class="w">  </span><span class="n">backend</span><span class="w"> </span><span class="s">&quot;s3&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">bucket</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;my-terraform-state&quot;</span>
+<span class="w">    </span><span class="n">key</span><span class="w">            </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;prod/terraform.tfstate&quot;</span>
+<span class="w">    </span><span class="n">region</span><span class="w">         </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;us-east-1&quot;</span>
+<span class="w">    </span><span class="n">dynamodb_table</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">&quot;terraform-locks&quot;</span>
+<span class="w">    </span><span class="n">encrypt</span><span class="w">        </span><span class="o">=</span><span class="w"> </span><span class="n">true</span>
+<span class="w">  </span><span class="p">}</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>dynamodb_table</code> is where the lock record lives. Without it, you have no locking, and you're back to the "two people applying at once" problem.</p>
+<h2>How Locking Works</h2>
+<p>The flow is simple:</p>
+<ol>
+<li>You run <code>terraform apply</code></li>
+<li>Terraform attempts to write a lock record to your backend (e.g., DynamoDB)</li>
+<li>If no lock exists, Terraform creates one and proceeds</li>
+<li>If a lock already exists, Terraform shows the error and refuses to proceed</li>
+<li>When the operation completes (success or failure), Terraform releases the lock</li>
+</ol>
+<p>The lock record contains metadata: who created it, when, what operation, and a unique lock ID. This is exactly what you see in that error message at the top of this post.</p>
+<h2>When Locks Get Stuck</h2>
+<p>Here's where things get interesting. Locks can get stuck. Common reasons:</p>
+<ul>
+<li><strong>Your terminal crashed</strong> mid-apply. Terraform never got the chance to release the lock.</li>
+<li><strong>Network interruption</strong>. The apply finished but the unlock request never reached DynamoDB.</li>
+<li><strong>CI/CD pipeline killed</strong>. Your CI runner was terminated or timed out while Terraform was running.</li>
+<li><strong>Your laptop went to sleep</strong> during an apply (yes, this happens more often than you'd think).</li>
+</ul>
+<p>When a lock is stuck, nobody on your team can run Terraform against that state. It's effectively blocked until someone deals with it.</p>
+<h2>Diagnosing a Stuck Lock</h2>
+<p>Before jumping to force-unlock, take a moment to check if the lock is actually stuck:</p>
+<p><strong>1. Look at the lock info in the error message</strong></p>
+<div class="highlight"><pre><span></span><code><span class="n">Who</span><span class="o">:</span><span class="w">       </span><span class="n">sanyam</span><span class="err">@</span><span class="n">sanyam</span><span class="o">-</span><span class="n">macbook</span>
+<span class="n">Created</span><span class="o">:</span><span class="w">   </span><span class="mi">2026</span><span class="o">-</span><span class="mi">03</span><span class="o">-</span><span class="mi">20</span><span class="w"> </span><span class="mi">14</span><span class="o">:</span><span class="mi">32</span><span class="o">:</span><span class="mf">01.123456</span><span class="w"> </span><span class="o">+</span><span class="mi">0000</span><span class="w"> </span><span class="n">UTC</span>
+<span class="n">Operation</span><span class="o">:</span><span class="w"> </span><span class="n">OperationTypeApply</span>
+</code></pre></div>
+
+<p>Is this lock from hours ago? Or was it created 30 seconds ago by a colleague who's still running? Check with your team first. Don't force-unlock a lock that someone is actively using.</p>
+<p><strong>2. Check your CI/CD pipelines</strong></p>
+<p>Is there a running pipeline that might be holding the lock? Check your GitHub Actions, GitLab CI, or whatever your team uses. A pipeline stuck in a "running" state could be the culprit.</p>
+<p><strong>3. Check the DynamoDB table directly (for S3 backend)</strong></p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>dynamodb<span class="w"> </span>scan<span class="w"> </span>--table-name<span class="w"> </span>terraform-locks
+</code></pre></div>
+
+<p>This shows you the actual lock records. You can see exactly what's in there.</p>
+<h2>Force Unlock</h2>
+<p>Once you've confirmed the lock is genuinely stuck and nobody is actively using it, you can force-unlock:</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>force-unlock<span class="w"> </span>LOCK_ID
+</code></pre></div>
+
+<p>The <code>LOCK_ID</code> is the ID from the error message. In our example, it's <code>a1b2c3d4-e5f6-7890-abcd-ef1234567890</code>.</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>force-unlock<span class="w"> </span>a1b2c3d4-e5f6-7890-abcd-ef1234567890
+</code></pre></div>
+
+<p>Terraform will ask for confirmation:</p>
+<div class="highlight"><pre><span></span><code><span class="k">Do</span><span class="w"> </span><span class="nv">you</span><span class="w"> </span><span class="nv">really</span><span class="w"> </span><span class="nv">want</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">force</span><span class="o">-</span><span class="nv">unlock</span>?
+<span class="w">  </span><span class="nv">Terraform</span><span class="w"> </span><span class="nv">will</span><span class="w"> </span><span class="nv">remove</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">lock</span><span class="w"> </span><span class="nv">on</span><span class="w"> </span><span class="nv">the</span><span class="w"> </span><span class="nv">remote</span><span class="w"> </span><span class="nv">state</span>.
+<span class="w">  </span><span class="nv">This</span><span class="w"> </span><span class="nv">will</span><span class="w"> </span><span class="nv">allow</span><span class="w"> </span><span class="nv">local</span><span class="w"> </span><span class="nv">Terraform</span><span class="w"> </span><span class="nv">commands</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">modify</span><span class="w"> </span><span class="nv">this</span><span class="w"> </span><span class="nv">state</span>,<span class="w"> </span><span class="nv">even</span><span class="w"> </span><span class="nv">though</span><span class="w"> </span><span class="nv">it</span>
+<span class="w">  </span><span class="nv">may</span><span class="w"> </span><span class="nv">still</span><span class="w"> </span><span class="nv">be</span><span class="w"> </span><span class="nv">in</span><span class="w"> </span><span class="nv">use</span>.<span class="w"> </span><span class="nv">Only</span><span class="w"> </span><span class="s1">&#39;yes&#39;</span><span class="w"> </span><span class="nv">will</span><span class="w"> </span><span class="nv">be</span><span class="w"> </span><span class="nv">accepted</span><span class="w"> </span><span class="nv">to</span><span class="w"> </span><span class="nv">confirm</span>.
+
+<span class="w">  </span><span class="nv">Enter</span><span class="w"> </span><span class="nv">a</span><span class="w"> </span><span class="nv">value</span>:<span class="w"> </span><span class="nv">yes</span>
+</code></pre></div>
+
+<p>Type <code>yes</code> and the lock is removed.</p>
+<p>If you want to skip the confirmation prompt (useful in scripts, but be careful):</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>force-unlock<span class="w"> </span>-force<span class="w"> </span>a1b2c3d4-e5f6-7890-abcd-ef1234567890
+</code></pre></div>
+
+<h2>What If force-unlock Doesn't Work?</h2>
+<p>Sometimes <code>terraform force-unlock</code> itself fails. Maybe your Terraform state config has changed, or there's a backend connectivity issue. In these cases, you can remove the lock directly from the backend.</p>
+<p><strong>For S3 + DynamoDB:</strong></p>
+<div class="highlight"><pre><span></span><code>aws<span class="w"> </span>dynamodb<span class="w"> </span>delete-item<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--table-name<span class="w"> </span>terraform-locks<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--key<span class="w"> </span><span class="s1">&#39;{&quot;LockID&quot;: {&quot;S&quot;: &quot;my-terraform-state/prod/terraform.tfstate&quot;}}&#39;</span>
+</code></pre></div>
+
+<p><strong>For GCS:</strong></p>
+<p>The lock is stored as a <code>.tflock</code> file next to your state:</p>
+<div class="highlight"><pre><span></span><code>gsutil<span class="w"> </span>rm<span class="w"> </span>gs://my-terraform-state/prod/terraform.tfstate.tflock
+</code></pre></div>
+
+<p><strong>For Azure Blob:</strong></p>
+<p>You need to break the lease on the blob:</p>
+<div class="highlight"><pre><span></span><code>az<span class="w"> </span>storage<span class="w"> </span>blob<span class="w"> </span>lease<span class="w"> </span><span class="nb">break</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--blob-name<span class="w"> </span>prod/terraform.tfstate<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--container-name<span class="w"> </span>tfstate<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--account-name<span class="w"> </span>mystorageaccount
+</code></pre></div>
+
+<p>These are last-resort options. Always try <code>terraform force-unlock</code> first.</p>
+<h2>Preventing Stuck Locks</h2>
+<p>Prevention is better than cure. Here are some things you can do:</p>
+<h3>1. Use Terraform Cloud or Terraform Enterprise</h3>
+<p>These handle locking natively with proper timeout mechanisms. If a run crashes, the lock is released automatically after a timeout.</p>
+<h3>2. Add timeouts to CI/CD pipelines</h3>
+<p>If your Terraform runs in CI, make sure the pipeline has a reasonable timeout. And more importantly, add a cleanup step that runs even on failure:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># GitHub Actions example</span>
+<span class="nt">jobs</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">terraform</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Terraform Apply</span>
+<span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">terraform apply -auto-approve</span>
+<span class="w">        </span><span class="nt">timeout-minutes</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">30</span>
+</code></pre></div>
+
+<h3>3. Use -lock-timeout</h3>
+<p>Instead of failing immediately when a lock is held, you can tell Terraform to wait:</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-lock-timeout<span class="o">=</span>5m
+</code></pre></div>
+
+<p>This will retry acquiring the lock for 5 minutes before giving up. Useful when a colleague's apply is about to finish.</p>
+<h3>4. Always run Terraform in a clean environment</h3>
+<p>Avoid running long-lived Terraform processes on your laptop where a sleep or network drop can leave orphaned locks.</p>
+<h2>State Lock and Plan Files</h2>
+<p>A quick note on how locks interact with plan files. When you run <code>terraform plan -out=tfplan</code>, Terraform acquires a lock only for the duration of the plan. When you later run <code>terraform apply tfplan</code>, it acquires a new lock for the apply.</p>
+<p>The plan file itself doesn't hold a lock. So you can generate a plan, review it for as long as you want, and apply it later without worrying about lock timeouts.</p>
+<h2>Disabling Locking (Don't Do This)</h2>
+<p>Terraform provides a <code>-lock=false</code> flag:</p>
+<div class="highlight"><pre><span></span><code>terraform<span class="w"> </span>apply<span class="w"> </span>-lock<span class="o">=</span><span class="nb">false</span>
+</code></pre></div>
+
+<p>This skips locking entirely. While this "works" to get around a stuck lock, it's dangerous. If two people do this simultaneously, you'll corrupt your state. The only valid use case is when you're the only person with access to the state and you know what you're doing. Even then, just use <code>force-unlock</code> instead.</p>
+<h2>Summary</h2>
+<p>State locking is a critical safety mechanism in Terraform. It prevents concurrent modifications that can corrupt your infrastructure state. When locks get stuck:</p>
+<ol>
+<li><strong>Don't panic</strong> - check if someone is actively using it</li>
+<li><strong>Use <code>terraform force-unlock</code></strong> with the lock ID from the error message</li>
+<li><strong>If that fails</strong>, remove the lock directly from the backend (DynamoDB, GCS, Azure)</li>
+<li><strong>Prevent future issues</strong> with proper CI/CD timeouts and <code>-lock-timeout</code></li>
+</ol>
+<p>And please, resist the urge to use <code>-lock=false</code>. Your team and your infrastructure will thank you.</p>
+<p>If you've any questions about Terraform state locking, please let us know in the comments section below.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/terraform/">Terraform</a>
+      <a href="//thegeekyway.com/tag/infrastructure-as-a-code/">Infrastructure as a Code</a>
+      <a href="//thegeekyway.com/tag/devops/">DevOps</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Code+Pro:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/stylesheet/style.min.css">
+
+    <link id="dark-theme-style" rel="stylesheet" type="text/css"
+          media="(prefers-color-scheme: dark)"
+    href="//thegeekyway.com/theme/stylesheet/dark-theme.min.css">
+
+    <link id="pygments-dark-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: dark)"
+          href="//thegeekyway.com/theme/pygments/monokai.min.css">
+    <link id="pygments-light-theme" rel="stylesheet" type="text/css"
+              media="(prefers-color-scheme: light), (prefers-color-scheme: no-preference)"
+          href="//thegeekyway.com/theme/pygments/github.min.css">
+
+
+
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/fontawesome.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/brands.css">
+  <link rel="stylesheet" type="text/css" href="//thegeekyway.com/theme/font-awesome/css/solid.css">
+
+
+
+
+  <link href="//thegeekyway.com/feed/all.atom.xml" type="application/atom+xml" rel="alternate" title="The Geeky Way Atom">
+
+  <link href="//thegeekyway.com/feed/index.html" type="application/rss+xml" rel="alternate" title="The Geeky Way RSS">
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-2EQ7YWRBVJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-2EQ7YWRBVJ');
+</script>
+
+
+
+
+
+
+ 
+
+<meta name="author" content="Sanyam Khurana" />
+<meta name="description" content="Kubernetes is great at managing stateless workloads out of the box. You define a Deployment, it creates Pods, handles rolling updates, and restarts them if they crash. But what about stateful applications like databases? What if you want Kubernetes to understand how to create a PostgreSQL replica, take a backup …" />
+<meta name="keywords" content="Kubernetes, Golang, DevOps">
+
+
+  <meta property="og:site_name" content="The Geeky Way"/>
+  <meta property="og:title" content="Writing Your Own Kubernetes Operator - A Practical Guide"/>
+  <meta property="og:description" content="Kubernetes is great at managing stateless workloads out of the box. You define a Deployment, it creates Pods, handles rolling updates, and restarts them if they crash. But what about stateful applications like databases? What if you want Kubernetes to understand how to create a PostgreSQL replica, take a backup …"/>
+  <meta property="og:locale" content="en_US"/>
+  <meta property="og:url" content="//thegeekyway.com/writing-your-own-kubernetes-operator/"/>
+  <meta property="og:type" content="article"/>
+  <meta property="article:published_time" content="2026-03-22 10:00:00+05:30"/>
+  <meta property="article:modified_time" content=""/>
+  <meta property="article:author" content="//thegeekyway.com/author/sanyam-khurana/">
+  <meta property="article:section" content="DevOps"/>
+  <meta property="article:tag" content="Kubernetes"/>
+  <meta property="article:tag" content="Golang"/>
+  <meta property="article:tag" content="DevOps"/>
+  <meta property="og:image" content="/uploads/images/tgw.png">
+
+  <title>The Geeky Way &ndash; Writing Your Own Kubernetes Operator - A Practical Guide</title>
+
+
+</head>
+<body >
+
+<aside>
+  <div>
+    <a href="//thegeekyway.com/">
+      <img src="/uploads/images/tgw.png" alt="The Geeky Way" title="The Geeky Way">
+    </a>
+
+    <h1>
+      <a href="//thegeekyway.com/">The Geeky Way</a>
+    </h1>
+
+    <p>Technology Inside Out!</p>
+
+
+    <nav>
+      <ul class="list">
+
+
+
+          <li>
+            <a target="_self" href="/about-us/" >About Us</a>
+          </li>
+          <li>
+            <a target="_self" href="/authors.html" >Authors</a>
+          </li>
+      </ul>
+    </nav>
+
+    <ul class="social">
+      <li>
+        <a class="sc-twitter"
+           href="https://www.twitter.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="sc-facebook"
+           href="https://www.facebook.com/thegeekyway"
+           target="_blank">
+          <i class="fa-brands fa-facebook"></i>
+        </a>
+      </li>
+    </ul>
+  </div>
+
+</aside>
+  <main>
+
+<nav>
+  <a href="//thegeekyway.com/">Home</a>
+
+  <a href="/archives.html">Archives</a>
+  <a href="/categories.html">Categories</a>
+  <a href="/tags.html">Tags</a>
+
+  <a href="//thegeekyway.com/feed/all.atom.xml">Atom</a>
+
+  <a href="//thegeekyway.com/feed/index.html">RSS</a>
+</nav>
+
+<article class="single">
+  <header>
+      
+    <h1 id="writing-your-own-kubernetes-operator">Writing Your Own Kubernetes Operator - A Practical Guide</h1>
+    <p>
+      Posted on Sun 22 March 2026 by <a href="//thegeekyway.com/author/sanyam-khurana/">Sanyam Khurana</a> in <a href="//thegeekyway.com/category/devops/">DevOps</a>
+
+    </p>
+  </header>
+
+
+  <div>
+    <p>Kubernetes is great at managing stateless workloads out of the box. You define a Deployment, it creates Pods, handles rolling updates, and restarts them if they crash. But what about stateful applications like databases? What if you want Kubernetes to understand how to create a PostgreSQL replica, take a backup, or handle a failover? That's where Operators come in.</p>
+<p>An Operator is essentially you teaching Kubernetes how to manage a specific application. Instead of writing runbooks for your team to follow, you encode that operational knowledge into code. Kubernetes then does the work for you, 24/7, without getting tired or making typos.</p>
+<p>In this post, we'll build a simple PostgreSQL Operator from scratch using Go and Kubebuilder. By the end, you'll have a working Operator that can create and manage PostgreSQL instances on your cluster.</p>
+<!--more-->
+
+<h2>The Operator Pattern</h2>
+<p>Before we write code, let's understand the pattern. Every Operator has two parts:</p>
+<p><strong>1. Custom Resource Definition (CRD)</strong>: This extends the Kubernetes API with your own resource type. Just like Kubernetes has <code>Deployment</code>, <code>Service</code>, and <code>Pod</code>, your CRD creates something like <code>PostgresDB</code>. Users can then do <code>kubectl apply</code> with a YAML file that defines a <code>PostgresDB</code> resource.</p>
+<p><strong>2. Controller</strong>: This is the brains of the operation. It watches for changes to your custom resources and takes action to make the actual state match the desired state. This is called the <strong>reconciliation loop</strong> - the same pattern that makes Deployments work. "User wants 3 replicas, but there are only 2? Create one more."</p>
+<h2>Prerequisites</h2>
+<p>Before we start, make sure you have:</p>
+<ul>
+<li>Go 1.21+ installed</li>
+<li>Docker installed</li>
+<li><code>kubectl</code> configured and connected to a cluster (minikube works fine)</li>
+<li><a href="https://book.kubebuilder.io/">Kubebuilder</a> installed:</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install Kubebuilder</span>
+curl<span class="w"> </span>-L<span class="w"> </span>-o<span class="w"> </span>kubebuilder<span class="w"> </span><span class="s2">&quot;https://go.kubebuilder.io/dl/latest/</span><span class="k">$(</span>go<span class="w"> </span>env<span class="w"> </span>GOOS<span class="k">)</span><span class="s2">/</span><span class="k">$(</span>go<span class="w"> </span>env<span class="w"> </span>GOARCH<span class="k">)</span><span class="s2">&quot;</span>
+chmod<span class="w"> </span>+x<span class="w"> </span>kubebuilder<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sudo<span class="w"> </span>mv<span class="w"> </span>kubebuilder<span class="w"> </span>/usr/local/bin/
+</code></pre></div>
+
+<h2>Step 1: Scaffold the Project</h2>
+<p>Kubebuilder generates all the boilerplate for us:</p>
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>postgres-operator<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">cd</span><span class="w"> </span>postgres-operator
+kubebuilder<span class="w"> </span>init<span class="w"> </span>--domain<span class="w"> </span>thegeekyway.com<span class="w"> </span>--repo<span class="w"> </span>github.com/thegeekyway/postgres-operator
+</code></pre></div>
+
+<p>Now create the API (the CRD and Controller):</p>
+<div class="highlight"><pre><span></span><code>kubebuilder<span class="w"> </span>create<span class="w"> </span>api<span class="w"> </span>--group<span class="w"> </span>database<span class="w"> </span>--version<span class="w"> </span>v1alpha1<span class="w"> </span>--kind<span class="w"> </span>PostgresDB
+</code></pre></div>
+
+<p>When prompted, say <code>y</code> to both "Create Resource" and "Create Controller".</p>
+<p>This gives us a project structure like:</p>
+<div class="highlight"><pre><span></span><code><span class="n">postgres</span><span class="o">-</span><span class="n">operator</span><span class="o">/</span>
+<span class="w">  </span><span class="n">api</span><span class="o">/</span><span class="n">v1alpha1</span><span class="o">/</span>
+<span class="w">    </span><span class="n">postgresdb_types</span><span class="p">.</span><span class="k">go</span><span class="w">     </span><span class="err">#</span><span class="w"> </span><span class="n">CRD</span><span class="w"> </span><span class="n">definition</span>
+<span class="w">  </span><span class="n">internal</span><span class="o">/</span><span class="n">controller</span><span class="o">/</span>
+<span class="w">    </span><span class="n">postgresdb_controller</span><span class="p">.</span><span class="k">go</span><span class="w"> </span><span class="err">#</span><span class="w"> </span><span class="n">Reconciliation</span><span class="w"> </span><span class="n">logic</span>
+<span class="w">  </span><span class="n">config</span><span class="o">/</span>
+<span class="w">    </span><span class="n">crd</span><span class="o">/</span><span class="w">                     </span><span class="err">#</span><span class="w"> </span><span class="n">Generated</span><span class="w"> </span><span class="n">CRD</span><span class="w"> </span><span class="n">manifests</span>
+<span class="w">    </span><span class="n">rbac</span><span class="o">/</span><span class="w">                    </span><span class="err">#</span><span class="w"> </span><span class="n">RBAC</span><span class="w"> </span><span class="nf">permissions</span>
+<span class="w">  </span><span class="n">cmd</span><span class="o">/</span>
+<span class="w">    </span><span class="n">main</span><span class="p">.</span><span class="k">go</span><span class="w">                  </span><span class="err">#</span><span class="w"> </span><span class="n">Entry</span><span class="w"> </span><span class="n">point</span>
+</code></pre></div>
+
+<h2>Step 2: Define the Custom Resource</h2>
+<p>Open <code>api/v1alpha1/postgresdb_types.go</code>. This is where we define what a <code>PostgresDB</code> resource looks like. The scaffolded code has empty spec and status structs. Let's fill them in:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">v1alpha1</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="nx">metav1</span><span class="w"> </span><span class="s">&quot;k8s.io/apimachinery/pkg/apis/meta/v1&quot;</span>
+<span class="p">)</span>
+
+<span class="c1">// PostgresDBSpec defines the desired state of PostgresDB</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">PostgresDBSpec</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Version of PostgreSQL to deploy</span>
+<span class="w">    </span><span class="nx">Version</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;version&quot;`</span>
+
+<span class="w">    </span><span class="c1">// Storage size for the database (e.g., &quot;1Gi&quot;, &quot;10Gi&quot;)</span>
+<span class="w">    </span><span class="nx">Storage</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;storage&quot;`</span>
+
+<span class="w">    </span><span class="c1">// Number of replicas (1 = primary only, 2+ = primary + replicas)</span>
+<span class="w">    </span><span class="nx">Replicas</span><span class="w"> </span><span class="kt">int32</span><span class="w"> </span><span class="s">`json:&quot;replicas&quot;`</span>
+
+<span class="w">    </span><span class="c1">// Database name to create on initialization</span>
+<span class="w">    </span><span class="nx">DatabaseName</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;databaseName&quot;`</span>
+<span class="p">}</span>
+
+<span class="c1">// PostgresDBStatus defines the observed state of PostgresDB</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">PostgresDBStatus</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="c1">// Ready indicates whether the database is accepting connections</span>
+<span class="w">    </span><span class="nx">Ready</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="s">`json:&quot;ready&quot;`</span>
+
+<span class="w">    </span><span class="c1">// Phase represents the current lifecycle phase</span>
+<span class="w">    </span><span class="c1">// Can be: Pending, Creating, Running, Failed</span>
+<span class="w">    </span><span class="nx">Phase</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;phase&quot;`</span>
+
+<span class="w">    </span><span class="c1">// ConnectionString for applications to connect</span>
+<span class="w">    </span><span class="nx">ConnectionString</span><span class="w"> </span><span class="kt">string</span><span class="w"> </span><span class="s">`json:&quot;connectionString,omitempty&quot;`</span>
+<span class="p">}</span>
+
+<span class="c1">//+kubebuilder:object:root=true</span>
+<span class="c1">//+kubebuilder:subresource:status</span>
+<span class="c1">//+kubebuilder:printcolumn:name=&quot;Version&quot;,type=string,JSONPath=`.spec.version`</span>
+<span class="c1">//+kubebuilder:printcolumn:name=&quot;Replicas&quot;,type=integer,JSONPath=`.spec.replicas`</span>
+<span class="c1">//+kubebuilder:printcolumn:name=&quot;Phase&quot;,type=string,JSONPath=`.status.phase`</span>
+<span class="c1">//+kubebuilder:printcolumn:name=&quot;Ready&quot;,type=boolean,JSONPath=`.status.ready`</span>
+
+<span class="c1">// PostgresDB is the Schema for the postgresdbs API</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">PostgresDB</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">TypeMeta</span><span class="w">   </span><span class="s">`json:&quot;,inline&quot;`</span>
+<span class="w">    </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="w"> </span><span class="s">`json:&quot;metadata,omitempty&quot;`</span>
+
+<span class="w">    </span><span class="nx">Spec</span><span class="w">   </span><span class="nx">PostgresDBSpec</span><span class="w">   </span><span class="s">`json:&quot;spec,omitempty&quot;`</span>
+<span class="w">    </span><span class="nx">Status</span><span class="w"> </span><span class="nx">PostgresDBStatus</span><span class="w"> </span><span class="s">`json:&quot;status,omitempty&quot;`</span>
+<span class="p">}</span>
+
+<span class="c1">//+kubebuilder:object:root=true</span>
+
+<span class="c1">// PostgresDBList contains a list of PostgresDB</span>
+<span class="kd">type</span><span class="w"> </span><span class="nx">PostgresDBList</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">TypeMeta</span><span class="w"> </span><span class="s">`json:&quot;,inline&quot;`</span>
+<span class="w">    </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ListMeta</span><span class="w"> </span><span class="s">`json:&quot;metadata,omitempty&quot;`</span>
+<span class="w">    </span><span class="nx">Items</span><span class="w">           </span><span class="p">[]</span><span class="nx">PostgresDB</span><span class="w"> </span><span class="s">`json:&quot;items&quot;`</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="nx">init</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">SchemeBuilder</span><span class="p">.</span><span class="nx">Register</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">PostgresDB</span><span class="p">{},</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">PostgresDBList</span><span class="p">{})</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>The <code>+kubebuilder</code> comments are markers that Kubebuilder uses to generate the CRD YAML. The <code>printcolumn</code> markers define what shows up when you run <code>kubectl get postgresdbs</code>.</p>
+<p>Now regenerate the manifests:</p>
+<div class="highlight"><pre><span></span><code>make<span class="w"> </span>manifests
+make<span class="w"> </span>generate
+</code></pre></div>
+
+<h2>Step 3: Write the Controller</h2>
+<p>This is the core of our Operator. Open <code>internal/controller/postgresdb_controller.go</code> and let's write the reconciliation logic:</p>
+<div class="highlight"><pre><span></span><code><span class="kn">package</span><span class="w"> </span><span class="nx">controller</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="p">(</span>
+<span class="w">    </span><span class="s">&quot;context&quot;</span>
+<span class="w">    </span><span class="s">&quot;fmt&quot;</span>
+
+<span class="w">    </span><span class="nx">appsv1</span><span class="w"> </span><span class="s">&quot;k8s.io/api/apps/v1&quot;</span>
+<span class="w">    </span><span class="nx">corev1</span><span class="w"> </span><span class="s">&quot;k8s.io/api/core/v1&quot;</span>
+<span class="w">    </span><span class="s">&quot;k8s.io/apimachinery/pkg/api/errors&quot;</span>
+<span class="w">    </span><span class="s">&quot;k8s.io/apimachinery/pkg/api/resource&quot;</span>
+<span class="w">    </span><span class="nx">metav1</span><span class="w"> </span><span class="s">&quot;k8s.io/apimachinery/pkg/apis/meta/v1&quot;</span>
+<span class="w">    </span><span class="s">&quot;k8s.io/apimachinery/pkg/runtime&quot;</span>
+<span class="w">    </span><span class="s">&quot;k8s.io/apimachinery/pkg/types&quot;</span>
+<span class="w">    </span><span class="nx">ctrl</span><span class="w"> </span><span class="s">&quot;sigs.k8s.io/controller-runtime&quot;</span>
+<span class="w">    </span><span class="s">&quot;sigs.k8s.io/controller-runtime/pkg/client&quot;</span>
+<span class="w">    </span><span class="s">&quot;sigs.k8s.io/controller-runtime/pkg/log&quot;</span>
+
+<span class="w">    </span><span class="nx">databasev1alpha1</span><span class="w"> </span><span class="s">&quot;github.com/thegeekyway/postgres-operator/api/v1alpha1&quot;</span>
+<span class="p">)</span>
+
+<span class="kd">type</span><span class="w"> </span><span class="nx">PostgresDBReconciler</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">client</span><span class="p">.</span><span class="nx">Client</span>
+<span class="w">    </span><span class="nx">Scheme</span><span class="w"> </span><span class="o">*</span><span class="nx">runtime</span><span class="p">.</span><span class="nx">Scheme</span>
+<span class="p">}</span>
+
+<span class="c1">//+kubebuilder:rbac:groups=database.thegeekyway.com,resources=postgresdbs,verbs=get;list;watch;create;update;patch;delete</span>
+<span class="c1">//+kubebuilder:rbac:groups=database.thegeekyway.com,resources=postgresdbs/status,verbs=get;update;patch</span>
+<span class="c1">//+kubebuilder:rbac:groups=apps,resources=statefulsets,verbs=get;list;watch;create;update;patch;delete</span>
+<span class="c1">//+kubebuilder:rbac:groups=&quot;&quot;,resources=services,verbs=get;list;watch;create;update;patch;delete</span>
+<span class="c1">//+kubebuilder:rbac:groups=&quot;&quot;,resources=persistentvolumeclaims,verbs=get;list;watch;create;update;patch;delete</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">PostgresDBReconciler</span><span class="p">)</span><span class="w"> </span><span class="nx">Reconcile</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Request</span><span class="p">)</span><span class="w"> </span><span class="p">(</span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">,</span><span class="w"> </span><span class="kt">error</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">logger</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">log</span><span class="p">.</span><span class="nx">FromContext</span><span class="p">(</span><span class="nx">ctx</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Fetch the PostgresDB resource</span>
+<span class="w">    </span><span class="nx">pgdb</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">databasev1alpha1</span><span class="p">.</span><span class="nx">PostgresDB</span><span class="p">{}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">req</span><span class="p">.</span><span class="nx">NamespacedName</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">errors</span><span class="p">.</span><span class="nx">IsNotFound</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="c1">// Resource was deleted, nothing to do</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">Info</span><span class="p">(</span><span class="s">&quot;Reconciling PostgresDB&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+
+<span class="w">    </span><span class="c1">// Update status to Creating if it&#39;s new</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Status</span><span class="p">.</span><span class="nx">Phase</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="s">&quot;&quot;</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Status</span><span class="p">.</span><span class="nx">Phase</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Creating&quot;</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Status</span><span class="p">().</span><span class="nx">Update</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Ensure the Service exists</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">ensureService</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Ensure the StatefulSet exists</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">ensureStatefulSet</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Update status</span>
+<span class="w">    </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Status</span><span class="p">.</span><span class="nx">Phase</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">&quot;Running&quot;</span>
+<span class="w">    </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Status</span><span class="p">.</span><span class="nx">Ready</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="kc">true</span>
+<span class="w">    </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Status</span><span class="p">.</span><span class="nx">ConnectionString</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span>
+<span class="w">        </span><span class="s">&quot;postgresql://%s.%s.svc.cluster.local:5432/%s&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">DatabaseName</span><span class="p">,</span>
+<span class="w">    </span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Status</span><span class="p">().</span><span class="nx">Update</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">);</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">logger</span><span class="p">.</span><span class="nx">Info</span><span class="p">(</span><span class="s">&quot;PostgresDB reconciled successfully&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;name&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Result</span><span class="p">{},</span><span class="w"> </span><span class="kc">nil</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">PostgresDBReconciler</span><span class="p">)</span><span class="w"> </span><span class="nx">ensureService</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="w"> </span><span class="o">*</span><span class="nx">databasev1alpha1</span><span class="p">.</span><span class="nx">PostgresDB</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">svc</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">Service</span><span class="p">{}</span>
+<span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">NamespacedName</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span><span class="w"> </span><span class="nx">Namespace</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">},</span><span class="w"> </span><span class="nx">svc</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="c1">// Service already exists</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">errors</span><span class="p">.</span><span class="nx">IsNotFound</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Create the Service</span>
+<span class="w">    </span><span class="nx">svc</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">Service</span><span class="p">{</span>
+<span class="w">        </span><span class="nx">ObjectMeta</span><span class="p">:</span><span class="w"> </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
+<span class="w">            </span><span class="nx">Name</span><span class="p">:</span><span class="w">      </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">Namespace</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ServiceSpec</span><span class="p">{</span>
+<span class="w">            </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+<span class="w">                </span><span class="s">&quot;app&quot;</span><span class="p">:</span><span class="w">        </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span>
+<span class="w">                </span><span class="s">&quot;postgresdb&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ServicePort</span><span class="p">{</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">Port</span><span class="p">:</span><span class="w">     </span><span class="mi">5432</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">Name</span><span class="p">:</span><span class="w">     </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="nx">Protocol</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ProtocolTCP</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">ClusterIP</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;None&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// Headless service for StatefulSet</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Set the owner reference so the Service is garbage collected</span>
+<span class="w">    </span><span class="c1">// when the PostgresDB is deleted</span>
+<span class="w">    </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">SetControllerReference</span><span class="p">(</span><span class="nx">pgdb</span><span class="p">,</span><span class="w"> </span><span class="nx">svc</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Scheme</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">svc</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">PostgresDBReconciler</span><span class="p">)</span><span class="w"> </span><span class="nx">ensureStatefulSet</span><span class="p">(</span><span class="nx">ctx</span><span class="w"> </span><span class="nx">context</span><span class="p">.</span><span class="nx">Context</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="w"> </span><span class="o">*</span><span class="nx">databasev1alpha1</span><span class="p">.</span><span class="nx">PostgresDB</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">sts</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">StatefulSet</span><span class="p">{}</span>
+<span class="w">    </span><span class="nx">err</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Get</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">types</span><span class="p">.</span><span class="nx">NamespacedName</span><span class="p">{</span><span class="nx">Name</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span><span class="w"> </span><span class="nx">Namespace</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">},</span><span class="w"> </span><span class="nx">sts</span><span class="p">)</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="nx">err</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="kc">nil</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="c1">// StatefulSet exists, check if replicas need updating</span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="o">*</span><span class="nx">sts</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Replicas</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Replicas</span><span class="w"> </span><span class="p">{</span>
+<span class="w">            </span><span class="nx">sts</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Replicas</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Replicas</span>
+<span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Update</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">sts</span><span class="p">)</span>
+<span class="w">        </span><span class="p">}</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="kc">nil</span>
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">!</span><span class="nx">errors</span><span class="p">.</span><span class="nx">IsNotFound</span><span class="p">(</span><span class="nx">err</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="nx">err</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="c1">// Create the StatefulSet</span>
+<span class="w">    </span><span class="nx">labels</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;app&quot;</span><span class="p">:</span><span class="w">        </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span>
+<span class="w">        </span><span class="s">&quot;postgresdb&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">storageQuantity</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="nx">resource</span><span class="p">.</span><span class="nx">MustParse</span><span class="p">(</span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Storage</span><span class="p">)</span>
+
+<span class="w">    </span><span class="nx">sts</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">StatefulSet</span><span class="p">{</span>
+<span class="w">        </span><span class="nx">ObjectMeta</span><span class="p">:</span><span class="w"> </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
+<span class="w">            </span><span class="nx">Name</span><span class="p">:</span><span class="w">      </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">Namespace</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">,</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">        </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">StatefulSetSpec</span><span class="p">{</span>
+<span class="w">            </span><span class="nx">ServiceName</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">Replicas</span><span class="p">:</span><span class="w">    </span><span class="o">&amp;</span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Replicas</span><span class="p">,</span>
+<span class="w">            </span><span class="nx">Selector</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">metav1</span><span class="p">.</span><span class="nx">LabelSelector</span><span class="p">{</span>
+<span class="w">                </span><span class="nx">MatchLabels</span><span class="p">:</span><span class="w"> </span><span class="nx">labels</span><span class="p">,</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">Template</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">PodTemplateSpec</span><span class="p">{</span>
+<span class="w">                </span><span class="nx">ObjectMeta</span><span class="p">:</span><span class="w"> </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">Labels</span><span class="p">:</span><span class="w"> </span><span class="nx">labels</span><span class="p">,</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">                </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">PodSpec</span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">Containers</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">Container</span><span class="p">{</span>
+<span class="w">                        </span><span class="p">{</span>
+<span class="w">                            </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span>
+<span class="w">                            </span><span class="nx">Image</span><span class="p">:</span><span class="w"> </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;postgres:%s&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">Version</span><span class="p">),</span>
+<span class="w">                            </span><span class="nx">Ports</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ContainerPort</span><span class="p">{</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nx">ContainerPort</span><span class="p">:</span><span class="w"> </span><span class="mi">5432</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nx">Name</span><span class="p">:</span><span class="w">          </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                            </span><span class="p">},</span>
+<span class="w">                            </span><span class="nx">Env</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">EnvVar</span><span class="p">{</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;POSTGRES_DB&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nx">Value</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Spec</span><span class="p">.</span><span class="nx">DatabaseName</span><span class="p">,</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;POSTGRES_USER&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nx">Value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;postgres&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;POSTGRES_PASSWORD&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nx">Value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;changeme&quot;</span><span class="p">,</span><span class="w"> </span><span class="c1">// In production, use a Secret</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nx">Name</span><span class="p">:</span><span class="w">  </span><span class="s">&quot;PGDATA&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nx">Value</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/postgresql/data/pgdata&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                            </span><span class="p">},</span>
+<span class="w">                            </span><span class="nx">VolumeMounts</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">VolumeMount</span><span class="p">{</span>
+<span class="w">                                </span><span class="p">{</span>
+<span class="w">                                    </span><span class="nx">Name</span><span class="p">:</span><span class="w">      </span><span class="s">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">                                    </span><span class="nx">MountPath</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/var/lib/postgresql/data&quot;</span><span class="p">,</span>
+<span class="w">                                </span><span class="p">},</span>
+<span class="w">                            </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">            </span><span class="nx">VolumeClaimTemplates</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">PersistentVolumeClaim</span><span class="p">{</span>
+<span class="w">                </span><span class="p">{</span>
+<span class="w">                    </span><span class="nx">ObjectMeta</span><span class="p">:</span><span class="w"> </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
+<span class="w">                        </span><span class="nx">Name</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;data&quot;</span><span class="p">,</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                    </span><span class="nx">Spec</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">PersistentVolumeClaimSpec</span><span class="p">{</span>
+<span class="w">                        </span><span class="nx">AccessModes</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">PersistentVolumeAccessMode</span><span class="p">{</span>
+<span class="w">                            </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ReadWriteOnce</span><span class="p">,</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                        </span><span class="nx">Resources</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">VolumeResourceRequirements</span><span class="p">{</span>
+<span class="w">                            </span><span class="nx">Requests</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ResourceList</span><span class="p">{</span>
+<span class="w">                                </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ResourceStorage</span><span class="p">:</span><span class="w"> </span><span class="nx">storageQuantity</span><span class="p">,</span>
+<span class="w">                            </span><span class="p">},</span>
+<span class="w">                        </span><span class="p">},</span>
+<span class="w">                    </span><span class="p">},</span>
+<span class="w">                </span><span class="p">},</span>
+<span class="w">            </span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">}</span>
+
+<span class="w">    </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">SetControllerReference</span><span class="p">(</span><span class="nx">pgdb</span><span class="p">,</span><span class="w"> </span><span class="nx">sts</span><span class="p">,</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Scheme</span><span class="p">)</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">r</span><span class="p">.</span><span class="nx">Create</span><span class="p">(</span><span class="nx">ctx</span><span class="p">,</span><span class="w"> </span><span class="nx">sts</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="kd">func</span><span class="w"> </span><span class="p">(</span><span class="nx">r</span><span class="w"> </span><span class="o">*</span><span class="nx">PostgresDBReconciler</span><span class="p">)</span><span class="w"> </span><span class="nx">SetupWithManager</span><span class="p">(</span><span class="nx">mgr</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">Manager</span><span class="p">)</span><span class="w"> </span><span class="kt">error</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="nx">ctrl</span><span class="p">.</span><span class="nx">NewControllerManagedBy</span><span class="p">(</span><span class="nx">mgr</span><span class="p">).</span>
+<span class="w">        </span><span class="nx">For</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">databasev1alpha1</span><span class="p">.</span><span class="nx">PostgresDB</span><span class="p">{}).</span>
+<span class="w">        </span><span class="nx">Owns</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">appsv1</span><span class="p">.</span><span class="nx">StatefulSet</span><span class="p">{}).</span>
+<span class="w">        </span><span class="nx">Owns</span><span class="p">(</span><span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">Service</span><span class="p">{}).</span>
+<span class="w">        </span><span class="nx">Complete</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Let me walk through what's happening here:</p>
+<ul>
+<li><strong>Reconcile</strong> is the heart of the controller. Kubernetes calls this function whenever a <code>PostgresDB</code> resource is created, updated, or deleted. Our job is to make reality match the desired state.</li>
+<li><strong>ensureService</strong> creates a headless Service for the StatefulSet. Headless services give each Pod a stable DNS name, which is important for databases.</li>
+<li><strong>ensureStatefulSet</strong> creates a StatefulSet that runs PostgreSQL. StatefulSets are the right choice for databases because they provide stable network identities and persistent storage.</li>
+<li><strong>SetupWithManager</strong> tells the controller what resources to watch. We watch <code>PostgresDB</code> resources directly, and also watch <code>StatefulSets</code> and <code>Services</code> that we own, so we get notified if someone modifies or deletes them.</li>
+</ul>
+<p>The <code>ctrl.SetControllerReference</code> calls are important. They set up owner references so that when a <code>PostgresDB</code> is deleted, Kubernetes automatically garbage collects the Service and StatefulSet.</p>
+<h2>Step 4: Create a Sample Resource</h2>
+<p>Create a file <code>config/samples/database_v1alpha1_postgresdb.yaml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database.thegeekyway.com/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgresDB</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-postgres</span>
+<span class="w">  </span><span class="nt">namespace</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">default</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;16&quot;</span>
+<span class="w">  </span><span class="nt">storage</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;1Gi&quot;</span>
+<span class="w">  </span><span class="nt">replicas</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span>
+<span class="w">  </span><span class="nt">databaseName</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;myapp&quot;</span>
+</code></pre></div>
+
+<p>That's all a user needs to write. No StatefulSet YAML, no Service YAML, no PVC YAML. Just "I want a PostgreSQL 16 instance with 1Gi storage."</p>
+<h2>Step 5: Run and Test</h2>
+<p>Let's test our Operator locally against a cluster:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Install the CRDs into the cluster</span>
+make<span class="w"> </span>install
+
+<span class="c1"># Run the controller locally (for development)</span>
+make<span class="w"> </span>run
+</code></pre></div>
+
+<p>In another terminal, create a PostgresDB:</p>
+<div class="highlight"><pre><span></span><code>kubectl<span class="w"> </span>apply<span class="w"> </span>-f<span class="w"> </span>config/samples/database_v1alpha1_postgresdb.yaml
+</code></pre></div>
+
+<p>Check what was created:</p>
+<div class="highlight"><pre><span></span><code>$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>postgresdbs
+NAME<span class="w">          </span>VERSION<span class="w">   </span>REPLICAS<span class="w">   </span>PHASE<span class="w">     </span>READY
+my-postgres<span class="w">   </span><span class="m">16</span><span class="w">        </span><span class="m">1</span><span class="w">          </span>Running<span class="w">   </span><span class="nb">true</span>
+
+$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>statefulsets
+NAME<span class="w">          </span>READY<span class="w">   </span>AGE
+my-postgres<span class="w">   </span><span class="m">1</span>/1<span class="w">     </span>30s
+
+$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>services
+NAME<span class="w">          </span>TYPE<span class="w">        </span>CLUSTER-IP<span class="w">   </span>EXTERNAL-IP<span class="w">   </span>PORT<span class="o">(</span>S<span class="o">)</span><span class="w">    </span>AGE
+my-postgres<span class="w">   </span>ClusterIP<span class="w">   </span>None<span class="w">         </span>&lt;none&gt;<span class="w">        </span><span class="m">5432</span>/TCP<span class="w">   </span>30s
+
+$<span class="w"> </span>kubectl<span class="w"> </span>get<span class="w"> </span>pvc
+NAME<span class="w">                   </span>STATUS<span class="w">   </span>VOLUME<span class="w">   </span>CAPACITY<span class="w">   </span>ACCESS<span class="w"> </span>MODES<span class="w">   </span>AGE
+data-my-postgres-0<span class="w">     </span>Bound<span class="w">    </span>pv-xxx<span class="w">   </span>1Gi<span class="w">        </span>RWO<span class="w">            </span>30s
+</code></pre></div>
+
+<p>From a single 8-line YAML, our Operator created a StatefulSet, a headless Service, and a PersistentVolumeClaim. That's the power of the Operator pattern.</p>
+<h2>Step 6: Build and Deploy</h2>
+<p>When you're ready to run the Operator inside the cluster (instead of locally):</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Build the Docker image</span>
+make<span class="w"> </span>docker-build<span class="w"> </span><span class="nv">IMG</span><span class="o">=</span>your-registry/postgres-operator:v0.1.0
+
+<span class="c1"># Push to your registry</span>
+make<span class="w"> </span>docker-push<span class="w"> </span><span class="nv">IMG</span><span class="o">=</span>your-registry/postgres-operator:v0.1.0
+
+<span class="c1"># Deploy to the cluster</span>
+make<span class="w"> </span>deploy<span class="w"> </span><span class="nv">IMG</span><span class="o">=</span>your-registry/postgres-operator:v0.1.0
+</code></pre></div>
+
+<p>The Operator now runs as a Deployment in the <code>postgres-operator-system</code> namespace.</p>
+<h2>Taking It Further</h2>
+<p>Our Operator is functional but basic. A production-ready PostgreSQL Operator would include:</p>
+<h3>Password Management with Secrets</h3>
+<p>Instead of hardcoding the password, generate a random one and store it in a Kubernetes Secret:</p>
+<div class="highlight"><pre><span></span><code><span class="c1">// In your reconciler, before creating the StatefulSet:</span>
+<span class="nx">secret</span><span class="w"> </span><span class="o">:=</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">Secret</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ObjectMeta</span><span class="p">:</span><span class="w"> </span><span class="nx">metav1</span><span class="p">.</span><span class="nx">ObjectMeta</span><span class="p">{</span>
+<span class="w">        </span><span class="nx">Name</span><span class="p">:</span><span class="w">      </span><span class="nx">fmt</span><span class="p">.</span><span class="nx">Sprintf</span><span class="p">(</span><span class="s">&quot;%s-credentials&quot;</span><span class="p">,</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Name</span><span class="p">),</span>
+<span class="w">        </span><span class="nx">Namespace</span><span class="p">:</span><span class="w"> </span><span class="nx">pgdb</span><span class="p">.</span><span class="nx">Namespace</span><span class="p">,</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">StringData</span><span class="p">:</span><span class="w"> </span><span class="kd">map</span><span class="p">[</span><span class="kt">string</span><span class="p">]</span><span class="kt">string</span><span class="p">{</span>
+<span class="w">        </span><span class="s">&quot;POSTGRES_PASSWORD&quot;</span><span class="p">:</span><span class="w"> </span><span class="nx">generateRandomPassword</span><span class="p">(</span><span class="mi">24</span><span class="p">),</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>Then reference the Secret in the StatefulSet's env vars using <code>SecretKeyRef</code>.</p>
+<h3>Health Checks</h3>
+<p>Add liveness and readiness probes to the container:</p>
+<div class="highlight"><pre><span></span><code><span class="nx">LivenessProbe</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">Probe</span><span class="p">{</span>
+<span class="w">    </span><span class="nx">ProbeHandler</span><span class="p">:</span><span class="w"> </span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ProbeHandler</span><span class="p">{</span>
+<span class="w">        </span><span class="nx">Exec</span><span class="p">:</span><span class="w"> </span><span class="o">&amp;</span><span class="nx">corev1</span><span class="p">.</span><span class="nx">ExecAction</span><span class="p">{</span>
+<span class="w">            </span><span class="nx">Command</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="kt">string</span><span class="p">{</span><span class="s">&quot;pg_isready&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;-U&quot;</span><span class="p">,</span><span class="w"> </span><span class="s">&quot;postgres&quot;</span><span class="p">},</span>
+<span class="w">        </span><span class="p">},</span>
+<span class="w">    </span><span class="p">},</span>
+<span class="w">    </span><span class="nx">InitialDelaySeconds</span><span class="p">:</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span>
+<span class="w">    </span><span class="nx">PeriodSeconds</span><span class="p">:</span><span class="w">       </span><span class="mi">10</span><span class="p">,</span>
+<span class="p">},</span>
+</code></pre></div>
+
+<h3>Backup CRD</h3>
+<p>You could create another CRD called <code>PostgresBackup</code> that triggers <code>pg_dump</code> on a schedule:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">apiVersion</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">database.thegeekyway.com/v1alpha1</span>
+<span class="nt">kind</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">PostgresBackup</span>
+<span class="nt">metadata</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">nightly-backup</span>
+<span class="nt">spec</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">postgresRef</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">my-postgres</span>
+<span class="w">  </span><span class="nt">schedule</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;0</span><span class="nv"> </span><span class="s">2</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*</span><span class="nv"> </span><span class="s">*&quot;</span>
+<span class="w">  </span><span class="nt">destination</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;s3://my-backups/postgres/&quot;</span>
+</code></pre></div>
+
+<h3>Status Conditions</h3>
+<p>Instead of a simple <code>Ready</code> boolean, use proper Kubernetes status conditions to report detailed state:</p>
+<div class="highlight"><pre><span></span><code><span class="kd">type</span><span class="w"> </span><span class="nx">PostgresDBStatus</span><span class="w"> </span><span class="kd">struct</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="nx">Conditions</span><span class="w"> </span><span class="p">[]</span><span class="nx">metav1</span><span class="p">.</span><span class="nx">Condition</span><span class="w"> </span><span class="s">`json:&quot;conditions,omitempty&quot;`</span>
+<span class="p">}</span>
+</code></pre></div>
+
+<p>This follows Kubernetes conventions and makes your CRD work nicely with tools like <code>kubectl wait</code>.</p>
+<h2>Operator Frameworks Comparison</h2>
+<p>Kubebuilder isn't the only option. Here's a quick look at the alternatives:</p>
+<table>
+<thead>
+<tr>
+<th>Framework</th>
+<th>Language</th>
+<th>Complexity</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Kubebuilder</strong></td>
+<td>Go</td>
+<td>Medium</td>
+<td>Production operators with full Kubernetes API access</td>
+</tr>
+<tr>
+<td><strong>Operator SDK</strong></td>
+<td>Go, Ansible, Helm</td>
+<td>Medium</td>
+<td>Broader tooling, includes Kubebuilder under the hood</td>
+</tr>
+<tr>
+<td><strong>Kopf</strong></td>
+<td>Python</td>
+<td>Low</td>
+<td>Quick prototyping and simpler operators</td>
+</tr>
+<tr>
+<td><strong>Metacontroller</strong></td>
+<td>Any (webhooks)</td>
+<td>Low</td>
+<td>When you don't want to deal with client libraries</td>
+</tr>
+</tbody>
+</table>
+<p>If Go isn't your thing, <a href="https://kopf.readthedocs.io/">Kopf</a> is a fantastic choice. You can write a basic operator in under 50 lines of Python. But for production workloads where performance and reliability matter, Go with Kubebuilder is the standard.</p>
+<h2>Summary</h2>
+<p>Building a Kubernetes Operator boils down to three concepts:</p>
+<ol>
+<li><strong>Define a CRD</strong> that describes what users want (the "what")</li>
+<li><strong>Write a controller</strong> that makes it happen (the "how")</li>
+<li><strong>Use the reconciliation loop</strong> to continuously ensure desired state matches actual state</li>
+</ol>
+<p>The PostgreSQL Operator we built is simple, but it demonstrates the core pattern. Every operator - whether it's managing databases, message queues, or ML training jobs - follows this same structure. The reconciliation loop is always: "What does the user want? What exists right now? What do I need to do to bridge the gap?"</p>
+<p>The beauty of Operators is that once you encode your operational knowledge into one, it works tirelessly. No more 3 AM pager alerts for things that can be automated. And that, to me, is what good engineering is about.</p>
+<p>If you've any questions about building Kubernetes Operators, please let us know in the comments section below.</p>
+  </div>
+  <div class="tag-cloud">
+    <p>
+      <a href="//thegeekyway.com/tag/kubernetes/">Kubernetes</a>
+      <a href="//thegeekyway.com/tag/golang/">Golang</a>
+      <a href="//thegeekyway.com/tag/devops/">DevOps</a>
+    </p>
+  </div>
+
+
+
+
+
+
+
+
+<!-- Disqus -->
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = 'thegeekyway';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>
+    Please enable JavaScript to view comments.
+</noscript>
+<!-- End Disqus -->
+</article>
+
+<footer>
+<p>&copy; 2013 - 2026 <a href="https://sanyamkhurana.com" target="_blank">Sanyam Khurana</a></p>
+<p>
+  <a href="/disclaimer/">Disclaimer</a> | <a href="/privacy-policy/">Privacy Policy</a>
+  <span class="footer-separator">|</span>
+  Switch to the
+  <a href="javascript:void(0)" onclick="theme.switch('dark')">dark</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('light')">light</a> |
+  <a href="javascript:void(0)" onclick="theme.switch('browser')">browser</a> theme
+  <script id="dark-theme-script"
+          src="//thegeekyway.com/theme/dark-theme/dark-theme.min.js"
+          data-enable-auto-detect-theme="True"
+          data-default-theme="light"
+          type="text/javascript">
+  </script>
+</p></footer>  </main>
+
+<script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type" : "Blog",
+  "name": " The Geeky Way ",
+  "url" : "//thegeekyway.com",
+  "image": "/uploads/images/tgw.png",
+  "description": "A tech blog covering Linux, DevOps, Web Development, Python, and more."
+}
+</script>
+</body>
+</html>
